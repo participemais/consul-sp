@@ -22,7 +22,7 @@ pt-BR:
       verification/letter:
         email: "Email"
         password: "Senha"
-        verification_code: "Código recebido por carta"
+        verification_code: "Código de verificação"
       verification/management/document:
         document_type: "Tipo de documento:"
         document_number: "Número do documento"
