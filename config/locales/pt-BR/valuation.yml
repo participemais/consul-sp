@@ -4,15 +4,15 @@ pt-BR:
       title: Avaliação
     menu:
       title: Avaliação
-      budgets: Orçamentos participativos
+      budgets: Orçamentos 
     budgets:
       index:
-        title: Orçamentos participativos
+        title: Orçamentos 
         filters:
           current: Aberto
-          finished: Terminados
+          finished: Finalizados
         table_name: Nome
-        table_phase: Estágio
+        table_phase: Fases
         table_assigned_investments_valuation_open: Projetos de investimento atribuídos com avaliação aberta
         table_actions: Ações
         evaluate: Avaliar
@@ -25,17 +25,17 @@ pt-BR:
           valuating: Em avaliação
           valuation_finished: Avaliação terminada
         assigned_to: "Atribuído a %{valuator}"
-        title: Projetos de investimento
+        title: Propostas
         edit: Editar relatório
         table_id: ID
         table_title: Título
         table_heading_name: Nome do título
         table_actions: Ações
-        no_investments: "Não há projetos de investimento."
+        no_investments: "Não há propostas."
       show:
         back: Voltar
-        title: Projeto de investimento
-        info: Informação do autor
+        title: Propostas
+        info: Informações do autor
         by: Enviado por
         sent: Enviado em
         heading: Título
@@ -43,7 +43,7 @@ pt-BR:
         edit_dossier: Editar relatório
         price: Preço
         price_first_year: Custo durante o primeiro ano
-        currency: "€"
+        currency: "R$"
         feasibility: Viabilidade
         feasible: Viável
         unfeasible: Inviável
@@ -65,4 +65,4 @@ pt-BR:
       notice:
         valuate: "Dossiê atualizado"
       valuation_comments: Comentários de avaliação
-      not_in_valuating_phase: Investimentos só podem ser avaliados quando o Orçamento estiver na fase de avaliação
+      not_in_valuating_phase: As propostas só podem ser avaliados quando o Orçamento estiver na fase de avaliação.
