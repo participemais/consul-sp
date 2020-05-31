@@ -53,7 +53,7 @@ pt-BR:
       sincerely: "Atenciosamente"
       share: "Compartilhe seu projeto"
     budget_investment_unfeasible:
-      hi: "Caro usuário,"
+      hi: "Caro cidadão (ã),"
       new: "Por tudo isso, nós convidamos você a elaborar um <strong>novo investimento</strong> que se ajuste às condições deste processo. Para isso, clique no link: %{url}."
       new_href: "novo projeto de investimento"
       sincerely: "Atenciosamente"
@@ -61,20 +61,20 @@ pt-BR:
       subject: "Seu projeto de investimento '%{code}' foi marcado como inviável"
     budget_investment_selected:
       subject: "Seu projeto de investimento '%{code}' foi selecionado"
-      hi: "Caro usuário,"
+      hi: "Caro cidadão (ã),"
       share: "Comece a receber votos, compartilhe seu projeto de investimento em redes sociais. Compartilhar é essencial para torná-lo realidade."
       share_button: "Compartihle seu projeto de investimento"
       thanks: "Obrigada novamente por participar."
       sincerely: "Atenciosamente"
     budget_investment_unselected:
       subject: "Seu projeto de investimento '%{code}' não foi selecionado"
-      hi: "Caro usuário,"
-      thanks: "Obrigada novamente por participar."
+      hi: "Caro cidadão (ã),"
+      thanks: "Obrigado novamente por participar."
       sincerely: "Atenciosamente"
     evaluation_comment:
       subject: "Novo comentário de avaliação"
       title: Novo comentário de avaliação para %{investment}
-      hi: Oi
+      hi: "Caro cidadão (ã),"
       new_comment_by: Há um novo comentário de avaliação de <strong>%{commenter}</strong> no orçamento participativo %{investment}
       commenter_info: "%{commenter}, %{time}:"
     new_actions_notification_rake_created:
@@ -115,9 +115,9 @@ pt-BR:
       text_6: "aqui há vários recursos e toda uma lista de dicas que chegarão diariamente para preparar a divulgação!"
       dashboard_button: "Vá em frente. Descubra!"
     new_actions_notification_on_published:
-      subject: "A sua proposta cidadã já foi publicada Continue divulgando!"
+      subject: "A sua proposta cidadã já foi publicada. Continue divulgando!"
       hi: "Parabéns, %{name}! A sua proposta %{title} foi criada com sucesso."
-      text_1: "E agora, obtenha os seus 100 apoios!"
+      text_1: "E agora, obtenha os seus 100 votos!"
       text_2: "Por que 100?"
       text_3: "Nossa experiência nos diz que o primeiro dia é fundamental, pois além de ter a energia de lançar algo novo, por ser uma proposta recém-publicada, você contará com a importante visibilidade de estar entre as novas propostas em destaque."
       text_4: "Consiga 100 apoios no primeiro dia, e você terá uma primeira comunidade para lhe dar respaldo."
