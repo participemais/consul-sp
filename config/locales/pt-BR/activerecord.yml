@@ -1,6 +1,6 @@
 pt-BR:
   attributes:
-    geozone_id: "Escopo da operação"
+    geozone_id: "ID da subprefeitura"
     results_enabled: "Exibir resultados"
     stats_enabled: "Exibir estatísticas"
     advanced_stats_enabled: "Exibir estatísticas avançadas"
@@ -16,11 +16,11 @@ pt-BR:
         one: "Investimento"
         other: "Investimentos"
       milestone:
-        one: "Marco"
-        other: "Marcos"
+        one: "Situação"
+        other: "Situção"
       milestone/status:
-        one: "Status de investimento"
-        other: "Status dos investimentos"
+        one: "Status"
+        other: "Status"
       progress_bar:
         one: "Barra de progresso"
         other: "Barras de progresso"
@@ -32,7 +32,7 @@ pt-BR:
         other: "Debates"
       tag:
         one: "Marcação"
-        other: "Marcação"
+        other: "marcações"
       user:
         one: "Usuário"
         other: "Usuários"
@@ -64,8 +64,8 @@ pt-BR:
         one: "urna"
         other: "urnas"
       poll/officer:
-        one: "presidente"
-        other: "presidentes"
+        one: "Presidente"
+        other: "Presidentes"
       poll/ballot_sheet:
         one: Cédula de votação
         other: Cédulas de votação
@@ -79,8 +79,8 @@ pt-BR:
         one: Imagem personalizada
         other: Imagens personalizadas
       site_customization/content_block:
-        one: Bloco de conteúdo personalizado
-        other: Blocos de conteúdo personalizados
+        one: Conteúdo personalizado
+        other: Conteúdos personalizados
       document:
         one: Documento
         other: Documentos
@@ -138,8 +138,8 @@ pt-BR:
         description_valuating: "Descrição durante a fase de avaliação"
         description_balloting: "Descrição durante a fase de votação"
         description_reviewing_ballots: "Descrição durante a fase de revisão das cédulas"
-        description_finished: "Descrição quando o orçamento for concluído."
-        phase: "Estágio"
+        description_finished: "Descrição sobre o orçamento concluído."
+        phase: "Fase"
         currency_symbol: "Moeda"
       budget/translation:
         name: "Nome"
@@ -174,7 +174,7 @@ pt-BR:
         name: Nome
         external_code: "Código externo (opcional)"
         census_code: "Código do censo (opcional)"
-        html_map_coordinates: "Coordenadas HTML <map> (opcional)"
+        html_map_coordinates: "Coordenadas do MAL <map> (opcional)"
       milestone:
         status_id: "Status atual do investimento (opcional)"
         title: "Título"
@@ -197,7 +197,7 @@ pt-BR:
       budget/group/translation:
         name: "Nome do grupo"
       budget/heading:
-        allow_custom_content: "Permitir bloqueio de contúdos"
+        allow_custom_content: "Permitir bloqueio de conteúdos"
         latitude: "Latitude (optional)"
         longitude: "Longitude (optional)"
         name: "Nome do título"
@@ -229,11 +229,11 @@ pt-BR:
         title: "Título"
         question: "Questão"
         description: "Descrição"
-        responsible_name: "Nome completo da pessoa que está submetendo a proposta"
+        responsible_name: "Nome completo do autor da proposta"
         retired_reason: "Motivo para retirar a proposta"
         selected: "Marcar como selecionado"
         terms_of_service: "Termos de serviço"
-        video_url: "Endereço do vídeo"
+        video_url: "URL do vídeo"
       proposal/translation:
         title: "Título da proposta"
         description: "Texto da proposta"
@@ -246,19 +246,19 @@ pt-BR:
         password_confirmation: "Confirmação de senha"
         password: "Senha"
         current_password: "Senha atual"
-        email_digest: "Receber resumo de notificações sobre propostas"
-        email_on_comment: "Notificar-me por email quando alguém comentar sobre minhas propostas ou debates"
+        email_digest: "Receber resumo de notificações sobre as propostas"
+        email_on_comment: "Notificar-me por email quando alguém comentar nas minhas propostas ou debates"
         email_on_comment_reply: "Notificar-me por email quando alguém responder meus comentários"
-        email_on_direct_message: "Receber emails concernentes a mensagens diretas"
-        newsletter: "Receber por email informações relevantes deste site"
+        email_on_direct_message: "Notificar-me por e-mail ao receber mensagens diretas"
+        newsletter: "Acompanhar as novidades da Prefeitura de São Paulo"
         official_position: "Cargo público"
-        official_position_badge: "Mostrar etiqueta da posição oficial"
+        official_position_badge: "Marcação do cargo oficial"
         official_level: "Nível do cargo"
         phone_number: "Números de telefone"
-        public_activity: "Manter pública minha lista de atividades"
-        public_interests: "Tornar públicos os rótulos dos elementos que sigo"
+        public_activity: "Compartilhar minha lista de atividades"
+        public_interests: "Compartilhar meus interesses"
         recommended_debates: "Mostrar recomendações de debates"
-        recommended_proposals: "Mostrar recomendações de debates"
+        recommended_proposals: "Mostrar recomendações de propostas"
         redeemable_code: "Código de verificação recebido via e-mail"
       direct_message:
         title: "Título"
@@ -270,7 +270,7 @@ pt-BR:
         name: "Nome"
         starts_at: "Data de início"
         ends_at: "Data de encerramento"
-        geozone_restricted: "Restrito por geozona"
+        geozone_restricted: "Restrito por subprefeitura"
         summary: "Resumo"
         description: "Descrição"
       active_poll/translation:
@@ -291,9 +291,9 @@ pt-BR:
       poll/question/translation:
         title: "Questão"
       poll/ballot_sheet:
-        data: dados CSV
-        poll_id: Votação
-        officer_assignment_id: Pessoal designado
+        data: "dados CSV"
+        poll_id: "ID da Votação"
+        officer_assignment_id: "ID do responsável"
       poll/shift:
         task: "Tarefa"
       proposal_notification:
@@ -311,10 +311,10 @@ pt-BR:
         status: Status
         status_draft: "Rascunho"
         status_published: "Publicado"
-        title: Título
-        updated_at: Atualizado em
-        more_info_flag: Mostrar na página de ajuda
-        print_content_flag: Botão de conteúdo de impressão
+        title: "Título"
+        updated_at: "Atualizado em"
+        more_info_flag: Mais informações
+        print_content_flag: Imprimir conteúdo
         locale: Idioma
       site_customization/page/translation:
         title: Título
@@ -325,8 +325,8 @@ pt-BR:
         image: Imagem
       site_customization/content_block:
         name: Nome
-        locale: localidade
-        body: Corpo
+        locale: localização
+        body: Descrição
       tag:
         name: "Digite o nome do tópico"
       topic:
@@ -349,7 +349,7 @@ pt-BR:
         start_date: Data de início
         end_date: Data de término
         debate_start_date: Data de início do debate
-        debate_end_date: Data final do debate
+        debate_end_date: Data término do debate
         draft_start_date: Início
         draft_end_date: Final
         draft_publication_date: Data de publicação do rascunho
@@ -374,16 +374,16 @@ pt-BR:
         title: "Título da proposta"
         video_url: "Link para vídeo externo"
       legislation/draft_version:
-        title: Version title
-        body: Texto
+        title: Título da Versão
+        body: Descrição
         changelog: Alterações
         status: Status
         status_draft: "Rascunho"
         status_published: "Publicado"
         final_version: Versão final
       legislation/draft_version/translation:
-        title: Version title
-        body: Texto
+        title: Título da Versão
+        body: Descrição
         changelog: Alterar
       legislation/question:
         title: Título
@@ -438,18 +438,18 @@ pt-BR:
         limit: Número de itens
       dashboard/action:
         title: Título
-        short_description: Descrição curta
+        short_description: Resumo
         description: Descrição
         link: Link externo
         request_to_administrators: Incluir no recurso um botão para solicitar o auxílio dos administradores
-        day_offset: Quer que a proposta seja ativada em quantos dias após a sua criação?
-        required_supports: Quantos apoios são necessários para que a proposta seja ativada?
-        order: Você pode informar a posição a ser mostrada ao usuário na lista de ações
+        day_offset: A proposta ficará ativa quantos dias após a sua criação?
+        required_supports: Quantos votos são necessários para que a proposta seja ativada?
+        order: Mostrar qual a situação da proposta
         active: Ativo
         action_type: Tipo
         action_type_proposed_action: "Ação proposta"
         action_type_resource: "Recurso"
-        published_proposal: "Para propostas publicadas?"
+        published_proposal: "Para propostas que já foram publicadas?"
       dashboard/administrator_task:
         source: Fonte
         user: Executado por
@@ -498,12 +498,12 @@ pt-BR:
         map_location:
           attributes:
             map:
-              invalid: Localização no mapa não pode ser em branco. Coloque um marcador ou selecione a caixa de seleção se não houver necessidade de geolocalização
+              invalid: Localização no mapa não pode estar em branco. Coloque um marcador ou selecione a caixa de seleção se não houver necessidade de geolocalização
         poll/voter:
           attributes:
             document_number:
               not_in_census: "Documento não está no censo"
-              has_voted: "Usuário já votou"
+              has_voted: "Você já votou"
         legislation/process:
           attributes:
             end_date:
