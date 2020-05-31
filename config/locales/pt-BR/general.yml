@@ -3,10 +3,10 @@ pt-BR:
     show:
       change_credentials_link: Alterar meus dados pessoais
       erase_account_link: Apagar minha conta
-      finish_verification: Completar verificação
+      finish_verification: Finalizar verificação
       notifications: Notificações
       organization_name_label: Nome da organização
-      organization_responsible_name_placeholder: Representante de organização/coletivo
+      organization_responsible_name_placeholder: Representante da organização/coletivo
       personal: Dados pessoais
       phone_number_label: Número de Telefone
       public_interests_my_title_list: Marcações dos elementos que você segue
@@ -15,7 +15,7 @@ pt-BR:
       recommendations: Recomendações
       title: Minha conta
       user_permission_debates: Participar nos debates
-      user_permission_info: Com a sua conta você pode...
+      user_permission_info: Minhas permissões
       user_permission_proposal: Criar novas propostas
       user_permission_support_proposal: Apoiar propostas
       user_permission_title: Participação
@@ -29,7 +29,7 @@ pt-BR:
     close: Fechar
     menu: Menu
   comments:
-    comments_closed: Comentários estão fechados
+    comments_closed: Os comentários estão fechados
     verified_only: Para participar %{verify_account}
     comment:
       admin: Administrador
@@ -91,22 +91,22 @@ pt-BR:
       show_link: Ver debate
     form:
       debate_title: Título do debate
-      tags_instructions: Marcar este debate.
+      tags_instructions: Marcar este debate
       tags_placeholder: "Entre com as marcações que você deseja usar, separadas por vírgulas ('s\")"
     index:
-      featured_debates: Destacado
+      featured_debates: Em destaque
       filter_topic:
         one: " com tópico '%{topic}'"
         other: " com tópico '%{topic}'"
       orders:
         confidence_score: melhor avaliado
         created_at: mais recente
-        hot_score: mais ativa
+        hot_score: em destaque
         most_commented: mais comentada
         relevance: relevância
         recommendations: recomendações
       recommendations:
-        without_results: Não há debates relacionados a seus interesses
+        without_results: Não há debates relacionados aos seus interesses
         without_interests: Siga propostas para que possamos lhe dar recomendações
         disable: "As recomendações de debates vão parar de ser mostradas se você descartá-las. Você pode habilitá-los novamente na página 'Minha conta'"
         actions:
@@ -128,18 +128,18 @@ pt-BR:
         help: Ajuda sobre debates
       section_footer:
         title: Ajuda sobre debates
-        description: Inicie um debate para compartilhar opiniões com outras pessoas sobre os temas que te preocupam.
-        help_text_1: "O espaço para debates cidadãos destina-se a qualquer um que possa expor questões de seu interesse e àqueles que querem compartilhar opiniões com outras pessoas."
+        description: Inicie um debate e compartilhe opiniões com outras pessoas sobre os temas que te interessam.
+        help_text_1: "O espaço para debates cidadãos é destinado à qualquer um que possa expor questões de seu interesse e àqueles que querem compartilhar opiniões com outras pessoas."
         help_text_2: 'Para abrir um debate, você precisa se inscrever em %{org}. Os usuários registrados também podem comentar sobre debates abertos e avaliá-los com os botões "Concordo" ou "Discordo" encontrados em cada um deles.'
     new:
       form:
         submit_button: Iniciar um debate
-      info: Se quiser elaborar uma proposta, esta seção é inadequada, entre %{info_link}.
-      info_link: criar nova proposta
+      info: Para elaborar uma proposta entre %{info_link}.
+      info_link: Criar Nova Proposta
       more_info: Mais informações
-      recommendation_four: Aproveite este espaço e as vozes que o preenchem. Ele pertence a você também.
+      recommendation_four: Aproveite este espaço. Ele pertence a você também.
       recommendation_one: Não use letras maiúsculas para o título do debate ou para sentenças completas. Na internet, isto é considerado gritaria. Ninguém gosta de ser tratado com gritos.
-      recommendation_three: Criticismo impiedoso é bem-vindo. Este é um espaço para reflexão. Mas recomendamos que você mantenha sua inteligência e elegância. O mundo é um lugar melhor com estas virtudes em prática.
+      recommendation_three: Criticismo é bem-vindo. Este é um espaço para reflexão. Mas recomendamos que você mantenha sua inteligência e elegância. O mundo é um lugar melhor com estas virtudes em prática.
       recommendation_two: Todo debate ou comentário sugerindo ações ilegais serão apagados, bem como aqueles tentando sabotar os espaços de debate. Tudo mais será permitido.
       recommendations_title: Recomendações para criar um debate
       start_new: Iniciar um debate
@@ -166,9 +166,9 @@ pt-BR:
     accept_terms_title: Concordo com a Política de Privacidade e os Termos e condições de uso
     conditions: Termos e condições de uso
     debate: Debate
-    direct_message: mensagem privada
-    error: erro
-    errors: erros
+    direct_message: Mensagem Privada
+    error: Erro
+    errors: Erros
     not_saved: "impediu que esse %{resource} fosse salvo. <br>Verifique os campos marcados para saber como corrigi-los:"
     policy: Política de privacidade
     banner: banner
@@ -177,24 +177,24 @@ pt-BR:
     budget/investment: Investimento
     budget/group: Grupo de orçamentos
     budget/heading: Rubrica Orçamental
-    geozone: zona
-    legislation/draft_version: rascunho
-    legislation/process: processo
-    legislation/question: pergunta
+    geozone: subprefeitura
+    legislation/draft_version: Rascunho
+    legislation/process: Processo
+    legislation/question: Pergunta
     poll/shift: Turno
     poll/question/answer: Resposta
     user: Conta
-    verification/sms: telefone
+    verification/sms: Telefone
     signature_sheet: Folha de assinatura
     document: Documento
     topic: Tópico
     image: Imagem
     local_census_record: Registro de censo local
     local_census_records/import: Importações de registros do censo local
-    site_customization/content_block: bloco de conteúdo
-    site_customization/page: página
+    site_customization/content_block: Conteúdo
+    site_customization/page: Página
   geozones:
-    none: Toda a cidade
+    none: Cidade de São Paulo
   layouts:
     application:
       chrome: Google Chrome
@@ -218,7 +218,7 @@ pt-BR:
           other: "Apoios"
     footer:
       accessibility: Acessibilidade
-      conditions: Termos e condições de uso
+      conditions: Termos e Condições de uso
       consul: Aplicativo Consul
       consul_url: https://github.com/consul/consul
       contact_us: Para suporte técnico entre em
@@ -226,9 +226,9 @@ pt-BR:
       description: Este portal usa o %{consul} que é %{open_source}. De Madrid para o mundo.
       open_source: programa de código aberto
       open_source_url: http://www.gnu.org/licenses/agpl-3.0.html
-      participation_text: Decida como adequar a Madrid que você deseja viver.
+      participation_text: Faça São Paulo uma cidade melhor.
       participation_title: Participação
-      privacy: Política de privacidade
+      privacy: Política de Privacidade
     header:
       administration_menu: Admin
       administration: Administração
@@ -242,19 +242,19 @@ pt-BR:
       valuation: Avaliação
       officing: Presidentes da votação
       help: Ajuda
-      my_account_link: Minha conta
-      my_activity_link: Minha atividade
-      open: aberto
-      open_gov: Governo aberto
+      my_account_link: Minha Conta
+      my_activity_link: Minha Atividade
+      open: Aberto
+      open_gov: Governo Aberto
       proposals: Propostas
       poll_questions: Votação
-      budgets: Orçamento participativo
+      budgets: Orçamento 
       notification_item:
         new_notifications:
           one: Você tem uma nova notificação
           other: Você tem %{count} novas notificações
         notifications: Notificações
-        no_notifications: "Vocie nnao possui novas notificações"
+        no_notifications: "Você não possui novas notificações"
     admin:
       watch_form_message: "Você possui alterações não salvas. Tem certeza que deseja sair da página?"
   notifications:
@@ -279,8 +279,8 @@ pt-BR:
       mark_as_unread: Marcar como não lido
       notifiable_hidden: Este recurso não está mais disponível.
   map:
-    title: "Distritos"
-    proposal_for_district: "Inicie uma proposta para seu distrito"
+    title: "Subprefeituras"
+    proposal_for_district: "Inicie uma proposta para sua subprefeitura"
     start_proposal: Criar proposta
   omniauth:
     facebook:
@@ -323,7 +323,7 @@ pt-BR:
       show_link: Visualizar proposta
     retire_form:
       title: Retirar proposta
-      warning: "Se você retirar a proposta ela ainda poderá receber apoio, mas será removida da lista principal, e uma mensagem ficará visível para todos os usuários informando que o autor considera que a proposta não deve mais receber suporte"
+      warning: "Se você retirar a proposta ela ainda poderá ser apoiada, mas será removida da lista principal, e uma mensagem ficará visível para todos os usuários informando que o autor considera que a proposta não deve mais receber suporte"
       retired_reason_blank: Escolha uma opção
       retired_explanation_placeholder: Explique brevemente por que você acha que esta proposta não deve mais receber apoio
       submit_button: Retirar proposta
@@ -336,7 +336,7 @@ pt-BR:
     form:
       proposal_responsible_name_note: "(indivudualmente ou como representante de um\ncoletivo; não será mostrado publicamente)"
       proposal_summary_note: "(máximo de 200 caracteres)"
-      proposal_video_url_note: Você pode adicionar um link para o Youtube ou Vimeo
+      proposal_video_url_note: Você pode adicionar um link para o Youtube 
       tag_category_label: "Categorias"
       tags_instructions: "Marque esta proposta. Você pode escolher entre as categorias propostas ou adicionar a sua própria"
       tags_label: Marcação
@@ -409,13 +409,13 @@ pt-BR:
       start_new: Criar nova proposta
     notice:
       retired: Proposta retirada
-      published: A proposta foi publicada
+      published: Sua proposta foi publicada
     proposal:
       created: "Você criou uma proposta!"
       share:
         guide: "Agora você pode compartilhá-la para que as pessoas podem começar a apoiar."
         edit: "Antes que ela seja publicada, você pode alterar o texto da maneira que quiser."
-        view_proposal: Agora não, ir para minha proposta
+        view_proposal: Ir para minha proposta
       already_supported: Você já apoiou esta proposta. Compartilhe!
       comments:
         zero: Nenhum comentário
@@ -433,8 +433,8 @@ pt-BR:
         other: "%{count} votos"
       supports_necessary: "%{number} apoios necessários"
       total_percent: 100%
-      archived: "Esta proposta foi arquivada e não é possível angariar suporte."
-      successful: "Esta proposta tem alcançado os suportes necessários."
+      archived: "Esta proposta foi arquivada e não é possível receber voto."
+      successful: "Esta proposta está alcançando os votos necessários."
       selected: "Proposta selecionada"
     show:
       author_deleted: Usuário excluído
@@ -447,7 +447,7 @@ pt-BR:
       dashboard_proposal_link: Painel de controle
       flag: Esta proposta já foi marcada como inadequada por vários usuários.
       notifications_tab: Notificações
-      milestones_tab: Marcos
+      milestones_tab: Fases
       retired_warning: "O autor considera que esta proposta não deve mais receber apoio."
       retired_warning_link_to_explanation: Leia a explicação antes de votar.
       retired: Proposta retirada pelo autor
@@ -456,7 +456,7 @@ pt-BR:
       embed_video_title: "Vídeo em %{proposal}"
       title_video_url: "Vídeo externo"
       author: Autor
-      draft: A proposta é um rascunho. Ainda não é possível obter apoios, também não aparece na lista de propostas.
+      draft: A proposta é um rascunho. Ainda não é possível obter votos, também não aparece na lista de propostas.
     update:
       form:
         submit_button: Salvar alterações
@@ -469,7 +469,7 @@ pt-BR:
       polls: Votações
       mailing: E-mail
       poster: Pôster
-      recommended_actions: Acções recomendadas
+      recommended_actions: Ações recomendadas
       messages: Mensagem para os usuários
       related_content: Conteúdo relacionado
     form:
@@ -562,7 +562,7 @@ pt-BR:
         success_notice: Pesquisa excluída com sucesso
         unable_notice: Não é possível eliminar propostas com respostas
       form:
-        name: Título de la pesquisa
+        name: Título da pesquisa
         add_question: Adicionar pergunta
       question_fields:
         remove_question: Remover pergunta
@@ -615,12 +615,12 @@ pt-BR:
       participate_button: "Participar desta votação"
       participate_button_expired: "Votação encerrada"
       no_geozone_restricted: "Toda a cidade"
-      geozone_restricted: "Distritos"
+      geozone_restricted: "Subprefeituras"
       geozone_info: "Podem participar as pessoas registradas em: "
       already_answer: "Já participou desta votação"
       not_logged_in: "Você deve entrar ou se cadastrar para participar"
       unverified: "Você deve verificar sua conta para participar"
-      cant_answer: "Esta enquete não está disponível para sua zona"
+      cant_answer: "Esta enquete não está disponível para sua subprefeitura"
       section_header:
         icon_alt: Ícone de votação
         title: Votação
@@ -638,7 +638,7 @@ pt-BR:
       cant_answer_verify: "Você deve %{verify_link} para poder responder."
       verify_link: "verifique sua conta"
       cant_answer_expired: "Esta votação já foi encerrada."
-      cant_answer_wrong_geozone: "Esta questão não está disponível na sua geozona."
+      cant_answer_wrong_geozone: "Esta questão não está disponível na sua subprefeitura."
       more_info_title: "Mais informações"
       documents: Documentos
       zoom_plus: Expandir imagem
@@ -748,8 +748,8 @@ pt-BR:
         see_all: "Ver todos"
     tags_cloud:
       tags: Tendências
-      districts: "Distritos"
-      districts_list: "Lista de distritos"
+      districts: "Subprefeituras"
+      districts_list: "Lista de subprefeituras"
       categories: "Categorias"
     target_blank: " (link abre em nova janela)"
     you_are_in: "Você está em"
@@ -774,7 +774,7 @@ pt-BR:
     translations:
       select_language_prompt: Selecionar idioma
       remove_language: Remover idioma
-      add_language: E o idioma
+      add_language: Adicionar idioma
       languages_in_use:
         zero: "0 idiomas em uso"
         one: "1 idioma em uso"
