@@ -1,7 +1,7 @@
 pt-BR:
   milestones:
     index:
-      no_milestones: Não há marcos definidos
+      no_milestones: Não há fases definidas
       progress: Progresso
     show:
       publication_date: "Publicado %{publication_date}"
