@@ -2,7 +2,7 @@ pt-BR:
   activemodel:
     models:
       verification:
-        residence: "Residência"
+        residence: "Endereço"
         sms: "SMS"
       local_census_records/import:
         one: Importação de registros do censo local
@@ -13,7 +13,7 @@ pt-BR:
           document_type: "Tipo de documento"
           document_number: "Número do documento (incluindo as letras)"
           date_of_birth: "Data de nascimento"
-          postal_code: "Código postal"
+          postal_code: "CEP"
         sms:
           phone: "Telefone"
           confirmation_code: "Código de confirmação"
@@ -22,7 +22,7 @@ pt-BR:
       verification/letter:
         email: "Email"
         password: "Senha"
-        verification_code: "Código recebido por carta"
+        verification_code: "Código de verificação"
       verification/management/document:
         document_type: "Tipo de documento:"
         document_number: "Número do documento"
@@ -44,4 +44,4 @@ pt-BR:
           attributes:
             file:
               extension: "Formato de arquivo inválido. O formato permitido é: %{valid_extensions}."
-              headers: "Headers dos arquivos inválidos. Os headers devem ter os seguintes nomes: %{required_headers}."
+              headers: "Cabeçalhos dos arquivos inválidos. Os cabeçalhos devem ter os seguintes nomes: %{required_headers}."
