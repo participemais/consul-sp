@@ -1,4 +1,4 @@
-pt-BR:
+t-BR:
   mailers:
     title: "Governo aberto"
     no_reply: "Esta mensagem foi enviada de um endereço de e-mail que não aceita respostas."
@@ -53,7 +53,7 @@ pt-BR:
       sincerely: "Atenciosamente"
       share: "Compartilhe seu projeto"
     budget_investment_unfeasible:
-      hi: "Caro usuário,"
+      hi: "Caro cidadão (ã),"
       new: "Por tudo isso, nós convidamos você a elaborar um <strong>novo investimento</strong> que se ajuste às condições deste processo. Para isso, clique no link: %{url}."
       new_href: "novo projeto de investimento"
       sincerely: "Atenciosamente"
@@ -61,20 +61,20 @@ pt-BR:
       subject: "Seu projeto de investimento '%{code}' foi marcado como inviável"
     budget_investment_selected:
       subject: "Seu projeto de investimento '%{code}' foi selecionado"
-      hi: "Caro usuário,"
+      hi: "Caro cidadão (ã),"
       share: "Comece a receber votos, compartilhe seu projeto de investimento em redes sociais. Compartilhar é essencial para torná-lo realidade."
       share_button: "Compartihle seu projeto de investimento"
       thanks: "Obrigada novamente por participar."
       sincerely: "Atenciosamente"
     budget_investment_unselected:
       subject: "Seu projeto de investimento '%{code}' não foi selecionado"
-      hi: "Caro usuário,"
-      thanks: "Obrigada novamente por participar."
+      hi: "Caro cidadão (ã),"
+      thanks: "Obrigado novamente por participar."
       sincerely: "Atenciosamente"
     evaluation_comment:
       subject: "Novo comentário de avaliação"
       title: Novo comentário de avaliação para %{investment}
-      hi: Oi
+      hi: "Caro cidadão (ã),"
       new_comment_by: Há um novo comentário de avaliação de <strong>%{commenter}</strong> no orçamento participativo %{investment}
       commenter_info: "%{commenter}, %{time}:"
     new_actions_notification_rake_created:
