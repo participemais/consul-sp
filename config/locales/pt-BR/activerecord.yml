@@ -19,8 +19,8 @@ pt-BR:
         one: "Situação"
         other: "Situção"
       milestone/status:
-        one: "Status"
-        other: "Status"
+        one: "Fase"
+        other: "Fases"
       progress_bar:
         one: "Barra de progresso"
         other: "Barras de progresso"
