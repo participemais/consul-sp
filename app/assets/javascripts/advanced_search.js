@@ -20,6 +20,12 @@
     init_calendar: function() {
       var locale;
       locale = $("#js-locale").data("current-locale");
+      $(".js-date-of-birth-calendar").datepicker({
+        changeMonth: true,
+        changeYear: true,
+        maxDate: "+0d",
+        yearRange: "-100:+0"
+      });
       $(".js-calendar").datepicker({
         maxDate: "+0d"
       });
