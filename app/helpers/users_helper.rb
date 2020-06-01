@@ -70,6 +70,12 @@ module UsersHelper
     end
   end
 
+  def date_of_birth_value
+    if current_user.date_of_birth
+      l(current_user.date_of_birth.to_date)
+    end
+  end
+
   def options_for_uf
     options_for_select(ufs_options, current_user.uf)
   end
