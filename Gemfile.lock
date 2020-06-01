@@ -137,6 +137,7 @@ GEM
     cocaine (0.5.8)
       climate_control (>= 0.0.3, < 1.0)
     cocoon (1.2.11)
+    coderay (1.1.2)
     coffee-rails (4.2.2)
       coffee-script (>= 2.2.0)
       railties (>= 4.0.0)
@@ -151,6 +152,7 @@ GEM
       term-ansicolor (~> 1.3)
       thor (~> 0.19.4)
       tins (~> 1.6)
+    cpf_cnpj (0.5.0)
     crass (1.0.6)
     daemons (1.2.6)
     dalli (2.7.6)
@@ -297,6 +299,7 @@ GEM
       thor (>= 0.14, < 2.0)
     jquery-ui-rails (6.0.1)
       railties (>= 3.2.16)
+    jquery_mask_rails (0.1.0)
     json (2.3.0)
     jwt (1.5.6)
     kaminari (1.1.1)
@@ -401,6 +404,12 @@ GEM
       activerecord (>= 4.2)
       activesupport (>= 4.2)
       arel (>= 6)
+    pry (0.13.1)
+      coderay (~> 1.1)
+      method_source (~> 1.0)
+    pry-byebug (3.9.0)
+      byebug (~> 11.0)
+      pry (~> 0.13.0)
     public_suffix (4.0.1)
     puma (4.3.5)
       nio4r (~> 2.0)
@@ -625,6 +634,7 @@ DEPENDENCIES
   ckeditor (~> 4.3.0)
   cocoon (~> 1.2.9)
   coveralls (~> 0.8.22)
+  cpf_cnpj
   daemons (~> 1.2.4)
   dalli (~> 2.7.6)
   database_cleaner (~> 1.7.0)
@@ -651,6 +661,7 @@ DEPENDENCIES
   jquery-fileupload-rails
   jquery-rails (~> 4.3.3)
   jquery-ui-rails (~> 6.0.1)
+  jquery_mask_rails
   kaminari (~> 1.1.1)
   knapsack_pro (~> 1.15.0)
   launchy (~> 2.4.3)
@@ -666,6 +677,7 @@ DEPENDENCIES
   paranoia (~> 2.4.2)
   pg (~> 0.21.0)
   pg_search (~> 2.0.1)
+  pry-byebug
   puma (~> 4.3.5)
   rails (= 5.1.7)
   rails-assets-leaflet!
@@ -701,4 +713,4 @@ DEPENDENCIES
   wkhtmltopdf-binary (~> 0.12.4)
 
 BUNDLED WITH
-   1.17.1
+   1.17.3
