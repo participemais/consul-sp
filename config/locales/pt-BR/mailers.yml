@@ -1,4 +1,4 @@
-t-BR:
+pt-BR:
   mailers:
     title: "Governo aberto"
     no_reply: "Esta mensagem foi enviada de um endereço de e-mail que não aceita respostas."
@@ -75,7 +75,7 @@ t-BR:
       subject: "Novo comentário de avaliação"
       title: Novo comentário de avaliação para %{investment}
       hi: "Caro cidadão (ã),"
-      new_comment_by: Há um novo comentário de avaliação de <strong>%{commenter}</strong> no orçamento participativo %{investment}
+      new_comment_by: Há um novo comentário de avaliação de <strong>%{commenter}</strong> no orçamento cidadão %{investment}
       commenter_info: "%{commenter}, %{time}:"
     new_actions_notification_rake_created:
       subject: "Mais novidades da sua proposta cidadã"
