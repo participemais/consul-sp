@@ -82,6 +82,12 @@ class User < ApplicationRecord
 
   validate :validate_username_length
 
+  validate :min_user_age
+
+  validate :cpf_number
+
+  validates_uniqueness_of :document_number, allow_nil: true
+
   validates :official_level, inclusion: { in: 0..5 }
   validates :terms_of_service, acceptance: { allow_nil: false }, on: :create
 
@@ -413,5 +419,26 @@ class User < ApplicationRecord
         attributes: :username,
         maximum: User.username_max_length)
       validator.validate(self)
+    end
+
+    def min_user_age
+      if age && age < User.minimum_required_age
+        message = I18n.t(
+          :min_user_age,
+          scope: 'activerecord.errors.models.user.attributes.date_of_birth'
+        )
+        errors.add(:base, message)
+      end
+    end
+
+    def cpf_number
+      return unless document_number
+      unless CPF.valid?(document_number)
+        message = I18n.t(
+          :invalid_number,
+          scope: 'activerecord.errors.models.user.attributes.cpf'
+        )
+        errors.add(:base, message)
+      end
     end
 end

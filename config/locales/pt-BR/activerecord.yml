@@ -521,8 +521,12 @@ pt-BR:
       models:
         user:
           attributes:
+            cpf:
+              invalid_number: "Número de CPF inválido"
             email:
               password_already_set: "Este usuário já possui uma senha"
+            date_of_birth:
+              min_user_age: "Usuário deve ter mais de 12 anos"
         debate:
           attributes:
             tag_list:
