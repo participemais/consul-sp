@@ -86,8 +86,6 @@ class User < ApplicationRecord
 
   validate :cpf_number
 
-  validates_uniqueness_of :document_number, allow_nil: true
-
   validates :official_level, inclusion: { in: 0..5 }
   validates :terms_of_service, acceptance: { allow_nil: false }, on: :create
 
