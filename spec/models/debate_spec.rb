@@ -118,7 +118,7 @@ describe Debate do
     let(:debate) { create(:debate) }
 
     before do
-      Setting["max_ratio_anon_votes_on_debates"] = 50
+      Setting["max_ratio_anon_votes_on_debates"] = 10
     end
 
     it "is true for level two verified users" do
