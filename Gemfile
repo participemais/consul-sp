@@ -70,6 +70,7 @@ end
 group :development, :test do
   gem "bullet", "~> 5.9.0"
   gem "byebug", "~> 11.1.1"
+  gem 'cpf_faker'
   gem 'pry-byebug'
   gem "factory_bot_rails", "~> 4.8.2"
   gem "faker", "~> 1.8.7"
