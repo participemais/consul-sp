@@ -526,7 +526,7 @@ pt-BR:
             email:
               password_already_set: "Este usuário já possui uma senha"
             date_of_birth:
-              min_user_age: "Usuário deve ter mais de 12 anos"
+              min_user_age: "Usuário deve ter mais de %{age} anos"
         debate:
           attributes:
             tag_list:

@@ -421,10 +421,12 @@ class User < ApplicationRecord
     end
 
     def min_user_age
-      if age && age < User.minimum_required_age
+      min_age = User.minimum_required_age
+      if age && age < min_age
         message = I18n.t(
           :min_user_age,
-          scope: 'activerecord.errors.models.user.attributes.date_of_birth'
+          scope: 'activerecord.errors.models.user.attributes.date_of_birth',
+          age: min_age
         )
         errors.add(:base, message)
       end
