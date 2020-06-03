@@ -78,7 +78,6 @@ class User < ApplicationRecord
 
   validates :username, presence: true, if: :username_required?
   validates :username, uniqueness: { scope: :registering_with_oauth }, if: :username_required?
-  validates :email, presence: true
   validates :document_number, uniqueness: { scope: :document_type }, allow_nil: true
 
   validate :validate_username_length
@@ -268,7 +267,17 @@ class User < ApplicationRecord
       reset_password_token: nil,
       email_verification_token: nil,
       confirmed_phone: nil,
-      unconfirmed_phone: nil
+      unconfirmed_phone: nil,
+      document_number: nil,
+      date_of_birth: nil,
+      gender: nil,
+      ethnicity: nil,
+      cep: nil,
+      home_address: nil,
+      address_number: nil,
+      address_complement: nil,
+      city: nil,
+      uf: nil
     )
     identities.destroy_all
   end
