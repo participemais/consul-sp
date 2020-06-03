@@ -78,9 +78,14 @@ class User < ApplicationRecord
 
   validates :username, presence: true, if: :username_required?
   validates :username, uniqueness: { scope: :registering_with_oauth }, if: :username_required?
+  validates :email, presence: true
   validates :document_number, uniqueness: { scope: :document_type }, allow_nil: true
 
   validate :validate_username_length
+
+  validate :min_user_age
+
+  validate :cpf_number
 
   validates :official_level, inclusion: { in: 0..5 }
   validates :terms_of_service, acceptance: { allow_nil: false }, on: :create
@@ -413,5 +418,28 @@ class User < ApplicationRecord
         attributes: :username,
         maximum: User.username_max_length)
       validator.validate(self)
+    end
+
+    def min_user_age
+      min_age = User.minimum_required_age
+      if age && age < min_age
+        message = I18n.t(
+          :min_user_age,
+          scope: 'activerecord.errors.models.user.attributes.date_of_birth',
+          age: min_age
+        )
+        errors.add(:base, message)
+      end
+    end
+
+    def cpf_number
+      return unless document_number
+      unless CPF.valid?(document_number)
+        message = I18n.t(
+          :invalid_number,
+          scope: 'activerecord.errors.models.user.attributes.cpf'
+        )
+        errors.add(:base, message)
+      end
     end
 end

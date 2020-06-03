@@ -15,9 +15,7 @@ section "Creating Users" do
   end
 
   def unique_document_number
-    @document_number ||= 12345678
-    @document_number += 1
-    "#{@document_number}#{[*"A".."Z"].sample}"
+    Faker::CPF.numeric
   end
 
   admin = create_user("admin@consul.dev", "admin")

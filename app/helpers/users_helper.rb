@@ -69,4 +69,40 @@ module UsersHelper
       t("account.show.public_interests_user_title_list")
     end
   end
+
+  def date_of_birth_value
+    if current_user.date_of_birth
+      l(current_user.date_of_birth.to_date)
+    end
+  end
+
+  def options_for_uf
+    options_for_select(ufs_options, current_user.uf)
+  end
+
+  def options_for_gender
+    options_for_select(gender_options, current_user.gender)
+  end
+
+  def options_for_ethnicity
+    options_for_select(ethnicity_options, current_user.ethnicity)
+  end
+
+  private
+
+  def ufs_options
+    user_translation_attr(:uf_options).invert
+  end
+
+  def gender_options
+    user_translation_attr(:gender_options).invert
+  end
+
+  def ethnicity_options
+    user_translation_attr(:ethnicity_options).invert
+  end
+
+  def user_translation_attr(attr_key)
+    t(attr_key, scope: 'activerecord.attributes.user')
+  end
 end

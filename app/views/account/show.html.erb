@@ -27,7 +27,78 @@
               <%= f.text_field :phone_number, placeholder: t("account.show.phone_number_label") %>
 
             <% else %>
-              <%= f.text_field :username, maxlength: User.username_max_length, placeholder: t("account.show.username_label") %>
+              <div class="row">
+                <div class="medium-8 column">
+                  <%= f.text_field :username, maxlength: User.username_max_length, placeholder: t("account.show.username_label") %>
+                </div>
+                <div class="medium-4 column">
+                  <%= f.text_field(
+                    :document_number,
+                    class: "js-cpf-mask",
+                    required: true
+                  ) %>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="medium-4 column">
+                  <%= f.text_field(
+                    :date_of_birth,
+                    value: date_of_birth_value,
+                    required: true,
+                    class: "js-date-of-birth-calendar js-date-of-birth-mask")
+                  %>
+                </div>
+                <div class="small-6 medium-4 column">
+                  <%= f.select(
+                    :gender,
+                    options_for_gender,
+                    required: true,
+                    include_blank: true
+                  ) %>
+                </div>
+                <div class="small-6 medium-4 column">
+                  <%= f.select(
+                    :ethnicity,
+                    options_for_ethnicity,
+                    required: true,
+                    include_blank: true
+                  ) %>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="medium-3 column">
+                  <%= f.text_field(
+                    :cep,
+                    required: true,
+                    class: "js-cep-mask"
+                  ) %>
+                </div>
+                <div class="medium-9 column">
+                  <%= f.text_field(:home_address, required: true) %>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="small-6 medium-2 column">
+                  <%= f.text_field(:address_number) %>
+                </div>
+                <div class="small-6 medium-3 column">
+                  <%= f.text_field(:address_complement) %>
+                </div>
+                <div class="small-6 medium-4 column">
+                  <%= f.text_field(:city, required: true) %>
+                </div>
+                <div class="small-6 medium-3 column">
+                  <%= f.select(
+                    :uf,
+                    options_for_uf,
+                    required: true,
+                    include_blank: true
+                  ) %>
+                </div>
+              </div>
             <% end %>
           </div>
 

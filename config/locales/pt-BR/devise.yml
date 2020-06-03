@@ -61,6 +61,6 @@ pt-BR:
       not_found: "não encontrado."
       not_locked: "foi bloqueado."
       not_saved:
-        one: "1 erro impediu que %{resource} fosse salvo. Por favor, verifique os campos marcados para saber como corrigi-los:"
-        other: "%{count} erros impediram que %{resource} fosse salvo. Por favor, verifique os campos marcados para saber como corrigi-los:"
+        one: "1 erro impediu que %{resource} fosse salva. Por favor, verifique a mensagem abaixo ou os campos marcados para saber como corrigi-lo:"
+        other: "%{count} erros impediram que %{resource} fosse salva. Por favor, verifique a mensagem abaixo ou os campos marcados para saber como corrigi-los:"
       equal_to_current_password: "deve ser diferente da senha atual."

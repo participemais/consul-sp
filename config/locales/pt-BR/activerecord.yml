@@ -260,6 +260,55 @@ pt-BR:
         recommended_debates: "Mostrar recomendações de debates"
         recommended_proposals: "Mostrar recomendações de debates"
         redeemable_code: "Código de verificação recebido via e-mail"
+        address_complement: Complemento
+        address_number: Número
+        cep: CEP
+        city: Cidade
+        date_of_birth: Data de nascimento
+        document_number: CPF
+        ethnicity: Raça
+        ethnicity_options:
+          yellow: Amarela
+          white: Branca
+          red: Indígena
+          brown: Parda
+          black: Preta
+        home_address: Endereço
+        gender: Gênero
+        gender_options:
+          female: Feminino
+          male: Masculino
+          non_binary: Não binário
+          unknown: Prefiro não responder
+        uf: UF
+        uf_options:
+          AC: Acre
+          AL: Alagoas
+          AM: Amazonas
+          AP: Amapá
+          BA: Bahia
+          CE: Ceará
+          DF: Distrito Federal
+          ES: Espírito Santo
+          GO: Goiás
+          MA: Maranhão
+          MG: Minas Gerais
+          MS: Mato Grosso do Sul
+          MT: Mato Grosso
+          PA: Pará
+          PB: Paraíba
+          PE: Pernambuco
+          PI: Piauí
+          PR: Paraná
+          RJ: Rio de Janeiro
+          RN: Rio Grande do Norte
+          RO: Rondônia
+          RR: Roraima
+          RS: Rio Grande do Sul
+          SC: Santa Catarina
+          SE: Sergipe
+          SP: São Paulo
+          TO: Tocantins
       direct_message:
         title: "Título"
         body: "Mensagem"
@@ -472,8 +521,12 @@ pt-BR:
       models:
         user:
           attributes:
+            cpf:
+              invalid_number: "Número de CPF inválido"
             email:
               password_already_set: "Este usuário já possui uma senha"
+            date_of_birth:
+              min_user_age: "Usuário deve ter mais de %{age} anos"
         debate:
           attributes:
             tag_list:
