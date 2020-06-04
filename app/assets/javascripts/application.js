@@ -112,6 +112,7 @@
 //= require budget_edit_associations
 //= require jquery.mask
 //= require masks
+//= require cep_autocomplete
 
 var initialize_modules = function() {
   "use strict";
@@ -167,6 +168,7 @@ var initialize_modules = function() {
   }
   App.BudgetEditAssociations.initialize();
   App.Masks.initialize();
+  App.CEPAutocomplete.initialize();
 };
 
 $(function() {
