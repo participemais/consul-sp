@@ -64,25 +64,6 @@ describe "Admin feature flags" do
     end
   end
 
-  scenario "Disable a feature" do
-    setting = Setting.find_by(key: "feature.twitter_login")
-
-    visit admin_settings_path
-
-    within("#edit_setting_#{setting.id}") do
-      expect(page).to have_button "Disable"
-      expect(page).not_to have_button "Enable"
-      click_button "Disable"
-    end
-
-    expect(page).to have_content "Value updated"
-
-    within("#edit_setting_#{setting.id}") do
-      expect(page).to have_button "Enable"
-      expect(page).not_to have_button "Disable"
-    end
-  end
-
   scenario "Enable a disabled feature" do
     setting = Setting.find_by(key: "feature.map")
 

@@ -1536,7 +1536,6 @@ table {
 // 12. Social
 // ----------
 
-.button.button-twitter,
 .button.button-facebook,
 .button.button-google,
 .button.button-wordpress,
@@ -1548,23 +1547,6 @@ table {
   line-height: $line-height * 2;
   padding: 0;
   position: relative;
-}
-
-.button.button-twitter {
-  background: #ecf7fc;
-  border-left: 3px solid #45b0e3;
-
-  &::before {
-    color: #45b0e3;
-    content: "f";
-    font-family: "icons" !important;
-    font-size: rem-calc(24);
-    left: 0;
-    line-height: $line-height * 2;
-    padding: 0 rem-calc(20);
-    position: absolute;
-    top: 0;
-  }
 }
 
 .ssb-twitter {

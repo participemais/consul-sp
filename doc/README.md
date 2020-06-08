@@ -10,7 +10,7 @@
 
 Actualmente CONSUL soporta:
 
-* Registro y verificación de usuarios tanto en la misma aplicación como con distintos proveedores (Twitter, Facebook, Google).
+* Registro y verificación de usuarios tanto en la misma aplicación como con distintos proveedores (Facebook, Google).
 * Distintos perfiles de usuario, tanto ciudadanos individuales como organizaciones y cargos públicos.
 * Distintos perfiles de administración, gestión, evaluación y moderación.
 * Espacio permanente de debates y propuestas.
@@ -23,11 +23,9 @@ Para registrar un usuario nuevo es posible hacerlo en la propia aplicación, dan
 
 ![Registro de usuario](imgs/user_registration.png "Registro de usuario")
 
-Por otro lado también se puede habilitar el registro a través de servicios externos como Twitter, Facebook y Google. Para esto hace falta tener la configuración habilitada en Settings y las claves y secretos de estos servicios en el fichero *config/secrets.yml*.
+Por otro lado también se puede habilitar el registro a través de servicios externos como Facebook y Google. Para esto hace falta tener la configuración habilitada en Settings y las claves y secretos de estos servicios en el fichero *config/secrets.yml*.
 
 ```
-  twitter_key: ""
-  twitter_secret: ""
   facebook_key: ""
   facebook_secret: ""
   google_oauth2_key: ""

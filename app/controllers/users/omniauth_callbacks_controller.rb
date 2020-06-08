@@ -1,8 +1,4 @@
 class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
-  def twitter
-    sign_in_with :twitter_login, :twitter
-  end
-
   def facebook
     sign_in_with :facebook_login, :facebook
   end
