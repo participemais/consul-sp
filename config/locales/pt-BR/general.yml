@@ -4,7 +4,6 @@ pt-BR:
       change_credentials_link: Alterar meus dados pessoais
       erase_account_link: Apagar minha conta
       finish_verification: Finalizar verificação
-      notifications: Notificações
       organization_name_label: Nome da organização
       organization_responsible_name_placeholder: Representante da organização/coletivo
       personal: Dados pessoais
@@ -25,6 +24,10 @@ pt-BR:
       username_label: Nome de usuário
       verified_account: Conta verificada
       verify_my_account: Verificar minha conta
+    edit:
+      notifications: Notificações
+      privacy: Privacidade
+      recommendations: Recomendações
   application:
     close: Fechar
     menu: Menu
@@ -248,7 +251,7 @@ pt-BR:
       open_gov: Governo Aberto
       proposals: Propostas
       poll_questions: Votação
-      budgets: Orçamento 
+      budgets: Orçamento
       notification_item:
         new_notifications:
           one: Você tem uma nova notificação
@@ -336,7 +339,7 @@ pt-BR:
     form:
       proposal_responsible_name_note: "(indivudualmente ou como representante de um\ncoletivo; não será mostrado publicamente)"
       proposal_summary_note: "(máximo de 200 caracteres)"
-      proposal_video_url_note: Você pode adicionar um link para o Youtube 
+      proposal_video_url_note: Você pode adicionar um link para o Youtube
       tag_category_label: "Categorias"
       tags_instructions: "Marque esta proposta. Você pode escolher entre as categorias propostas ou adicionar a sua própria"
       tags_label: Marcação
