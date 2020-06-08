@@ -83,7 +83,6 @@ class Setting < ApplicationRecord
         "feature.featured_proposals": nil,
         "feature.facebook_login": true,
         "feature.google_login": true,
-        "feature.twitter_login": true,
         "feature.wordpress_login": false,
         "feature.public_stats": true,
         "feature.signature_sheets": true,
