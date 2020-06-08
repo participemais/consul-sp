@@ -5,66 +5,63 @@
     </div>
 
     <%= form_for(@account, as: :account, url: account_path) do |f| %>
-      <div class="row">
+      <h2><%= t("account.edit.privacy") %></h2>
 
-        <h2><%= t("account.edit.privacy") %></h2>
-
-        <div class="small-12 column">
-          <%= f.check_box :public_activity %>
-        </div>
-
-        <div class="small-12 column">
-          <%= f.check_box :public_interests %>
-        </div>
-
-        <% if @account.email.present? %>
-          <h2><%= t("account.edit.notifications") %></h2>
-
-          <div class="small-12 column">
-            <%= f.check_box :email_on_comment %>
-          </div>
-
-          <div class="small-12 column">
-            <%= f.check_box :email_on_comment_reply %>
-          </div>
-
-          <div class="small-12 column">
-            <%= f.check_box :newsletter %>
-          </div>
-
-          <div class="small-12 column">
-            <%= f.check_box :email_digest %>
-          </div>
-
-          <div class="small-12 column">
-            <%= f.check_box :email_on_direct_message %>
-          </div>
-        <% end %>
-
-        <% if @account.official_level == 1 %>
-          <div class="small-12 column">
-            <%= f.check_box :official_position_badge %>
-          </div>
-        <% end %>
-
-        <% if feature?("user.recommendations") %>
-          <h2><%= t("account.edit.recommendations") %></h2>
-
-          <% if feature?("user.recommendations_on_debates") %>
-            <div class="small-12 column">
-              <%= f.check_box :recommended_debates %>
-            </div>
-          <% end %>
-
-          <% if feature?("user.recommendations_on_proposals") %>
-            <div class="small-12 column">
-              <%= f.check_box :recommended_proposals %>
-            </div>
-          <% end %>
-        <% end %>
-
-        <div class="small-12 column">
-          <%= f.submit t("account.show.save_changes_submit"), class: "button" %>
-        </div>
+      <div>
+        <%= f.check_box :public_activity %>
       </div>
+
+      <div>
+        <%= f.check_box :public_interests %>
+      </div>
+
+      <% if @account.email.present? %>
+        <h2><%= t("account.edit.notifications") %></h2>
+
+        <div>
+          <%= f.check_box :email_on_comment %>
+        </div>
+
+        <div>
+          <%= f.check_box :email_on_comment_reply %>
+        </div>
+
+        <div>
+          <%= f.check_box :newsletter %>
+        </div>
+
+        <div>
+          <%= f.check_box :email_digest %>
+        </div>
+
+        <div>
+          <%= f.check_box :email_on_direct_message %>
+        </div>
+      <% end %>
+
+      <% if @account.official_level == 1 %>
+        <div>
+          <%= f.check_box :official_position_badge %>
+        </div>
+      <% end %>
+
+      <% if feature?("user.recommendations") %>
+        <h2><%= t("account.edit.recommendations") %></h2>
+
+        <% if feature?("user.recommendations_on_debates") %>
+          <div>
+            <%= f.check_box :recommended_debates %>
+          </div>
+        <% end %>
+
+        <% if feature?("user.recommendations_on_proposals") %>
+          <div>
+            <%= f.check_box :recommended_proposals %>
+          </div>
+        <% end %>
+      <% end %>
+
+      <%= f.submit t("account.show.save_changes_submit"), class: "button" %>
     <% end %>
+  </div>
+</div>
