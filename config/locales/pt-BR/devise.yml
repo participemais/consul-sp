@@ -64,3 +64,4 @@ pt-BR:
         one: "1 erro impediu que %{resource} fosse salva. Por favor, verifique a mensagem abaixo ou os campos marcados para saber como corrigi-lo:"
         other: "%{count} erros impediram que %{resource} fosse salva. Por favor, verifique a mensagem abaixo ou os campos marcados para saber como corrigi-los:"
       equal_to_current_password: "deve ser diferente da senha atual."
+      recaptcha_error: "É necessário marcar a opção \"Não sou um robô\""
