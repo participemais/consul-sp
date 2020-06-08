@@ -1,17 +1,17 @@
 pt-BR:
   account:
     show:
-      change_credentials_link: Alterar meus dados pessoais
+      change_credentials_link: Alterar senha
       erase_account_link: Apagar minha conta
       finish_verification: Finalizar verificação
       organization_name_label: Nome da organização
       organization_responsible_name_placeholder: Representante da organização/coletivo
       personal: Dados pessoais
       phone_number_label: Número de Telefone
+      privacy_and_notifications: Privacidade e notificações
       public_interests_my_title_list: Marcações dos elementos que você segue
       public_interests_user_title_list: Marcações dos elementos que esse usuário segue
       save_changes_submit: Salvar alterações
-      recommendations: Recomendações
       title: Minha conta
       user_permission_debates: Participar nos debates
       user_permission_info: Minhas permissões
@@ -25,6 +25,7 @@ pt-BR:
       verified_account: Conta verificada
       verify_my_account: Verificar minha conta
     edit:
+      my_account: Minha conta
       notifications: Notificações
       privacy: Privacidade
       recommendations: Recomendações
