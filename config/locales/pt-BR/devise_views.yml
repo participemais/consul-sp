@@ -102,7 +102,7 @@ pt-BR:
           need_current: Precisamos de sua senha atual para confirmar as alterações
           password_confirmation_label: Confirmar nova senha
           password_label: Nova senha
-          update_submit: Atualização
+          update_submit: Atualizar
           waiting_for: "Aguardando confirmação de:"
         new:
           cancel: Cancelar o login
