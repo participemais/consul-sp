@@ -83,8 +83,6 @@ pt-BR:
     direct_message_max_per_day: "Número máximo de mensagens por dia"
     direct_message_max_per_day_description: "Número máximo de mensagens que um usuário pode enviar por dia"
     feature:
-      twitter_login: "Login do Twitter"
-      twitter_login_description: "Permitir usuários de inscrever-se com sua conta do twitter"
       facebook_login: "Login do Facebook"
       facebook_login_description: "Permitir usuários de inscrever-se com sua conta do Facebook"
       google_login: "Login do Google"
