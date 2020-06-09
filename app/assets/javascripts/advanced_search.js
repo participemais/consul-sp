@@ -24,7 +24,7 @@
         changeMonth: true,
         changeYear: true,
         maxDate: "+0d",
-        yearRange: "-100:+0"
+        yearRange: "-105:+0"
       });
       $(".js-calendar").datepicker({
         maxDate: "+0d"
