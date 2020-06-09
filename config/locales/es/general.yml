@@ -1,18 +1,17 @@
 es:
   account:
     show:
-      change_credentials_link: Cambiar mis datos de acceso
+      change_credentials_link: Cambiar mi contraseña
       erase_account_link: Darme de baja
       finish_verification: Finalizar verificación
-      notifications: Notificaciones
       organization_name_label: Nombre de la organización
       organization_responsible_name_placeholder: Representante de la asociación/colectivo
       personal: Datos personales
       phone_number_label: Teléfono
+      privacy_and_notifications: Privacidad y notificaciones
       public_interests_my_title_list: Etiquetas de los elementos que sigues
       public_interests_user_title_list: Etiquetas de los elementos que sigue este usuario
       save_changes_submit: Guardar cambios
-      recommendations: Recomendaciones
       title: Mi cuenta
       user_permission_debates: Participar en debates
       user_permission_info: Con tu cuenta ya puedes...
@@ -25,6 +24,11 @@ es:
       username_label: Nombre de usuario
       verified_account: Cuenta verificada
       verify_my_account: Verificar mi cuenta
+    edit:
+      my_account: Mi cuenta
+      notifications: Notificaciones
+      privacy: Privacidad
+      recommendations: Recomendaciones
   application:
     close: Cerrar
     menu: Menú

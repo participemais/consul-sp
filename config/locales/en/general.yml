@@ -1,18 +1,17 @@
 en:
   account:
     show:
-      change_credentials_link: Change my credentials
+      change_credentials_link: Change my password
       erase_account_link: Erase my account
       finish_verification: Complete verification
-      notifications: Notifications
       organization_name_label: Name of organization
       organization_responsible_name_placeholder: Representative of the organization/collective
       personal: Personal details
       phone_number_label: Phone number
+      privacy_and_notifications: Privacy and notifications
       public_interests_my_title_list: Tags of elements you follow
       public_interests_user_title_list: Tags of elements this user follows
       save_changes_submit: Save changes
-      recommendations: Recommendations
       title: My account
       user_permission_debates: Participate on debates
       user_permission_info: With your account you can...
@@ -25,6 +24,11 @@ en:
       username_label: Username
       verified_account: Account verified
       verify_my_account: Verify my account
+    edit:
+      my_account: My account
+      notifications: Notifications
+      privacy: Privacy
+      recommendations: Recommendations
   application:
     close: Close
     menu: Menu
