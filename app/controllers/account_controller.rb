@@ -30,7 +30,7 @@ class AccountController < ApplicationController
                       :email_on_comment_reply, :email_on_direct_message, :email_digest, :newsletter,
                       :official_position_badge, :recommended_debates, :recommended_proposals, :document_number, :date_of_birth,
                       :gender, :ethnicity, :cep, :home_address, :address_number,
-                      :address_complement, :city, :uf
+                      :address_complement, :city, :uf, :first_name, :last_name
                     ]
                    end
       params.require(:account).permit(*attributes)

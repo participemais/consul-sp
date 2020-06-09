@@ -41,6 +41,15 @@
               </div>
 
               <div class="row">
+                <div class="medium-6 column">
+                  <%= f.text_field(:first_name, required: true) %>
+                </div>
+                <div class="medium-6 column">
+                  <%= f.text_field(:last_name, required: true) %>
+                </div>
+              </div>
+
+              <div class="row">
                 <div class="medium-4 column">
                   <%= f.text_field(
                     :date_of_birth,
