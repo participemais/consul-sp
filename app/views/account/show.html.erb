@@ -26,16 +26,33 @@
                 <%= fo.text_field :responsible_name, autofocus: true, maxlength: Organization.responsible_name_max_length, placeholder: t("account.show.organization_responsible_name_placeholder") %>
               <% end %>
             <% else %>
+              <% if @account.document_number.blank? && params[:foreigner].nil? %>
+                <p>
+                  <%= link_to("Não sou brasileiro(a)", account_path(foreigner: true)) %>
+                </p>
+              <% end %>
+
               <div class="row">
                 <div class="medium-8 column">
                   <%= f.text_field :username, maxlength: User.username_max_length, placeholder: t("account.show.username_label") %>
                 </div>
                 <div class="medium-4 column">
-                  <%= f.text_field(
-                    :document_number,
-                    class: "js-cpf-mask",
-                    required: true
-                  ) %>
+                  <% if params[:foreigner] || @account.foreigner_document? %>
+                    <%= f.text_field(
+                      :document_number,
+                      required: true,
+                      label: "RNE",
+                      title: "Registro Nacional de Estrangeiros"
+                    ) %>
+                    <%= f.hidden_field(:document_type, value: "rne") %>
+                  <% else %>
+                    <%= f.text_field(
+                      :document_number,
+                      class: "js-cpf-mask",
+                      required: true
+                    ) %>
+                    <%= f.hidden_field(:document_type, value: "cpf") %>
+                  <% end %>
                 </div>
               </div>
 
