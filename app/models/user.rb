@@ -409,7 +409,7 @@ class User < ApplicationRecord
   end
 
   def foreigner_document?
-    document_type == 'rne'
+    document_type == 'rnm'
   end
 
   private
