@@ -25,8 +25,6 @@
                 <%= fo.text_field :name, autofocus: true, maxlength: Organization.name_max_length, placeholder: t("account.show.organization_name_label") %>
                 <%= fo.text_field :responsible_name, autofocus: true, maxlength: Organization.responsible_name_max_length, placeholder: t("account.show.organization_responsible_name_placeholder") %>
               <% end %>
-              <%= f.text_field :phone_number, placeholder: t("account.show.phone_number_label") %>
-
             <% else %>
               <div class="row">
                 <div class="medium-8 column">
@@ -76,40 +74,40 @@
                   ) %>
                 </div>
               </div>
-
-              <div class="row">
-                <div class="medium-3 column">
-                  <%= f.text_field(
-                    :cep,
-                    required: true,
-                    class: "js-cep-mask"
-                  ) %>
-                </div>
-                <div class="medium-9 column">
-                  <%= f.text_field(:home_address, required: true) %>
-                </div>
-              </div>
-
-              <div class="row">
-                <div class="small-6 medium-2 column">
-                  <%= f.text_field(:address_number) %>
-                </div>
-                <div class="small-6 medium-3 column">
-                  <%= f.text_field(:address_complement) %>
-                </div>
-                <div class="small-6 medium-4 column">
-                  <%= f.text_field(:city, required: true) %>
-                </div>
-                <div class="small-6 medium-3 column">
-                  <%= f.select(
-                    :uf,
-                    options_for_uf,
-                    required: true,
-                    include_blank: true
-                  ) %>
-                </div>
-              </div>
             <% end %>
+
+            <div class="row">
+              <div class="medium-3 column">
+                <%= f.text_field(
+                  :cep,
+                  required: true,
+                  class: "js-cep-mask"
+                ) %>
+              </div>
+              <div class="medium-9 column">
+                <%= f.text_field(:home_address, required: true) %>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="small-6 medium-2 column">
+                <%= f.text_field(:address_number) %>
+              </div>
+              <div class="small-6 medium-3 column">
+                <%= f.text_field(:address_complement) %>
+              </div>
+              <div class="small-6 medium-4 column">
+                <%= f.text_field(:city, required: true) %>
+              </div>
+              <div class="small-6 medium-3 column">
+                <%= f.select(
+                  :uf,
+                  options_for_uf,
+                  required: true,
+                  include_blank: true
+                ) %>
+              </div>
+            </div>
           </div>
 
           <%= f.submit t("account.show.save_changes_submit"), class: "button margin-top" %>
