@@ -309,7 +309,7 @@ pt-BR:
           SE: Sergipe
           SP: São Paulo
           TO: Tocantins
-        first_name: "Nome"
+        first_name: "Nome social"
         last_name: "Sobrenome"
       direct_message:
         title: "Título"
