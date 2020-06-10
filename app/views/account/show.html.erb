@@ -45,6 +45,11 @@
                       class: "js-rnm-mask uppercase",
                     ) %>
                     <%= f.hidden_field(:document_type, value: "rnm") %>
+                    <% if params[:foreigner] && @account.document_number.blank? %>
+                      <p class="small-link-form">
+                        <%= link_to("< #{t('shared.back')}", account_path) %>
+                      </p>
+                    <% end %>
                   <% else %>
                     <%= f.text_field(
                       :document_number,
