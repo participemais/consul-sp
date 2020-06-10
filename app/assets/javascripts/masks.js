@@ -6,7 +6,7 @@
         'A': { pattern: /[01]/ },
         'B': { pattern: /[12]/ },
         'C': { pattern: /[0-3]/ },
-        'Z': { pattern: /[a-zA-Z]/ }
+        'Z': { pattern: /[a-z]/i }
       };
 
       $('input.js-date-of-birth-mask').mask('C0/A0/B000', { translation });
