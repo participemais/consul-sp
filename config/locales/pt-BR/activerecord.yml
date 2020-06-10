@@ -316,7 +316,7 @@ pt-BR:
         body: "Mensagem"
       organization:
         name: "Nome da organização"
-        responsible_name: "Pessoa responsável pelo grupo"
+        responsible_name: "Responsável pelo grupo"
       poll:
         name: "Nome"
         starts_at: "Data de início"

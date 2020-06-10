@@ -45,7 +45,7 @@ pt-BR:
           password_label: Senha
           phone_number_label: Números de telefone
           responsible_name_label: Nome completo da pessoa responsável pelo coletivo
-          responsible_name_note: Esta seria a pessoa que representa a associação/coletivo em nome de quem as propostas são apresentadas
+          responsible_name_note: Pessoa que representa a associação/coletivo em nome de quem as propostas são apresentadas
           submit: Registre-se
           title: Registar-se como uma organização ou coletivo
         success:
@@ -113,7 +113,7 @@ pt-BR:
           password_label: Senha
           redeemable_code: Código de verificação recebido via e-mail (opcional)
           submit: Registre-se
-          terms: Ao registrar-se você aceita os%{terms}
+          terms: Ao se registrar você aceita os %{terms}
           terms_link: termos e condições de uso
           terms_title: Ao se registrar você aceita os termos e condições de uso
           title: Registre-se
