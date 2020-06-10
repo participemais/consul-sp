@@ -46,7 +46,7 @@
                     ) %>
                     <%= f.hidden_field(:document_type, value: "rnm") %>
                     <% if params[:foreigner] && @account.document_number.blank? %>
-                      <p class="small-link-form">
+                      <p class="small-link-form text-right">
                         <%= link_to("< #{t('shared.back')}", account_path) %>
                       </p>
                     <% end %>
@@ -58,7 +58,7 @@
                     ) %>
                     <%= f.hidden_field(:document_type, value: "cpf") %>
                     <% if @account.document_number.blank? && params[:foreigner].nil? %>
-                      <p class="small-link-form">
+                      <p class="small-link-form text-right">
                         <%= link_to(
                           t('account.show.foreigner_user'),
                           account_path(foreigner: true)
