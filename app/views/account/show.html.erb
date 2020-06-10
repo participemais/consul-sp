@@ -26,14 +26,6 @@
                 <%= fo.text_field :responsible_name, autofocus: true, maxlength: Organization.responsible_name_max_length, placeholder: t("account.show.organization_responsible_name_placeholder") %>
               <% end %>
             <% else %>
-              <% if @account.document_number.blank? && params[:foreigner].nil? %>
-                <p>
-                  <%= link_to(
-                    t("account.show.foreigner_user"),
-                    account_path(foreigner: true)
-                  ) %>
-                </p>
-              <% end %>
 
               <div class="row">
                 <div class="medium-8 column">
@@ -60,6 +52,14 @@
                       required: true
                     ) %>
                     <%= f.hidden_field(:document_type, value: "cpf") %>
+                    <% if @account.document_number.blank? && params[:foreigner].nil? %>
+                      <p class="small-link-form">
+                        <%= link_to(
+                          t('account.show.foreigner_user'),
+                          account_path(foreigner: true)
+                        ) %>
+                      </p>
+                    <% end %>
                   <% end %>
                 </div>
               </div>

@@ -3,3 +3,8 @@
 // * English: https://github.com/consul/consul/blob/master/CUSTOMIZE_EN.md#css
 // * Spanish: https://github.com/consul/consul/blob/master/CUSTOMIZE_ES.md#css
 //
+.small-link-form {
+  text-align: right;
+  font-size: $small-font-size;
+  margin: -1rem 0;
+}
