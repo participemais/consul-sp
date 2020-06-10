@@ -49,7 +49,8 @@
                       :document_number,
                       required: true,
                       label: t("account.show.foreigner_document"),
-                      title: t("account.show.foreigner_document_title")
+                      title: t("account.show.foreigner_document_title"),
+                      class: "js-rnm-mask uppercase",
                     ) %>
                     <%= f.hidden_field(:document_type, value: "rnm") %>
                   <% else %>
