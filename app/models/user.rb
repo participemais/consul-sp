@@ -255,21 +255,30 @@ class User < ApplicationRecord
   end
 
   def erase(erase_reason = nil)
-    update!(
+    assign_attributes(
       erased_at: Time.current,
-      erase_reason: erase_reason,
-      username: nil,
-      email: nil,
-      unconfirmed_email: nil,
-      phone_number: nil,
-      encrypted_password: "",
-      confirmation_token: nil,
-      reset_password_token: nil,
-      email_verification_token: nil,
-      confirmed_phone: nil,
-      unconfirmed_phone: nil
+      erase_reason: erase_reason
     )
-    identities.destroy_all
+
+    unless document_number
+      assign_attributes(
+        erased_at: Time.current,
+        erase_reason: erase_reason,
+        username: nil,
+        email: nil,
+        unconfirmed_email: nil,
+        phone_number: nil,
+        encrypted_password: "",
+        confirmation_token: nil,
+        reset_password_token: nil,
+        email_verification_token: nil,
+        confirmed_phone: nil,
+        unconfirmed_phone: nil
+      )
+      identities.destroy_all
+    end
+
+    save
   end
 
   def erased?
