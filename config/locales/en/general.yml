@@ -4,6 +4,9 @@ en:
       change_credentials_link: Change my password
       erase_account_link: Erase my account
       finish_verification: Complete verification
+      foreigner_document: RNM
+      foreigner_document_title: Registro Nacional de Estrangeiros
+      foreigner_user: I'm not brazilian
       organization_name_label: Name of organization
       organization_responsible_name_placeholder: Representative of the organization/collective
       personal: Personal details

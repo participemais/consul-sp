@@ -4,6 +4,9 @@ pt-BR:
       change_credentials_link: Alterar senha
       erase_account_link: Apagar minha conta
       finish_verification: Finalizar verificação
+      foreigner_document: RNM
+      foreigner_document_title: Registro Nacional de Estrangeiros
+      foreigner_user: Não sou brasileiro(a)
       organization_name_label: Nome da organização
       organization_responsible_name_placeholder: Representante da organização/coletivo
       personal: Dados pessoais

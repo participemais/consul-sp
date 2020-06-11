@@ -28,7 +28,7 @@ class AccountController < ApplicationController
                    else
                      [:username, :public_activity, :public_interests, :email_on_comment,
                       :email_on_comment_reply, :email_on_direct_message, :email_digest, :newsletter,
-                      :official_position_badge, :recommended_debates, :recommended_proposals, :document_number, :date_of_birth,
+                      :official_position_badge, :recommended_debates, :recommended_proposals, :document_number, :document_type, :date_of_birth,
                       :gender, :ethnicity, :cep, :home_address, :address_number,
                       :address_complement, :city, :uf, :first_name, :last_name
                     ]

@@ -84,7 +84,7 @@ class User < ApplicationRecord
 
   validate :min_user_age
 
-  validate :cpf_number
+  validate :cpf_number, if: :local_document?
 
   validates :official_level, inclusion: { in: 0..5 }
   validates :terms_of_service, acceptance: { allow_nil: false }, on: :create
@@ -404,6 +404,14 @@ class User < ApplicationRecord
     devise_mailer.send(notification, self, *args).deliver_later
   end
 
+  def local_document?
+    document_number && document_type == 'cpf'
+  end
+
+  def foreigner_document?
+    document_type == 'rnm'
+  end
+
   private
 
     def clean_document_number
@@ -432,7 +440,6 @@ class User < ApplicationRecord
     end
 
     def cpf_number
-      return unless document_number
       unless CPF.valid?(document_number)
         message = I18n.t(
           :invalid_number,
