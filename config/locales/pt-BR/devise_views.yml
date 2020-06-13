@@ -14,10 +14,18 @@ pt-BR:
         title: Confirmar minha conta
     mailer:
       confirmation_instructions:
-        confirm_link: Confirmar minha conta
-        text: "Você pode confirmar a sua conta de email no seguinte link:"
-        title: Bem-vindo
-        welcome: Bem-vindo
+        here: aqui
+        link: link
+        welcome: Olá, <strong>%{username}</strong>!
+        thanks: Obrigado por ser cadastrar no %{org_name}!
+        instruction_1: "Só precisamos que confirme seu endereço de email, clicando %{link}."
+        instruction_2: Depois de finalizar todo o cadastro, você já pode contribuir com as decisões de nossa cidade.
+        instruction_3: Vamos enviar para este email processos de participação popular que podem ser de seu interesse, todos relacionados à administração pública municipal e ao %{org_name}.
+        instruction_4: Você pode selecionar o tipo de informação que deseja receber, configurando suas notificações na página da sua conta.
+        instruction_5: "Caso esteja com alguma dúvida, neste %{link}, esclarecemos as principais funcionalidades do sistema. Você ainda pode entrar em contato direto com a gente pelo email: participemais@prefeitura.sp.gov.br"
+        instruction_6: Contamos com a sua colaboração para a construção de uma cidade cada vez melhor!
+        regards: Atenciosamente,
+        signature: Governo Aberto na Cidade de São Paulo
       reset_password_instructions:
         change_link: Alterar minha senha
         hello: Olá
@@ -64,19 +72,19 @@ pt-BR:
       new:
         email_label: Email
         send_submit: Enviar instruções
-        title: Senha esquecida?
+        title: Esqueceu a senha?
     sessions:
       new:
         login_label: E-mail ou nome de usuário
         password_label: Senha
-        remember_me: Lembre-se de mim
+        remember_me: Lembrar minha senha
         submit: Entrar
         title: Iniciar sessão
     shared:
       links:
         login: Entrar
         new_confirmation: Ainda não recebeu as instruções para ativar sua conta?
-        new_password: Senha esquecida?
+        new_password: Esqueceu a senha?
         new_unlock: Ainda não recebeu as instruções de desbloqueio?
         signin_with_provider: Conecte-se com %{provider}
         signup: Não tem uma conta? %{signup_link}
