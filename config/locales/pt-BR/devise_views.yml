@@ -26,6 +26,10 @@ pt-BR:
         instruction_6: Contamos com a sua colaboração para a construção de uma cidade cada vez melhor!
         regards: Atenciosamente,
         signature: Governo Aberto na Cidade de São Paulo
+        with_participation_processes: "Hoje mesmo já é possível participar dos seguintes processos:"
+        with_one_participation_process: Hoje mesmo já é possível participar da votação %{name}, que vai até dia <strong>%{date}</strong>. Só precisa clicar %{link}.
+        without_participation_processes: No momento, não temos nenhum processo participativo aberto, mas você pode acompanhar as novidades da plataforma, clicando %{link}.
+        participation_process: "%{link} até dia <strong>%{date}</strong>"
       reset_password_instructions:
         change_link: Alterar minha senha
         hello: Olá

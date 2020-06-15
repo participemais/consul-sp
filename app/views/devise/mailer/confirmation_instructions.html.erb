@@ -28,6 +28,10 @@
   </p>
 
   <p style="font-family: 'Open Sans','Helvetica Neue',arial,sans-serif;font-size: 14px;font-weight: normal;line-height: 24px;">
+    <%= render partial: "current_participation_processes" %>
+  </p>
+
+  <p style="font-family: 'Open Sans','Helvetica Neue',arial,sans-serif;font-size: 14px;font-weight: normal;line-height: 24px;">
     <%= sanitize(t(
       "devise_views.mailer.confirmation_instructions.instruction_3",
       org_name: Setting[:org_name]
