@@ -61,7 +61,7 @@ pt-BR:
           open: Processos abertos
           past: Passados
         no_open_processes: Não existem processos abertos
-        no_past_processes: Não existem processos terminados
+        no_past_processes: Não existem processos finalizados
         section_header:
           icon_alt: Ícone de processos legislativos
           title: Processos legislativos
@@ -109,7 +109,7 @@ pt-BR:
         organizations: As organizações não podem participar no debate
         unauthenticated: Você precisa %{signin} ou %{signup} para participar.
         verified_only: Somente usuários verificados podem participar, %{verify_account}.
-        debate_phase_not_open: Terminou a fase de debate e respostas não são mais aceitas
+        debate_phase_not_open: A fase de debate terminou e respostas não são mais aceitas
     shared:
       share: Compartilhar
       share_comment: Comente em %{version_name} do rascunho de processo %{process_name}
