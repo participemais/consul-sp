@@ -7,10 +7,10 @@
   </p>
 
   <p style="font-family: 'Open Sans','Helvetica Neue',arial,sans-serif;font-size: 14px;font-weight: normal;line-height: 24px;">
-    <%= t(
+    <%= sanitize(t(
       "devise_views.mailer.confirmation_instructions.thanks",
       org_name: Setting[:org_name]
-    ) %>
+    )) %>
   </p>
 
   <p style="font-family: 'Open Sans','Helvetica Neue',arial,sans-serif;font-size: 14px;font-weight: normal;line-height: 24px;">
@@ -28,10 +28,10 @@
   </p>
 
   <p style="font-family: 'Open Sans','Helvetica Neue',arial,sans-serif;font-size: 14px;font-weight: normal;line-height: 24px;">
-    <%= t(
+    <%= sanitize(t(
       "devise_views.mailer.confirmation_instructions.instruction_3",
       org_name: Setting[:org_name]
-    ) %>
+    )) %>
   </p>
 
   <p style="font-family: 'Open Sans','Helvetica Neue',arial,sans-serif;font-size: 14px;font-weight: normal;line-height: 24px;">
@@ -44,6 +44,7 @@
       link: link_to(
         t("devise_views.mailer.confirmation_instructions.link"),
         faq_url,
+        target: "_blank",
         style: "color: #2895F1; text-decoration:none;"
       )
     )) %>
