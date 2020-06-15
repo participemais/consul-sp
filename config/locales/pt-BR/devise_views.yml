@@ -25,7 +25,7 @@ pt-BR:
         instruction_5: "Caso esteja com alguma dúvida, neste %{link}, esclarecemos as principais funcionalidades do sistema. Você ainda pode entrar em contato direto com a gente pelo email: participemais@prefeitura.sp.gov.br"
         instruction_6: Contamos com a sua colaboração para a construção de uma cidade cada vez melhor!
         regards: Atenciosamente,
-        signature: Governo Aberto na Cidade de São Paulo
+        signature: Equipe <strong>%{org_name}</strong>
         with_participation_processes: "Hoje mesmo já é possível participar dos seguintes processos:"
         with_one_participation_process: Hoje mesmo já é possível participar da votação %{name}, que vai até dia <strong>%{date}</strong>. Só precisa clicar %{link}.
         without_participation_processes: No momento, não temos nenhum processo participativo aberto, mas você pode acompanhar as novidades da plataforma, clicando %{link}.

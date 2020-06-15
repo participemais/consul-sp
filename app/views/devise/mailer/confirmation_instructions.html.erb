@@ -63,6 +63,9 @@
   </p>
 
   <p style="font-family: 'Open Sans','Helvetica Neue',arial,sans-serif;font-size: 14px;font-weight: normal;line-height: 24px;">
-    <%= t("devise_views.mailer.confirmation_instructions.signature") %>
+    <%= sanitize(t(
+      "devise_views.mailer.confirmation_instructions.signature",
+      org_name: Setting[:org_name]
+    )) %>
   </p>
 </td>
