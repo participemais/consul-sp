@@ -1,18 +1,20 @@
 pt-BR:
   account:
     show:
-      change_credentials_link: Alterar meus dados pessoais
+      change_credentials_link: Alterar senha
       erase_account_link: Apagar minha conta
       finish_verification: Finalizar verificação
-      notifications: Notificações
+      foreigner_document: RNM
+      foreigner_document_title: Registro Nacional de Estrangeiros
+      foreigner_user: Não sou brasileiro(a)
       organization_name_label: Nome da organização
       organization_responsible_name_placeholder: Representante da organização/coletivo
       personal: Dados pessoais
       phone_number_label: Número de Telefone
+      privacy_and_notifications: Privacidade e notificações
       public_interests_my_title_list: Marcações dos elementos que você segue
       public_interests_user_title_list: Marcações dos elementos que esse usuário segue
       save_changes_submit: Salvar alterações
-      recommendations: Recomendações
       title: Minha conta
       user_permission_debates: Participar nos debates
       user_permission_info: Minhas permissões
@@ -25,6 +27,11 @@ pt-BR:
       username_label: Nome de usuário
       verified_account: Conta verificada
       verify_my_account: Verificar minha conta
+    edit:
+      my_account: Minha conta
+      notifications: Notificações
+      privacy: Privacidade
+      recommendations: Recomendações
   application:
     close: Fechar
     menu: Menu
@@ -248,7 +255,7 @@ pt-BR:
       open_gov: Governo Aberto
       proposals: Propostas
       poll_questions: Votação
-      budgets: Orçamento 
+      budgets: Orçamento
       notification_item:
         new_notifications:
           one: Você tem uma nova notificação
@@ -336,7 +343,7 @@ pt-BR:
     form:
       proposal_responsible_name_note: "(indivudualmente ou como representante de um\ncoletivo; não será mostrado publicamente)"
       proposal_summary_note: "(máximo de 200 caracteres)"
-      proposal_video_url_note: Você pode adicionar um link para o Youtube 
+      proposal_video_url_note: Você pode adicionar um link para o Youtube
       tag_category_label: "Categorias"
       tags_instructions: "Marque esta proposta. Você pode escolher entre as categorias propostas ou adicionar a sua própria"
       tags_label: Marcação
