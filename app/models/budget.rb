@@ -200,6 +200,11 @@ class Budget < ApplicationRecord
     investments.winners.map(&:milestone_tag_list).flatten.uniq.sort
   end
 
+  def balloting_ends_at_for_mail
+    return unless balloting?
+    I18n.l(current_phase.ends_at.to_date, format: :short_day_and_month)
+  end
+
   private
 
     def generate_phases
