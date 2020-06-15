@@ -8,76 +8,76 @@ pt-BR:
         no_balloted_group_yet: "Você ainda não votou neste grupo, vote!"
         remove: Remover voto
         voted:
-          one: "Você votou em <span>um</span> proposta para o orçamento."
-          other: "Você votou em <span>%{count}</span> propostas para o orçamento cidadão."
+          one: "Você votou em <span>um</span> investimento."
+          other: "Você votou em <span>%{count}</span> investimentos."
         voted_info: "Seu voto foi confirmado!"
         voted_info_2: "Mas você pode alterar o seu voto a qualquer momento antes da conclusão desta fase."
-        zero: Você não votou em um projeto.
+        zero: Você não votou em um projeto de investimento.
       reasons_for_not_balloting:
         not_logged_in: Você precisa %{signin} ou %{signup} para continuar.
-        not_verified: Somente usuários verificados podem votar; %{verify_account}.
+        not_verified: Somente usuários verificados podem votar em investimentos; %{verify_account}.
         organization: Organizações não tem permissão de voto
-        not_selected: Propostas não selecionadas não podem ser apoiados
-        not_enough_money: "Você já atribuiu seus votos disponíveis.<br><small>Lembre-se que pode %{change_ballot} a qualquer momento</small>"
+        not_selected: Projetos de investimento não selecionados não podem ser apoiados
+        not_enough_money: "Você já atribuiu o orçamento disponível.<br><small>Lembre-se que pode %{change_ballot} a qualquer momento</small>"
         no_ballots_allowed: A fase de seleção está fechada
         different_heading_assigned: "Você já votou em um título diferente: %{heading_link}"
         change_ballot: mudar seus votos
-        casted_offline: Você já participou presencialmente
+        casted_offline: Você já participou
     groups:
       show:
         title: Selecione uma opção
-        unfeasible_title: Propostas inviáveis
-        unfeasible: Ver propostas inviáveis
-        unselected_title: Propostas não selecionados para a fase de votação
-        unselected: Ver propostas não selecionados para a fase de votação
+        unfeasible_title: Investimentos inviáveis
+        unfeasible: Ver investimentos inviáveis
+        unselected_title: Investimentos não selecionados para a fase de votação
+        unselected: Ver investimentos não selecionados para a fase de votação
     phase:
       drafting: Rascunho (não visível ao público)
       informing: Informação
-      accepting: Aceite das propostas
-      reviewing: Revisando as propostas
-      selecting: Seleção das propostas
-      valuating: Avaliação das propostas
-      publishing_prices: Publicação das propostas
-      balloting: Votação das propostas
-      reviewing_ballots: Revisão dos votos
-      finished: Orçamento final
+      accepting: Recepção Das Propostas
+      reviewing: Sistematização e Revisão das Propostas
+      selecting: Priorização das Propostas
+      valuating: Avaliação das Propostas
+      publishing_prices: Publicação das Propostas
+      balloting: Votação Popular
+      reviewing_ballots: Análise de Viabilidade
+      finished: Devolutiva e Monitoramento
     index:
-      title: Orçamentos
-      empty_budgets: Não há orçamentos.
+      title: Orçamento cidadão
+      empty_budgets: Não há orçamento.
       section_header:
-        icon_alt: Ícone dos orçamentos
-        title: Orçamentos
-        help: Ajuda com orçamentos
+        icon_alt: Ícone dos orçamentos 
+        title: Orçamentos cidadão
+        help: Ajuda com orçamentos 
         all_phases: Ver todas as fases
-      all_phases: Fases do investimento orçamental
-      map: Propostas de investimentos orçamentários por subprefeitura
-      investment_proyects: Lista de todos as propostas orçamentárias
-      unfeasible_investment_proyects: Lista de todas as propostas de investimento inviáveis
-      not_selected_investment_proyects: Lista de todas as propostas não selecionados para votação
-      finished_budgets: Orçamentos concluídos
+      all_phases: Fases do orçamento cidadão
+      map: Propostas de orçamento cidadão por subprefeitura
+      investment_proyects: Lista de todas as propostas de Orçamento Cidadão
+      unfeasible_investment_proyects: Lista de todas propostas de Orçamento Cidadão
+      not_selected_investment_proyects: Lista de todas propostas de Orçamento Cidadão não selecionadas para votação
+      finished_budgets: Orçamentos Cidadão concluídos
       see_results: Exibir resultados
       section_footer:
-        title: Ajuda com orçamentos participativos
-        description: Com os orçamentos participativos, os cidadãos decidem para quais dos projetos apresentados será destinada uma parte do orçamento municipal.
-      milestones: Marcos
+        title: Ajuda com orçamentos 
+        description: No Orçamento Cidadão, os cidadãos podem propor e decidir sobre os projetos orçamentários da cidade.
+      milestones: Etapas
     investments:
-      form: Saiba mais sobre as propostas orçamentárias e o Projeto de Lei Orçamentária Anual 
+      form:
         tag_category_label: "Categorias"
         tags_instructions: "Marque esta proposta. Você pode escolher entre as categorias propostas ou adicionar a sua própria"
         tags_label: Marcação
         tags_placeholder: "Entre com as marcações que você deseja usar, separadas por vírgulas ('s\")"
-        map_location: "Localização no mapa"
-        map_location_instructions: "Navegue no mapa até o local e fixe o marcador."
+        map_location: "Subprefeitura"
+        map_location_instructions: "Navegue no mapa até o local e fixe a subprefeitura."
         map_remove_marker: "Remover o marcador do mapa"
         map_skip_checkbox: "Esta proposta não tem uma localização concreta ou não a conheço."
       index:
-        title: Orçamento
-        unfeasible: Propostas inviáveis
-        unfeasible_text: "As propostas devem atender a uma série de critérios (legalidade, concretude, ser de responsabilidade da cidade, não exceder o limite do orçamento) para serem declaradas viáveis e chegarem ao estágio de votação final. Todas as propostas que não atendem a esses critérios são marcadas como inviáveis e publicadas na lista a seguir, juntamente com seu relatório de inviabilidade."
-        by_heading: "Propostas com escopo: %{heading}"
+        title: Orçamento cidadão
+        unfeasible: Projetos de investimento inviáveis
+        unfeasible_text: "As propostas devem atender a uma série de critérios (legalidade, concretude, ser de responsabilidade da cidade, não exceder o limite do orçamento, respeitar as especificações técnicas e jurídicas) para serem declaradas viáveis e chegarem ao estágio de votação final. Todas as propostas que não atendem a esses critérios são marcadas como inviáveis e publicadas na lista a seguir, juntamente com seu relatório de inviabilidade."
+        by_heading: "Propostas de Orçamento com escopo: %{heading}"
         search_form:
           button: Buscar
-          placeholder: Buscar proposta...
+          placeholder: Buscar propostas de orçamento...
           title: Buscar
         search_results:
           one: " contendo o termo <strong>'%{search_term}'</strong>"
@@ -92,53 +92,53 @@ pt-BR:
           different_heading_assigned: "Você tem votos ativos num título diferente: %{heading_link}"
           change_ballot: "Se você mudar de ideia, poderá remover seus votos em %{check_ballot} e começar de novo."
           check_ballot_link: "verificar minha cédula"
-          zero: Você ainda não votou em uma proposta neste grupo.
-          verified_only: "Para criar uma nova proposta %{verify}."
-          create: "Criar um proposta de orçamentário"
-          not_logged_in: "Para criar uma nova proposta orçamentária, você deve %{sign_in} ou %{sign_up}."
+          zero: Você não votou em um projeto de investimento neste grupo.
+          verified_only: "Para criar um novo investimento orçamentário %{verify}."
+          create: "Criar um investimento orçamentário"
+          not_logged_in: "Para criar um novo investimento orçamentário, você deve %{sign_in} ou %{sign_up}."
           by_feasibility: Por viabilidade
-          feasible: Propostas viáveis
-          unfeasible: Propostas inviáveis
+          feasible: Projetos viáveis
+          unfeasible: Projetos inviáveis
         orders:
           random: aleatório
           confidence_score: melhor avaliado
           price: por preço
       share:
-        message: "Eu criei a proposta de investimento %{title} em %{handle}. Crie uma você também!"
+        message: "Eu criei o projeto de investimento %{title} em %{handle}. Crie um projeto você também!"
       show:
         author_deleted: Usuário excluído
-        price_explanation: Explicação da viabilidade
-        unfeasibility_explanation: Explicação da inviabilidade
-        code: "Código da proposta: <strong>%{code}</strong>"
+        price_explanation: Explicação do preço
+        unfeasibility_explanation: Explanação da inviabilidade
+        code: "Código do projeto de investimento: <strong>%{code}</strong>"
         location: "Localização: <strong>%{location}</strong>"
         organization_name: "Proposta em nome de: <strong>%{name}</strong>"
         share: Compartilhar
-        title: Proposta
+        title: Projeto de investimento
         supports: Apoios
         votes: Votos
         price: Preço
         comments_tab: Comentários
-        milestones_tab: Fases
+        milestones_tab: Marcos
         author: Autor
-        project_unfeasible: "Esta proposta <strong>foi marcado como não viável</strong> e não vai à fase de votação."
-        project_selected: "Esta proposta <strong>está selecionado</strong> para a fase de votação."
-        project_winner: "Proposta mais bem votada"
-        project_not_selected: "Esta proposta <strong>não foi selecionada</strong> para a fase de votação."
+        project_unfeasible: "Este projeto de investimento <strong>foi marcado como não viável</strong> e não vai à fase de votação."
+        project_selected: "Este projeto de investimento <strong>está selecionado</strong> para a fase de votação."
+        project_winner: "Projeto de investimento ganhando"
+        project_not_selected: "Este projeto de investimento <strong>não foi selecionado</strong> para a fase de votação."
         see_price_explanation: Exposição de custos
       wrong_price_format: Apenas números inteiros
       investment:
         add: Voto
-        already_added: Você já adicionou esta proposta
-        already_supported: Você já apoiou esta proposta. Compartilhe!
+        already_added: Você já adicionou este projeto de investimento
+        already_supported: Você já apoiou esta proposta de investimento. Compartilhe!
         support_title: Apoiar este projeto
         confirm_group:
           one: "Você pode somente apoiar investimentos no distrito de %{count}. Se você continuar, não poderá alterar a eleição de seu distrito. Tem certeza?"
           other: "Você pode somente apoiar investimentos no distrito de %{count}. Se você continuar, não poderá alterar a eleição de seu distrito. Tem certeza?"
         supports:
-          zero: Nenhum voto
-          one: 1 voto
-          other: "%{count} votos"
-        give_support: Votar
+          zero: Nenhum apoio
+          one: 1 apoio
+          other: "%{count} apoios"
+        give_support: Apoiar
       header:
         check_ballot: Verificar minha cédula
         different_heading_assigned: "Você tem votos ativos num título diferente: %{heading_link}"
@@ -160,7 +160,7 @@ pt-BR:
       link: Resultados
       page_title: "%{budget} - Resultados"
       heading: "Resultados do orçamento cidadão"
-      heading_selection_title: "Por distrito"
+      heading_selection_title: "Por Subprefeitura"
       ballot_lines_count: Votos
       hide_discarded_link: Esconder descartados
       show_all_link: Mostrar todos
@@ -170,21 +170,21 @@ pt-BR:
       discarded: "Proposta de gasto descartada: "
       incompatibles: Incompatíveis
       investment_title: Título do projeto
-      investment_proyects: Lista de todos as propostas
-      unfeasible_investment_proyects: Lista de todas as propotas inviáveis
-      not_selected_investment_proyects: Lista de todas as propotas não selecionadas para votação
+      investment_proyects: Lista de todos os projetos de investimento
+      unfeasible_investment_proyects: Lista de todos os projetos de investimento inviáveis
+      not_selected_investment_proyects: Lista de todos os projetos de investimento não selecionados para votação
     executions:
-      link: "Histórico"
+      link: "Marcos"
       page_title: "%{budget} - Andamento do(s) projeto(s)"
-      heading: "Orçamento cidadão"
-      heading_selection_title: "Por subprefeitura"
-      no_winner_investments: "Não há propotas ganhadoras neste estado"
+      heading: "Orçamento participativo (Marcos)"
+      heading_selection_title: "Por Subprefeitura"
+      no_winner_investments: "Não há projetos de investimentos ganhadores"
       filters:
         status:
           label: "Estado atual do projeto"
           all: "Todo (%{count})"
         milestone_tag:
-          label: "Fase atual"
+          label: "Status de andamento"
           all: "Todo (%{count})"
     phases:
       errors:
