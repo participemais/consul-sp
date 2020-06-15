@@ -29,11 +29,11 @@ pt-BR:
         image_alt: "Botão para apoiar uma proposta"
         figcaption: 'Botão para "apoiar" uma proposta.'
       budgets:
-        title: "Orçamento participativo"
+        title: "Orçamento cidadão"
         description: "A seção %{link} auxilia às pessoas a decidirem diretamente qual o destino de uma parte do orçamento municipal."
         link: "orçamentos participativos"
-        image_alt: "Diferentes fases de um orçamento participativo"
-        figcaption: 'Fases de "Apoio" e "Votação" dos orçamentos participativos.'
+        image_alt: "Diferentes fases de um orçamento cidadão"
+        figcaption: 'Fases de "Apoio" e "Votação" dos orçamentos.'
       polls:
         title: "Votações"
         description: "A seção %{link} é ativada toda vez que uma proposta atinge 1% de apoio e vai para votação, ou quando a Prefeitura propõe uma questão para as pessoas decidirem."

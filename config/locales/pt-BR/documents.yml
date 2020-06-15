@@ -13,11 +13,11 @@ pt-BR:
     actions:
       destroy:
         notice: Documento foi excluído com sucesso.
-        alert: Não é possível destruir o documento.
+        alert: Não é possível apagar o documento.
         confirm: Tem certeza que deseja excluir o documento? Esta ação não pode ser desfeita!
     buttons:
       download_document: Baixar arquivo
-      destroy_document: Destruir o documento
+      destroy_document: Apagar o documento
     errors:
       messages:
         in_between: deve estar entre %{min} e %{max}

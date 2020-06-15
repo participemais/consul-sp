@@ -33,7 +33,7 @@ pt-BR:
           homepage: Página inicial
           debates: Debates
           proposals: Propostas
-          budgets: Orçamento participativo
+          budgets: Orçamento
           help_page: Página de ajuda
       edit:
         editing: Editar banner
@@ -63,7 +63,7 @@ pt-BR:
         no_activity: Não há nenhuma atividade de moderadores.
     budgets:
       index:
-        title: Orçamentos participativos
+        title: Orçamento Cidadão
         new_link: Criar novo orçamento
         filter: Filtro
         filters:
@@ -81,17 +81,17 @@ pt-BR:
         admin_ballots: Administrar cédulas
         no_budgets: "Não há orçamentos."
       create:
-        notice: Novo orçamento participativo criado com sucesso!
+        notice: Novo orçamento criado com sucesso.
       update:
-        notice: Orçamento participativo atualizado com sucesso
+        notice: Orçamento atualizado com sucesso.
       edit:
-        title: Editar Orçamento participativo
-        delete: Deletar orçamento
-        phase: Estágio
+        title: Editar Orçamento 
+        delete: Deletar Orçamento
+        phase: Fase
         dates: Datas
         enabled: Habilitado
         actions: Ações
-        edit_phase: Editar estágio
+        edit_phase: Editar fase
         active: Ativo
         blank_dates: Datas estão em branco
         administrators:
@@ -106,14 +106,14 @@ pt-BR:
         empty_valuators: "Não há avaliadores"
       destroy:
         success_notice: Orçamento excluído com sucesso
-        unable_notice: Você não pode destruir um orçamento que tem investimentos associados
+        unable_notice: Você não pode destruir um orçamento que já tenha investimentos associados
         unable_notice_polls: Não é possível excluir um orçamento com uma votação associada
       new:
-        title: Novo orçamento participativo
+        title: Novo orçamento Cidadão
       winners:
-        calculate: Calcular os investimentos vencedores
+        calculate: Calcular os orçamentos vencedores
         calculated: Vencedores sendo calculados, pode demorar um minuto.
-        recalculate: Recalcular os investimentos vencedores
+        recalculate: Recalcular os orçamentos vencedores
     budget_groups:
       name: "Nome"
       headings_name: "Títulos"
@@ -180,15 +180,15 @@ pt-BR:
           winners: Vencedores
         buttons:
           filter: Filtro
-        download_current_selection: "Baixar seleção atual"
-        no_budget_investments: "Não há projetos de investimento."
-        title: Projetos de investimento
+        download_current_selection: "Download da seleção atual"
+        no_budget_investments: "Não há propostas."
+        title: Propostas
         columns: Colunas
         assigned_admin: Administrador designado
         no_admin_assigned: Não há administrador designado
         no_valuators_assigned: Não há avaliadores designados
         feasibility:
-          feasible: "Factível"
+          feasible: "Viável"
           unfeasible: "Inviável"
           undecided: "Não decidido"
         selected: "Selecionado"
@@ -200,7 +200,7 @@ pt-BR:
           admin: Administrador
           valuator: Avaliador
           valuation_group: Grupo de avaliação
-          geozone: Escopo da operação
+          geozone: Subprefeitura
           feasibility: Viabilidade
           valuation_finished: Valor Final.
           selected: Selecionado
@@ -237,7 +237,7 @@ pt-BR:
           "true": "Sim"
           "false": "Não"
         valuator_groups: "Grupos de avaliação"
-        preview: Pré-visualização de investimento
+        preview: Pré-visualização
       edit:
         classification: Classificação
         compatibility: Compatibilidade
@@ -248,25 +248,25 @@ pt-BR:
         user_tags: Marcações atribuídas ao usuário
         tags_placeholder: "Escreva as marcações que deseja separadas por vírgulas (,)"
         undefined: Não definido
-      search_unfeasible: Pesquisar inviáveis
+      search_unfeasible: Pesquisar propostas inviáveis
     milestones:
       index:
         table_id: "ID"
         table_title: "Título"
         table_description: "Descrição"
         table_publication_date: "Data de publicação"
-        table_status: Status
+        table_status: Fases
         table_actions: "Ações"
-        delete: "Deletar marco"
-        no_milestones: "Não possui marcos definidos"
+        delete: "Deletar fases"
+        no_milestones: "Não possui fases definidos"
         image: "Imagem"
         show_image: "Mostrar imagem"
         documents: "Documentos"
-        milestone: Marco
-        new_milestone: Criar marco
-        milestone_tags: Status de andamento
+        milestone: Fases
+        new_milestone: Criar fase
+        milestone_tags: Fases de andamento
       form:
-        admin_statuses: Status dos investimentos para administrador
+        admin_statuses: Fases dos investimentos para administrador
         no_statuses_defined: Ainda não há status de investimento definidos
       new:
         creating: Criar marco
@@ -586,7 +586,7 @@ pt-BR:
       banner: Gerenciar banners
       proposals: Propostas
       proposals_topics: Tópicos de propostas
-      budgets: Orçamentos participativos
+      budgets: Orçamento Cidadão
       geozones: Gerenciar geozonas
       hidden_comments: Comentários ocultos
       hidden_debates: Debates ocultos
@@ -1247,8 +1247,8 @@ pt-BR:
           verified_users_who_didnt_vote_proposals: Usuários verificados que não votaram em propostas
           visits: Visitas
           votes: Total de votos
-        budgets_title: Orçamento participativo
-        participatory_budgets: Orçamentos Participativos
+        budgets_title: Orçamento Cidadão
+        participatory_budgets: Orçamentos 
         direct_messages: Mensagens diretas
         proposal_notifications: Notificações de proposta
         incomplete_verifications: Verificações incompletas

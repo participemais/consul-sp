@@ -91,7 +91,7 @@ pt-BR:
       table_name: Nome
       table_phase: Estágio
       table_actions: Ações
-      no_budgets: Não há orçamento participativo em atividade.
+      no_budgets: Não há nenhum orçamento cidadão no momento.
     budget_investments:
       alert:
         unverified_user: Usuário não está verificado
