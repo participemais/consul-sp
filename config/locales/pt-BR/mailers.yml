@@ -2,6 +2,7 @@ pt-BR:
   mailers:
     title: "Governo aberto"
     no_reply: "Esta mensagem foi enviada de um endereço de e-mail que não aceita respostas."
+    ignore: "Favor ignorar este email, caso não tenha se registrado no %{org_name}"
     comment:
       hi: Oi
       new_comment_by: Há um novo comentário de <strong>%{commenter}</strong>
