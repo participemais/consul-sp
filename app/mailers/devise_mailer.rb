@@ -5,8 +5,15 @@ class DeviseMailer < Devise::Mailer
 
   def confirmation_instructions(record, token, opts = {})
     @username = record.username
+    @participation_processes = participation_processes
     super
   end
+
+  private
+
+    def participation_processes
+      Budget.balloting + Poll.current
+    end
 
   protected
 
