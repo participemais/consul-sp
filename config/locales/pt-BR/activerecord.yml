@@ -309,7 +309,7 @@ pt-BR:
           SE: Sergipe
           SP: São Paulo
           TO: Tocantins
-        first_name: "Nome social"
+        first_name: "Nome"
         last_name: "Sobrenome"
         erase_reason_options:
           not_live_in_sp: Não moro ou não frequento mais São Paulo
