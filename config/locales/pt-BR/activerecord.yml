@@ -311,6 +311,12 @@ pt-BR:
           TO: Tocantins
         first_name: "Nome social"
         last_name: "Sobrenome"
+        erase_reason_options:
+          not_live_in_sp: Não moro ou não frequento mais São Paulo
+          not_interested: O conteúdo dos processos participativos não me interessa
+          not_able_to_participate: No momento não estou conseguindo participar
+          not_registered: Não me cadastrei ou não me recordo de ter me cadastrado
+          other: "Outro"
       direct_message:
         title: "Título"
         body: "Mensagem"
