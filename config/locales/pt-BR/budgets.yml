@@ -33,21 +33,23 @@ pt-BR:
     phase:
       drafting: Rascunho (não visível ao público)
       informing: Informação
-      accepting: Recepção Das Propostas
-      reviewing: Sistematização e Revisão das Propostas
-      selecting: Priorização das Propostas
-      valuating: Avaliação das Propostas
-      publishing_prices: Publicação das Propostas
-      balloting: Votação Popular
-      reviewing_ballots: Análise de Viabilidade
-      finished: Devolutiva e Monitoramento
+      accepting: Recepção das propostas
+      reviewing: Sistematização das propostas
+      selecting: Priorização das propostas
+      publishing_prices: Publicação dos preços das propostas
+      balloting: Votação popular
+      reviewing_ballots: Revisão de voto
+      valuating: Análise de viabilidade
+      formulation: Elaboração do PLOA
+      devolutive: Devolutiva
+      finished: Monitoramento
     index:
       title: Orçamento cidadão
       empty_budgets: Não há orçamento.
       section_header:
-        icon_alt: Ícone dos orçamentos 
+        icon_alt: Ícone dos orçamentos
         title: Orçamentos cidadão
-        help: Ajuda com orçamentos 
+        help: Ajuda com orçamentos
         all_phases: Ver todas as fases
       all_phases: Fases do orçamento cidadão
       map: Propostas de orçamento cidadão por subprefeitura
@@ -57,7 +59,7 @@ pt-BR:
       finished_budgets: Orçamentos Cidadão concluídos
       see_results: Exibir resultados
       section_footer:
-        title: Ajuda com orçamentos 
+        title: Ajuda com orçamentos
         description: No Orçamento Cidadão, os cidadãos podem propor e decidir sobre os projetos orçamentários da cidade.
       milestones: Etapas
     investments:
