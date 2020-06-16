@@ -34,13 +34,14 @@ pt-BR:
       drafting: Rascunho (não visível ao público)
       informing: Informação
       accepting: Recepção das propostas
-      valuating: Sistematização das propostas
+      reviewing: Sistematização das propostas
       selecting: Priorização das propostas
       publishing_prices: Publicação dos preços das propostas
       balloting: Votação popular
-      reviewing_ballots: Análise de viabilidade
+      reviewing_ballots: Revisão de voto
+      valuating: Análise de viabilidade
       formulation: Elaboração do PLOA
-      reviewing: Devolutiva
+      devolutive: Devolutiva
       finished: Monitoramento
     index:
       title: Orçamento cidadão

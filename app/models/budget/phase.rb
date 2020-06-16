@@ -1,10 +1,10 @@
 class Budget
   class Phase < ApplicationRecord
-    PHASE_KINDS = %w[drafting informing accepting valuating selecting balloting reviewing_ballots formulation reviewing finished].freeze
-    PUBLISHED_PRICES_PHASES = %w[publishing_prices balloting reviewing_ballots formulation reviewing finished].freeze
+    PHASE_KINDS = %w[drafting informing accepting reviewing selecting balloting valuating formulation devolutive finished].freeze
+    PUBLISHED_PRICES_PHASES = %w[publishing_prices balloting reviewing_ballots valuating formulation devolutive finished].freeze
     SUMMARY_MAX_LENGTH = 1000
     DESCRIPTION_MAX_LENGTH = 2000
-    PHASE_KINDS_REMOVED = %[publishing_prices].freeze
+    PHASE_KINDS_REMOVED = %[publishing_prices reviewing_ballots].freeze
 
     translates :summary, touch: true
     translates :description, touch: true
