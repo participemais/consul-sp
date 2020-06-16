@@ -296,7 +296,7 @@ pt-BR:
       name: Facebook
     finish_signup:
       title: "Detalhes adicionais"
-      username_warning: "Devido a uma mudança na maneira como interagimos com as redes sociais, é possível que seu nome de usuário apareça como \"já em uso\". Se esse for o seu caso, por favor escolha um nome de usuário diferente."
+      username_warning: "Devido a uma mudança na maneira como interagimos com as redes sociais, é possível que seu nome de usuário ou email apareça como \"já em uso\". Se esse for o seu caso, por favor escolha um nome de usuário ou email diferente."
     google_oauth2:
       sign_in: Iniciar sessão com o Google
       sign_up: Inscrever-se com o Google

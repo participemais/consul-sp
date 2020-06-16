@@ -90,8 +90,8 @@ pt-BR:
       registrations:
         delete_form:
           erase_reason_label: Motivo
-          info: Esta ação não pode ser desfeita. Por favor, certifique-se que isto é o que você quer.
-          info_reason: Se quiser, deixe-em um motivo (opcional)
+          info: Que pena que decidiu se descadastrar. Compartilhe conosco o motivo para que o Participe+ atenda melhor à cidade de São Paulo!
+          info_reason: "Se desejar, por favor insira mais detalhes a seguir:"
           submit: Excluir minha conta
           title: Excluir conta
         edit:

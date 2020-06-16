@@ -86,6 +86,10 @@ class User < ApplicationRecord
 
   validate :cpf_number, if: :local_document?
 
+  validates :gender, presence: true, allow_nil: true
+  validates :ethnicity, presence: true, allow_nil: true
+  validates :uf, presence: true, allow_nil: true
+
   validates :official_level, inclusion: { in: 0..5 }
   validates :terms_of_service, acceptance: { allow_nil: false }, on: :create
 
@@ -254,22 +258,37 @@ class User < ApplicationRecord
     ProposalNotification.hide_all proposal_notification_ids
   end
 
-  def erase(erase_reason = nil)
-    update!(
+  def erase(attrs)
+    assign_attributes(
       erased_at: Time.current,
-      erase_reason: erase_reason,
-      username: nil,
-      email: nil,
-      unconfirmed_email: nil,
-      phone_number: nil,
-      encrypted_password: "",
-      confirmation_token: nil,
-      reset_password_token: nil,
-      email_verification_token: nil,
-      confirmed_phone: nil,
-      unconfirmed_phone: nil
+      erase_reason: attrs[:erase_reason],
+      erase_reason_description: attrs[:erase_reason_description],
+      email_on_comment: false,
+      email_on_comment_reply: false,
+      newsletter: false,
+      email_digest: false,
+      email_on_direct_message: false,
+      recommended_debates: false,
+      recommended_proposals: false
     )
-    identities.destroy_all
+
+    unless document_number
+      assign_attributes(
+        username: nil,
+        email: nil,
+        unconfirmed_email: nil,
+        phone_number: nil,
+        encrypted_password: "",
+        confirmation_token: nil,
+        reset_password_token: nil,
+        email_verification_token: nil,
+        confirmed_phone: nil,
+        unconfirmed_phone: nil
+      )
+      identities.destroy_all
+    end
+
+    save
   end
 
   def erased?

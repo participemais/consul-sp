@@ -88,6 +88,10 @@ module UsersHelper
     options_for_select(ethnicity_options, current_user.ethnicity)
   end
 
+  def options_for_erase_reason
+    options_for_select(erase_reason_options, current_user.erase_reason)
+  end
+
   private
 
   def ufs_options
@@ -100,6 +104,10 @@ module UsersHelper
 
   def ethnicity_options
     user_translation_attr(:ethnicity_options).invert
+  end
+
+  def erase_reason_options
+    user_translation_attr(:erase_reason_options).invert
   end
 
   def user_translation_attr(attr_key)
