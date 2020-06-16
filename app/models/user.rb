@@ -258,16 +258,22 @@ class User < ApplicationRecord
     ProposalNotification.hide_all proposal_notification_ids
   end
 
-  def erase(erase_reason = nil)
+  def erase(attrs)
     assign_attributes(
       erased_at: Time.current,
-      erase_reason: erase_reason
+      erase_reason: attrs[:erase_reason],
+      erase_reason_description: attrs[:erase_reason_description],
+      email_on_comment: false,
+      email_on_comment_reply: false,
+      newsletter: false,
+      email_digest: false,
+      email_on_direct_message: false,
+      recommended_debates: false,
+      recommended_proposals: false
     )
 
     unless document_number
       assign_attributes(
-        erased_at: Time.current,
-        erase_reason: erase_reason,
         username: nil,
         email: nil,
         unconfirmed_email: nil,

@@ -25,7 +25,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   end
 
   def delete
-    current_user.erase(erase_params[:erase_reason])
+    current_user.erase(erase_params)
     sign_out
     redirect_to root_path, notice: t("devise.registrations.destroyed")
   end
@@ -71,7 +71,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
     end
 
     def erase_params
-      params.require(:user).permit(:erase_reason)
+      params.require(:user).permit(:erase_reason, :erase_reason_description)
     end
 
     def after_inactive_sign_up_path_for(resource_or_scope)
