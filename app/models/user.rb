@@ -86,6 +86,10 @@ class User < ApplicationRecord
 
   validate :cpf_number, if: :local_document?
 
+  validates :gender, presence: true, allow_nil: true
+  validates :ethnicity, presence: true, allow_nil: true
+  validates :uf, presence: true, allow_nil: true
+
   validates :official_level, inclusion: { in: 0..5 }
   validates :terms_of_service, acceptance: { allow_nil: false }, on: :create
 
