@@ -2,6 +2,7 @@ en:
   mailers:
     title: "Open Government"
     no_reply: "This message was sent from an email address that does not accept replies."
+    ignore: "Please ignore this email, if you haven't signed up to %{org_name}"
     comment:
       hi: Hi
       new_comment_by: There is a new comment from <strong>%{commenter}</strong>

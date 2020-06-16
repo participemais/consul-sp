@@ -1,18 +1,71 @@
 <td style="padding-bottom: 20px; padding-left: 10px;">
-
-  <h1 style="font-family: 'Open Sans','Helvetica Neue',arial,sans-serif;">
-    <%= t("devise_views.mailer.confirmation_instructions.title") %>
-  </h1>
-
   <p style="font-family: 'Open Sans','Helvetica Neue',arial,sans-serif;font-size: 14px;font-weight: normal;line-height: 24px;">
-    <%= t("devise_views.mailer.confirmation_instructions.welcome") %> <strong><%= @email %></strong>
+    <%= sanitize(t(
+      "devise_views.mailer.confirmation_instructions.welcome",
+      username: @username
+    )) %>
   </p>
 
   <p style="font-family: 'Open Sans','Helvetica Neue',arial,sans-serif;font-size: 14px;font-weight: normal;line-height: 24px;">
-    <%= t("devise_views.mailer.confirmation_instructions.text") %>
+    <%= sanitize(t(
+      "devise_views.mailer.confirmation_instructions.thanks",
+      org_name: Setting[:org_name]
+    )) %>
   </p>
 
   <p style="font-family: 'Open Sans','Helvetica Neue',arial,sans-serif;font-size: 14px;font-weight: normal;line-height: 24px;">
-    <%= link_to t("devise_views.mailer.confirmation_instructions.confirm_link"), confirmation_url(@resource, confirmation_token: @token), style: "color: #2895F1; text-decoration:none;" %>
+    <%= sanitize(t(
+      "devise_views.mailer.confirmation_instructions.instruction_1",
+      link: link_to(
+        t("devise_views.mailer.confirmation_instructions.here"), confirmation_url(@resource, confirmation_token: @token),
+        style: "color: #2895F1; text-decoration:none;"
+      )
+    )) %>
+  </p>
+
+  <p style="font-family: 'Open Sans','Helvetica Neue',arial,sans-serif;font-size: 14px;font-weight: normal;line-height: 24px;">
+    <%= t("devise_views.mailer.confirmation_instructions.instruction_2") %>
+  </p>
+
+  <p style="font-family: 'Open Sans','Helvetica Neue',arial,sans-serif;font-size: 14px;font-weight: normal;line-height: 24px;">
+    <%= render partial: "current_participation_processes" %>
+  </p>
+
+  <p style="font-family: 'Open Sans','Helvetica Neue',arial,sans-serif;font-size: 14px;font-weight: normal;line-height: 24px;">
+    <%= sanitize(t(
+      "devise_views.mailer.confirmation_instructions.instruction_3",
+      org_name: Setting[:org_name]
+    )) %>
+  </p>
+
+  <p style="font-family: 'Open Sans','Helvetica Neue',arial,sans-serif;font-size: 14px;font-weight: normal;line-height: 24px;">
+    <%= t("devise_views.mailer.confirmation_instructions.instruction_4") %>
+  </p>
+
+  <p style="font-family: 'Open Sans','Helvetica Neue',arial,sans-serif;font-size: 14px;font-weight: normal;line-height: 24px;">
+    <%= sanitize(t(
+      "devise_views.mailer.confirmation_instructions.instruction_5",
+      link: link_to(
+        t("devise_views.mailer.confirmation_instructions.link"),
+        faq_url,
+        target: "_blank",
+        style: "color: #2895F1; text-decoration:none;"
+      )
+    )) %>
+  </p>
+
+  <p style="font-family: 'Open Sans','Helvetica Neue',arial,sans-serif;font-size: 14px;font-weight: normal;line-height: 24px;">
+    <%= t("devise_views.mailer.confirmation_instructions.instruction_6") %>
+  </p>
+
+  <p style="font-family: 'Open Sans','Helvetica Neue',arial,sans-serif;font-size: 14px;font-weight: normal;line-height: 24px;">
+    <%= t("devise_views.mailer.confirmation_instructions.regards") %>
+  </p>
+
+  <p style="font-family: 'Open Sans','Helvetica Neue',arial,sans-serif;font-size: 14px;font-weight: normal;line-height: 24px;">
+    <%= sanitize(t(
+      "devise_views.mailer.confirmation_instructions.signature",
+      org_name: Setting[:org_name]
+    )) %>
   </p>
 </td>
