@@ -48,6 +48,8 @@ class Budget < ApplicationRecord
 
   has_one :poll
 
+  before_create :set_balloting_type
+
   after_create :generate_phases
 
   scope :drafting, -> { where(phase: "drafting") }
@@ -223,6 +225,14 @@ class Budget < ApplicationRecord
   end
 
   private
+
+    def set_balloting_type
+      if max_votes.present?
+        self.balloting_type = "vote_counting"
+      else
+        self.balloting_type = "resource_allocation"
+      end
+    end
 
     def generate_phases
       Budget::Phase::PHASE_KINDS.each do |phase|
