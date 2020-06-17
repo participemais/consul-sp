@@ -23,7 +23,16 @@ class Budget < ApplicationRecord
 
   validates_translation :name, presence: true
   validates :phase, inclusion: { in: Budget::Phase::PHASE_KINDS }
-  validates :currency_symbol, presence: true
+
+  validates :currency_symbol,
+    presence: true,
+    if: lambda { self.max_votes.blank? }
+  validates :max_votes,
+    presence: true,
+    if: lambda { self.currency_symbol.blank? }
+
+  validate :unique_balloting_type
+
   validates :slug, presence: true, format: /\A[a-z0-9\-_]+\z/
 
   has_many :investments, dependent: :destroy
@@ -221,5 +230,11 @@ class Budget < ApplicationRecord
 
     def generate_slug?
       slug.nil? || drafting?
+    end
+
+    def unique_balloting_type
+      if currency_symbol.present? && max_votes.present?
+        errors.add(:base, "Escolha apenas um tipo de votação")
+      end
     end
 end
