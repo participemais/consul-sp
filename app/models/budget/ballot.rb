@@ -58,8 +58,10 @@ class Budget
     end
 
     def different_heading_assigned?(heading)
-      other_heading_ids = heading.group.heading_ids - [heading.id]
-      lines.where(heading_id: other_heading_ids).exists?
+      if resource_allocation_balloting?
+        other_heading_ids = heading.group.heading_ids - [heading.id]
+        lines.where(heading_id: other_heading_ids).exists?
+      end
     end
 
     def valid_heading?(heading)
