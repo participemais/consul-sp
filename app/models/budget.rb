@@ -164,14 +164,18 @@ class Budget < ApplicationRecord
   end
 
   def heading_price(heading)
-    heading_ids.include?(heading.id) ? heading.price : -1
+    if resource_allocation_balloting?
+      heading_ids.include?(heading.id) ? heading.price : -1
+    else
+      max_votes
+    end
   end
 
   def translated_phase
     I18n.t "budgets.phase.#{phase}"
   end
 
-  def formatted_amount(amount)
+  def formatted_currency_amount(amount)
     ActionController::Base.helpers.number_to_currency(amount,
                                                       precision: 0,
                                                       locale: I18n.locale,
@@ -179,11 +183,11 @@ class Budget < ApplicationRecord
   end
 
   def formatted_heading_price(heading)
-    formatted_amount(heading_price(heading))
+    formatted_currency_amount(heading_price(heading))
   end
 
   def formatted_heading_amount_spent(heading)
-    formatted_amount(amount_spent(heading))
+    formatted_currency_amount(amount_spent(heading))
   end
 
   def investments_orders

@@ -17,20 +17,36 @@ class Budget
       investments.sum(:price).to_i
     end
 
-    def amount_spent(heading)
-      investments.by_heading(heading.id).sum(:price).to_i
+    def amount_spent(heading = nil)
+      if resource_allocation_balloting?
+        investments.by_heading(heading.id).sum(:price).to_i
+      else
+        total_amount_spent
+      end
     end
 
     def formatted_amount_spent(heading)
-      budget.formatted_amount(amount_spent(heading))
+      if resource_allocation_balloting?
+        budget.formatted_currency_amount(amount_spent(heading))
+      else
+        total_amount_spent
+      end
     end
 
-    def amount_available(heading)
-      budget.heading_price(heading) - amount_spent(heading)
+    def amount_available(heading = nil)
+      if resource_allocation_balloting?
+        budget.heading_price(heading) - amount_spent(heading)
+      else
+        votes_per_user - amount_spent
+      end
     end
 
     def formatted_amount_available(heading)
-      budget.formatted_amount(amount_available(heading))
+      if resource_allocation_balloting?
+        budget.formatted_currency_amount(amount_available(heading))
+      else
+        amount_available
+      end
     end
 
     def has_lines_in_group?(group)
@@ -74,6 +90,14 @@ class Budget
 
     def casted_offline?
       budget.poll&.voted_by?(user)
+    end
+
+    def resource_allocation_balloting?
+      budget.resource_allocation_balloting?
+    end
+
+    def votes_per_user
+      budget.max_votes
     end
   end
 end

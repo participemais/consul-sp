@@ -357,7 +357,7 @@ class Budget
     end
 
     def formatted_price
-      budget.formatted_amount(price)
+      budget.formatted_currency_amount(price)
     end
 
     def self.apply_filters_and_search(_budget, params, current_filter = nil)
