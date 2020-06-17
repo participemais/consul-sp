@@ -50,18 +50,18 @@ pt-BR:
       section_header:
         icon_alt: Ícone dos orçamentos
         title: Orçamentos cidadão
-        help: Ajuda com orçamentos
-        all_phases: Ver todas as fases
-      all_phases: Fases do orçamento cidadão
+        help: Sobre o orçamento cidadão
+        all_phases: Ver todas as etapas
+      all_phases: Etapas do orçamento cidadão
       map: Propostas de orçamento cidadão por subprefeitura
-      investment_proyects: Lista de todas as propostas de Orçamento Cidadão
-      unfeasible_investment_proyects: Lista de todas propostas de Orçamento Cidadão
-      not_selected_investment_proyects: Lista de todas propostas de Orçamento Cidadão não selecionadas para votação
-      finished_budgets: Orçamentos Cidadão concluídos
+      investment_proyects: Todas as propostas de orçamento
+      unfeasible_investment_proyects: Propostas de orçamento inviáveis
+      not_selected_investment_proyects: Propostas de orçamento não selecionadas para votação
+      finished_budgets: Orçamentos concluídos
       see_results: Exibir resultados
       section_footer:
-        title: Ajuda com orçamentos
-        description: No Orçamento Cidadão, os cidadãos podem propor e decidir sobre os projetos orçamentários da cidade.
+        title: Sobre o orçamento
+        description: No Projeto de Lei Orçamentária Anual (PLOA), os cidadãos podem propor e votar em projetos orçamentários da cidade.
       milestones: Etapas
     investments:
       form:
