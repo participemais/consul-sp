@@ -140,7 +140,8 @@ pt-BR:
         description_reviewing_ballots: "Descrição durante a fase de revisão das cédulas"
         description_finished: "Descrição sobre o orçamento concluído."
         phase: "Fase"
-        currency_symbol: "Moeda"
+        currency_symbol: Distribuição de recursos
+        max_votes: Votos por usuário
       budget/translation:
         name: "Nome"
       budget/investment:
