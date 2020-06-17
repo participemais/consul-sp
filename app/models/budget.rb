@@ -153,6 +153,14 @@ class Budget < ApplicationRecord
     current_phase&.balloting_or_later?
   end
 
+  def vote_counting_balloting?
+    balloting_type == "vote_counting"
+  end
+
+  def resource_allocation_balloting?
+    balloting_type == "resource_allocation"
+  end
+
   def heading_price(heading)
     heading_ids.include?(heading.id) ? heading.price : -1
   end
