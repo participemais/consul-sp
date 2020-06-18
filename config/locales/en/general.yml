@@ -694,7 +694,6 @@ en:
       author_type: "By author category"
       author_type_blank: "Select a category"
       date: "By date"
-      date_placeholder: "DD/MM/YYYY"
       date_range_blank: "Choose a date"
       date_1: "Last 24 hours"
       date_2: "Last week"
