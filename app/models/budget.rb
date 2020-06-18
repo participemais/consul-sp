@@ -192,17 +192,11 @@ class Budget < ApplicationRecord
 
   def investments_orders
     case phase
-    when "accepting", "reviewing"
+    when "accepting", "reviewing", "finished"
       %w[random]
-    when "publishing_prices", "balloting", "reviewing_ballots"
+    when *Budget::Phase::PUBLISHED_PRICES_PHASES
       orders = %w[random]
-      if resource_allocation_balloting?
-        orders << "price"
-      else
-        orders << "ballots"
-      end
-    when "finished"
-      %w[random]
+      resource_allocation_balloting? ? orders << "price" : orders << "ballots"
     else
       %w[random confidence_score]
     end
