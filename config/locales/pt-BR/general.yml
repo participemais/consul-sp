@@ -255,7 +255,7 @@ pt-BR:
       open_gov: Governo Aberto
       proposals: Propostas
       poll_questions: Votação
-      budgets: Orçamento
+      budgets: Orçamento cidadão
       notification_item:
         new_notifications:
           one: Você tem uma nova notificação
@@ -693,19 +693,18 @@ pt-BR:
       author_type: "Por categoria de autor"
       author_type_blank: "Selecione um categoria"
       date: "Por data"
-      date_placeholder: "DD/MM/AAAA"
       date_range_blank: "Escolha uma data"
       date_1: "Últimas 24 horas"
       date_2: "Última semana"
       date_3: "Último mês"
       date_4: "Último ano"
-      date_5: "Personalizado"
-      from: "De"
-      general: "Com o texto"
-      general_placeholder: "Escrever o texto"
-      search: "Filtro"
+      date_5: "Período personalizado"
+      from: "Início"
+      general: "Por palavra-chave"
+      general_placeholder: "Insira os termos que deseja buscar no título e no texto das propostas"
+      search: "Buscar"
       title: "Busca avançada"
-      to: "Para"
+      to: "Fim"
     author_info:
       author_deleted: Usuário excluído
       email_deleted: Email excluído
@@ -810,11 +809,12 @@ pt-BR:
     manage:
       all: "Você não possui permissão para executar esta ação '%{action}' em %{subject}."
   users:
-    login_to_comment: "Você precisa %{signin} ou %{signup} para fazer um comentário."
-    login_to_continue: "Você precisa %{signin} ou %{signup} para continuar."
-    signin: "iniciar sessão"
-    signup: "registre-se"
+    login_to_comment: "Você precisa acessar sua %{signin} ou se %{signup} para fazer um comentário"
+    login_to_continue: "Você precisa acessar sua %{signin} ou se %{signup} para continuar"
+    signin: "conta"
+    signup: "registrar"
     verify_account: "verifique sua conta"
+    register: "cadastro"
     direct_messages:
       new:
         direct_messages_bloqued: "Este usuário decidiu não receber mensagens diretas"

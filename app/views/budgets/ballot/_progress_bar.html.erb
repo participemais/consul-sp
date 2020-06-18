@@ -19,11 +19,18 @@
         <%= progress_bar_width(@budget.heading_price(@heading),
                                @ballot.amount_spent(@heading)) %>">
     <p id="amount-spent" class="progress-meter-text spent-amount-text">
-      <small><%= t("budgets.progress_bar.assigned") %></small><%= @ballot.formatted_amount_spent(@heading) %>
-      <span id="amount-available" class="amount-available">
-        <small><%= t("budgets.progress_bar.available") %></small>
-        <span><%= @ballot.formatted_amount_available(@heading) %></span>
-      </span>
+      <small>
+        <%= t("budgets.progress_bar.assigned") %>
+        <%= @ballot.formatted_amount_spent(@heading) %>
+      </small>
+      <% if @budget.resource_allocation_balloting? %>
+        <span id="amount-available" class="amount-available">
+          <small>
+            <%= t("budgets.progress_bar.available") %></small>
+            <%= @ballot.formatted_amount_available(@heading) %>
+          </span>
+        </span>
+      <% end %>
     </p>
   </span>
 </div>

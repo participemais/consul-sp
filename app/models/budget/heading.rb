@@ -28,7 +28,7 @@ class Budget
 
     validates_translation :name, presence: true
     validates :group_id, presence: true
-    validates :price, presence: true
+    validates :price, presence: true, if: :budget_resource_allocation_balloting?
     validates :slug, presence: true, format: /\A[a-z0-9\-_]+\z/
     validates :population, numericality: { greater_than: 0 }, allow_nil: true
     validates :latitude, length: { maximum: 22 }, allow_blank: true, \
@@ -58,6 +58,10 @@ class Budget
 
       def generate_slug?
         slug.nil? || budget.drafting?
+      end
+
+      def budget_resource_allocation_balloting?
+        budget.resource_allocation_balloting?
       end
   end
 end

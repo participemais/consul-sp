@@ -42,10 +42,10 @@
       <em>
         <%= sanitize(t("budgets.investments.index.sidebar.voted",
             count: @ballot.investments.by_heading(@heading.id).count,
-            amount_spent: @ballot.formatted_amount_spent(@heading))) %>
+            heading: @heading.name)) %>
       </em>
     </p>
-  <% elsif @assigned_heading.present? %>
+  <% elsif @assigned_heading.present? && @budget.resource_allocation_balloting? %>
     <p>
       <%= sanitize(t("budgets.investments.index.sidebar.different_heading_assigned",
               heading_link: heading_link(@assigned_heading, @budget)

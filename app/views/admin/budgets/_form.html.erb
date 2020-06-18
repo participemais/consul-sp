@@ -13,11 +13,8 @@
   </div>
 
   <div class="row margin-top">
-    <div class="small-12 medium-6 column">
+    <div class="small-12 medium-4 column">
       <%= f.select :phase, budget_phases_select_options %>
-    </div>
-    <div class="small-12 medium-3 column end">
-      <%= f.select :currency_symbol, budget_currency_symbol_select_options %>
     </div>
   </div>
 
@@ -81,6 +78,37 @@
       </div>
     </div>
   <% end %>
+
+  <div class="row">
+    <div class="small-12 medium-12 column">
+      <fieldset class="fieldset">
+        <legend><%= t("admin.budgets.new.balloting_type") %></legend>
+        <div class="row">
+          <% if @budget.new_record? || @budget.vote_counting_balloting? %>
+            <div class="small-3 column">
+              <%= f.select(
+                :max_votes,
+                (1..10),
+                include_blank: true
+              ) %>
+              <% if @budget.new_record? %>
+                <p class="small"><%= t("admin.budgets.new.one_option") %></p>
+              <% end %>
+            </div>
+          <% end %>
+          <% if @budget.new_record? || @budget.resource_allocation_balloting? %>
+            <div class="small-3 column end">
+              <%= f.select(
+                :currency_symbol,
+                budget_currency_symbol_select_options,
+                include_blank: true
+              ) %>
+            </div>
+          <% end %>
+        <div>
+      </fieldset>
+    </div>
+  </div>
 
   <div class="row">
     <div class="small-12 column">
