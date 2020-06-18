@@ -810,11 +810,12 @@ pt-BR:
     manage:
       all: "Você não possui permissão para executar esta ação '%{action}' em %{subject}."
   users:
-    login_to_comment: "Você precisa %{signin} ou %{signup} para fazer um comentário."
-    login_to_continue: "Você precisa %{signin} ou %{signup} para continuar."
-    signin: "iniciar sessão"
-    signup: "registre-se"
+    login_to_comment: "Você precisa acessar sua %{signin} ou se %{signup} para fazer um comentário"
+    login_to_continue: "Você precisa acessar sua %{signin} ou se %{signup} para continuar"
+    signin: "conta"
+    signup: "registrar"
     verify_account: "verifique sua conta"
+    register: "cadastro"
     direct_messages:
       new:
         direct_messages_bloqued: "Este usuário decidiu não receber mensagens diretas"
