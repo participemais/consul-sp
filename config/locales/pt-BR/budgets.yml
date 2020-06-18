@@ -111,6 +111,7 @@ pt-BR:
           random: aleatório
           confidence_score: melhor avaliado
           price: por preço
+          ballots: mais votadas
       share:
         message: "Eu criei a proposta de orçamento %{title} em %{handle}. Crie uma você também!"
       show:

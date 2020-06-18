@@ -195,7 +195,12 @@ class Budget < ApplicationRecord
     when "accepting", "reviewing"
       %w[random]
     when "publishing_prices", "balloting", "reviewing_ballots"
-      %w[random price]
+      orders = %w[random]
+      if resource_allocation_balloting?
+        orders << "price"
+      else
+        orders << "ballots"
+      end
     when "finished"
       %w[random]
     else
