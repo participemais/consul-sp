@@ -82,7 +82,7 @@
   <div class="row">
     <div class="small-12 medium-12 column">
       <fieldset class="fieldset">
-        <legend><%= t("Critério de votação") %></legend>
+        <legend><%= t("admin.budgets.new.balloting_type") %></legend>
         <div class="row">
           <% if @budget.new_record? || @budget.vote_counting_balloting? %>
             <div class="small-3 column">
@@ -92,7 +92,7 @@
                 include_blank: true
               ) %>
               <% if @budget.new_record? %>
-                <p class="small"><%= t("Escolha apenas uma opção") %></p>
+                <p class="small"><%= t("admin.budgets.new.one_option") %></p>
               <% end %>
             </div>
           <% end %>

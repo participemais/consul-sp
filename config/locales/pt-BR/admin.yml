@@ -109,7 +109,9 @@ pt-BR:
         unable_notice: Você não pode destruir um orçamento que já tenha investimentos associados
         unable_notice_polls: Não é possível excluir um orçamento com uma votação associada
       new:
-        title: Novo orçamento Cidadão
+        balloting_type: Critério de votação
+        one_option: Escolha apenas uma opção
+        title: Novo orçamento cidadão
       winners:
         calculate: Calcular os orçamentos vencedores
         calculated: Vencedores sendo calculados, pode demorar um minuto.
