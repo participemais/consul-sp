@@ -418,6 +418,10 @@ class Budget
       all_users.compact.uniq
     end
 
+    def heading_name
+      heading.name
+    end
+
     private
 
       def set_denormalized_ids
