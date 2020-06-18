@@ -4,7 +4,7 @@ en:
       show:
         title: Your ballot
         amount_spent: Amount spent
-        remaining: "You still have <span>%{amount}</span> to invest."
+        remaining_money: "You still have <span>%{count}</span> to invest."
         no_balloted_group_yet: "You have not voted on this group yet, go vote!"
         remove: Remove vote
         voted:
