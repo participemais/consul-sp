@@ -281,6 +281,7 @@ class Budget
     def permission_problem(user)
       return :not_logged_in unless user
       return :organization  if user.organization?
+      return :incomplete_registration if user.document_number.blank?
       return :not_verified  unless user.can?(:vote, Budget::Investment)
 
       nil
