@@ -68,6 +68,8 @@ pt-BR:
         title: Sobre o orçamento
         description: No Projeto de Lei Orçamentária Anual (PLOA), os cidadãos podem propor e votar em projetos orçamentários da cidade.
       milestones: Etapas
+      search_proposals: Buscar propostas
+      search_proposals_placeholder: Encontre propostas relacionadas a termos de seu interesse, como saúde, educação, cultura, meio ambiente, mobilidade, entre outros
     investments:
       form:
         tag_category_label: "Categorias"
