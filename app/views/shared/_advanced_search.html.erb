@@ -12,6 +12,9 @@
         </label>
         <%= text_field_tag "search", params[:search],
                            placeholder: t("shared.advanced_search.general_placeholder") %>
+        <% if @heading %>
+          <%= hidden_field_tag "heading_id", @heading.id %>
+        <% end %>
       </div>
 
       <div class="small-12 medium-3 column">
