@@ -151,7 +151,7 @@ pt-BR:
           other: "%{count} votos"
         give_support: Apoiar
       header:
-        check_ballot: Verificar minha cédula
+        check_ballot: Meus votos
         different_heading_assigned: "Você tem votos ativos num título diferente: %{heading_link}"
         change_ballot: "Se você mudar de ideia, poderá remover seus votos em %{check_ballot} e começar de novo."
         check_ballot_link: "verificar minha cédula"

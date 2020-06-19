@@ -25,7 +25,13 @@
     <div class="highlight no-margin-top padding margin-bottom">
       <div class="row">
         <div class="small-12 column">
-          <h2><%= t("shared.search_results") %></h2>
+          <h2>
+            <% if @heading %>
+              <%= t("shared.search_results_for", heading: @heading.name) %>
+            <% else %>
+              <%= t("shared.search_results") %>
+            <% end %>
+          </h2>
           <p>
             <%= page_entries_info @investments %>
             <%= sanitize(t("budgets.investments.index.search_results",
