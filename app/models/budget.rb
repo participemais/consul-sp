@@ -196,7 +196,7 @@ class Budget < ApplicationRecord
       %w[random]
     when *Budget::Phase::PUBLISHED_PRICES_PHASES
       orders = %w[random]
-      resource_allocation_balloting? ? orders << "price" : orders << "ballots"
+      resource_allocation_balloting? ? orders << "price" : orders
     else
       %w[random confidence_score]
     end
