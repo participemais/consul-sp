@@ -690,6 +690,7 @@ en:
     "yes": "Yes"
     "no": "No"
     search_results: "Search results"
+    search_results_for: "Search results for subprefecture %{heading}"
     advanced_search:
       author_type: "By author category"
       author_type_blank: "Select a category"
