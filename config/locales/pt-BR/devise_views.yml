@@ -17,7 +17,7 @@ pt-BR:
         here: aqui
         link: link
         welcome: Olá, <strong>%{username}</strong>!
-        thanks: Obrigado por ser cadastrar no <strong>%{org_name}</strong>!
+        thanks: Obrigada por ser cadastrar no <strong>%{org_name}</strong>!
         instruction_1: "Só precisamos que confirme seu endereço de email, clicando %{link}."
         instruction_2: Depois de finalizar todo o cadastro, você já pode contribuir com as decisões de nossa cidade.
         instruction_3: Vamos enviar para este email processos de participação popular que podem ser de seu interesse, todos relacionados à administração pública municipal e ao <strong>%{org_name}</strong>.

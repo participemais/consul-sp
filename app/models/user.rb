@@ -272,7 +272,7 @@ class User < ApplicationRecord
       recommended_proposals: false
     )
 
-    unless document_number
+    unless can_vote?
       assign_attributes(
         username: nil,
         email: nil,
@@ -431,10 +431,14 @@ class User < ApplicationRecord
     document_type == 'rnm'
   end
 
+  def can_vote?
+    document_number.present?
+  end
+
   private
 
     def clean_document_number
-      return unless document_number.present?
+      return unless can_vote?
 
       self.document_number = document_number.gsub(/[^a-z0-9]+/i, "").upcase
     end

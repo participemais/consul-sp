@@ -14,8 +14,6 @@ if SiteCustomization::Page.find_by(slug: "welcome_level_two_verified").nil?
                     <li>#{I18n.t("welcome.welcome.user_permission_votes")}</li>
                   </ul>
 
-                  <p>#{I18n.t("welcome.welcome.user_permission_verify_info")}</p>
-
                   <a href='/verification' class='button success radius expand'>
                     #{I18n.t("welcome.welcome.user_permission_verify_my_account")}
                   </a>
