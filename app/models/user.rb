@@ -91,7 +91,6 @@ class User < ApplicationRecord
   validates :uf, presence: true, allow_nil: true
 
   validates :official_level, inclusion: { in: 0..5 }
-  validates :terms_of_service, acceptance: { allow_nil: false }, on: :create
 
   validates_associated :organization, message: false
 
