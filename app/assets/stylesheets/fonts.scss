@@ -93,3 +93,13 @@
   font-weight: bold;
   font-style: normal;
 }
+
+@font-face {
+  font-family: "Gotham Bold";
+  src: font-url("custom/gotham-bold.eot");
+  src: font-url("custom/gotham-bold.eot?#iefix") format("embedded-opentype"),
+       font-url("custom/gotham-bold.woff2") format("woff2"),
+       font-url("custom/gotham-bold.woff") format("woff"),
+       font-url("custom/gotham-bold.ttf") format("truetype"),
+       font-url("custom/gotham-bold.svg#Gotham-Bold") format("svg");
+}
