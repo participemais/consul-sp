@@ -31,7 +31,7 @@
 // -----------------
 
 ::selection {
-  color: #fff;
+  color: $text-medium;
   background-color: $brand;
 }
 
@@ -517,7 +517,7 @@ header {
 
 .top-bar {
   background: $brand !important;
-  color: #fff;
+  color: $text-medium;
   padding-bottom: 0;
   padding-top: 0;
 
@@ -534,7 +534,7 @@ header {
     padding: 0;
 
     a {
-      color: #fff;
+      color: $text-medium;
       display: inline-block;
       font-family: "Lato" !important;
       font-size: rem-calc(24);
@@ -566,7 +566,7 @@ header {
     }
 
     a {
-      color: #fff;
+      color: $text-medium;
       padding-left: 0;
 
       @include breakpoint(medium) {
@@ -581,7 +581,7 @@ header {
 
       @include breakpoint(medium) {
         background: #fff;
-        color: $brand;
+        color: $text-medium;
         text-align: center;
       }
     }
@@ -590,7 +590,7 @@ header {
   .has-submenu {
 
     &.is-active a {
-      color: #fff;
+      color: $text-medium;
       font-weight: bold;
     }
   }
@@ -655,22 +655,22 @@ header {
   }
 
   &.is-active > a {
-    color: #fff;
+    color: $text-medium;
   }
 
   &.is-dropdown-submenu-parent > a::after {
-    border-color: #fff transparent transparent;
+    border-color: $text-medium transparent transparent;
   }
 }
 
 .top-links {
   background: $dark;
-  color: #fff;
+  color: $text-medium;
   font-size: $small-font-size;
   padding-right: $line-height / 2;
 
   a {
-    color: #fff;
+    color: $text-medium;
     margin: 0 rem-calc(6);
 
     &:hover {
@@ -719,7 +719,7 @@ header {
   }
 
   a {
-    color: #fff;
+    color: $text-medium;
     display: inline-block;
     line-height: $line-height * 2;
     position: relative;
@@ -738,7 +738,7 @@ header {
     }
 
     &.is-active {
-      color: #fff;
+      color: $text-medium;
 
       @include breakpoint(medium) {
         border-bottom: 2px solid $brand;
@@ -917,7 +917,7 @@ footer {
   &:hover,
   &.is-active {
     background: $brand;
-    color: #fff;
+    color: $text-medium;
   }
 }
 
@@ -961,7 +961,7 @@ footer {
     margin-top: $line-height;
 
     a {
-      color: #fff;
+      color: $text-medium;
       display: block;
       text-align: center;
 
@@ -1007,7 +1007,7 @@ footer {
   position: relative;
 
   label {
-    color: #fff;
+    color: $text-medium;
     font-size: $tiny-font-size;
     font-weight: normal;
   }
@@ -1026,7 +1026,7 @@ footer {
     background: #001d33;
     border: 0;
     border-radius: rem-calc(4);
-    color: #fff;
+    color: $text-medium;
     font-size: $small-font-size;
     height: $line-height;
     margin-bottom: 0;
@@ -1552,7 +1552,7 @@ table {
 .ssb-twitter {
   background: #45b0e3;
   background-image: none !important;
-  color: #fff;
+  color: $text-medium;
   height: $line-height * 2 !important;
   position: relative;
   width: $line-height * 2 !important;
@@ -1595,7 +1595,7 @@ table {
 .ssb-facebook {
   background: #3b5998;
   background-image: none !important;
-  color: #fff;
+  color: $text-medium;
   height: rem-calc(48) !important;
   position: relative;
   width: rem-calc(48) !important;
@@ -1638,7 +1638,7 @@ table {
 [class^="ssb-icon ssb-google"] {
   background: #de4c34;
   background-image: none !important;
-  color: #fff;
+  color: $text-medium;
   height: $line-height * 2 !important;
   position: relative;
   width: $line-height * 2 !important;
@@ -1698,7 +1698,7 @@ table {
 .ssb-telegram {
   background: #08c;
   background-image: none !important;
-  color: #fff;
+  color: $text-medium;
   height: $line-height * 2 !important;
   position: relative;
   width: $line-height * 2 !important;
@@ -1751,7 +1751,7 @@ table {
 
   .ssb-twitter {
     background: #45b0e3;
-    color: #fff;
+    color: $text-medium;
     height: $line-height;
     position: relative;
     width: $line-height * 2;
@@ -1776,7 +1776,7 @@ table {
 
   .ssb-facebook {
     background: #3b5998;
-    color: #fff;
+    color: $text-medium;
     height: rem-calc(24);
     position: relative;
     width: rem-calc(48);
@@ -1801,7 +1801,7 @@ table {
 
   [class^="ssb-icon ssb-google"] {
     background: #de4c34;
-    color: #fff;
+    color: $text-medium;
     height: rem-calc(24);
     position: relative;
     width: rem-calc(48);
@@ -1826,7 +1826,7 @@ table {
 
   .ssb-telegram {
     background: #08c;
-    color: #fff;
+    color: $text-medium;
     height: $line-height;
     position: relative;
     width: $line-height * 2;
@@ -1947,7 +1947,7 @@ table {
       display: block;
 
       @include breakpoint(medium) {
-        background-color: #fff;
+        background-color: $text-medium;
         border-radius: rem-calc(30);
         color: #43ac6a;
         display: inline-block;
@@ -1960,7 +1960,7 @@ table {
 
     &.is-active {
       background: #43ac6a;
-      color: #fff;
+      color: $text-medium;
     }
   }
 
@@ -2792,7 +2792,7 @@ table {
   a:hover {
 
     h3 {
-      color: #fff;
+      color: $text-medium;
     }
   }
 
@@ -2946,7 +2946,7 @@ table {
 
     h3,
     .title {
-      color: #fff;
+      color: $text-medium;
     }
 
     &:hover {
@@ -2961,7 +2961,7 @@ table {
 
   figcaption {
     bottom: 0;
-    color: #fff;
+    color: $text-medium;
     font-size: rem-calc(24);
     line-height: rem-calc(24);
     text-transform: uppercase;
