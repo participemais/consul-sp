@@ -949,16 +949,18 @@ footer {
 }
 
 .auth-image {
-  background: $brand image-url("auth_bg.jpg");
+  background: $brand image-url("auth_bg.png");
   background-repeat: no-repeat;
   background-size: cover;
+  display: flex;
+  justify-content: center;
 
   @include breakpoint(medium) {
     min-height: $line-height * 42;
   }
 
   h1 {
-    margin-top: $line-height;
+    margin-top: $line-height * 13;
 
     a {
       color: $text-medium;
