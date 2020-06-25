@@ -622,7 +622,7 @@ header {
     a img {
       height: rem-calc(48);
       margin: 0;
-      width: auto;
+      width: 50%;
 
       @include breakpoint(medium up) {
         height: auto;
