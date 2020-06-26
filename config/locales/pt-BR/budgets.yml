@@ -109,6 +109,14 @@ pt-BR:
           by_feasibility: Por viabilidade
           feasible: Propostas viáveis
           unfeasible: Propostas inviáveis
+          district_info:
+            other: O distrito tem cerca de <strong>%{extreme_poverty}</strong> famílias em extrema pobreza e <strong>%{slum_households}</strong> domicílios em favelas.
+            zero: O distrito tem cerca de <strong>%{extreme_poverty}</strong> famílias em extrema pobreza e nenhum domicílio em favelas.
+          district_jobs_greater_than_population: A quantidade de empregos formais é <strong>%{formal_jobs_by_population}</strong> vezes maior do que a população em idade ativa do distrito.
+          district_jobs_lower_than_population: Para cada emprego formal, há <strong>%{formal_jobs_by_population}</strong> pessoas em idade ativa no distrito.
+          population: "População: <strong>%{population}</strong>"
+          area: "Área: <strong>%{population} km²</strong>"
+          districts: Distritos
         orders:
           random: aleatório
           confidence_score: melhor avaliado
