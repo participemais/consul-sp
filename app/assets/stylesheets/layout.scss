@@ -570,7 +570,7 @@ header {
       padding-left: 0;
 
       @include breakpoint(medium) {
-        font-size: $small-font-size;
+        font-size: $base-font-size;
         padding: rem-calc(11) rem-calc(16);
       }
     }
