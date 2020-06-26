@@ -81,12 +81,12 @@ a {
 
   &:focus {
     color: $link-hover;
-    outline: 3px solid #ffbf47;
+    outline: 3px solid $purple;
   }
 }
 
 .button {
-  background: $blue;
+  background: $purple;
   font-size: $base-font-size;
 
   &:hover {
@@ -269,12 +269,12 @@ a {
     }
 
     &.is-active {
-      border-bottom: 2px solid $blue;
-      color: $blue;
+      border-bottom: 2px solid $purple;
+      color: $purple;
       padding-bottom: rem-calc(1);
 
       h2 a {
-        color: $blue;
+        color: $purple;
       }
     }
 
@@ -301,7 +301,7 @@ a {
 
       &.is-active {
         font-weight: bold;
-        color: $blue;
+        color: $purple;
       }
     }
 
@@ -310,8 +310,8 @@ a {
     }
 
     &.is-active {
-      border-bottom: 2px solid $blue;
-      color: $blue;
+      border-bottom: 2px solid $purple;
+      color: $purple;
     }
   }
 
@@ -381,12 +381,12 @@ a {
     &[aria-selected="true"],
     &.is-active {
       border-bottom: 0;
-      color: $blue;
+      color: $purple;
       font-weight: bold;
 
       &::after {
-        background: $blue;
-        border-bottom: 2px solid $blue;
+        background: $purple;
+        border-bottom: 2px solid $purple;
         bottom: 0;
         content: "";
         left: 0;
@@ -744,8 +744,8 @@ header {
       color: $text-medium;
 
       @include breakpoint(medium) {
-        border-bottom: 2px solid $blue;
-        color: $blue;
+        border-bottom: 2px solid $purple;
+        color: $purple;
       }
     }
   }
@@ -816,8 +816,8 @@ header {
   }
 
   .is-active {
-    border-bottom: 2px solid $blue;
-    color: $blue;
+    border-bottom: 2px solid $purple;
+    color: $purple;
 
     &:hover {
       text-decoration: none;
@@ -919,7 +919,7 @@ footer {
 
   &:hover,
   &.is-active {
-    background: $blue;
+    background: $purple;
     color: $text-medium;
   }
 }
