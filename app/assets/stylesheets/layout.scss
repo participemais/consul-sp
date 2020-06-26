@@ -713,7 +713,8 @@ header {
     li {
       @include breakpoint(medium) {
         display: inline-block;
-        margin-right: rem-calc(20);
+        margin-right: rem-calc(25);
+
       }
     }
   }

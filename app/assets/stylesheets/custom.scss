@@ -22,3 +22,17 @@
     }
   }
 }
+
+.main-tabs {
+  background: $lighter-gray;
+  text-transform: uppercase;
+
+  ul > li > a {
+    color: $dark-gray;
+
+    &:hover {
+      color: $darker-gray;
+      text-decoration: none;
+    }
+  }
+}
