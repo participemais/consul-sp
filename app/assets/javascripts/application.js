@@ -92,6 +92,7 @@
 //= require jquery.mask
 //= require masks
 //= require cep_autocomplete
+//= require district_data
 
 var initialize_modules = function() {
   "use strict";
@@ -148,6 +149,7 @@ var initialize_modules = function() {
   App.BudgetEditAssociations.initialize();
   App.Masks.initialize();
   App.CEPAutocomplete.initialize();
+  App.DistrictData.initialize();
 };
 
 $(function() {
