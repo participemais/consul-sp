@@ -36,3 +36,9 @@
     }
   }
 }
+
+.gradient-border {
+  border-top: 0.6rem solid;
+  border-image-source: linear-gradient(to left, $pink, $yellow);
+  border-image-slice: 1;
+}
