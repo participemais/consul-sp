@@ -54,3 +54,18 @@
   font-size: $tiny-font-size;
   margin-bottom: 0;
 }
+
+.login-options {
+  font-family: $subheader-font-family;
+  margin-right: $global-margin;
+  border-bottom: 3px solid $brand;
+  transition: border-bottom 0.5s;
+  text-transform: uppercase;
+  &:hover {
+    box-sizing: border-box;
+    border-bottom: 3px solid orange;
+    a {
+      text-decoration: none;
+    }
+  }
+}
