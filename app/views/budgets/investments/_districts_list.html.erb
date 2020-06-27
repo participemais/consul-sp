@@ -1,0 +1,65 @@
+<li>
+  <div class="row">
+    <div class="small-10 column">
+      <h4><%= district.name %></h4>
+    </div>
+    <div class="small-2 column" style="cursor: pointer">
+      <p
+        class="icon-plus-square js-district-info"
+        data-district="<%= district.id %>_sidebar"
+      >
+      </p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="small-12 medium-7 column small">
+      <%= sanitize(t(
+        "budgets.investments.index.sidebar.population",
+        population: number_with_delimiter(
+          district.population,
+          delimiter: "."
+        )
+      )) %>
+    </div>
+    <div class="small-12 medium-5 column small">
+      <%= sanitize(t(
+        "budgets.investments.index.sidebar.area",
+        population: number_with_delimiter(
+          district.area,
+          separator: ","
+        )
+      )) %>
+    </div>
+  </div>
+  <div
+    class="row"
+    data-target="<%= dom_id(district) %>_sidebar"
+    style="display: none"
+  >
+    <div class="small-12 column small">
+      <hr>
+      <%= sanitize(t(
+        "budgets.investments.index.sidebar.district_info",
+        extreme_poverty: number_with_delimiter(
+          district.extreme_poverty, delimiter: "."
+        ),
+        slum_households: number_with_delimiter(
+          district.slum_households, delimiter: "."
+        ),
+        count: district.slum_households
+      )) %>
+      <% if district.formal_jobs_by_population > 1 %>
+        <% translation_key = "budgets.investments.index.sidebar.district_jobs_greater_than_population" %>
+      <% else %>
+        <% translation_key = "budgets.investments.index.sidebar.district_jobs_lower_than_population" %>
+      <% end %>
+      <%= sanitize(t(
+        translation_key,
+        formal_jobs_by_population: number_with_delimiter(
+          district.formal_jobs_by_population.round(2),
+          separator: ","
+        )
+      )) %>
+    </div>
+  </div>
+</li>
