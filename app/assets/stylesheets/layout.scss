@@ -715,8 +715,6 @@ header {
     li {
       @include breakpoint(medium) {
         display: inline-block;
-        margin-right: rem-calc(25);
-
       }
     }
   }
