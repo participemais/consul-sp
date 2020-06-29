@@ -29,10 +29,12 @@
 
   ul > li > a {
     color: $dark-gray;
+    padding: 0 $line-height;
 
     &:hover {
-      color: $darker-gray;
+      color: $brand;
       text-decoration: none;
+      background: $purple;
     }
   }
 }
