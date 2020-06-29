@@ -47,3 +47,8 @@
   border-image-source: linear-gradient(to left, $pink, $yellow);
   border-image-slice: 1;
 }
+
+.sessions-form-logo {
+  display: flex;
+  justify-content: center;
+}

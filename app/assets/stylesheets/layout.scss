@@ -979,7 +979,7 @@ footer {
 .auth-form {
 
   @include breakpoint(medium) {
-    padding-top: $line-height * 4;
+    padding-top: $line-height;
   }
 
   p,
