@@ -14,18 +14,18 @@
   <div class="row">
     <div class="small-12 medium-7 column small">
       <%= sanitize(t(
-        "budgets.investments.index.sidebar.population",
+        "budgets.investments.index.population",
         population: number_with_delimiter(
           district.population,
           delimiter: "."
         )
       )) %>
     </div>
-    <div class="small-12 medium-5 column small">
+    <div class="small-12 medium-5 column small no-padding-right">
       <%= sanitize(t(
-        "budgets.investments.index.sidebar.area",
+        "budgets.investments.index.area",
         population: number_with_delimiter(
-          district.area,
+          district.area.round(2),
           separator: ","
         )
       )) %>
