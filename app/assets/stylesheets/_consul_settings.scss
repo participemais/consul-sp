@@ -74,9 +74,11 @@ $pdf-secondary:     #ff9e00;
 $black: #222;
 $white: #fff;
 
-$body-font-family: "Source Sans Pro", "Helvetica", "Arial", sans-serif !important;
+$body-font-family: "Segoe UI Semilight", "Source Sans Pro", "Helvetica", "Arial", sans-serif !important;
 
-$header-font-family: $body-font-family;
+$header-font-family: "Gotham Bold", "Source Sans Pro", "Helvetica", "Arial", sans-serif !important;
+
+$subheader-font-family: "Segoe UI Semibold", "Source Sans Pro", "Helvetica", "Arial", sans-serif !important;
 
 $global-radius: rem-calc(3);
 
