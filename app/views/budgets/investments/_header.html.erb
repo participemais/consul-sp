@@ -1,6 +1,6 @@
 <% if @heading.present? %>
   <section class="no-margin-top margin-bottom">
-    <div class="expanded jumbo-budget budget-heading padding">
+    <div class="expanded jumbo-budget budget-heading padding-top">
 
       <div class="row">
         <div class="small-12 column">
@@ -69,6 +69,9 @@
                 </div>
               </div>
             <% end %>
+            <h6 class="js-subprefecture-data subprefecture-label">
+              <span class="icon-plus-square"></span> <%= t("budgets.investments.index.subprefecture_label") %>
+            </h6>
           <% else %>
             <h2 class="margin-top">
               <%= t("budgets.investments.index.by_heading", heading: @heading.name) %>
