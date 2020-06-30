@@ -84,7 +84,15 @@ pt-BR:
         title: Orçamento cidadão
         unfeasible: Propostas inviáveis
         unfeasible_text: "As propostas devem atender a uma série de critérios (legalidade, concretude, ser de responsabilidade da cidade, não exceder o limite do orçamento, respeitar as especificações técnicas e jurídicas) para serem declaradas viáveis e chegarem ao estágio de votação final. Todas as propostas que não atendem a esses critérios são marcadas como inviáveis e publicadas na lista a seguir, juntamente com seu relatório de inviabilidade."
-        by_heading: "Propostas para subprefeitura %{heading}"
+        by_heading: "Propostas para Subprefeitura %{heading}"
+        population: "População: <strong>%{population}</strong>"
+        area: "Área: <strong>%{population} km²</strong>"
+        subprefecture_label: Mais informações da Subprefeitura
+        subprefecture_info: A Subprefeitura %{heading} tem cerca de <strong>%{extreme_poverty}</strong> famílias em extrema pobreza (%{extreme_poverty_reference_year})* e <strong>%{slum_households}</strong> domicílios em favelas (%{slum_households_reference_year})*.
+        district_jobs_greater_than_population: A quantidade de empregos formais é <strong>%{formal_jobs_by_population}</strong> vezes maior do que a população em idade ativa da subprefeitura (%{formal_jobs_by_population_reference_year})*.
+        district_jobs_lower_than_population: Para cada emprego formal, há <strong>%{formal_jobs_by_population}</strong> pessoas em idade ativa no subprefeitura (%{formal_jobs_by_population_reference_year})*.
+        info_source_text: "*Dados disponíveis em"
+        info_source: ObservaSampa
         search_form:
           button: Buscar
           placeholder: Buscar propostas de orçamento...
@@ -109,6 +117,12 @@ pt-BR:
           by_feasibility: Por viabilidade
           feasible: Propostas viáveis
           unfeasible: Propostas inviáveis
+          district_info:
+            other: O distrito tem cerca de <strong>%{extreme_poverty}</strong> famílias em extrema pobreza e <strong>%{slum_households}</strong> domicílios em favelas.
+            zero: O distrito tem cerca de <strong>%{extreme_poverty}</strong> famílias em extrema pobreza e nenhum domicílio em favelas.
+          district_jobs_greater_than_population: A quantidade de empregos formais é <strong>%{formal_jobs_by_population}</strong> vezes maior do que a população em idade ativa do distrito.
+          district_jobs_lower_than_population: Para cada emprego formal, há <strong>%{formal_jobs_by_population}</strong> pessoas em idade ativa no distrito.
+          districts: Distritos
         orders:
           random: aleatório
           confidence_score: melhor avaliado

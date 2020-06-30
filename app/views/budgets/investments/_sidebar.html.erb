@@ -26,6 +26,21 @@
 <% if @map_location&.available? %>
   <%= render "budgets/investments/map" %>
 <% end %>
+
+<% if @heading && @heading.districts.any? %>
+  <div class="sidebar-divider"></div>
+
+  <h2 class="sidebar-title">
+    <%= t("budgets.investments.index.sidebar.districts") %>
+  </h2>
+
+  <ul class="district-list">
+    <% @heading.districts.each do |district| %>
+      <%= render "budgets/investments/districts_list", district: district %>
+    <% end %>
+  </ul>
+<% end %>
+
 <%= render "shared/tag_cloud", taggable: "budget/investment" %>
 <%= render "budgets/investments/categories" %>
 
