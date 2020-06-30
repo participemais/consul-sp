@@ -7,3 +7,104 @@
   font-size: $small-font-size;
   margin: -1rem 0;
 }
+
+.login-options {
+  font-family: $subheader-font-family;
+  margin-right: $global-margin;
+  border-bottom: 3px solid $brand;
+  transition: border-bottom 0.5s;
+  transition: color 0.5s;
+  text-transform: uppercase;
+  &:hover {
+    box-sizing: border-box;
+    border-bottom: 3px solid $purple;
+    a {
+      text-decoration: none;
+      color: $purple !important;
+    }
+  }
+}
+
+.main-tabs {
+  background: $lighter-gray;
+  text-transform: uppercase;
+
+  ul > li > a {
+    color: $dark-gray;
+    padding: 0 $line-height;
+    font-family: $header-font-family;
+
+    &:hover {
+      color: $brand;
+      text-decoration: none;
+      background: $purple;
+    }
+  }
+}
+
+.gradient-border {
+  border-top: 0.6rem solid;
+  border-image-source: linear-gradient(to left, $pink, $yellow);
+  border-image-slice: 1;
+}
+
+.sessions-form-logo {
+  display: flex;
+  justify-content: center;
+}
+
+.responsible {
+  font-family: $subheader-font-family;
+  line-height: 3 * $line-height / 4;
+  margin-bottom: 0;
+}
+
+.responsible-address {
+  font-family: $body-font-family;
+  line-height: 3 * $line-height / 4;
+}
+
+.contact-footer {
+  padding-left: $line-height;
+
+  .org-mail {
+    font-family: $subheader-font-family;
+    margin-bottom: 0;
+  }
+
+  .social-networks {
+    margin-left: 0;
+    font-family: $subheader-font-family;
+    display: flex;
+    align-items: center;
+
+    li > a {
+
+      font-size:$base-font-size;
+      text-decoration: none;
+      margin-right: $line-height / 3;
+      &:hover {
+        text-decoration: none;
+      }
+    }
+
+    .at-org {
+      font-size:$small-font-size;
+    }
+  }
+}
+
+.footer-logos {
+  width: 100%;
+  height: 10vh;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.governo-aberto-logo {
+  background-image: image-url("governo_aberto_logo.png");
+}
+
+.sao-paulo-logo {
+  background-image: image-url("sao_paulo_logo.png");
+}

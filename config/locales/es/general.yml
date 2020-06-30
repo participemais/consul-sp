@@ -221,17 +221,23 @@ es:
           other: "Apoyos"
     footer:
       accessibility: Accesibilidad
-      conditions: Condiciones de uso
+      conditions: Condiciones de Uso
       consul: aplicación CONSUL
       consul_url: https://github.com/consul/consul
       contact_us: Para asistencia técnica entra en
-      copyright: CONSUL, %{year}
-      description: Este portal usa la %{consul} que es %{open_source}.
-      open_source: software de código abierto
+      copyright: "El %{org_name}, %{year}, usa %{open_source} del %{consul}"
+      open_source: código abierto
       open_source_url: http://www.gnu.org/licenses/agpl-3.0.html
-      participation_text: Decide cómo debe ser la ciudad que quieres.
-      participation_title: Participación
       privacy: Política de privacidad
+      responsible: >-
+        Supervisão para Assuntos de Governo Aberto <br>
+        Secretaria Executiva de Gestão de Projetos Estratégicos <br>
+        Secretaria de Governo Municipal
+      responsible_address: "Viaduto do Chá, 15 - Centro - São Paulo, SP. CEP: 01002-020"
+      at_org: "@participemais"
+      transparency: Portal de Transparencia
+      transparency_url: http://transparencia.prefeitura.sp.gov.br
+      transparency_text: "Los datos de la Ciudad de São Paulo son suyos, acceda al %{transparency}"
     header:
       administration_menu: Menú
       administration: Administración
@@ -247,8 +253,6 @@ es:
       help: Ayuda
       my_account_link: Mi cuenta
       my_activity_link: Mi contenido
-      open: abierto
-      open_gov: Gobierno %{open}
       proposals: Propuestas
       poll_questions: Votaciones
       budgets: Presupuestos participativos

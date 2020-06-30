@@ -45,9 +45,9 @@ pt-BR:
         unlock_link: Desbloquear a minha conta
     menu:
       login_items:
-        login: Iniciar sessão
-        logout: Terminar sessão
-        signup: Registre-se
+        login: Entrar
+        logout: Sair
+        signup: Criar conta
     organizations:
       registrations:
         new:
@@ -58,7 +58,7 @@ pt-BR:
           phone_number_label: Números de telefone
           responsible_name_label: Nome completo da pessoa responsável pelo coletivo
           responsible_name_note: Pessoa que representa a associação/coletivo em nome de quem as propostas são apresentadas
-          submit: Registre-se
+          submit: Criar conta
           title: Registar-se como uma organização ou coletivo
         success:
           back_to_index: Eu entendo; voltar à página principal
@@ -124,11 +124,11 @@ pt-BR:
           password_confirmation_label: Confirmar senha
           password_label: Senha
           redeemable_code: Código de verificação recebido via e-mail (opcional)
-          submit: Registre-se
+          submit: Criar conta
           terms: Ao se registrar você aceita os %{terms}
           terms_link: termos e condições de uso
           terms_title: Ao se registrar você aceita os termos e condições de uso
-          title: Registre-se
+          title: Criar conta
           username_is_available: Nome de usuário disponível
           username_is_not_available: Nome de usuário já está em uso
           username_label: Nome de usuário
