@@ -621,12 +621,14 @@ header {
     line-height: $line-height;
 
     a img {
-      height: rem-calc(48);
+      height: auto;
       margin: 0;
-      width: 50%;
+      width: 45%;
+      float: right;
 
       @include breakpoint(medium up) {
-        height: auto;
+        float: left;
+        margin-left: $line-height;
       }
     }
   }
