@@ -10,8 +10,6 @@
 // ----------------------
 
 .jumbo {
-  background: $highlight;
-  margin-bottom: $line-height;
   margin-top: rem-calc(-24);
   padding-bottom: $line-height;
 
@@ -24,7 +22,10 @@
     background-position: 0 100%;
     background-size: cover;
     background-repeat: no-repeat;
-    height: 550px;
+    min-height: 25vh;
+    @include breakpoint(medium) {
+      min-height: 80vh;
+    }
   }
 }
 
