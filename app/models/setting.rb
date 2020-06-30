@@ -150,8 +150,8 @@ class Setting < ApplicationRecord
         # Users with this email domain will automatically be marked as level 1 officials
         # Emails under the domain's subdomains will also be included
         "email_domain_for_officials": "",
-        "facebook_handle": nil,
-        "instagram_handle": nil,
+        "facebook_handle": "participemais",
+        "instagram_handle": "participemais",
         "telegram_handle": nil,
         "twitter_handle": nil,
         "twitter_hashtag": nil,
