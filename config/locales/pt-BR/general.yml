@@ -226,11 +226,11 @@ pt-BR:
       accessibility: Acessibilidade
       conditions: Termos de Uso
       consul: Aplicativo Consul
-      consul_url: https://github.com/consul/consul
+      consul_url: https://consulproject.org/en/
       contact_us: Para suporte técnico entre em
       copyright: "O %{org_name}, %{year}, usa %{open_source} do %{consul}"
       open_source: código aberto
-      open_source_url: http://www.gnu.org/licenses/agpl-3.0.html
+      open_source_url: https://github.com/consul/consul
       privacy: Política de Privacidade
       responsible: >-
         Supervisão para Assuntos de Governo Aberto <br>
