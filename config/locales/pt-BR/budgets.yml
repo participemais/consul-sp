@@ -104,7 +104,7 @@ pt-BR:
           check_ballot_link: "verificar minha cédula"
           zero: Você não votou em nenhuma proposta deste grupo.
           verified_only: "Para criar uma nova proposta %{verify}."
-          create: "Criar um proposta"
+          create: "Criar uma proposta"
           not_logged_in: "Para criar uma nova proposta, você deve %{sign_in} ou %{sign_up}."
           by_feasibility: Por viabilidade
           feasible: Propostas viáveis
