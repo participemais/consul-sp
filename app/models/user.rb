@@ -78,6 +78,12 @@ class User < ApplicationRecord
 
   validates :username, presence: true, if: :username_required?
   validates :username, uniqueness: { scope: :registering_with_oauth }, if: :username_required?
+  validates :username, length: { minimum: 3 }
+
+  validate :username_chars_validation
+
+  validate :first_and_last_names_chars_validation
+
   validates :document_number, uniqueness: { scope: :document_type }, allow_nil: true
 
   validate :validate_username_length
@@ -467,6 +473,23 @@ class User < ApplicationRecord
           scope: 'activerecord.errors.models.user.attributes.cpf'
         )
         errors.add(:base, message)
+      end
+    end
+
+    def username_chars_validation
+      unless username =~ /[\sa-z\u00C0-\u017F]{3,}/i
+        message = I18n.t('activerecord.errors.models.user.attributes.username')
+        errors.add(:username, message)
+      end
+    end
+
+    def first_and_last_names_chars_validation
+      unless first_name =~ /^[\sa-z\u00C0-\u017F\.\-]+$/i
+        errors.add(:first_name)
+      end
+
+      unless last_name =~ /^[\sa-z\u00C0-\u017F\.\-]+$/i
+        errors.add(:last_name)
       end
     end
 end
