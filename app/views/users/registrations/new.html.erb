@@ -38,14 +38,18 @@
 
       <%= recaptcha_tags %>
 
-      <p>
+      <p class="text-center">
         <%= sanitize(t(
           "devise_views.users.registrations.new.terms",
           terms: link_to(
             t("devise_views.users.registrations.new.terms_link"),
             "/conditions",
-            title: t("shared.target_blank"),
-            target: "_blank"
+            target: :_blank
+          ),
+          privacy: link_to(
+            t("devise_views.users.registrations.new.privacy_link"),
+            "/privacy",
+            target: :_blank
           )
         )) %>
       </p>

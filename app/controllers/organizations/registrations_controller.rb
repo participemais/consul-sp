@@ -30,7 +30,7 @@ class Organizations::RegistrationsController < Devise::RegistrationsController
   private
 
     def sign_up_params
-      params.require(:user).permit(:email, :password, :password_confirmation, :terms_of_service,
+      params.require(:user).permit(:email, :password, :password_confirmation,
                                    organization_attributes: [:name, :responsible_name])
     end
 

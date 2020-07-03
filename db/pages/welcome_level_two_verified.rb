@@ -5,8 +5,6 @@ if SiteCustomization::Page.find_by(slug: "welcome_level_two_verified").nil?
   page.content = "<p>#{I18n.t("welcome.welcome.user_permission_info")}</p>
                   <ul>
                     <li>#{I18n.t("welcome.welcome.user_permission_debates")}</li>
-                    <li>#{I18n.t("welcome.welcome.user_permission_proposal")}</li>
-                    <li>#{I18n.t("welcome.welcome.user_permission_support_proposal")}</li>
                   </ul>
 
                   <p>#{I18n.t("welcome.welcome.user_permission_verify")}</p>
