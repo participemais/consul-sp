@@ -125,9 +125,10 @@ pt-BR:
           password_label: Senha
           redeemable_code: Código de verificação recebido via e-mail (opcional)
           submit: Criar conta
-          terms: Ao se registrar você aceita os %{terms}
-          terms_link: termos e condições de uso
-          terms_title: Ao se registrar você aceita os termos e condições de uso
+          terms: Ao criar a conta você aceita os %{terms} e a %{privacy}
+          terms_link: Termos de Uso
+          terms_title: Ao criar a conta você aceita os termos e condições de uso
+          privacy_link: Política de Privacidade
           title: Criar conta
           username_is_available: Nome de usuário disponível
           username_is_not_available: Nome de usuário já está em uso
