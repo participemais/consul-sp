@@ -220,7 +220,7 @@ pt-BR:
         author: "Autor"
         description: "Opinião"
         tag_list: "Tópicos"
-        terms_of_service: "Termos de serviço"
+        terms_of_service: "Termos de Uso"
         title: "Título"
       debate/translation:
         title: "Título do debate"
@@ -233,7 +233,7 @@ pt-BR:
         responsible_name: "Nome completo do autor da proposta"
         retired_reason: "Motivo para retirar a proposta"
         selected: "Marcar como selecionado"
-        terms_of_service: "Termos de serviço"
+        terms_of_service: "Termos de Uso"
         video_url: "URL do vídeo"
       proposal/translation:
         title: "Título da proposta"
