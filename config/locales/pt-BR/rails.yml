@@ -116,14 +116,14 @@ pt-BR:
       not_a_number: não é um número
       not_an_integer: deve ser um número inteiro
       odd: deve ser ímpar
-      required: deve existir
-      taken: já foi escolhido
+      required: Deve existir
+      taken: Já está em uso
       too_long:
         one: é muito longo (o máximo é 1 caractere)
-        other: é muito longo (o máximo é %{count} caracteres)
+        other: Muito longa (Máximo são %{count} caracteres)
       too_short:
-        one: é muito curto (mínimo é 1 caractere)
-        other: é muito curto (mínimo é %{count} caracteres)
+        one: Muito curta (mínimo é 1 caractere)
+        other: Muito curta (Mínimo são %{count} caracteres)
       wrong_length:
         one: comprimento errado (deve ter 1 caractere)
         other: comprimento errado (deve ter %{count} caracteres)
