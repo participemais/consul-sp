@@ -59,7 +59,7 @@ pt-BR:
         all_phases: Ver todas as etapas
       all_phases: Etapas do orçamento cidadão
       map: Propostas de orçamento cidadão por subprefeitura
-      investment_proyects: Todas as propostas de orçamento
+      investment_proyects: Todas as propostas de orçamento selecionadas para fase de votação
       unfeasible_investment_proyects: Propostas de orçamento inviáveis
       not_selected_investment_proyects: Propostas de orçamento não selecionadas para votação
       finished_budgets: Orçamentos concluídos
