@@ -57,11 +57,11 @@ pt-BR:
     messages:
       already_confirmed: "Você já foi verificado; por favor tente conectar-se a sua conta."
       confirmation_period_expired: "Você precisa ser verificado dentro de %{period}; por favor, faça um pedido de repetição."
-      expired: "expirou; por favor, faça outro pedido."
-      not_found: "não encontrado."
-      not_locked: "foi bloqueado."
+      expired: "Expirou; por favor, faça outro pedido."
+      not_found: "Não encontrado."
+      not_locked: "Foi bloqueado."
       not_saved:
-        one: "1 erro impediu que %{resource} fosse salva. Por favor, verifique a mensagem abaixo ou os campos marcados para saber como corrigi-lo:"
-        other: "%{count} erros impediram que %{resource} fosse salva. Por favor, verifique a mensagem abaixo ou os campos marcados para saber como corrigi-los:"
-      equal_to_current_password: "deve ser diferente da senha atual."
+        one: "1 erro impediu que %{resource} fosse criada. Por favor, verifique a mensagem abaixo ou os campos marcados para saber como corrigi-lo:"
+        other: "%{count} erros impediram que %{resource} fosse criada. Por favor, verifique a mensagem abaixo ou os campos marcados para saber como corrigi-los:"
+      equal_to_current_password: "A senha precisa ser diferente da senha atual."
       recaptcha_error: "É necessário marcar a opção \"Não sou um robô\""
