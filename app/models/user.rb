@@ -82,7 +82,7 @@ class User < ApplicationRecord
 
   validate :username_chars_validation
 
-  validate :first_and_last_names_chars_validation
+  validate :first_and_last_names_chars_validation, unless: :new_record?
 
   validates :document_number, uniqueness: { scope: :document_type }, allow_nil: true
 
