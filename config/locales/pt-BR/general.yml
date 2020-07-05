@@ -225,7 +225,7 @@ pt-BR:
     footer:
       accessibility: Acessibilidade
       conditions: Termos de Uso
-      consul: Aplicativo Consul
+      consul: Aplicativo CONSUL
       consul_url: https://consulproject.org/en/
       contact_us: Para suporte técnico entre em
       copyright: "O %{org_name}, %{year}, usa %{open_source} do %{consul}"
