@@ -78,6 +78,12 @@ class User < ApplicationRecord
 
   validates :username, presence: true, if: :username_required?
   validates :username, uniqueness: { scope: :registering_with_oauth }, if: :username_required?
+  validates :username, length: { minimum: 3 }
+
+  validate :username_chars_validation
+
+  validate :first_and_last_names_chars_validation, unless: :new_record?
+
   validates :document_number, uniqueness: { scope: :document_type }, allow_nil: true
 
   validate :validate_username_length
@@ -86,8 +92,11 @@ class User < ApplicationRecord
 
   validate :cpf_number, if: :local_document?
 
+  validates :gender, presence: true, allow_nil: true
+  validates :ethnicity, presence: true, allow_nil: true
+  validates :uf, presence: true, allow_nil: true
+
   validates :official_level, inclusion: { in: 0..5 }
-  validates :terms_of_service, acceptance: { allow_nil: false }, on: :create
 
   validates_associated :organization, message: false
 
@@ -139,7 +148,6 @@ class User < ApplicationRecord
       email: oauth_email,
       oauth_email: oauth_email,
       password: Devise.friendly_token[0, 20],
-      terms_of_service: "1",
       confirmed_at: oauth_email_confirmed ? DateTime.current : nil
     )
   end
@@ -254,22 +262,37 @@ class User < ApplicationRecord
     ProposalNotification.hide_all proposal_notification_ids
   end
 
-  def erase(erase_reason = nil)
-    update!(
+  def erase(attrs)
+    assign_attributes(
       erased_at: Time.current,
-      erase_reason: erase_reason,
-      username: nil,
-      email: nil,
-      unconfirmed_email: nil,
-      phone_number: nil,
-      encrypted_password: "",
-      confirmation_token: nil,
-      reset_password_token: nil,
-      email_verification_token: nil,
-      confirmed_phone: nil,
-      unconfirmed_phone: nil
+      erase_reason: attrs[:erase_reason],
+      erase_reason_description: attrs[:erase_reason_description],
+      email_on_comment: false,
+      email_on_comment_reply: false,
+      newsletter: false,
+      email_digest: false,
+      email_on_direct_message: false,
+      recommended_debates: false,
+      recommended_proposals: false
     )
-    identities.destroy_all
+
+    unless can_vote?
+      assign_attributes(
+        username: nil,
+        email: nil,
+        unconfirmed_email: nil,
+        phone_number: nil,
+        encrypted_password: "",
+        confirmation_token: nil,
+        reset_password_token: nil,
+        email_verification_token: nil,
+        confirmed_phone: nil,
+        unconfirmed_phone: nil
+      )
+      identities.destroy_all
+    end
+
+    save
   end
 
   def erased?
@@ -412,10 +435,14 @@ class User < ApplicationRecord
     document_type == 'rnm'
   end
 
+  def can_vote?
+    document_number.present?
+  end
+
   private
 
     def clean_document_number
-      return unless document_number.present?
+      return unless can_vote?
 
       self.document_number = document_number.gsub(/[^a-z0-9]+/i, "").upcase
     end
@@ -446,6 +473,23 @@ class User < ApplicationRecord
           scope: 'activerecord.errors.models.user.attributes.cpf'
         )
         errors.add(:base, message)
+      end
+    end
+
+    def username_chars_validation
+      unless username =~ /[\sa-z\u00C0-\u017F]{3,}/i
+        message = I18n.t('activerecord.errors.models.user.attributes.username')
+        errors.add(:username, message)
+      end
+    end
+
+    def first_and_last_names_chars_validation
+      unless first_name =~ /^[\sa-z\u00C0-\u017F\.\-]+$/i
+        errors.add(:first_name)
+      end
+
+      unless last_name =~ /^[\sa-z\u00C0-\u017F\.\-]+$/i
+        errors.add(:last_name)
       end
     end
 end

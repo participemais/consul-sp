@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20200604191910) do
+ActiveRecord::Schema.define(version: 20200622200531) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -177,6 +177,19 @@ ActiveRecord::Schema.define(version: 20200604191910) do
     t.index ["heading_id"], name: "index_budget_content_blocks_on_heading_id"
   end
 
+  create_table "budget_districts", force: :cascade do |t|
+    t.string "name"
+    t.integer "population"
+    t.decimal "area"
+    t.integer "slum_households"
+    t.integer "extreme_poverty"
+    t.decimal "formal_jobs_by_population"
+    t.bigint "heading_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["heading_id"], name: "index_budget_districts_on_heading_id"
+  end
+
   create_table "budget_group_translations", id: :serial, force: :cascade do |t|
     t.integer "budget_group_id", null: false
     t.string "locale", null: false
@@ -216,6 +229,13 @@ ActiveRecord::Schema.define(version: 20200604191910) do
     t.text "longitude"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.decimal "area"
+    t.integer "slum_households"
+    t.integer "slum_households_reference_year"
+    t.integer "extreme_poverty"
+    t.integer "extreme_poverty_reference_year"
+    t.decimal "formal_jobs_by_population"
+    t.integer "formal_jobs_by_population_reference_year"
     t.index ["group_id"], name: "index_budget_headings_on_group_id"
   end
 
@@ -360,6 +380,8 @@ ActiveRecord::Schema.define(version: 20200604191910) do
     t.text "description_drafting"
     t.text "description_publishing_prices"
     t.text "description_informing"
+    t.integer "max_votes"
+    t.string "balloting_type"
   end
 
   create_table "campaigns", id: :serial, force: :cascade do |t|
@@ -1500,6 +1522,7 @@ ActiveRecord::Schema.define(version: 20200604191910) do
     t.string "ethnicity"
     t.string "first_name"
     t.string "last_name"
+    t.string "erase_reason_description"
     t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["geozone_id"], name: "index_users_on_geozone_id"

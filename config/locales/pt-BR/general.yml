@@ -22,7 +22,6 @@ pt-BR:
       user_permission_support_proposal: Apoiar propostas
       user_permission_title: Participação
       user_permission_verify: Para realizar todas as ações verifique sua conta.
-      user_permission_verify_info: "* Somente para usuários no Censo. "
       user_permission_votes: Participar na votação final
       username_label: Nome de usuário
       verified_account: Conta verificada
@@ -225,17 +224,23 @@ pt-BR:
           other: "Apoios"
     footer:
       accessibility: Acessibilidade
-      conditions: Termos e Condições de uso
-      consul: Aplicativo Consul
-      consul_url: https://github.com/consul/consul
+      conditions: Termos de Uso
+      consul: Aplicativo CONSUL
+      consul_url: https://consulproject.org/en/
       contact_us: Para suporte técnico entre em
-      copyright: Consul, %{year}
-      description: Este portal usa o %{consul} que é %{open_source}. De Madrid para o mundo.
-      open_source: programa de código aberto
-      open_source_url: http://www.gnu.org/licenses/agpl-3.0.html
-      participation_text: Faça São Paulo uma cidade melhor.
-      participation_title: Participação
+      copyright: "O %{org_name}, %{year}, usa %{open_source} do %{consul}"
+      open_source: código aberto
+      open_source_url: https://github.com/consul/consul
       privacy: Política de Privacidade
+      responsible: >-
+        Supervisão para Assuntos de Governo Aberto <br>
+        Secretaria Executiva de Gestão de Projetos Estratégicos <br>
+        Secretaria de Governo Municipal
+      responsible_address: "Viaduto do Chá, 15 - Centro - São Paulo, SP. CEP: 01002-020"
+      at_org: "@participemais"
+      transparency: Portal da Transparência
+      transparency_url: http://transparencia.prefeitura.sp.gov.br
+      transparency_text: "Os dados da Cidade de São Paulo são seus, acesse o %{transparency}"
     header:
       administration_menu: Admin
       administration: Administração
@@ -248,14 +253,12 @@ pt-BR:
       moderation: Moderação
       valuation: Avaliação
       officing: Presidentes da votação
-      help: Ajuda
+      help: Sobre
       my_account_link: Minha Conta
       my_activity_link: Minha Atividade
-      open: Aberto
-      open_gov: Governo Aberto
       proposals: Propostas
       poll_questions: Votação
-      budgets: Orçamento
+      budgets: Orçamento cidadão
       notification_item:
         new_notifications:
           one: Você tem uma nova notificação
@@ -296,7 +299,7 @@ pt-BR:
       name: Facebook
     finish_signup:
       title: "Detalhes adicionais"
-      username_warning: "Devido a uma mudança na maneira como interagimos com as redes sociais, é possível que seu nome de usuário apareça como \"já em uso\". Se esse for o seu caso, por favor escolha um nome de usuário diferente."
+      username_warning: "Devido a uma mudança na maneira como interagimos com as redes sociais, é possível que seu nome de usuário ou email apareça como \"já em uso\". Se esse for o seu caso, por favor escolha um nome de usuário ou email diferente."
     google_oauth2:
       sign_in: Iniciar sessão com o Google
       sign_up: Inscrever-se com o Google
@@ -688,24 +691,24 @@ pt-BR:
     delete: "Excluir"
     "yes": "Sim"
     "no": "Não"
-    search_results: "Buscar resultados"
+    search_results: "Buscar propostas"
+    search_results_for: "Buscar propostas para subprefeitura %{heading}"
     advanced_search:
       author_type: "Por categoria de autor"
       author_type_blank: "Selecione um categoria"
       date: "Por data"
-      date_placeholder: "DD/MM/AAAA"
       date_range_blank: "Escolha uma data"
       date_1: "Últimas 24 horas"
       date_2: "Última semana"
       date_3: "Último mês"
       date_4: "Último ano"
-      date_5: "Personalizado"
-      from: "De"
-      general: "Com o texto"
-      general_placeholder: "Escrever o texto"
-      search: "Filtro"
+      date_5: "Período personalizado"
+      from: "Início"
+      general: "Por palavra-chave"
+      general_placeholder: "Insira os termos que deseja buscar no título e no texto das propostas"
+      search: "Buscar"
       title: "Busca avançada"
-      to: "Para"
+      to: "Fim"
     author_info:
       author_deleted: Usuário excluído
       email_deleted: Email excluído
@@ -810,11 +813,12 @@ pt-BR:
     manage:
       all: "Você não possui permissão para executar esta ação '%{action}' em %{subject}."
   users:
-    login_to_comment: "Você precisa %{signin} ou %{signup} para fazer um comentário."
-    login_to_continue: "Você precisa %{signin} ou %{signup} para continuar."
-    signin: "iniciar sessão"
-    signup: "registre-se"
+    login_to_comment: "Você precisa acessar sua %{signin} ou se %{signup} para fazer um comentário"
+    login_to_continue: "Você precisa acessar sua %{signin} ou se %{signup} para continuar"
+    signin: "conta"
+    signup: "registrar"
     verify_account: "verifique sua conta"
+    register: "cadastro"
     direct_messages:
       new:
         direct_messages_bloqued: "Este usuário decidiu não receber mensagens diretas"
@@ -918,7 +922,6 @@ pt-BR:
       user_permission_proposal: Criar novas propostas
       user_permission_support_proposal: Apoiar propostas*
       user_permission_verify: "Para realizar todas as ações verifique sua conta."
-      user_permission_verify_info: "* Somente usuários no Censo de Madrid"
       user_permission_verify_my_account: Verificar minha conta
       user_permission_votes: Participar na votação final
   invisible_captcha:

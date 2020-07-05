@@ -16,4 +16,8 @@ module LinksHelper
   def link_to_verify_account
     link_to t("users.verify_account"), verification_path
   end
+
+  def link_to_my_account
+    link_to t("users.register"), account_path(current_user)
+  end
 end

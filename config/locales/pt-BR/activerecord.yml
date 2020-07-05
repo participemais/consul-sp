@@ -140,7 +140,8 @@ pt-BR:
         description_reviewing_ballots: "Descrição durante a fase de revisão das cédulas"
         description_finished: "Descrição sobre o orçamento concluído."
         phase: "Fase"
-        currency_symbol: "Moeda"
+        currency_symbol: Distribuição de recursos
+        max_votes: Votos por usuário
       budget/translation:
         name: "Nome"
       budget/investment:
@@ -219,7 +220,7 @@ pt-BR:
         author: "Autor"
         description: "Opinião"
         tag_list: "Tópicos"
-        terms_of_service: "Termos de serviço"
+        terms_of_service: "Termos de Uso"
         title: "Título"
       debate/translation:
         title: "Título do debate"
@@ -232,7 +233,7 @@ pt-BR:
         responsible_name: "Nome completo do autor da proposta"
         retired_reason: "Motivo para retirar a proposta"
         selected: "Marcar como selecionado"
-        terms_of_service: "Termos de serviço"
+        terms_of_service: "Termos de Uso"
         video_url: "URL do vídeo"
       proposal/translation:
         title: "Título da proposta"
@@ -246,10 +247,10 @@ pt-BR:
         password_confirmation: "Confirmação de senha"
         password: "Senha"
         current_password: "Senha atual"
-        email_digest: "Receber resumo de notificações sobre as propostas"
-        email_on_comment: "Notificar-me por email quando alguém comentar nas minhas propostas ou debates"
-        email_on_comment_reply: "Notificar-me por email quando alguém responder meus comentários"
-        email_on_direct_message: "Notificar-me por e-mail ao receber mensagens diretas"
+        email_digest: "Receber recomendações de propostas"
+        email_on_comment: "Receber email quando alguém comentar nas minhas propostas ou debates"
+        email_on_comment_reply: "Receber email quando alguém responder meus comentários"
+        email_on_direct_message: "Receber email quando alguém me enviar mensagens diretas"
         newsletter: "Acompanhar as novidades da Prefeitura de São Paulo"
         official_position: "Cargo público"
         official_position_badge: "Marcação do cargo oficial"
@@ -309,8 +310,14 @@ pt-BR:
           SE: Sergipe
           SP: São Paulo
           TO: Tocantins
-        first_name: "Nome social"
+        first_name: "Nome"
         last_name: "Sobrenome"
+        erase_reason_options:
+          not_live_in_sp: Não moro ou não frequento mais São Paulo
+          not_interested: O conteúdo dos processos participativos não me interessa
+          not_able_to_participate: No momento não estou conseguindo participar
+          not_registered: Não me cadastrei ou não me recordo de ter me cadastrado
+          other: "Outro"
       direct_message:
         title: "Título"
         body: "Mensagem"
@@ -529,6 +536,7 @@ pt-BR:
               password_already_set: "Este usuário já possui uma senha"
             date_of_birth:
               min_user_age: "Usuário deve ter mais de %{age} anos"
+            username: Nome de usuário inválido
         debate:
           attributes:
             tag_list:

@@ -85,7 +85,7 @@ pt-BR:
       update:
         notice: Orçamento atualizado com sucesso.
       edit:
-        title: Editar Orçamento 
+        title: Editar Orçamento
         delete: Deletar Orçamento
         phase: Fase
         dates: Datas
@@ -109,7 +109,9 @@ pt-BR:
         unable_notice: Você não pode destruir um orçamento que já tenha investimentos associados
         unable_notice_polls: Não é possível excluir um orçamento com uma votação associada
       new:
-        title: Novo orçamento Cidadão
+        balloting_type: Critério de votação
+        one_option: Escolha apenas uma opção
+        title: Novo orçamento cidadão
       winners:
         calculate: Calcular os orçamentos vencedores
         calculated: Vencedores sendo calculados, pode demorar um minuto.
@@ -1225,7 +1227,7 @@ pt-BR:
         voted:
           zero: "Não há votos associados às assinaturas verificadas."
           one: "Há %{count} voto associado à assinatura verificada."
-          other: "Há %{count} votso associados à assinatura verificada."
+          other: "Há %{count} votos associados à assinatura verificada."
         loading: "Existem ainda as assinaturas que estão sendo verificadas pelo censo, por favor, atualize a página em alguns momentos"
     stats:
       show:
@@ -1248,7 +1250,7 @@ pt-BR:
           visits: Visitas
           votes: Total de votos
         budgets_title: Orçamento Cidadão
-        participatory_budgets: Orçamentos 
+        participatory_budgets: Orçamentos
         direct_messages: Mensagens diretas
         proposal_notifications: Notificações de proposta
         incomplete_verifications: Verificações incompletas

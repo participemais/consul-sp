@@ -18,10 +18,11 @@ gem "delayed_job_active_record", "~> 4.1.3"
 gem "devise", "~> 4.7.1"
 gem "devise-async", "~> 1.0.0"
 gem "devise_security_extension", git: "https://github.com/phatworx/devise_security_extension.git" #, "~> 0.10"
-gem 'dotenv-rails', groups: [:development, :test]
+gem 'dotenv-rails'
 gem "font-awesome-sass", "~> 5.8.1"
 gem "foundation-rails", "~> 6.6.1.0"
 gem "foundation_rails_helper", "~> 3.0.0"
+gem "github_changelog_generator", "~> 1.15.0"
 gem "globalize", "~> 5.2.0"
 gem "globalize-accessors", "~> 0.2.1"
 gem "graphiql-rails", "~> 1.4.1"
@@ -101,7 +102,6 @@ group :development do
   gem "capistrano3-puma", "~> 4.0.0"
   gem "database_cleaner", "~> 1.7.0"
   gem "erb_lint", require: false
-  gem "github_changelog_generator", "~> 1.15.0"
   gem "mdl", "~> 0.5.0", require: false
   gem "rubocop", "~> 0.75.0", require: false
   gem "rubocop-performance", "~> 1.4.1", require: false

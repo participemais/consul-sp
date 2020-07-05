@@ -19,11 +19,20 @@ class Budget < ApplicationRecord
     end
   end
 
-  CURRENCY_SYMBOLS = %w[€ $ £ ¥].freeze
+  CURRENCY_SYMBOLS = %w[R$ € $ £ ¥].freeze
 
   validates_translation :name, presence: true
   validates :phase, inclusion: { in: Budget::Phase::PHASE_KINDS }
-  validates :currency_symbol, presence: true
+
+  validates :currency_symbol,
+    presence: true,
+    if: lambda { self.max_votes.blank? }
+  validates :max_votes,
+    presence: true,
+    if: lambda { self.currency_symbol.blank? }
+
+  validate :unique_balloting_type
+
   validates :slug, presence: true, format: /\A[a-z0-9\-_]+\z/
 
   has_many :investments, dependent: :destroy
@@ -38,6 +47,8 @@ class Budget < ApplicationRecord
   has_many :valuators, through: :budget_valuators
 
   has_one :poll
+
+  before_create :set_balloting_type
 
   after_create :generate_phases
 
@@ -144,15 +155,27 @@ class Budget < ApplicationRecord
     current_phase&.balloting_or_later?
   end
 
+  def vote_counting_balloting?
+    balloting_type == "vote_counting"
+  end
+
+  def resource_allocation_balloting?
+    balloting_type == "resource_allocation"
+  end
+
   def heading_price(heading)
-    heading_ids.include?(heading.id) ? heading.price : -1
+    if resource_allocation_balloting?
+      heading_ids.include?(heading.id) ? heading.price : -1
+    else
+      max_votes
+    end
   end
 
   def translated_phase
     I18n.t "budgets.phase.#{phase}"
   end
 
-  def formatted_amount(amount)
+  def formatted_currency_amount(amount)
     ActionController::Base.helpers.number_to_currency(amount,
                                                       precision: 0,
                                                       locale: I18n.locale,
@@ -160,21 +183,20 @@ class Budget < ApplicationRecord
   end
 
   def formatted_heading_price(heading)
-    formatted_amount(heading_price(heading))
+    formatted_currency_amount(heading_price(heading))
   end
 
   def formatted_heading_amount_spent(heading)
-    formatted_amount(amount_spent(heading))
+    formatted_currency_amount(amount_spent(heading))
   end
 
   def investments_orders
     case phase
-    when "accepting", "reviewing"
+    when "accepting", "reviewing", "finished"
       %w[random]
-    when "publishing_prices", "balloting", "reviewing_ballots"
-      %w[random price]
-    when "finished"
-      %w[random]
+    when *Budget::Phase::PUBLISHED_PRICES_PHASES
+      orders = %w[random]
+      resource_allocation_balloting? ? orders << "price" : orders << "ballots"
     else
       %w[random confidence_score]
     end
@@ -200,7 +222,20 @@ class Budget < ApplicationRecord
     investments.winners.map(&:milestone_tag_list).flatten.uniq.sort
   end
 
+  def balloting_ends_at_for_mail
+    return unless balloting?
+    I18n.l(current_phase.ends_at.to_date, format: :short_day_and_month)
+  end
+
   private
+
+    def set_balloting_type
+      if max_votes.present?
+        self.balloting_type = "vote_counting"
+      else
+        self.balloting_type = "resource_allocation"
+      end
+    end
 
     def generate_phases
       Budget::Phase::PHASE_KINDS.each do |phase|
@@ -216,5 +251,11 @@ class Budget < ApplicationRecord
 
     def generate_slug?
       slug.nil? || drafting?
+    end
+
+    def unique_balloting_type
+      if currency_symbol.present? && max_votes.present?
+        errors.add(:base, "Escolha apenas um tipo de votação")
+      end
     end
 end

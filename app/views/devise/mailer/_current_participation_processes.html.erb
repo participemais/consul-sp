@@ -1,0 +1,44 @@
+<% if @participation_processes.empty? %>
+  <%= sanitize(t(
+    "devise_views.mailer.confirmation_instructions.without_participation_processes",
+    link: link_to(
+      t("devise_views.mailer.confirmation_instructions.here"),
+      root_url,
+      style: "color: #2895F1; text-decoration:none;",
+      target: "_blank"
+    )
+  )) %>
+<% else %>
+  <% if @participation_processes.one? %>
+    <% process = @participation_processes.first %>
+    <% url = process.is_a?(Budget) ? budget_url(process.id) : poll_url(process.id) %>
+    <%= sanitize(t(
+      "devise_views.mailer.confirmation_instructions.with_one_participation_process",
+      {
+        name: process.name,
+        date: process.balloting_ends_at_for_mail,
+        link: link_to(
+          t("devise_views.mailer.confirmation_instructions.here"),
+          url,
+          style: "color: #2895F1; text-decoration:none;"
+        )
+      }
+    )) %>
+  <% else %>
+    <%= t(
+      "devise_views.mailer.confirmation_instructions.with_participation_processes"
+    ) %>
+    <ul style="font-family: 'Open Sans','Helvetica Neue',arial,sans-serif;font-size: 14px;font-weight: normal;line-height: 24px;">
+      <% @participation_processes.each do |process| %>
+        <% url = process.is_a?(Budget) ? budget_url(process.id) : poll_url(process.id) %>
+        <li>
+          <%= sanitize(t(
+            "devise_views.mailer.confirmation_instructions.participation_process",
+            link: link_to(process.name, url, target: "_blank"),
+            date: process.balloting_ends_at_for_mail
+          )) %>
+        </li>
+      <% end %>
+    </ul>
+  <% end %>
+<% end %>

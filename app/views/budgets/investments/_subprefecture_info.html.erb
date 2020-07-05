@@ -1,0 +1,42 @@
+<div class="js-subprefecture-info subprefecture-info">
+  <p class="no-margin-bottom">
+    <%= sanitize(t(
+      "budgets.investments.index.subprefecture_info",
+      heading: heading.name,
+      extreme_poverty: number_with_delimiter(
+        heading.extreme_poverty,
+        delimiter: "."
+      ),
+      extreme_poverty_reference_year:
+        heading.extreme_poverty_reference_year,
+      slum_households: number_with_delimiter(
+        heading.slum_households,
+        delimiter: "."
+      ),
+      slum_households_reference_year:
+        heading.slum_households_reference_year
+    )) %>
+    <% if heading.formal_jobs_by_population > 1 %>
+      <% translation_key = "budgets.investments.index.district_jobs_greater_than_population" %>
+    <% else %>
+      <% translation_key = "budgets.investments.index.district_jobs_lower_than_population" %>
+    <% end %>
+    <%= sanitize(t(
+      translation_key,
+      formal_jobs_by_population: number_with_delimiter(
+        heading.formal_jobs_by_population.round(2),
+        separator: ","
+      ),
+      formal_jobs_by_population_reference_year:
+        heading.formal_jobs_by_population_reference_year
+    )) %>
+  </p>
+  <p class="subprefecture-info-source">
+    <%= t("budgets.investments.index.info_source_text") %>
+    <%= link_to(
+      t("budgets.investments.index.info_source"),
+      "http://observasampa.prefeitura.sp.gov.br/",
+      target: :_blank
+    ) %>
+  </p>
+</div>

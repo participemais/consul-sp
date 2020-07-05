@@ -236,7 +236,7 @@ class Budget
     end
 
     def price_required?
-      feasible? && valuation_finished?
+      feasible? && valuation_finished? && budget_resource_allocation_balloting?
     end
 
     def unfeasible_email_pending?
@@ -264,17 +264,24 @@ class Budget
     end
 
     def reason_for_not_being_ballotable_by(user, ballot)
-      return permission_problem(user)    if permission_problem?(user)
-      return :not_selected               unless selected?
-      return :no_ballots_allowed         unless budget.balloting?
+      return permission_problem(user) if permission_problem?(user)
+      return :not_selected unless selected?
+      return :no_ballots_allowed unless budget.balloting?
       return :different_heading_assigned unless ballot.valid_heading?(heading)
-      return :not_enough_money           if ballot.present? && !enough_money?(ballot)
-      return :casted_offline             if ballot.casted_offline?
+      if ballot.present?
+        if budget_vote_counting_balloting? && !enough_vote?(ballot)
+          return :not_enough_vote
+        elsif budget_resource_allocation_balloting? && !enough_money?(ballot)
+          return :not_enough_money
+        end
+      end
+      return :casted_offline if ballot.casted_offline?
     end
 
     def permission_problem(user)
       return :not_logged_in unless user
       return :organization  if user.organization?
+      return :incomplete_registration if user.document_number.blank?
       return :not_verified  unless user.can?(:vote, Budget::Investment)
 
       nil
@@ -310,6 +317,10 @@ class Budget
       price.to_i <= available_money
     end
 
+    def enough_vote?(ballot)
+      ballot.amount_available > 0
+    end
+
     def register_selection(user)
       vote_by(voter: user, vote: "yes") if selectable_by?(user)
     end
@@ -324,6 +335,14 @@ class Budget
 
     def set_responsible_name
       self.responsible_name = author&.document_number if author&.document_number.present?
+    end
+
+    def budget_resource_allocation_balloting?
+      budget.resource_allocation_balloting?
+    end
+
+    def budget_vote_counting_balloting?
+      budget.vote_counting_balloting?
     end
 
     def should_show_aside?
@@ -345,11 +364,16 @@ class Budget
     end
 
     def should_show_price?
-      selected? && price.present? && budget.published_prices?
+      budget_resource_allocation_balloting? &&
+        selected? &&
+        price.present? &&
+        budget.published_prices?
     end
 
     def should_show_price_explanation?
-      should_show_price? && price_explanation.present?
+      budget_resource_allocation_balloting? &&
+        should_show_price? &&
+        price_explanation.present?
     end
 
     def should_show_unfeasibility_explanation?
@@ -357,7 +381,9 @@ class Budget
     end
 
     def formatted_price
-      budget.formatted_amount(price)
+      if budget_resource_allocation_balloting?
+        budget.formatted_currency_amount(price)
+      end
     end
 
     def self.apply_filters_and_search(_budget, params, current_filter = nil)
@@ -391,6 +417,10 @@ class Budget
       valuator_users = (valuator_groups.map(&:valuators) + valuators).flatten
       all_users = valuator_users << administrator
       all_users.compact.uniq
+    end
+
+    def heading_name
+      heading.name
     end
 
     private

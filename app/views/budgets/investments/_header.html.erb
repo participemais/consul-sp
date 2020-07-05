@@ -1,6 +1,6 @@
 <% if @heading.present? %>
   <section class="no-margin-top margin-bottom">
-    <div class="expanded jumbo-budget budget-heading padding">
+    <div class="expanded jumbo-budget budget-heading padding-top">
 
       <div class="row">
         <div class="small-12 column">
@@ -26,6 +26,28 @@
                 <h2>
                   <%= t("budgets.investments.index.by_heading", heading: @heading.name) %>
                 </h2>
+                <div class="small-6 medium-3 large-2 column no-padding-left text-color-white">
+                  <h5>
+                    <%= sanitize(t(
+                      "budgets.investments.index.population",
+                      population: number_with_delimiter(
+                        @heading.population,
+                        delimiter: "."
+                      )
+                    )) %>
+                  </h5>
+                </div>
+                <div class="small-6 medium-3 large-2 column text-color-white">
+                  <h5>
+                    <%= sanitize(t(
+                      "budgets.investments.index.area",
+                      population: number_with_delimiter(
+                        @heading.area.round(2),
+                        separator: ","
+                      )
+                    )) %>
+                  </h5>
+                </div>
                 <div id="progress_bar" class="no-margin-top">
                   <%= render "budgets/ballot/progress_bar" %>
                 </div>
@@ -47,14 +69,19 @@
                 </div>
               </div>
             <% end %>
+            <h6 class="js-subprefecture-data subprefecture-label">
+              <span class="icon-plus-square"></span> <%= t("budgets.investments.index.subprefecture_label") %>
+            </h6>
           <% else %>
             <h2 class="margin-top">
               <%= t("budgets.investments.index.by_heading", heading: @heading.name) %>
             </h2>
-            <h3>
-              <span class="tagline"><%= t("budgets.investments.header.price") %></span>
-              <%= @budget.formatted_heading_price(@heading) %>
-            </h3>
+            <% if @budget.resource_allocation_balloting? %>
+              <h3>
+                <span class="tagline"><%= t("budgets.investments.header.price") %></span>
+                <%= @budget.formatted_heading_price(@heading) %>
+              </h3>
+            <% end %>
           <% end %>
         </div>
       </div>

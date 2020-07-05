@@ -7,7 +7,14 @@
             title="<%= t("budgets.investments.investment.already_added") %>">
       </span>
       <p class="investment-project-amount">
-        <%= investment.formatted_price %>
+        <% if @budget.vote_counting_balloting? %>
+          <%= t(
+            "budgets.investments.investment.supports",
+            count: investment.ballot_lines_count
+          ) %>
+        <% else %>
+          <%= investment.formatted_price %>
+        <% end %>
       </p>
       <% if investment.should_show_ballots? %>
         <%= link_to t("budgets.ballots.show.remove"),
@@ -23,9 +30,11 @@
   <% else %>
 
     <div class="add in-favor">
-      <p class="investment-project-amount">
-        <%= investment.formatted_price %>
-      </p>
+      <% if @budget.resource_allocation_balloting? %>
+        <p class="investment-project-amount">
+          <%= investment.formatted_price %>
+        </p>
+      <% end %>
       <% if investment.should_show_ballots? %>
         <%= link_to t("budgets.investments.investment.add"),
                     budget_ballot_lines_path(investment_id: investment.id,
@@ -35,6 +44,14 @@
                     title: t("budgets.investments.investment.support_title"),
                     method: :post,
                     remote: true %>
+      <% end %>
+      <% if @budget.vote_counting_balloting? %>
+        <p class="investment-project-amount">
+          <%= t(
+            "budgets.investments.investment.supports",
+            count: investment.ballot_lines_count
+          ) %>
+        </p>
       <% end %>
     </div>
 
@@ -55,6 +72,7 @@
                 verify_account: link_to_verify_account, signin: link_to_signin,
                 signup: link_to_signup, my_heading: my_heading,
                 change_ballot: change_ballot,
+                register: link_to_my_account,
                 heading_link: heading_link(@assigned_heading, @budget))) %>
         </small>
       </p>

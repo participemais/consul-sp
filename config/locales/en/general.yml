@@ -22,7 +22,6 @@ en:
       user_permission_support_proposal: Support proposals
       user_permission_title: Participation
       user_permission_verify: To perform all the actions verify your account.
-      user_permission_verify_info: "* Only for users on Census."
       user_permission_votes: Participate on final voting
       username_label: Username
       verified_account: Account verified
@@ -222,17 +221,23 @@ en:
           other: "Supports"
     footer:
       accessibility: Accessibility
-      conditions: Terms and conditions of use
+      conditions: Terms of Use
       consul: CONSUL application
-      consul_url: https://github.com/consul/consul
+      consul_url: https://consulproject.org/en/
       contact_us: For technical assistance visit
-      copyright: CONSUL, %{year}
-      description: This portal uses the %{consul} which is %{open_source}.
-      open_source: open-source software
-      open_source_url: http://www.gnu.org/licenses/agpl-3.0.html
-      participation_text: Decide how to shape the city you want to live in.
-      participation_title: Participation
+      copyright: "%{org_name}, %{year}, uses %{open_source} %{consul}"
+      open_source: open-source
+      open_source_url: https://github.com/consul/consul
       privacy: Privacy Policy
+      responsible: >-
+        Supervisão para Assuntos de Governo Aberto <br>
+        Secretaria Executiva de Gestão de Projetos Estratégicos <br>
+        Secretaria de Governo Municipal
+      responsible_address: "Viaduto do Chá, 15 - Centro - São Paulo, SP. CEP: 01002-020"
+      at_org: "@participemais"
+      transparency: Transparency Website
+      transparency_url: http://transparencia.prefeitura.sp.gov.br
+      transparency_text: "The data of São Paulo city is yours, access the %{transparency}"
     header:
       administration_menu: Menu
       administration: Administration
@@ -248,8 +253,6 @@ en:
       help: Help
       my_account_link: My account
       my_activity_link: My content
-      open: open
-      open_gov: Open government
       proposals: Proposals
       poll_questions: Voting
       budgets: Participatory budgeting
@@ -690,11 +693,11 @@ en:
     "yes": "Yes"
     "no": "No"
     search_results: "Search results"
+    search_results_for: "Search results for subprefecture %{heading}"
     advanced_search:
       author_type: "By author category"
       author_type_blank: "Select a category"
       date: "By date"
-      date_placeholder: "DD/MM/YYYY"
       date_range_blank: "Choose a date"
       date_1: "Last 24 hours"
       date_2: "Last week"
@@ -918,7 +921,6 @@ en:
       user_permission_proposal: Create new proposals
       user_permission_support_proposal: Support proposals*
       user_permission_verify: "To perform the following actions verify your account."
-      user_permission_verify_info: "* Only for users on Census."
       user_permission_verify_my_account: Verify my account
       user_permission_votes: Participate on final voting
   invisible_captcha:

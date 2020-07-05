@@ -91,7 +91,6 @@
                   <%= f.select(
                     :gender,
                     options_for_gender,
-                    required: true,
                     include_blank: true
                   ) %>
                 </div>
@@ -99,7 +98,6 @@
                   <%= f.select(
                     :ethnicity,
                     options_for_ethnicity,
-                    required: true,
                     include_blank: true
                   ) %>
                 </div>
@@ -133,7 +131,6 @@
                 <%= f.select(
                   :uf,
                   options_for_uf,
-                  required: true,
                   include_blank: true
                 ) %>
               </div>
@@ -150,17 +147,19 @@
 
           <ul>
             <li><span class="icon-check"></span>&nbsp;<%= t("account.show.user_permission_debates") %></li>
-            <li><span class="icon-check"></span>&nbsp;<%= t("account.show.user_permission_proposal") %></li>
+            <% if feature?(:proposals) %>
+              <li><span class="icon-check"></span>&nbsp;<%= t("account.show.user_permission_proposal") %></li>
+              <li>
+                <% if current_user.level_two_or_three_verified? %>
+                  <span class="icon-check"></span>
+                <% else %>
+                  <span class="icon-x"></span>
+                <% end %>
+                <%= t("account.show.user_permission_support_proposal") %>
+              </li>
+            <% end %>
             <li>
-              <% if current_user.level_two_or_three_verified? %>
-                <span class="icon-check"></span>
-              <% else %>
-                <span class="icon-x"></span>
-              <% end %>
-              <%= t("account.show.user_permission_support_proposal") %>
-            </li>
-            <li>
-              <% if current_user.level_three_verified? %>
+              <% if current_user.level_three_verified? && current_user.can_vote? %>
                 <span class="icon-check"></span>
               <% else %>
                 <span class="icon-x"></span>
@@ -169,9 +168,6 @@
             </li>
           </ul>
 
-          <p>
-            <span><%= t("account.show.user_permission_verify_info") %></span>
-          </p>
           <p>
             <%= t("account.show.user_permission_verify") %>
           </p>
@@ -185,9 +181,9 @@
                     <%= t("account.show.verified_account") %>
                   </p>
                 <% elsif current_user.level_two_verified? %>
-                  <%= link_to t("account.show.finish_verification"), verification_path, class: "button success" %>
+                  <%#= link_to t("account.show.finish_verification"), verification_path, class: "button success" %>
                 <% else %>
-                  <%= link_to t("account.show.verify_my_account"), verification_path, class: "button success" %>
+                  <%#= link_to t("account.show.verify_my_account"), verification_path, class: "button success" %>
                 <% end %>
               </span>
             </div>

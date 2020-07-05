@@ -34,6 +34,7 @@ pt-BR:
       default: "%d/%m/%Y"
       long: "%d %B, %Y"
       short: "%d %b"
+      short_day_and_month: "%d/%m"
     month_names:
       -
       - Janeiro
@@ -142,10 +143,10 @@ pt-BR:
   number:
     currency:
       format:
-        delimiter: ","
+        delimiter: "."
         format: "%u%n"
         precision: 2
-        separator: "."
+        separator: ","
         significant: false
         strip_insignificant_zeros: false
         unit: "$"

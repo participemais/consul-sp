@@ -7,20 +7,20 @@
   <%= render "shared/banner" %>
 <% end %>
 
-<div class="jumbo light">
+<div class="jumbo light no-padding-bottom margin-bottom">
   <div class="row">
-    <div class="small-12 medium-9 column">
+    <div class="small-12 medium-9 column help-header">
       <h2><%= t("pages.help.title", org: setting["org_name"]) %></h2>
-      <p><%= t("pages.help.guide", org: setting["org_name"]) %></p>
     </div>
   </div>
 
-  <%= render "pages/help/menu" %>
+  <%#= render "pages/help/menu" %>
 </div>
 
 <div id="more-info" class="more-info-content">
   <div class="row">
     <div class="small-12 medium-7 large-8 column">
+      <p><%= sanitize(t("pages.help.guide", org: setting["org_name"])) %></p>
       <% if feature?(:debates) %>
         <%= render "pages/help/debates" %>
       <% end %>
@@ -30,7 +30,7 @@
       <% end %>
 
       <% if feature?(:budgets) %>
-        <%= render "pages/help/budgets" %>
+        <%#= render "pages/help/budgets" %>
       <% end %>
 
       <% if feature?(:polls) %>
@@ -41,7 +41,7 @@
         <%= render "pages/help/processes" %>
       <% end %>
     </div>
-    <div class="small-12 medium-4 large-3 column more-info-sidebar">
+    <div class="small-12 medium-4 large-3 column more-info-sidebar text-center">
       <%= render "pages/help/sidebar" %>
     </div>
   </div>
@@ -49,7 +49,7 @@
   <div class="row">
     <hr>
     <div class="small-12 column">
-      <%= render "pages/help/other" %>
+      <%#= render "pages/help/other" %>
     </div>
   </div>
 </div>

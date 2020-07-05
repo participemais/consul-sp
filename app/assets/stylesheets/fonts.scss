@@ -93,3 +93,33 @@
   font-weight: bold;
   font-style: normal;
 }
+
+@font-face {
+  font-family: "Gotham Bold";
+  src: font-url("custom/gotham-bold.eot");
+  src: font-url("custom/gotham-bold.eot?#iefix") format("embedded-opentype"),
+       font-url("custom/gotham-bold.woff2") format("woff2"),
+       font-url("custom/gotham-bold.woff") format("woff"),
+       font-url("custom/gotham-bold.ttf") format("truetype"),
+       font-url("custom/gotham-bold.svg#Gotham-Bold") format("svg");
+}
+
+@font-face {
+  font-family: "Segoe UI Semibold";
+  src: font-url("custom/segoe-ui-semibold.eot");
+  src: font-url("custom/segoe-ui-semibold.eot?#iefix") format("embedded-opentype"),
+       font-url("custom/segoe-ui-semibold.woff2") format("woff2"),
+       font-url("custom/segoe-ui-semibold.woff") format("woff"),
+       font-url("custom/segoe-ui-semibold.ttf") format("truetype"),
+       font-url("custom/segoe-ui-semibold.svg#SegoeUI-SemiBold") format("svg");
+}
+
+@font-face {
+  font-family: "Segoe UI Semilight";
+  src: font-url("custom/segoe-ui-semilight.eot");
+  src: font-url("custom/segoe-ui-semilight.eot?#iefix") format("embedded-opentype"),
+       font-url("custom/segoe-ui-semilight.woff2") format("woff2"),
+       font-url("custom/segoe-ui-semilight.woff") format("woff"),
+       font-url("custom/segoe-ui-semilight.ttf") format("truetype"),
+       font-url("custom/segoe-ui-semilight.svg#SegoeUI-Semilight") format("svg");
+}

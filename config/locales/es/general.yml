@@ -22,7 +22,6 @@ es:
       user_permission_support_proposal: Apoyar propuestas*
       user_permission_title: Participación
       user_permission_verify: Para poder realizar todas las acciones, verifica tu cuenta.
-      user_permission_verify_info: "* Sólo usuarios empadronados."
       user_permission_votes: Participar en las votaciones finales*
       username_label: Nombre de usuario
       verified_account: Cuenta verificada
@@ -222,17 +221,23 @@ es:
           other: "Apoyos"
     footer:
       accessibility: Accesibilidad
-      conditions: Condiciones de uso
+      conditions: Condiciones de Uso
       consul: aplicación CONSUL
-      consul_url: https://github.com/consul/consul
+      consul_url: https://consulproject.org/en/
       contact_us: Para asistencia técnica entra en
-      copyright: CONSUL, %{year}
-      description: Este portal usa la %{consul} que es %{open_source}.
-      open_source: software de código abierto
-      open_source_url: http://www.gnu.org/licenses/agpl-3.0.html
-      participation_text: Decide cómo debe ser la ciudad que quieres.
-      participation_title: Participación
+      copyright: "El %{org_name}, %{year}, usa %{open_source} del %{consul}"
+      open_source: código abierto
+      open_source_url: https://github.com/consul/consul
       privacy: Política de privacidad
+      responsible: >-
+        Supervisão para Assuntos de Governo Aberto <br>
+        Secretaria Executiva de Gestão de Projetos Estratégicos <br>
+        Secretaria de Governo Municipal
+      responsible_address: "Viaduto do Chá, 15 - Centro - São Paulo, SP. CEP: 01002-020"
+      at_org: "@participemais"
+      transparency: Portal de Transparencia
+      transparency_url: http://transparencia.prefeitura.sp.gov.br
+      transparency_text: "Los datos de la Ciudad de São Paulo son suyos, acceda al %{transparency}"
     header:
       administration_menu: Menú
       administration: Administración
@@ -248,8 +253,6 @@ es:
       help: Ayuda
       my_account_link: Mi cuenta
       my_activity_link: Mi contenido
-      open: abierto
-      open_gov: Gobierno %{open}
       proposals: Propuestas
       poll_questions: Votaciones
       budgets: Presupuestos participativos
@@ -688,11 +691,11 @@ es:
     "yes": "Si"
     "no": "No"
     search_results: "Resultados de la búsqueda"
+    search_results_for: "Resultados de la búsqueda para subprefectura %{heading}"
     advanced_search:
       author_type: "Por categoría de autor"
       author_type_blank: "Elige una categoría"
       date: "Por fecha"
-      date_placeholder: "DD/MM/AAAA"
       date_range_blank: "Elige una fecha"
       date_1: "Últimas 24 horas"
       date_2: "Última semana"
@@ -916,7 +919,6 @@ es:
       user_permission_proposal: Crear nuevas propuestas
       user_permission_support_proposal: Apoyar propuestas*
       user_permission_verify: "Para poder realizar las siguientes acciones, verifica tu cuenta."
-      user_permission_verify_info: "* Sólo usuarios empadronados."
       user_permission_verify_my_account: Verificar mi cuenta
       user_permission_votes: Participar en las votaciones finales*
   invisible_captcha:

@@ -4,6 +4,14 @@
 
 <% provide :title do %><%= t("budgets.index.title") %><% end %>
 
+<% content_for :header_addon do %>
+  <%= render(
+    "shared/search_form",
+    search_path: budget_investments_path(budget_id: current_budget.id, page: 1),
+    i18n_namespace: "budgets.investments.index.search_form"
+  ) %>
+<% end %>
+
 <% content_for :canonical do %>
   <%= render "shared/canonical", href: budgets_url %>
 <% end %>
@@ -67,7 +75,7 @@
             <h2 id="<%= group.name.parameterize %>"><%= group.name %></h2>
             <ul class="no-bullet" data-equalizer data-equalizer-on="medium">
               <% group.headings.sort_by_name.each do |heading| %>
-                <li class="heading small-12 medium-4 large-2" data-equalizer-watch>
+                <li class="heading small-12 medium-4 large-3 subtitle-font-family" data-equalizer-watch>
                   <% unless current_budget.informing? || current_budget.finished? %>
                     <%= link_to budget_investments_path(current_budget.id,
                                                         heading_id: heading.id) do %>
@@ -85,8 +93,26 @@
         </div>
 
         <% unless current_budget.informing? %>
+          <div class="row">
+            <%= form_tag budget_investments_path(current_budget), id: "advanced_search_form", method: :get do %>
+              <div data-advanced-search-terms="<%= @advanced_search_terms.present? %>">
+                <div class="small-12 medium-10 column">
+                  <%= text_field_tag(
+                    "search", params[:search],
+                    placeholder: t("budgets.index.search_proposals_placeholder")
+                  ) %>
+                </div>
+                <div class="small-12 medium-2 column end clear">
+                  <%= submit_tag(
+                    t("budgets.index.search_proposals"),
+                    class: "button expanded"
+                  ) %>
+                </div>
+              </div>
+            <% end %>
+          </div>
+
           <div class="map inline">
-            <h3><%= t("budgets.index.map") %></h3>
             <%= render_map(nil, "budgets", false, nil, @budgets_coordinates) %>
           </div>
 

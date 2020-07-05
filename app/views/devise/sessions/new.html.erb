@@ -1,5 +1,9 @@
 <% provide :title do %><%= t("devise_views.sessions.new.title") %><% end %>
-<h2><%= t("devise_views.sessions.new.title") %></h2>
+<h1 class="logo margin sessions-form-logo">
+  <%= link_to root_path do %>
+    <%= image_tag(image_path_for("logo_header.png"), class: "float-left", alt: t("layouts.header.logo")) %>
+  <% end %>
+</h1>
 
 <%= render "devise/omniauth_form" %>
 

@@ -174,4 +174,8 @@ class Poll < ApplicationRecord
   def budget_poll?
     budget.present?
   end
+
+  def balloting_ends_at_for_mail
+    I18n.l(ends_at.to_date, format: :short_day_and_month)
+  end
 end

@@ -1,6 +1,6 @@
 <div class="expanded budget no-margin-top padding">
   <div class="row">
-    <%= back_link_to @ballot_referer %>
+    <%= back_link_to budgets_path %>
 
     <h1 class="text-center"><%= t("budgets.ballots.show.title") %></h1>
 
@@ -19,27 +19,31 @@
 <div class="row ballot">
   <% ballot_groups = @ballot.groups.sort_by_name %>
   <% ballot_groups.each do |group| %>
-    <div id="<%= dom_id(group) %>" class="small-12 medium-6 column end">
+    <div id="<%= dom_id(group) %>" class="small-12 medium-6 medium-centered column">
       <div class="margin-top ballot-content">
         <div class="subtitle">
           <h3>
-            <%= group.name %> - <%= @ballot.heading_for_group(group).name %>
+            <% if @budget.resource_allocation_balloting? %>
+              <%= group.name %> - <%= @ballot.heading_for_group(group).name %>
+            <% else %>
+              <%= t("budgets.ballots.show.your_choices") %>
+            <% end %>
           </h3>
-          <%= link_to sanitize(t("budgets.ballots.show.remaining",
-                      amount: @ballot.formatted_amount_available(@ballot.heading_for_group(group)))),
-                      budget_group_path(@budget, group) %>
+          <%= remaining_votes_link(group) %>
         </div>
-        <% if @ballot.has_lines_in_group?(group) %>
-          <h4 class="amount-spent text-right">
-            <%= t("budgets.ballots.show.amount_spent") %>
-            <span>
-              <%= @ballot.formatted_amount_spent(@ballot.heading_for_group(group)) %>
-            </span>
-          </h4>
-        <% else %>
-          <p>
-            <%= t("budgets.ballots.show.zero") %><br>
-          </p>
+        <% if @budget.resource_allocation_balloting? %>
+          <% if @ballot.has_lines_in_group?(group) %>
+            <h4 class="amount-spent text-right">
+              <%= t("budgets.ballots.show.amount_spent") %>
+              <span>
+                <%= @ballot.formatted_amount_spent(@ballot.heading_for_group(group)) %>
+              </span>
+            </h4>
+          <% else %>
+            <p>
+              <%= t("budgets.ballots.show.zero") %><br>
+            </p>
+          <% end %>
         <% end %>
 
         <ul class="ballot-list">
@@ -52,7 +56,7 @@
 
   <% no_balloted_groups = @budget.groups.sort_by_name - ballot_groups %>
   <% no_balloted_groups.each do |group| %>
-    <div id="<%= dom_id(group) %>" class="small-12 medium-6 column end">
+    <div id="<%= dom_id(group) %>" class="small-12 medium-6 medium-centered column">
       <div class="margin-top ballot-content">
         <div class="subtitle">
           <h3>
