@@ -23,7 +23,8 @@ namespace :budget_proposals do
               title: row[:titulo],
               description: row[:descricao],
               skip_map: "1",
-              terms_of_service: "1"
+              terms_of_service: "1",
+              tag_list: [row[:categoria]]
             }
 
             investment = Budget::Investment.new(investment_params)
