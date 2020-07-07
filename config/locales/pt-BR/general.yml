@@ -16,15 +16,16 @@ pt-BR:
       public_interests_user_title_list: Marcações dos elementos que esse usuário segue
       save_changes_submit: Salvar alterações
       title: Minha conta
-      user_permission_debates: Participar nos debates
+      user_permission_debates: Fazer comentários;
       user_permission_info: Minhas permissões
       user_permission_proposal: Criar novas propostas
       user_permission_support_proposal: Apoiar propostas
       user_permission_title: Participação
-      user_permission_verify: Para realizar todas as ações verifique sua conta.
-      user_permission_votes: Participar na votação final
+      user_permission_verify: Para realizar todas as ações, complete seu cadastro.
+      user_permission_votes: Participar dos processos abertos.
       username_label: Nome de usuário
-      verified_account: Conta verificada
+      unverified_account: Cadastro incompleto
+      verified_account: Cadastro está completo
       verify_my_account: Verificar minha conta
     edit:
       my_account: Minha conta
@@ -356,7 +357,7 @@ pt-BR:
       map_remove_marker: "Remover o marcador do mapa"
       map_skip_checkbox: "Esta proposta não tem uma localização concreta ou não a conheço."
     index:
-      featured_proposals: Destaque
+      featured_proposals: Destaques
       filter_topic:
         one: " com tópico '%{topic}'"
         other: " com tópico '%{topic}'"
@@ -895,7 +896,7 @@ pt-BR:
       process_label: Processo
       see_process: Ver processo
     cards:
-      title: Destaque
+      title: Destaques
     recommended:
       title: Recomendações que podem ser de seu interesse
       help: "Estas recomendações são geradas através da identificação dos debates e propostas que você está seguindo."
@@ -917,13 +918,13 @@ pt-BR:
       go_to_index: Veja propostas e debates
       start_using_consul: Ir para o índice
       title: Participar
-      user_permission_debates: Participar nos debates
+      user_permission_debates: Fazer comentários;
       user_permission_info: Com sua conta, você pode...
       user_permission_proposal: Criar novas propostas
       user_permission_support_proposal: Apoiar propostas*
-      user_permission_verify: "Para realizar todas as ações verifique sua conta."
+      user_permission_verify: Para realizar todas as ações, complete seu cadastro.
       user_permission_verify_my_account: Verificar minha conta
-      user_permission_votes: Participar na votação final
+      user_permission_votes: Participar dos processos abertos.
   invisible_captcha:
     sentence_for_humans: "Se você é humano, ignore este campo"
     timestamp_error_message: "Isto foi muito rápido. Por favor, reenvie o formulário."

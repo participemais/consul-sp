@@ -2030,6 +2030,16 @@ table {
       vertical-align: middle;
     }
   }
+
+  .unverified {
+    line-height: $line-height * 2;
+
+    .icon-x {
+      font-size: rem-calc(24);
+      line-height: rem-calc(45);
+      vertical-align: middle;
+    }
+  }
 }
 
 .verify {
