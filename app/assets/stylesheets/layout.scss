@@ -1448,6 +1448,7 @@ form {
     margin-top: $line-height / 4;
     position: absolute;
     right: 0;
+    top: -3px;
   }
 }
 
@@ -1461,6 +1462,12 @@ form {
 
   select {
     height: $line-height * 2;
+  }
+
+  .button {
+    @include breakpoint(medium) {
+      margin-top: 1.5rem;
+    }
   }
 }
 

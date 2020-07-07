@@ -6,7 +6,7 @@
   <%= form_tag search_path, id: "advanced_search_form", method: :get do %>
     <div id="js-advanced-search" data-advanced-search-terms="<%= @advanced_search_terms.present? %>" style="display: none">
 
-      <div class="small-12 column">
+      <div class="small-12 medium-9 column">
         <label for="search">
           <%= t("shared.advanced_search.general") %>
         </label>
@@ -17,31 +17,33 @@
         <% end %>
       </div>
 
-      <div class="small-12 medium-3 column">
-        <label for="js-advanced-search-date-min"><%= t("shared.advanced_search.date") %></label>
-        <%= select_tag("advanced_search[date_min]", date_range_options,
-                      include_blank: t("shared.advanced_search.date_range_blank"),
-                      id: "js-advanced-search-date-min") %>
-      </div>
+      <% if false %>
+        <div class="small-12 medium-3 column">
+          <label for="js-advanced-search-date-min"><%= t("shared.advanced_search.date") %></label>
+          <%= select_tag("advanced_search[date_min]", date_range_options,
+                        include_blank: t("shared.advanced_search.date_range_blank"),
+                        id: "js-advanced-search-date-min") %>
+        </div>
 
-      <div class="small-12 medium-3 column js-custom-date" style="display: none">
-        <label for="advanced_search_date_min">
-          <%= t("shared.advanced_search.from") %>
-        </label>
-        <%= text_field_tag "advanced_search[date_min]",
-                            params[:advanced_search].try(:[], :date_min),
-                            class: "js-calendar" %>
-      </div>
-      <div class="small-12 medium-3 column js-custom-date" style="display: none">
-        <label for="advanced_search_date_max">
-          <%= t("shared.advanced_search.to") %>
-        </label>
-        <%= text_field_tag "advanced_search[date_max]",
-                            params[:advanced_search].try(:[], :date_max),
-                            class: "js-calendar" %>
-      </div>
+        <div class="small-12 medium-3 column js-custom-date" style="display: none">
+          <label for="advanced_search_date_min">
+            <%= t("shared.advanced_search.from") %>
+          </label>
+          <%= text_field_tag "advanced_search[date_min]",
+                              params[:advanced_search].try(:[], :date_min),
+                              class: "js-calendar" %>
+        </div>
+        <div class="small-12 medium-3 column js-custom-date" style="display: none">
+          <label for="advanced_search_date_max">
+            <%= t("shared.advanced_search.to") %>
+          </label>
+          <%= text_field_tag "advanced_search[date_max]",
+                              params[:advanced_search].try(:[], :date_max),
+                              class: "js-calendar" %>
+        </div>
+      <% end %>
 
-      <div class="small-12 medium-3 column end clear" style="margin-top: 1.5rem">
+      <div class="small-12 medium-3 column end clear">
         <%= submit_tag t("shared.advanced_search.search"), class: "button expanded" %>
       </div>
 
