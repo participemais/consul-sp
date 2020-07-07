@@ -13,8 +13,8 @@ pt-BR:
         one: "Orçamento"
         other: "Orçamentos"
       budget/investment:
-        one: "Investimento"
-        other: "Investimentos"
+        one: "Proposta"
+        other: "Propostas"
       milestone:
         one: "Situação"
         other: "Situção"

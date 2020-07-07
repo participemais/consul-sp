@@ -356,7 +356,7 @@ pt-BR:
       map_remove_marker: "Remover o marcador do mapa"
       map_skip_checkbox: "Esta proposta não tem uma localização concreta ou não a conheço."
     index:
-      featured_proposals: Destacado
+      featured_proposals: Destaque
       filter_topic:
         one: " com tópico '%{topic}'"
         other: " com tópico '%{topic}'"
@@ -895,7 +895,7 @@ pt-BR:
       process_label: Processo
       see_process: Ver processo
     cards:
-      title: Destacado
+      title: Destaque
     recommended:
       title: Recomendações que podem ser de seu interesse
       help: "Estas recomendações são geradas através da identificação dos debates e propostas que você está seguindo."
