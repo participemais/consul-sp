@@ -35,7 +35,7 @@ class Organizations::RegistrationsController < Devise::RegistrationsController
     end
 
     def check_captcha
-      unless verify_recaptcha
+      unless verify_recaptcha(timeout: 60)
         flash.delete(:recaptcha_error)
         build_resource(sign_up_params)
         resource.valid?
