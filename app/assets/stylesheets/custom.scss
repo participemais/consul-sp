@@ -31,6 +31,15 @@
 .subprefecture-label {
   color: $white;
   cursor: pointer;
+
+  &.relative-position {
+    position: relative;
+    bottom: -$line-height;
+
+    @include breakpoint(medium) {
+      bottom: -$line-height * 2.5;
+    }
+  }
 }
 
 .subprefecture-info {
