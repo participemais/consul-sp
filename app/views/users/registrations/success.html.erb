@@ -1,9 +1,16 @@
 <% provide(:title) { t("devise_views.users.registrations.success.title") } %>
-<h2><%= t("devise_views.users.registrations.success.title") %></h2>
-<p><%= sanitize(t("devise_views.users.registrations.success.thank_you")) %></p>
-<p><%= sanitize(t("devise_views.users.registrations.success.instructions_1")) %></p>
-<p><%= t("devise_views.users.registrations.success.instructions_2") %></p>
+
+<h1 class="logo margin sessions-form-logo">
+  <%= link_to root_path do %>
+    <%= image_tag(image_path_for("logo_header.png"), class: "float-left", alt: t("layouts.header.logo")) %>
+  <% end %>
+</h1>
+
+<h2 class="text-center"><%= t("devise_views.users.registrations.success.title") %></h2>
+<p class="text-center"><%= sanitize(t("devise_views.users.registrations.success.thank_you")) %></p>
+<p class="text-center"><%= sanitize(t("devise_views.users.registrations.success.instructions_1")) %></p>
+<p class="text-center"><%= sanitize(t("devise_views.users.registrations.success.instructions_2")) %></p>
 <p>
   <%= link_to t("devise_views.users.registrations.success.back_to_index"),
-      root_path, class: "button margin-top expanded" %>
+      root_path, class: "button margin-top expanded base-font-size" %>
 </p>
