@@ -79,6 +79,8 @@ class User < ApplicationRecord
   validates :username, presence: true, if: :username_required?
   validates :username, uniqueness: { scope: :registering_with_oauth }, if: :username_required?
   validates :username, length: { minimum: 3 }
+  validates :first_name, length: { minimum: 3 }
+  validates :last_name, length: { minimum: 3 }
 
   validate :username_chars_validation
 
@@ -136,6 +138,8 @@ class User < ApplicationRecord
   end
 
   before_validation :clean_document_number
+
+  before_update :sanitaze_name
 
   # Get the existing user by email if the provider gives us a verified email.
   def self.first_or_initialize_for_oauth(auth)
@@ -491,5 +495,14 @@ class User < ApplicationRecord
       unless last_name =~ /^[\sa-z\u00C0-\u017F\.\-]+$/i
         errors.add(:last_name)
       end
+    end
+
+    def sanitaze_name
+      self.first_name = capitalize_word(first_name) if first_name_changed?
+      self.last_name = capitalize_word(last_name) if last_name_changed?
+    end
+
+    def capitalize_word(word)
+      word.split.map(&:capitalize)*' '
     end
 end
