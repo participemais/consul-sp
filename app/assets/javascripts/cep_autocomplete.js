@@ -35,6 +35,7 @@
               }
             });
         } else {
+          $('.hide-address-fields').fadeOut(1500);
           $cep.addClass('is-invalid-input');
           clear_address_fields();
         }

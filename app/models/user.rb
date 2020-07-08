@@ -97,7 +97,8 @@ class User < ApplicationRecord
 
   validates :gender, presence: true, allow_nil: true
   validates :ethnicity, presence: true, allow_nil: true
-  validates :uf, presence: true, allow_nil: true
+
+  validate :cep_validation
 
   validates :official_level, inclusion: { in: 0..5 }
 
@@ -495,6 +496,12 @@ class User < ApplicationRecord
 
       unless last_name =~ /^[\sa-z\u00C0-\u017F\.\-]+$/i
         errors.add(:last_name)
+      end
+    end
+
+    def cep_validation
+      if cep && cep.size == 9 && home_address.empty?
+        errors.add(:cep, :not_found)
       end
     end
 

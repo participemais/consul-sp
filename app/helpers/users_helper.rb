@@ -89,7 +89,7 @@ module UsersHelper
   end
 
   def address_hide_class
-    current_user.cep ? '' : 'hide-address-fields'
+    current_user.home_address.present? ? '' : 'hide-address-fields'
   end
 
   private
