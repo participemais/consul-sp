@@ -81,7 +81,7 @@ class User < ApplicationRecord
   validates :username, length: { minimum: 3 }
   validates :first_name, length: { minimum: 3 }, if: :persisted?
   validates :last_name, length: { minimum: 3 }, if: :persisted?
-  validates :cep, length: { minimum: 9 }, if: :persisted?
+  validates :cep, length: { minimum: 8 }, if: :persisted?
 
   validate :username_chars_validation
 
@@ -139,7 +139,8 @@ class User < ApplicationRecord
     )
   end
 
-  before_validation :clean_document_number
+  before_validation :clean_document_number, if: :persisted?
+  before_validation :clean_cep, if: :persisted?
 
   before_update :sanitaze_name
 
@@ -442,15 +443,17 @@ class User < ApplicationRecord
   end
 
   def can_vote?
-    document_number.present?
+    document_number.present? && valid?
   end
 
   private
 
     def clean_document_number
-      return unless can_vote?
-
       self.document_number = document_number.gsub(/[^a-z0-9]+/i, "").upcase
+    end
+
+    def clean_cep
+      self.cep = cep.gsub(/\D/, '')
     end
 
     def validate_username_length
@@ -500,7 +503,7 @@ class User < ApplicationRecord
     end
 
     def cep_validation
-      if cep && cep.size == 9 && home_address.empty?
+      if cep && cep.size == 8 && home_address.empty?
         errors.add(:cep, :not_found)
       end
     end
