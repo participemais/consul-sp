@@ -76,10 +76,6 @@ module UsersHelper
     end
   end
 
-  def options_for_uf
-    options_for_select(ufs_options, current_user.uf)
-  end
-
   def options_for_gender
     options_for_select(gender_options, current_user.gender)
   end
@@ -92,11 +88,11 @@ module UsersHelper
     options_for_select(erase_reason_options, current_user.erase_reason)
   end
 
-  private
-
-  def ufs_options
-    user_translation_attr(:uf_options).invert
+  def address_hide_class
+    current_user.cep ? '' : 'hide-address-fields'
   end
+
+  private
 
   def gender_options
     user_translation_attr(:gender_options).invert
