@@ -79,12 +79,13 @@ class User < ApplicationRecord
   validates :username, presence: true, if: :username_required?
   validates :username, uniqueness: { scope: :registering_with_oauth }, if: :username_required?
   validates :username, length: { minimum: 3 }
-  validates :first_name, length: { minimum: 3 }
-  validates :last_name, length: { minimum: 3 }
+  validates :first_name, length: { minimum: 3 }, if: :persisted?
+  validates :last_name, length: { minimum: 3 }, if: :persisted?
+  validates :cep, length: { minimum: 9 }, if: :persisted?
 
   validate :username_chars_validation
 
-  validate :first_and_last_names_chars_validation, unless: :new_record?
+  validate :first_and_last_names_chars_validation, if: :persisted?
 
   validates :document_number, uniqueness: { scope: :document_type }, allow_nil: true
 
