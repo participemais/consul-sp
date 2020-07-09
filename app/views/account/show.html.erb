@@ -122,7 +122,7 @@
             </div>
             <div class="row">
               <div class="small-6 medium-2 column <%= address_hide_class %>">
-                <%= f.text_field(:address_number) %>
+                <%= f.text_field(:address_number, required: true) %>
               </div>
               <div class="small-6 medium-3 column <%= address_hide_class %>">
                 <%= f.text_field(:address_complement) %>
