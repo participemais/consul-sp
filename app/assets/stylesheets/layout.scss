@@ -637,11 +637,12 @@ header {
 .menu-icon {
 
   &.dark {
+    background: $text-light;
 
     &:hover::after,
     &::after {
-      background: #fff;
-      box-shadow: 0 7px 0 #fff, 0 14px 0 #fff;
+      background: $text-light;
+      box-shadow: 0 7px 0 #fff, 0 14px 0 #fff !important;
     }
   }
 }

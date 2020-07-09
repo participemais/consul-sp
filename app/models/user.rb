@@ -81,9 +81,9 @@ class User < ApplicationRecord
     uniqueness: { case_sensitive: false },
     if: :username_required?
   validates :username, length: { minimum: 3 }
-  validates :first_name, length: { minimum: 3 }, allow_nil: true
+  validates :first_name, length: { minimum: 2 }, allow_nil: true
 
-  validates :last_name, length: { minimum: 3 }, allow_nil: true
+  validates :last_name, length: { minimum: 2 }, allow_nil: true
   validates :cep, length: { minimum: 8 }, allow_nil: true
 
   validate :username_chars_validation
@@ -101,6 +101,7 @@ class User < ApplicationRecord
   validates :gender, presence: true, allow_nil: true
   validates :ethnicity, presence: true, allow_nil: true
   validates :date_of_birth, presence: true, allow_nil: true
+  validates :address_number, presence: true, allow_nil: true
 
   validate :cep_validation
 
