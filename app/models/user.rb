@@ -77,7 +77,9 @@ class User < ApplicationRecord
   belongs_to :geozone
 
   validates :username, presence: true, if: :username_required?
-  validates :username, uniqueness: { scope: :registering_with_oauth }, if: :username_required?
+  validates :username,
+    uniqueness: { case_sensitive: false },
+    if: :username_required?
   validates :username, length: { minimum: 3 }
   validates :first_name, length: { minimum: 3 }, if: :persisted?
   validates :last_name, length: { minimum: 3 }, if: :persisted?
@@ -486,7 +488,7 @@ class User < ApplicationRecord
     end
 
     def username_chars_validation
-      unless username =~ /[\sa-z\u00C0-\u017F]{3,}/i
+      unless username =~ /[a-z\u00C0-\u017F]{3,}/i
         message = I18n.t('activerecord.errors.models.user.attributes.username')
         errors.add(:username, message)
       end
