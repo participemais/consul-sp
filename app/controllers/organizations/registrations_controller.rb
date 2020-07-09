@@ -1,6 +1,5 @@
 class Organizations::RegistrationsController < Devise::RegistrationsController
   invisible_captcha only: [:create], honeypot: :address, scope: :user
-  # prepend_before_action :check_captcha, only: [:create]
 
   def new
     super(&:build_organization)
@@ -32,16 +31,5 @@ class Organizations::RegistrationsController < Devise::RegistrationsController
     def sign_up_params
       params.require(:user).permit(:email, :password, :password_confirmation,
                                    organization_attributes: [:name, :responsible_name])
-    end
-
-    def check_captcha
-      unless verify_recaptcha(timeout: 60)
-        flash.delete(:recaptcha_error)
-        build_resource(sign_up_params)
-        resource.valid?
-        resource.errors.add(:base, t('errors.messages.recaptcha_error'))
-        clean_up_passwords(resource)
-        respond_with_navigational(resource) { render :new }
-      end
     end
 end
