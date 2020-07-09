@@ -71,6 +71,7 @@
   transition: border-bottom 0.5s;
   transition: color 0.5s;
   text-transform: uppercase;
+
   &:hover {
     box-sizing: border-box;
     border-bottom: 3px solid $purple;
@@ -121,7 +122,10 @@
 }
 
 .contact-footer {
-  padding-left: $line-height;
+
+  @include breakpoint(medium) {
+    padding-left: $line-height;
+  }
 
   .org-mail {
     font-family: $subheader-font-family;
@@ -135,7 +139,6 @@
     align-items: center;
 
     li > a {
-
       font-size:$base-font-size;
       text-decoration: none;
       margin-right: $line-height / 3;
@@ -155,6 +158,11 @@
   height: 10vh;
   background-size: contain;
   background-repeat: no-repeat;
+  margin-bottom: 1rem;
+
+  @include breakpoint(medium) {
+    margin-bottom: 0;
+  }
 }
 
 .governo-aberto-logo {
