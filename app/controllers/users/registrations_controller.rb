@@ -1,6 +1,5 @@
 class Users::RegistrationsController < Devise::RegistrationsController
   prepend_before_action :authenticate_scope!, only: [:edit, :update, :destroy, :finish_signup, :do_finish_signup]
-  # prepend_before_action :check_captcha, only: [:create]
   before_action :configure_permitted_parameters
 
   invisible_captcha only: [:create], honeypot: :address, scope: :user
@@ -83,17 +82,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
     def after_inactive_sign_up_path_for(resource_or_scope)
       users_sign_up_success_path
-    end
-
-    def check_captcha
-      unless verify_recaptcha(timeout: 60)
-        flash.delete(:recaptcha_error)
-        build_resource(sign_up_params)
-        resource.valid?
-        resource.errors.add(:base, t('errors.messages.recaptcha_error'))
-        clean_up_passwords(resource)
-        respond_with_navigational(resource) { render :new }
-      end
     end
 
     def strip_username

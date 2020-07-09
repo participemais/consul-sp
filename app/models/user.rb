@@ -81,9 +81,10 @@ class User < ApplicationRecord
     uniqueness: { case_sensitive: false },
     if: :username_required?
   validates :username, length: { minimum: 3 }
-  validates :first_name, length: { minimum: 3 }, if: :persisted?
-  validates :last_name, length: { minimum: 3 }, if: :persisted?
-  validates :cep, length: { minimum: 8 }, if: :persisted?
+  validates :first_name, length: { minimum: 3 }, allow_nil: true
+
+  validates :last_name, length: { minimum: 3 }, allow_nil: true
+  validates :cep, length: { minimum: 8 }, allow_nil: true
 
   validate :username_chars_validation
 
@@ -99,6 +100,7 @@ class User < ApplicationRecord
 
   validates :gender, presence: true, allow_nil: true
   validates :ethnicity, presence: true, allow_nil: true
+  validates :date_of_birth, presence: true, allow_nil: true
 
   validate :cep_validation
 
@@ -451,10 +453,12 @@ class User < ApplicationRecord
   private
 
     def clean_document_number
+      return unless document_number
       self.document_number = document_number.gsub(/[^a-z0-9]+/i, "").upcase
     end
 
     def clean_cep
+      return unless cep
       self.cep = cep.gsub(/\D/, '')
     end
 
@@ -495,12 +499,16 @@ class User < ApplicationRecord
     end
 
     def first_and_last_names_chars_validation
-      unless first_name =~ /^[\sa-z\u00C0-\u017F\.\-]+$/i
-        errors.add(:first_name)
+      if first_name
+        unless first_name =~ /^[\sa-z\u00C0-\u017F\.\-]+$/i
+          errors.add(:first_name)
+        end
       end
 
-      unless last_name =~ /^[\sa-z\u00C0-\u017F\.\-]+$/i
-        errors.add(:last_name)
+      if last_name
+        unless last_name =~ /^[\sa-z\u00C0-\u017F\.\-]+$/i
+          errors.add(:last_name)
+        end
       end
     end
 
