@@ -77,12 +77,17 @@ class User < ApplicationRecord
   belongs_to :geozone
 
   validates :username, presence: true, if: :username_required?
-  validates :username, uniqueness: { scope: :registering_with_oauth }, if: :username_required?
+  validates :username,
+    uniqueness: { case_sensitive: false },
+    if: :username_required?
   validates :username, length: { minimum: 3 }
+  validates :first_name, length: { minimum: 3 }, if: :persisted?
+  validates :last_name, length: { minimum: 3 }, if: :persisted?
+  validates :cep, length: { minimum: 8 }, if: :persisted?
 
   validate :username_chars_validation
 
-  validate :first_and_last_names_chars_validation, unless: :new_record?
+  validate :first_and_last_names_chars_validation, if: :persisted?
 
   validates :document_number, uniqueness: { scope: :document_type }, allow_nil: true
 
@@ -94,7 +99,8 @@ class User < ApplicationRecord
 
   validates :gender, presence: true, allow_nil: true
   validates :ethnicity, presence: true, allow_nil: true
-  validates :uf, presence: true, allow_nil: true
+
+  validate :cep_validation
 
   validates :official_level, inclusion: { in: 0..5 }
 
@@ -135,7 +141,10 @@ class User < ApplicationRecord
     )
   end
 
-  before_validation :clean_document_number
+  before_validation :clean_document_number, if: :persisted?
+  before_validation :clean_cep, if: :persisted?
+
+  before_update :sanitaze_name
 
   # Get the existing user by email if the provider gives us a verified email.
   def self.first_or_initialize_for_oauth(auth)
@@ -436,15 +445,17 @@ class User < ApplicationRecord
   end
 
   def can_vote?
-    document_number.present?
+    document_number.present? && valid?
   end
 
   private
 
     def clean_document_number
-      return unless can_vote?
-
       self.document_number = document_number.gsub(/[^a-z0-9]+/i, "").upcase
+    end
+
+    def clean_cep
+      self.cep = cep.gsub(/\D/, '')
     end
 
     def validate_username_length
@@ -477,7 +488,7 @@ class User < ApplicationRecord
     end
 
     def username_chars_validation
-      unless username =~ /[\sa-z\u00C0-\u017F]{3,}/i
+      unless username =~ /[a-z\u00C0-\u017F]{3,}/i
         message = I18n.t('activerecord.errors.models.user.attributes.username')
         errors.add(:username, message)
       end
@@ -491,5 +502,20 @@ class User < ApplicationRecord
       unless last_name =~ /^[\sa-z\u00C0-\u017F\.\-]+$/i
         errors.add(:last_name)
       end
+    end
+
+    def cep_validation
+      if cep && cep.size == 8 && home_address.empty?
+        errors.add(:cep, :not_found)
+      end
+    end
+
+    def sanitaze_name
+      self.first_name = capitalize_word(first_name) if first_name_changed?
+      self.last_name = capitalize_word(last_name) if last_name_changed?
+    end
+
+    def capitalize_word(word)
+      word.split.map(&:capitalize)*' '
     end
 end

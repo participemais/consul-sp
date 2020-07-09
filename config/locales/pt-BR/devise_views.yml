@@ -132,6 +132,7 @@ pt-BR:
           title: Criar conta
           username_is_available: Nome de usuário disponível
           username_is_not_available: Nome de usuário já está em uso
+          username_is_too_short: Nome de usuário é muito curto
           username_label: Nome de usuário
           username_note: Nome que aparece junto a seus posts
         success:
