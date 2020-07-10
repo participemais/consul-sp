@@ -8,7 +8,7 @@ namespace :budget_proposals do
           { headers: true, header_converters: :symbol, col_sep: '|' }
         )
 
-        rows.map do |row|
+        rows.map.with_index(2) do |row, index|
           subprefecture = row[:subprefeitura].strip
           if heading = Budget::Heading.find_by(name: subprefecture)
             investment_params = {
@@ -30,7 +30,8 @@ namespace :budget_proposals do
             investment = Budget::Investment.new(investment_params)
 
             unless investment.save
-              puts "#{investment.title} from #{subprefecture} fails"
+              errors = investment.errors.full_messages*(', ')
+              puts "Row: #{index} - Errors: #{errors} - Subprefecture: #{subprefecture} fails"
             end
           else
             puts "Subprefecture #{subprefecture} not found "
