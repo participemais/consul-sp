@@ -148,6 +148,10 @@ class User < ApplicationRecord
   before_validation :clean_cep, if: :persisted?
 
   before_update :sanitaze_name
+  before_save :document_number_changes_amount,
+    unless: :document_number_changes_count
+  before_save :date_of_birth_changes_amount,
+    unless: :date_of_birth_changes_count
 
   # Get the existing user by email if the provider gives us a verified email.
   def self.first_or_initialize_for_oauth(auth)
@@ -526,5 +530,17 @@ class User < ApplicationRecord
 
     def capitalize_word(word)
       word.split.map(&:capitalize)*' '
+    end
+
+    def document_number_changes_amount
+      if changes[:document_number] && changes[:document_number][0]
+        self.document_number_changes_count = 1
+      end
+    end
+
+    def date_of_birth_changes_amount
+      if changes[:date_of_birth] && changes[:date_of_birth][0]
+        self.date_of_birth_changes_count = 1
+      end
     end
 end
