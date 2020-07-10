@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20200710201104) do
+ActiveRecord::Schema.define(version: 20200710201419) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -187,6 +187,8 @@ ActiveRecord::Schema.define(version: 20200710201104) do
     t.bigint "heading_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "households"
+    t.decimal "population_density"
     t.index ["heading_id"], name: "index_budget_districts_on_heading_id"
   end
 
