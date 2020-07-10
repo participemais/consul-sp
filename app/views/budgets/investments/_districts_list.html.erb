@@ -40,25 +40,24 @@
       <hr>
       <%= sanitize(t(
         "budgets.investments.index.sidebar.district_info",
-        extreme_poverty: number_with_delimiter(
-          district.extreme_poverty, delimiter: "."
+        population_density: number_with_delimiter(
+          district.population_density, separator: ","
         ),
-        slum_households: number_with_delimiter(
-          district.slum_households, delimiter: "."
+        households: number_with_delimiter(district.households, delimiter: "."),
+        slum_households_percentage: number_with_delimiter(
+          district.slum_households_percentage, separator: ","
         ),
-        count: district.slum_households
+        slum_households_reference_year: district.slum_households_reference_year,
+        count: district.slum_households_percentage
       )) %>
-      <% if district.formal_jobs_by_population > 1 %>
-        <% translation_key = "budgets.investments.index.sidebar.district_jobs_greater_than_population" %>
-      <% else %>
-        <% translation_key = "budgets.investments.index.sidebar.district_jobs_lower_than_population" %>
-      <% end %>
       <%= sanitize(t(
-        translation_key,
+        "budgets.investments.index.sidebar.district_formal_jobs_by_population",
         formal_jobs_by_population: number_with_delimiter(
           district.formal_jobs_by_population.round(2),
           separator: ","
-        )
+        ),
+        formal_jobs_by_population_reference_year:
+          district.formal_jobs_by_population_reference_year
       )) %>
     </div>
   </div>
