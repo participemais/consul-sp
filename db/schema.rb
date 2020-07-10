@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20200710193655) do
+ActiveRecord::Schema.define(version: 20200710195334) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -236,6 +236,13 @@ ActiveRecord::Schema.define(version: 20200710193655) do
     t.integer "extreme_poverty_reference_year"
     t.decimal "formal_jobs_by_population"
     t.integer "formal_jobs_by_population_reference_year"
+    t.integer "households"
+    t.decimal "hdi"
+    t.integer "hdi_reference_year"
+    t.decimal "population_density"
+    t.integer "population_density_reference_year"
+    t.string "analytical_framework_url"
+    t.string "action_perimeter_url"
     t.index ["group_id"], name: "index_budget_headings_on_group_id"
   end
 
