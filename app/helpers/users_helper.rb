@@ -92,6 +92,29 @@ module UsersHelper
     current_user.home_address.present? ? '' : 'hide-address-fields'
   end
 
+  def date_of_birth_class
+    classes = []
+    if @account.date_of_birth
+      classes << 'js-date-of-birth-confirmation'
+    end
+    unless @account.date_of_birth_changes_count
+      classes << 'js-date-of-birth-calendar'
+    end
+    classes.join(' ')
+  end
+
+  def foreigner_document_title
+    if @account.document_number_changes_count
+      change_field_instruction
+    else
+      t("account.show.foreigner_document_title")
+    end
+  end
+
+  def readonly_title(changes_count)
+    change_field_instruction if changes_count
+  end
+
   private
 
   def gender_options
@@ -108,5 +131,10 @@ module UsersHelper
 
   def user_translation_attr(attr_key)
     t(attr_key, scope: 'activerecord.attributes.user')
+  end
+
+  def change_field_instruction
+    email = Setting[:mailer_from_address]
+    t('account.show.change_field_instruction', email: email)
   end
 end
