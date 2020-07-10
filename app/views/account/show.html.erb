@@ -40,9 +40,11 @@
                     <%= f.text_field(
                       :document_number,
                       required: true,
+                      readonly: @account.document_number_changes_count,
                       label: t("account.show.foreigner_document"),
+                      title: foreigner_document_title,
                       title: t("account.show.foreigner_document_title"),
-                      class: "js-rnm-mask uppercase",
+                      class: "js-rnm-mask uppercase #{ 'js-document-number-confirmation' if @account.document_number }",
                     ) %>
                     <%= f.hidden_field(:document_type, value: "rnm") %>
                     <% if params[:foreigner] && @account.document_number.blank? %>
@@ -53,8 +55,10 @@
                   <% else %>
                     <%= f.text_field(
                       :document_number,
-                      class: "js-cpf-mask",
-                      required: true
+                      class: "js-cpf-mask #{ 'js-document-number-confirmation' if @account.document_number }",
+                      required: true,
+                      readonly: @account.document_number_changes_count,
+                      title: readonly_title(@account.document_number_changes_count)
                     ) %>
                     <%= f.hidden_field(:document_type, value: "cpf") %>
                     <% if @account.document_number.blank? && params[:foreigner].nil? %>
@@ -84,8 +88,10 @@
                     :date_of_birth,
                     value: date_of_birth_value,
                     required: true,
-                    class: "js-date-of-birth-calendar js-date-of-birth-mask")
-                  %>
+                    readonly: @account.date_of_birth_changes_count,
+                    title: readonly_title(@account.date_of_birth_changes_count),
+                    class: "js-date-of-birth-mask #{date_of_birth_class}"
+                  ) %>
                 </div>
                 <div class="small-6 medium-4 column">
                   <%= f.select(

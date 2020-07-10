@@ -27,6 +27,7 @@ pt-BR:
       unverified_account: Cadastro incompleto
       verified_account: Cadastro está completo
       verify_my_account: Verificar minha conta
+      change_field_instruction: "Campo desabilitado. Para alterá-lo, é necessário enviar email para %{email}"
     edit:
       my_account: Minha conta
       notifications: Notificações
@@ -224,7 +225,7 @@ pt-BR:
           one: 1 Apoio
           other: "Apoios"
     footer:
-      accessibility: Acessibilidade (0.6)
+      accessibility: Acessibilidade (0.7)
       conditions: Termos de Uso
       consul: Aplicativo CONSUL
       consul_url: https://consulproject.org/en/

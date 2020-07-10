@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20200622200531) do
+ActiveRecord::Schema.define(version: 20200709201555) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -1523,6 +1523,8 @@ ActiveRecord::Schema.define(version: 20200622200531) do
     t.string "first_name"
     t.string "last_name"
     t.string "erase_reason_description"
+    t.integer "document_number_changes_count"
+    t.integer "date_of_birth_changes_count"
     t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["geozone_id"], name: "index_users_on_geozone_id"
