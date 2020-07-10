@@ -132,7 +132,7 @@ pt-BR:
           price: por preço
           ballots: mais votadas
       share:
-        message: "Eu criei a proposta de orçamento %{title} em %{handle}. Crie uma você também!"
+        message: "Estou apoiando a proposta de orçamento %{title} em %{handle}."
       show:
         author_deleted: Usuário excluído
         price_explanation: Explicação do preço
