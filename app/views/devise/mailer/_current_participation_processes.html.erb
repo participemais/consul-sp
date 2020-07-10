@@ -11,7 +11,7 @@
 <% else %>
   <% if @participation_processes.one? %>
     <% process = @participation_processes.first %>
-    <% url = process.is_a?(Budget) ? budget_url(process.id) : poll_url(process.id) %>
+    <% url = process.is_a?(Budget) ? budgets_url : poll_url(process.id) %>
     <%= sanitize(t(
       "devise_views.mailer.confirmation_instructions.with_one_participation_process",
       {
@@ -30,7 +30,7 @@
     ) %>
     <ul style="font-family: 'Open Sans','Helvetica Neue',arial,sans-serif;font-size: 14px;font-weight: normal;line-height: 24px;">
       <% @participation_processes.each do |process| %>
-        <% url = process.is_a?(Budget) ? budget_url(process.id) : poll_url(process.id) %>
+        <% url = process.is_a?(Budget) ? budgets_url : poll_url(process.id) %>
         <li>
           <%= sanitize(t(
             "devise_views.mailer.confirmation_instructions.participation_process",
