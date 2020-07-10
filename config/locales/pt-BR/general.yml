@@ -225,7 +225,7 @@ pt-BR:
           one: 1 Apoio
           other: "Apoios"
     footer:
-      accessibility: Acessibilidade (0.7)
+      accessibility: Acessibilidade
       conditions: Termos de Uso
       consul: Aplicativo CONSUL
       consul_url: https://consulproject.org/en/
