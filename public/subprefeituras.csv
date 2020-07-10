@@ -1,97 +1,97 @@
-Distrito;Subprefeitura;Centroide_x;Centroide_y;Populacao;Area;domicilios_em_favelas;extrema_pobreza;emprego_por_habitante_distrito;emprego_por_habitante_subprefeitura
-Aricanduva;Aricanduva/Formosa/Carrão;343506,199740865;7393275,95474101;86184;6,6;304;3226;0,242;0,3657
-Carrão;Aricanduva/Formosa/Carrão;343506,199740865;7393275,95474101;84831;7,5;742;1318;0,4342;0,3657
-Vila Formosa;Aricanduva/Formosa/Carrão;343506,199740865;7393275,95474101;94205;7,4;292;2838;0,4168;0,3657
-Butantã;Butantã;322133,983334995;7390591,85943147;53904;12,5;259;557;1,1145;0,4612
-Morumbi;Butantã;322133,983334995;7390591,85943147;52416;11,4;2563;1637;1,1258;0,4612
-Raposo Tavares;Butantã;322133,983334995;7390591,85943147;106735;12,6;4030;4423;0,1727;0,4612
-Rio Pequeno;Butantã;322133,983334995;7390591,85943147;123238;9,7;8498;4848;0,221;0,4612
-Vila Sônia;Butantã;322133,983334995;7390591,85943147;120505;9,9;9608;4505;0,3558;0,4612
-Campo Limpo;Campo Limpo;320528,769058132;7383959,21272032;227235;12,8;17009;13181;0,1092;0,1195
-Capão Redondo;Campo Limpo;320528,769058132;7383959,21272032;293651;13,6;22410;18969;0,0815;0,1195
-Vila Andrade;Campo Limpo;320528,769058132;7383959,21272032;160173;10,3;20064;6243;0,2061;0,1195
-Cidade Dutra;Capela do Socorro;328858,675772802;7370630,02447906;202297;29,3;5768;11126;0,1846;0,1615
-Grajaú;Capela do Socorro;328858,675772802;7370630,02447906;387148;92;17289;34430;0,0504;0,1615
-Socorro;Capela do Socorro;328858,675772802;7370630,02447906;36194;12,9;769;2083;1,1191;0,1615
-Cachoeirinha;Casa Verde;330087,276798945;7402739,42094594;146039;13,3;9605;6175;0,3056;0,3084
-Casa Verde;Casa Verde;330087,276798945;7402739,42094594;86007;7,1;35;3094;0,3543;0,3084
-Limão;Casa Verde;330087,276798945;7402739,42094594;79613;6,3;2161;2984;0,263;0,3084
-Cidade Ademar;Cidade Ademar;331542,330165593;7378775,57239939;283949;12;15625;21577;0,0831;0,1054
-Pedreira;Cidade Ademar;331542,330165593;7378775,57239939;159325;18,7;9843;4485;0,1456;0,1054
-Cidade Tiradentes;Cidade Tiradentes;357100,507501859;7391085,99630969;233110;15;3220;17662;0,0381;0,0381
-Ermelino Matarazzo;Ermelino Matarazzo;348076,639654958;7400240,2830081;118268;8,7;3405;8703;0,1041;0,1725
-Ponte Rasa;Ermelino Matarazzo;348076,639654958;7400240,2830081;90145;6,4;1018;4562;0,2582;0,1725
-Brasilândia;Freguesia/Brasilândia;327274,279105972;7404415,94184224;280278;21;22793;19584;0,0795;0,1356
-Freguesia do Ó;Freguesia/Brasilândia;327274,279105972;7404415,94184224;140324;10,5;1915;4685;0,2403;0,1356
-Guaianazes;Guaianases;356366,336750806;7395478,02405328;109089;8,6;1061;7943;0,0744;0,059
-Lajeado;Guaianases;356366,336750806;7395478,02405328;173469;9,2;3993;16213;0,0492;0,059
-Cursino;Ipiranga;336129,601957861;7387013,34350873;113347;12,8;2532;2451;0,2671;0,2717
-Ipiranga;Ipiranga;336129,601957861;7387013,34350873;111744;10,5;1338;2708;0,5905;0,2717
-Sacomã;Ipiranga;336129,601957861;7387013,34350873;262193;14,2;22240;2175;0,1355;0,2717
-Itaim Paulista;Itaim Paulista;357186,614037312;7399785,03035395;233767;12;4808;19709;0,0892;0,0876
-Vila Curuçá;Itaim Paulista;357186,614037312;7399785,03035395;152967;9,7;3256;10441;0,0853;0,0876
-Cidade Líder;Itaquera;351198,04663074;7393789,01310117;134425;10,2;2948;7448;0,1682;0,1713
-Itaquera;Itaquera;351198,04663074;7393789,01310117;210858;14,6;4146;12384;0,1684;0,1713
-José Bonifácio;Itaquera;351198,04663074;7393789,01310117;135461;14,1;592;5325;0,0652;0,1713
-Parque do Carmo;Itaquera;351198,04663074;7393789,01310117;71418;15,4;3907;13577;0,3876;0,1713
-Jabaquara;Jabaquara;332172,608235173;7383537,82842272;228815;14,1;13414;10104;0,4529;0,4529
-Jaçanã;Jaçanã/Tremembé;337851,584678127;7408850,88573979;24042;7,8;2116;5556;0,1783;0,1602
-Tremembé;Jaçanã/Tremembé;337851,584678127;7408850,88573979;221051;56,3;7659;11187;0,098;0,1602
-Barra Funda;Lapa;325077,312832214;7397009,07088868;15927;5,6;70;160;6,2823;0,7771
-Jaguara;Lapa;325077,312832214;7397009,07088868;54697;4,6;217;482;1,0322;0,7771
-Jaguaré;Lapa;325077,312832214;7397009,07088868;210217;6,6;1524;1893;0,7055;0,7771
-Lapa;Lapa;325077,312832214;7397009,07088868;67118;10;130;1753;1,7279;0,7771
-Perdizes;Lapa;325077,312832214;7397009,07088868;114552;6,1;0;7762;0,4067;0,7771
-Vila Leopoldina;Lapa;325077,312832214;7397009,07088868;44643;7,2;753;589;1,3436;0,7771
-Jardim Ângela;M'Boi Mirim;320942,389465241;7377736,6013533;135358;37,4;22447;26857;0,107;0,3786
-Jardim São Luís;M'Boi Mirim;320942,389465241;7377736,6013533;95934;24,7;19903;20771;0,1877;0,3786
-Água Rasa;Mooca;337941,17184693;7394880,20540342;82846;6,9;30;1702;0,4295;0,9128
-Belém;Mooca;337941,17184693;7394880,20540342;48850;6;600;7903;1,0676;0,9128
-Brás;Mooca;337941,17184693;7394880,20540342;32711;3,5;0;1871;1,6876;0,9128
-Mooca;Mooca;337941,17184693;7394880,20540342;79997;7,7;50;2853;0,8855;0,9128
-Pari;Mooca;337941,17184693;7394880,20540342;18910;2,9;130;1495;2,126;0,9128
-Tatuapé;Mooca;337941,17184693;7394880,20540342;95705;8,2;355;2336;0,8176;0,9128
-Marsilac;Parelheiros;325793,590921888;7356861,07950782;8398;200;73;1695;0,0779;0,1191
-Parelheiros;Parelheiros;325793,590921888;7356861,07950782;151339;153,5;4027;12522;0,1216;0,1191
-Artur Alvim;Penha;345165,488609291;7398258,09128984;100887;6,6;2558;4224;0,0759;0,1969
-Cangaíba;Penha;345165,488609291;7398258,09128984;137923;16;4906;6050;0,089;0,1969
-Penha;Penha;345165,488609291;7398258,09128984;129042;11,3;2748;295;0,3412;0,1969
-Vila Matilde;Penha;345165,488609291;7398258,09128984;105550;8,9;225;2344;0,2743;0,1969
-Anhanguera;Perus;318834,618154292;7408762,47941239;82976;33,3;1116;6182;0,1447;0,1055
-Perus;Perus;318834,618154292;7408762,47941239;88387;23,9;2975;986;0,0692;0,1055
-Alto de Pinheiros;Pinheiros;327693,651678563;7392049,22122692;41191;7,7;0;102;0,6751;1,4868
-Itaim Bibi;Pinheiros;327693,651678563;7392049,22122692;96896;9,9;325;469;3,7924;1,4868
-Jardim Paulista;Pinheiros;327693,651678563;7392049,22122692;291198;6,1;0;124;1,5779;1,4868
-Pinheiros;Pinheiros;327693,651678563;7392049,22122692;65895;8;22;5659;2,5464;1,4868
-Jaraguá;Pirituba/Jaraguá;322618,820932393;7403955,63836247;334057;27,6;9445;14322;0,1129;0,1353
-Pirituba;Pirituba/Jaraguá;322618,820932393;7403955,63836247;170940;17,1;4001;3625;0,1396;0,1353
-São Domingos;Pirituba/Jaraguá;322618,820932393;7403955,63836247;86258;10;3596;10649;0,3522;0,1353
-Mandaqui;Santana/Tucuruvi;333801,154020176;7402604,79728563;109131;13,1;1188;2050;0,2054;0,4361
-Santana;Santana/Tucuruvi;333801,154020176;7402604,79728563;113729;12,6;96;12708;0,8414;0,4361
-Tucuruvi;Santana/Tucuruvi;333801,154020176;7402604,79728563;96608;9;240;1274;0,2106;0,4361
-Campo Belo;Santo Amaro;327800,111380769;7383536,89587872;63962;8,8;2221;936;1,2135;1,2619
-Campo Grande;Santo Amaro;327800,111380769;7383536,89587872;106227;13,1;1454;1616;0,5406;1,2619
-Santo Amaro;Santo Amaro;327800,111380769;7383536,89587872;74294;15,6;44;7801;2,3097;1,2619
-Iguatemi;São Mateus;352126,171448891;7387845,50143684;147514;19,6;3456;15145;0,0525;0,1091
-São Mateus;São Mateus;352126,171448891;7387845,50143684;155289;13,2;3153;1616;0,2148;0,1091
-São Rafael;São Mateus;352126,171448891;7387845,50143684;158143;13;4869;1004;0,0526;0,1091
-Jardim Helena;São Miguel;353243,150059896;7400940,79580569;90588;9,1;5248;10854;0,2027;0,1824
-São Miguel;São Miguel;353243,150059896;7400940,79580569;89364;7,5;825;17870;0,2176;0,1824
-Vila Jacuí;São Miguel;353243,150059896;7400940,79580569;145443;7,7;2348;8509;0,0973;0,1824
-Sapopemba;Sapopemba;346032,807936225;7388674,59134286;289284;13,5;18273;2204;0,0856;0,0856
-Bela Vista;Sé;332658,741657121;7394863,48171303;72925;2,6;0;4058;1,5293;3,4966
-Bom Retiro;Sé;332658,741657121;7394863,48171303;38449;4;375;3059;4,7011;3,4966
-Cambuci;Sé;332658,741657121;7394863,48171303;40357;3,9;0;1074;1,0072;3,4966
-Consolação;Sé;332658,741657121;7394863,48171303;57421;3,7;0;255;3,1031;3,4966
-Liberdade;Sé;332658,741657121;7394863,48171303;72503;3,7;88;1483;0,7953;3,4966
-República;Sé;332658,741657121;7394863,48171303;61478;2,3;0;4872;2,4209;3,4966
-Santa Cecília;Sé;332658,741657121;7394863,48171303;88170;3,9;0;4385;1,0911;3,4966
-Sé;Sé;332658,741657121;7394863,48171303;26423;2,1;0;4953;31,5862;3,4966
-Vila Guilherme;Vila Maria/Vila Guilherme;332076,26748233;7389199,8055968;56846;6,9;406;2325;0,8561;0,9367
-Vila Maria;Vila Maria/Vila Guilherme;332076,26748233;7389199,8055968;113931;11,8;4992;7118;0,5641;0,9367
-Vila Medeiros;Vila Maria/Vila Guilherme;332076,26748233;7389199,8055968;123979;7,7;1204;5324;0,1006;0,9367
-Moema;Vila Mariana;338185,141523742;7399737,89896009;88949;9;0;125;1,1041;0,4222
-Saúde;Vila Mariana;338185,141523742;7399737,89896009;133944;8,9;503;1298;0,6141;0,4222
-Vila Mariana;Vila Mariana;338185,141523742;7399737,89896009;132122;8,6;474;1093;1,1495;0,4222
-São Lucas;Vila Prudente;341061,398620816;7389943,98747937;142953;9,9;2165;10279;0,1504;0,2365
-Vila Prudente;Vila Prudente;341061,398620816;7389943,98747937;104668;9,9;1960;4553;0,3537;0,2365
+distrito;subprefeitura;populacao;area;extrema_pobreza;emprego_por_habitante_distrito;emprego_por_habitante_subprefeitura;domicilios_distrito;domicilios_em_favelas_distrito;domicilios_subprefeitura;domicilios_em_favelas_subprefeitura;idh;densidade_populacional_distrito;densidade_populacional_subprefeitura;quadro_analitico;perimetro_de_acao
+Aricanduva;Aricanduva/Formosa/Carrão;86184;6,6;3226;0,242;0,3657;28194;1,1;88741;1,51;0,822;0,013;0,012;https://gestaourbana.prefeitura.sp.gov.br/wp-content/uploads/2018/02/QA-AF.pdf;https://gestaourbana.prefeitura.sp.gov.br/wp-content/uploads/2018/02/PA-AF.pdf
+Carrão;Aricanduva/Formosa/Carrão;84831;7,5;1318;0,4342;0,3657;28763;2,6;88741;1,51;0,822;0,011;0,012;https://gestaourbana.prefeitura.sp.gov.br/wp-content/uploads/2018/02/QA-AF.pdf;https://gestaourbana.prefeitura.sp.gov.br/wp-content/uploads/2018/02/PA-AF.pdf
+Vila Formosa;Aricanduva/Formosa/Carrão;94205;7,4;2838;0,4168;0,3657;31784;0,9;88741;1,51;0,822;0,013;0,012;https://gestaourbana.prefeitura.sp.gov.br/wp-content/uploads/2018/02/QA-AF.pdf;https://gestaourbana.prefeitura.sp.gov.br/wp-content/uploads/2018/02/PA-AF.pdf
+Butantã;Butantã;53904;12,5;557;1,1145;0,4612;19441;1,3;150337;16,6;0,859;0,004;0,008;https://gestaourbana.prefeitura.sp.gov.br/wp-content/uploads/2018/02/QA-BT.pdf;https://gestaourbana.prefeitura.sp.gov.br/wp-content/uploads/2018/02/PA-BT.pdf
+Morumbi;Butantã;52416;11,4;1637;1,1258;0,4612;17463;14,7;150337;16,6;0,859;0,005;0,008;https://gestaourbana.prefeitura.sp.gov.br/wp-content/uploads/2018/02/QA-BT.pdf;https://gestaourbana.prefeitura.sp.gov.br/wp-content/uploads/2018/02/PA-BT.pdf
+Raposo Tavares;Butantã;106735;12,6;4423;0,1727;0,4612;33547;12;150337;16,6;0,859;0,008;0,008;https://gestaourbana.prefeitura.sp.gov.br/wp-content/uploads/2018/02/QA-BT.pdf;https://gestaourbana.prefeitura.sp.gov.br/wp-content/uploads/2018/02/PA-BT.pdf
+Rio Pequeno;Butantã;123238;9,7;4848;0,221;0,4612;40174;21,2;150337;16,6;0,859;0,013;0,008;https://gestaourbana.prefeitura.sp.gov.br/wp-content/uploads/2018/02/QA-BT.pdf;https://gestaourbana.prefeitura.sp.gov.br/wp-content/uploads/2018/02/PA-BT.pdf
+Vila Sônia;Butantã;120505;9,9;4505;0,3558;0,4612;39712;24,2;150337;16,6;0,859;0,012;0,008;https://gestaourbana.prefeitura.sp.gov.br/wp-content/uploads/2018/02/QA-BT.pdf;https://gestaourbana.prefeitura.sp.gov.br/wp-content/uploads/2018/02/PA-BT.pdf
+Campo Limpo;Campo Limpo;227235;12,8;13181;0,1092;0,1195;73217;23,2;221667;26,83;0,783;0,018;0,019;https://gestaourbana.prefeitura.sp.gov.br/wp-content/uploads/2018/02/QA-CL.pdf;https://gestaourbana.prefeitura.sp.gov.br/wp-content/uploads/2018/02/PA-CL.pdf
+Capão Redondo;Campo Limpo;293651;13,6;18969;0,0815;0,1195;94204;23,8;221667;26,83;0,783;0,022;0,019;https://gestaourbana.prefeitura.sp.gov.br/wp-content/uploads/2018/02/QA-CL.pdf;https://gestaourbana.prefeitura.sp.gov.br/wp-content/uploads/2018/02/PA-CL.pdf
+Vila Andrade;Campo Limpo;160173;10,3;6243;0,2061;0,1195;54246;37;221667;26,83;0,783;0,016;0,019;https://gestaourbana.prefeitura.sp.gov.br/wp-content/uploads/2018/02/QA-CL.pdf;https://gestaourbana.prefeitura.sp.gov.br/wp-content/uploads/2018/02/PA-CL.pdf
+Cidade Dutra;Capela do Socorro;202297;29,3;11126;0,1846;0,1615;63237;9,1;194488;12,25;0,75;0,007;0,005;https://gestaourbana.prefeitura.sp.gov.br/wp-content/uploads/2018/02/QA-CS.pdf;https://gestaourbana.prefeitura.sp.gov.br/wp-content/uploads/2018/02/PA-CS.pdf
+Grajaú;Capela do Socorro;387148;92;34430;0,0504;0,1615;118786;14,6;194488;12,25;0,75;0,004;0,005;https://gestaourbana.prefeitura.sp.gov.br/wp-content/uploads/2018/02/QA-CS.pdf;https://gestaourbana.prefeitura.sp.gov.br/wp-content/uploads/2018/02/PA-CS.pdf
+Socorro;Capela do Socorro;36194;12,9;2083;1,1191;0,1615;12465;6,2;194488;12,25;0,75;0,003;0,005;https://gestaourbana.prefeitura.sp.gov.br/wp-content/uploads/2018/02/QA-CS.pdf;https://gestaourbana.prefeitura.sp.gov.br/wp-content/uploads/2018/02/PA-CS.pdf
+Cachoeirinha;Casa Verde;146039;13,3;6175;0,3056;0,3084;45952;20,9;99755;11,83;0,799;0,011;0,012;https://gestaourbana.prefeitura.sp.gov.br/wp-content/uploads/2018/02/QA-CV.pdf;https://gestaourbana.prefeitura.sp.gov.br/wp-content/uploads/2018/02/PA-CV.pdf
+Casa Verde;Casa Verde;86007;7,1;3094;0,3543;0,3084;28181;0,1;99755;11,83;0,799;0,012;0,012;https://gestaourbana.prefeitura.sp.gov.br/wp-content/uploads/2018/02/QA-CV.pdf;https://gestaourbana.prefeitura.sp.gov.br/wp-content/uploads/2018/02/PA-CV.pdf
+Limão;Casa Verde;79613;6,3;2984;0,263;0,3084;25622;8,4;99755;11,83;0,799;0,013;0,012;https://gestaourbana.prefeitura.sp.gov.br/wp-content/uploads/2018/02/QA-CV.pdf;https://gestaourbana.prefeitura.sp.gov.br/wp-content/uploads/2018/02/PA-CV.pdf
+Cidade Ademar;Cidade Ademar;283949;12;21577;0,0831;0,1054;91038;17,2;140984;18,06;0,758;0,024;0,014;https://gestaourbana.prefeitura.sp.gov.br/wp-content/uploads/2018/02/QA-AD.pdf;https://gestaourbana.prefeitura.sp.gov.br/wp-content/uploads/2018/02/PA-AD.pdf
+Pedreira;Cidade Ademar;159325;18,7;4485;0,1456;0,1054;49946;19,7;140984;18,06;0,758;0,009;0,014;https://gestaourbana.prefeitura.sp.gov.br/wp-content/uploads/2018/02/QA-AD.pdf;https://gestaourbana.prefeitura.sp.gov.br/wp-content/uploads/2018/02/PA-AD.pdf
+Cidade Tiradentes;Cidade Tiradentes;233110;15;17662;0,0381;0,0381;72032;4,5;72032;4,47;0,708;0,016;0,016;https://gestaourbana.prefeitura.sp.gov.br/wp-content/uploads/2018/02/QA-CT.pdf;https://gestaourbana.prefeitura.sp.gov.br/wp-content/uploads/2016/03/PA-CT-.pdf
+Ermelino Matarazzo;Ermelino Matarazzo;118268;8,7;8703;0,1041;0,1725;37700;9;67037;6,6;0,777;0,014;0,014;https://gestaourbana.prefeitura.sp.gov.br/wp-content/uploads/2016/03/QA-EM-.pdf;https://gestaourbana.prefeitura.sp.gov.br/wp-content/uploads/2016/03/PA-EM-.pdf
+Ponte Rasa;Ermelino Matarazzo;90145;6,4;4562;0,2582;0,1725;29337;3,5;67037;6,6;0,777;0,014;0,014;https://gestaourbana.prefeitura.sp.gov.br/wp-content/uploads/2016/03/QA-EM-.pdf;https://gestaourbana.prefeitura.sp.gov.br/wp-content/uploads/2016/03/PA-EM-.pdf
+Brasilândia;Freguesia/Brasilândia;280278;21;19584;0,0795;0,1356;85808;26,6;132632;18,63;0,762;0,013;0,013;https://gestaourbana.prefeitura.sp.gov.br/wp-content/uploads/2016/03/QA-FO.pdf;https://gestaourbana.prefeitura.sp.gov.br/wp-content/uploads/2016/03/PA-FO.pdf
+Freguesia do Ó;Freguesia/Brasilândia;140324;10,5;4685;0,2403;0,1356;46824;4,1;132632;18,63;0,762;0,013;0,013;https://gestaourbana.prefeitura.sp.gov.br/wp-content/uploads/2016/03/QA-FO.pdf;https://gestaourbana.prefeitura.sp.gov.br/wp-content/uploads/2016/03/PA-FO.pdf
+Guaianazes;Guaianases;109089;8,6;7943;0,0744;0,059;34124;3,1;86987;5,81;0,713;0,013;0,016;https://gestaourbana.prefeitura.sp.gov.br/wp-content/uploads/2018/08/QA-GU-.pdf;https://gestaourbana.prefeitura.sp.gov.br/wp-content/uploads/2018/08/PA-GU-.pdf
+Lajeado;Guaianases;173469;9,2;16213;0,0492;0,059;52863;7,6;86987;5,81;0,713;0,019;0,016;https://gestaourbana.prefeitura.sp.gov.br/wp-content/uploads/2018/08/QA-GU-.pdf;https://gestaourbana.prefeitura.sp.gov.br/wp-content/uploads/2018/08/PA-GU-.pdf
+Cursino;Ipiranga;113347;12,8;2451;0,2671;0,2717;38413;6,6;167069;15,63;0,824;0,009;0,013;https://gestaourbana.prefeitura.sp.gov.br/wp-content/uploads/2018/02/QA-IP.pdf;https://gestaourbana.prefeitura.sp.gov.br/wp-content/uploads/2018/02/PA-IP.pdf
+Ipiranga;Ipiranga;111744;10,5;2708;0,5905;0,2717;39599;3,4;167069;15,63;0,824;0,011;0,013;https://gestaourbana.prefeitura.sp.gov.br/wp-content/uploads/2018/02/QA-IP.pdf;https://gestaourbana.prefeitura.sp.gov.br/wp-content/uploads/2018/02/PA-IP.pdf
+Sacomã;Ipiranga;262193;14,2;2175;0,1355;0,2717;89057;25;167069;15,63;0,824;0,018;0,013;https://gestaourbana.prefeitura.sp.gov.br/wp-content/uploads/2018/02/QA-IP.pdf;https://gestaourbana.prefeitura.sp.gov.br/wp-content/uploads/2018/02/PA-IP.pdf
+Itaim Paulista;Itaim Paulista;233767;12;19709;0,0892;0,0876;72129;6,7;120135;6,71;0,725;0,019;0,018;https://gestaourbana.prefeitura.sp.gov.br/wp-content/uploads/2018/02/QA-IT.pdf;https://gestaourbana.prefeitura.sp.gov.br/wp-content/uploads/2018/02/PA-IT.pdf
+Vila Curuçá;Itaim Paulista;152967;9,7;10441;0,0853;0,0876;48006;6,8;120135;6,71;0,725;0,016;0,018;https://gestaourbana.prefeitura.sp.gov.br/wp-content/uploads/2018/02/QA-IT.pdf;https://gestaourbana.prefeitura.sp.gov.br/wp-content/uploads/2018/02/PA-IT.pdf
+Cidade Líder;Itaquera;134425;10,2;7448;0,1682;0,1713;42288;7;174567;6,64;0,758;0,013;0,01;https://gestaourbana.prefeitura.sp.gov.br/wp-content/uploads/2018/02/QA-IQ.pdf;https://gestaourbana.prefeitura.sp.gov.br/wp-content/uploads/2018/02/PA-IQ.pdf
+Itaquera;Itaquera;210858;14,6;12384;0,1684;0,1713;65614;6,3;174567;6,64;0,758;0,014;0,01;https://gestaourbana.prefeitura.sp.gov.br/wp-content/uploads/2018/02/QA-IQ.pdf;https://gestaourbana.prefeitura.sp.gov.br/wp-content/uploads/2018/02/PA-IQ.pdf
+José Bonifácio;Itaquera;135461;14,1;5325;0,0652;0,1713;44057;1,3;174567;6,64;0,758;0,01;0,01;https://gestaourbana.prefeitura.sp.gov.br/wp-content/uploads/2018/02/QA-IQ.pdf;https://gestaourbana.prefeitura.sp.gov.br/wp-content/uploads/2018/02/PA-IQ.pdf
+Parque do Carmo;Itaquera;71418;15,4;13577;0,3876;0,1713;22608;17,3;174567;6,64;0,758;0,005;0,01;https://gestaourbana.prefeitura.sp.gov.br/wp-content/uploads/2018/02/QA-IQ.pdf;https://gestaourbana.prefeitura.sp.gov.br/wp-content/uploads/2018/02/PA-IQ.pdf
+Jabaquara;Jabaquara;228815;14,1;10104;0,4529;0,4529;78776;17;78776;17,03;0,816;0,016;0,016;https://gestaourbana.prefeitura.sp.gov.br/wp-content/uploads/2018/02/QA-JA.pdf;https://gestaourbana.prefeitura.sp.gov.br/wp-content/uploads/2018/02/PA-JA.pdf
+Jaçanã;Jaçanã/Tremembé;24042;7,8;5556;0,1783;0,1602;8067;26,2;74693;13,09;0,816;0,003;0,004;https://gestaourbana.prefeitura.sp.gov.br/wp-content/uploads/2018/02/QA-JT.pdf;https://gestaourbana.prefeitura.sp.gov.br/wp-content/uploads/2018/02/PA-JT.pdf
+Tremembé;Jaçanã/Tremembé;221051;56,3;11187;0,098;0,1602;66626;11,5;74693;13,09;0,768;0,004;0,004;https://gestaourbana.prefeitura.sp.gov.br/wp-content/uploads/2018/02/QA-JT.pdf;https://gestaourbana.prefeitura.sp.gov.br/wp-content/uploads/2018/02/PA-JT.pdf
+Barra Funda;Lapa;15927;5,6;160;6,2823;0,7771;6221;1,1;177145;1,52;0,768;0,003;0,013;https://gestaourbana.prefeitura.sp.gov.br/wp-content/uploads/2018/02/QA-LA.pdf;https://gestaourbana.prefeitura.sp.gov.br/wp-content/uploads/2018/02/PA-LA.pdf
+Jaguara;Lapa;54697;4,6;482;1,0322;0,7771;18931;1,1;177145;1,52;0,906;0,012;0,013;https://gestaourbana.prefeitura.sp.gov.br/wp-content/uploads/2018/02/QA-LA.pdf;https://gestaourbana.prefeitura.sp.gov.br/wp-content/uploads/2018/02/PA-LA.pdf
+Jaguaré;Lapa;210217;6,6;1893;0,7055;0,7771;63611;2,4;177145;1,52;0,906;0,032;0,013;https://gestaourbana.prefeitura.sp.gov.br/wp-content/uploads/2018/02/QA-LA.pdf;https://gestaourbana.prefeitura.sp.gov.br/wp-content/uploads/2018/02/PA-LA.pdf
+Lapa;Lapa;67118;10;1753;1,7279;0,7771;25242;0,5;177145;1,52;0,906;0,007;0,013;https://gestaourbana.prefeitura.sp.gov.br/wp-content/uploads/2018/02/QA-LA.pdf;https://gestaourbana.prefeitura.sp.gov.br/wp-content/uploads/2018/02/PA-LA.pdf
+Perdizes;Lapa;114552;6,1;7762;0,4067;0,7771;47230;0;177145;1,52;0,906;0,019;0,013;https://gestaourbana.prefeitura.sp.gov.br/wp-content/uploads/2018/02/QA-LA.pdf;https://gestaourbana.prefeitura.sp.gov.br/wp-content/uploads/2018/02/PA-LA.pdf
+Vila Leopoldina;Lapa;44643;7,2;589;1,3436;0,7771;15910;4,7;177145;1,52;0,906;0,006;0,013;https://gestaourbana.prefeitura.sp.gov.br/wp-content/uploads/2018/02/QA-LA.pdf;https://gestaourbana.prefeitura.sp.gov.br/wp-content/uploads/2018/02/PA-LA.pdf
+Jardim Ângela;M'Boi Mirim;135358;37,4;26857;0,107;0,3786;40789;55;70527;60,05;0,716;0,004;0,004;https://gestaourbana.prefeitura.sp.gov.br/wp-content/uploads/2018/02/QA-MB.pdf;https://gestaourbana.prefeitura.sp.gov.br/wp-content/uploads/2018/02/PA-MB.pdf
+Jardim São Luís;M'Boi Mirim;95934;24,7;20771;0,1877;0,3786;29738;66,9;70527;60,05;0,716;0,004;0,004;https://gestaourbana.prefeitura.sp.gov.br/wp-content/uploads/2018/02/QA-MB.pdf;https://gestaourbana.prefeitura.sp.gov.br/wp-content/uploads/2018/02/PA-MB.pdf
+Água Rasa;Mooca;82846;6,9;1702;0,4295;0,9128;28968;0,1;125828;0,93;0,869;0,012;0,01;https://gestaourbana.prefeitura.sp.gov.br/wp-content/uploads/2018/02/QA-MO.pdf;https://gestaourbana.prefeitura.sp.gov.br/wp-content/uploads/2018/02/PA-MO.pdf
+Belém;Mooca;48850;6;7903;1,0676;0,9128;15454;3,9;125828;0,93;0,869;0,008;0,01;https://gestaourbana.prefeitura.sp.gov.br/wp-content/uploads/2018/02/QA-MO.pdf;https://gestaourbana.prefeitura.sp.gov.br/wp-content/uploads/2018/02/PA-MO.pdf
+Brás;Mooca;32711;3,5;1871;1,6876;0,9128;11538;0;125828;0,93;0,869;0,009;0,01;https://gestaourbana.prefeitura.sp.gov.br/wp-content/uploads/2018/02/QA-MO.pdf;https://gestaourbana.prefeitura.sp.gov.br/wp-content/uploads/2018/02/PA-MO.pdf
+Mooca;Mooca;79997;7,7;2853;0,8855;0,9128;28486;0,2;125828;0,93;0,869;0,01;0,01;https://gestaourbana.prefeitura.sp.gov.br/wp-content/uploads/2018/02/QA-MO.pdf;https://gestaourbana.prefeitura.sp.gov.br/wp-content/uploads/2018/02/PA-MO.pdf
+Pari;Mooca;18910;2,9;1495;2,126;0,9128;6085;2,1;125828;0,93;0,869;0,007;0,01;https://gestaourbana.prefeitura.sp.gov.br/wp-content/uploads/2018/02/QA-MO.pdf;https://gestaourbana.prefeitura.sp.gov.br/wp-content/uploads/2018/02/PA-MO.pdf
+Tatuapé;Mooca;95705;8,2;2336;0,8176;0,9128;35297;1;125828;0,93;0,869;0,012;0,01;https://gestaourbana.prefeitura.sp.gov.br/wp-content/uploads/2018/02/QA-MO.pdf;https://gestaourbana.prefeitura.sp.gov.br/wp-content/uploads/2018/02/PA-MO.pdf
+Marsilac;Parelheiros;8398;200;1695;0,0779;0,1191;2590;2,8;47589;8,62;0,68;4E-05;0,0005;https://gestaourbana.prefeitura.sp.gov.br/wp-content/uploads/2018/02/QA-PA.pdf;https://gestaourbana.prefeitura.sp.gov.br/wp-content/uploads/2018/02/PA-PA.pdf
+Parelheiros;Parelheiros;151339;153,5;12522;0,1216;0,1191;44999;8,9;47589;8,62;0,68;0,001;0,0005;https://gestaourbana.prefeitura.sp.gov.br/wp-content/uploads/2018/02/QA-PA.pdf;https://gestaourbana.prefeitura.sp.gov.br/wp-content/uploads/2018/02/PA-PA.pdf
+Artur Alvim;Penha;100887;6,6;4224;0,0759;0,1969;34509;7,4;157867;6,61;0,804;0,015;0,011;https://gestaourbana.prefeitura.sp.gov.br/wp-content/uploads/2018/02/QA-PE.pdf;https://gestaourbana.prefeitura.sp.gov.br/wp-content/uploads/2018/02/PA-PE.pdf
+Cangaíba;Penha;137923;16;6050;0,089;0,1969;44004;11,1;157867;6,61;0,804;0,009;0,011;https://gestaourbana.prefeitura.sp.gov.br/wp-content/uploads/2018/02/QA-PE.pdf;https://gestaourbana.prefeitura.sp.gov.br/wp-content/uploads/2018/02/PA-PE.pdf
+Penha;Penha;129042;11,3;295;0,3412;0,1969;44001;6,2;157867;6,61;0,804;0,011;0,011;https://gestaourbana.prefeitura.sp.gov.br/wp-content/uploads/2018/02/QA-PE.pdf;https://gestaourbana.prefeitura.sp.gov.br/wp-content/uploads/2018/02/PA-PE.pdf
+Vila Matilde;Penha;105550;8,9;2344;0,2743;0,1969;35353;0,6;157867;6,61;0,804;0,012;0,011;https://gestaourbana.prefeitura.sp.gov.br/wp-content/uploads/2018/02/QA-PE.pdf;https://gestaourbana.prefeitura.sp.gov.br/wp-content/uploads/2018/02/PA-PE.pdf
+Anhanguera;Perus;82976;33,3;6182;0,1447;0,1055;25959;4,3;52303;7,82;0,731;0,002;0,003;https://gestaourbana.prefeitura.sp.gov.br/wp-content/uploads/2016/03/QA-PR.pdf;https://gestaourbana.prefeitura.sp.gov.br/wp-content/uploads/2016/03/PA-PR.pdf
+Perus;Perus;88387;23,9;986;0,0692;0,1055;26344;11,3;52303;7,82;0,731;0,004;0,003;https://gestaourbana.prefeitura.sp.gov.br/wp-content/uploads/2016/03/QA-PR.pdf;https://gestaourbana.prefeitura.sp.gov.br/wp-content/uploads/2016/03/PA-PR.pdf
+Alto de Pinheiros;Pinheiros;41191;7,7;102;0,6751;1,4868;15572;0;181947;0,19;0,942;0,005;0,016;https://gestaourbana.prefeitura.sp.gov.br/wp-content/uploads/2018/02/QA-PI.pdf;https://gestaourbana.prefeitura.sp.gov.br/wp-content/uploads/2018/02/PA-PI.pdf
+Itaim Bibi;Pinheiros;96896;9,9;469;3,7924;1,4868;42291;0,8;181947;0,19;0,942;0,01;0,016;https://gestaourbana.prefeitura.sp.gov.br/wp-content/uploads/2018/02/QA-PI.pdf;https://gestaourbana.prefeitura.sp.gov.br/wp-content/uploads/2018/02/QA-PI.pdf
+Jardim Paulista;Pinheiros;291198;6,1;124;1,5779;1,4868;95524;0;181947;0,19;0,942;0,048;0,016;https://gestaourbana.prefeitura.sp.gov.br/wp-content/uploads/2018/02/QA-PI.pdf;https://gestaourbana.prefeitura.sp.gov.br/wp-content/uploads/2018/02/QA-PI.pdf
+Pinheiros;Pinheiros;65895;8;5659;2,5464;1,4868;28560;0,1;181947;0,19;0,942;0,008;0,016;https://gestaourbana.prefeitura.sp.gov.br/wp-content/uploads/2018/02/QA-PI.pdf;https://gestaourbana.prefeitura.sp.gov.br/wp-content/uploads/2018/02/QA-PI.pdf
+Jaraguá;Pirituba/Jaraguá;334057;27,6;14322;0,1129;0,1353;105194;9;190996;8,92;0,787;0,012;0,011;https://gestaourbana.prefeitura.sp.gov.br/wp-content/uploads/2018/02/QA-PJ.pdf;https://gestaourbana.prefeitura.sp.gov.br/wp-content/uploads/2018/02/PA-PJ.pdf
+Pirituba;Pirituba/Jaraguá;170940;17,1;3625;0,1396;0,1353;57168;7;190996;8,92;0,787;0,01;0,011;https://gestaourbana.prefeitura.sp.gov.br/wp-content/uploads/2018/02/QA-PJ.pdf;https://gestaourbana.prefeitura.sp.gov.br/wp-content/uploads/2018/02/PA-PJ.pdf
+São Domingos;Pirituba/Jaraguá;86258;10;10649;0,3522;0,1353;28634;12,6;190996;8,92;0,787;0,009;0,011;https://gestaourbana.prefeitura.sp.gov.br/wp-content/uploads/2018/02/QA-PJ.pdf;https://gestaourbana.prefeitura.sp.gov.br/wp-content/uploads/2018/02/PA-PJ.pdf
+Mandaqui;Santana/Tucuruvi;109131;13,1;2050;0,2054;0,4361;37767;3,1;112462;1,36;0,869;0,008;0,008;https://gestaourbana.prefeitura.sp.gov.br/wp-content/uploads/2018/02/QA-ST.pdf;https://gestaourbana.prefeitura.sp.gov.br/wp-content/uploads/2018/02/PA-ST.pdf
+Santana;Santana/Tucuruvi;113729;12,6;12708;0,8414;0,4361;41124;0,2;112462;1,36;0,869;0,009;0,008;https://gestaourbana.prefeitura.sp.gov.br/wp-content/uploads/2018/02/QA-ST.pdf;https://gestaourbana.prefeitura.sp.gov.br/wp-content/uploads/2018/02/PA-ST.pdf
+Tucuruvi;Santana/Tucuruvi;96608;9;1274;0,2106;0,4361;33571;0,7;112462;1,36;0,869;0,011;0,008;https://gestaourbana.prefeitura.sp.gov.br/wp-content/uploads/2018/02/QA-ST.pdf;https://gestaourbana.prefeitura.sp.gov.br/wp-content/uploads/2018/02/PA-ST.pdf
+Campo Belo;Santo Amaro;63962;8,8;936;1,2135;1,2619;24295;9,1;88544;4,2;0,909;0,007;0,007;https://gestaourbana.prefeitura.sp.gov.br/wp-content/uploads/2018/02/QA-SA.pdf;https://gestaourbana.prefeitura.sp.gov.br/wp-content/uploads/2018/02/PA-SA.pdf
+Campo Grande;Santo Amaro;106227;13,1;1616;0,5406;1,2619;37220;3,9;88544;4,2;0,909;0,008;0,007;https://gestaourbana.prefeitura.sp.gov.br/wp-content/uploads/2018/02/QA-SA.pdf;https://gestaourbana.prefeitura.sp.gov.br/wp-content/uploads/2018/02/PA-SA.pdf
+Santo Amaro;Santo Amaro;74294;15,6;7801;2,3097;1,2619;27029;0,2;88544;4,2;0,909;0,005;0,007;https://gestaourbana.prefeitura.sp.gov.br/wp-content/uploads/2018/02/QA-SA.pdf;https://gestaourbana.prefeitura.sp.gov.br/wp-content/uploads/2018/02/PA-SA.pdf
+Iguatemi;São Mateus;147514;19,6;15145;0,0525;0,1091;43902;7,9;141598;8,11;0,732;0,008;0,01;https://gestaourbana.prefeitura.sp.gov.br/wp-content/uploads/2016/03/QA-SM.pdf;https://gestaourbana.prefeitura.sp.gov.br/wp-content/uploads/2018/02/PA-SM.pdf
+São Mateus;São Mateus;155289;13,2;1616;0,2148;0,1091;49729;6,3;141598;8,11;0,732;0,012;0,01;https://gestaourbana.prefeitura.sp.gov.br/wp-content/uploads/2016/03/QA-SM.pdf;https://gestaourbana.prefeitura.sp.gov.br/wp-content/uploads/2018/02/PA-SM.pdf
+São Rafael;São Mateus;158143;13;1004;0,0526;0,1091;47967;10,2;141598;8,11;0,732;0,012;0,01;https://gestaourbana.prefeitura.sp.gov.br/wp-content/uploads/2016/03/QA-SM.pdf;https://gestaourbana.prefeitura.sp.gov.br/wp-content/uploads/2018/02/PA-SM.pdf
+Jardim Helena;São Miguel;90588;9,1;10854;0,2027;0,1824;42217;12,4;116952;7,2;0,736;0,01;0,013;https://gestaourbana.prefeitura.sp.gov.br/wp-content/uploads/2018/02/QA-MP.pdf;https://gestaourbana.prefeitura.sp.gov.br/wp-content/uploads/2018/02/PA-MP.pdf
+São Miguel;São Miguel;89364;7,5;17870;0,2176;0,1824;28089;2,9;116952;7,2;0,736;0,012;0,013;https://gestaourbana.prefeitura.sp.gov.br/wp-content/uploads/2018/02/QA-MP.pdf;https://gestaourbana.prefeitura.sp.gov.br/wp-content/uploads/2018/02/PA-MP.pdf
+Vila Jacuí;São Miguel;145443;7,7;8509;0,0973;0,1824;46646;5;116952;7,2;0,736;0,019;0,013;https://gestaourbana.prefeitura.sp.gov.br/wp-content/uploads/2018/02/QA-MP.pdf;https://gestaourbana.prefeitura.sp.gov.br/wp-content/uploads/2018/02/PA-MP.pdf
+Sapopemba;Sapopemba;289284;13,5;2204;0,0856;0,0856;92078;19,8;92078;19,85;Sem dados;0,021;0,021;https://gestaourbana.prefeitura.sp.gov.br/wp-content/uploads/2018/02/QA-SB.pdf;https://gestaourbana.prefeitura.sp.gov.br/wp-content/uploads/2018/02/PA-SB.pdf
+Bela Vista;Sé;72925;2,6;4058;1,5293;3,4966;33241;0;197600;0,23;0,889;0,028;0,017;https://gestaourbana.prefeitura.sp.gov.br/wp-content/uploads/2018/02/QA-SE.pdf;https://gestaourbana.prefeitura.sp.gov.br/wp-content/uploads/2018/02/PA-SE.pdf
+Bom Retiro;Sé;38449;4;3059;4,7011;3,4966;12285;3,1;197600;0,23;0,889;0,01;0,017;https://gestaourbana.prefeitura.sp.gov.br/wp-content/uploads/2018/02/QA-SE.pdf;https://gestaourbana.prefeitura.sp.gov.br/wp-content/uploads/2018/02/PA-SE.pdf
+Cambuci;Sé;40357;3,9;1074;1,0072;3,4966;13961;0;197600;0,23;0,889;0,01;0,017;https://gestaourbana.prefeitura.sp.gov.br/wp-content/uploads/2018/02/QA-SE.pdf;https://gestaourbana.prefeitura.sp.gov.br/wp-content/uploads/2018/02/PA-SE.pdf
+Consolação;Sé;57421;3,7;255;3,1031;3,4966;28494;0;197600;0,23;0,889;0,016;0,017;https://gestaourbana.prefeitura.sp.gov.br/wp-content/uploads/2018/02/QA-SE.pdf;https://gestaourbana.prefeitura.sp.gov.br/wp-content/uploads/2018/02/PA-SE.pdf
+Liberdade;Sé;72503;3,7;1483;0,7953;3,4966;30115;0,3;197600;0,23;0,889;0,02;0,017;https://gestaourbana.prefeitura.sp.gov.br/wp-content/uploads/2018/02/QA-SE.pdf;https://gestaourbana.prefeitura.sp.gov.br/wp-content/uploads/2018/02/PA-SE.pdf
+República;Sé;61478;2,3;4872;2,4209;3,4966;29775;0;197600;0,23;0,889;0,027;0,017;https://gestaourbana.prefeitura.sp.gov.br/wp-content/uploads/2018/02/QA-SE.pdf;https://gestaourbana.prefeitura.sp.gov.br/wp-content/uploads/2018/02/PA-SE.pdf
+Santa Cecília;Sé;88170;3,9;4385;1,0911;3,4966;39265;0;197600;0,23;0,889;0,023;0,017;https://gestaourbana.prefeitura.sp.gov.br/wp-content/uploads/2018/02/QA-SE.pdf;https://gestaourbana.prefeitura.sp.gov.br/wp-content/uploads/2018/02/PA-SE.pdf
+Sé;Sé;26423;2,1;4953;31,5862;3,4966;10464;0;197600;0,23;0,889;0,013;0,017;https://gestaourbana.prefeitura.sp.gov.br/wp-content/uploads/2018/02/QA-SE.pdf;https://gestaourbana.prefeitura.sp.gov.br/wp-content/uploads/2018/02/PA-SE.pdf
+Vila Guilherme;Vila Maria/Vila Guilherme;56846;6,9;2325;0,8561;0,9367;18963;2,1;146317;0,67;0,793;0,008;0,011;https://gestaourbana.prefeitura.sp.gov.br/wp-content/uploads/2018/02/QA-MG.pdf;https://gestaourbana.prefeitura.sp.gov.br/wp-content/uploads/2018/02/PA-MG.pdf
+Vila Maria;Vila Maria/Vila Guilherme;113931;11,8;7118;0,5641;0,9367;37216;13,4;146317;0,67;0,793;0,01;0,011;https://gestaourbana.prefeitura.sp.gov.br/wp-content/uploads/2018/02/QA-MG.pdf;https://gestaourbana.prefeitura.sp.gov.br/wp-content/uploads/2018/02/PA-MG.pdf
+Vila Medeiros;Vila Maria/Vila Guilherme;123979;7,7;5324;0,1006;0,9367;40105;3;146317;0,67;0,793;0,016;0,011;https://gestaourbana.prefeitura.sp.gov.br/wp-content/uploads/2018/02/QA-MG.pdf;https://gestaourbana.prefeitura.sp.gov.br/wp-content/uploads/2018/02/PA-MG.pdf
+Moema;Vila Mariana;88949;9;125;1,1041;0,4222;38445;0;96284;6,86;0,938;0,01;0,013;https://gestaourbana.prefeitura.sp.gov.br/wp-content/uploads/2018/02/QA-VM.pdf;https://gestaourbana.prefeitura.sp.gov.br/wp-content/uploads/2018/02/PA-VM.pdf
+Saúde;Vila Mariana;133944;8,9;1298;0,6141;0,4222;52701;1;96284;6,86;0,938;0,015;0,013;https://gestaourbana.prefeitura.sp.gov.br/wp-content/uploads/2018/02/QA-VM.pdf;https://gestaourbana.prefeitura.sp.gov.br/wp-content/uploads/2018/02/PA-VM.pdf
+Vila Mariana;Vila Mariana;132122;8,6;1093;1,1495;0,4222;55171;0,9;96284;6,86;0,938;0,015;0,013;https://gestaourbana.prefeitura.sp.gov.br/wp-content/uploads/2018/02/QA-VM.pdf;https://gestaourbana.prefeitura.sp.gov.br/wp-content/uploads/2018/02/PA-VM.pdf
+São Lucas;Vila Prudente;142953;9,9;10279;0,1504;0,2365;48580;4,5;85137;4,85;0,785;0,014;0,014;https://gestaourbana.prefeitura.sp.gov.br/wp-content/uploads/2016/03/QA-VP.pdf;https://gestaourbana.prefeitura.sp.gov.br/wp-content/uploads/2018/02/PA-VP.pdf
+Vila Prudente;Vila Prudente;104668;9,9;4553;0,3537;0,2365;36557;5,4;85137;4,85;0,785;0,011;0,014;https://gestaourbana.prefeitura.sp.gov.br/wp-content/uploads/2016/03/QA-VP.pdf;https://gestaourbana.prefeitura.sp.gov.br/wp-content/uploads/2018/02/PA-VP.pdf
