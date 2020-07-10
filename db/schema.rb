@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20200710195334) do
+ActiveRecord::Schema.define(version: 20200710201104) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -181,7 +181,7 @@ ActiveRecord::Schema.define(version: 20200710195334) do
     t.string "name"
     t.integer "population"
     t.decimal "area"
-    t.integer "slum_households"
+    t.decimal "slum_households_percentage"
     t.integer "extreme_poverty"
     t.decimal "formal_jobs_by_population"
     t.bigint "heading_id"
