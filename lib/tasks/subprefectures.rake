@@ -15,14 +15,10 @@ namespace :subprefectures do
           subprefecture = row[:subprefeitura]
           population = row[:populacao].to_i
           area = format_number.call(row[:area])
-          slum_households = row[:domicilios_em_favelas].to_i
-          extreme_poverty = row[:extrema_pobreza].to_i
 
           if heading = Budget::Heading.find_by(name: subprefecture)
             heading.population += population
             heading.area += area
-            heading.slum_households += slum_households
-            heading.extreme_poverty += extreme_poverty
           else
             heading_params = {
               name: subprefecture,
@@ -30,14 +26,23 @@ namespace :subprefectures do
               # latitude: format_number.call(row[:centroide_x]).to_s,
               # longitude: format_number.call(row[:centroide_y]).to_s,
               area: area,
-              slum_households: slum_households,
+              households: row[:domicilios_subprefeitura].to_i,
+              slum_households_percentage: format_number.call(
+                row[:domicilios_em_favelas_subprefeitura]
+              ),
               slum_households_reference_year: 2017,
-              extreme_poverty: extreme_poverty,
-              extreme_poverty_reference_year: 2018,
               formal_jobs_by_population: format_number.call(
                 row[:emprego_por_habitante_subprefeitura]
               ),
               formal_jobs_by_population_reference_year: 2016,
+              population_density: format_number.call(
+                row[:densidade_populacional_subprefeitura]
+              ),
+              population_density_reference_year: 2019,
+              hdi: format_number.call(row[:idh]),
+              hdi_reference_year: 2010,
+              analytical_framework_url: row[:quadro_analitico],
+              action_perimeter_url: row[:perimetro_de_acao]
             }
             heading = group.headings.new(heading_params)
           end
@@ -45,10 +50,15 @@ namespace :subprefectures do
             name: row[:distrito],
             population: population,
             area: area,
-            slum_households: slum_households,
-            extreme_poverty: extreme_poverty,
+            households: row[:domicilios_distrito].to_i,
+            slum_households_percentage: format_number.call(
+              row[:domicilios_em_favelas_distrito]
+            ),
             formal_jobs_by_population: format_number.call(
               row[:emprego_por_habitante_distrito]
+            ),
+            population_density: format_number.call(
+              row[:densidade_populacional_distrito]
             )
           }
 
