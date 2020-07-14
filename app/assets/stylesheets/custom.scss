@@ -162,6 +162,12 @@
 
   @include breakpoint(medium) {
     margin-bottom: 0;
+    height: 30vh;
+  }
+
+  @include breakpoint(large) {
+    margin-bottom: 0;
+    height: 10vh;
   }
 }
 
