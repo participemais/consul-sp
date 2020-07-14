@@ -88,7 +88,7 @@
 .title {
   border-bottom: 1px solid $border;
 
-  @include breakpoint(medium) {
+  @include breakpoint(large) {
     margin: $line-height 0;
   }
 }
