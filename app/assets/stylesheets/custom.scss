@@ -110,6 +110,13 @@
   justify-content: center;
 }
 
+.info-footer-margin {
+  margin-left: $line-height / 3;
+  @include breakpoint(medium) {
+    margin-left: 0;
+  }
+}
+
 .responsible {
   font-family: $subheader-font-family;
   line-height: 3 * $line-height / 4;
@@ -158,10 +165,18 @@
   height: 10vh;
   background-size: contain;
   background-repeat: no-repeat;
+  background-position: 50%;
   margin-bottom: 1rem;
 
-  @include breakpoint(medium) {
+  @include breakpoint(medium only) {
     margin-bottom: 0;
+    height: 20vh;
+  }
+
+  @include breakpoint(large) {
+    margin-bottom: 0;
+    height: 10vh;
+    background-position: 0;
   }
 }
 

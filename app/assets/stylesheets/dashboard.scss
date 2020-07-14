@@ -87,7 +87,10 @@
 
 .title {
   border-bottom: 1px solid $border;
-  margin: $line-height 0;
+
+  @include breakpoint(large) {
+    margin: $line-height 0;
+  }
 }
 
 .dashboard-related-content {
