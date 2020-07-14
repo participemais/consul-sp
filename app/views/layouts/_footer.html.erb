@@ -9,19 +9,19 @@
     </div>
 
     <div class="small-12 large-4 column responsible">
-      <p class="responsible">
+      <p class="responsible info-footer-margin">
         <%= sanitize(t("layouts.footer.responsible")) %>
       </p>
-      <p class="responsible-address">
+      <p class="responsible-address info-footer-margin">
         <%= t("layouts.footer.responsible_address") %>
       </p>
     </div>
 
     <div class="small-12 large-3 column contact-footer">
-      <p class="org-mail"><%= setting["mailer_from_address"] %></p>
+      <p class="org-mail info-footer-margin"><%= setting["mailer_from_address"] %></p>
       <ul class="social-networks">
         <% if setting["facebook_handle"] %>
-          <li class="inline-block">
+          <li class="inline-block info-footer-margin">
             <%= link_to "https://www.facebook.com/#{setting["facebook_handle"]}/", target: "_blank",
                         title: t("shared.go_to_page") + t("social.facebook", org: setting["org_name"]) + t("shared.target_blank") do %>
                         <span class="show-for-sr"><%= t("social.facebook", org: setting["org_name"]) %></span>

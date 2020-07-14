@@ -110,6 +110,13 @@
   justify-content: center;
 }
 
+.info-footer-margin {
+  margin-left: $line-height / 3;
+  @include breakpoint(medium) {
+    margin-left: 0;
+  }
+}
+
 .responsible {
   font-family: $subheader-font-family;
   line-height: 3 * $line-height / 4;
