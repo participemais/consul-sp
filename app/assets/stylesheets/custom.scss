@@ -158,6 +158,7 @@
   height: 10vh;
   background-size: contain;
   background-repeat: no-repeat;
+  background-position: 50%;
   margin-bottom: 1rem;
 
   @include breakpoint(medium) {
@@ -168,6 +169,7 @@
   @include breakpoint(large) {
     margin-bottom: 0;
     height: 10vh;
+    background-position: 0;
   }
 }
 
