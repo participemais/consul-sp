@@ -990,7 +990,7 @@
   }
 
   .is-active {
-    color: $brand;
+    color: $text;
 
     &::after {
       content: "\6c";
@@ -1227,7 +1227,7 @@
 
   .button {
     background: #fff;
-    color: $brand;
+    color: $purple;
     margin-bottom: rem-calc(3);
     text-decoration: none;
   }

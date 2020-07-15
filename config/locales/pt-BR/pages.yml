@@ -5,8 +5,23 @@ pt-BR:
       subtitle: AVISO LEGAL SOBRE AS CONDIÇÕES DE USO, PRIVACIDADE E PROTEÇÃO DE DADOS PESSOAIS DO PORTAL DO GOVERNO ABERTO
       description: Página de informações sobre as condições de uso, privacidade e proteção de dados pessoais.
     help:
-      title: "%{org} é uma plataforma de participação cidadã"
-      guide: "Este guia explica para que servem e como funcionam cada uma das seções de %{org}."
+      title: "%{org}"
+      guide: >-
+        O Participe+ é o portal da Prefeitura de São Paulo para a participação social online. No momento, ele permite a participação social para a construção do Projeto de Lei Orçamentária Anual. Nos próximos meses, serão lançadas novas funcionalidades para o portal, como consultas públicas e enquetes. Acompanhe!
+        <br>
+        <br>
+        O Participe+ é gerido pela <a href='https://www.prefeitura.sp.gov.br/cidade/secretarias/governo/governo_aberto_na_cidade_de_sao_paulo/index.php?p=252984'>Supervisão para Assuntos de Governo Aberto</a>, unidade da Secretaria de Governo Municipal. Seu desenvolvimento é feito através de um Termo de Cooperação entre a Prefeitura de São Paulo e a Organização das Nações Unidas para a Educação, a Ciência e a Cultura (Unesco). O portal utiliza o software livre <a href='https://consulproject.org/en/'>“Consul”</a>, elaborado pela Prefeitura de Madri e utilizado por dezenas de governos e instituições ao redor do mundo. Isso significa que qualquer município, estado, nação ou instituição pode usar livremente o código e fortalecê-lo! Se quiser mais informações sobre a experiência de São Paulo, entre em contato conosco pelo participemais@prefeitura.sp.gov.br que ficaremos felizes em ajudar!
+        <br>
+        <br>
+        O Participe+ é uma conquista da participação social na cidade de São Paulo! Ele é fruto do compromisso número 3 do 2º Plano de Ação em Governo Aberto. No 2º Plano, Prefeitura e sociedade civil trabalham juntos para melhorar a transparência, participação social, inovação e prestação de contas públicas na cidade. Ele foi criado com extensa participação social em 2018 e tem sido implementado desde 2019 pela Prefeitura e sociedade civil do Fórum de Gestão Compartilhada, sob coordenação da Supervisão para Assuntos de Governo Aberto. Para saber mais sobre o 2º Plano, clique <a href='https://www.prefeitura.sp.gov.br/cidade/secretarias/governo/governo_aberto_na_cidade_de_sao_paulo/index.php?p=260991'>aqui</a>.
+        <br>
+        <h3>Orçamento cidadão</h3>
+        Na aba de <a href='/budgets'>Orçamento Cidadão</a>, a população participa da construção do Projeto de Lei Orçamentária Anual, a PLOA, votando nas propostas prioritárias para as Subprefeituras da cidade.
+        Ao final do período de votação, as propostas mais votadas são enviadas às Secretarias para análise de viabilidade.
+        <br>
+        <br>
+        <h3>Ficou com alguma dúvida ou tem uma sugestão?</h3>
+        Entre em contato conosco pelo e-mail participemais@prefeitura.sp.gov.br.
       menu:
         debates: "Debates"
         proposals: "Propostas"
@@ -45,8 +60,8 @@ pt-BR:
         description: "Na seção %{link}, os cidadãos participam da redação e modificação dos regulamentos que afetam a cidade e podem opinar sobre as políticas municipais em debates anteriores."
         link: "processos"
       faq:
-        title: "Problemas técnicos?"
-        description: "Leia o FAQ e resolva suas dúvidas."
+        title: "Alguma dúvida?"
+        description: "Acesse o FAQ para mais informações."
         button: "Visualizar perguntas frequentes"
         page:
           title: "Perguntas frequentes"
@@ -85,22 +100,22 @@ pt-BR:
           key_header: Chave
           page_header: Página
           rows:
-            - 
+            -
               key_column: 0
               page_column: Início
-            - 
+            -
               key_column: 1
               page_column: Debates
-            - 
+            -
               key_column: 2
               page_column: Propostas
-            - 
+            -
               key_column: 3
               page_column: Votos
-            - 
+            -
               key_column: 4
               page_column: Orçamentos participativos
-            - 
+            -
               key_column: 5
               page_column: Processos legislativos
         browser_table:
@@ -109,19 +124,19 @@ pt-BR:
           browser_header: Navegador
           key_header: Combinação de teclas
           rows:
-            - 
+            -
               browser_column: Explorer
               key_column: ALT + atalho, em seguida, ENTER
-            - 
+            -
               browser_column: Firefox
               key_column: ALT + CAPS + atalho
-            - 
+            -
               browser_column: Chrome
               key_column: ALT + atalho (CTRL + ALT + atalhos para MAC)
-            - 
+            -
               browser_column: Safari
               key_column: ALT + atalho (CMD + atalho para MAC)
-            - 
+            -
               browser_column: Opera
               key_column: CAPS + ESC + atalho
       textsize:
@@ -131,28 +146,28 @@ pt-BR:
           browser_header: Navegador
           action_header: Ação a ser tomada
           rows:
-            - 
+            -
               browser_column: Explorer
               action_column: Exibir > Tamanho do texto
-            - 
+            -
               browser_column: Firefox
               action_column: Exibir > Tamanho
-            - 
+            -
               browser_column: Chrome
               action_column: Configurações (ícone) > Opções > Avançado > Conteúdo Web > Tamanho do texto
-            - 
+            -
               browser_column: Safari
               action_column: Exibir > Aumentar Zoom / Diminuir Zoom
-            - 
+            -
               browser_column: Opera
               action_column: Exibir > escala
         browser_shortcuts_table:
           description: "Outra maneira de modificar o tamanho do texto é utilizar os atalhos de teclado definidos em navegadores, em especial a combinação de teclas:"
           rows:
-            - 
+            -
               shortcut_column: CTRL e + (CMD e + no MAC)
               description_column: Aumenta o tamanho do texto
-            - 
+            -
               shortcut_column: CTRL e - (CMD e - no MAC)
               description_column: Diminui o tamanho do texto
       compatibility:

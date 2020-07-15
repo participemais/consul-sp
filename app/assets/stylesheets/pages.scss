@@ -11,7 +11,6 @@
 
 .jumbo {
   margin-top: rem-calc(-24);
-  padding-bottom: $line-height;
 
   &.light {
     background: #ecf0f1;
@@ -22,7 +21,12 @@
     background-size: cover;
     background-repeat: no-repeat;
     min-height: 25vh;
+
     @include breakpoint(medium) {
+      min-height: 30vh;
+    }
+
+    @include breakpoint(large) {
       min-height: 80vh;
     }
   }
@@ -55,7 +59,7 @@
 .more-info-content {
 
   h3 {
-    color: $brand;
+    color: $text;
   }
 
   .additional-info {

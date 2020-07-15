@@ -26,7 +26,7 @@
 
 <% if feature?(:map) && map_location_available?(@investment.map_location) %>
   <div class="margin">
-    <%= render_map(investment.map_location, "budget_investment", false, nil) %>
+    <%#= render_map(investment.map_location, "budget_investment", false, nil) %>
   </div>
 <% end %>
 
@@ -69,7 +69,7 @@
 <% end %>
 
 <% if local_assigns[:preview].nil? %>
-  <%= render "relationable/related_content", relationable: investment %>
+  <%#= render "relationable/related_content", relationable: investment %>
 
   <div class="js-moderator-investment-actions margin">
     <%= render "budgets/investments/actions", investment: investment %>

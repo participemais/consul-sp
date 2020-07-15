@@ -82,6 +82,7 @@ pt-BR:
         map_remove_marker: "Remover o marcador do mapa"
         map_skip_checkbox: "Esta proposta não tem uma localização concreta ou não a conheço."
       index:
+        here: aqui
         title: Orçamento cidadão
         unfeasible: Propostas inviáveis
         unfeasible_text: "As propostas devem atender a uma série de critérios (legalidade, concretude, ser de responsabilidade da cidade, não exceder o limite do orçamento, respeitar as especificações técnicas e jurídicas) para serem declaradas viáveis e chegarem ao estágio de votação final. Todas as propostas que não atendem a esses critérios são marcadas como inviáveis e publicadas na lista a seguir, juntamente com seu relatório de inviabilidade."
@@ -89,9 +90,11 @@ pt-BR:
         population: "População: <strong>%{population}</strong>"
         area: "Área: <strong>%{population} km²</strong>"
         subprefecture_label: Mais informações da Subprefeitura
-        subprefecture_info: A Subprefeitura %{heading} tem cerca de <strong>%{extreme_poverty}</strong> famílias em extrema pobreza (%{extreme_poverty_reference_year})* e <strong>%{slum_households}</strong> domicílios em favelas (%{slum_households_reference_year})*.
-        district_jobs_greater_than_population: A quantidade de empregos formais é <strong>%{formal_jobs_by_population}</strong> vezes maior do que a população em idade ativa da subprefeitura (%{formal_jobs_by_population_reference_year})*.
-        district_jobs_lower_than_population: Para cada emprego formal, há <strong>%{formal_jobs_by_population}</strong> pessoas em idade ativa no subprefeitura (%{formal_jobs_by_population_reference_year})*.
+        subprefecture_info:
+          other: A Subprefeitura %{heading} apresenta uma densidade de <strong>%{population_density}</strong> habitantes por m². São <strong>%{households}</strong> domicílios em seu território, sendo que <strong>%{slum_households_percentage}%</strong> deles estão localizados em favelas (%{slum_households_reference_year}). Seu Índice de Desenvolvimento Humano (IDH) é de <strong>%{hdi}</strong> (%{hdi_reference_year}).
+          zero: A Subprefeitura %{heading} apresenta uma densidade de <strong>%{population_density}</strong> habitantes por m². São <strong>%{households}</strong> domicílios em seu território, sendo que <strong>%{slum_households_percentage}%</strong> deles estão localizados em favelas (%{slum_households_reference_year}).
+        subprefecture_links: "Você pode acessar mais informações sobre esta Subprefeitura e seus distritos acessando seus Planos Regionais, "
+        subprefecture_formal_jobs_by_population: Para cada pessoa em idade ativa, há <strong>%{formal_jobs_by_population}</strong> empregos formais nesta Subprefeitura (%{formal_jobs_by_population_reference_year}).
         info_source_text: "*Dados disponíveis em"
         info_source: ObservaSampa
         search_form:
@@ -119,10 +122,9 @@ pt-BR:
           feasible: Propostas viáveis
           unfeasible: Propostas inviáveis
           district_info:
-            other: O distrito tem cerca de <strong>%{extreme_poverty}</strong> famílias em extrema pobreza e <strong>%{slum_households}</strong> domicílios em favelas.
-            zero: O distrito tem cerca de <strong>%{extreme_poverty}</strong> famílias em extrema pobreza e nenhum domicílio em favelas.
-          district_jobs_greater_than_population: A quantidade de empregos formais é <strong>%{formal_jobs_by_population}</strong> vezes maior do que a população em idade ativa do distrito.
-          district_jobs_lower_than_population: Para cada emprego formal, há <strong>%{formal_jobs_by_population}</strong> pessoas em idade ativa no distrito.
+            other: O Distrito apresenta uma densidade de <strong>%{population_density}</strong> habitantes por m². São <strong>%{households}</strong> domicílios em seu território, sendo que <strong>%{slum_households_percentage}%</strong> deles estão localizados em favelas (%{slum_households_reference_year}).
+            zero: O Distrito apresenta uma densidade de <strong>%{population_density}</strong> habitantes por m². São <strong>%{households}</strong> domicílios em seu território, sendo que nenhum deles está localizado em favelas (%{slum_households_reference_year}).
+          district_formal_jobs_by_population: Para cada pessoa em idade ativa, há <strong>%{formal_jobs_by_population}</strong> empregos formais (%{formal_jobs_by_population_reference_year}).
           districts: Distritos
         orders:
           random: aleatório
@@ -130,7 +132,7 @@ pt-BR:
           price: por preço
           ballots: mais votadas
       share:
-        message: "Eu criei a proposta de orçamento %{title} em %{handle}. Crie uma você também!"
+        message: "Estou apoiando a proposta de orçamento %{title} em %{handle}."
       show:
         author_deleted: Usuário excluído
         price_explanation: Explicação do preço

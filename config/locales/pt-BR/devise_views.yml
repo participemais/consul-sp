@@ -91,7 +91,7 @@ pt-BR:
         new_password: Esqueceu a senha?
         new_unlock: Ainda não recebeu as instruções de desbloqueio?
         signin_with_provider: Conecte-se com %{provider}
-        signup: Não tem uma conta? %{signup_link}
+        signup: Não tem uma conta? Acesse %{signup_link}.
         signup_link: Criar Conta
     unlocks:
       new:
@@ -132,11 +132,12 @@ pt-BR:
           title: Criar conta
           username_is_available: Nome de usuário disponível
           username_is_not_available: Nome de usuário já está em uso
+          username_is_too_short: Nome de usuário é muito curto
           username_label: Nome de usuário
           username_note: Nome que aparece junto a seus posts
         success:
-          back_to_index: Eu entendo; voltar à página principal
-          instructions_1: <b>Verifique seu email</b>. Enviamos um <b>link para confirmar sua conta</b>.
-          instructions_2: Depois de confirmar, você pode começar a participar.
-          thank_you: Obrigado por se registrar no site. Agora é preciso <b>confirmar seu email</b>.
-          title: Modifique seu email
+          back_to_index: Entendi, voltar para página inicial
+          instructions_1: Enviamos um <b>email com instruções de confirmação.</b>
+          instructions_2: <b>Acesse o link</b> enviado e <b>complete seu cadastro</b> para começar a participar.
+          thank_you: Obrigada por criar sua conta!
+          title: Confirme seu email
