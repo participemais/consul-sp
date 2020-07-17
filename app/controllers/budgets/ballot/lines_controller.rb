@@ -8,6 +8,7 @@ module Budgets
       before_action :load_categories
       before_action :load_investments
       before_action :load_ballot_referer
+      before_action :destroy_check, only: :destroy
 
       load_and_authorize_resource :budget
       load_and_authorize_resource :ballot, class: "Budget::Ballot", through: :budget
@@ -27,10 +28,27 @@ module Budgets
         load_map
 
         @line.destroy!
+
+        if @investment_ids.size <= 1
+          redirect_back(fallback_location: budget_investment_path(params[:budget_id], params[:id]))
+        end
+
         load_investments
       end
 
       private
+
+        def destroy_check
+          return true if @investment_ids.size > 1
+          unless @ballot.investment_ids.include?(params[:id].to_i)
+            @investment = Budget::Investment.find(params[:id])
+            load_heading
+            load_map
+
+            flash[:errors] = "Você já removeu esse voto"
+            redirect_back(fallback_location: budget_investment_path(params[:budget_id], params[:id]))
+          end
+        end
 
         def line_params
           params.permit(:investment_id, :budget_id)
