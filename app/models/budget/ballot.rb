@@ -81,6 +81,7 @@ class Budget
     end
 
     def has_investment?(investment)
+      reload
       investment_ids.include?(investment.id)
     end
 
