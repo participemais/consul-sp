@@ -37,10 +37,13 @@ Rails.application.routes.draw do
   resources :remote_translations, only: [:create]
 
   # More info pages
-  get "help",             to: "pages#show", id: "help/index",             as: "help"
-  get "help/how-to-use",  to: "pages#show", id: "help/how_to_use/index",  as: "how_to_use"
-  get "help/faq",         to: "pages#show", id: "faq",                    as: "faq"
-
+  get "help", to: "pages#show", id: "help/index", as: "help"
+  get "help/how-to-use",
+    to: "pages#show",
+    id: "help/how_to_use/index",
+    as: "how_to_use"
+  get "help/faq", to: "pages#show", id: "faq", as: "faq"
+  get "audiencias", to: "pages#show", id: "audiencias", as: "audiencias"
   # Static pages
   resources :pages, path: "/", only: [:show]
 end
