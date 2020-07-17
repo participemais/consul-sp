@@ -7,4 +7,8 @@ module LayoutsHelper
       link_to(text, path, options)
     end
   end
+
+  def online_hearings_page
+    SiteCustomization::Page.find_by(slug: 'audiencias', status: 'published')
+  end
 end
