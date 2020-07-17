@@ -46,6 +46,15 @@
                                   title: t("shared.go_to_page") + t("layouts.header.budgets") %>
       </li>
     <% end %>
+    <% if online_hearings_page %>
+      <li>
+        <%= layout_menu_link_to t("layouts.header.online_hearings"),
+                                audiencias_path,
+                                current_page?(audiencias_path),
+                                accesskey: "7",
+                                title: t("shared.go_to_page") + t("layouts.header.online_hearings") %>
+      </li>
+    <% end %>
     <% if feature?(:help_page) %>
       <li>
         <%= layout_menu_link_to t("layouts.header.help"),
@@ -55,7 +64,6 @@
                                 title: t("shared.go_to_page") + t("layouts.header.help") %>
       </li>
     <% end %>
-
     <%= raw content_block("subnavigation_right", I18n.locale) %>
   </ul>
 </div>
