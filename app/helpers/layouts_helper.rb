@@ -9,6 +9,7 @@ module LayoutsHelper
   end
 
   def online_hearings_page
-    SiteCustomization::Page.find_by(slug: 'audiencias', status: 'published')
+    @online_hearings_page ||=
+      SiteCustomization::Page.find_by(slug: 'audiencias', status: 'published')
   end
 end
