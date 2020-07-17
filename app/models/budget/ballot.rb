@@ -82,7 +82,7 @@ class Budget
 
     def has_investment?(investment)
       reload
-      investment_ids.include?(investment.id)
+      lines.map(&:investment_id).include?(investment.id)
     end
 
     def heading_for_group(group)
