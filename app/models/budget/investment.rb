@@ -244,7 +244,11 @@ class Budget
     end
 
     def total_votes
-      cached_votes_up + physical_votes
+      if budget_vote_counting_balloting?
+        ballot_lines_count
+      else
+        cached_votes_up + physical_votes
+      end
     end
 
     def code
