@@ -24,10 +24,12 @@ class Budget
 
     def vote_counting_winners
       investments.each_with_index.inject([]) do |memo, (inv, idx)|
+        return memo if inv.ballot_lines_count.zero?
         if idx < 5 || memo.last.ballot_lines_count == inv.ballot_lines_count
           memo << inv
+        else
+          return memo
         end
-        memo
       end
     end
 
