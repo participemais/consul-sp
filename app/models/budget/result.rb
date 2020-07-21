@@ -9,9 +9,27 @@ class Budget
 
     def calculate_winners
       reset_winners
-      investments.compatible.each do |investment|
-        @current_investment = investment
-        set_winner if inside_budget?
+
+      if budget.vote_counting_balloting?
+        vote_counting_winners.each do |investment|
+          investment.update!(winner: true)
+        end
+      else
+        investments.compatible.each do |investment|
+          @current_investment = investment
+          set_winner if inside_budget?
+        end
+      end
+    end
+
+    def vote_counting_winners
+      investments.each_with_index.inject([]) do |memo, (inv, idx)|
+        return memo if inv.ballot_lines_count.zero?
+        if idx < 5 || memo.last.ballot_lines_count == inv.ballot_lines_count
+          memo << inv
+        else
+          return memo
+        end
       end
     end
 
