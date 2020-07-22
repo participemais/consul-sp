@@ -28,6 +28,10 @@
   color: $white;
 }
 
+.padding-right {
+  padding-right: $line-height !important;
+}
+
 .subprefecture-label {
   color: $white;
   cursor: pointer;
@@ -207,4 +211,9 @@
 
 .hide-address-fields {
   display: none;
+}
+
+.filter .status-radio-label {
+  margin-left: 0;
+  margin-right: $line-height / 2;
 }
