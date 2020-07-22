@@ -162,7 +162,7 @@ pt-BR:
         save_changes: Salvar alterações
     budget_investments:
       index:
-        heading_filter_all: Todos os títulos
+        heading_filter_all: Todas as Subprefeituras
         administrator_filter_all: Todos administradores
         valuator_filter_all: Todos avaliadores
         tags_filter_all: Todas as marcações

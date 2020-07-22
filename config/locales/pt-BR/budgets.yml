@@ -53,6 +53,7 @@ pt-BR:
       title: Orçamento cidadão
       empty_budgets: Não há orçamento.
       section_header:
+        balloting_result: Veja o resultado da votação
         icon_alt: Ícone dos orçamentos
         title: Orçamentos cidadão
         help: Sobre o orçamento cidadão
@@ -151,6 +152,8 @@ pt-BR:
         project_unfeasible: "Esta proposta de orçamento <strong>foi marcada como não viável</strong> e não vai à fase de votação."
         project_selected: "Esta proposta de orçamento <strong>está selecionada</strong> para a fase de votação."
         project_winner: "Proposta de orçamento ganhando"
+        project_balloting_loser: "Esta proposta não foi eleita na fase de votação"
+        project_balloting_winner: "Esta proposta foi eleita na fase de votação"
         project_not_selected: "Esta proposta de orçamento <strong>não foi selecionada</strong> para a fase de votação."
         see_price_explanation: Exposição de custos
       wrong_price_format: Apenas números inteiros
@@ -177,6 +180,11 @@ pt-BR:
       assigned: "Votos registrados: "
       available: "Votos disponíveis: "
     show:
+      by_subprefecture: Por subprefeitura
+      filters:
+        all: Todas
+        winners: Eleitas
+        losers: Não eleitas
       group: Grupo
       phase: Fase atual
       unfeasible_title: Propostas inviáveis
