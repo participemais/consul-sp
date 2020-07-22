@@ -44,61 +44,63 @@
   </div>
 </div>
 
-<div class="row margin">
-  <div class="small-12 medium-9 column">
-    <% if @current_filter == "unfeasible" %>
-      <h3 class="margin-bottom"><%= t("budgets.show.unfeasible_title") %></h3>
-    <% elsif @current_filter == "unselected" %>
-      <h3 class="margin-bottom"><%= t("budgets.show.unselected_title") %></h3>
-    <% end %>
-    <table class="table-fixed">
-      <thead>
-        <th><%= t("budgets.show.group") %></th>
-      </thead>
-      <tbody>
-        <% @budget.groups.each do |group| %>
-          <tr>
-            <td>
-              <% if group.single_heading_group? %>
-                <%= link_to group.name,
-                            budget_investments_path(@budget,
-                              heading_id: group.headings.first.id,
-                              filter: @current_filter),
-                            data: { no_turbolink: true } %>
-              <% else %>
-                <%= link_to group.name,
-                            budget_group_path(@budget, group,
-                              filter: @current_filter) %>
-              <% end %>
-              <br>
-            </td>
-          </tr>
+<div class="row advanced-search-form margin-top">
+  <div class="small-12 medium-9 column padding-right">
+    <%= form_tag budget_path, method: :get do %>
+      <div class="filter">
+        <% %w(all winners losers).each do |status| %>
+          <% checked = params[:status_filter] == status %>
+          <%= radio_button_tag :status_filter, status, checked %>
+          <%= label_tag :status_filter,
+            t("budgets.show.filters.#{status}"),
+            class: 'status-radio-label'
+          %>
         <% end %>
-      </tbody>
-    </table>
+      </div>
+      <div class="row">
+        <div class="small-12 medium-6 column">
+          <label for="search">
+            <%= t("shared.advanced_search.general") %>
+          </label>
+          <%= text_field_tag "search",
+            params[:search],
+            placeholder: t("shared.advanced_search.general_placeholder")
+          %>
+        </div>
+        <div class="small-12 medium-4 column">
+          <label for="heading_id">
+            <%= t("budgets.show.by_subprefecture") %>
+          </label>
+          <%= select_tag :heading_id,
+              options_for_select(
+                budget_heading_select_options(@budget), params[:heading_id]
+              ),
+              { prompt: t("admin.budget_investments.index.heading_filter_all") }
+          %>
+        </div>
+        <div class="small-12 medium-2 column">
+          <%= submit_tag t("shared.advanced_search.search"), class: "button expanded" %>
+        </div>
+      </div>
+    <% end %>
+
+    <% @investments.each do |investment| %>
+      <%= render "/budgets/investments/investment",
+        investment: investment,
+        investment_ids: @investment_ids,
+        investment_votes: @investment_votes,
+        ballot: @ballot
+      %>
+    <% end %>
+    <%= paginate @investments %>
+  </div>
+
+  <div class="small-12 medium-3 column">
+    <aside class="margin-bottom">
+      <div id="sidebar">
+        <%= render "/budgets/investments/sidebar" %>
+      </div>
+    </aside>
   </div>
 </div>
 
-<% if @budget.balloting_or_later? %>
-  <% unless @current_filter == "unfeasible" %>
-    <div class="row">
-      <div class="small-12 column">
-        <small>
-          <%= link_to t("budgets.show.unfeasible"),
-                      budget_path(@budget, filter: "unfeasible") %>
-        </small>
-      </div>
-    </div>
-  <% end %>
-
-  <% unless @current_filter == "unselected" %>
-    <div class="row">
-      <div class="small-12 column">
-        <small>
-          <%= link_to t("budgets.show.unselected"),
-                      budget_path(@budget, filter: "unselected") %>
-        </small>
-      </div>
-    </div>
-  <% end %>
-<% end %>
