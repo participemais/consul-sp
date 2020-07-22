@@ -224,7 +224,8 @@ class Budget < ApplicationRecord
 
   def balloting_ends_at_for_mail
     return unless balloting?
-    I18n.l(current_phase.ends_at.to_date, format: :short_day_and_month)
+    date = (current_phase.ends_at - 1.day).to_date
+    I18n.l(date, format: :short_day_and_month)
   end
 
   private
