@@ -66,6 +66,7 @@ class Budget
     scope :sort_by_confidence_score, -> { reorder(confidence_score: :desc, id: :desc) }
     scope :sort_by_ballots,          -> { reorder(ballot_lines_count: :desc, id: :desc) }
     scope :sort_by_price,            -> { reorder(price: :desc, confidence_score: :desc, id: :desc) }
+    scope :sort_by_heading, -> { order('heading_id ASC') }
 
     scope :sort_by_id, -> { order("id DESC") }
     scope :sort_by_supports, -> { order("cached_votes_up DESC") }
@@ -89,6 +90,7 @@ class Budget
     scope :compatible,                  -> { where(incompatible: false) }
     scope :incompatible,                -> { where(incompatible: true) }
     scope :winners,                     -> { selected.compatible.where(winner: true) }
+    scope :losers,                      -> { selected.where(winner: false) }
     scope :unselected,                  -> { not_unfeasible.where(selected: false) }
     scope :last_week,                   -> { where("created_at >= ?", 7.days.ago) }
     scope :sort_by_flags,               -> { order(flags_count: :desc, updated_at: :desc) }
@@ -396,7 +398,19 @@ class Budget
       investments = investments.by_heading(params[:heading_id])  if params[:heading_id].present?
       investments = investments.search(params[:search])          if params[:search].present?
       investments = investments.filter(params[:advanced_search]) if params[:advanced_search].present?
+      investments = investments.status_filter(params[:status_filter], investments) if params[:status_filter].present?
       investments
+    end
+
+    def self.status_filter(filter, results)
+      case filter
+      when 'winners'
+        results.winners
+      when 'losers'
+        results.losers
+      else
+        results
+      end
     end
 
     def assigned_valuators
