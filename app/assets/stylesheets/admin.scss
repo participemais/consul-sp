@@ -214,15 +214,15 @@ $sidebar-active: #f4fcd0;
   table {
 
     thead {
-      color: #fff;
+      color: $text;
     }
 
     th {
       background: $brand;
-      color: #fff;
+      color: $text;
 
       label {
-        color: #fff;
+        color: $text;
       }
 
       a {
