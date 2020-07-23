@@ -67,10 +67,7 @@
           <label for="search">
             <%= t("shared.advanced_search.general") %>
           </label>
-          <%= text_field_tag "search",
-            params[:search],
-            placeholder: t("shared.advanced_search.general_placeholder")
-          %>
+          <%= text_field_tag "search", params[:search] %>
         </div>
         <div class="small-12 medium-4 column">
           <label for="heading_id">
