@@ -170,6 +170,8 @@ pt-BR:
           one: 1 voto
           other: "%{count} votos"
         give_support: Apoiar
+        elected: Eleita
+        not_elected: Não eleita
       header:
         check_ballot: Meus votos
         different_heading_assigned: "Você tem votos ativos num título diferente: %{heading_link}"

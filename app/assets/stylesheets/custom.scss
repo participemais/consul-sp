@@ -217,3 +217,29 @@
   margin-left: 0;
   margin-right: $line-height / 2;
 }
+
+.balloting-result-flag {
+  font-size: $tiny-font-size;
+  font-family: "Gotham Bold";
+  padding: $line-height / 4 $line-height / 3;
+  color: $text-medium;
+
+  &.winner {
+    border-top: 1.5px solid #2CB22C;
+    border-right: 1.5px solid #2CB22C;
+  }
+
+  &.loser {
+    border-top: 1.5px solid $delete;
+    border-right: 1.5px solid $delete;
+  }
+
+  span {
+    text-transform: uppercase;
+  }
+}
+
+.download-link {
+  margin-top: 0;
+  margin-bottom: -$line-height / 3;
+}
