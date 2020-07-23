@@ -7,7 +7,7 @@
     <div class="small-12 medium-9 column padding" data-equalizer-watch>
       <%= back_link_to budgets_path %>
 
-      <h1><%= @budget.name %></h1>
+      <h1><%= t("budgets.show.investment_proposals") %></h1>
 
       <%= auto_link_already_sanitized_html wysiwyg(@budget.description) %>
     </div>
@@ -46,9 +46,6 @@
 
 <div class="row advanced-search-form margin-top">
   <div class="small-12 medium-9 column padding-right">
-    <h2 class="margin-bottom">
-      <%= t("budgets.show.investment_proposals") %>
-    </h2>
     <%= form_tag budget_path, method: :get do %>
       <div class="status-list">
         <% %w(all winners losers).each do |status| %>
