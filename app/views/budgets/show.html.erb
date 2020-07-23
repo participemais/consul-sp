@@ -50,8 +50,13 @@
       <div class="filter">
         <% %w(all winners losers).each do |status| %>
           <% checked = params[:status_filter] == status %>
-          <%= radio_button_tag :status_filter, status, checked %>
-          <%= label_tag :status_filter,
+          <%= radio_button_tag :status_filter,
+            status,
+            checked,
+            class: 'status-radio-btn',
+            id: "status_filter_#{status}"
+          %>
+          <%= label_tag "status_filter[#{status}]",
             t("budgets.show.filters.#{status}"),
             class: 'status-radio-label'
           %>
