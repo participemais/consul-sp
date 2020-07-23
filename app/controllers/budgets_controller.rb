@@ -19,7 +19,7 @@ class BudgetsController < ApplicationController
     respond_to do |format|
       format.html
       format.csv do
-        send_data Budget::Investment::Exporter.new(investments).to_csv,
+        send_data Budget::Investment::Exporter.new(investments).proposals_list_csv,
           filename: "#{@budget.filename}.csv"
       end
     end

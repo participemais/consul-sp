@@ -54,6 +54,8 @@ class Budget
       inverse_of: :commentable,
       class_name: "Comment"
 
+    delegate :name, to: :heading, prefix: true
+
     validates_translation :title, presence: true, length: { in: 4..Budget::Investment.title_max_length }
     validates_translation :description, presence: true, length: { maximum: Budget::Investment.description_max_length }
 
@@ -435,10 +437,6 @@ class Budget
       valuator_users = (valuator_groups.map(&:valuators) + valuators).flatten
       all_users = valuator_users << administrator
       all_users.compact.uniq
-    end
-
-    def heading_name
-      heading.name
     end
 
     private

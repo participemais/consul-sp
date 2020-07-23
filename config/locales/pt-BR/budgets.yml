@@ -172,6 +172,8 @@ pt-BR:
         give_support: Apoiar
         elected: Eleita
         not_elected: Não eleita
+        prioritized: Priorizada
+        not_prioritized: Não priorizada
       header:
         check_ballot: Meus votos
         different_heading_assigned: "Você tem votos ativos num título diferente: %{heading_link}"
@@ -195,6 +197,15 @@ pt-BR:
       unselected_title: Propostas não selecionados para a fase de votação
       unselected: Ver propostas não selecionados para a fase de votação
       see_results: Exibir resultados
+      spreadsheet:
+        balloting_result: Resultado da votação
+        categories: Categorias
+        description: Descrição
+        id: ID
+        prioritization: Resultado da priorização
+        subprefecture: Subprefeitura
+        title: Título
+        votes: Votos
     results:
       link: Resultados
       page_title: "%{budget} - Resultados"
