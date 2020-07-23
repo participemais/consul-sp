@@ -183,6 +183,7 @@ pt-BR:
       available: "Votos disponíveis: "
     show:
       by_subprefecture: Por subprefeitura
+      download_proposals: Download das propostas abaixo (csv)
       filters:
         all: Todas
         winners: Eleitas

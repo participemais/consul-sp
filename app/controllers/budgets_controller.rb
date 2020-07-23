@@ -16,6 +16,13 @@ class BudgetsController < ApplicationController
     @investments = investments.page(params[:page]).per(20).for_render
     @investment_ids = investments.pluck(:id)
     @tag_cloud = tag_cloud
+    respond_to do |format|
+      format.html
+      format.csv do
+        send_data Budget::Investment::Exporter.new(investments).to_csv,
+          filename: "#{@budget.filename}.csv"
+      end
+    end
   end
 
   def index

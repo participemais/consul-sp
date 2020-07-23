@@ -228,6 +228,10 @@ class Budget < ApplicationRecord
     I18n.l(date, format: :short_day_and_month)
   end
 
+  def filename
+    name.parameterize
+  end
+
   private
 
     def set_balloting_type
