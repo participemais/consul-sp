@@ -138,6 +138,7 @@ pt-BR:
         description_valuating: "Descrição durante a fase de avaliação"
         description_balloting: "Descrição durante a fase de votação"
         description_reviewing_ballots: "Descrição durante a fase de revisão das cédulas"
+        description_devolutive: "Descrição durante a fase devolutiva"
         description_finished: "Descrição sobre o orçamento concluído."
         phase: "Fase"
         currency_symbol: Distribuição de recursos

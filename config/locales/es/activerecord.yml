@@ -140,6 +140,7 @@ es:
         description_valuating: "Descripción durante la fase de evaluación"
         description_balloting: "Descripción durante la fase de votación"
         description_reviewing_ballots: "Descripción durante la fase de revisión de votos"
+        description_devolutive: "Descripción durante la fase devolutiva"
         description_finished: "Descripción cuando el presupuesto ha finalizado / Resultados"
         phase: "Fase"
         currency_symbol: "Divisa"

@@ -138,6 +138,7 @@ en:
         description_valuating: "Description during Valuating phase"
         description_balloting: "Description during Balloting phase"
         description_reviewing_ballots: "Description during Reviewing Ballots phase"
+        description_devolutive: "Description during devolutive phase"
         description_finished: "Description when the budget is finished"
         phase: "Phase"
         currency_symbol: "Currency"
