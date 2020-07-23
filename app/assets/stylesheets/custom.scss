@@ -28,6 +28,10 @@
   color: $white;
 }
 
+.padding-right {
+  padding-right: $line-height !important;
+}
+
 .subprefecture-label {
   color: $white;
   cursor: pointer;
@@ -207,4 +211,94 @@
 
 .hide-address-fields {
   display: none;
+}
+
+.status-list .status-radio-label {
+  margin-left: 0;
+  margin-right: $line-height / 2;
+  margin-bottom: $line-height / 2;
+  text-transform: uppercase;
+}
+
+.status-list .status-radio-btn {
+  &:checked,
+  &:not(:checked) {
+    position: absolute;
+    left: -9999px;
+  }
+
+  &:checked + label,
+  &:not(:checked) + label {
+    position: relative;
+    padding-left: 28px;
+    cursor: pointer;
+    line-height: 20px;
+    display: inline-block;
+    color: $text;
+  }
+
+  &:checked + label:before,
+  &:not(:checked) + label:before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 18px;
+    height: 18px;
+    border: 1px solid #cacaca;
+    border-radius: 100%;
+    background: $white;
+  }
+
+  &:checked + label:after,
+  &:not(:checked) + label:after {
+    content: '';
+    width: 12px;
+    height: 12px;
+    background: $purple;
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    border-radius: 100%;
+    -webkit-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+  }
+
+  &:not(:checked) + label:after {
+    opacity: 0;
+    -webkit-transform: scale(0);
+    transform: scale(0);
+  }
+
+  &:checked + label:after {
+    opacity: 1;
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+}
+
+.balloting-result-flag {
+  font-size: $tiny-font-size;
+  font-family: "Gotham Bold";
+  padding: $line-height / 4 $line-height / 3;
+  color: $text-medium;
+
+  &.winner {
+    border-top: 1.5px solid #2CB22C;
+    border-right: 1.5px solid #2CB22C;
+  }
+
+  &.loser {
+    border-top: 1.5px solid $delete;
+    border-right: 1.5px solid $delete;
+  }
+
+  span {
+    text-transform: uppercase;
+  }
+}
+
+.download-link {
+  margin-top: 0;
+  margin-bottom: -$line-height / 3;
 }

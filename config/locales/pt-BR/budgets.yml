@@ -53,6 +53,7 @@ pt-BR:
       title: Orçamento cidadão
       empty_budgets: Não há orçamento.
       section_header:
+        balloting_result: Veja o resultado da votação
         icon_alt: Ícone dos orçamentos
         title: Orçamentos cidadão
         help: Sobre o orçamento cidadão
@@ -151,6 +152,8 @@ pt-BR:
         project_unfeasible: "Esta proposta de orçamento <strong>foi marcada como não viável</strong> e não vai à fase de votação."
         project_selected: "Esta proposta de orçamento <strong>está selecionada</strong> para a fase de votação."
         project_winner: "Proposta de orçamento ganhando"
+        project_balloting_loser: "Esta proposta não foi eleita na fase de votação"
+        project_balloting_winner: "Esta proposta foi eleita na fase de votação"
         project_not_selected: "Esta proposta de orçamento <strong>não foi selecionada</strong> para a fase de votação."
         see_price_explanation: Exposição de custos
       wrong_price_format: Apenas números inteiros
@@ -167,6 +170,10 @@ pt-BR:
           one: 1 voto
           other: "%{count} votos"
         give_support: Apoiar
+        elected: Eleita
+        not_elected: Não eleita
+        prioritized: Priorizada
+        not_prioritized: Não priorizada
       header:
         check_ballot: Meus votos
         different_heading_assigned: "Você tem votos ativos num título diferente: %{heading_link}"
@@ -177,13 +184,30 @@ pt-BR:
       assigned: "Votos registrados: "
       available: "Votos disponíveis: "
     show:
+      by_subprefecture: Por subprefeitura
+      download_proposals: Download das propostas abaixo (csv)
+      filters:
+        all: Todas
+        winners: Eleitas
+        losers: Não eleitas
       group: Grupo
+      investment_proposals: Índice de propostas
       phase: Fase atual
+      proposals_not_found: Não foram encontrados resultados para sua busca.
       unfeasible_title: Propostas inviáveis
       unfeasible: Ver propostas inviáveis
       unselected_title: Propostas não selecionados para a fase de votação
       unselected: Ver propostas não selecionados para a fase de votação
       see_results: Exibir resultados
+      spreadsheet:
+        balloting_result: Resultado da votação
+        categories: Categorias
+        description: Descrição
+        id: ID
+        prioritization: Resultado da priorização
+        subprefecture: Subprefeitura
+        title: Título
+        votes: Votos
     results:
       link: Resultados
       page_title: "%{budget} - Resultados"
