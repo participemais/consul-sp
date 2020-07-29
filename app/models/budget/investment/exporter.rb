@@ -35,7 +35,7 @@ class Budget::Investment::Exporter
       [
         investment.id.to_s,
         investment.title,
-        investment.description,
+        sanitize_description(investment.description),
         investment.tag_list.join(', '),
         investment.heading_name,
         prioritized_or_not(investment.selected?),
@@ -117,5 +117,9 @@ class Budget::Investment::Exporter
 
     def investment_translation(key)
       I18n.t(key, scope: "budgets.investments.investment")
+    end
+
+    def sanitize_description(description)
+      Nokogiri::HTML.parse(description).text.squish
     end
 end
