@@ -95,6 +95,7 @@
 //= require district_data
 //= require subprefecture_data
 //= require change_confirmation
+//= require link_target_blank
 
 var initialize_modules = function() {
   "use strict";
@@ -154,6 +155,7 @@ var initialize_modules = function() {
   App.DistrictData.initialize();
   App.SubprefectureData.initialize();
   App.ChangeConfirmation.initialize();
+  App.LinkTargetBlank.initialize();
 };
 
 $(function() {
