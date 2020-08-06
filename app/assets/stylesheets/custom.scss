@@ -199,10 +199,11 @@
   }
 }
 
-.help-header {
+.help-header-page {
   display: flex;
   align-items: center;
-  background: #ecf0f1;
+  padding-bottom: $line-height / 2;
+  padding-top: $line-height;
 }
 
 .base-font-size {
