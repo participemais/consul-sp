@@ -4,10 +4,10 @@ pt-BR:
       title: Avaliação
     menu:
       title: Avaliação
-      budgets: Orçamentos 
+      budgets: Orçamentos
     budgets:
       index:
-        title: Orçamentos 
+        title: Orçamentos
         filters:
           current: Aberto
           finished: Finalizados
@@ -60,7 +60,7 @@ pt-BR:
         price_first_year: "Custo durante o primeiro ano (%{currency})<small>(opcional, dados não públicos)</small>"
         feasibility: Viabilidade
         valuation_finished_alert: "Tem certeza que deseja marcar este relatório como concluído? Se você fizer isso, o relatório não poderá mais ser modificado."
-        not_feasible_alert: "Um e-mail será enviado imediatamente para o autor do projeto com o relatório de inviabilidade."
+        not_feasible_alert: "Um email será enviado imediatamente para o autor do projeto com o relatório de inviabilidade."
         save: Salvar alterações
       notice:
         valuate: "Dossiê atualizado"

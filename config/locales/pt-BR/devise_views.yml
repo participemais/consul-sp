@@ -9,7 +9,7 @@ pt-BR:
         instructions: Confirmando a conta para o email %{email}
         new_password_confirmation_label: Repita a senha de acesso
         new_password_label: Nova senha de acesso
-        please_set_password: Por favor, escolha sua nova senha (isso permitirá que você faça o login com o e-mail acima)
+        please_set_password: Por favor, escolha sua nova senha (isso permitirá que você faça o login com o email acima)
         submit: Confirmar
         title: Confirmar minha conta
     mailer:
@@ -33,7 +33,7 @@ pt-BR:
       reset_password_instructions:
         change_link: Alterar minha senha
         hello: Olá
-        ignore_text: Se você não pediu uma mudança de senha, você pode ignorar este e-mail.
+        ignore_text: Se você não pediu uma mudança de senha, você pode ignorar este email.
         info_text: Sua senha não será alterada a menos que você acesse o link e a edite.
         text: "Recebemos um pedido para alterar sua senha. Você pode fazer isso no seguinte link:"
         title: Altere sua senha
@@ -79,7 +79,7 @@ pt-BR:
         title: Esqueceu a senha?
     sessions:
       new:
-        login_label: E-mail ou nome de usuário
+        login_label: Email ou nome de usuário
         password_label: Senha
         remember_me: Lembrar minha senha
         submit: Entrar
@@ -123,7 +123,7 @@ pt-BR:
           organization_signup_link: Inscreva-se aqui
           password_confirmation_label: Confirmar senha
           password_label: Senha
-          redeemable_code: Código de verificação recebido via e-mail (opcional)
+          redeemable_code: Código de verificação recebido via email (opcional)
           submit: Criar conta
           terms: Ao criar a conta você aceita os %{terms} e a %{privacy}
           terms_link: Termos de Uso
