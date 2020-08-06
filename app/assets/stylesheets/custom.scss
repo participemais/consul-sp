@@ -69,7 +69,7 @@
 }
 
 .login-options {
-  font-family: $subheader-font-family;
+  font-family: $header-font-family;
   margin-right: $global-margin;
   border-bottom: 3px solid $brand;
   transition: border-bottom 0.5s;
@@ -91,7 +91,7 @@
   text-transform: uppercase;
 
   ul > li > a {
-    color: $dark-gray;
+    color: $text-medium;
     padding: 0 $line-height;
     font-family: $header-font-family;
 
