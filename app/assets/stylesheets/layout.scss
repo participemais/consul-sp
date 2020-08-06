@@ -1220,13 +1220,15 @@ form {
 .no-error {
   background: $success-bg;
   color: $color-success;
+  float: right;
+  padding: 0 $line-height / 4;
 }
 
 .error {
   background: $alert-bg;
   color: $color-alert;
-  display: inline-block;
-  margin: 0 $line-height / 4;
+  float: right;
+  padding: 0 $line-height / 4;
 
   a {
     color: $color-alert;
