@@ -80,13 +80,13 @@ class User < ApplicationRecord
   validates :username,
     uniqueness: { case_sensitive: false },
     if: :username_required?
-  validates :username, length: { minimum: 3 }
+  validates :username, length: { minimum: 3 }, if: :username_required?
   validates :first_name, length: { minimum: 2 }, allow_nil: true
 
   validates :last_name, length: { minimum: 2 }, allow_nil: true
   validates :cep, length: { minimum: 8 }, allow_nil: true
 
-  validate :username_chars_validation
+  validate :username_chars_validation, if: :username_required?
 
   validate :first_and_last_names_chars_validation, if: :persisted?
 
