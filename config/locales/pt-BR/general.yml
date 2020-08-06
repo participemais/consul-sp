@@ -1,7 +1,7 @@
 pt-BR:
   account:
     show:
-      change_credentials_link: Alterar senha
+      change_credentials_link: Alterar email ou senha
       erase_account_link: Apagar minha conta
       finish_verification: Finalizar verificação
       foreigner_document: RNM
