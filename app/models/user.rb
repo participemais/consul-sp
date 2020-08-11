@@ -452,7 +452,7 @@ class User < ApplicationRecord
   end
 
   def can_vote?
-    document_number.present? && valid?
+    valid? && (document_number.present? || (organization? && cep))
   end
 
   private
