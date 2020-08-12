@@ -7,7 +7,11 @@ class Organization < ApplicationRecord
   validates :name, uniqueness: true
   validate  :validate_name_length
   validates :responsible_name, presence: true
+  validates :responsible_name, length: { minimum: 2 }
   validate  :validate_responsible_name_length
+  validate  :responsible_name_chars_validation
+
+  before_save :sanitaze_responsible_name
 
   delegate :email, :phone_number, to: :user
 
@@ -63,5 +67,21 @@ class Organization < ApplicationRecord
         attributes: :responsible_name,
         maximum: Organization.responsible_name_max_length)
       validator.validate(self)
+    end
+
+    def responsible_name_chars_validation
+      unless responsible_name =~ /^[\sa-z\u00C0-\u017F\.\-]+$/i
+        errors.add(:responsible_name)
+      end
+    end
+
+    def sanitaze_responsible_name
+      if responsible_name_changed?
+        self.responsible_name = capitalize_word(responsible_name)
+      end
+    end
+
+    def capitalize_word(word)
+      word.split.map(&:capitalize)*' '
     end
 end
