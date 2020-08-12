@@ -59,7 +59,7 @@ pt-BR:
           responsible_name_label: Nome completo da pessoa responsável pelo coletivo
           responsible_name_note: Pessoa que representa a associação/coletivo em nome de quem as propostas são apresentadas
           submit: Criar conta
-          title: Registar-se como uma organização ou coletivo
+          title: Criar conta para uma organização ou coletivo
         success:
           back_to_index: Eu entendo; voltar à página principal
           instructions_1: "<strong>Entraremos em contato em breve</strong> para confirmar que você realmente representa este coletivo."
