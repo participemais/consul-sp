@@ -741,7 +741,7 @@ code {
 .admin {
 
   .geozone {
-    background: #ececec;
+    background: $tag;
     border-radius: rem-calc(6);
     color: $text;
     display: inline-block;
@@ -751,7 +751,7 @@ code {
     text-decoration: none;
 
     &:hover {
-      background: #e0e0e0;
+      background: $tag-hover;
     }
   }
 }
