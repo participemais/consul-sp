@@ -9,8 +9,8 @@ pt-BR:
       updated: "Senha atualizada com sucesso"
     confirmations:
       confirmed: "Sua conta foi confirmada."
-      send_instructions: "Em alguns minutos, você receberá um e-mail contendo instruções sobre como redefinir sua senha."
-      send_paranoid_instructions: "Se o seu endereço de e-mail estiver em nosso banco de dados, em poucos minutos você receberá um e-mail com instruções sobre como redefinir sua senha."
+      send_instructions: "Em alguns minutos, você receberá um email contendo instruções sobre como redefinir sua senha."
+      send_paranoid_instructions: "Se o seu endereço de email estiver em nosso banco de dados, em poucos minutos você receberá um email com instruções sobre como redefinir sua senha."
     failure:
       already_authenticated: "Você já está registrado."
       inactive: "Sua conta não foi ativada."
@@ -33,8 +33,8 @@ pt-BR:
       success: "Identificado com sucesso com %{kind}."
     passwords:
       no_token: "Você não pode acessar esta página, exceto por meio de um link de redefinição de senha. Se você tiver acessado através de um link de redefinição de senha, verifique se o URL está completo."
-      send_instructions: "Em alguns minutos, você receberá um e-mail contendo instruções sobre como redefinir sua senha."
-      send_paranoid_instructions: "Se o seu endereço de e-mail estiver em nosso banco de dados, em poucos minutos você receberá um link para redefinir sua senha."
+      send_instructions: "Em alguns minutos, você receberá um email contendo instruções sobre como redefinir sua senha."
+      send_paranoid_instructions: "Se o seu endereço de email estiver em nosso banco de dados, em poucos minutos você receberá um link para redefinir sua senha."
       updated: "Sua senha foi alterada com sucesso. Autenticação bem sucedida."
       updated_not_active: "Sua senha foi alterada com sucesso."
     registrations:
@@ -43,15 +43,15 @@ pt-BR:
       signed_up_but_inactive: "Seu registro foi bem sucedido, mas você não pode efetuar o login porque sua conta não foi ativada."
       signed_up_but_locked: "Seu registro foi bem sucedido, mas você não pode efetuar o login porque sua conta está bloqueada."
       signed_up_but_unconfirmed: "Foi enviada uma mensagem para seu email contendo um link de verificação. Por favor clique neste link para ativar sua conta."
-      update_needs_confirmation: "Sua conta foi atualizada com êxito; no entanto, precisamos verificar o seu novo endereço de e-mail. Por favor verifique o seu e-mail e clique no link para completar a confirmação do seu novo endereço de e-mail."
+      update_needs_confirmation: "Sua conta foi atualizada com êxito; no entanto, precisamos verificar o seu novo endereço de email. Por favor verifique o seu email e clique no link para completar a confirmação do seu novo endereço de email."
       updated: "Sua senha foi alterada com sucesso."
     sessions:
       signed_in: "Você entrou na sua conta com sucesso."
       signed_out: "Você saiu da sua conta com sucesso."
       already_signed_out: "Você saiu da sua conta com sucesso."
     unlocks:
-      send_instructions: "Em alguns minutos, você receberá um e-mail contendo instruções sobre como desbloquear sua conta."
-      send_paranoid_instructions: "Se você possui uma conta, em alguns minutos, você receberá um e-mail contendo instruções sobre como desbloqueá-la."
+      send_instructions: "Em alguns minutos, você receberá um email contendo instruções sobre como desbloquear sua conta."
+      send_paranoid_instructions: "Se você possui uma conta, em alguns minutos, você receberá um email contendo instruções sobre como desbloqueá-la."
       unlocked: "Sua conta foi desbloqueada. Por favor, conecte-se a sua conta para continuar."
   errors:
     messages:

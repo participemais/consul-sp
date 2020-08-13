@@ -1,7 +1,7 @@
 es:
   account:
     show:
-      change_credentials_link: Cambiar mi contraseña
+      change_credentials_link: Cambiar email o contraseña
       erase_account_link: Darme de baja
       finish_verification: Finalizar verificación
       foreigner_document: RNM

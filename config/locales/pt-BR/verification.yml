@@ -6,9 +6,9 @@ pt-BR:
     email:
       create:
         alert:
-          failure: Houve um problema com o envio de um e-mail para sua conta.
+          failure: Houve um problema com o envio de um email para sua conta.
         flash:
-          success: "Enviamos um e-mail de confirmação para sua conta: %{email}"
+          success: "Enviamos um email de confirmação para sua conta: %{email}"
       show:
         alert:
           failure: Código de verificação incorreto
@@ -97,7 +97,7 @@ pt-BR:
       form:
         submit_button: Enviar o código
       show:
-        email_title: E-mails
+        email_title: Emails
         explanation: Nós atualmente mantemos os seguintes detalhes no Registro; por favor, selecione um método para o código de confirmação seja enviado.
         phone_title: Números de telefone
         title: Informação disponível

@@ -57,7 +57,7 @@ pt-BR:
           on_debates: Debates
           on_proposals: Propostas
           on_users: Usuários
-          on_system_emails: E-mails do sistema
+          on_system_emails: Emails do sistema
         title: Atividade do moderador
         type: Tipo
         no_activity: Não há nenhuma atividade de moderadores.
@@ -602,7 +602,7 @@ pt-BR:
       messaging_users: Mensagens para os usuários
       newsletters: Boletins informativos
       admin_notifications: Notificações
-      system_emails: Sistema de E-mails
+      system_emails: Sistema de Emails
       emails_download: Download de emails
       valuators: Avaliadores
       poll_officers: Presidentes da votação
@@ -627,7 +627,7 @@ pt-BR:
           proposals: "Propostas"
           polls: "Votações"
           layouts: "Layouts"
-          mailers: "E-mails"
+          mailers: "Emails"
           management: "Gerenciamento"
           welcome: "Bem-vindo"
         buttons:
@@ -711,8 +711,8 @@ pt-BR:
         sent_at: Enviado em
         subject: Assunto
         segment_recipient: Destinatários
-        from: Endereço de e-mail para envio de boletim informativo
-        body: Conteúdo do e-mail
+        from: Endereço de email para envio de boletim informativo
+        body: Conteúdo do email
         body_help_text: Os usuários visualizarão o email desta forma
         send_alert: Você tem certeza que quer enviar este boletim informativo para %{n} usuários?
     admin_notifications:
@@ -762,7 +762,7 @@ pt-BR:
         send_pending_notification: Notificações pendentes enviadas com sucesso
       proposal_notification_digest:
         title: "Resumo danotificação da proposta"
-        description: "Juntar todas as notificações de proposta para um usuário em uma mensagem para evitar muitos e-mails."
+        description: "Juntar todas as notificações de proposta para um usuário em uma mensagem para evitar muitos emails."
         preview_detail: "Usuários apenas vão receber notificações das rpopostas que eles estão seguindo"
       comment:
         title: "Comentário"
@@ -1074,7 +1074,7 @@ pt-BR:
         reject: Rejeitar
         rejected: Rejeitado
         search: Buscar
-        search_placeholder: Nome, e-mail ou número de telefone
+        search_placeholder: Nome, email ou número de telefone
         title: Organizações
         verified: Verificado
         verify: Verificar
@@ -1316,7 +1316,7 @@ pt-BR:
         title: Usuário
         no_users: Não há usuários.
       search:
-        placeholder: Buscar usuário por e-mail, nome ou número do documento
+        placeholder: Buscar usuário por email, nome ou número do documento
         search: Buscar
     verifications:
       index:
