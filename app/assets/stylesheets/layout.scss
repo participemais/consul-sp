@@ -906,7 +906,7 @@ footer {
 .geozone a,
 .sidebar-links a,
 .tags span {
-  background: #ececec;
+  background: $tag;
   border-radius: rem-calc(6);
   color: $text;
   display: inline-block;
@@ -916,20 +916,13 @@ footer {
   text-decoration: none;
 
   &:hover {
-    background: #e0e0e0;
+    background: $tag-hover;
   }
 }
 
-.categories a,
-.geozone a {
-  background: $highlight;
-  color: $link;
-
-  &:hover,
-  &.is-active {
-    background: $purple;
-    color: $text-medium;
-  }
+.categories a.is-active {
+  background: $purple;
+  color: $brand;
 }
 
 .sidebar-map {
@@ -2335,7 +2328,7 @@ table {
 
     span {
       background: none;
-      border: 1px solid #ececec;
+      border: 1px solid $tag;
     }
   }
 }
@@ -2368,7 +2361,7 @@ table {
   .interests {
 
     @include breakpoint(medium) {
-      border-left: 1px solid #ececec;
+      border-left: 1px solid $tag;
       padding-left: $line-height;
     }
   }
