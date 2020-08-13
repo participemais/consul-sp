@@ -11,7 +11,7 @@
   <%= form_tag search_path, id: "advanced_search_form", method: :get do %>
     <div id="js-advanced-search" data-advanced-search-terms="<%= @advanced_search_terms.present? %>" style="display: none">
 
-      <div class="small-12 medium-9 column">
+      <div class="small-12 medium-9 column no-padding-right-medium">
         <label for="search">
           <%= t("shared.advanced_search.general") %>
         </label>
