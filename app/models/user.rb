@@ -82,9 +82,9 @@ class User < ApplicationRecord
     if: :username_required?
   validates :username, length: { minimum: 3 }, if: :username_required?
   validates :first_name, length: { minimum: 2 }, allow_nil: true
-
   validates :last_name, length: { minimum: 2 }, allow_nil: true
   validates :cep, length: { minimum: 8 }, allow_nil: true
+  validates :address_number, length: { maximum: 7 }, allow_nil: true
 
   validate :username_chars_validation, if: :username_required?
 
