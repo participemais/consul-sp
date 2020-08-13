@@ -535,6 +535,10 @@ pt-BR:
           attributes:
             map:
               invalid: Localização no mapa não pode estar em branco. Coloque um marcador ou selecione a caixa de seleção se não houver necessidade de geolocalização
+        organization:
+          attributes:
+            responsible_name:
+              full_name_required: é necessário inserir o nome completo
         poll/voter:
           attributes:
             document_number:
