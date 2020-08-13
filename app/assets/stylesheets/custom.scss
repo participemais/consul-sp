@@ -16,6 +16,12 @@
   padding-right: 0;
 }
 
+.no-padding-right-medium {
+  @include breakpoint(medium) {
+    padding-right: 0;
+  }
+}
+
 .no-padding-left {
   padding-left: 0;
 }
