@@ -89,11 +89,7 @@ class Organization < ApplicationRecord
 
     def sanitaze_responsible_name
       if responsible_name_changed?
-        self.responsible_name = capitalize_word(responsible_name)
+        self.responsible_name = responsible_name.squish.titleize
       end
-    end
-
-    def capitalize_word(word)
-      word.split.map(&:capitalize)*' '
     end
 end

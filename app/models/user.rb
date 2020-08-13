@@ -524,12 +524,8 @@ class User < ApplicationRecord
     end
 
     def sanitaze_name
-      self.first_name = capitalize_word(first_name) if first_name_changed?
-      self.last_name = capitalize_word(last_name) if last_name_changed?
-    end
-
-    def capitalize_word(word)
-      word.split.map(&:capitalize)*' '
+      self.first_name = first_name.squish.titleize if first_name_changed?
+      self.last_name = last_name.squish.titleize if last_name_changed?
     end
 
     def document_number_changes_amount
