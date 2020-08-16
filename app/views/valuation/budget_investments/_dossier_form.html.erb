@@ -4,23 +4,95 @@
   <div class="row">
     <div class="small-12 column">
       <fieldset class="fieldset">
+        <legend>
+          <%= t("valuation.budget_investments.edit.technical_feasibility") %>
+        </legend>
+        <div class="small-6 medium-2 column">
+          <span class="radio">
+            <%= f.radio_button :technical_feasibility, true %>
+          </span>
+        </div>
+
+        <div class="small-6 medium-2 column end">
+          <span class="radio">
+            <%= f.radio_button :technical_feasibility, false %>
+          </span>
+        </div>
+        <div class="small-12 column">
+          <%= f.text_area :technical_feasibility_description, rows: 3 %>
+        </div>
+      </fieldset>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="small-12 column">
+      <fieldset class="fieldset">
+        <legend>
+          <%= t("valuation.budget_investments.edit.legal_feasibility") %>
+        </legend>
+        <div class="small-6 medium-2 column">
+          <span class="radio">
+            <%= f.radio_button :legal_feasibility, true %>
+          </span>
+        </div>
+
+        <div class="small-6 medium-2 column end">
+          <span class="radio">
+            <%= f.radio_button :legal_feasibility, false %>
+          </span>
+        </div>
+        <div class="small-12 column">
+          <%= f.text_area :legal_feasibility_description, rows: 3 %>
+        </div>
+      </fieldset>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="small-12 column">
+      <fieldset class="fieldset">
+        <legend>
+          <%= t("valuation.budget_investments.edit.budget_feasibility") %>
+        </legend>
+        <div class="small-6 medium-2 column">
+          <span class="radio">
+            <%= f.radio_button :budget_feasibility, true %>
+          </span>
+        </div>
+
+        <div class="small-6 medium-2 column end">
+          <span class="radio">
+            <%= f.radio_button :budget_feasibility, false %>
+          </span>
+        </div>
+        <div class="small-12 column">
+          <%= f.text_area :budget_feasibility_description, rows: 3 %>
+        </div>
+      </fieldset>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="small-12 column">
+      <fieldset class="fieldset">
         <legend><%= t("valuation.budget_investments.edit.feasibility") %></legend>
         <div class="small-4 column">
-            <span class="radio">
-              <%= f.radio_button :feasibility, "undecided" %>
-            </span>
+          <span class="radio">
+            <%= f.radio_button :feasibility, "undecided" %>
+          </span>
         </div>
 
         <div class="small-4 column">
-            <span class="radio">
-              <%= f.radio_button :feasibility, "feasible" %>
-            </span>
+          <span class="radio">
+            <%= f.radio_button :feasibility, "feasible" %>
+          </span>
         </div>
 
         <div class="small-4 column">
-            <span class="radio">
-              <%= f.radio_button :feasibility, "unfeasible" %>
-            </span>
+          <span class="radio">
+            <%= f.radio_button :feasibility, "unfeasible" %>
+          </span>
         </div>
       </fieldset>
     </div>

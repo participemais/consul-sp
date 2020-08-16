@@ -98,9 +98,13 @@ class Valuation::BudgetInvestmentsController < Valuation::BaseController
     end
 
     def valuation_params
-      params.require(:budget_investment).permit(:price, :price_first_year, :price_explanation,
-                                                :feasibility, :unfeasibility_explanation,
-                                                :duration, :valuation_finished)
+      params.require(:budget_investment).permit(
+        :price, :price_first_year, :price_explanation, :feasibility,
+        :unfeasibility_explanation, :duration, :valuation_finished,
+        :technical_feasibility, :technical_feasibility_description,
+        :legal_feasibility, :legal_feasibility_description,
+        :budget_feasibility, :budget_feasibility_description
+      )
     end
 
     def restrict_access
