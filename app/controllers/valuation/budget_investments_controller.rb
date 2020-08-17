@@ -103,7 +103,8 @@ class Valuation::BudgetInvestmentsController < Valuation::BaseController
         :unfeasibility_explanation, :duration, :valuation_finished,
         :technical_feasibility, :technical_feasibility_description,
         :legal_feasibility, :legal_feasibility_description,
-        :budget_feasibility, :budget_feasibility_description
+        :budget_feasibility, :budget_feasibility_description,
+        :feasibility_type, :commitment, :budgetary_actions, :sei_number
       )
     end
 

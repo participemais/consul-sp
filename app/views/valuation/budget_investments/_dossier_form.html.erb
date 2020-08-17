@@ -94,6 +94,15 @@
             <%= f.radio_button :feasibility, "unfeasible" %>
           </span>
         </div>
+
+        <div class="feasible_fields">
+          <div class="small-4 column">
+            <%= f.radio_button :feasibility_type, "running_project" %>
+          </div>
+          <div class="small-4 column end">
+            <%= f.radio_button :feasibility_type, "new_project" %>
+          </div>
+        </div>
       </fieldset>
     </div>
   </div>
@@ -108,34 +117,54 @@
 
   </div>
 
-  <div id="feasible_fields">
-
+  <div class="feasible_fields">
     <div class="row">
-      <div class="small-12 medium-6 column">
-        <%= f.number_field :price,
-          label: t("valuation.budget_investments.edit.price", currency: budget.currency_symbol),
-          max: 1000000000000000 %>
+      <% if budget.resource_allocation_balloting? %>
+        <div class="small-12 medium-6 column">
+          <%= f.number_field :price,
+            label: t("valuation.budget_investments.edit.price", currency: @budget.currency_symbol),
+            max: 1000000000000000
+          %>
+        </div>
+
+        <div class="small-12 medium-6 column end">
+          <%= f.number_field :price_first_year,
+            label: t("valuation.budget_investments.edit.price_first_year", currency:  budget.currency_symbol),
+            max: 1000000000000000
+          %>
+        </div>
+      <% else %>
+        <div class="small-12 column">
+          <%= f.text_area :commitment, rows: 3 %>
+        </div>
+      <% end %>
+    </div>
+
+    <% if budget.resource_allocation_balloting? %>
+      <div class="row">
+        <div class="small-12 column">
+          <%= f.text_area :price_explanation, rows: 3 %>
+        </div>
       </div>
 
-      <div class="small-12 medium-6 column end">
-        <%= f.number_field :price_first_year,
-          label: t("valuation.budget_investments.edit.price_first_year", currency:  budget.currency_symbol),
-          max: 1000000000000000 %>
+      <div class="row">
+        <div class="small-12 medium-6 column">
+          <%= f.text_field :duration %>
+        </div>
+      </div>
+    <% end %>
+
+    <div class="row">
+      <div class="small-12 column">
+        <%= f.text_field :budgetary_actions %>
       </div>
     </div>
 
     <div class="row">
       <div class="small-12 column">
-        <%= f.text_area :price_explanation, rows: 3 %>
+        <%= f.text_field :sei_number %>
       </div>
     </div>
-
-    <div class="row">
-      <div class="small-12 medium-6 column">
-        <%= f.text_field :duration %>
-      </div>
-    </div>
-
   </div>
 
   <div class="row">
