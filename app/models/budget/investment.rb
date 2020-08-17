@@ -116,6 +116,7 @@ class Budget
     end
 
     before_create :set_original_heading_id
+    before_create :set_vote, if: :budget_vote_counting_balloting?
     before_save :calculate_confidence_score
     after_save :recalculate_heading_winners
     before_validation :set_responsible_name
@@ -448,6 +449,10 @@ class Budget
 
       def set_original_heading_id
         self.original_heading_id = heading_id
+      end
+
+      def set_vote
+        self.price = 1
       end
 
       def searchable_translations_definitions
