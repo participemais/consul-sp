@@ -721,6 +721,7 @@ pt-BR:
     check_none: Nenhum
     collective: Coletivo
     flag: Marcar como inapropriado
+    feasible: Viável
     follow: "Seguir"
     following: "Seguindo"
     follow_entity: "Seguir %{entity}"
@@ -766,6 +767,8 @@ pt-BR:
       categories: "Categorias"
     target_blank: " (link abre em nova janela)"
     you_are_in: "Você está em"
+    undecided: Não decidido
+    unfeasible: Inviável
     unflag: Desmarcar
     unfollow_entity: "Deixar de seguir %{entity}"
     outline:
