@@ -1,77 +1,6 @@
 <% budget = investment.budget %>
 <%= form_for(investment, url: valuate_valuation_budget_budget_investment_path(budget, investment), html: { id: "valuation_budget_investment_edit_form" }) do |f| %>
   <%= render "shared/errors", resource: investment %>
-  <div class="row">
-    <div class="small-12 column">
-      <fieldset class="fieldset">
-        <legend>
-          <%= t("valuation.budget_investments.edit.technical_feasibility") %>
-        </legend>
-        <div class="small-6 medium-2 column">
-          <span class="radio">
-            <%= f.radio_button :technical_feasibility, true %>
-          </span>
-        </div>
-
-        <div class="small-6 medium-2 column end">
-          <span class="radio">
-            <%= f.radio_button :technical_feasibility, false %>
-          </span>
-        </div>
-        <div class="small-12 column">
-          <%= f.text_area :technical_feasibility_description, rows: 3 %>
-        </div>
-      </fieldset>
-    </div>
-  </div>
-
-  <div class="row">
-    <div class="small-12 column">
-      <fieldset class="fieldset">
-        <legend>
-          <%= t("valuation.budget_investments.edit.legal_feasibility") %>
-        </legend>
-        <div class="small-6 medium-2 column">
-          <span class="radio">
-            <%= f.radio_button :legal_feasibility, true %>
-          </span>
-        </div>
-
-        <div class="small-6 medium-2 column end">
-          <span class="radio">
-            <%= f.radio_button :legal_feasibility, false %>
-          </span>
-        </div>
-        <div class="small-12 column">
-          <%= f.text_area :legal_feasibility_description, rows: 3 %>
-        </div>
-      </fieldset>
-    </div>
-  </div>
-
-  <div class="row">
-    <div class="small-12 column">
-      <fieldset class="fieldset">
-        <legend>
-          <%= t("valuation.budget_investments.edit.budget_feasibility") %>
-        </legend>
-        <div class="small-6 medium-2 column">
-          <span class="radio">
-            <%= f.radio_button :budget_feasibility, true %>
-          </span>
-        </div>
-
-        <div class="small-6 medium-2 column end">
-          <span class="radio">
-            <%= f.radio_button :budget_feasibility, false %>
-          </span>
-        </div>
-        <div class="small-12 column">
-          <%= f.text_area :budget_feasibility_description, rows: 3 %>
-        </div>
-      </fieldset>
-    </div>
-  </div>
 
   <div class="row">
     <div class="small-12 column">
@@ -153,18 +82,6 @@
         </div>
       </div>
     <% end %>
-
-    <div class="row">
-      <div class="small-12 column">
-        <%= f.text_field :budgetary_actions %>
-      </div>
-    </div>
-
-    <div class="row">
-      <div class="small-12 column">
-        <%= f.text_field :sei_number %>
-      </div>
-    </div>
   </div>
 
   <div class="row">
