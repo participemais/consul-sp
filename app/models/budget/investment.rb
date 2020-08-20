@@ -24,6 +24,7 @@ class Budget
     include Flaggable
     include Milestoneable
     include Randomizable
+    include FeasibilityAnalyzable
 
     translates :title, touch: true
     translates :description, touch: true
