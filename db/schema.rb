@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20200814185837) do
+ActiveRecord::Schema.define(version: 20200818163730) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -601,6 +601,22 @@ ActiveRecord::Schema.define(version: 20200814185837) do
     t.integer "poll_officer_id"
     t.integer "year_of_birth"
     t.index ["user_id"], name: "index_failed_census_calls_on_user_id"
+  end
+
+  create_table "feasibility_analyses", id: :serial, force: :cascade do |t|
+    t.string "technical", limit: 15, default: "undecided"
+    t.text "technical_description"
+    t.string "legal", limit: 15, default: "undecided"
+    t.text "legal_description"
+    t.string "budgetary", limit: 15, default: "undecided"
+    t.text "budgetary_description"
+    t.string "budgetary_actions"
+    t.string "sei_number"
+    t.string "responsible"
+    t.string "feasibility_analyzable_type"
+    t.integer "feasibility_analyzable_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "flags", id: :serial, force: :cascade do |t|
