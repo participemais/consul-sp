@@ -291,8 +291,8 @@
   color: $text-medium;
 
   &.winner {
-    border-top: 1.5px solid #2CB22C;
-    border-right: 1.5px solid #2CB22C;
+    border-top: 1.5px solid $green;
+    border-right: 1.5px solid $green;
   }
 
   &.loser {
