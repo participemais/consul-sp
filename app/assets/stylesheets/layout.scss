@@ -1567,7 +1567,7 @@ table {
 .ssb-twitter {
   background: #45b0e3;
   background-image: none !important;
-  color: $text-medium;
+  color: $brand;
   height: $line-height * 2 !important;
   position: relative;
   width: $line-height * 2 !important;
@@ -1610,7 +1610,7 @@ table {
 .ssb-facebook {
   background: #3b5998;
   background-image: none !important;
-  color: $text-medium;
+  color: $brand;
   height: rem-calc(48) !important;
   position: relative;
   width: rem-calc(48) !important;
@@ -1653,7 +1653,7 @@ table {
 [class^="ssb-icon ssb-google"] {
   background: #de4c34;
   background-image: none !important;
-  color: $text-medium;
+  color: $brand;
   height: $line-height * 2 !important;
   position: relative;
   width: $line-height * 2 !important;
@@ -1713,7 +1713,7 @@ table {
 .ssb-telegram {
   background: #08c;
   background-image: none !important;
-  color: $text-medium;
+  color: $brand;
   height: $line-height * 2 !important;
   position: relative;
   width: $line-height * 2 !important;
@@ -1816,7 +1816,7 @@ table {
 
   [class^="ssb-icon ssb-google"] {
     background: #de4c34;
-    color: $text-medium;
+    color: $brand;
     height: rem-calc(24);
     position: relative;
     width: rem-calc(48);
