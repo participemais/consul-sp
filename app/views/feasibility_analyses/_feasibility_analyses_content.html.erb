@@ -1,0 +1,18 @@
+<div class="row">
+  <div class="small-12 column">
+
+    <% if feasibility_analyzable.feasibility_analyses.empty? %>
+      <div class="callout primary text-center margin-top">
+        <%= t("feasibility_analyses.index.no_feasibility_analyses") %>
+      </div>
+    <% end %>
+
+    <section>
+      <ul class="no-bullet">
+        <% feasibility_analyzable.feasibility_analyses.each do |feasibility_analysis| %>
+          <%= render "feasibility_analyses/feasibility_analysis", feasibility_analysis: feasibility_analysis %>
+        <% end %>
+      </ul>
+    </section>
+  </div>
+</div>

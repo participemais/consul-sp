@@ -1,0 +1,45 @@
+<div class="row">
+  <div class="small-12 medium-8 medium-offset-2 column margin-bottom">
+    <div class="feasibility-analysis-margin">
+      <p class="feasibility-responsible-hat">
+        <%= t("feasibility_analyses.show.responsible") %>
+      </p>
+      <h3><%= feasibility_analysis.responsible %></h3>
+    </div>
+
+    <ul class="no-bullet feasibility-analysis">
+      <% feasibility_analysis.analysis_fields.each do |field| %>
+        <% status = feasibility_analysis.send(field) %>
+        <li class="feasibility <%= status %>">
+          <h4><%= t("feasibility_analyses.show.#{field}") %></h4>
+          <span>
+            <%= t("shared.#{status}") %>
+            <% if status == 'feasible' %>
+              <i class="fa fa-check" aria-hidden="true"></i>
+            <% else %>
+              <i class="fa fa-times" aria-hidden="true"></i>
+            <% end %>
+          </span>
+          <%= sanitize(feasibility_analysis.send("#{field}_description")) %>
+        </li>
+      <% end %>
+    </ul>
+
+    <div class="feasibility-analysis-margin investment-codes">
+      <h4>Códigos da proposta</h4>
+      <p>
+        <%= sanitize(t(
+          "feasibility_analyses.show.sei_number",
+          code: feasibility_analysis.sei_number
+        )) %>
+      </p>
+
+      <p>
+        <%= sanitize(t(
+          "feasibility_analyses.show.budgetary_actions", code: feasibility_analysis.budgetary_actions
+        )) %>
+      </p>
+    </div>
+
+  </div>
+</div>

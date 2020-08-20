@@ -4,6 +4,12 @@ class FeasibilityAnalysis < ApplicationRecord
   validates :responsible, presence: true
   validates :responsible, uniqueness: { scope: :feasibility_analyzable_id }
 
+  ANALYSES_FIELDS = %i(technical legal budgetary)
+
+  def analysis_fields
+    ANALYSES_FIELDS.reject { |field| send(field) == 'undecided' }
+  end
+
   AGENCIES = [
     "Secretaria Municipal de Direitos Humanos e Cidadania",
     "Secretaria Municipal de Educação",

@@ -22,5 +22,7 @@
                                          display_comments_count: false %>
   </div>
 
+  <%= render "feasibility_analyses/feasibility_analyses", feasibility_analyzable: @investment %>
+
   <%= render "milestones/milestones", milestoneable: @investment %>
 </div>
