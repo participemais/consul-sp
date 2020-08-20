@@ -2,16 +2,13 @@
   "use strict";
   App.ValuationBudgetInvestmentForm = {
     showFeasibleFields: function() {
-      $("#valuation_budget_investment_edit_form #unfeasible_fields").hide("down");
       $("#valuation_budget_investment_edit_form .feasible_fields").show();
     },
     showNotFeasibleFields: function() {
       $("#valuation_budget_investment_edit_form .feasible_fields").hide("down");
-      $("#valuation_budget_investment_edit_form #unfeasible_fields").show();
     },
     showAllFields: function() {
       $("#valuation_budget_investment_edit_form .feasible_fields").show("down");
-      $("#valuation_budget_investment_edit_form #unfeasible_fields").show("down");
     },
     showFeasibilityFields: function() {
       var feasibility;
