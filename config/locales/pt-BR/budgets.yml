@@ -14,7 +14,7 @@ pt-BR:
           one: "Você votou em <span>uma</span> proposta."
           other: "Você votou em <span>%{count}</span> propostas."
         voted_info: "Seu voto foi confirmado!"
-        voted_info_2: "Mas você pode alterá-lo a qualquer momento antes da conclusão desta fase."
+        voted_info_2: "Mas você pode alterá-lo a qualquer momento antes da conclusão desta etapa."
         zero: Você não votou em nenhuma proposta.
         your_choices: "Propostas que receberam seu voto"
       reasons_for_not_balloting:
@@ -24,7 +24,7 @@ pt-BR:
         not_selected: Esta proposta não foi selecionada para votação
         not_enough_vote: "Você já atingiu o limite de votos.<br><small>Lembre-se que pode %{change_ballot} a qualquer momento</small>"
         not_enough_money: "Você já atribuiu o orçamento disponível.<br><small>Lembre-se que pode %{change_ballot} a qualquer momento</small>"
-        no_ballots_allowed: A fase de seleção está fechada
+        no_ballots_allowed: A etapa de seleção está fechada
         different_heading_assigned: "Você já votou em um título diferente: %{heading_link}"
         change_ballot: mudar seus votos
         casted_offline: Você já participou
@@ -34,8 +34,8 @@ pt-BR:
         title: Selecione uma subprefeitura
         unfeasible_title: Propostas inviáveis
         unfeasible: Ver propostas inviáveis
-        unselected_title: Propostas não selecionados para a fase de votação
-        unselected: Ver propostas não selecionados para a fase de votação
+        unselected_title: Propostas não selecionados para a etapa de votação
+        unselected: Ver propostas não selecionados para a etapa de votação
     phase:
       drafting: Rascunho (não visível ao público)
       informing: Informação
@@ -150,14 +150,14 @@ pt-BR:
         feasibility_analyses_tab: Análises de viabilidade
         milestones_tab: Marcos
         author: Autor
-        project_selected: "Esta proposta de orçamento <strong>está selecionada</strong> para a fase de votação."
+        project_selected: "Esta proposta de orçamento <strong>está selecionada</strong> para a etapa de votação."
         project_winner: "Proposta de orçamento ganhando"
-        project_balloting_loser: "Esta proposta não foi eleita na fase de votação"
-        project_balloting_winner: "Esta proposta foi eleita na fase de votação"
+        project_balloting_loser: "Esta proposta não foi eleita na etapa de votação"
+        project_balloting_winner: "Esta proposta foi eleita na etapa de votação"
         running_project: "Esta proposta foi classificada como <strong>viável</strong> - projeto em execução"
         new_project: "Esta proposta foi classificada como <strong>viável</strong> - novo projeto"
         unfeasible_project: "Esta proposta foi classificada como inviável"
-        project_not_selected: "Esta proposta de orçamento <strong>não foi selecionada</strong> para a fase de votação."
+        project_not_selected: "Esta proposta de orçamento <strong>não foi selecionada</strong> para a etapa de votação."
         see_price_explanation: Exposição de custos
         feasible: "Proposta viável"
         unfeasible: "Proposta inviável"
@@ -202,8 +202,8 @@ pt-BR:
       proposals_not_found: Não foram encontrados resultados para sua busca.
       unfeasible_title: Propostas inviáveis
       unfeasible: Ver propostas inviáveis
-      unselected_title: Propostas não selecionados para a fase de votação
-      unselected: Ver propostas não selecionados para a fase de votação
+      unselected_title: Propostas não selecionados para a etapa de votação
+      unselected: Ver propostas não selecionados para a etapa de votação
       see_results: Exibir resultados
       spreadsheet:
         balloting_result: Resultado da votação
@@ -247,5 +247,5 @@ pt-BR:
     phases:
       errors:
         dates_range_invalid: "Data de início não pode ser igual ou posterior à data de término"
-        prev_phase_dates_invalid: "Data de início deve ser posterior à data de início da fase anterior habilitada (%{phase_name})"
-        next_phase_dates_invalid: "Data de término deve ser anterior à data de término da próxima fase habilitada (%{phase_name})"
+        prev_phase_dates_invalid: "Data de início deve ser posterior à data de início da etapa anterior habilitada (%{phase_name})"
+        next_phase_dates_invalid: "Data de término deve ser anterior à data de término da próxima etapa habilitada (%{phase_name})"

@@ -461,7 +461,7 @@ pt-BR:
       dashboard_proposal_link: Painel de controle
       flag: Esta proposta já foi marcada como inadequada por vários usuários.
       notifications_tab: Notificações
-      milestones_tab: Fases
+      milestones_tab: Etapas
       retired_warning: "O autor considera que esta proposta não deve mais receber apoio."
       retired_warning_link_to_explanation: Leia a explicação antes de votar.
       retired: Proposta retirada pelo autor
@@ -886,7 +886,7 @@ pt-BR:
       not_verified: Somente usuários verificados podem votar em projetos de investimento; %{verify_account}.
       organization: Organizações não tem permissão de voto
       unfeasible: Projetos de investimento inviáveis não podem ser apoiados
-      not_voting_allowed: A fase de votação está fechada
+      not_voting_allowed: A etapa de votação está fechada
       different_heading_assigned:
         one: "Você só pode apoiar projetos de investimento em %{count} distrito. Você já apoiou investimentos em %{supported_headings}."
         other: "Você só pode apoiar projetos de investimento em %{count} distritos. Você já apoiou investimentos em %{supported_headings}."

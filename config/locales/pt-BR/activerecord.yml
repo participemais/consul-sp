@@ -19,8 +19,8 @@ pt-BR:
         one: "Situação"
         other: "Situações"
       milestone/status:
-        one: "Fase"
-        other: "Fases"
+        one: "Etapa"
+        other: "Etapas"
       progress_bar:
         one: "Barra de progresso"
         other: "Barras de progresso"
@@ -135,16 +135,16 @@ pt-BR:
     attributes:
       budget:
         name: "Nome"
-        description_accepting: "Descrição durante a fase de aceitação"
-        description_reviewing: "Descrição durante a fase de revisão"
-        description_selecting: "Descrição durante a seleção da fase"
-        description_valuating: "Descrição durante a fase de avaliação"
-        description_balloting: "Descrição durante a fase de votação"
-        description_reviewing_ballots: "Descrição durante a fase de revisão das cédulas"
-        description_devolutive: "Descrição durante a fase devolutiva"
+        description_accepting: "Descrição durante a etapa de aceitação"
+        description_reviewing: "Descrição durante a etapa de revisão"
+        description_selecting: "Descrição durante a seleção da etapa"
+        description_valuating: "Descrição durante a etapa de avaliação"
+        description_balloting: "Descrição durante a etapa de votação"
+        description_reviewing_ballots: "Descrição durante a etapa de revisão das cédulas"
+        description_devolutive: "Descrição durante a etapa devolutiva"
         description_finished: "Descrição sobre o orçamento concluído."
-        description_formulation: "Descrição sobre a fase análise de viabilidade."
-        phase: "Fase"
+        description_formulation: "Descrição sobre a etapa análise de viabilidade."
+        phase: "Etapa"
         currency_symbol: Distribuição de recursos
         max_votes: Votos por usuário
       budget/translation:
@@ -222,7 +222,7 @@ pt-BR:
       budget/heading/translation:
         name: "Título"
       budget/phase:
-        enabled: "Fase habilitada"
+        enabled: "Etapa habilitada"
         ends_at: "Data final"
         starts_at: "Data de início"
       budget/phase/translation:

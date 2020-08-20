@@ -89,7 +89,7 @@ es:
       print_investments: Imprimir proyectos de gasto
       support_investments: Apoyar proyectos de gasto
       table_name: Nombre
-      table_phase: Fase
+      table_phase: Etapa
       table_actions: Acciones
       no_budgets: No hay presupuestos participativos activos.
     budget_investments:

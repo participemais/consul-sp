@@ -12,7 +12,7 @@ pt-BR:
           current: Aberto
           finished: Finalizados
         table_name: Nome
-        table_phase: Fases
+        table_phase: Etapas
         table_assigned_investments_valuation_open: Projetos de investimento atribuídos com avaliação aberta
         table_actions: Ações
         evaluate: Avaliar
@@ -69,4 +69,4 @@ pt-BR:
       notice:
         valuate: "Dossiê atualizado"
       valuation_comments: Comentários de avaliação
-      not_in_valuating_phase: As propostas só podem ser avaliados quando o Orçamento estiver na fase de avaliação
+      not_in_valuating_phase: As propostas só podem ser avaliados quando o Orçamento estiver na etapa de avaliação
