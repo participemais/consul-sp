@@ -53,9 +53,20 @@
   </div>
 <% end %>
 
-<% if investment.should_show_unfeasibility_explanation? %>
-  <h2><%= t("budgets.investments.show.unfeasibility_explanation") %></h2>
-  <p><%= investment.unfeasibility_explanation %></p>
+<% if investment.should_show_feasibility_analysis? %>
+  <fieldset class="feasibility-fieldset <%= investment.feasibility %>">
+    <legend class="feasibility-legend">
+      <%= t("budgets.investments.show.#{investment.feasibility}") %>
+    </legend>
+    <% if investment.commitment.present? && investment.feasible? %>
+      <h4><%= t("budgets.investments.show.commitment") %></h4>
+      <%= sanitize(investment.commitment) %>
+    <% end %>
+    <% if investment.unfeasibility_explanation.present? %>
+      <h4><%= t("budgets.investments.show.unfeasibility_explanation") %></h4>
+      <%= sanitize(investment.unfeasibility_explanation) %>
+    <% end %>
+  </fieldset>
 <% end %>
 
 <% if investment.should_show_price_explanation? %>

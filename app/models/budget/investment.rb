@@ -390,6 +390,10 @@ class Budget
       unfeasible? && valuation_finished? && unfeasibility_explanation.present?
     end
 
+    def should_show_feasibility_analysis?
+      selected? && valuation_finished?
+    end
+
     def formatted_price
       if budget_resource_allocation_balloting?
         budget.formatted_currency_amount(price)
