@@ -1,0 +1,134 @@
+<%= form_for([:admin, @budget, @feasibility_analyzable, @feasibility_analysis]) do |f| %>
+
+  <%= render "shared/errors", resource: @feasibility_analysis %>
+
+  <div class="row">
+    <div class="small-12 column">
+      <%= f.text_field :responsible %>
+    </div>
+
+    <div class="small-12 column">
+      <fieldset class="fieldset">
+        <legend>
+          <%= t("admin.feasibility_analyses.form.technical") %>
+        </legend>
+
+        <div class="small-4 column">
+          <span class="radio">
+            <%= f.radio_button :technical, "undecided",
+              label: t("shared.undecided")
+            %>
+          </span>
+        </div>
+
+        <div class="small-4 column">
+          <span class="radio">
+            <%= f.radio_button :technical, "feasible",
+              label: t("shared.feasible")
+            %>
+          </span>
+        </div>
+
+        <div class="small-4 column end">
+          <span class="radio">
+            <%= f.radio_button :technical, "unfeasible",
+              label: t("shared.unfeasible")
+            %>
+          </span>
+        </div>
+
+        <div class="small-12 column">
+          <%= f.text_area :technical_description, class: "html-area" %>
+        </div>
+      </fieldset>
+    </div>
+
+    <div class="small-12 column">
+      <fieldset class="fieldset">
+        <legend>
+          <%= t("admin.feasibility_analyses.form.legal") %>
+        </legend>
+
+        <div class="small-4 column">
+          <span class="radio">
+            <%= f.radio_button :legal, "undecided",
+              label: t("shared.undecided")
+            %>
+          </span>
+        </div>
+
+        <div class="small-4 column">
+          <span class="radio">
+            <%= f.radio_button :legal, "feasible",
+              label: t("shared.feasible")
+            %>
+          </span>
+        </div>
+
+        <div class="small-4 column end">
+          <span class="radio">
+            <%= f.radio_button :legal, "unfeasible",
+              label: t("shared.unfeasible")
+            %>
+          </span>
+        </div>
+
+        <div class="small-12 column">
+          <%= f.text_area :legal_description, class: "html-area" %>
+        </div>
+      </fieldset>
+    </div>
+
+    <div class="small-12 column">
+      <fieldset class="fieldset">
+        <legend>
+          <%= t("admin.feasibility_analyses.form.budgetary") %>
+        </legend>
+
+        <div class="small-4 column">
+          <span class="radio">
+            <%= f.radio_button :budgetary, "undecided",
+              label: t("shared.undecided")
+            %>
+          </span>
+        </div>
+
+        <div class="small-4 column">
+          <span class="radio">
+            <%= f.radio_button :budgetary, "feasible",
+              label: t("shared.feasible")
+            %>
+          </span>
+        </div>
+
+        <div class="small-4 column end">
+          <span class="radio">
+            <%= f.radio_button :budgetary, "unfeasible",
+              label: t("shared.unfeasible")
+            %>
+          </span>
+        </div>
+
+        <div class="small-12 column">
+          <%= f.text_area :budgetary_description, class: "html-area" %>
+        </div>
+      </fieldset>
+    </div>
+
+    <div class="small-12 medium-6 column">
+      <%= f.text_field :budgetary_actions %>
+    </div>
+
+    <div class="small-12 medium-6 column">
+      <%= f.text_field :sei_number %>
+    </div>
+
+  </div>
+
+  <div class="row">
+    <div class="actions small-12 medium-4 column">
+      <%= f.submit(class: "button expanded large", value: t("admin.feasibility_analyses.form.save")) %>
+    </div>
+  </div>
+
+<% end %>
