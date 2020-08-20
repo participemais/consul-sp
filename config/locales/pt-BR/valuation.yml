@@ -54,6 +54,10 @@ pt-BR:
         assigned_admin: Administrador designado
         assigned_valuators: Avaliadores designados
         preview: Pré-visualização de investimento
+        running_project: projeto em execução
+        new_project: novo projeto
+        commitment: Compromisso
+        unfeasibility_explanation: Justificativa de inviabilidade
       edit:
         dossier: Relatório
         price: "Custo (%{currency})"
