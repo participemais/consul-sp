@@ -154,8 +154,11 @@ pt-BR:
         project_winner: "Proposta de orçamento ganhando"
         project_balloting_loser: "Esta proposta não foi eleita na fase de votação"
         project_balloting_winner: "Esta proposta foi eleita na fase de votação"
+        running_project: "Esta proposta foi classificada como viável - projeto em execução"
         project_not_selected: "Esta proposta de orçamento <strong>não foi selecionada</strong> para a fase de votação."
         see_price_explanation: Exposição de custos
+        budgetary_actions: "Ações orçamentárias: <strong>%{code}</strong>"
+        sei_number: "Número do Processo SEI: <strong>%{code}</strong>"
       wrong_price_format: Apenas números inteiros
       investment:
         add: Votar

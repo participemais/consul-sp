@@ -312,6 +312,33 @@ pt-BR:
         table_percentage: "Posição atual"
       new:
         creating: "Criar barra de progresso"
+    feasibility_analyses:
+      index:
+        feasibility_analysis: Análises de viabilidade das secretarias
+        budgetary: Orçamentária
+        legal: Jurídica
+        technical: Técnica
+        responsible: Secretaria responsável
+        budgetary_actions: Ações orçamentárias
+        sei_number: Número SEI
+        new_feasibility_analysis: Adicionar
+        no_feasibility_analyses: Nenhum parecer cadastrado
+        delete: Apagar
+      new:
+        creating: Criar análise de viabilidade
+      edit:
+        editing: Editar análise de viabilidade
+      create:
+        notice: Nova análise de viabilidade criada com sucesso
+      update:
+        notice: Análise de viabilidade atualizado com sucesso
+      delete:
+        notice: Análise de viabilidade excluído com sucesso
+      form:
+        budgetary: Análise de viabilidade orçamentária
+        legal: Análise de viabilidade jurídica
+        technical: Análise de viabilidade técnica
+        save: Salvar alterações
     comments:
       index:
         id: "ID"

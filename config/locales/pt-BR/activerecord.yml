@@ -17,7 +17,7 @@ pt-BR:
         other: "Propostas"
       milestone:
         one: "Situação"
-        other: "Situção"
+        other: "Situações"
       milestone/status:
         one: "Fase"
         other: "Fases"
@@ -129,6 +129,9 @@ pt-BR:
       local_census_record:
         one: Registro de censo local
         other: Registros de censo local
+      feasibility_analysis:
+        one: Análise de viabilidade
+        other: Análises de viabilidade
     attributes:
       budget:
         name: "Nome"
@@ -140,6 +143,7 @@ pt-BR:
         description_reviewing_ballots: "Descrição durante a fase de revisão das cédulas"
         description_devolutive: "Descrição durante a fase devolutiva"
         description_finished: "Descrição sobre o orçamento concluído."
+        description_formulation: "Descrição sobre a fase análise de viabilidade."
         phase: "Fase"
         currency_symbol: Distribuição de recursos
         max_votes: Votos por usuário
@@ -159,16 +163,19 @@ pt-BR:
         feasibility_feasible: "Viável"
         feasibility_undecided: "Não definido"
         feasibility_unfeasible: "Inviável"
+        feasibility_type_running_project: "Viável (projeto em execução)"
+        feasibility_type_new_project: "Viável (novo projeto)"
         incompatible: "Marcar como incompatível"
         milestone_tag_list: "Status de andamento"
         price_explanation: "Exposição de custos"
         selected: "Marcar como selecionado"
         selected_true: "Selecionado"
         selected_false: "Não selecionado"
-        unfeasibility_explanation: "Exposição de viabilidade"
+        unfeasibility_explanation: "Justificativa de inviabilidade"
         valuation_finished: "Avaliação concluída"
         valuator_ids: "Grupos"
         valuation_tag_list: "Tags"
+        commitment: "Compromisso"
       budget/investment/translation:
         title: "Título"
         description: "Descrição"
@@ -194,6 +201,13 @@ pt-BR:
       progress_bar/kind:
         primary: "Primário"
         secondary: "Secundário"
+      feasibility_analysis:
+        budgetary_actions: "Ações orçamentárias"
+        budgetary_description: "Parecer orçamentário"
+        legal_description: "Parecer jurídico"
+        responsible: "Secretaria responsável"
+        sei_number: "Número do Processo SEI"
+        technical_description: "Parecer técnico"
       budget/group:
         max_votable_headings: "Número máximo de títulos em que um usuário pode votar"
       budget/group/translation:

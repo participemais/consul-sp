@@ -201,6 +201,7 @@ pt-BR:
     local_census_records/import: Importações de registros do censo local
     site_customization/content_block: Conteúdo
     site_customization/page: Página
+    feasibility_analysis: Análises de viabilidade
   geozones:
     none: Cidade de São Paulo
   layouts:
