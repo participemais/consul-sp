@@ -4,7 +4,11 @@
 
   <div class="row">
     <div class="small-12 column">
-      <%= f.text_field :responsible %>
+      <%= f.select(
+        :responsible,
+        FeasibilityAnalysis::AGENCIES,
+        include_blank: true
+      ) %>
     </div>
 
     <div class="small-12 column">
