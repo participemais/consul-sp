@@ -137,7 +137,7 @@ pt-BR:
       show:
         author_deleted: Usuário excluído
         price_explanation: Explicação do preço
-        unfeasibility_explanation: Explanação da inviabilidade
+        unfeasibility_explanation: Justificativa de invialibidade
         code: "Código da proposta: <strong>%{code}</strong>"
         location: "Localização: <strong>%{location}</strong>"
         organization_name: "Proposta em nome de: <strong>%{name}</strong>"
@@ -147,18 +147,21 @@ pt-BR:
         votes: Votos
         price: Preço
         comments_tab: Comentários
+        feasibility_analyses_tab: Análises de viabilidade
         milestones_tab: Marcos
         author: Autor
-        project_unfeasible: "Esta proposta de orçamento <strong>foi marcada como não viável</strong> e não vai à fase de votação."
         project_selected: "Esta proposta de orçamento <strong>está selecionada</strong> para a fase de votação."
         project_winner: "Proposta de orçamento ganhando"
         project_balloting_loser: "Esta proposta não foi eleita na fase de votação"
         project_balloting_winner: "Esta proposta foi eleita na fase de votação"
-        running_project: "Esta proposta foi classificada como viável - projeto em execução"
+        running_project: "Esta proposta foi classificada como <strong>viável</strong> - projeto em execução"
+        new_project: "Esta proposta foi classificada como <strong>viável</strong> - novo projeto"
+        unfeasible_project: "Esta proposta foi classificada como inviável"
         project_not_selected: "Esta proposta de orçamento <strong>não foi selecionada</strong> para a fase de votação."
         see_price_explanation: Exposição de custos
-        budgetary_actions: "Ações orçamentárias: <strong>%{code}</strong>"
-        sei_number: "Número do Processo SEI: <strong>%{code}</strong>"
+        feasible: "Proposta viável"
+        unfeasible: "Proposta inviável"
+        commitment: "Compromisso"
       wrong_price_format: Apenas números inteiros
       investment:
         add: Votar

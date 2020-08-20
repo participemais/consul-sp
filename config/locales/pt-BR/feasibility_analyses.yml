@@ -1,0 +1,11 @@
+pt-BR:
+  feasibility_analyses:
+    show:
+      budgetary: Análise de viabilidade orçamentária
+      legal: Análise de viabilidade jurídica
+      technical: Análise de viabilidade técnica
+      responsible: Responsável
+      sei_number: "<strong>Número SEI:</strong> %{code}"
+      budgetary_actions: "<strong>Ações orçamentárias:</strong> %{code}"
+    index:
+      no_feasibility_analyses: Secretarias ainda não enviaram um parecer sobre a proposta

@@ -120,7 +120,6 @@ en:
         comments_tab: Comments
         milestones_tab: Milestones
         author: Author
-        project_unfeasible: "This investment project <strong>has been marked as not feasible</strong> and will not go to balloting phase."
         project_selected: "This investment project <strong>has been selected</strong> for balloting phase."
         project_winner: "Winning investment project"
         project_not_selected: "This investment project <strong>has not been selected</strong> for balloting phase."
