@@ -161,7 +161,7 @@ pt-BR:
         image_title: "Título da imagem"
         duration: "Prazo"
         feasibility_feasible: "Viável"
-        feasibility_undecided: "Não definido"
+        feasibility_undecided: "Não definida"
         feasibility_unfeasible: "Inviável"
         feasibility_type_running_project: "Viável (projeto em execução)"
         feasibility_type_new_project: "Viável (novo projeto)"

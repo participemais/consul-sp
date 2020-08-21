@@ -54,6 +54,7 @@ pt-BR:
       empty_budgets: Não há orçamento.
       section_header:
         balloting_result: Veja o resultado da votação
+        valuating_result: Veja as propostas aprovadas pelas secretarias
         icon_alt: Ícone dos orçamentos
         title: Orçamentos cidadão
         help: Sobre o orçamento cidadão
