@@ -9,7 +9,9 @@
     <%= link_to "#tab-comments" do %>
       <h3>
         <%= t("budgets.investments.show.comments_tab") %>
-        <span class="js-comments-count">(<%= @investment.comments_count %>)</span>
+        <span class="js-comments-count">
+          (<%= @investment.comments_count %>)
+        </span>
       </h3>
     <% end %>
   </li>
@@ -17,7 +19,7 @@
     <%= link_to "#tab-feasibility-analyses" do %>
       <h3>
         <%= t("budgets.investments.show.feasibility_analyses_tab") %>
-        (<%= @investment.feasibility_analyses.count %>)
+        (<%= feasibility_analyses_count %>)
       </h3>
     <% end %>
   </li>

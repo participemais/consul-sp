@@ -391,7 +391,7 @@ class Budget
     end
 
     def should_show_feasibility_analysis?
-      selected? && valuation_finished?
+      selected? && valuation_finished? && !undecided?
     end
 
     def formatted_price

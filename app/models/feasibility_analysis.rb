@@ -10,6 +10,10 @@ class FeasibilityAnalysis < ApplicationRecord
     ANALYSES_FIELDS.reject { |field| send(field) == 'undecided' }
   end
 
+  def should_show_codes?
+    sei_number.present? || budgetary_actions.present?
+  end
+
   AGENCIES = [
     "Secretaria Municipal de Direitos Humanos e Cidadania",
     "Secretaria Municipal de Educação",

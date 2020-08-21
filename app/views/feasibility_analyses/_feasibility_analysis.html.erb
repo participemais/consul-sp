@@ -25,21 +25,29 @@
       <% end %>
     </ul>
 
-    <div class="feasibility-analysis-margin investment-codes">
-      <h4>Códigos da proposta</h4>
-      <p>
-        <%= sanitize(t(
-          "feasibility_analyses.show.sei_number",
-          code: feasibility_analysis.sei_number
-        )) %>
-      </p>
+    <% if feasibility_analysis.should_show_codes? %>
+      <div class="feasibility-analysis-margin investment-codes">
+        <h4>Códigos da proposta</h4>
 
-      <p>
-        <%= sanitize(t(
-          "feasibility_analyses.show.budgetary_actions", code: feasibility_analysis.budgetary_actions
-        )) %>
-      </p>
-    </div>
+        <% if feasibility_analysis.sei_number.present? %>
+          <p>
+            <%= sanitize(t(
+              "feasibility_analyses.show.sei_number",
+              code: feasibility_analysis.sei_number
+            )) %>
+          </p>
+        <% end %>
+
+        <% if feasibility_analysis.budgetary_actions.present? %>
+          <p>
+            <%= sanitize(t(
+              "feasibility_analyses.show.budgetary_actions",
+              code: feasibility_analysis.budgetary_actions
+            )) %>
+          </p>
+        <% end %>
+      </div>
+    <% end %>
 
   </div>
 </div>
