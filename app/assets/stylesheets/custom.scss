@@ -289,6 +289,8 @@
   font-family: "Gotham Bold";
   padding: $line-height / 4 $line-height / 3;
   color: $text-medium;
+  float: right;
+  margin-left: 5px;
 
   &.winner {
     border-top: 1.5px solid $green;
@@ -303,7 +305,18 @@
   span {
     text-transform: uppercase;
   }
+
+  & + & {
+    &.winner {
+      border-right: 0;
+    }
+
+    &.loser {
+      border-right: 0;
+    }
+  }
 }
+
 
 .download-link {
   margin-top: 0;
