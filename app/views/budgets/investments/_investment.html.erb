@@ -1,11 +1,11 @@
 <div id="<%= dom_id(investment) %>" class="budget-investment clear">
-  <% if investment.winner && @budget.valuating? %>
+  <% if investment.winner && @budget.valuating_or_later? %>
     <div class="float-right balloting-result-flag winner">
       <span>
         <%= t("budgets.investments.investment.elected") %> <i class="fa fa-check" aria-hidden="true"></i>
       </span>
     </div>
-  <% elsif @budget.valuating? %>
+  <% elsif @budget.valuating_or_later? %>
     <div class="float-right balloting-result-flag loser">
       <span>
         <%= t("budgets.investments.investment.not_elected") %> <i class="fa fa-times" aria-hidden="true"></i>
