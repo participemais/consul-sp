@@ -119,6 +119,10 @@ class Budget < ApplicationRecord
     phase == "valuating"
   end
 
+  def formulation?
+    phase == "formulation"
+  end
+
   def publishing_prices?
     phase == "publishing_prices"
   end
@@ -145,6 +149,10 @@ class Budget < ApplicationRecord
 
   def publishing_prices_or_later?
     current_phase&.publishing_prices_or_later?
+  end
+
+  def formulation_or_later?
+    current_phase&.formulation_or_later?
   end
 
   def balloting_process?
