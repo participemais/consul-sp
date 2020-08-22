@@ -84,17 +84,20 @@ class Budget
     scope :visible_to_valuators,        -> { where(visible_to_valuators: true) }
     scope :valuation_finished,          -> { where(valuation_finished: true) }
     scope :valuation_finished_feasible, -> { where(valuation_finished: true, feasibility: "feasible") }
+    scope :valuation_finished_unfeasible, -> {
+      where(valuation_finished: true, feasibility: "unfeasible")
+    }
     scope :feasible,                    -> { where(feasibility: "feasible") }
     scope :unfeasible,                  -> { where(feasibility: "unfeasible") }
     scope :not_unfeasible,              -> { where.not(feasibility: "unfeasible") }
     scope :undecided,                   -> { where(feasibility: "undecided") }
     scope :with_supports,               -> { where("cached_votes_up > 0") }
-    scope :selected,                    -> { feasible.where(selected: true) }
+    scope :selected,                    -> { where(selected: true) }
     scope :compatible,                  -> { where(incompatible: false) }
     scope :incompatible,                -> { where(incompatible: true) }
-    scope :winners,                     -> { selected.compatible.where(winner: true) }
+    scope :winners,                     -> { selected.where(winner: true) }
     scope :losers,                      -> { selected.where(winner: false) }
-    scope :unselected,                  -> { not_unfeasible.where(selected: false) }
+    scope :unselected,                  -> { where(selected: false) }
     scope :last_week,                   -> { where("created_at >= ?", 7.days.ago) }
     scope :sort_by_flags,               -> { order(flags_count: :desc, updated_at: :desc) }
     scope :sort_by_created_at,          -> { reorder(created_at: :desc) }
