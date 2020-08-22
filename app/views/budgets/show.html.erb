@@ -48,15 +48,14 @@
   <div class="small-12 medium-9 column padding-right">
     <%= form_tag budget_path, method: :get do %>
       <div class="status-list">
-        <% %w(all winners losers).each do |status| %>
-          <% checked = params[:status_filter] == status %>
-          <%= radio_button_tag :status_filter,
+        <% %w(all winners losers feasibles unfeasibles).each do |status| %>
+          <%= check_box_tag :"status_filters[]",
             status,
-            checked,
-            class: 'status-radio-btn',
-            id: "status_filter_#{status}"
+            params[:status_filters]&.index(status),
+            class: 'status-filters-btn',
+            id: "status_filters_#{status}"
           %>
-          <%= label_tag "status_filter[#{status}]",
+          <%= label_tag "status_filters[#{status}]",
             t("budgets.show.filters.#{status}"),
             class: 'status-radio-label'
           %>

@@ -180,6 +180,48 @@ class Budget
       results
     end
 
+    def self.apply_filters_and_search(_budget, params, current_filter = nil)
+      investments = all
+      investments = investments.send(current_filter)             if current_filter.present?
+      investments = investments.by_heading(params[:heading_id])  if params[:heading_id].present?
+      investments = investments.search(params[:search])          if params[:search].present?
+      investments = investments.filter(params[:advanced_search]) if params[:advanced_search].present?
+      if params[:status_filters]&.any?
+        investments =
+          investments.status_filters(params[:status_filters], investments)
+      end
+
+      investments
+    end
+
+    def self.status_filters(filters, results)
+      return results if filters.include?('all')
+
+      balloting_ids = []
+      if filters.include?('winners')
+        balloting_ids += results.winners.pluck(:id)
+      end
+      if filters.include?('losers')
+        balloting_ids += results.losers.pluck(:id)
+      end
+      if balloting_ids.any?
+        results = results.where("budget_investments.id IN (?)", balloting_ids)
+      end
+
+      feasibility_ids = []
+      if filters.include?('feasibles')
+        feasibility_ids += results.valuation_finished_feasible.pluck(:id)
+      end
+      if filters.include?('unfeasibles')
+        feasibility_ids += results.valuation_finished_unfeasible.pluck(:id)
+      end
+      if feasibility_ids.any?
+        results = results.where("budget_investments.id IN (?)", feasibility_ids)
+      end
+
+      results
+    end
+
     def self.order_filter(params)
       sorting_key = params[:sort_by]&.downcase&.to_sym
       allowed_sort_option = SORTING_OPTIONS[sorting_key]
@@ -400,27 +442,6 @@ class Budget
     def formatted_price
       if budget_resource_allocation_balloting?
         budget.formatted_currency_amount(price)
-      end
-    end
-
-    def self.apply_filters_and_search(_budget, params, current_filter = nil)
-      investments = all
-      investments = investments.send(current_filter)             if current_filter.present?
-      investments = investments.by_heading(params[:heading_id])  if params[:heading_id].present?
-      investments = investments.search(params[:search])          if params[:search].present?
-      investments = investments.filter(params[:advanced_search]) if params[:advanced_search].present?
-      investments = investments.status_filter(params[:status_filter], investments) if params[:status_filter].present?
-      investments
-    end
-
-    def self.status_filter(filter, results)
-      case filter
-      when 'winners'
-        results.winners
-      when 'losers'
-        results.losers
-      else
-        results
       end
     end
 
