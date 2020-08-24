@@ -52,7 +52,7 @@
           <%= check_box_tag :"status_filters[]",
             status,
             params[:status_filters]&.index(status),
-            class: 'status-filters-btn',
+            class: 'status-filters-btn js-proposals-status-filters',
             id: "status_filters_#{status}"
           %>
           <%= label_tag "status_filters[#{status}]",

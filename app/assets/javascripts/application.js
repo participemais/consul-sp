@@ -96,6 +96,7 @@
 //= require subprefecture_data
 //= require change_confirmation
 //= require link_target_blank
+//= require proposals_status_filters
 
 var initialize_modules = function() {
   "use strict";
@@ -156,6 +157,7 @@ var initialize_modules = function() {
   App.SubprefectureData.initialize();
   App.ChangeConfirmation.initialize();
   App.LinkTargetBlank.initialize();
+  App.ProposalsStatusFilters.initialize();
 };
 
 $(function() {
