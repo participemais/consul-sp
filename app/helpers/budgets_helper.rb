@@ -122,4 +122,16 @@ module BudgetsHelper
       }
     end
   end
+
+  def investment_status_filters
+    filters = []
+    if @budget.valuating_or_later?
+      filters += %w(all winners losers)
+    end
+
+    if @budget.formulation_or_later?
+      filters += %w(feasibles unfeasibles)
+    end
+    filters
+  end
 end

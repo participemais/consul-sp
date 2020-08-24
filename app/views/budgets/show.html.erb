@@ -48,7 +48,7 @@
   <div class="small-12 medium-9 column padding-right">
     <%= form_tag budget_path, method: :get do %>
       <div class="status-list">
-        <% %w(all winners losers feasibles unfeasibles).each do |status| %>
+        <% investment_status_filters.each do |status| %>
           <%= check_box_tag :"status_filters[]",
             status,
             params[:status_filters]&.index(status),
