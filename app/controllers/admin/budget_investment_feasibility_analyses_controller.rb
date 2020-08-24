@@ -13,12 +13,6 @@ class Admin::BudgetInvestmentFeasibilityAnalysesController < Admin::FeasibilityA
     @investment = feasibility_analyzable
   end
 
-  def feasibility_analysis
-    binding.pry
-
-    x = 1
-  end
-
   def feasibility_analyzable
     Budget::Investment.find(params[:budget_investment_id])
   end
