@@ -26,7 +26,7 @@
           <%= auto_link_already_sanitized_html wysiwyg(current_budget.description) %>
         </div>
         <p>
-          <% if current_budget.formulation_or_later? %>
+          <% if current_budget.devolutive_or_later? %>
             <%= link_to t("budgets.index.section_header.valuating_result"),
               budget_path(current_budget.id, status_filters: ['feasibles'])
             %>

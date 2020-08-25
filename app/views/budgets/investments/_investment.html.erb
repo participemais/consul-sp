@@ -1,31 +1,35 @@
 <div id="<%= dom_id(investment) %>" class="budget-investment clear">
 
-  <% if investment.valuation_finished? && investment.feasible? %>
-    <div class="balloting-result-flag winner">
-      <span>
-        <%= t("shared.feasible") %> <i class="fa fa-check" aria-hidden="true"></i>
-      </span>
-    </div>
-  <% elsif investment.valuation_finished? && investment.unfeasible? %>
-    <div class="balloting-result-flag loser">
-      <span>
-        <%= t("shared.unfeasible") %> <i class="fa fa-times" aria-hidden="true"></i>
-      </span>
-    </div>
+  <% if investment.valuation_finished? && @budget.devolutive_or_later? %>
+    <% if investment.feasible? %>
+      <div class="balloting-result-flag winner">
+        <span>
+          <%= t("shared.feasible") %> <i class="fa fa-check" aria-hidden="true"></i>
+        </span>
+      </div>
+    <% elsif investment.unfeasible? %>
+      <div class="balloting-result-flag loser">
+        <span>
+          <%= t("shared.unfeasible") %> <i class="fa fa-times" aria-hidden="true"></i>
+        </span>
+      </div>
+    <% end %>
   <% end %>
 
-  <% if investment.winner && @budget.valuating_or_later? %>
-    <div class="balloting-result-flag winner">
-      <span>
-        <%= t("budgets.investments.investment.elected") %> <i class="fa fa-check" aria-hidden="true"></i>
-      </span>
-    </div>
-  <% elsif investment.selected && @budget.valuating_or_later? %>
-    <div class="balloting-result-flag loser">
-      <span>
-        <%= t("budgets.investments.investment.not_elected") %> <i class="fa fa-times" aria-hidden="true"></i>
-      </span>
-    </div>
+  <% if @budget.valuating_or_later? %>
+    <% if investment.winner %>
+      <div class="balloting-result-flag winner">
+        <span>
+          <%= t("budgets.investments.investment.elected") %> <i class="fa fa-check" aria-hidden="true"></i>
+        </span>
+      </div>
+    <% elsif investment.selected %>
+      <div class="balloting-result-flag loser">
+        <span>
+          <%= t("budgets.investments.investment.not_elected") %> <i class="fa fa-times" aria-hidden="true"></i>
+        </span>
+      </div>
+    <% end %>
   <% end %>
 
   <div class="panel <%= ("with-image" if feature?(:allow_images) && investment.image.present?) %>">

@@ -61,8 +61,8 @@ class Budget
       in_phase_or_later?("balloting")
     end
 
-    def formulation_or_later?
-      in_phase_or_later?("formulation")
+    def devolutive_or_later?
+      in_phase_or_later?("devolutive")
     end
 
     private

@@ -129,7 +129,7 @@ module BudgetsHelper
       filters += %w(all winners losers)
     end
 
-    if @budget.formulation_or_later?
+    if @budget.devolutive_or_later?
       filters += %w(feasibles unfeasibles)
     end
     filters
