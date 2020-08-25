@@ -1,0 +1,39 @@
+<h2 class="inline-block"><%= t("admin.departments.index.title") %></h2>
+
+<%= link_to t("admin.departments.index.new_department"),
+            new_admin_feasibility_analysis_department_path,
+            class: "button float-right margin-right" %>
+
+<% if @departments.any? %>
+  <table>
+    <thead>
+      <tr>
+        <th><%= t("admin.departments.index.table_name") %></th>
+        <th><%= t("admin.departments.index.table_actions") %></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @departments.each do |department| %>
+        <tr id="<%= dom_id(department) %>" class="feasibility_analysis_department">
+          <td>
+            <%= department.name %>
+          </td>
+          <td>
+            <%= link_to t("admin.departments.index.edit"),
+                        edit_admin_feasibility_analysis_department_path(department),
+                        class: "button hollow" %>
+            <% if department.feasibility_analyses.empty? %>
+              <%= link_to t("admin.departments.index.delete"),
+                          admin_feasibility_analysis_department_path(department),
+                          method: :delete, class: "button hollow alert" %>
+            <% end %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% else %>
+  <div data-alert class="callout primary margin-top clear">
+    <%= t("admin.departments.index.empty_departments") %>
+  </div>
+<% end %>
