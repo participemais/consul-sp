@@ -197,6 +197,8 @@ pt-BR:
         all: Todas
         winners: Eleitas
         losers: Não eleitas
+        feasibles: Viáveis
+        unfeasibles: Inviáveis
       group: Grupo
       investment_proposals: Índice de propostas
       phase: Etapa atual
@@ -208,12 +210,24 @@ pt-BR:
       see_results: Exibir resultados
       spreadsheet:
         balloting_result: Resultado da votação
+        budgetary: Viabilidade orçamentária
+        budgetary_actions: Ações orçamentárias
+        budgetary_description: Parecer orçamentário
         categories: Categorias
+        commitment: Compromisso
+        department: Órgão público responsável
         description: Descrição
+        feasibility: Viabilidade
         id: ID
+        legal: Viabilidade jurídica
+        legal_description: Parecer jurídico
         prioritization: Resultado da priorização
+        sei_number: Número do processo SEI
         subprefecture: Subprefeitura
+        technical: Viabilidade técnica
+        technical_description: Parecer técnico
         title: Título
+        unfeasibility_explanation: Justificativa de inviabilidade
         votes: Votos
     results:
       link: Resultados

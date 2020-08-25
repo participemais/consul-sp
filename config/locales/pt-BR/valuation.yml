@@ -47,7 +47,8 @@ pt-BR:
         feasibility: Viabilidade final
         feasible: Viável
         unfeasible: Inviável
-        undefined: Não definida
+        undecided: Não definida
+        undefined: Não definido
         valuation_finished: Avaliação terminada
         duration: Prazo
         responsibles: Responsáveis

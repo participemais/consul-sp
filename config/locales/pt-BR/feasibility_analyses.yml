@@ -7,5 +7,6 @@ pt-BR:
       responsible: Responsável
       sei_number: "<strong>Número SEI:</strong> %{code}"
       budgetary_actions: "<strong>Ações orçamentárias:</strong> %{code}"
+      investment_codes: Códigos da proposta
     index:
       no_feasibility_analyses: Secretarias ainda não enviaram um parecer sobre a proposta

@@ -132,6 +132,9 @@ pt-BR:
       feasibility_analysis:
         one: Análise de viabilidade
         other: Análises de viabilidade
+      feasibility_analysis/departments:
+        one: Órgão público
+        other: Órgãos públicos
     attributes:
       budget:
         name: "Nome"
@@ -205,9 +208,11 @@ pt-BR:
         budgetary_actions: "Ações orçamentárias"
         budgetary_description: "Parecer orçamentário"
         legal_description: "Parecer jurídico"
-        responsible: "Secretaria responsável"
+        department_id: "Órgão público responsável"
         sei_number: "Número do Processo SEI"
         technical_description: "Parecer técnico"
+      feasibility_analysis/department:
+        name: Nome
       budget/group:
         max_votable_headings: "Número máximo de títulos em que um usuário pode votar"
       budget/group/translation:
