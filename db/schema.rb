@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20200821095327) do
+ActiveRecord::Schema.define(version: 20200824145426) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -617,6 +617,13 @@ ActiveRecord::Schema.define(version: 20200821095327) do
     t.string "responsible"
     t.string "feasibility_analyzable_type"
     t.integer "feasibility_analyzable_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "feasibility_analysis_departments", force: :cascade do |t|
+    t.string "name"
+    t.boolean "active", default: true
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
