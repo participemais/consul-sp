@@ -4,11 +4,12 @@
 
   <div class="row">
     <div class="small-12 column">
-      <%= f.select(
-        :responsible,
-        FeasibilityAnalysis::AGENCIES,
-        include_blank: true
-      ) %>
+      <%= f.select :department_id,
+            @departments.collect { |s| [s.name, s.id] },
+            { include_blank: @departments.any? ? "" : t("admin.feasibility_analyses.form.no_departments_defined") },
+            { disabled: @departments.blank? } %>
+      <%= link_to t("admin.feasibility_analyses.form.admin_departments"),
+                  admin_feasibility_analysis_departments_path %>
     </div>
 
     <div class="small-12 column">

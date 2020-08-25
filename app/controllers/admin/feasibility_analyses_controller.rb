@@ -2,6 +2,7 @@ class Admin::FeasibilityAnalysesController < Admin::BaseController
 
   before_action :load_feasibility_analyzable
   before_action :load_feasibility_analysis, only: [:edit, :update, :destroy]
+  before_action :load_departments, only: [:new, :create, :edit, :update]
   helper_method :feasibility_analyzable_path
 
   def new
@@ -43,7 +44,7 @@ class Admin::FeasibilityAnalysesController < Admin::BaseController
     params.require(:feasibility_analysis).permit(
       :feasibility_analyses, :technical, :technical_description, :legal,
       :legal_description, :budgetary, :budgetary_description,
-      :budgetary_actions, :sei_number, :responsible
+      :budgetary_actions, :sei_number, :department_id
     )
   end
 
@@ -61,6 +62,10 @@ class Admin::FeasibilityAnalysesController < Admin::BaseController
       :valuation,
       *resource_hierarchy_for(@feasibility_analysis.feasibility_analyzable)
     ])
+  end
+
+  def load_departments
+    @departments = FeasibilityAnalysis::Department.active.sort_by_name
   end
 
 end

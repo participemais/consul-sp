@@ -4,7 +4,7 @@
       <p class="feasibility-responsible-hat">
         <%= t("feasibility_analyses.show.responsible") %>
       </p>
-      <h3><%= feasibility_analysis.responsible %></h3>
+      <h3><%= feasibility_analysis.department_name %></h3>
     </div>
 
     <ul class="no-bullet feasibility-analysis">
@@ -27,7 +27,7 @@
 
     <% if feasibility_analysis.should_show_codes? %>
       <div class="feasibility-analysis-margin investment-codes">
-        <h4>Códigos da proposta</h4>
+        <h4><%= t("feasibility_analyses.show.investment_codes") %></h4>
 
         <% if feasibility_analysis.sei_number.present? %>
           <p>

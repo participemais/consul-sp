@@ -4,7 +4,7 @@
   <table>
     <thead>
       <tr>
-        <th><%= t("admin.feasibility_analyses.index.responsible") %></th>
+        <th><%= t("admin.feasibility_analyses.index.department") %></th>
         <th><%= t("admin.feasibility_analyses.index.technical") %></th>
         <th><%= t("admin.feasibility_analyses.index.legal") %></th>
         <th><%= t("admin.feasibility_analyses.index.budgetary") %></th>
@@ -17,7 +17,7 @@
       <% feasibility_analyzable.feasibility_analyses.each do |feasibility_analysis| %>
         <tr id="<%= dom_id(feasibility_analysis) %>" class="feasibility_analysis">
           <td>
-            <%= link_to(feasibility_analysis.responsible,
+            <%= link_to(feasibility_analysis.department_name,
               polymorphic_path(
                 [:admin, *resource_hierarchy_for(feasibility_analysis)],
                 action: :edit)
