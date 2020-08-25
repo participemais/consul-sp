@@ -76,7 +76,9 @@ namespace :admin do
 
   resources :milestone_statuses, only: [:index, :new, :create, :update, :edit, :destroy]
 
-  resources :feasibility_analysis_departments, except: [:show]
+  resources :feasibility_analysis_departments, except: [:show] do
+    member { patch :toggle_active }
+  end
 
   resources :signature_sheets, only: [:index, :new, :create, :show]
 

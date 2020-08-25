@@ -1,8 +1,8 @@
 class Admin::FeasibilityAnalysisDepartmentsController < Admin::BaseController
-  before_action :load_department, only: [:edit, :update, :destroy]
+  before_action :load_department, only: [:edit, :update, :destroy, :toggle_active]
+  before_action :load_departments, only: [:index, :toggle_active]
 
   def index
-    @departments = FeasibilityAnalysis::Department.all
   end
 
   def new
@@ -38,10 +38,19 @@ class Admin::FeasibilityAnalysisDepartmentsController < Admin::BaseController
                 notice: t("admin.departments.delete.notice")
   end
 
+  def toggle_active
+    @department.toggle(:active)
+    @department.save!
+  end
+
   private
 
     def load_department
       @department = FeasibilityAnalysis::Department.find(params[:id])
+    end
+
+    def load_departments
+      @departments = FeasibilityAnalysis::Department.sort_by_name
     end
 
     def department_params

@@ -8,6 +8,7 @@
   <table>
     <thead>
       <tr>
+        <th><%= t("admin.departments.index.status") %></th>
         <th><%= t("admin.departments.index.table_name") %></th>
         <th><%= t("admin.departments.index.table_actions") %></th>
       </tr>
@@ -15,19 +16,7 @@
     <tbody>
       <% @departments.each do |department| %>
         <tr id="<%= dom_id(department) %>" class="feasibility_analysis_department">
-          <td>
-            <%= department.name %>
-          </td>
-          <td>
-            <%= link_to t("admin.departments.index.edit"),
-                        edit_admin_feasibility_analysis_department_path(department),
-                        class: "button hollow" %>
-            <% if department.feasibility_analyses.empty? %>
-              <%= link_to t("admin.departments.index.delete"),
-                          admin_feasibility_analysis_department_path(department),
-                          method: :delete, class: "button hollow alert" %>
-            <% end %>
-          </td>
+          <%= render "department", department: department %>
         </tr>
       <% end %>
     </tbody>
