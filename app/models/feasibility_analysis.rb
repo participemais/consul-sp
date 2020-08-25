@@ -1,8 +1,11 @@
 class FeasibilityAnalysis < ApplicationRecord
   belongs_to :feasibility_analyzable, polymorphic: true
+  belongs_to :department
   validates :feasibility_analyzable, presence: true
-  validates :responsible, presence: true
-  validates :responsible, uniqueness: { scope: :feasibility_analyzable_id }
+  validates :department_id, presence: true
+  validates :department_id, uniqueness: { scope: :feasibility_analyzable_id }
+
+  delegate :name, to: :department, prefix: true
 
   ANALYSES_FIELDS = %i(technical legal budgetary)
 
