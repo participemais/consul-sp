@@ -23,16 +23,19 @@ class Budget::Investment::Exporter
 
   private
 
-    PROPOSALS_COLUMNS = %w(id title description categories subprefecture prioritization votes balloting_result).freeze
+    PROPOSALS_COLUMNS = %w(id title description categories subprefecture prioritization votes balloting_result feasibility commitment unfeasibility_explanation).freeze
+
+    FEASIBILITY_COLUMNS = %w(department budgetary_actions sei_number technical technical_description legal legal_description budgetary budgetary_description).freeze
 
     def proposals_list_headers
-      PROPOSALS_COLUMNS.map do |column|
+      headers = PROPOSALS_COLUMNS + FEASIBILITY_COLUMNS * 5
+      headers.map do |column|
         I18n.t(column, scope: 'budgets.show.spreadsheet')
       end
     end
 
     def proposals_list_csv_values(investment)
-      [
+      row = [
         investment.id.to_s,
         investment.title,
         sanitize_description(investment.description),
@@ -40,8 +43,30 @@ class Budget::Investment::Exporter
         investment.heading_name,
         prioritized_or_not(investment.selected?),
         investment.ballot_lines_count,
-        elected_or_not(investment.winner?)
+        elected_or_not(investment.winner?),
+        feasibility_translation(investment.feasibility),
+        sanitize_description(investment.commitment),
+        sanitize_description(investment.unfeasibility_explanation)
       ]
+
+      if investment.feasibility_analyses.any?
+        investment.feasibility_analyses.each do |analysis|
+          f_row = [
+            analysis.department_name,
+            analysis.budgetary_actions,
+            analysis.sei_number,
+            feasibility_translation(analysis.technical),
+            sanitize_description(analysis.technical_description),
+            feasibility_translation(analysis.legal),
+            sanitize_description(analysis.legal_description),
+            feasibility_translation(analysis.budgetary),
+            sanitize_description(analysis.budgetary_description)
+          ]
+          row += f_row
+        end
+      end
+
+      row
     end
 
     def headers
@@ -117,6 +142,10 @@ class Budget::Investment::Exporter
 
     def investment_translation(key)
       I18n.t(key, scope: "budgets.investments.investment")
+    end
+
+    def feasibility_translation(key)
+      I18n.t(key, scope: "shared")
     end
 
     def sanitize_description(description)
