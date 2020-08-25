@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20200824145426) do
+ActiveRecord::Schema.define(version: 20200824150002) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -614,11 +614,12 @@ ActiveRecord::Schema.define(version: 20200824145426) do
     t.text "budgetary_description"
     t.string "budgetary_actions"
     t.string "sei_number"
-    t.string "responsible"
     t.string "feasibility_analyzable_type"
     t.integer "feasibility_analyzable_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "department_id"
+    t.index ["department_id"], name: "index_feasibility_analyses_on_department_id"
   end
 
   create_table "feasibility_analysis_departments", force: :cascade do |t|
@@ -1691,6 +1692,7 @@ ActiveRecord::Schema.define(version: 20200824145426) do
   add_foreign_key "documents", "users"
   add_foreign_key "failed_census_calls", "poll_officers"
   add_foreign_key "failed_census_calls", "users"
+  add_foreign_key "feasibility_analyses", "feasibility_analysis_departments", column: "department_id"
   add_foreign_key "flags", "users"
   add_foreign_key "follows", "users"
   add_foreign_key "geozones_polls", "geozones"
