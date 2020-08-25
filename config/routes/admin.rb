@@ -66,13 +66,17 @@ namespace :admin do
       resources :audits, only: :show, controller: "budget_investment_audits"
       resources :milestones, controller: "budget_investment_milestones"
       resources :progress_bars, except: :show, controller: "budget_investment_progress_bars"
-      resources :feasibility_analyses, controller: "budget_investment_feasibility_analyses", except: [:index, :show]
+      resources :feasibility_analyses,
+        controller: "budget_investment_feasibility_analyses",
+        except: [:index, :show]
     end
 
     resources :budget_phases, only: [:edit, :update]
   end
 
   resources :milestone_statuses, only: [:index, :new, :create, :update, :edit, :destroy]
+
+  resources :feasibility_analysis_departments, except: [:show]
 
   resources :signature_sheets, only: [:index, :new, :create, :show]
 
