@@ -138,7 +138,7 @@ pt-BR:
       show:
         author_deleted: Usuário excluído
         price_explanation: Explicação do preço
-        unfeasibility_explanation: Justificativa de invialibidade
+        unfeasibility_explanation: Justificativa
         code: "Código da proposta: <strong>%{code}</strong>"
         location: "Localização: <strong>%{location}</strong>"
         organization_name: "Proposta em nome de: <strong>%{name}</strong>"
@@ -227,7 +227,7 @@ pt-BR:
         technical: Viabilidade técnica
         technical_description: Parecer técnico
         title: Título
-        unfeasibility_explanation: Justificativa de inviabilidade
+        unfeasibility_explanation: Justificativa
         votes: Votos
     results:
       link: Resultados

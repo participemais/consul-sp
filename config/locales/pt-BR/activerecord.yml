@@ -174,7 +174,7 @@ pt-BR:
         selected: "Marcar como selecionado"
         selected_true: "Selecionado"
         selected_false: "Não selecionado"
-        unfeasibility_explanation: "Justificativa de inviabilidade"
+        unfeasibility_explanation: "Justificativa"
         valuation_finished: "Avaliação concluída"
         valuator_ids: "Grupos"
         valuation_tag_list: "Tags"

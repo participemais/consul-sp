@@ -58,7 +58,7 @@ pt-BR:
         running_project: projeto em execução
         new_project: novo projeto
         commitment: Compromisso
-        unfeasibility_explanation: Justificativa de inviabilidade
+        unfeasibility_explanation: Justificativa
       edit:
         dossier: Relatório
         price: "Custo (%{currency})"
