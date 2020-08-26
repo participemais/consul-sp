@@ -163,9 +163,11 @@ pt-BR:
         image: "Imagem descritiva da proposta"
         image_title: "Título da imagem"
         duration: "Prazo"
+        feasibility: "Viabilidade final"
         feasibility_feasible: "Viável"
         feasibility_undecided: "Não definida"
         feasibility_unfeasible: "Inviável"
+        feasibility_type: "Tipo de viabilidade"
         feasibility_type_running_project: "Viável (projeto em execução)"
         feasibility_type_new_project: "Viável (novo projeto)"
         incompatible: "Marcar como incompatível"
@@ -176,9 +178,26 @@ pt-BR:
         selected_false: "Não selecionado"
         unfeasibility_explanation: "Justificativa"
         valuation_finished: "Avaliação concluída"
+        valuation_finished_true: "Avaliação concluída"
+        valuation_finished_false: "Avaliação pendente"
         valuator_ids: "Grupos"
         valuation_tag_list: "Tags"
         commitment: "Compromisso"
+        running_project: "Viável (projeto em execução)"
+        new_project: "Viável (novo projeto)"
+        budgetary: "Análise de viabilidade orçamentária"
+        budgetary_actions: "Ações orçamentárias"
+        budgetary_description: "Parecer orçamentário"
+        legal: "Análise de viabilidade jurídica"
+        legal_description: "Parecer jurídico"
+        department_id: "Órgão público responsável"
+        sei_number: "Número do Processo SEI"
+        technical: "Análise de viabilidade técnica"
+        technical_description: "Parecer técnico"
+        feasible: "Viável"
+        unfeasible: "Inviável"
+        undecided: "Não definida"
+        tag_list: "Categorias"
       budget/investment/translation:
         title: "Título"
         description: "Descrição"
@@ -510,7 +529,7 @@ pt-BR:
         description: Descrição
         valuator_group_id: Grupo de avaliação
         can_comment: Pode comentar
-        can_edit_dossier: Pode editar relatórios
+        can_edit_dossier: Pode editar dossiês
       valuator_group:
         name: "Nome do grupo"
       local_census_record:

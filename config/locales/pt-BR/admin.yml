@@ -314,7 +314,7 @@ pt-BR:
         creating: "Criar barra de progresso"
     feasibility_analyses:
       index:
-        feasibility_analysis: Análises de viabilidade das secretarias
+        feasibility_analysis: Análises de viabilidade
         budgetary: Orçamentária
         legal: Jurídica
         technical: Técnica
@@ -324,6 +324,7 @@ pt-BR:
         new_feasibility_analysis: Adicionar
         no_feasibility_analyses: Nenhum parecer cadastrado
         delete: Apagar
+        id: ID
       new:
         creating: Criar análise de viabilidade
       edit:
@@ -353,6 +354,7 @@ pt-BR:
         activate: Ativar
         deactivate: Desativar
         status: Status
+        id: ID
       edit:
         title: Editar órgão público
       update:
@@ -1488,6 +1490,7 @@ pt-BR:
         card_title: Editar cartão
         submit_card: Salvar cartão
     audits:
+      title: Histórico de alterações
       changes: "Lista de alterações"
       id: "ID"
       field: "Campo"
@@ -1496,6 +1499,7 @@ pt-BR:
       edited_at: "Editado em"
       edited_by: "Editado por"
       actions: "Ações"
+      auditable_id: ID do registro
     local_census_records:
       index:
         document_type: Tipo do documento

@@ -26,7 +26,7 @@ pt-BR:
           valuation_finished: Avaliação terminada
         assigned_to: "Atribuído a %{valuator}"
         title: Propostas
-        edit: Editar relatório
+        edit: Editar dossiê
         table_id: ID
         table_title: Título
         table_heading_name: Nome do título
@@ -39,8 +39,8 @@ pt-BR:
         by: Enviado por
         sent: Enviado em
         heading: Título
-        dossier: Relatório
-        edit_dossier: Editar relatório
+        dossier: Dossiê
+        edit_dossier: Editar dossiê
         price: Preço
         price_first_year: Custo durante o primeiro ano
         currency: "R$"
@@ -60,7 +60,7 @@ pt-BR:
         commitment: Compromisso
         unfeasibility_explanation: Justificativa
       edit:
-        dossier: Relatório
+        dossier: Dossiê
         price: "Custo (%{currency})"
         price_first_year: "Custo durante o primeiro ano (%{currency})<small>(opcional, dados não públicos)</small>"
         feasibility: Viabilidade final
