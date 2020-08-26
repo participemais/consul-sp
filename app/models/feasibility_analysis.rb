@@ -5,6 +5,10 @@ class FeasibilityAnalysis < ApplicationRecord
   validates :department_id, presence: true
   validates :department_id, uniqueness: { scope: :feasibility_analyzable_id }
 
+  audited associated_with: :feasibility_analyzable, except: [
+    :feasibility_analyzable_type, :feasibility_analyzable_id
+  ]
+
   delegate :name, to: :department, prefix: true
 
   ANALYSES_FIELDS = %i(technical legal budgetary)

@@ -5,9 +5,8 @@
     <i class="fa fa-times fa-times-red" aria-hidden="true"></i>
   <% end %>
 </td>
-<td>
-  <%= department.name %>
-</td>
+<td class="text-center"><%= department.id %></td>
+<td><%= department.name %></td>
 <td>
   <%= link_to active_button(department),
               toggle_active_admin_feasibility_analysis_department_path(department),
