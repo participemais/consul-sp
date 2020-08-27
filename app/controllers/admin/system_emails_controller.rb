@@ -6,7 +6,6 @@ class Admin::SystemEmailsController < Admin::BaseController
       proposal_notification_digest: %w[view preview_pending],
       budget_investment_created:    %w[view edit_info],
       budget_investment_selected:   %w[view edit_info],
-      budget_investment_unfeasible: %w[view edit_info],
       budget_investment_unselected: %w[view edit_info],
       comment:                      %w[view edit_info],
       reply:                        %w[view edit_info],

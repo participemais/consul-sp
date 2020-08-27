@@ -290,10 +290,6 @@ class Budget
       feasible? && valuation_finished? && budget_resource_allocation_balloting?
     end
 
-    def unfeasible_email_pending?
-      unfeasible_email_sent_at.blank? && unfeasible? && valuation_finished?
-    end
-
     def total_votes
       if budget_vote_counting_balloting?
         ballot_lines_count
@@ -304,11 +300,6 @@ class Budget
 
     def code
       "#{created_at.strftime("%Y")}-#{id}" + (administrator.present? ? "-A#{administrator.id}" : "")
-    end
-
-    def send_unfeasible_email
-      Mailer.budget_investment_unfeasible(self).deliver_later
-      update!(unfeasible_email_sent_at: Time.current)
     end
 
     def reason_for_not_being_selectable_by(user)

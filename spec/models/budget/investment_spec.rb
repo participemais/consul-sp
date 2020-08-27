@@ -137,20 +137,6 @@ describe Budget::Investment do
     end
   end
 
-  describe "#send_unfeasible_email" do
-    let(:investment) { create(:budget_investment) }
-
-    it "sets the time when the unfeasible email was sent" do
-      expect(investment.unfeasible_email_sent_at).not_to be
-      investment.send_unfeasible_email
-      expect(investment.unfeasible_email_sent_at).to be
-    end
-
-    it "send an email" do
-      expect { investment.send_unfeasible_email }.to change { ActionMailer::Base.deliveries.count }.by(1)
-    end
-  end
-
   describe "#should_show_votes?" do
     it "returns true in selecting phase" do
       budget = create(:budget, :selecting)
