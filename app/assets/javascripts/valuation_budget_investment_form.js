@@ -31,6 +31,7 @@
     },
     initialize: function() {
       App.ValuationBudgetInvestmentForm.showFeasibilityFieldsOnChange();
+      App.ValuationBudgetInvestmentForm.changeFeasibilityFields();
     }
   };
 }).call(this);
