@@ -55,7 +55,7 @@ module BudgetInvestmentsHelper
   end
 
   def feasibility_analyses_count
-    return 0 unless @investment.valuation_finished?
+    return 0 unless @investment.should_show_feasibility_analysis?
     @investment.feasibility_analyses.count
   end
 end
