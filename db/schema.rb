@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20200824150002) do
+ActiveRecord::Schema.define(version: 20200827195018) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -290,7 +290,6 @@ ActiveRecord::Schema.define(version: 20200824150002) do
     t.boolean "selected", default: false
     t.string "location"
     t.string "organization_name"
-    t.datetime "unfeasible_email_sent_at"
     t.integer "ballot_lines_count", default: 0
     t.integer "previous_heading_id"
     t.boolean "winner", default: false
