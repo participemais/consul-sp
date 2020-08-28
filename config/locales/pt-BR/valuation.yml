@@ -64,7 +64,7 @@ pt-BR:
         price: "Custo (%{currency})"
         price_first_year: "Custo durante o primeiro ano (%{currency})<small>(opcional, dados não públicos)</small>"
         feasibility: Viabilidade final
-        valuation_finished_alert: "Tem certeza que deseja marcar este relatório como concluído? Ao pressionar OK, a análise de viabilidade será publicada, a partir da etapa 'Devolutiva' do orçamento."
+        valuation_finished_alert: "Tem certeza que deseja marcar este relatório como concluído? Ao pressionar OK, a análise de viabilidade será publicada assim que a Etapa de Devolutiva for habilitada."
         save: Salvar alterações
       notice:
         valuate: "Dossiê atualizado"
