@@ -197,25 +197,25 @@ class Budget
     def self.status_filters(filters, results)
       return results if filters.include?('all')
 
-      balloting_ids = []
-      if filters.include?('winners')
-        balloting_ids += results.winners.pluck(:id)
-      end
-      if filters.include?('losers')
-        balloting_ids += results.losers.pluck(:id)
-      end
-      if balloting_ids.any?
+      if (filters & ['winners', 'losers']).any?
+        balloting_ids = []
+        if filters.include?('winners')
+          balloting_ids += results.winners.pluck(:id)
+        end
+        if filters.include?('losers')
+          balloting_ids += results.losers.pluck(:id)
+        end
         results = results.where("budget_investments.id IN (?)", balloting_ids)
       end
 
-      feasibility_ids = []
-      if filters.include?('feasibles')
-        feasibility_ids += results.valuation_finished_feasible.pluck(:id)
-      end
-      if filters.include?('unfeasibles')
-        feasibility_ids += results.valuation_finished_unfeasible.pluck(:id)
-      end
-      if feasibility_ids.any?
+      if (filters & ['feasibles', 'unfeasibles']).any?
+        feasibility_ids = []
+        if filters.include?('feasibles')
+          feasibility_ids += results.valuation_finished_feasible.pluck(:id)
+        end
+        if filters.include?('unfeasibles')
+          feasibility_ids += results.valuation_finished_unfeasible.pluck(:id)
+        end
         results = results.where("budget_investments.id IN (?)", feasibility_ids)
       end
 
