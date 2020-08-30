@@ -130,6 +130,14 @@ class Budget
       comments.count
     end
 
+    def self.max_feasibility_analyses_count
+      select('COUNT(feasibility_analyses.id) AS analyses_count')
+        .joins(:feasibility_analyses)
+        .group(:id)
+        .order('analyses_count DESC')
+        .first&.analyses_count
+    end
+
     def url
       budget_investment_path(budget, self)
     end

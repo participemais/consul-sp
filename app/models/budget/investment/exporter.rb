@@ -1,8 +1,9 @@
 class Budget::Investment::Exporter
   require "csv"
 
-  def initialize(investments)
+  def initialize(investments, budget)
     @investments = investments
+    @budget = budget
   end
 
   def to_csv
@@ -30,9 +31,13 @@ class Budget::Investment::Exporter
     def proposals_list_headers
       headers = PROPOSALS_COLUMNS.map { |column| header_translation(column) }
 
-      (1..5).each do |counter|
-        FEASIBILITY_COLUMNS.each do |column|
-          headers << "#{header_translation(column)} (#{counter})"
+      if @budget.devolutive_or_later? &&
+        max_analyses_count = @investments.max_feasibility_analyses_count
+
+        (1..max_analyses_count).each do |counter|
+          FEASIBILITY_COLUMNS.each do |column|
+            headers << "#{header_translation(column)} (#{counter})"
+          end
         end
       end
 
@@ -54,19 +59,21 @@ class Budget::Investment::Exporter
         sanitize_description(investment.unfeasibility_explanation)
       ]
 
-      investment.feasibility_analyses.each do |analysis|
-        feasibility_row = [
-          analysis.department_name,
-          analysis.budgetary_actions,
-          analysis.sei_number,
-          feasibility_translation(analysis.technical),
-          sanitize_description(analysis.technical_description),
-          feasibility_translation(analysis.legal),
-          sanitize_description(analysis.legal_description),
-          feasibility_translation(analysis.budgetary),
-          sanitize_description(analysis.budgetary_description)
-        ]
-        row += feasibility_row
+      if @budget.devolutive_or_later?
+        investment.feasibility_analyses.each do |analysis|
+          feasibility_row = [
+            analysis.department_name,
+            analysis.budgetary_actions,
+            analysis.sei_number,
+            feasibility_translation(analysis.technical),
+            sanitize_description(analysis.technical_description),
+            feasibility_translation(analysis.legal),
+            sanitize_description(analysis.legal_description),
+            feasibility_translation(analysis.budgetary),
+            sanitize_description(analysis.budgetary_description)
+          ]
+          row += feasibility_row
+        end
       end
 
       row
