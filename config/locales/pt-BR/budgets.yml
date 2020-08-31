@@ -54,7 +54,7 @@ pt-BR:
       empty_budgets: Não há orçamento.
       section_header:
         balloting_result: Veja o resultado da votação
-        valuating_result: Veja as propostas aprovadas pelas secretarias
+        valuating_result: Veja o resultado da análise de viabilidade
         icon_alt: Ícone dos orçamentos
         title: Orçamentos cidadão
         help: Sobre o orçamento cidadão
@@ -107,7 +107,7 @@ pt-BR:
           one: " contendo o termo <strong>'%{search_term}'</strong>"
           other: " contendo o termo <strong>'%{search_term}'</strong>"
         sidebar:
-          my_ballot: Minha cédula
+          my_ballot: Meus votos
           voted:
             one: "<strong>Você votou em uma proposta para subprefeitura %{heading}</strong>"
             other: "<strong>Você votou em %{count} propostas para subprefeitura %{heading}</strong>"
@@ -115,7 +115,7 @@ pt-BR:
           voted_info_link: mudar seu voto
           different_heading_assigned: "Você tem votos ativos num título diferente: %{heading_link}"
           change_ballot: "Se você mudar de ideia, poderá remover seus votos em %{check_ballot} e começar de novo."
-          check_ballot_link: "verificar minha cédula"
+          check_ballot_link: "verificar meus votos"
           zero: Você não votou em nenhuma proposta deste grupo.
           verified_only: "Para criar uma nova proposta %{verify}."
           create: "Criar uma proposta"
@@ -185,7 +185,7 @@ pt-BR:
         check_ballot: Meus votos
         different_heading_assigned: "Você tem votos ativos num título diferente: %{heading_link}"
         change_ballot: "Se você mudar de ideia, poderá remover seus votos em %{check_ballot} e começar de novo."
-        check_ballot_link: "verificar minha cédula"
+        check_ballot_link: "verificar meus votos"
         price: "Este título tem um orçamento de"
     progress_bar:
       assigned: "Votos registrados: "

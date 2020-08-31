@@ -198,6 +198,12 @@ pt-BR:
         unfeasible: "Inviável"
         undecided: "Não definida"
         tag_list: "Categorias"
+        winner: "Eleita"
+        winner_true: "Eleita"
+        winner_false: "Não eleita"
+        visible_to_valuators: "Disponível para avaliadores"
+        visible_to_valuators_true: "Disponível"
+        visible_to_valuators_false: "Indisponível"
       budget/investment/translation:
         title: "Título"
         description: "Descrição"

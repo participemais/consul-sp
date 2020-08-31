@@ -54,7 +54,7 @@ pt-BR:
         other: "%{count} respostas (mostrar)"
       responses_collapse:
         zero: Nenhuma resposta
-        one: "1 respuesta (recolher)"
+        one: "1 resposta (recolher)"
         other: "%{count} respostas (recolher)"
       user_deleted: Usuário apagado
       votes:
@@ -731,7 +731,7 @@ pt-BR:
         create:
           notice: "Você está seguindo essa proposta! </br>Para que esteja a par de tudo, vamos notificar você sobre alterações assim que elas ocorrerem."
         destroy:
-          notice: "Você parou de seguir essa proposta! </br> Você não receberá mais notificações relacionadas a ele."
+          notice: "Você parou de seguir essa proposta! </br> Você não receberá mais notificações relacionadas a ela."
       proposal:
         create:
           notice: "Agora você está seguindo esta proposta cidadã! </br> Para que esteja a par de tudo, vamos notificar você sobre alterações assim que elas ocorrerem."

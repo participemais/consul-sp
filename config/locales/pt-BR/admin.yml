@@ -206,7 +206,7 @@ pt-BR:
           feasibility: Viabilidade
           valuation_finished: Valor Final.
           selected: Selecionado
-          visible_to_valuators: Apresentar aos avaliadores
+          visible_to_valuators: Disponível para avaliadores
           author_username: Username do autor
           incompatible: Incompatível
           price: Preço
@@ -843,6 +843,7 @@ pt-BR:
         no_group: "Sem grupo"
         abilities: "Habilidades"
         can_comment: "Pode comentar"
+        can_edit_dossier: "Pode editar dossiês"
       valuator:
         add: Adicionar aos avaliadores
         delete: Apagar
