@@ -28,7 +28,9 @@
         <p>
           <% if current_budget.devolutive_or_later? %>
             <%= link_to t("budgets.index.section_header.valuating_result"),
-              budget_path(current_budget.id, status_filters: ['feasibles'])
+              budget_path(
+                current_budget.id, status_filters: ['feasibles', 'unfeasibles']
+              )
             %>
           <% elsif current_budget.valuating_or_later? %>
             <%= link_to t("budgets.index.section_header.balloting_result"),
