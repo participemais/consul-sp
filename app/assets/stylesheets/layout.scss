@@ -523,6 +523,8 @@ header {
   padding-bottom: 0;
   padding-top: 0;
   margin-bottom: 0.5rem;
+  font-family: $header-font-family;
+  text-transform: uppercase;
 
   @include breakpoint(medium) {
     padding: 0;

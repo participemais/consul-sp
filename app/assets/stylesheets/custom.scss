@@ -75,12 +75,10 @@
 }
 
 .login-options {
-  font-family: $header-font-family;
   margin-right: $global-margin;
   border-bottom: 3px solid $brand;
   transition: border-bottom 0.5s;
   transition: color 0.5s;
-  text-transform: uppercase;
 
   &:hover {
     box-sizing: border-box;
