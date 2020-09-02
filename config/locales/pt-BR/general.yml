@@ -120,10 +120,6 @@ pt-BR:
         actions:
           success: "Recomendações para os debates agora estão desativadas para esta conta"
           error: "Ocorreu um erro. Por favor, vá à página 'Sua conta' para desativar manualmente recomendações para debates"
-      search_form:
-        button: Buscar
-        placeholder: Buscar debates...
-        title: Buscar
       search_results:
         one: " contendo o termo <strong>'%{search_term}'</strong>"
         other: " contendo o termo <strong>'%{search_term}'</strong>"
@@ -392,10 +388,6 @@ pt-BR:
         unfeasible: Inviável
         done: Feito
         other: Outros
-      search_form:
-        button: Buscar
-        placeholder: Buscar propostas...
-        title: Buscar
       search_results:
         one: " contendo o termo <strong>'%{search_term}'</strong>"
         other: " contendo o termo <strong>'%{search_term}'</strong>"

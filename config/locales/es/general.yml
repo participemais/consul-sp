@@ -115,10 +115,6 @@ es:
         actions:
           success: "Las recomendaciones de debates han sido desactivadas"
           error: "Ha ocurrido un error. Por favor dirígete al apartado 'Mi cuenta' para desactivar las recomendaciones manualmente"
-      search_form:
-        button: Buscar
-        placeholder: Buscar debates...
-        title: Buscar
       search_results:
         one: " que contiene <strong>'%{search_term}'</strong>"
         other: " que contienen <strong>'%{search_term}'</strong>"
@@ -386,10 +382,6 @@ es:
         unfeasible: Inviables
         done: Realizadas
         other: Otras
-      search_form:
-        button: Buscar
-        placeholder: Buscar propuestas...
-        title: Buscar
       search_results:
         one: " que contiene <strong>'%{search_term}'</strong>"
         other: " que contienen <strong>'%{search_term}'</strong>"

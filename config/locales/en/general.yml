@@ -115,10 +115,6 @@ en:
         actions:
           success: "Recommendations for debates are now disabled for this account"
           error: "An error has occured. Please go to 'My account' page to manually disable recommendations for debates"
-      search_form:
-        button: Search
-        placeholder: Search debates...
-        title: Search
       search_results:
         one: " containing the term <strong>'%{search_term}'</strong>"
         other: " containing the term <strong>'%{search_term}'</strong>"
@@ -386,10 +382,6 @@ en:
         unfeasible: Unfeasible
         done: Done
         other: Other
-      search_form:
-        button: Search
-        placeholder: Search proposals...
-        title: Search
       search_results:
         one: " containing the term <strong>'%{search_term}'</strong>"
         other: " containing the term <strong>'%{search_term}'</strong>"
