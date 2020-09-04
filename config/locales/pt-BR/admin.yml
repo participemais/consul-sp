@@ -479,7 +479,7 @@ pt-BR:
         index:
           create: Novo processo
           delete: Apagar
-          title: Processos legislativos
+          title: Consultas públicas
           filters:
             active: Ativo
             all: Tudo

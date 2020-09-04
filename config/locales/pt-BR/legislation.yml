@@ -54,23 +54,24 @@ pt-BR:
           winners: Selecionado
       debate:
         empty_questions: Não há perguntas
-        participate: Participar no debate
+        participate: Participe do debate clicando nas perguntas
+        phase_not_open: Fora do período de participação
       index:
         filter: Filtro
         filters:
           open: Processos abertos
-          past: Passados
+          past: Processos encerrados
         no_open_processes: Não existem processos abertos
         no_past_processes: Não existem processos finalizados
         section_header:
-          icon_alt: Ícone de processos legislativos
-          title: Processos legislativos
-          help: Ajuda sobre processos legislativos
+          icon_alt: Ícone de consultas públicas
+          title: Consultas públicas
+          help: Sobre as consultas públicas
         section_footer:
-          title: Ajuda sobre processos legislativos
+          title: Sobre as consultas públicas
           description: Participar nos debates e processos prévios para a aprovação de um instrumento legal ou uma ação municipal. Sua opinião será considerada pela Prefeitura.
       phase_not_open:
-        not_open: Nesta etapa ainda não está aberta
+        not_open: Esta etapa ainda não está aberta
       phase_empty:
         empty: Nada publicado ainda
       process:
