@@ -15,6 +15,7 @@
 // --------
 
 .legislation-hero {
+  padding: $line-height 0;
 
   ul {
     list-style: none;
@@ -34,6 +35,10 @@
   .title {
     font-weight: bold;
     text-transform: uppercase;
+  }
+
+  .title-without-border {
+    border: 0;
   }
 
   .description li p {
@@ -88,7 +93,7 @@
       margin-top: 0;
 
       &:hover:not(.is-active) {
-        background: $highlight;
+        background: $light-gray;
       }
 
       &::after {
@@ -160,7 +165,7 @@
 
     .debate-type {
       text-transform: uppercase;
-      color: $brand;
+      color: $text-medium;
       font-weight: 700;
       font-size: $small-font-size;
 
@@ -170,14 +175,14 @@
     }
 
     .debate-title a {
-      color: $brand;
+      color: $black;
     }
   }
 
   .debate-meta,
   .debate-meta a {
     font-size: $small-font-size;
-    color: #6d6d6d;
+    color: $text-medium;
 
     .icon-comments {
       margin-right: rem-calc(3);
@@ -379,7 +384,6 @@
   .draft-allegation {
 
     @include breakpoint(medium) {
-      display: flex;
       padding-left: rem-calc(15);
       padding-right: rem-calc(15);
     }

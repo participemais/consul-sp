@@ -49,8 +49,8 @@ $check:             #46db91;
 $proposals:         #ffa42d;
 $proposals-dark:    #794500;
 
-$budget:            #7e328a;
-$budget-hover:      #7571bf;
+$budget:            $link;
+$budget-hover:      $link-hover;
 
 $highlight:         #e7f2fc;
 $highlight-soft:    #f3f8fd;
@@ -74,6 +74,15 @@ $color-warning:     #8a6d3b;
 $alert-bg:          #f2dede;
 $alert-border:      #ebccd1;
 $color-alert:       #a94442;
+
+$legislation-banner: $color-alert;
+$legislation-banner-info: #A73230;
+
+$polls-banner: #F29332;
+$polls-banner-info: #EE8519;
+
+$budget-banner: #8987B6;
+$budget-banner-info: #7471A9;
 
 $pdf-primary:       #0300ff;
 $pdf-secondary:     #ff9e00;

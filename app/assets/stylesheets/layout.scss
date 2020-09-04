@@ -935,7 +935,7 @@ footer {
 }
 
 .sidebar-title {
-  border-top: 2px solid $brand;
+  border-top: 2px solid $purple;
   display: inline-block;
   font-size: rem-calc(16);
   font-weight: bold;
@@ -1768,7 +1768,7 @@ table {
 
   .ssb-twitter {
     background: #45b0e3;
-    color: $text-medium;
+    color: $brand;
     height: $line-height;
     position: relative;
     width: $line-height * 2;
@@ -1793,7 +1793,7 @@ table {
 
   .ssb-facebook {
     background: #3b5998;
-    color: $text-medium;
+    color: $brand;
     height: rem-calc(24);
     position: relative;
     width: rem-calc(48);
@@ -1843,7 +1843,7 @@ table {
 
   .ssb-telegram {
     background: #08c;
-    color: $text-medium;
+    color: $brand;
     height: $line-height;
     position: relative;
     width: $line-height * 2;
@@ -2614,7 +2614,7 @@ table {
 }
 
 .additional-document-link {
-  background: $highlight-soft;
+  background: $lighter-gray;
   border: 1px solid $highlight;
   display: block;
   margin: $line-height / 2 0;
@@ -2623,10 +2623,12 @@ table {
 
   a {
     word-wrap: break-word;
+    color: $text-medium;
+    font-weight: bold;
   }
 
   .icon-document {
-    color: #007bb7;
+    color: $purple;
     display: inline-block;
     font-size: rem-calc(24);
     line-height: $line-height;
@@ -2635,7 +2637,7 @@ table {
 }
 
 .document-divider {
-  background: #fafafa;
+  background: $white;
   border-bottom: 1px solid #eee;
 }
 
