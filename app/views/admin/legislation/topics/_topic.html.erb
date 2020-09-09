@@ -1,0 +1,42 @@
+<h4><%= "#{topic_level_label(indexes)} #{topic.title}" %></h4>
+
+<%= link_to(
+  t("admin.legislation.topics.index.edit"),
+  edit_admin_legislation_process_topic_path(@process, topic),
+  class: "hollow"
+) %>
+
+<%= link_to(
+  t("admin.legislation.topics.index.delete"),
+  admin_legislation_process_topic_path(@process, topic),
+  method: :delete,
+  class: "alert",
+  data: delete_topic_confirmation(topic)
+) %>
+
+<% if topic.description.present? %>
+  <%= wysiwyg(topic.description) %>
+<% end %>
+
+<% unless counter_level == @topic_levels.size %>
+  <%= link_to(
+    t("admin.legislation.topics.index.new_topic", title: @topic_levels[counter_level].title.downcase),
+    new_admin_legislation_process_topic_path(
+      legislation_topic: {
+        legislation_topic_level_id: @topic_levels[counter_level].id,
+        parent_id: topic.id
+      }
+    ),
+    class: "button float-right margin-right"
+  ) %>
+<% end %>
+
+<% if topic.children.any? %>
+  <% counter_level += 1 %>
+  <% topic.children.each.with_index(1) do |child, index| %>
+    <% index == 1 ? indexes << index : indexes[-1] = index %>
+    <%= render 'topic',
+      topic: child, indexes: indexes, counter_level: counter_level
+    %>
+  <% end %>
+<% end %>

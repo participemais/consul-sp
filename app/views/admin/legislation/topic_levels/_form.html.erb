@@ -1,0 +1,22 @@
+<div class="row">
+  <%= form_for([:admin, @process, @topic_level], url: url) do |f| %>
+
+    <%= render "shared/errors", resource: @topic_level %>
+
+    <div class="row">
+      <div class="small-12 column">
+        <%= f.text_field(:title, require: true) %>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="actions small-12 medium-4 column">
+        <%= f.submit(
+          class: "button expanded large",
+          value: t("admin.legislation.topic_levels.form.save")
+        ) %>
+      </div>
+    </div>
+
+  <% end %>
+</div>
