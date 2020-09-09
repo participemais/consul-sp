@@ -16,8 +16,16 @@ class Legislation::Process < ApplicationRecord
   translates :homepage,           touch: true
   include Globalizable
 
-  PHASES_AND_PUBLICATIONS = %i[homepage_phase draft_phase debate_phase allegations_phase
-                               proposals_phase draft_publication result_publication].freeze
+  PHASES_AND_PUBLICATIONS = %i[
+    homepage_phase
+    draft_phase
+    debate_phase
+    allegations_phase
+    proposals_phase
+    topics_phase
+    draft_publication
+    result_publication
+  ].freeze
 
   CSS_HEX_COLOR = /\A#?(?:[A-F0-9]{3}){1,2}\z/i.freeze
 
@@ -95,6 +103,11 @@ class Legislation::Process < ApplicationRecord
                                     proposals_phase_end_date, proposals_phase_enabled)
   end
 
+  def topics_phase
+    Legislation::Process::Phase.new(topics_phase_start_date,
+                                    topics_phase_end_date, topics_phase_enabled)
+  end
+
   def draft_publication
     Legislation::Process::Publication.new(draft_publication_date, draft_publication_enabled)
   end
@@ -142,6 +155,10 @@ class Legislation::Process < ApplicationRecord
       if allegations_end_date && allegations_start_date &&
          allegations_end_date < allegations_start_date
         errors.add(:allegations_end_date, :invalid_date_range)
+      end
+      if topics_phase_end_date && topics_phase_start_date &&
+        topics_phase_end_date < topics_phase_start_date
+       errors.add(:topics_phase_end_date, :invalid_date_range)
       end
     end
 end

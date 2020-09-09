@@ -54,6 +54,13 @@
         </div>
       <% end %>
 
+      <% if process.topics_phase.enabled? %>
+        <div class="small-6 medium-<%= column_width %> column">
+          <h4><%= t("legislation.processes.shared.topics_dates") %></h4>
+          <p><%= format_date(process.topics_phase_start_date) %> - <%= format_date(process.topics_phase_end_date) %></p>
+        </div>
+      <% end %>
+
       <% if process.result_publication.enabled? %>
         <div class="small-6 medium-<%= column_width %> column">
           <h4><%= t("legislation.processes.shared.result_publication_date") %></h4>
