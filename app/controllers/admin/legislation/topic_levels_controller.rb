@@ -47,7 +47,9 @@ class Admin::Legislation::TopicLevelsController < Admin::Legislation::BaseContro
   end
 
   def topic_level_params
-    params.require(:legislation_topic_level).permit([:title])
+    params.require(:legislation_topic_level).permit(
+      [:title, evaluations_attributes: [:id, :title, :_destroy]]
+    )
   end
 
 end

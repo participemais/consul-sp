@@ -8,9 +8,20 @@ class Legislation::TopicLevel < ApplicationRecord
     foreign_key: "legislation_topic_level_id",
     dependent: :destroy
 
+  has_many :evaluations,
+    class_name: "Legislation::Evaluation",
+    foreign_key: "legislation_topic_level_id",
+    dependent: :destroy
+
+  accepts_nested_attributes_for :evaluations,
+    reject_if: proc { |attributes| attributes.all? { |_, v| v.blank? } },
+    allow_destroy: true
+
   before_create :set_level
 
   delegate :topic_levels, to: :process
+
+  attr_accessor :show_evaluation_fields
 
   def topic_level_label
     label = ''

@@ -10,6 +10,38 @@
     </div>
 
     <div class="row">
+      <div class="small-12 column">
+        <%= f.check_box(
+          :show_evaluation_fields,
+          checked: @topic_level.evaluations.any?,
+          data: { checkbox_toggle: "#evaluation-fields" }
+        ) %>
+      </div>
+    </div>
+
+    <div id="evaluation-fields" class="row">
+      <div class="small-12 medium-9 column">
+        <%= f.label :evaluations, t("admin.legislation.topic_levels.form.evaluations") %>
+      </div>
+
+      <div id="nested_evaluations">
+        <%= f.fields_for :evaluations do |ff| %>
+          <%= render "evaluation_fields", f: ff %>
+        <% end %>
+
+        <div class="js-add-fields-container">
+          <div class="small-12 medium-9 column">
+            <%= link_to_add_association(
+              t("admin.legislation.topic_levels.form.add_option"),
+              f, :evaluations, class: "button hollow"
+            ) %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+    <div class="row">
       <div class="actions small-12 medium-4 column">
         <%= f.submit(
           class: "button expanded large",
