@@ -216,6 +216,8 @@ namespace :admin do
       resources :milestones
       resources :progress_bars, except: :show
       resource :homepage, only: [:edit, :update]
+      resources :topics, except: [:show]
+      resources :topic_levels, except: [:index, :show]
     end
   end
 
