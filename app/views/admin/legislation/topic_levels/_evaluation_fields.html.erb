@@ -9,7 +9,11 @@
     </div>
 
     <div class="small-12 medium-3 column">
-      <%= link_to_remove_association t("admin.legislation.topic_levels.evaluation_fields.remove_option"), f, class: "delete" %>
+      <% if @topic_level.legislation_topics.empty? %>
+        <%= link_to_remove_association(
+          t("admin.legislation.topic_levels.evaluation_fields.remove_option"), f, class: "delete"
+        ) %>
+      <% end %>
     </div>
   </div>
 </div>

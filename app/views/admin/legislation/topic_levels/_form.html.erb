@@ -21,7 +21,10 @@
 
     <div id="evaluation-fields" class="row">
       <div class="small-12 medium-9 column">
-        <%= f.label :evaluations, t("admin.legislation.topic_levels.form.evaluations") %>
+        <%= f.label(
+          :evaluations,
+          t("admin.legislation.topic_levels.form.evaluations")
+        ) %>
       </div>
 
       <div id="nested_evaluations">
@@ -31,10 +34,12 @@
 
         <div class="js-add-fields-container">
           <div class="small-12 medium-9 column">
-            <%= link_to_add_association(
-              t("admin.legislation.topic_levels.form.add_option"),
-              f, :evaluations, class: "button hollow"
-            ) %>
+            <% if @topic_level.legislation_topics.empty? %>
+              <%= link_to_add_association(
+                t("admin.legislation.topic_levels.form.add_option"),
+                f, :evaluations, class: "button hollow"
+              ) %>
+            <% end %>
           </div>
         </div>
       </div>

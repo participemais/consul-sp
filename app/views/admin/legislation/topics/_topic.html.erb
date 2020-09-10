@@ -23,11 +23,15 @@
 <% end %>
 
 <% unless counter_level == @topic_levels.size %>
+  <% topic_level = @topic_levels[counter_level] %>
   <%= link_to(
-    t("admin.legislation.topics.index.new_topic", title: @topic_levels[counter_level].title.downcase),
+    t(
+      "admin.legislation.topics.index.new_topic",
+      title: topic_level.downcase_title
+    ),
     new_admin_legislation_process_topic_path(
       legislation_topic: {
-        legislation_topic_level_id: @topic_levels[counter_level].id,
+        legislation_topic_level_id: topic_level.id,
         parent_id: topic.id
       }
     ),
