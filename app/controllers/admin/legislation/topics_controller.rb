@@ -4,6 +4,7 @@ class Admin::Legislation::TopicsController < Admin::Legislation::BaseController
 
   before_action :load_topic_levels, only: :index
   before_action :load_topic_level, only: [:new, :create]
+  before_action :load_associated_topic_level, only: [:edit, :update]
   before_action :load_parent, only: [:new, :create]
 
   def index
@@ -43,7 +44,9 @@ class Admin::Legislation::TopicsController < Admin::Legislation::BaseController
   private
 
   def topic_params
-    params.require(:legislation_topic).permit([:title, :description, :legislation_topic_level_id, :parent_id])
+    params.require(:legislation_topic).permit([
+      :title, :description, :legislation_topic_level_id, :parent_id, :evaluable
+    ])
   end
 
   def resource
@@ -58,12 +61,12 @@ class Admin::Legislation::TopicsController < Admin::Legislation::BaseController
     @topic_level = @process.topic_levels.find(legislation_topic_level_id)
   end
 
-  def load_parent
-    @parent = @process.topics.find(parent_id) if parent_id.present?
+  def load_associated_topic_level
+    @topic_level = @topic.legislation_topic_level
   end
 
-  def build_topic
-
+  def load_parent
+    @parent = @process.topics.find(parent_id) if parent_id.present?
   end
 
   def parent_id

@@ -18,6 +18,10 @@
   <%= wysiwyg(topic.description) %>
 <% end %>
 
+<% topic.assessments.each do |assessment| %>
+  <span><%= assessment.title %></span>
+<% end %>
+
 <% unless counter_level == @topic_levels.size %>
   <%= link_to(
     t("admin.legislation.topics.index.new_topic", title: @topic_levels[counter_level].title.downcase),

@@ -12,9 +12,13 @@
       </div>
     </div>
 
-    <% if topic_level_id = @topic_level&.id %>
-      <%= f.hidden_field(:legislation_topic_level_id, value: topic_level_id) %>
+    <% if @topic_level.evaluations.any? %>
+      <%= f.check_box(
+        :evaluable, checked: f.object.new_record? ? true : f.object.evaluable
+      ) %>
     <% end %>
+
+    <%= f.hidden_field(:legislation_topic_level_id, value: @topic_level.id) %>
 
     <% if parent_id = @parent&.id %>
       <%= f.hidden_field(:parent_id, value: parent_id) %>
