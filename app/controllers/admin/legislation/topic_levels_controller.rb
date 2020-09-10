@@ -18,9 +18,6 @@ class Admin::Legislation::TopicLevelsController < Admin::Legislation::BaseContro
     end
   end
 
-  def edit
-  end
-
   def update
     if @topic_level.update(topic_level_params)
       redirect_to admin_legislation_process_topics_path,
