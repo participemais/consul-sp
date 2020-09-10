@@ -596,6 +596,15 @@ pt-BR:
       milestones:
         index:
           title: Seguindo
+      topics:
+        index:
+          new_topic: + %{title}
+        new:
+          title: Adicionar %{title}
+        destroy:
+          confirm:
+            one: Se apagar %{title}, um subtópico associado também será apagado. Tem certeza que deseja continuar?
+            other: Se apagar %{title}, %{count} subtópicos associados também serão apagados. Tem certeza que deseja continuar?
     managers:
       index:
         title: Gerentes
