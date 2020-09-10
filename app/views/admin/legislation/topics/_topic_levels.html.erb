@@ -12,8 +12,13 @@
   <table>
     <thead>
       <tr>
-        <th><%= t("admin.legislation.topic_levels.index.topic_level_label") %></th>
+        <th>
+          <%= t("admin.legislation.topic_levels.index.topic_level_label") %>
+        </th>
         <th><%= t("admin.legislation.topic_levels.index.title") %></th>
+        <th class="text-center">
+          <%= t("admin.legislation.topic_levels.index.evaluable") %>
+        </th>
         <th><%= t("admin.legislation.topic_levels.index.table_actions") %></th>
       </tr>
     </thead>
@@ -22,13 +27,22 @@
         <tr id="<%= dom_id(topic_level) %>" class="legislation_topic_level">
           <td><strong><%= topic_level.topic_level_label %></strong></td>
           <td><%= topic_level.title %></td>
+          <td class="text-center">
+            <% if topic_level.evaluations.any? %>
+              <i class="fa fa-check fa-check-green" aria-hidden="true"></i>
+            <% else %>
+              <i class="fa fa-times fa-times-red" aria-hidden="true"></i>
+            <% end %>
+          </td>
           <td>
             <%= link_to(
               t("admin.topic_levels.index.edit"),
               edit_admin_legislation_process_topic_level_path(@process, topic_level),
               class: "button hollow"
             ) %>
-            <% if topic_level == @topic_levels.last %>
+            <% if topic_level == @topic_levels.last &&
+              topic_level.legislation_topics.empty?
+            %>
               <%= link_to(
                 t("admin.topic_levels.index.delete"),
                 admin_legislation_process_topic_level_path(@process, topic_level),

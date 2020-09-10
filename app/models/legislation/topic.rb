@@ -21,7 +21,10 @@ class Legislation::Topic < ApplicationRecord
   def copy_evaluations
     return if assessments.any?
     legislation_topic_level.evaluations.each do |evaluation|
-      self.assessments.build(title: evaluation.title)
+      self.assessments.build(
+        legislation_evaluations_id: evaluation.id,
+        title: evaluation.title
+      )
     end
   end
 
