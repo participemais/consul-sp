@@ -23,19 +23,19 @@
             .then(response => response.json())
             .then(data => {
               if (!data.erro) {
-                $('.hide-address-fields').fadeIn(1000);
+                $('.hide-fields').fadeIn(1000);
                 $address.val(data.logradouro);
                 $city.val(data.localidade);
                 $uf.val(data.uf);
               } else {
-                $('.hide-address-fields').fadeOut(1500);
+                $('.hide-fields').fadeOut(1500);
                 $cep.addClass('is-invalid-input');
                 clear_address_fields();
                 alert('CEP inválido');
               }
             });
         } else {
-          $('.hide-address-fields').fadeOut(1500);
+          $('.hide-fields').fadeOut(1500);
           $cep.addClass('is-invalid-input');
           clear_address_fields();
         }
