@@ -1,0 +1,26 @@
+<div class="topic-block">
+  <div class="topic-type">
+    <small><%= topic.legislation_topic_level.title.upcase %></small>
+  </div>
+  <div class="topic-title">
+    <h4><%= "#{topic_level_label(indexes)} #{topic.title}" %></h4>
+  </div>
+
+  <% if topic.description.present? %>
+    <%= wysiwyg(topic.description) %>
+  <% end %>
+
+  <% topic.assessments.each do |assessment| %>
+    <span><%= assessment.title %></span>
+  <% end %>
+
+  <% if topic.children.any? %>
+    <% counter_level += 1 %>
+    <% topic.children.each.with_index(1) do |child, index| %>
+      <% index == 1 ? indexes << index : indexes[-1] = index %>
+      <%= render '/legislation/topics/topic',
+        topic: child, indexes: indexes, counter_level: counter_level
+      %>
+    <% end %>
+  <% end %>
+</div>

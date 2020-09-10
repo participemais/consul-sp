@@ -1,0 +1,28 @@
+<div class="small-12 medium-9 column">
+  <div class="topics-list">
+    <% if process.topics.empty? %>
+      <div class="callout warning">
+        <p><%= t("legislation.processes.topics.empty_topics") %></p>
+      </div>
+    <% else %>
+      <% counter_level = 1 %>
+      <% process.topics.roots.each.with_index(1) do |topic, index| %>
+        <%= render '/legislation/topics/topic',
+          topic: topic, indexes: [index], counter_level: counter_level
+        %>
+      <% end %>
+    <% end %>
+  </div>
+</div>
+
+<div class="small-12 medium-3 column">
+  <% if process.topics_phase.open? && process.topics.any? %>
+    <div class="callout success">
+      <p><%= t("legislation.processes.topics.participate") %></p>
+    </div>
+  <% else %>
+    <div class="callout warning">
+      <p><%= t("legislation.processes.topics.phase_not_open") %></p>
+    </div>
+  <% end %>
+</div>
