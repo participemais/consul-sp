@@ -6,10 +6,15 @@
 
 <%= render "key_dates", process: @process, phase: :topics_phase %>
 
-<div class="row">
-  <div class="topic-chooser">
-    <div class="row">
-      <%= render "legislation/processes/topics", process: @process %>
+<div class="column row">
+  <div class="topic-panels small-12 column row">
+    <div
+      class="row topic medium-collapse"
+      data-equalizer data-equalizer-on="medium"
+    >
+      <%= render "legislation/processes/topics",
+        process: @process, topics: @process.topics.roots
+      %>
     </div>
   </div>
 </div>

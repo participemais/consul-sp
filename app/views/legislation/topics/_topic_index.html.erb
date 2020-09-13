@@ -1,0 +1,20 @@
+<li>
+  <div class="topic-index-title">
+    <%= link_to(
+      "#{topic_level_label(indexes)} #{topic.title}",
+      anchor: dom_id(topic)
+    ) %>
+  </div>
+
+  <% if topic.children.any? %>
+    <ul>
+      <% counter_level += 1 %>
+      <% topic.children.each.with_index(1) do |child, index| %>
+        <% index == 1 ? indexes << index : indexes[-1] = index %>
+        <%= render '/legislation/topics/topic_index',
+          topic: child, indexes: indexes, counter_level: counter_level
+        %>
+      <% end %>
+    </ul>
+  <% end %>
+</li>

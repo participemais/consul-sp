@@ -448,7 +448,6 @@
       .icon-banner {
         line-height: 0;
         color: $text-medium;
-        vertical-align: sub;
         margin-right: rem-calc(4);
       }
     }
@@ -1008,5 +1007,158 @@
   .process-link {
     font-size: rem-calc(19);
     font-weight: bold;
+  }
+}
+
+// 09. Legislation topics
+// -------------------------
+.topic-panels {
+  position: relative;
+  padding: rem-calc(32) 0;
+
+  .topic {
+
+    @include breakpoint(medium) {
+      padding-left: rem-calc(15);
+      padding-right: rem-calc(15);
+    }
+
+    @media screen and (min-width: 40em) {
+      .calc-index-topic {
+        width: calc(30%);
+        padding: 0;
+      }
+
+      .calc-text-topic {
+        width: calc(70%);
+        padding: 0;
+      }
+    }
+
+    .border-right {
+      @include breakpoint(medium) {
+        border-right: 1px solid $border;
+      }
+    }
+
+    .border-left {
+      @include breakpoint(medium) {
+        border-left: 1px solid $border;
+      }
+    }
+
+    .topic-panel {
+      text-transform: uppercase;
+      font-weight: 700;
+      padding: rem-calc(8) rem-calc(16);
+      color: #696969;
+      background: #f2f2f2;
+      font-size: $small-font-size;
+    }
+
+    .topic-index {
+      padding-left: $line-height / 4;
+
+      ul:first-child {
+        font-size: rem-calc(16);
+        margin-top: $line-height / 2;
+      }
+
+      ul {
+        margin-left: $line-height / 3;
+        list-style: none;
+
+        .topic-index-title {
+          margin-bottom: $line-height / 2;
+        }
+
+        li {
+          line-height: 3 * $line-height / 4;
+        }
+
+        a {
+          font-family: $subheader-font-family;
+          color: $text;
+        }
+      }
+    }
+
+    .topic-content {
+      padding: rem-calc(16);
+      padding-right: rem-calc(32);
+
+      .topic-block {
+        margin-bottom: rem-calc(16);
+      }
+
+      .topic-description {
+        text-align: justify;
+      }
+    }
+
+    .topic-text {
+      position: relative;
+
+      @include breakpoint(medium) {
+        padding-left: rem-calc(16);
+      }
+
+      h4 {
+        font-family: $subheader-font-family;
+        margin-bottom: $line-height / 4;
+      }
+
+      p {
+        margin-bottom: 0;
+      }
+
+      .evaluate-topic {
+        font-size: $tiny-font-size;
+        font-family: $subheader-font-family;
+        color: $text-medium;
+        border-bottom: 1px $text-light dashed;
+        text-align: right;
+        margin-top: -($line-height / 3) ;
+
+        i, span {
+          cursor: pointer;
+        }
+
+        span {
+          margin-left: $line-height / 6;
+          text-transform: uppercase;
+        }
+      }
+
+      .evaluate-options {
+        div {
+          display: flex;
+          justify-content: center;
+          margin-top: $line-height / 4;
+          margin-bottom: $line-height / 4;
+        }
+
+        textarea {
+          margin-bottom: 0;
+        }
+      }
+
+      .evaluate-label {
+        font-family: $subheader-font-family;
+        color: $text-medium;
+        font-size: $small-font-size;
+        margin-top: -($line-height / 2);
+      }
+
+      .answered {
+        background: #f4f8ec;
+        border: 1px solid $border;
+        color: $text-medium;
+        position: relative;
+        padding: $line-height / 4;
+        font-size: $tiny-font-size;
+        margin: 0 $line-height / 4;
+      }
+    }
   }
 }

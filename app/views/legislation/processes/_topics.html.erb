@@ -1,28 +1,31 @@
-<div class="small-12 medium-9 column">
-  <div class="topics-list">
-    <% if process.topics.empty? %>
-      <div class="callout warning">
-        <p><%= t("legislation.processes.topics.empty_topics") %></p>
-      </div>
-    <% else %>
+<div class="small-12 calc-index-topic column border-left" data-equalizer-watch>
+  <div class="topic-panel">
+    <div>
+      <span class="icon-banner" aria-hidden="true"></span> <span class="panel-title"><%= t(".text_toc") %></span>
+    </div>
+  </div>
+  <div class="topic-index">
+    <ul>
       <% counter_level = 1 %>
-      <% process.topics.roots.each.with_index(1) do |topic, index| %>
-        <%= render '/legislation/topics/topic',
+      <% topics.roots.each.with_index(1) do |topic, index| %>
+        <%= render '/legislation/topics/topic_index',
           topic: topic, indexes: [index], counter_level: counter_level
         %>
       <% end %>
-    <% end %>
+    </ul>
   </div>
 </div>
 
-<div class="small-12 medium-3 column">
-  <% if process.topics_phase.open? && process.topics.any? %>
-    <div class="callout success">
-      <p><%= t("legislation.processes.topics.participate") %></p>
-    </div>
-  <% else %>
-    <div class="callout warning">
-      <p><%= t("legislation.processes.topics.phase_not_open") %></p>
-    </div>
-  <% end %>
+<div class="small-12 calc-text-topic column border-right border-left" data-equalizer-watch>
+  <div class="topic-panel">
+    <div><span class="panel-title"><%= t(".text_body") %></span></div>
+  </div>
+  <div class="topic-content">
+    <% counter_level = 1 %>
+    <% topics.roots.each.with_index(1) do |topic, index| %>
+      <%= render '/legislation/topics/topic',
+        topic: topic, indexes: [index], counter_level: counter_level
+      %>
+    <% end %>
+  </div>
 </div>

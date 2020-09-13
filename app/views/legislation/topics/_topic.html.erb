@@ -1,18 +1,37 @@
-<div class="topic-block">
-  <div class="topic-type">
-    <small><%= topic.legislation_topic_level.title.upcase %></small>
-  </div>
-  <div class="topic-title">
-    <h4><%= "#{topic_level_label(indexes)} #{topic.title}" %></h4>
-  </div>
+<div class="topic-text">
+  <div class="topic-block">
+    <h4 id="<%= dom_id(topic) %>">
+      <%= "#{topic_level_label(indexes)} #{topic.title}" %>
+    </h4>
 
-  <% if topic.description.present? %>
-    <%= wysiwyg(topic.description) %>
-  <% end %>
+    <% if topic.description.present? %>
+      <p class="topic-description"><%= topic.description %></p>
+    <% end %>
 
-  <% topic.assessments.each do |assessment| %>
-    <span><%= assessment.title %></span>
-  <% end %>
+    <% if topic.evaluable %>
+      <p class="evaluate-topic"
+        data-info-toggle="<%= dom_id(topic) %>_evaluation"
+      >
+        <i class="fas fa-vote-yea"></i><span>avaliar</span>
+      </p>
+      <div id="<%= dom_id(topic) %>_evaluation" style="display:none" class="evaluate-options">
+        <div>
+          <% topic.assessments.each do |assessment| %>
+            <span class="button answered"><%= assessment.title %></span>
+          <% end %>
+        </div>
+        <label for="<%= dom_id(topic) %>_text"
+          class="evaluate-label"
+        >
+          assessment
+        </label>
+        <textarea id="<%= dom_id(topic) %>_text" placeholder="assessment"></textarea>
+        <p style="text-align: right; margin-right: 0">
+          <span class="button answered" style="margin-right: 0">save</span>
+        </p>
+      </div>
+    <% end %>
+  </div>
 
   <% if topic.children.any? %>
     <% counter_level += 1 %>
