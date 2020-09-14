@@ -224,6 +224,11 @@
   width: 100%;
   z-index: 2;
 
+  &.legislation-debate {
+    padding: $line-height;
+    margin-top: -$line-height / 2;
+  }
+
   p {
     color: $color-warning !important;
     margin: 0 rem-calc(12);

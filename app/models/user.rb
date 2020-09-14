@@ -241,6 +241,14 @@ class User < ApplicationRecord
     official_level && official_level > 0
   end
 
+  def incomplete_registration?
+    document_number.blank?
+  end
+
+  def can_vote?
+    valid? && (document_number.present? || (organization? && cep))
+  end
+
   def add_official_position!(position, level)
     return if position.blank? || level.blank?
 
@@ -449,10 +457,6 @@ class User < ApplicationRecord
 
   def foreigner_document?
     document_type == 'rnm'
-  end
-
-  def can_vote?
-    valid? && (document_number.present? || (organization? && cep))
   end
 
   private

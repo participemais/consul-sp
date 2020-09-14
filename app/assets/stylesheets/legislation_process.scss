@@ -217,7 +217,8 @@
     }
 
     .quiz-title {
-      background: $highlight;
+      background: $legislation-banner;
+      color: $brand;
 
       .quiz-header-title {
         font-size: $small-font-size;
@@ -245,7 +246,7 @@
     }
 
     .quiz-next {
-      background: #ccdbe5;
+      background: $legislation-banner-info;
       color: $brand;
       font-size: $small-font-size;
       font-weight: bold;
@@ -259,7 +260,7 @@
 
       &:hover,
       &:active {
-        background: $brand;
+        background: #B15554;
         color: #fff;
         text-decoration: none;
       }
@@ -285,11 +286,24 @@
       margin-right: $line-height;
       padding: $line-height / 2  $line-height * 2;
       position: relative;
+      font-family: $subheader-font-family;
     }
 
     .is-active {
-      background: #ccdbe6;
-      border: 0;
+      border: 3px solid $purple;
+
+      &::after {
+        background: $purple;
+        border-radius: rem-calc(20);
+        content: "\6c";
+        color: #fff;
+        font-family: "icons" !important;
+        font-size: rem-calc(10);
+        padding: 0 $line-height / 4;
+        position: absolute;
+        right: -13px;
+        top: -13px;
+      }
     }
 
     .control input {
@@ -299,8 +313,8 @@
     }
 
     .control input:checked ~ .control-indicator {
-      background-color: $brand;
-      border: 0;
+      background-color: $purple;
+      border-color: $white;
     }
 
     .radio .control-indicator {
