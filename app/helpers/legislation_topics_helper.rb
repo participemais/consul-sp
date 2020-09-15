@@ -9,6 +9,30 @@ module LegislationTopicsHelper
     end
   end
 
+  def topic_vote(topic)
+    user_topic_vote(topic) || Legislation::TopicVote.new
+  end
+
+  def user_topic_vote(topic)
+    topic.topic_vote_for_user(current_user)
+  end
+
+  def topic_vote_url(topic, topic_vote)
+    if topic_vote.new_record?
+      legislation_process_topic_topic_votes_path(@process, topic)
+    else
+      legislation_process_topic_topic_vote_path(@process, topic, topic_vote)
+    end
+  end
+
+  def hide_box
+    if ['create', 'update'].include?(params[:action])
+      ""
+    else
+      "hide-fields"
+    end
+  end
+
   private
 
   def destroy_topic_message(topic)

@@ -3,7 +3,7 @@ class Legislation::Evaluation < ApplicationRecord
 
   has_many :legislation_assessments,
     class_name: "Legislation::Assessment",
-    foreign_key: "legislation_evaluations_id"
+    foreign_key: "legislation_evaluation_id"
 
   validates :title, presence: true
 

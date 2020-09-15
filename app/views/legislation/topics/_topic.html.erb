@@ -1,6 +1,6 @@
 <div class="topic-text">
-  <div class="topic-block">
-    <h4 id="<%= dom_id(topic) %>">
+  <div id="<%= dom_id(topic) %>" class="topic-block">
+    <h4>
       <%= "#{topic_level_label(indexes)} #{topic.title}" %>
     </h4>
 
@@ -9,26 +9,8 @@
     <% end %>
 
     <% if topic.evaluable %>
-      <p class="evaluate-topic"
-        data-info-toggle="<%= dom_id(topic) %>_evaluation"
-      >
-        <i class="fas fa-vote-yea"></i><span>avaliar</span>
-      </p>
-      <div id="<%= dom_id(topic) %>_evaluation" style="display:none" class="evaluate-options">
-        <div>
-          <% topic.assessments.each do |assessment| %>
-            <span class="button answered"><%= assessment.title %></span>
-          <% end %>
-        </div>
-        <label for="<%= dom_id(topic) %>_text"
-          class="evaluate-label"
-        >
-          assessment
-        </label>
-        <textarea id="<%= dom_id(topic) %>_text" placeholder="assessment"></textarea>
-        <p style="text-align: right; margin-right: 0">
-          <span class="button answered" style="margin-right: 0">save</span>
-        </p>
+      <div id="<%= dom_id(topic) %>_topic_vote_form" class="topic-assessments">
+        <%= render "/legislation/topics/topic_vote_form", topic: topic %>
       </div>
     <% end %>
   </div>
@@ -37,7 +19,7 @@
     <% counter_level += 1 %>
     <% topic.children.each.with_index(1) do |child, index| %>
       <% index == 1 ? indexes << index : indexes[-1] = index %>
-      <%= render '/legislation/topics/topic',
+      <%= render "/legislation/topics/topic",
         topic: child, indexes: indexes, counter_level: counter_level
       %>
     <% end %>

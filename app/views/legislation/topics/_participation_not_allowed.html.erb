@@ -1,0 +1,32 @@
+<% if user_signed_in? && current_user.organization? %>
+  <div class="participation-not-allowed" style="display:none" aria-hidden="false">
+    <p>
+      <%= t("legislation.topics.participation.organizations") %>
+    </p>
+  </div>
+<% elsif user_signed_in? && current_user.unverified? %>
+  <div class="participation-not-allowed" style="display:none" aria-hidden="false">
+    <p>
+      <%= sanitize(t("legislation.topics.participation.verified_only",
+          verify_account: link_to_verify_account)) %>
+    </p>
+  </div>
+<% elsif user_signed_in? && current_user.incomplete_registration? %>
+  <div class="participation-not-allowed" style="display:none" aria-hidden="false">
+    <p>
+      <%= sanitize(t(
+        "legislation.topics.participation.incomplete_registration",
+        register: link_to_my_account
+      )) %>
+    </p>
+  </div>
+<% elsif !user_signed_in? %>
+  <div class="participation-not-allowed" style="display:none" aria-hidden="false">
+    <%= sanitize(t("legislation.topics.participation.unauthenticated",
+          signin: link_to_signin, signup: link_to_signup)) %>
+  </div>
+<% elsif !@process.debate_phase.open? %>
+  <div class="participation-not-allowed" style="display:none" aria-hidden="false">
+    <%= t("legislation.topics.participation.debate_phase_not_open") %>
+  </div>
+<% end %>

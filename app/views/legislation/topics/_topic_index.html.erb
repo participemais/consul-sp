@@ -1,9 +1,12 @@
 <li>
-  <div class="topic-index-title">
+  <div class="topic-index-title" id="<%= dom_id(topic) %>_index">
     <%= link_to(
       "#{topic_level_label(indexes)} #{topic.title}",
       anchor: dom_id(topic)
     ) %>
+    <% if user_topic_vote(topic) %>
+      <span class='icon-check-circle purple-font tiny'></span>
+    <% end %>
   </div>
 
   <% if topic.children.any? %>

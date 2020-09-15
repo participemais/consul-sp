@@ -14,6 +14,10 @@ namespace :legislation do
       resources :answers, only: [:create, :update]
     end
 
+    resources :topics do
+      resources :topic_votes, only: [:create, :update]
+    end
+
     resources :proposals do
       member do
         post :vote
