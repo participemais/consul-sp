@@ -230,6 +230,11 @@
     margin-top: -$line-height / 2;
   }
 
+  &.topic-warning {
+    padding: $line-height * 3 $line-height $line-height * 2;
+    margin-top: $line-height / 3;
+  }
+
   p {
     color: $color-warning !important;
     margin: 0 rem-calc(12);

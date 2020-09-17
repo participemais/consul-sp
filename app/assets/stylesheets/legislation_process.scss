@@ -115,6 +115,7 @@
 
       h4 {
         margin-bottom: 0;
+        font-family: $subheader-font-family;
       }
     }
   }
@@ -1026,9 +1027,23 @@
 
 // 09. Legislation topics
 // -------------------------
+.topics-header {
+  margin-top: $line-height;
+}
+
+.topics-votes-count {
+
+    text-align: right;
+    font-size: $tiny-font-size;
+    font-family: $subheader-font-family;
+    color: $text-medium;
+    margin-bottom: 0;
+    text-transform: uppercase;
+
+}
+
 .topic-panels {
   position: relative;
-  padding: rem-calc(32) 0;
 
   .topic {
 
@@ -1099,7 +1114,10 @@
 
     .topic-content {
       padding: rem-calc(16);
-      padding-right: rem-calc(32);
+
+      @include breakpoint(medium) {
+        padding-right: rem-calc(32);
+      }
 
       .topic-block {
         margin-bottom: rem-calc(16);
@@ -1145,11 +1163,12 @@
       }
 
       .evaluate-options {
-        div {
+        .form {
           display: flex;
           justify-content: center;
+          margin-right: $line-height / 6;
+          margin-left: $line-height / 6;
           margin-top: $line-height / 4;
-          margin-bottom: $line-height / 4;
         }
 
         textarea {
