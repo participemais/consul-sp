@@ -34,7 +34,7 @@
 
         <div class="js-add-fields-container">
           <div class="small-12 medium-9 column">
-            <% if @topic_level.legislation_topics.empty? %>
+            <% if @topic_level.topics.empty? %>
               <%= link_to_add_association(
                 t("admin.legislation.topic_levels.form.add_option"),
                 f, :evaluations, class: "button hollow"

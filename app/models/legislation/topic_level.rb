@@ -3,7 +3,7 @@ class Legislation::TopicLevel < ApplicationRecord
     foreign_key: "legislation_process_id",
     inverse_of: :topic_levels
 
-  has_many :legislation_topics,
+  has_many :topics,
     class_name: "Legislation::Topic",
     foreign_key: "legislation_topic_level_id",
     dependent: :destroy

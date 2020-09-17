@@ -41,7 +41,7 @@
               class: "button hollow"
             ) %>
             <% if topic_level == @topic_levels.last &&
-              topic_level.legislation_topics.empty?
+              topic_level.topics.empty?
             %>
               <%= link_to(
                 t("admin.topic_levels.index.delete"),
