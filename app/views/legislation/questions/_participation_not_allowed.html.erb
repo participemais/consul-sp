@@ -14,7 +14,10 @@
 <% elsif user_signed_in? && current_user.incomplete_registration? %>
   <div class="participation-not-allowed legislation-debate" style="display:none" aria-hidden="false">
     <p>
-      <%= sanitize(t("legislation.questions.participation.incomplete_registration")) %>
+      <%= sanitize(t(
+        "legislation.questions.participation.incomplete_registration",
+        register: link_to_my_account
+      )) %>
     </p>
   </div>
 <% elsif !user_signed_in? %>
