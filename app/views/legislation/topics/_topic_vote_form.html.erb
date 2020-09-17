@@ -3,11 +3,13 @@
   data-info-toggle="<%= dom_id(topic) %>_evaluation"
 >
   <% if topic_vote.new_record? %>
-    <i class="fas fa-vote-yea"></i><span>avaliar</span>
+    <i class="fas fa-vote-yea"></i><span>
+      <%= t("legislation.topics.index.evaluate") %>
+    </span>
   <% else %>
     <span class="icon-check-circle purple-font"
       title=" ">
-      avaliado
+      <%= t("legislation.topics.index.done") %>
     </span>
   <% end %>
 </p>
@@ -18,7 +20,7 @@
     html: { class: "controls-stacked" },
     remote: true do |f|
   %>
-    <div>
+    <div class="form">
       <% topic.assessments.order(:id).each do |assessment| %>
         <label class="control radio <%= "is-active" if topic_vote.legislation_assessment_id == assessment.id %>">
           <%= f.radio_button(
@@ -41,7 +43,10 @@
     ) %>
     <%= f.text_area(:comment, id: "comment_#{dom_id(topic)}", label: false) %>
     <p class="submit-topic-vote no-margin-bottom">
-      <%= f.submit t("legislation.topic_votes.form.save"), class: "button" %>
+      <%= f.submit(
+        t("legislation.topic_votes.form.#{topic_vote_submit(topic_vote)}"),
+        class: "button"
+      ) %>
     </p>
   <% end %>
   <%= render "/legislation/topics/participation_not_allowed" %>

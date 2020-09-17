@@ -48,4 +48,8 @@ module LegislationHelper
       "background: #{@process.background_color};color: #{@process.font_color};"
     end
   end
+
+  def process_list_column_width(process)
+    (12.to_f / process.enabled_phases_and_publications_count).round
+  end
 end

@@ -33,6 +33,10 @@ module LegislationTopicsHelper
     end
   end
 
+  def topic_vote_submit(topic_vote)
+    topic_vote.new_record? ? "new" : "edit"
+  end
+
   private
 
   def destroy_topic_message(topic)

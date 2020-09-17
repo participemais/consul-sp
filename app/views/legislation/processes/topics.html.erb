@@ -7,6 +7,20 @@
 <%= render "key_dates", process: @process, phase: :topics_phase %>
 
 <div class="column row">
+  <div class="topics-header">
+    <h3><%= t("legislation.processes.topics.title") %></h3>
+  </div>
+
+  <p class="topics-votes-count">
+    <i class="fas fa-vote-yea"></i>
+    <span>
+      <%= t(
+        "legislation.topics.index.contributions",
+        count: @process.topics_votes_count
+      ) %>
+    </span>
+  </p>
+
   <div class="topic-panels small-12 column row">
     <div
       class="row topic medium-collapse"

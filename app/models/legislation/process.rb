@@ -140,6 +140,10 @@ class Legislation::Process < ApplicationRecord
     end
   end
 
+  def topics_votes_count
+    topics.sum(&:topic_votes_count)
+  end
+
   private
 
     def valid_date_ranges
