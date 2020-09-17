@@ -124,7 +124,6 @@ en:
       section_header:
         icon_alt: Debates icon
         title: Debates
-        help: Help about debates
       section_footer:
         title: Help about debates
         description: Start a debate to share opinions with others about the topics you are concerned about.
@@ -394,7 +393,6 @@ en:
       section_header:
         icon_alt: Proposals icon
         title: Proposals
-        help: Help about proposals
       section_footer:
         title: Help about proposals
         description: Citizens' proposals are an opportunity for neighbours and collectives to decide directly how they want their city to be, after getting sufficient support and submitting to a citizens' vote.
@@ -627,7 +625,6 @@ en:
       section_header:
         icon_alt: Voting icon
         title: Voting
-        help: Help about voting
       section_footer:
         title: Help about voting
         description: Citizens' polls are a participatory mechanism by which citizens with voting rights can make direct decisions

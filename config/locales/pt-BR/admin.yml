@@ -471,6 +471,7 @@ pt-BR:
           draft_phase: Etapa de rascunho
           allegations_phase: Etapa de comentários
           proposals_phase: Etapa de propostas
+          topics_phase: Etapa de revisão
           use_markdown: Usar Remarcação para formatar o texto
           title_placeholder: O título do processo
           summary_placeholder: Breve resumo da descrição
@@ -504,11 +505,12 @@ pt-BR:
           status_planned: Planejados
         subnav:
           info: Informações
-          homepage: Página inicial
-          draft_versions: Seleção
-          questions: Debater
+          homepage: Instruções
+          draft_versions: Anotações
+          questions: Debates
           proposals: Propostas
-          milestones: Seguindo
+          milestones: Monitoramento
+          topics: Revisão
       proposals:
         index:
           title: Título
@@ -1270,7 +1272,7 @@ pt-BR:
         summary:
           comment_votes: Comentário de votos
           comments: Comentários
-          debate_votes: Debater votos
+          debate_votes: Debates votos
           debates: Debates
           proposal_votes: Votos de proposta
           proposals: Propostas

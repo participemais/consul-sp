@@ -171,7 +171,7 @@ pt-BR:
       polls_description: "As pesquisas dos cidadãos são um mecanismo participativo através do qual os cidadãos com direito a voto podem tomar decisões diretas"
       budgets: "Orçamento Cidadão"
       budgets_description: "No orçamento cidadão, os cidadãos decidem quais projetos apresentados pelos seus vizinhos receberão parte do orçamento"
-      legislation: "Legislação colaborativa"
+      legislation: "Consulta pública"
       legislation_description: "Nos processos participativos é oferecido aos cidadãos a oportunidade de participar da elaboração e modificação das regulações que afetam a cidade e também dar suas opiniões em certas ações que são planejadas para serem tomadas"
     html:
       per_page_code_head: "Código a incluir em cada página (<head>)"

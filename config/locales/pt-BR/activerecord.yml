@@ -28,7 +28,7 @@ pt-BR:
         one: "Comentar"
         other: "Comentários"
       debate:
-        one: "Debater"
+        one: "Debate"
         other: "Debates"
       tag:
         one: "Marcação"
@@ -432,10 +432,12 @@ pt-BR:
         allegations_end_date: Data de conclusão das alegações
         proposals_phase_start_date: Início
         proposals_phase_end_date: Final
+        topics_phase_start_date: Data de início da revisão
+        topics_phase_end_date: Data de término da revisão
         result_publication_date: Data de publicação do resultado final
         background_color: Cor de fundo
         font_color: Cor da fonte
-        homepage_enabled: "Homepage habilitada"
+        homepage_enabled: "Instruções habilitada"
       legislation/process/translation:
         title: Título do processo
         summary: Resumo
@@ -469,6 +471,8 @@ pt-BR:
         value: Valor
       legislation/annotation:
         text: Comentar
+      legislation/topic_vote:
+        comment: Sugestão
       document:
         title: Título
         attachment: "Anexo"
