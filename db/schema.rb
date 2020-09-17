@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20200827195018) do
+ActiveRecord::Schema.define(version: 20200911175209) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -738,6 +738,15 @@ ActiveRecord::Schema.define(version: 20200827195018) do
     t.index ["user_id"], name: "index_legislation_answers_on_user_id"
   end
 
+  create_table "legislation_assessments", force: :cascade do |t|
+    t.bigint "legislation_topic_id"
+    t.bigint "legislation_evaluation_id"
+    t.string "title"
+    t.integer "topic_votes_count", default: 0
+    t.index ["legislation_evaluation_id"], name: "index_legislation_assessments_on_legislation_evaluation_id"
+    t.index ["legislation_topic_id"], name: "index_legislation_assessments_on_legislation_topic_id"
+  end
+
   create_table "legislation_draft_version_translations", id: :serial, force: :cascade do |t|
     t.integer "legislation_draft_version_id", null: false
     t.string "locale", null: false
@@ -762,6 +771,12 @@ ActiveRecord::Schema.define(version: 20200827195018) do
     t.index ["hidden_at"], name: "index_legislation_draft_versions_on_hidden_at"
     t.index ["legislation_process_id"], name: "index_legislation_draft_versions_on_legislation_process_id"
     t.index ["status"], name: "index_legislation_draft_versions_on_status"
+  end
+
+  create_table "legislation_evaluations", force: :cascade do |t|
+    t.bigint "legislation_topic_level_id"
+    t.string "title"
+    t.index ["legislation_topic_level_id"], name: "index_legislation_evaluations_on_legislation_topic_level_id"
   end
 
   create_table "legislation_process_translations", id: :serial, force: :cascade do |t|
@@ -808,6 +823,9 @@ ActiveRecord::Schema.define(version: 20200827195018) do
     t.boolean "homepage_enabled", default: false
     t.text "background_color"
     t.text "font_color"
+    t.date "topics_phase_start_date"
+    t.date "topics_phase_end_date"
+    t.boolean "topics_phase_enabled"
     t.index ["allegations_end_date"], name: "index_legislation_processes_on_allegations_end_date"
     t.index ["allegations_start_date"], name: "index_legislation_processes_on_allegations_start_date"
     t.index ["debate_end_date"], name: "index_legislation_processes_on_debate_end_date"
@@ -819,6 +837,8 @@ ActiveRecord::Schema.define(version: 20200827195018) do
     t.index ["hidden_at"], name: "index_legislation_processes_on_hidden_at"
     t.index ["result_publication_date"], name: "index_legislation_processes_on_result_publication_date"
     t.index ["start_date"], name: "index_legislation_processes_on_start_date"
+    t.index ["topics_phase_end_date"], name: "index_legislation_processes_on_topics_phase_end_date"
+    t.index ["topics_phase_start_date"], name: "index_legislation_processes_on_topics_phase_start_date"
   end
 
   create_table "legislation_proposals", id: :serial, force: :cascade do |t|
@@ -897,6 +917,36 @@ ActiveRecord::Schema.define(version: 20200827195018) do
     t.integer "author_id"
     t.index ["hidden_at"], name: "index_legislation_questions_on_hidden_at"
     t.index ["legislation_process_id"], name: "index_legislation_questions_on_legislation_process_id"
+  end
+
+  create_table "legislation_topic_levels", force: :cascade do |t|
+    t.string "title"
+    t.integer "level"
+    t.bigint "legislation_process_id"
+    t.index ["legislation_process_id"], name: "index_legislation_topic_levels_on_legislation_process_id"
+  end
+
+  create_table "legislation_topic_votes", force: :cascade do |t|
+    t.bigint "legislation_topic_id"
+    t.bigint "legislation_assessment_id"
+    t.bigint "user_id"
+    t.text "comment"
+    t.index ["legislation_assessment_id"], name: "index_legislation_topic_votes_on_legislation_assessment_id"
+    t.index ["legislation_topic_id"], name: "index_legislation_topic_votes_on_legislation_topic_id"
+    t.index ["user_id"], name: "index_legislation_topic_votes_on_user_id"
+  end
+
+  create_table "legislation_topics", force: :cascade do |t|
+    t.bigint "legislation_process_id"
+    t.bigint "legislation_topic_level_id"
+    t.string "title"
+    t.text "description"
+    t.integer "topic_votes_count", default: 0
+    t.boolean "evaluable", default: false
+    t.string "ancestry"
+    t.index ["ancestry"], name: "index_legislation_topics_on_ancestry"
+    t.index ["legislation_process_id"], name: "index_legislation_topics_on_legislation_process_id"
+    t.index ["legislation_topic_level_id"], name: "index_legislation_topics_on_legislation_topic_level_id"
   end
 
   create_table "links", id: :serial, force: :cascade do |t|
@@ -1698,8 +1748,17 @@ ActiveRecord::Schema.define(version: 20200827195018) do
   add_foreign_key "geozones_polls", "polls"
   add_foreign_key "identities", "users"
   add_foreign_key "images", "users"
+  add_foreign_key "legislation_assessments", "legislation_evaluations"
+  add_foreign_key "legislation_assessments", "legislation_topics"
   add_foreign_key "legislation_draft_versions", "legislation_processes"
+  add_foreign_key "legislation_evaluations", "legislation_topic_levels"
   add_foreign_key "legislation_proposals", "legislation_processes"
+  add_foreign_key "legislation_topic_levels", "legislation_processes"
+  add_foreign_key "legislation_topic_votes", "legislation_assessments"
+  add_foreign_key "legislation_topic_votes", "legislation_topics"
+  add_foreign_key "legislation_topic_votes", "users"
+  add_foreign_key "legislation_topics", "legislation_processes"
+  add_foreign_key "legislation_topics", "legislation_topic_levels"
   add_foreign_key "locks", "users"
   add_foreign_key "managers", "users"
   add_foreign_key "moderators", "users"
