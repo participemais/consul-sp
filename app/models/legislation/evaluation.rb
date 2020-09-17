@@ -6,6 +6,7 @@ class Legislation::Evaluation < ApplicationRecord
     foreign_key: "legislation_evaluation_id"
 
   validates :title, presence: true
+  validates :title, length: { maximum: 30 }
 
   before_update :update_assessments, if: :title_changed?
 
