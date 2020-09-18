@@ -3,6 +3,16 @@ module LegislationTopicsHelper
     "#{indexes.*('.')}."
   end
 
+  def topic_indexes(indexes, index, counter_level)
+    if index == 1
+      indexes << index
+    else
+      indexes = indexes.first(counter_level)
+      indexes[-1] = index
+    end
+    indexes
+  end
+
   def delete_topic_confirmation(topic)
     if topic.children.any?
       { confirm: destroy_topic_message(topic) }

@@ -1,3 +1,5 @@
+
+
 <h4><%= "#{topic_level_label(indexes)} #{topic.title}" %></h4>
 
 <%= link_to(
@@ -50,9 +52,10 @@
 <% if topic.children.any? %>
   <% counter_level += 1 %>
   <% topic.children.each.with_index(1) do |child, index| %>
-    <% index == 1 ? indexes << index : indexes[-1] = index %>
     <%= render 'topic',
-      topic: child, indexes: indexes, counter_level: counter_level
+      topic: child,
+      indexes: topic_indexes(indexes, index, counter_level),
+      counter_level: counter_level
     %>
   <% end %>
 <% end %>
