@@ -25,6 +25,10 @@ class Legislation::Topic < ApplicationRecord
     topic_votes.find_by(user: user)
   end
 
+  def comments_count
+    topic_votes.count { |topic_vote| topic_vote.comment.present? }
+  end
+
   private
 
   def copy_evaluations

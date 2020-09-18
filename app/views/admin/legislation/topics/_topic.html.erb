@@ -14,12 +14,20 @@
   data: delete_topic_confirmation(topic)
 ) %>
 
+<% if topic.evaluable? %>
+  <p>Total de votos: <%= topic.topic_votes_count %></p>
+<% end %>
+
 <% if topic.description.present? %>
-  <%= wysiwyg(topic.description) %>
+  <p><%= topic.description %></p>
 <% end %>
 
 <% topic.assessments.each do |assessment| %>
-  <span><%= assessment.title %></span>
+  <p class="no-margin-bottom"><%= "#{assessment.title} (#{assessment.topic_votes_count})" %></p>
+<% end %>
+
+<% if topic.evaluable? %>
+  <p>Sugestões: <%= topic.comments_count %></p>
 <% end %>
 
 <% unless counter_level == @topic_levels.size %>
