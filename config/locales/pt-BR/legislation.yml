@@ -109,10 +109,15 @@ pt-BR:
       participation:
         phase_not_open: Esta etapa não está aberta
         organizations: As organizações não podem participar no debate.
-        unauthenticated: Você precisa %{signin} ou %{signup} para participar.
+        unauthenticated: Você precisa acessar sua %{signin} ou se %{signup} para participar.
         verified_only: Somente usuários verificados podem participar, %{verify_account}.
         incomplete_registration: Você precisa completar o %{register} para participar do debate.
         debate_phase_not_open: A etapa de debate terminou e respostas não são mais aceitas.
+    answers:
+      create:
+        notice: Resposta registrada com sucesso!
+      update:
+        notice: Resposta alterada com sucesso!
     topics:
       index:
         contributions:

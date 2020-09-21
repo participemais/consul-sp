@@ -12,7 +12,10 @@ class Legislation::AnswersController < Legislation::BaseController
       @answer.save!
       track_event
       respond_to do |format|
-        format.html { redirect_to legislation_process_question_path(@process, @question) }
+        format.html do
+          redirect_to legislation_process_question_path(@process, @question),
+          notice: t("legislation.answers.create.notice")
+        end
       end
     else
       alert = t("legislation.questions.participation.phase_not_open")
@@ -26,7 +29,10 @@ class Legislation::AnswersController < Legislation::BaseController
     if @process.debate_phase.open?
       @answer.update(answer_params)
       respond_to do |format|
-        format.html { redirect_to legislation_process_question_path(@process, @question), notice: t("legislation.answers.update.notice") }
+        format.html do
+          redirect_to legislation_process_question_path(@process, @question),
+          notice: t("legislation.answers.update.notice")
+        end
       end
     end
   end
