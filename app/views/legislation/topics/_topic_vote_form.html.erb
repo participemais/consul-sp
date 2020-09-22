@@ -27,6 +27,7 @@
             :legislation_assessment_id,
             assessment.id,
             label: false,
+            data: { choose_option: "#{dom_id(topic)}_options" }
           ) %>
           <span class="control-indicator"></span>
           <%= assessment.title %>
@@ -41,11 +42,18 @@
     <%= f.label(
       :comment, nil, for: "comment_#{dom_id(topic)}", class: "evaluate-label"
     ) %>
-    <%= f.text_area(:comment, id: "comment_#{dom_id(topic)}", label: false) %>
+    <%= f.text_area(
+      :comment,
+      id: "comment_#{dom_id(topic)}",
+      class: "#{dom_id(topic)}_options",
+      label: false,
+      disabled: topic_vote.new_record?
+    ) %>
     <p class="submit-topic-vote no-margin-bottom">
       <%= f.submit(
         t("legislation.topic_votes.form.#{topic_vote_submit(topic_vote)}"),
-        class: "button"
+        class: "button #{dom_id(topic)}_options",
+        disabled: topic_vote.new_record?
       ) %>
     </p>
   <% end %>
