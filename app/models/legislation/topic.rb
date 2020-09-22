@@ -29,6 +29,10 @@ class Legislation::Topic < ApplicationRecord
     topic_votes.count { |topic_vote| topic_vote.comment.present? }
   end
 
+  def ordered_children
+    children.order(:id)
+  end
+
   private
 
   def copy_evaluations

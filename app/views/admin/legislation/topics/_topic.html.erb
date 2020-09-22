@@ -51,7 +51,7 @@
 
 <% if topic.children.any? %>
   <% counter_level += 1 %>
-  <% topic.children.each.with_index(1) do |child, index| %>
+  <% topic.ordered_children.each.with_index(1) do |child, index| %>
     <%= render 'topic',
       topic: child,
       indexes: topic_indexes(indexes, index, counter_level),
