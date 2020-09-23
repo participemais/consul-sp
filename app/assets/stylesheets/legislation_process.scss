@@ -152,21 +152,20 @@
 // 03. Debate list
 // ----------------
 
-.debate-chooser, .topic-chooser {
+.debate-chooser {
   padding: rem-calc(32) rem-calc(16);
 
   @include breakpoint(medium) {
-    .debate-chooser, .topic-chooser {
+    .debate-chooser {
       padding: rem-calc(32) rem-calc(48);
     }
   }
 
-  .debate-block, .topic-block {
+  .debate-block {
     margin-bottom: rem-calc(40);
 
-    .debate-type, .topic-type {
+    .debate-type {
       text-transform: uppercase;
-      color: $text-medium;
       font-weight: 700;
       font-size: $small-font-size;
 
@@ -175,7 +174,7 @@
       }
     }
 
-    .debate-title a, .topic-title a {
+    .debate-title a {
       color: $black;
     }
   }
