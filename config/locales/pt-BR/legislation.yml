@@ -74,7 +74,7 @@ pt-BR:
       phase_not_open:
         not_open: Esta etapa ainda não está aberta
       phase_empty:
-        empty: Nada publicado ainda
+        empty: Não há documento cadastrado
       shared:
         key_dates: Etapas de participação
         homepage: Instruções
