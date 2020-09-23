@@ -1,4 +1,4 @@
-class Admin::BudgetInvestmentFeasibilityAnalysesController < Admin::FeasibilityAnalysesController
+class Valuation::BudgetInvestmentFeasibilityAnalysesController < Valuation::FeasibilityAnalysesController
 
   before_action :load_budget
   before_action :load_investment

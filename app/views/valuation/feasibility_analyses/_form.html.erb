@@ -1,4 +1,4 @@
-<%= form_for([:admin, @budget, @feasibility_analyzable, @feasibility_analysis]) do |f| %>
+<%= form_for([:valuation, @budget, @feasibility_analyzable, @feasibility_analysis]) do |f| %>
 
   <%= render "shared/errors", resource: @feasibility_analysis %>
 
@@ -6,16 +6,19 @@
     <div class="small-12 column">
       <%= f.select :department_id,
             @departments.collect { |s| [s.name, s.id] },
-            { include_blank: @departments.any? ? "" : t("admin.feasibility_analyses.form.no_departments_defined") },
+            { include_blank: @departments.any? ? "" : t("valuation.feasibility_analyses.form.no_departments_defined") },
             { disabled: @departments.blank? } %>
-      <%= link_to t("admin.feasibility_analyses.form.admin_departments"),
+
+      <% if current_user.administrator? %>
+        <%= link_to t("valuation.feasibility_analyses.form.admin_departments"),
                   admin_feasibility_analysis_departments_path %>
+      <% end %>
     </div>
 
     <div class="small-12 column">
       <fieldset class="fieldset">
         <legend>
-          <%= t("admin.feasibility_analyses.form.technical") %>
+          <%= t("valuation.feasibility_analyses.form.technical") %>
         </legend>
 
         <div class="small-4 column">
@@ -51,7 +54,7 @@
     <div class="small-12 column">
       <fieldset class="fieldset">
         <legend>
-          <%= t("admin.feasibility_analyses.form.legal") %>
+          <%= t("valuation.feasibility_analyses.form.legal") %>
         </legend>
 
         <div class="small-4 column">
@@ -87,7 +90,7 @@
     <div class="small-12 column">
       <fieldset class="fieldset">
         <legend>
-          <%= t("admin.feasibility_analyses.form.budgetary") %>
+          <%= t("valuation.feasibility_analyses.form.budgetary") %>
         </legend>
 
         <div class="small-4 column">
@@ -132,7 +135,7 @@
 
   <div class="row">
     <div class="actions small-12 medium-4 column">
-      <%= f.submit(class: "button expanded large", value: t("admin.feasibility_analyses.form.save")) %>
+      <%= f.submit(class: "button expanded large", value: t("valuation.feasibility_analyses.form.save")) %>
     </div>
   </div>
 

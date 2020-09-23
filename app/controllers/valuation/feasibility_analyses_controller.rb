@@ -1,4 +1,4 @@
-class Admin::FeasibilityAnalysesController < Admin::BaseController
+class Valuation::FeasibilityAnalysesController < Valuation::BaseController
 
   before_action :load_feasibility_analyzable
   before_action :load_feasibility_analysis, only: [:edit, :update, :destroy]
@@ -14,7 +14,7 @@ class Admin::FeasibilityAnalysesController < Admin::BaseController
       .feasibility_analyses.new(feasibility_analysis_params)
     if @feasibility_analysis.save
       redirect_to feasibility_analyzable_path,
-        notice: t("admin.feasibility_analyses.create.notice")
+        notice: t("valuation.feasibility_analyses.create.notice")
     else
       render :new
     end
@@ -26,7 +26,7 @@ class Admin::FeasibilityAnalysesController < Admin::BaseController
   def update
     if @feasibility_analysis.update(feasibility_analysis_params)
       redirect_to feasibility_analyzable_path,
-        notice: t("admin.feasibility_analyses.update.notice")
+        notice: t("valuation.feasibility_analyses.update.notice")
     else
       render :edit
     end
@@ -35,7 +35,7 @@ class Admin::FeasibilityAnalysesController < Admin::BaseController
   def destroy
     @feasibility_analysis.destroy!
     redirect_to feasibility_analyzable_path,
-      notice: t("admin.feasibility_analyses.delete.notice")
+      notice: t("valuation.feasibility_analyses.delete.notice")
   end
 
   private
