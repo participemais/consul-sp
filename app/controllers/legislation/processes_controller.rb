@@ -49,7 +49,13 @@ class Legislation::ProcessesController < Legislation::BaseController
     @phase = :topics_phase
 
     if @process.topics_phase.started?
-      render :topics
+      @topics = @process.topics.roots.order(:id)
+
+      if @topics.any?
+        render :topics
+      else
+        render :phase_empty
+      end
     else
       render :phase_not_open
     end

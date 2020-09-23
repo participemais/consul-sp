@@ -8,7 +8,7 @@ class Admin::Legislation::TopicsController < Admin::Legislation::BaseController
   before_action :load_parent, only: [:new, :create]
 
   def index
-    @topics = @process.topics.roots
+    @topics = @process.topics.roots.order(:id)
   end
 
   def new

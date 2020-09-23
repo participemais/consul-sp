@@ -10,7 +10,7 @@
   <div class="topic-index">
     <ul>
       <% counter_level = 1 %>
-      <% topics.roots.each.with_index(1) do |topic, index| %>
+      <% topics.each.with_index(1) do |topic, index| %>
         <%= render '/legislation/topics/topic_index',
           topic: topic, indexes: [index], counter_level: counter_level
         %>
@@ -29,7 +29,7 @@
   </div>
   <div class="topic-content">
     <% counter_level = 1 %>
-    <% topics.roots.each.with_index(1) do |topic, index| %>
+    <% topics.each.with_index(1) do |topic, index| %>
       <%= render '/legislation/topics/topic',
         topic: topic, indexes: [index], counter_level: counter_level
       %>
