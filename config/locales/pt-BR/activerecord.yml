@@ -472,7 +472,7 @@ pt-BR:
       legislation/annotation:
         text: Comentar
       legislation/topic_vote:
-        comment: Sugestão
+        comment: Sugestão (opcional)
       document:
         title: Título
         attachment: "Anexo"

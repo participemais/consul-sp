@@ -53,7 +53,7 @@ pt-BR:
           random: Aleatório
           winners: Selecionado
       debate:
-        empty_questions: Não há perguntas
+        empty_questions: Não há perguntas cadastradas
         participate: Participe do debate clicando nas perguntas
         phase_not_open: Fora do período de participação
       index:
@@ -70,7 +70,7 @@ pt-BR:
           subtitle: Processos abertos
         section_footer:
           title: Sobre as consultas públicas
-          description: Participe das Consultas Públicas online para apoiar a elaboração e atualização de projetos, documentos, ações, normas e leis da Prefeitura. Toda a participação é analisada pelos órgãos responsáveis, de modo a tornar os documentos mais completos e condizentes com as necessidades públicas. Acompanhe em Processos Encerrados os resultados da consulta e os próximos passos dos processos.
+          description: Participe das Consultas Públicas online para apoiar a elaboração e atualização de projetos, documentos, ações, normas e leis da Prefeitura. Toda a participação é analisada pelos órgãos responsáveis, de modo a tornar os documentos mais completos e condizentes com as necessidades públicas. Acompanhe em Processos Encerrados os resultados das consultas e os próximos passos dos processos.
       phase_not_open:
         not_open: Esta etapa ainda não está aberta
       phase_empty:
@@ -115,7 +115,7 @@ pt-BR:
         debate_phase_not_open: A etapa de debate terminou e respostas não são mais aceitas.
     answers:
       create:
-        notice: Resposta registrada com sucesso!
+        notice: Resposta recebida com sucesso!
       update:
         notice: Resposta alterada com sucesso!
     topics:
@@ -137,8 +137,8 @@ pt-BR:
         debate_phase_not_open: A etapa de debate terminou e respostas não são mais aceitas
     topic_votes:
       form:
-        new: Enviar
-        edit: Editar
+        new: Enviar opinião
+        edit: Editar opinião
     shared:
       share: Compartilhar
       share_comment: Comente em %{version_name} do rascunho de processo %{process_name}
