@@ -16,7 +16,7 @@ class Admin::Legislation::TopicsController < Admin::Legislation::BaseController
     @topic = @process.topics.new(topic_params)
 
     if @topic.save
-      redirect_to admin_legislation_process_topics_path,
+      redirect_to document_admin_legislation_process_topics_path,
         notice: t("admin.legislation.topics.create.notice")
     else
       render :new
@@ -25,7 +25,7 @@ class Admin::Legislation::TopicsController < Admin::Legislation::BaseController
 
   def update
     if @topic.update(topic_params)
-      redirect_to admin_legislation_process_topics_path,
+      redirect_to document_admin_legislation_process_topics_path,
         notice: t("admin.legislation.topics.update.notice")
     else
       render :edit
@@ -34,7 +34,7 @@ class Admin::Legislation::TopicsController < Admin::Legislation::BaseController
 
   def destroy
     @topic.destroy!
-    redirect_to admin_legislation_process_topics_path,
+    redirect_to document_admin_legislation_process_topics_path,
       notice: t("admin.legislation.topics.delete.notice")
   end
 

@@ -11,7 +11,7 @@ class Admin::Legislation::TopicLevelsController < Admin::Legislation::BaseContro
     @topic_level = @process.topic_levels.new(topic_level_params)
 
     if @topic_level.save
-      redirect_to admin_legislation_process_topics_path,
+      redirect_to document_admin_legislation_process_topics_path,
         notice: t("admin.legislation.topic_levels.create.notice")
     else
       render :new
@@ -20,7 +20,7 @@ class Admin::Legislation::TopicLevelsController < Admin::Legislation::BaseContro
 
   def update
     if @topic_level.update(topic_level_params)
-      redirect_to admin_legislation_process_topics_path,
+      redirect_to document_admin_legislation_process_topics_path,
         notice: t("admin.legislation.topic_levels.update.notice")
     else
       render :edit
@@ -29,7 +29,7 @@ class Admin::Legislation::TopicLevelsController < Admin::Legislation::BaseContro
 
   def destroy
     @topic_level.destroy!
-    redirect_to admin_legislation_process_topics_path,
+    redirect_to document_admin_legislation_process_topics_path,
       notice: t("admin.legislation.topic_levels.delete.notice")
   end
 
