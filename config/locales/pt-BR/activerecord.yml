@@ -477,6 +477,10 @@ pt-BR:
         value: Valor
       legislation/annotation:
         text: Comentar
+      legislation/topic:
+        title: Título
+        description: Texto
+        evaluable: "Habilitar função \"opinar\""
       legislation/topic_level:
         title: Título
         show_evaluation_fields: Habilitar função "opinar"

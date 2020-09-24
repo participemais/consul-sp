@@ -605,15 +605,24 @@ pt-BR:
           title: Documento associado ao processo
         document:
           edit: Editar
+          empty_topic_levels: Não há títulos cadastrados
           delete: Apagar
           new_topic: Adicionar %{title}
           new_topic_level: Cadastrar novo título
+          title: Documento
           topic_level_title: Estrutura do documento
-          empty_topic_levels: Não há títulos cadastrados
         new:
           title: Adicionar %{title}
+        create:
+          notice: Trecho criado com sucesso
+        edit:
+          title: Editar %{title}
+        update:
+          notice: Trecho atualizado com sucesso
+        delete:
+          notice: Trecho apagado com sucesso
         form:
-          save: Salvar
+          save: Gravar
         destroy:
           confirm:
             one: Se apagar %{title}, um subtópico associado também será apagado. Tem certeza que deseja continuar?
@@ -629,8 +638,14 @@ pt-BR:
       topic_levels:
         new:
           title: Novo título
+        create:
+          notice: Título criado com sucesso
         edit:
           title: Editar título
+        update:
+          notice: Título atualizado com sucesso
+        delete:
+          notice: Título apagado com sucesso
         form:
           add_option: Adicionar opção
           evaluations: Opções
