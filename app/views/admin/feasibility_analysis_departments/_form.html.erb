@@ -1,0 +1,20 @@
+<%= form_for([:admin, @department]) do |f| %>
+
+  <%= render "shared/errors", resource: @department %>
+
+  <div class="row">
+    <div class="small-12 column">
+      <%= f.text_field(:name, require: true) %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="actions small-12 medium-4 column">
+      <%= f.submit(
+        class: "button expanded large",
+        value: t("admin.departments.form.save")
+      ) %>
+    </div>
+  </div>
+
+<% end %>

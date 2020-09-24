@@ -108,8 +108,8 @@ pt-BR:
           title: Excluir conta
         edit:
           current_password_label: Senha atual
-          edit: Editar
-          email_label: Email
+          edit: Alterar email ou senha
+          email_label: Novo email
           leave_blank: Deixe em branco se você não deseja modificar
           need_current: Precisamos de sua senha atual para confirmar as alterações
           password_confirmation_label: Confirmar nova senha
@@ -120,7 +120,7 @@ pt-BR:
           cancel: Cancelar o login
           email_label: Email
           organization_signup: Você representa uma organização ou coletivo? %{signup_link}
-          organization_signup_link: Inscreva-se aqui
+          organization_signup_link: Inscreva-se aqui.
           password_confirmation_label: Confirmar senha
           password_label: Senha
           redeemable_code: Código de verificação recebido via email (opcional)

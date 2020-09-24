@@ -13,7 +13,7 @@ pt-BR:
         cancel: Cancelar
         publish_comment: Publicar comentário
       form:
-        phase_not_open: Esta fase não está aberta
+        phase_not_open: Esta etapa não está aberta
       index:
         title: Comentários
         comments_about: Comentários sobre
@@ -70,7 +70,7 @@ pt-BR:
           title: Ajuda sobre processos legislativos
           description: Participar nos debates e processos prévios para a aprovação de um instrumento legal ou uma ação municipal. Sua opinião será considerada pela Prefeitura.
       phase_not_open:
-        not_open: Nesta fase ainda não está aberta
+        not_open: Nesta etapa ainda não está aberta
       phase_empty:
         empty: Nada publicado ainda
       process:
@@ -89,7 +89,7 @@ pt-BR:
       comments:
         comment_button: Publicar resposta
         comments_title: Respostas abertas
-        comments_closed: Fase fechada
+        comments_closed: Etapa fechada
         form:
           leave_comment: Deixe sua resposta
       question:
@@ -105,11 +105,11 @@ pt-BR:
         share: Compartilhar
         title: Processo de legislação colaborativa
       participation:
-        phase_not_open: Esta fase não está aberta
+        phase_not_open: Esta etapa não está aberta
         organizations: As organizações não podem participar no debate
         unauthenticated: Você precisa %{signin} ou %{signup} para participar.
         verified_only: Somente usuários verificados podem participar, %{verify_account}.
-        debate_phase_not_open: A fase de debate terminou e respostas não são mais aceitas
+        debate_phase_not_open: A etapa de debate terminou e respostas não são mais aceitas
     shared:
       share: Compartilhar
       share_comment: Comente em %{version_name} do rascunho de processo %{process_name}

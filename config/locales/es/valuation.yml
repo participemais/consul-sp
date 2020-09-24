@@ -12,7 +12,7 @@ es:
           current: Abiertos
           finished: Terminados
         table_name: Nombre
-        table_phase: Fase
+        table_phase: Etapa
         table_assigned_investments_valuation_open: Prop. Inv. asignadas en evaluación
         table_actions: Acciones
         evaluate: Evaluar
@@ -60,9 +60,8 @@ es:
         price_first_year: "Coste en el primer año (%{currency}) <small>(opcional, dato no público)</small>"
         feasibility: Viabilidad
         valuation_finished_alert: "¿Estás seguro/a de querer marcar este informe como completado? Una vez hecho, no se puede deshacer la acción."
-        not_feasible_alert: "Un email será enviado inmediatamente al autor del proyecto con el informe de inviabilidad."
         save: Guardar cambios
       notice:
         valuate: "Dossier actualizado"
       valuation_comments: Comentarios de evaluación
-      not_in_valuating_phase: Los proyectos sólo pueden ser evaluados cuando el Presupuesto esté en fase de evaluación
+      not_in_valuating_phase: Los proyectos sólo pueden ser evaluados cuando el Presupuesto esté en etapa de evaluación

@@ -71,7 +71,7 @@ es:
           finished: Terminados
         budget_investments: Gestionar proyectos de gasto
         table_name: Nombre
-        table_phase: Fase
+        table_phase: Etapa
         table_investments: Proyectos de gasto
         table_edit_groups: Grupos de partidas
         table_edit_budget: Editar
@@ -87,11 +87,11 @@ es:
       edit:
         title: Editar presupuestos participativos
         delete: Eliminar presupuesto
-        phase: Fase
+        phase: Etapa
         dates: Fechas
         enabled: Habilitada
         actions: Acciones
-        edit_phase: Editar fase
+        edit_phase: Editar etapa
         active: Activa
         blank_dates: Sin fechas
         administrators:
@@ -159,9 +159,9 @@ es:
         back: "Volver a grupos"
     budget_phases:
       edit:
-        summary_help_text: Este texto informará al usuario sobre la fase. Para mostrarlo aunque la fase no esté activa, marca la opción de más abajo.
-        description_help_text: Este texto aparecerá en la cabecera cuando la fase esté activa
-        enabled_help_text: Esta fase será pública en el calendario de fases del presupuesto y estará activa para otros propósitos
+        summary_help_text: Este texto informará al usuario sobre la etapa. Para mostrarlo aunque la etapa no esté activa, marca la opción de más abajo.
+        description_help_text: Este texto aparecerá en la cabecera cuando la etapa esté activa
+        enabled_help_text: Esta etapa será pública en el calendario de etapas del presupuesto y estará activa para otros propósitos
         save_changes: Guardar cambios
     budget_investments:
       index:
@@ -217,7 +217,7 @@ es:
           incompatible: Incompatible
           price: Precio
           author: Autor
-        cannot_calculate_winners: El presupuesto debe estar en las fases "Votación final", "Votación finalizada" o "Resultados" para poder calcular las propuestas ganadoras
+        cannot_calculate_winners: El presupuesto debe estar en las etapas "Votación final", "Votación finalizada" o "Resultados" para poder calcular las propuestas ganadoras
         see_results: "Ver resultados"
         milestone_tags_filter_all: "Todas las etiquetas de seguimiento"
       show:
@@ -481,11 +481,11 @@ es:
         form:
           enabled: Habilitado
           process: Proceso
-          debate_phase: Fase previa
-          draft_phase: Fase de borrador
-          draft_phase_description: Si esta fase está activa, el proceso no aparecerá en la página de procesos. Permite previsualizar el proceso y crear contenido antes del inicio.
-          allegations_phase: Fase de comentarios
-          proposals_phase: Fase de propuestas
+          debate_phase: Etapa previa
+          draft_phase: Etapa de borrador
+          draft_phase_description: Si esta etapa está activa, el proceso no aparecerá en la página de procesos. Permite previsualizar el proceso y crear contenido antes del inicio.
+          allegations_phase: Etapa de comentarios
+          proposals_phase: Etapa de propuestas
           use_markdown: Usa Markdown para formatear el texto
           title_placeholder: Escribe el título del proceso
           summary_placeholder: Resumen corto de la descripción
@@ -826,12 +826,9 @@ es:
       budget_investment_selected:
         title: "Proyecto de gasto seleccionado"
         description: "Enviado al autor de un proyecto de presupuestos participativos que ha sido seleccionado."
-      budget_investment_unfeasible:
-        title: "Proyecto de gasto inviable"
-        description: "Enviado al autor de un proyecto de presupuestos participativos que ha sido marcado como inviable."
       budget_investment_unselected:
         title: "Proyecto de gasto no seleccionado"
-        description: "Enviado al autor de un proyecto de presupuestos participativos que no ha sido seleccionado para la fase de votación."
+        description: "Enviado al autor de un proyecto de presupuestos participativos que no ha sido seleccionado para la etapa de votación."
       comment:
         title: "Comentario"
         description: "Enviado al autor cuando recibe un comentario."
@@ -1392,9 +1389,9 @@ es:
         level_2_user: Usuarios nivel 2
         proposal_created: Propuestas Ciudadanas
       budgets:
-        no_data_before_balloting_phase: "No hay datos que mostrar hasta que la fase de votación no esté abierta."
+        no_data_before_balloting_phase: "No hay datos que mostrar hasta que la etapa de votación no esté abierta."
         title: "Presupuestos participativos - Estadisticas de participación"
-        supporting_phase: Fase de apoyos
+        supporting_phase: Etapa de apoyos
         balloting_phase: Votación final
       budget_balloting:
         title: "Estadísticas votación final"
@@ -1403,7 +1400,7 @@ es:
         votes_per_heading: Votos por partida
         participants_per_district: Participantes por distrito
       budget_supporting:
-        title: "Estadísticas fase de apoyos"
+        title: "Estadísticas etapa de apoyos"
         headings: Partidas
         users: Usuarios
         vote_count: Votos

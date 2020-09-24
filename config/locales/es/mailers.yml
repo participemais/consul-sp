@@ -54,13 +54,6 @@ es:
       follow_link: "Presupuestos participativos"
       sincerely: "Atentamente,"
       share: "Comparte tu proyecto"
-    budget_investment_unfeasible:
-      hi: "Estimado/a usuario/a"
-      new: "Por todo ello, te invitamos a que elabores un <strong>nuevo proyecto de gasto</strong> que se ajuste a las condiciones de este proceso. Esto lo puedes hacer en este enlace: %{url}."
-      new_href: "nuevo proyecto de gasto"
-      sincerely: "Atentamente"
-      sorry: "Sentimos las molestias ocasionadas y volvemos a darte las gracias por tu inestimable participación."
-      subject: "Tu proyecto de gasto '%{code}' ha sido marcado como inviable"
     budget_investment_selected:
       subject: "Tu proyecto de gasto '%{code}' ha sido seleccionado"
       hi: "Estimado/a usuario/a"

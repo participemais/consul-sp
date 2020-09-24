@@ -54,7 +54,7 @@ pt-BR:
         other: "%{count} respostas (mostrar)"
       responses_collapse:
         zero: Nenhuma resposta
-        one: "1 respuesta (recolher)"
+        one: "1 resposta (recolher)"
         other: "%{count} respostas (recolher)"
       user_deleted: Usuário apagado
       votes:
@@ -201,6 +201,7 @@ pt-BR:
     local_census_records/import: Importações de registros do censo local
     site_customization/content_block: Conteúdo
     site_customization/page: Página
+    feasibility_analysis: Análises de viabilidade
   geozones:
     none: Cidade de São Paulo
   layouts:
@@ -460,7 +461,7 @@ pt-BR:
       dashboard_proposal_link: Painel de controle
       flag: Esta proposta já foi marcada como inadequada por vários usuários.
       notifications_tab: Notificações
-      milestones_tab: Fases
+      milestones_tab: Etapas
       retired_warning: "O autor considera que esta proposta não deve mais receber apoio."
       retired_warning_link_to_explanation: Leia a explicação antes de votar.
       retired: Proposta retirada pelo autor
@@ -721,6 +722,7 @@ pt-BR:
     check_none: Nenhum
     collective: Coletivo
     flag: Marcar como inapropriado
+    feasible: Viável
     follow: "Seguir"
     following: "Seguindo"
     follow_entity: "Seguir %{entity}"
@@ -729,7 +731,7 @@ pt-BR:
         create:
           notice: "Você está seguindo essa proposta! </br>Para que esteja a par de tudo, vamos notificar você sobre alterações assim que elas ocorrerem."
         destroy:
-          notice: "Você parou de seguir essa proposta! </br> Você não receberá mais notificações relacionadas a ele."
+          notice: "Você parou de seguir essa proposta! </br> Você não receberá mais notificações relacionadas a ela."
       proposal:
         create:
           notice: "Agora você está seguindo esta proposta cidadã! </br> Para que esteja a par de tudo, vamos notificar você sobre alterações assim que elas ocorrerem."
@@ -766,6 +768,8 @@ pt-BR:
       categories: "Categorias"
     target_blank: " (link abre em nova janela)"
     you_are_in: "Você está em"
+    undecided: Não definida
+    unfeasible: Inviável
     unflag: Desmarcar
     unfollow_entity: "Deixar de seguir %{entity}"
     outline:
@@ -882,7 +886,7 @@ pt-BR:
       not_verified: Somente usuários verificados podem votar em projetos de investimento; %{verify_account}.
       organization: Organizações não tem permissão de voto
       unfeasible: Projetos de investimento inviáveis não podem ser apoiados
-      not_voting_allowed: A fase de votação está fechada
+      not_voting_allowed: A etapa de votação está fechada
       different_heading_assigned:
         one: "Você só pode apoiar projetos de investimento em %{count} distrito. Você já apoiou investimentos em %{supported_headings}."
         other: "Você só pode apoiar projetos de investimento em %{count} distritos. Você já apoiou investimentos em %{supported_headings}."

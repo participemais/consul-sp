@@ -13,6 +13,8 @@ module ActionDispatch::Routing::UrlFor
       [*resource_hierarchy_for(resource.milestoneable), resource]
     when "ProgressBar"
       [*resource_hierarchy_for(resource.progressable), resource]
+    when "FeasibilityAnalysis"
+      [*resource_hierarchy_for(resource.feasibility_analyzable), resource]
     when "Audit"
       [*resource_hierarchy_for(resource.associated || resource.auditable), resource]
     when "Legislation::Annotation"

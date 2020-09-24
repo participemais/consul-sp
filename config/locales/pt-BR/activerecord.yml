@@ -17,10 +17,10 @@ pt-BR:
         other: "Propostas"
       milestone:
         one: "Situação"
-        other: "Situção"
+        other: "Situações"
       milestone/status:
-        one: "Fase"
-        other: "Fases"
+        one: "Etapa"
+        other: "Etapas"
       progress_bar:
         one: "Barra de progresso"
         other: "Barras de progresso"
@@ -129,18 +129,25 @@ pt-BR:
       local_census_record:
         one: Registro de censo local
         other: Registros de censo local
+      feasibility_analysis:
+        one: Análise de viabilidade
+        other: Análises de viabilidade
+      feasibility_analysis/departments:
+        one: Órgão público
+        other: Órgãos públicos
     attributes:
       budget:
         name: "Nome"
-        description_accepting: "Descrição durante a fase de aceitação"
-        description_reviewing: "Descrição durante a fase de revisão"
-        description_selecting: "Descrição durante a seleção da fase"
-        description_valuating: "Descrição durante a fase de avaliação"
-        description_balloting: "Descrição durante a fase de votação"
-        description_reviewing_ballots: "Descrição durante a fase de revisão das cédulas"
-        description_devolutive: "Descrição durante a fase devolutiva"
+        description_accepting: "Descrição durante a etapa de aceitação"
+        description_reviewing: "Descrição durante a etapa de revisão"
+        description_selecting: "Descrição durante a seleção da etapa"
+        description_valuating: "Descrição durante a etapa de avaliação"
+        description_balloting: "Descrição durante a etapa de votação"
+        description_reviewing_ballots: "Descrição durante a etapa de revisão das cédulas"
+        description_devolutive: "Descrição durante a etapa devolutiva"
         description_finished: "Descrição sobre o orçamento concluído."
-        phase: "Fase"
+        description_formulation: "Descrição sobre a etapa análise de viabilidade."
+        phase: "Etapa"
         currency_symbol: Distribuição de recursos
         max_votes: Votos por usuário
       budget/translation:
@@ -156,19 +163,47 @@ pt-BR:
         image: "Imagem descritiva da proposta"
         image_title: "Título da imagem"
         duration: "Prazo"
+        feasibility: "Viabilidade final"
         feasibility_feasible: "Viável"
-        feasibility_undecided: "Não definido"
+        feasibility_undecided: "Não definida"
         feasibility_unfeasible: "Inviável"
+        feasibility_type: "Tipo de viabilidade"
+        feasibility_type_running_project: "Viável (projeto em execução)"
+        feasibility_type_new_project: "Viável (novo projeto)"
         incompatible: "Marcar como incompatível"
         milestone_tag_list: "Status de andamento"
         price_explanation: "Exposição de custos"
         selected: "Marcar como selecionado"
         selected_true: "Selecionado"
         selected_false: "Não selecionado"
-        unfeasibility_explanation: "Exposição de viabilidade"
+        unfeasibility_explanation: "Justificativa"
         valuation_finished: "Avaliação concluída"
+        valuation_finished_true: "Avaliação concluída"
+        valuation_finished_false: "Avaliação pendente"
         valuator_ids: "Grupos"
         valuation_tag_list: "Tags"
+        commitment: "Compromisso"
+        running_project: "Viável (projeto em execução)"
+        new_project: "Viável (novo projeto)"
+        budgetary: "Análise de viabilidade orçamentária"
+        budgetary_actions: "Ações orçamentárias"
+        budgetary_description: "Parecer orçamentário"
+        legal: "Análise de viabilidade jurídica"
+        legal_description: "Parecer jurídico"
+        department_id: "Órgão público responsável"
+        sei_number: "Número do Processo SEI"
+        technical: "Análise de viabilidade técnica"
+        technical_description: "Parecer técnico"
+        feasible: "Viável"
+        unfeasible: "Inviável"
+        undecided: "Não definida"
+        tag_list: "Categorias"
+        winner: "Eleita"
+        winner_true: "Eleita"
+        winner_false: "Não eleita"
+        visible_to_valuators: "Disponível para avaliadores"
+        visible_to_valuators_true: "Disponível"
+        visible_to_valuators_false: "Indisponível"
       budget/investment/translation:
         title: "Título"
         description: "Descrição"
@@ -194,6 +229,15 @@ pt-BR:
       progress_bar/kind:
         primary: "Primário"
         secondary: "Secundário"
+      feasibility_analysis:
+        budgetary_actions: "Ações orçamentárias"
+        budgetary_description: "Parecer orçamentário"
+        legal_description: "Parecer jurídico"
+        department_id: "Órgão público responsável"
+        sei_number: "Número do Processo SEI"
+        technical_description: "Parecer técnico"
+      feasibility_analysis/department:
+        name: Nome
       budget/group:
         max_votable_headings: "Número máximo de títulos em que um usuário pode votar"
       budget/group/translation:
@@ -208,7 +252,7 @@ pt-BR:
       budget/heading/translation:
         name: "Título"
       budget/phase:
-        enabled: "Fase habilitada"
+        enabled: "Etapa habilitada"
         ends_at: "Data final"
         starts_at: "Data de início"
       budget/phase/translation:
@@ -491,7 +535,7 @@ pt-BR:
         description: Descrição
         valuator_group_id: Grupo de avaliação
         can_comment: Pode comentar
-        can_edit_dossier: Pode editar relatórios
+        can_edit_dossier: Pode editar dossiês
       valuator_group:
         name: "Nome do grupo"
       local_census_record:

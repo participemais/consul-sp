@@ -12,7 +12,7 @@ pt-BR:
           current: Aberto
           finished: Finalizados
         table_name: Nome
-        table_phase: Fases
+        table_phase: Etapas
         table_assigned_investments_valuation_open: Projetos de investimento atribuídos com avaliação aberta
         table_actions: Ações
         evaluate: Avaliar
@@ -26,7 +26,7 @@ pt-BR:
           valuation_finished: Avaliação terminada
         assigned_to: "Atribuído a %{valuator}"
         title: Propostas
-        edit: Editar relatório
+        edit: Editar dossiê
         table_id: ID
         table_title: Título
         table_heading_name: Nome do título
@@ -39,14 +39,15 @@ pt-BR:
         by: Enviado por
         sent: Enviado em
         heading: Título
-        dossier: Relatório
-        edit_dossier: Editar relatório
+        dossier: Dossiê
+        edit_dossier: Editar dossiê
         price: Preço
         price_first_year: Custo durante o primeiro ano
         currency: "R$"
-        feasibility: Viabilidade
+        feasibility: Viabilidade final
         feasible: Viável
         unfeasible: Inviável
+        undecided: Não definida
         undefined: Não definido
         valuation_finished: Avaliação terminada
         duration: Prazo
@@ -54,15 +55,48 @@ pt-BR:
         assigned_admin: Administrador designado
         assigned_valuators: Avaliadores designados
         preview: Pré-visualização de investimento
+        running_project: projeto em execução
+        new_project: novo projeto
+        commitment: Compromisso
+        unfeasibility_explanation: Justificativa
       edit:
-        dossier: Relatório
+        dossier: Dossiê
         price: "Custo (%{currency})"
         price_first_year: "Custo durante o primeiro ano (%{currency})<small>(opcional, dados não públicos)</small>"
-        feasibility: Viabilidade
-        valuation_finished_alert: "Tem certeza que deseja marcar este relatório como concluído? Se você fizer isso, o relatório não poderá mais ser modificado."
-        not_feasible_alert: "Um email será enviado imediatamente para o autor do projeto com o relatório de inviabilidade."
+        feasibility: Viabilidade final
+        valuation_finished_alert: "Tem certeza que deseja marcar este relatório como concluído? Ao pressionar OK, a análise de viabilidade será publicada assim que a Etapa de Devolutiva for habilitada."
         save: Salvar alterações
       notice:
         valuate: "Dossiê atualizado"
       valuation_comments: Comentários de avaliação
-      not_in_valuating_phase: As propostas só podem ser avaliados quando o Orçamento estiver na fase de avaliação
+      not_in_valuating_phase: As propostas só podem ser avaliados quando o Orçamento estiver na etapa de avaliação
+    feasibility_analyses:
+      index:
+        feasibility_analysis: Análises de viabilidade
+        budgetary: Orçamentária
+        legal: Jurídica
+        technical: Técnica
+        department: Órgão público responsável
+        budgetary_actions: Ações orçamentárias
+        sei_number: Número SEI
+        new_feasibility_analysis: Adicionar
+        no_feasibility_analyses: Nenhum parecer cadastrado
+        delete: Apagar
+        id: ID
+      new:
+        creating: Criar análise de viabilidade
+      edit:
+        editing: Editar análise de viabilidade
+      create:
+        notice: Nova análise de viabilidade criada com sucesso
+      update:
+        notice: Análise de viabilidade atualizado com sucesso
+      delete:
+        notice: Análise de viabilidade excluído com sucesso
+      form:
+        budgetary: Análise de viabilidade orçamentária
+        legal: Análise de viabilidade jurídica
+        technical: Análise de viabilidade técnica
+        save: Salvar alterações
+        admin_departments: Órgãos públicos cadastrados
+        no_departments_defined: Não há órgãos públicos cadastrados
