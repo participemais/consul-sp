@@ -102,6 +102,12 @@ pt-BR:
       legislation/answers:
         one: "Responda"
         other: "Respostas"
+      legislation/topic:
+        one: "Documento"
+        other: "Documentos"
+      legislation/topic_level:
+        one: "Título"
+        other: "Títulos"
       documents:
         one: "Documento"
         other: "Documentos"
@@ -471,6 +477,9 @@ pt-BR:
         value: Valor
       legislation/annotation:
         text: Comentar
+      legislation/topic_level:
+        title: Título
+        show_evaluation_fields: Habilitar função "opinar"
       legislation/topic_vote:
         comment: Sugestão (opcional)
       document:

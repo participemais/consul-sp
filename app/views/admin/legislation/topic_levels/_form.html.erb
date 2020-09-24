@@ -14,19 +14,21 @@
         <%= f.check_box(
           :show_evaluation_fields,
           checked: @topic_level.evaluations.any?,
-          data: { checkbox_toggle: "#evaluation-fields" }
+          data: { checkbox_toggle: "#evaluation-fields" },
+          disabled: @topic_level.topics.any?
         ) %>
       </div>
     </div>
 
     <div id="evaluation-fields" class="row">
-      <div class="small-12 medium-9 column">
-        <%= f.label(
-          :evaluations,
-          t("admin.legislation.topic_levels.form.evaluations")
-        ) %>
-      </div>
-
+      <% if @topic_level.topics.empty? %>
+        <div class="small-12 medium-9 column">
+          <%= f.label(
+            :evaluations,
+            t("admin.legislation.topic_levels.form.evaluations")
+          ) %>
+        </div>
+      <% end %>
       <div id="nested_evaluations">
         <%= f.fields_for :evaluations do |ff| %>
           <%= render "evaluation_fields", f: ff %>
@@ -46,7 +48,7 @@
     </div>
 
     <div class="row">
-      <div class="actions small-12 medium-4 column">
+      <div class="actions small-12 medium-4 column float-right">
         <%= f.submit(
           class: "button expanded large",
           value: t("admin.legislation.topic_levels.form.save")

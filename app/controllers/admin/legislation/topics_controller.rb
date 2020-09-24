@@ -2,14 +2,11 @@ class Admin::Legislation::TopicsController < Admin::Legislation::BaseController
   load_and_authorize_resource :process, class: "Legislation::Process"
   load_and_authorize_resource :topic, class: "Legislation::Topic", through: :process
 
-  before_action :load_topic_levels, only: :index
+  before_action :load_topics, only: [:index, :document]
+  before_action :load_topic_levels, only: :document
   before_action :load_topic_level, only: [:new, :create]
   before_action :load_associated_topic_level, only: [:edit, :update]
   before_action :load_parent, only: [:new, :create]
-
-  def index
-    @topics = @process.topics.roots.order(:id)
-  end
 
   def new
     @topic = @process.topics.new
@@ -51,6 +48,10 @@ class Admin::Legislation::TopicsController < Admin::Legislation::BaseController
 
   def resource
     @topic || ::Legislation::Topic.find(params[:id])
+  end
+
+  def load_topics
+    @topics = @process.topics.roots.order(:id)
   end
 
   def load_topic_levels

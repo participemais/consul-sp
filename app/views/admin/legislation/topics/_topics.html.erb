@@ -1,10 +1,10 @@
 <h2 class="inline-block">
-  <%= t("admin.legislation.topics.index.title") %>
+  <%= t("admin.legislation.topics.document.title") %>
 </h2>
 
 <%= link_to(
   t(
-    "admin.legislation.topics.index.new_topic",
+    "admin.legislation.topics.document.new_topic",
     title: @topic_levels.first.downcase_title
   ),
   new_admin_legislation_process_topic_path(

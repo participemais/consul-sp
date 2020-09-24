@@ -1,9 +1,9 @@
 <h2 class="inline-block">
-  <%= t("admin.legislation.topic_levels.index.title") %>
+  <%= t("admin.legislation.topics.document.topic_level_title") %>
 </h2>
 
 <%= link_to(
-  t("admin.legislation.topic_levels.index.new_topic_level"),
+  t("admin.legislation.topics.document.new_topic_level"),
   new_admin_legislation_process_topic_level_path,
   class: "button float-right margin-right"
 ) %>
@@ -13,13 +13,13 @@
     <thead>
       <tr>
         <th>
-          <%= t("admin.legislation.topic_levels.index.topic_level_label") %>
+          <%= t("admin.legislation.topics.table.topic_level_label") %>
         </th>
-        <th><%= t("admin.legislation.topic_levels.index.title") %></th>
+        <th><%= t("admin.legislation.topics.table.title") %></th>
         <th class="text-center">
-          <%= t("admin.legislation.topic_levels.index.evaluable") %>
+          <%= t("admin.legislation.topics.table.evaluable") %>
         </th>
-        <th><%= t("admin.legislation.topic_levels.index.table_actions") %></th>
+        <th><%= t("admin.legislation.topics.table.table_actions") %></th>
       </tr>
     </thead>
     <tbody>
@@ -36,7 +36,7 @@
           </td>
           <td>
             <%= link_to(
-              t("admin.topic_levels.index.edit"),
+              t("admin.legislation.topics.document.edit"),
               edit_admin_legislation_process_topic_level_path(@process, topic_level),
               class: "button hollow"
             ) %>
@@ -44,7 +44,7 @@
               topic_level.topics.empty?
             %>
               <%= link_to(
-                t("admin.topic_levels.index.delete"),
+                t("admin.legislation.topics.document.delete"),
                 admin_legislation_process_topic_level_path(@process, topic_level),
                 method: :delete,
                 class: "button hollow alert"
@@ -57,6 +57,6 @@
   </table>
 <% else %>
   <div data-alert class="callout warning margin-top clear">
-    <%= t("admin.legislation.topic_levels.index.empty_topic_levels") %>
+    <%= t("admin.legislation.topics.document.empty_topic_levels") %>
   </div>
 <% end %>

@@ -1,15 +1,13 @@
-
-
 <h4><%= "#{topic_level_label(indexes)} #{topic.title}" %></h4>
 
 <%= link_to(
-  t("admin.legislation.topics.index.edit"),
+  t("admin.legislation.topics.document.edit"),
   edit_admin_legislation_process_topic_path(@process, topic),
   class: "hollow"
 ) %>
 
 <%= link_to(
-  t("admin.legislation.topics.index.delete"),
+  t("admin.legislation.topics.document.delete"),
   admin_legislation_process_topic_path(@process, topic),
   method: :delete,
   class: "alert",
@@ -36,7 +34,7 @@
   <% topic_level = @topic_levels[counter_level] %>
   <%= link_to(
     t(
-      "admin.legislation.topics.index.new_topic",
+      "admin.legislation.topics.document.new_topic",
       title: topic_level.downcase_title
     ),
     new_admin_legislation_process_topic_path(

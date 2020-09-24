@@ -581,7 +581,7 @@ pt-BR:
           question_options: "Respostas possíveis (opcionais, por respostas abertas padrão)"
         index:
           back: Voltar
-          title: Perguntas associadas a esse processo
+          title: Perguntas associadas ao processo
           create: Criar questão
           delete: Apagar
         new:
@@ -600,13 +600,42 @@ pt-BR:
           title: Seguindo
       topics:
         index:
-          new_topic: + %{title}
+          create: Criar documento
+          edit: Editar documento
+          title: Documento associado ao processo
+        document:
+          edit: Editar
+          delete: Apagar
+          new_topic: Adicionar %{title}
+          new_topic_level: Cadastrar novo título
+          topic_level_title: Estrutura do documento
+          empty_topic_levels: Não há títulos cadastrados
         new:
           title: Adicionar %{title}
+        form:
+          save: Salvar
         destroy:
           confirm:
             one: Se apagar %{title}, um subtópico associado também será apagado. Tem certeza que deseja continuar?
             other: Se apagar %{title}, %{count} subtópicos associados também serão apagados. Tem certeza que deseja continuar?
+        table:
+          assessments: Opções
+          comments_count: Total de sugestões
+          evaluable: "\"Opinar\" habilitado"
+          table_actions: Ações
+          title: Título
+          topic_level_label: Numeração
+          topic_votes_count: Total de votos
+      topic_levels:
+        new:
+          title: Novo título
+        edit:
+          title: Editar título
+        form:
+          add_option: Adicionar opção
+          evaluations: Opções
+          remove_option: Remover opção
+          save: Gravar
     managers:
       index:
         title: Gerentes

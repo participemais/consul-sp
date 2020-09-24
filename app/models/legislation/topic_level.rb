@@ -21,6 +21,8 @@ class Legislation::TopicLevel < ApplicationRecord
 
   delegate :topic_levels, to: :process
 
+  validates :title, presence: true
+
   attr_accessor :show_evaluation_fields
 
   def topic_level_label
