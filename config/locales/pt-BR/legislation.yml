@@ -112,7 +112,7 @@ pt-BR:
         unauthenticated: Você precisa acessar sua %{signin} ou se %{signup} para participar.
         verified_only: Somente usuários verificados podem participar, %{verify_account}.
         incomplete_registration: Você precisa completar o %{register} para participar do debate.
-        debate_phase_not_open: A etapa de debate terminou e respostas não são mais aceitas.
+        debate_phase_not_open: Fora do período de participação
     answers:
       create:
         notice: Resposta recebida com sucesso!
@@ -134,7 +134,7 @@ pt-BR:
         unauthenticated: Você precisa acessar sua %{signin} ou se %{signup} para participar.
         verified_only: Somente usuários verificados podem participar, %{verify_account}.
         incomplete_registration: Você precisa completar o %{register} para participar.
-        debate_phase_not_open: A etapa de debate terminou e respostas não são mais aceitas
+        topics_phase_not_open: Fora do período de participação
     topic_votes:
       form:
         new: Enviar opinião
