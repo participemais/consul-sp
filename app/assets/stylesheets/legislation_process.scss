@@ -15,6 +15,7 @@
 // --------
 
 .legislation-hero {
+  padding: $line-height 0;
 
   ul {
     list-style: none;
@@ -34,6 +35,10 @@
   .title {
     font-weight: bold;
     text-transform: uppercase;
+  }
+
+  .title-without-border {
+    border: 0;
   }
 
   .description li p {
@@ -88,7 +93,7 @@
       margin-top: 0;
 
       &:hover:not(.is-active) {
-        background: $highlight;
+        background: $light-gray;
       }
 
       &::after {
@@ -110,6 +115,7 @@
 
       h4 {
         margin-bottom: 0;
+        font-family: $subheader-font-family;
       }
     }
   }
@@ -160,7 +166,7 @@
 
     .debate-type {
       text-transform: uppercase;
-      color: $brand;
+      color: $text-medium;
       font-weight: 700;
       font-size: $small-font-size;
 
@@ -170,14 +176,14 @@
     }
 
     .debate-title a {
-      color: $brand;
+      color: $black;
     }
   }
 
   .debate-meta,
   .debate-meta a {
     font-size: $small-font-size;
-    color: #6d6d6d;
+    color: $text-medium;
 
     .icon-comments {
       margin-right: rem-calc(3);
@@ -212,7 +218,8 @@
     }
 
     .quiz-title {
-      background: $highlight;
+      background: $legislation-banner;
+      color: $brand;
 
       .quiz-header-title {
         font-size: $small-font-size;
@@ -240,7 +247,7 @@
     }
 
     .quiz-next {
-      background: #ccdbe5;
+      background: $legislation-banner-info;
       color: $brand;
       font-size: $small-font-size;
       font-weight: bold;
@@ -254,7 +261,7 @@
 
       &:hover,
       &:active {
-        background: $brand;
+        background: #DE7143;
         color: #fff;
         text-decoration: none;
       }
@@ -280,11 +287,24 @@
       margin-right: $line-height;
       padding: $line-height / 2  $line-height * 2;
       position: relative;
+      font-family: $subheader-font-family;
     }
 
     .is-active {
-      background: #ccdbe6;
-      border: 0;
+      border: 3px solid $purple;
+
+      &::after {
+        background: $purple;
+        border-radius: rem-calc(20);
+        content: "\6c";
+        color: #fff;
+        font-family: "icons" !important;
+        font-size: rem-calc(10);
+        padding: 0 $line-height / 4;
+        position: absolute;
+        right: -13px;
+        top: -13px;
+      }
     }
 
     .control input {
@@ -294,8 +314,8 @@
     }
 
     .control input:checked ~ .control-indicator {
-      background-color: $brand;
-      border: 0;
+      background-color: $purple;
+      border-color: $white;
     }
 
     .radio .control-indicator {
@@ -379,7 +399,6 @@
   .draft-allegation {
 
     @include breakpoint(medium) {
-      display: flex;
       padding-left: rem-calc(15);
       padding-right: rem-calc(15);
     }
@@ -444,7 +463,6 @@
       .icon-banner {
         line-height: 0;
         color: $text-medium;
-        vertical-align: sub;
         margin-right: rem-calc(4);
       }
     }
@@ -1004,5 +1022,240 @@
   .process-link {
     font-size: rem-calc(19);
     font-weight: bold;
+  }
+}
+
+// 09. Legislation topics
+// -------------------------
+.topics-header {
+  margin-top: $line-height;
+}
+
+.topics-votes-count {
+  text-align: right;
+  font-size: $tiny-font-size;
+  font-family: $subheader-font-family;
+  color: $text-medium;
+  margin-bottom: 0;
+  text-transform: uppercase;
+}
+
+.topic-panels {
+  position: relative;
+
+  .topic {
+
+    @include breakpoint(medium) {
+      padding-left: rem-calc(15);
+      padding-right: rem-calc(15);
+    }
+
+    @media screen and (min-width: 40em) {
+      .calc-index-topic {
+        width: calc(30%);
+        padding: 0;
+      }
+
+      .calc-text-topic {
+        width: calc(70%);
+        padding: 0;
+      }
+    }
+
+    .border-right {
+      @include breakpoint(medium) {
+        border-right: 1px solid $border;
+      }
+    }
+
+    .border-left {
+      @include breakpoint(medium) {
+        border-left: 1px solid $border;
+      }
+    }
+  }
+
+  .topic-panel {
+    text-transform: uppercase;
+    font-weight: 700;
+    padding: rem-calc(8) rem-calc(16);
+    color: #696969;
+    background: #f2f2f2;
+    font-size: $small-font-size;
+  }
+
+  .topic-index {
+    padding-left: $line-height / 4;
+
+    ul:first-child {
+      font-size: rem-calc(16);
+      margin-top: $line-height / 2;
+    }
+
+    ul {
+      margin-left: $line-height / 3;
+      list-style: none;
+
+      .topic-index-title {
+        margin-bottom: $line-height / 2;
+      }
+
+      li {
+        line-height: 3 * $line-height / 4;
+      }
+
+      a {
+        font-family: $subheader-font-family;
+        color: $text;
+      }
+    }
+  }
+
+  .topic-content {
+    padding: rem-calc(16);
+
+    @include breakpoint(medium) {
+      padding-right: rem-calc(32);
+    }
+  }
+
+  .topic-block {
+    margin-bottom: rem-calc(16);
+  }
+
+  .topic-description {
+    text-align: justify;
+  }
+
+  .topic-text {
+
+    @include breakpoint(medium) {
+      padding-left: rem-calc(16);
+    }
+
+    h4 {
+      font-family: $subheader-font-family;
+      margin-bottom: $line-height / 4;
+    }
+
+    p {
+      margin-bottom: 0;
+    }
+
+    .evaluate-topic {
+      font-size: $tiny-font-size;
+      font-family: $subheader-font-family;
+      color: $text-medium;
+      border-bottom: 1px $text-light dashed;
+      text-align: right;
+      margin-top: -($line-height / 3) ;
+
+      i, span {
+        cursor: pointer;
+      }
+
+      span {
+        margin-left: $line-height / 6;
+        text-transform: uppercase;
+      }
+    }
+
+    .evaluate-options {
+      .form {
+        display: flex;
+        justify-content: center;
+        margin-right: $line-height / 6;
+        margin-left: $line-height / 6;
+        margin-top: $line-height / 4;
+      }
+
+      textarea {
+        margin-bottom: 0;
+      }
+    }
+
+    .evaluate-label {
+      font-family: $subheader-font-family;
+      color: $text-medium;
+      font-size: $small-font-size;
+      margin-top: -($line-height / 2);
+    }
+
+    .submit-topic-vote {
+      text-align: right;
+
+      input {
+        border: 1px solid $border;
+        position: relative;
+        padding: $line-height / 4;
+        font-size: $tiny-font-size;
+      }
+    }
+  }
+
+  .topic-assessments {
+    position: relative;
+    list-style: none;
+
+    .control {
+      background: #fff;
+      border: 3px solid $border;
+      border-radius: rem-calc(4);
+      color: $text-medium;
+      cursor: pointer;
+      display: inline-block;
+      margin-bottom: $line-height / 2;
+      margin-right: $line-height / 4;
+      padding-left: $line-height;
+      padding-right: $line-height / 2;
+      position: relative;
+      font-family: $subheader-font-family;
+      font-size: $small-font-size;
+    }
+
+    .is-active {
+      border: 3px solid $purple;
+    }
+
+    .control input {
+      position: absolute;
+      opacity: 0;
+      z-index: -1;
+    }
+
+    .control input:checked ~ .control-indicator {
+      background-color: $purple;
+      border-color: $white;
+    }
+
+    .radio .control-indicator {
+      border-radius: 50%;
+    }
+
+    .control-indicator {
+      position: absolute;
+      top: 5px;
+      left: 5px;
+      display: block;
+      width: rem-calc(13);
+      height: rem-calc(13);
+      line-height: rem-calc(16);
+      font-size: 65%;
+      text-align: center;
+      border: 2px solid $border;
+      pointer-events: none;
+      user-select: none;
+    }
+  }
+}
+
+.topics-preview {
+  margin-top: $line-height;
+  padding-right: $line-height / 2;
+
+  p.topic-form-link {
+    text-align: right;
+    border-bottom: 1px dashed $text-medium;
+    margin-bottom: $line-height;
   }
 }

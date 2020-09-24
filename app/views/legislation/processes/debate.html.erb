@@ -2,32 +2,14 @@
 
 <%= render "legislation/processes/header", process: @process, header: :full %>
 
-<%= render "documents/additional_documents", documents: @process.documents %>
+<%= render "documents/additional_documents", process: @process %>
 
 <%= render "key_dates", process: @process, phase: :debate_phase %>
 
 <div class="row">
   <div class="debate-chooser">
     <div class="row">
-      <div class="small-12 medium-9 column">
-        <div class="debate-list">
-          <% if @process.questions.empty? %>
-            <div class="callout primary">
-              <p><%= t("legislation.processes.debate.empty_questions") %></p>
-            </div>
-          <% else %>
-            <%= render @process.questions %>
-          <% end %>
-        </div>
-      </div>
-
-      <% if @process.questions.any? %>
-        <div class="small-12 medium-3 column">
-          <div class="callout success">
-            <p><%= t("legislation.processes.debate.participate") %></p>
-          </div>
-        </div>
-      <% end %>
+      <%= render "legislation/processes/debate", process: @process %>
     </div>
   </div>
 </div>

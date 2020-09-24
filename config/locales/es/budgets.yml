@@ -75,10 +75,6 @@ es:
         unfeasible: Proyectos de gasto no viables
         unfeasible_text: "Los proyectos presentados deben cumplir una serie de criterios (legalidad, concreción, no superar el tope del presupuesto) para ser declarados viables y llegar hasta la etapa de votación final. Todos los proyectos que no cumplen estos criterios son marcados como inviables y publicados en la siguiente lista, junto con su informe de inviabilidad."
         by_heading: "Proyectos de gasto con ámbito: %{heading}"
-        search_form:
-          button: Buscar
-          placeholder: Buscar proyectos de gasto...
-          title: Buscar
         search_results:
           one: " que contiene <strong>'%{search_term}'</strong>"
           other: " que contienen <strong>'%{search_term}'</strong>"

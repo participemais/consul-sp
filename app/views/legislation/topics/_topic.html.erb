@@ -1,0 +1,28 @@
+<div class="topic-text">
+  <div id="<%= dom_id(topic) %>" class="topic-block">
+    <h4>
+      <%= "#{topic_level_label(indexes)} #{topic.title}" %>
+    </h4>
+
+    <% if topic.description.present? %>
+      <p class="topic-description"><%= topic.description %></p>
+    <% end %>
+
+    <% if topic.evaluable %>
+      <div id="<%= dom_id(topic) %>_topic_vote_form" class="topic-assessments">
+        <%= render "/legislation/topics/topic_vote_form", topic: topic %>
+      </div>
+    <% end %>
+  </div>
+
+  <% if topic.children.any? %>
+    <% counter_level += 1 %>
+    <% topic.ordered_children.each.with_index(1) do |child, index| %>
+      <%= render "/legislation/topics/topic",
+        topic: child,
+        indexes: topic_indexes(indexes, index, counter_level),
+        counter_level: counter_level
+      %>
+    <% end %>
+  <% end %>
+</div>

@@ -1,0 +1,34 @@
+<% provide :title do %><%= @process.title %><% end %>
+
+<%= render "legislation/processes/header", process: @process, header: :full %>
+
+<%= render "documents/additional_documents", process: @process %>
+
+<%= render "key_dates", process: @process, phase: :topics_phase %>
+
+<div class="column row">
+  <div class="topics-header">
+    <h3><%= t("legislation.processes.topics.title") %></h3>
+  </div>
+
+  <p class="topics-votes-count">
+    <i class="fas fa-vote-yea"></i>
+    <span>
+      <%= t(
+        "legislation.topics.index.contributions",
+        count: @process.topics_votes_count
+      ) %>
+    </span>
+  </p>
+
+  <div class="topic-panels small-12 column row">
+    <div
+      class="row topic medium-collapse"
+      data-equalizer data-equalizer-on="medium"
+    >
+      <%= render "legislation/processes/topics",
+        process: @process, topics: @topics
+      %>
+    </div>
+  </div>
+</div>

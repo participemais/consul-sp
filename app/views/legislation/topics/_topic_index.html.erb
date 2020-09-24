@@ -1,0 +1,24 @@
+<li>
+  <div class="topic-index-title" id="<%= dom_id(topic) %>_index">
+    <%= link_to(
+      "#{topic_level_label(indexes)} #{topic.title}",
+      anchor: dom_id(topic)
+    ) %>
+    <% if user_topic_vote(topic) %>
+      <span class='icon-check-circle purple-font tiny'></span>
+    <% end %>
+  </div>
+
+  <% if topic.children.any? %>
+    <ul>
+      <% counter_level += 1 %>
+      <% topic.ordered_children.each.with_index(1) do |child, index| %>
+        <%= render '/legislation/topics/topic_index',
+          topic: child,
+          indexes: topic_indexes(indexes, index, counter_level),
+          counter_level: counter_level
+        %>
+      <% end %>
+    </ul>
+  <% end %>
+</li>

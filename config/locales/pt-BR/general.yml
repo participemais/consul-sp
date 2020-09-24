@@ -120,10 +120,6 @@ pt-BR:
         actions:
           success: "Recomendações para os debates agora estão desativadas para esta conta"
           error: "Ocorreu um erro. Por favor, vá à página 'Sua conta' para desativar manualmente recomendações para debates"
-      search_form:
-        button: Buscar
-        placeholder: Buscar debates...
-        title: Buscar
       search_results:
         one: " contendo o termo <strong>'%{search_term}'</strong>"
         other: " contendo o termo <strong>'%{search_term}'</strong>"
@@ -133,7 +129,6 @@ pt-BR:
       section_header:
         icon_alt: Ícone de debates
         title: Debates
-        help: Ajuda sobre debates
       section_footer:
         title: Ajuda sobre debates
         description: Inicie um debate e compartilhe opiniões com outras pessoas sobre os temas que te interessam.
@@ -189,6 +184,7 @@ pt-BR:
     legislation/draft_version: Rascunho
     legislation/process: Processo
     legislation/question: Pergunta
+    legislation/topic_level: Título
     poll/shift: Turno
     poll/question/answer: Resposta
     user: Conta
@@ -248,7 +244,7 @@ pt-BR:
       administration_menu: Admin
       administration: Administração
       available_locales: Idiomas disponíveis
-      collaborative_legislation: Processos legislativos
+      collaborative_legislation: Consultas públicas
       debates: Debates
       locale: "Idioma:"
       logo: Consul logotipo
@@ -392,10 +388,6 @@ pt-BR:
         unfeasible: Inviável
         done: Feito
         other: Outros
-      search_form:
-        button: Buscar
-        placeholder: Buscar propostas...
-        title: Buscar
       search_results:
         one: " contendo o termo <strong>'%{search_term}'</strong>"
         other: " contendo o termo <strong>'%{search_term}'</strong>"
@@ -408,7 +400,6 @@ pt-BR:
       section_header:
         icon_alt: Ícone de propostas
         title: Propostas
-        help: Ajuda sobre propostas
       section_footer:
         title: Ajuda sobre propostas
         description: Propostas dos cidadãos são uma oportunidade para os vizinhos e coletivos para decidir diretamente como eles querem que seja sua cidade, após conseguir apoio suficiente e sujeitar à votação dos cidadãos.
@@ -638,7 +629,8 @@ pt-BR:
       section_header:
         icon_alt: Ícone de votação
         title: Votação
-        help: Ajuda sobre votação
+        participate: Participe das
+        subtitle: Votações abertas
       section_footer:
         title: Ajuda sobre votação
         description: Votações dos cidadãos são um mecanismo de participação na qual os cidadãos podem ter decisões diretas
@@ -949,7 +941,7 @@ pt-BR:
     score_negative: "Não"
     content_title:
       proposal: "Proposta"
-      debate: "Debater"
+      debate: "Debate"
       budget_investment: "Investimentos Orçamentários"
   admin/widget:
     header:
