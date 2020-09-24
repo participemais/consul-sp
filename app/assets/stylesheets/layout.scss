@@ -1005,7 +1005,7 @@ footer {
   border-top: 2px solid $purple;
   display: inline-block;
   font-size: rem-calc(16);
-  font-weight: bold;
+  font-family: $subheader-font-family;
   margin: -1px 0 $line-height / 2;
   padding-top: $line-height / 8;
   text-transform: uppercase;
