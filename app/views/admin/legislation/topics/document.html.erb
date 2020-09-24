@@ -2,7 +2,7 @@
   <%= t("admin.header.title") %> - <%= t("admin.menu.legislation") %> - <%= @process.title %> - <%= t("admin.legislation.topics.document.title") %>
 <% end %>
 
-<div class="legislation-admin legislation-draft-versions-index">
+<div class="legislation-draft-versions-index">
 
   <%= back_link_to admin_legislation_process_topics_path, t("shared.back") %>
 
@@ -13,7 +13,9 @@
   <%= render "topic_levels" %>
 
   <% if @topic_levels.any? %>
-    <%= render "topics" %>
+    <div class="topic-panels topics-preview">
+      <%= render "topics" %>
+    </div>
   <% end %>
 
 </div>

@@ -1031,14 +1031,12 @@
 }
 
 .topics-votes-count {
-
-    text-align: right;
-    font-size: $tiny-font-size;
-    font-family: $subheader-font-family;
-    color: $text-medium;
-    margin-bottom: 0;
-    text-transform: uppercase;
-
+  text-align: right;
+  font-size: $tiny-font-size;
+  font-family: $subheader-font-family;
+  color: $text-medium;
+  margin-bottom: 0;
+  text-transform: uppercase;
 }
 
 .topic-panels {
@@ -1074,124 +1072,123 @@
         border-left: 1px solid $border;
       }
     }
+  }
 
-    .topic-panel {
-      text-transform: uppercase;
-      font-weight: 700;
-      padding: rem-calc(8) rem-calc(16);
-      color: #696969;
-      background: #f2f2f2;
-      font-size: $small-font-size;
+  .topic-panel {
+    text-transform: uppercase;
+    font-weight: 700;
+    padding: rem-calc(8) rem-calc(16);
+    color: #696969;
+    background: #f2f2f2;
+    font-size: $small-font-size;
+  }
+
+  .topic-index {
+    padding-left: $line-height / 4;
+
+    ul:first-child {
+      font-size: rem-calc(16);
+      margin-top: $line-height / 2;
     }
 
-    .topic-index {
-      padding-left: $line-height / 4;
+    ul {
+      margin-left: $line-height / 3;
+      list-style: none;
 
-      ul:first-child {
-        font-size: rem-calc(16);
-        margin-top: $line-height / 2;
+      .topic-index-title {
+        margin-bottom: $line-height / 2;
       }
 
-      ul {
-        margin-left: $line-height / 3;
-        list-style: none;
-
-        .topic-index-title {
-          margin-bottom: $line-height / 2;
-        }
-
-        li {
-          line-height: 3 * $line-height / 4;
-        }
-
-        a {
-          font-family: $subheader-font-family;
-          color: $text;
-        }
-      }
-    }
-
-    .topic-content {
-      padding: rem-calc(16);
-
-      @include breakpoint(medium) {
-        padding-right: rem-calc(32);
+      li {
+        line-height: 3 * $line-height / 4;
       }
 
-      .topic-block {
-        margin-bottom: rem-calc(16);
-      }
-
-      .topic-description {
-        text-align: justify;
-      }
-    }
-
-    .topic-text {
-
-      @include breakpoint(medium) {
-        padding-left: rem-calc(16);
-      }
-
-      h4 {
+      a {
         font-family: $subheader-font-family;
-        margin-bottom: $line-height / 4;
+        color: $text;
+      }
+    }
+  }
+
+  .topic-content {
+    padding: rem-calc(16);
+
+    @include breakpoint(medium) {
+      padding-right: rem-calc(32);
+    }
+  }
+
+  .topic-block {
+    margin-bottom: rem-calc(16);
+  }
+
+  .topic-description {
+    text-align: justify;
+  }
+
+  .topic-text {
+
+    @include breakpoint(medium) {
+      padding-left: rem-calc(16);
+    }
+
+    h4 {
+      font-family: $subheader-font-family;
+      margin-bottom: $line-height / 4;
+    }
+
+    p {
+      margin-bottom: 0;
+    }
+
+    .evaluate-topic {
+      font-size: $tiny-font-size;
+      font-family: $subheader-font-family;
+      color: $text-medium;
+      border-bottom: 1px $text-light dashed;
+      text-align: right;
+      margin-top: -($line-height / 3) ;
+
+      i, span {
+        cursor: pointer;
       }
 
-      p {
+      span {
+        margin-left: $line-height / 6;
+        text-transform: uppercase;
+      }
+    }
+
+    .evaluate-options {
+      .form {
+        display: flex;
+        justify-content: center;
+        margin-right: $line-height / 6;
+        margin-left: $line-height / 6;
+        margin-top: $line-height / 4;
+      }
+
+      textarea {
         margin-bottom: 0;
       }
+    }
 
-      .evaluate-topic {
+    .evaluate-label {
+      font-family: $subheader-font-family;
+      color: $text-medium;
+      font-size: $small-font-size;
+      margin-top: -($line-height / 2);
+    }
+
+    .submit-topic-vote {
+      text-align: right;
+
+      input {
+        border: 1px solid $border;
+        position: relative;
+        padding: $line-height / 4;
         font-size: $tiny-font-size;
-        font-family: $subheader-font-family;
-        color: $text-medium;
-        border-bottom: 1px $text-light dashed;
-        text-align: right;
-        margin-top: -($line-height / 3) ;
-
-        i, span {
-          cursor: pointer;
-        }
-
-        span {
-          margin-left: $line-height / 6;
-          text-transform: uppercase;
-        }
       }
-
-      .evaluate-options {
-        .form {
-          display: flex;
-          justify-content: center;
-          margin-right: $line-height / 6;
-          margin-left: $line-height / 6;
-          margin-top: $line-height / 4;
-        }
-
-        textarea {
-          margin-bottom: 0;
-        }
-      }
-
-      .evaluate-label {
-        font-family: $subheader-font-family;
-        color: $text-medium;
-        font-size: $small-font-size;
-        margin-top: -($line-height / 2);
-      }
-
-      .submit-topic-vote {
-        text-align: right;
-
-        input {
-          border: 1px solid $border;
-          position: relative;
-          padding: $line-height / 4;
-          font-size: $tiny-font-size;
-        }
-      }
-
     }
   }
 
@@ -1248,5 +1245,16 @@
       pointer-events: none;
       user-select: none;
     }
+  }
+}
+
+.topics-preview {
+  margin-top: $line-height;
+  padding-right: $line-height / 2;
+
+  p.topic-form-link {
+    text-align: right;
+    border-bottom: 1px dashed $text-medium;
+    margin-bottom: $line-height;
   }
 }
