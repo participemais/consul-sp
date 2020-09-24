@@ -15,7 +15,9 @@
   %>
 
   <h2 class="inline-block">
-    <%= t("admin.legislation.topics.edit.title") %>
+    <%= t(
+      "admin.legislation.topics.edit.title", title: @topic_level.title.downcase
+    ) %>
   </h2>
 
   <%= render 'form',
