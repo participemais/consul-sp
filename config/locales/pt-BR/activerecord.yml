@@ -242,7 +242,7 @@ pt-BR:
         summary: "Resumo da proposta"
         retired_explanation: "Explicação"
       user:
-        login: "E-mail ou nome de usuário"
+        login: "Email ou nome de usuário"
         email: "Email"
         username: "Nome de usuário"
         password_confirmation: "Confirmação de senha"
@@ -261,7 +261,7 @@ pt-BR:
         public_interests: "Compartilhar meus interesses"
         recommended_debates: "Mostrar recomendações de debates"
         recommended_proposals: "Mostrar recomendações de propostas"
-        redeemable_code: "Código de verificação recebido via e-mail"
+        redeemable_code: "Código de verificação recebido via email"
         address_complement: Complemento
         address_number: Número
         cep: CEP
@@ -444,7 +444,7 @@ pt-BR:
         segment_recipient: Destinatários
         subject: Assunto
         from: "De"
-        body: Conteúdo do e-mail
+        body: Conteúdo do email
       admin_notification:
         segment_recipient: Destinatários
         title: Título
@@ -535,6 +535,10 @@ pt-BR:
           attributes:
             map:
               invalid: Localização no mapa não pode estar em branco. Coloque um marcador ou selecione a caixa de seleção se não houver necessidade de geolocalização
+        organization:
+          attributes:
+            responsible_name:
+              full_name_required: é necessário inserir o nome completo
         poll/voter:
           attributes:
             document_number:

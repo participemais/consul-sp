@@ -1,7 +1,7 @@
 pt-BR:
   account:
     show:
-      change_credentials_link: Alterar senha
+      change_credentials_link: Alterar email ou senha
       erase_account_link: Apagar minha conta
       finish_verification: Finalizar verificação
       foreigner_document: RNM
@@ -230,7 +230,7 @@ pt-BR:
       consul: Aplicativo CONSUL
       consul_url: https://consulproject.org/en/
       contact_us: Para suporte técnico entre em
-      copyright: "O %{org_name}, %{year}, usa %{open_source} do %{consul}"
+      copyright: "O %{org_name}, %{year}, usa o %{open_source} do %{consul}"
       open_source: código aberto
       open_source_url: https://github.com/consul/consul
       privacy: Política de Privacidade
@@ -480,7 +480,7 @@ pt-BR:
       resources: Recursos
       community: Comunidade
       polls: Votações
-      mailing: E-mail
+      mailing: Email
       poster: Pôster
       recommended_actions: Ações recomendadas
       messages: Mensagem para os usuários
@@ -727,9 +727,9 @@ pt-BR:
     followable:
       budget_investment:
         create:
-          notice: "Você está seguindo este projeto de investimento! </br>Para que esteja a par de tudo, vamos notificar você sobre alterações assim que elas ocorrerem."
+          notice: "Você está seguindo essa proposta! </br>Para que esteja a par de tudo, vamos notificar você sobre alterações assim que elas ocorrerem."
         destroy:
-          notice: "Você parou de seguir este projeto de investimento! </br> Você não receberá mais notificações relacionadas a ele."
+          notice: "Você parou de seguir essa proposta! </br> Você não receberá mais notificações relacionadas a ele."
       proposal:
         create:
           notice: "Agora você está seguindo esta proposta cidadã! </br> Para que esteja a par de tudo, vamos notificar você sobre alterações assim que elas ocorrerem."

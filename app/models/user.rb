@@ -80,13 +80,13 @@ class User < ApplicationRecord
   validates :username,
     uniqueness: { case_sensitive: false },
     if: :username_required?
-  validates :username, length: { minimum: 3 }
+  validates :username, length: { minimum: 3 }, if: :username_required?
   validates :first_name, length: { minimum: 2 }, allow_nil: true
-
   validates :last_name, length: { minimum: 2 }, allow_nil: true
   validates :cep, length: { minimum: 8 }, allow_nil: true
+  validates :address_number, length: { maximum: 7 }, allow_nil: true
 
-  validate :username_chars_validation
+  validate :username_chars_validation, if: :username_required?
 
   validate :first_and_last_names_chars_validation, if: :persisted?
 
@@ -452,7 +452,7 @@ class User < ApplicationRecord
   end
 
   def can_vote?
-    document_number.present? && valid?
+    valid? && (document_number.present? || (organization? && cep))
   end
 
   private
@@ -524,12 +524,8 @@ class User < ApplicationRecord
     end
 
     def sanitaze_name
-      self.first_name = capitalize_word(first_name) if first_name_changed?
-      self.last_name = capitalize_word(last_name) if last_name_changed?
-    end
-
-    def capitalize_word(word)
-      word.split.map(&:capitalize)*' '
+      self.first_name = first_name.squish.titleize if first_name_changed?
+      self.last_name = last_name.squish.titleize if last_name_changed?
     end
 
     def document_number_changes_amount
