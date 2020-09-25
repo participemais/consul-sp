@@ -54,6 +54,8 @@ class Budget
       inverse_of: :commentable,
       class_name: "Comment"
 
+    delegate :name, to: :heading, prefix: true
+
     validates_translation :title, presence: true, length: { in: 4..Budget::Investment.title_max_length }
     validates_translation :description, presence: true, length: { maximum: Budget::Investment.description_max_length }
 
@@ -66,6 +68,7 @@ class Budget
     scope :sort_by_confidence_score, -> { reorder(confidence_score: :desc, id: :desc) }
     scope :sort_by_ballots,          -> { reorder(ballot_lines_count: :desc, id: :desc) }
     scope :sort_by_price,            -> { reorder(price: :desc, confidence_score: :desc, id: :desc) }
+    scope :sort_by_heading, -> { order('heading_id ASC') }
 
     scope :sort_by_id, -> { order("id DESC") }
     scope :sort_by_supports, -> { order("cached_votes_up DESC") }
@@ -89,6 +92,7 @@ class Budget
     scope :compatible,                  -> { where(incompatible: false) }
     scope :incompatible,                -> { where(incompatible: true) }
     scope :winners,                     -> { selected.compatible.where(winner: true) }
+    scope :losers,                      -> { selected.where(winner: false) }
     scope :unselected,                  -> { not_unfeasible.where(selected: false) }
     scope :last_week,                   -> { where("created_at >= ?", 7.days.ago) }
     scope :sort_by_flags,               -> { order(flags_count: :desc, updated_at: :desc) }
@@ -236,7 +240,7 @@ class Budget
     end
 
     def price_required?
-      feasible? && valuation_finished?
+      feasible? && valuation_finished? && budget_resource_allocation_balloting?
     end
 
     def unfeasible_email_pending?
@@ -244,7 +248,11 @@ class Budget
     end
 
     def total_votes
-      cached_votes_up + physical_votes
+      if budget_vote_counting_balloting?
+        ballot_lines_count
+      else
+        cached_votes_up + physical_votes
+      end
     end
 
     def code
@@ -264,17 +272,24 @@ class Budget
     end
 
     def reason_for_not_being_ballotable_by(user, ballot)
-      return permission_problem(user)    if permission_problem?(user)
-      return :not_selected               unless selected?
-      return :no_ballots_allowed         unless budget.balloting?
+      return permission_problem(user) if permission_problem?(user)
+      return :not_selected unless selected?
+      return :no_ballots_allowed unless budget.balloting?
       return :different_heading_assigned unless ballot.valid_heading?(heading)
-      return :not_enough_money           if ballot.present? && !enough_money?(ballot)
-      return :casted_offline             if ballot.casted_offline?
+      if ballot.present?
+        if budget_vote_counting_balloting? && !enough_vote?(ballot)
+          return :not_enough_vote
+        elsif budget_resource_allocation_balloting? && !enough_money?(ballot)
+          return :not_enough_money
+        end
+      end
+      return :casted_offline if ballot.casted_offline?
     end
 
     def permission_problem(user)
       return :not_logged_in unless user
       return :organization  if user.organization?
+      return :incomplete_registration if user.document_number.blank?
       return :not_verified  unless user.can?(:vote, Budget::Investment)
 
       nil
@@ -310,6 +325,10 @@ class Budget
       price.to_i <= available_money
     end
 
+    def enough_vote?(ballot)
+      ballot.amount_available > 0
+    end
+
     def register_selection(user)
       vote_by(voter: user, vote: "yes") if selectable_by?(user)
     end
@@ -324,6 +343,14 @@ class Budget
 
     def set_responsible_name
       self.responsible_name = author&.document_number if author&.document_number.present?
+    end
+
+    def budget_resource_allocation_balloting?
+      budget.resource_allocation_balloting?
+    end
+
+    def budget_vote_counting_balloting?
+      budget.vote_counting_balloting?
     end
 
     def should_show_aside?
@@ -345,11 +372,16 @@ class Budget
     end
 
     def should_show_price?
-      selected? && price.present? && budget.published_prices?
+      budget_resource_allocation_balloting? &&
+        selected? &&
+        price.present? &&
+        budget.published_prices?
     end
 
     def should_show_price_explanation?
-      should_show_price? && price_explanation.present?
+      budget_resource_allocation_balloting? &&
+        should_show_price? &&
+        price_explanation.present?
     end
 
     def should_show_unfeasibility_explanation?
@@ -357,7 +389,9 @@ class Budget
     end
 
     def formatted_price
-      budget.formatted_amount(price)
+      if budget_resource_allocation_balloting?
+        budget.formatted_currency_amount(price)
+      end
     end
 
     def self.apply_filters_and_search(_budget, params, current_filter = nil)
@@ -366,7 +400,19 @@ class Budget
       investments = investments.by_heading(params[:heading_id])  if params[:heading_id].present?
       investments = investments.search(params[:search])          if params[:search].present?
       investments = investments.filter(params[:advanced_search]) if params[:advanced_search].present?
+      investments = investments.status_filter(params[:status_filter], investments) if params[:status_filter].present?
       investments
+    end
+
+    def self.status_filter(filter, results)
+      case filter
+      when 'winners'
+        results.winners
+      when 'losers'
+        results.losers
+      else
+        results
+      end
     end
 
     def assigned_valuators

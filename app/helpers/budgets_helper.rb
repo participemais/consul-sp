@@ -6,7 +6,9 @@ module BudgetsHelper
   def heading_name_and_price_html(heading, budget)
     tag.div do
       concat(heading.name + " ")
-      concat(tag.span(budget.formatted_heading_price(heading)))
+      if budget.resource_allocation_balloting?
+        concat(tag.span(budget.formatted_heading_price(heading)))
+      end
     end
   end
 
@@ -68,7 +70,7 @@ module BudgetsHelper
   def current_budget_map_locations
     return unless current_budget.present?
 
-    if current_budget.publishing_prices_or_later? && current_budget.investments.selected.any?
+    if current_budget.balloting_or_later? && current_budget.investments.selected.any?
       investments = current_budget.investments.selected
     else
       investments = current_budget.investments

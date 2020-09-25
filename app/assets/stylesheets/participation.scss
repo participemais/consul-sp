@@ -227,7 +227,6 @@
   p {
     color: $color-warning !important;
     margin: 0 rem-calc(12);
-    text-align: left;
   }
 
   a {
@@ -991,7 +990,7 @@
   }
 
   .is-active {
-    color: $brand;
+    color: $text;
 
     &::after {
       content: "\6c";
@@ -1228,7 +1227,7 @@
 
   .button {
     background: #fff;
-    color: $brand;
+    color: $purple;
     margin-bottom: rem-calc(3);
     text-decoration: none;
   }
@@ -1385,6 +1384,23 @@
     span {
       font-size: rem-calc(24);
       font-weight: bold;
+    }
+  }
+}
+
+.district-list {
+  list-style: none;
+  margin-left: 0;
+
+  li {
+    background: #f9f9f9;
+    line-height: $line-height;
+    margin-bottom: $line-height / 4;
+    padding: $line-height $line-height / 2;
+    position: relative;
+
+    &:hover {
+      background: $light-gray;
     }
   }
 }

@@ -1,6 +1,5 @@
 class Users::RegistrationsController < Devise::RegistrationsController
   prepend_before_action :authenticate_scope!, only: [:edit, :update, :destroy, :finish_signup, :do_finish_signup]
-  prepend_before_action :check_captcha, only: [:create]
   before_action :configure_permitted_parameters
 
   invisible_captcha only: [:create], honeypot: :address, scope: :user
@@ -25,7 +24,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   end
 
   def delete
-    current_user.erase(erase_params[:erase_reason])
+    current_user.erase(erase_params)
     sign_out
     redirect_to root_path, notice: t("devise.registrations.destroyed")
   end
@@ -50,11 +49,18 @@ class Users::RegistrationsController < Devise::RegistrationsController
   end
 
   def check_username
-    if User.find_by username: params[:username]
-      render json: { available: false, message: t("devise_views.users.registrations.new.username_is_not_available") }
-    else
-      render json: { available: true, message: t("devise_views.users.registrations.new.username_is_available") }
-    end
+    scope = "devise_views.users.registrations.new"
+    user_check = { available: false }
+    user_check[:message] =
+      if strip_username.size < 3
+        t("username_is_too_short", scope: scope)
+      elsif User.find_by("username ilike ?", strip_username)
+        t("username_is_not_available", scope: scope)
+      else
+        user_check[:available] = true
+        t("username_is_available", scope: scope)
+      end
+    render json: user_check
   end
 
   private
@@ -62,7 +68,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
     def sign_up_params
       params[:user].delete(:redeemable_code) if params[:user].present? && params[:user][:redeemable_code].blank?
       params.require(:user).permit(:username, :email, :password,
-                                   :password_confirmation, :terms_of_service, :locale,
+                                   :password_confirmation, :locale,
                                    :redeemable_code)
     end
 
@@ -71,21 +77,14 @@ class Users::RegistrationsController < Devise::RegistrationsController
     end
 
     def erase_params
-      params.require(:user).permit(:erase_reason)
+      params.require(:user).permit(:erase_reason, :erase_reason_description)
     end
 
     def after_inactive_sign_up_path_for(resource_or_scope)
       users_sign_up_success_path
     end
 
-    def check_captcha
-      unless verify_recaptcha
-        flash.delete(:recaptcha_error)
-        build_resource(sign_up_params)
-        resource.valid?
-        resource.errors.add(:base, t('errors.messages.recaptcha_error'))
-        clean_up_passwords(resource)
-        respond_with_navigational(resource) { render :new }
-      end
+    def strip_username
+      params[:username].strip
     end
 end

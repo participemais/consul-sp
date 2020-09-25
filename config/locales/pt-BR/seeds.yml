@@ -31,18 +31,18 @@ pt-BR:
       security_emergencies: Segurança e Emergências
       environment: Meio Ambiente
     budgets:
-      budget: Orçamento participativo
-      currency: '€'
+      budget: Orçamento 
+      currency: 'R$'
       groups:
-        all_city: Toda a cidade
-        districts: Distritos
+        all_city: Cidade de São Paulo
+        districts: subprefeituras
       valuator_groups:
         culture_and_sports: Cultura & Esportes
         gender_and_diversity: Gênero e Política de Diversidade
         urban_development: Desenvolvimento Urbano Sustentável
         equity_and_employment: Equidade & Emprego
       statuses:
-        studying_project: Esudando o projeto
+        studying_project: Estudando o projeto
         bidding: Licitação
         executing_project: Executando o projeto
         executed: Executado

@@ -14,10 +14,22 @@ pt-BR:
         title: Confirmar minha conta
     mailer:
       confirmation_instructions:
-        confirm_link: Confirmar minha conta
-        text: "Você pode confirmar a sua conta de email no seguinte link:"
-        title: Bem-vindo
-        welcome: Bem-vindo
+        here: aqui
+        link: link
+        welcome: Olá, <strong>%{username}</strong>!
+        thanks: Obrigada por ser cadastrar no <strong>%{org_name}</strong>!
+        instruction_1: "Só precisamos que confirme seu endereço de email, clicando %{link}."
+        instruction_2: Depois de finalizar todo o cadastro, você já pode contribuir com as decisões de nossa cidade.
+        instruction_3: Vamos enviar para este email processos de participação popular que podem ser de seu interesse, todos relacionados à administração pública municipal e ao <strong>%{org_name}</strong>.
+        instruction_4: Você pode selecionar o tipo de informação que deseja receber, configurando suas notificações na página da sua conta.
+        instruction_5: "Caso esteja com alguma dúvida, neste %{link}, esclarecemos as principais funcionalidades do sistema. Você ainda pode entrar em contato direto com a gente pelo email: participemais@prefeitura.sp.gov.br"
+        instruction_6: Contamos com a sua colaboração para a construção de uma cidade cada vez melhor!
+        regards: Atenciosamente,
+        signature: Equipe <strong>%{org_name}</strong>
+        with_participation_processes: "Hoje mesmo já é possível participar dos seguintes processos:"
+        with_one_participation_process: Hoje mesmo já é possível participar da votação %{name}, que vai até dia <strong>%{date}</strong>. Só precisa clicar %{link}.
+        without_participation_processes: No momento, não temos nenhum processo participativo aberto, mas você pode acompanhar as novidades da plataforma, clicando %{link}.
+        participation_process: "%{link} até dia <strong>%{date}</strong>"
       reset_password_instructions:
         change_link: Alterar minha senha
         hello: Olá
@@ -33,9 +45,9 @@ pt-BR:
         unlock_link: Desbloquear a minha conta
     menu:
       login_items:
-        login: Iniciar sessão
-        logout: Terminar sessão
-        signup: Registre-se
+        login: Entrar
+        logout: Sair
+        signup: Criar conta
     organizations:
       registrations:
         new:
@@ -46,7 +58,7 @@ pt-BR:
           phone_number_label: Números de telefone
           responsible_name_label: Nome completo da pessoa responsável pelo coletivo
           responsible_name_note: Pessoa que representa a associação/coletivo em nome de quem as propostas são apresentadas
-          submit: Registre-se
+          submit: Criar conta
           title: Registar-se como uma organização ou coletivo
         success:
           back_to_index: Eu entendo; voltar à página principal
@@ -64,23 +76,23 @@ pt-BR:
       new:
         email_label: Email
         send_submit: Enviar instruções
-        title: Senha esquecida?
+        title: Esqueceu a senha?
     sessions:
       new:
         login_label: E-mail ou nome de usuário
         password_label: Senha
-        remember_me: Lembre-se de mim
+        remember_me: Lembrar minha senha
         submit: Entrar
         title: Iniciar sessão
     shared:
       links:
         login: Entrar
         new_confirmation: Ainda não recebeu as instruções para ativar sua conta?
-        new_password: Senha esquecida?
+        new_password: Esqueceu a senha?
         new_unlock: Ainda não recebeu as instruções de desbloqueio?
         signin_with_provider: Conecte-se com %{provider}
-        signup: Não tem uma conta? %{signup_link}
-        signup_link: Inscrever
+        signup: Não tem uma conta? Acesse %{signup_link}.
+        signup_link: Criar Conta
     unlocks:
       new:
         email_label: Email
@@ -90,8 +102,8 @@ pt-BR:
       registrations:
         delete_form:
           erase_reason_label: Motivo
-          info: Esta ação não pode ser desfeita. Por favor, certifique-se que isto é o que você quer.
-          info_reason: Se quiser, deixe-em um motivo (opcional)
+          info: Que pena que decidiu se descadastrar. Compartilhe conosco o motivo para que o Participe+ atenda melhor à cidade de São Paulo!
+          info_reason: "Se desejar, por favor insira mais detalhes a seguir:"
           submit: Excluir minha conta
           title: Excluir conta
         edit:
@@ -112,18 +124,20 @@ pt-BR:
           password_confirmation_label: Confirmar senha
           password_label: Senha
           redeemable_code: Código de verificação recebido via e-mail (opcional)
-          submit: Registre-se
-          terms: Ao se registrar você aceita os %{terms}
-          terms_link: termos e condições de uso
-          terms_title: Ao se registrar você aceita os termos e condições de uso
-          title: Registre-se
+          submit: Criar conta
+          terms: Ao criar a conta você aceita os %{terms} e a %{privacy}
+          terms_link: Termos de Uso
+          terms_title: Ao criar a conta você aceita os termos e condições de uso
+          privacy_link: Política de Privacidade
+          title: Criar conta
           username_is_available: Nome de usuário disponível
           username_is_not_available: Nome de usuário já está em uso
+          username_is_too_short: Nome de usuário é muito curto
           username_label: Nome de usuário
           username_note: Nome que aparece junto a seus posts
         success:
-          back_to_index: Eu entendo; voltar à página principal
-          instructions_1: <b>Verifique seu email</b>. Enviamos um <b>link para confirmar sua conta</b>.
-          instructions_2: Depois de confirmar, você pode começar a participar.
-          thank_you: Obrigado por se registrar no site. Agora é preciso <b>confirmar seu email</b>.
-          title: Modifique seu email
+          back_to_index: Entendi, voltar para página inicial
+          instructions_1: Enviamos um <b>email com instruções de confirmação.</b>
+          instructions_2: <b>Acesse o link</b> enviado e <b>complete seu cadastro</b> para começar a participar.
+          thank_you: Obrigada por criar sua conta!
+          title: Confirme seu email

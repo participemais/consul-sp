@@ -40,7 +40,7 @@
             </div>
           <% elsif investment.should_show_vote_count? %>
             <div class="sidebar-divider"></div>
-            <h2><%= t("budgets.investments.show.supports") %></h2>
+            <h2><%= t("budgets.investments.show.votes") %></h2>
             <div class="text-center">
               <span class="total-supports">
                 <strong>
@@ -49,7 +49,7 @@
                 </strong>
               </span>
             </div>
-          <% elsif investment.should_show_ballots? %>
+          <% elsif false %>
             <div class="sidebar-divider"></div>
             <h2><%= t("budgets.investments.show.votes") %></h2>
             <div class="text-center">
@@ -70,6 +70,18 @@
         <% elsif investment.winner? && @budget.finished? %>
           <div class="callout success">
             <strong><%= t("budgets.investments.show.project_winner") %></strong>
+          </div>
+        <% elsif investment.winner? && @budget.valuating? %>
+          <div class="callout success">
+            <strong>
+              <%= t("budgets.investments.show.project_balloting_winner") %>
+            </strong>
+          </div>
+        <% elsif !investment.winner? && @budget.valuating? %>
+          <div class="callout warning">
+            <strong>
+              <%= t("budgets.investments.show.project_balloting_loser") %>
+            </strong>
           </div>
         <% elsif investment.selected? %>
           <div class="callout success">

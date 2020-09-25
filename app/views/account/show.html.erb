@@ -40,9 +40,11 @@
                     <%= f.text_field(
                       :document_number,
                       required: true,
+                      readonly: @account.document_number_changes_count,
                       label: t("account.show.foreigner_document"),
+                      title: foreigner_document_title,
                       title: t("account.show.foreigner_document_title"),
-                      class: "js-rnm-mask uppercase",
+                      class: "js-rnm-mask uppercase #{ 'js-document-number-confirmation' if @account.document_number }",
                     ) %>
                     <%= f.hidden_field(:document_type, value: "rnm") %>
                     <% if params[:foreigner] && @account.document_number.blank? %>
@@ -53,8 +55,10 @@
                   <% else %>
                     <%= f.text_field(
                       :document_number,
-                      class: "js-cpf-mask",
-                      required: true
+                      class: "js-cpf-mask #{ 'js-document-number-confirmation' if @account.document_number }",
+                      required: true,
+                      readonly: @account.document_number_changes_count,
+                      title: readonly_title(@account.document_number_changes_count)
                     ) %>
                     <%= f.hidden_field(:document_type, value: "cpf") %>
                     <% if @account.document_number.blank? && params[:foreigner].nil? %>
@@ -84,14 +88,15 @@
                     :date_of_birth,
                     value: date_of_birth_value,
                     required: true,
-                    class: "js-date-of-birth-calendar js-date-of-birth-mask")
-                  %>
+                    readonly: @account.date_of_birth_changes_count,
+                    title: readonly_title(@account.date_of_birth_changes_count),
+                    class: "js-date-of-birth-mask #{date_of_birth_class}"
+                  ) %>
                 </div>
                 <div class="small-6 medium-4 column">
                   <%= f.select(
                     :gender,
                     options_for_gender,
-                    required: true,
                     include_blank: true
                   ) %>
                 </div>
@@ -99,7 +104,6 @@
                   <%= f.select(
                     :ethnicity,
                     options_for_ethnicity,
-                    required: true,
                     include_blank: true
                   ) %>
                 </div>
@@ -114,27 +118,33 @@
                   class: "js-cep-mask"
                 ) %>
               </div>
-              <div class="medium-9 column">
-                <%= f.text_field(:home_address, required: true) %>
+              <div class="medium-9 column <%= address_hide_class %>">
+                <%= f.text_field(
+                  :home_address,
+                  readonly: true,
+                  class: 'disabled'
+                ) %>
               </div>
             </div>
-
             <div class="row">
-              <div class="small-6 medium-2 column">
-                <%= f.text_field(:address_number) %>
+              <div class="small-6 medium-2 column <%= address_hide_class %>">
+                <%= f.text_field(:address_number, required: true) %>
               </div>
-              <div class="small-6 medium-3 column">
+              <div class="small-6 medium-3 column <%= address_hide_class %>">
                 <%= f.text_field(:address_complement) %>
               </div>
-              <div class="small-6 medium-4 column">
-                <%= f.text_field(:city, required: true) %>
+              <div class="small-6 medium-5 column <%= address_hide_class %>">
+                <%= f.text_field(
+                  :city,
+                  readonly: true,
+                  class: 'disabled'
+                ) %>
               </div>
-              <div class="small-6 medium-3 column">
-                <%= f.select(
+              <div class="small-6 medium-2 column <%= address_hide_class %>">
+                <%= f.text_field(
                   :uf,
-                  options_for_uf,
-                  required: true,
-                  include_blank: true
+                  readonly: true,
+                  class: 'disabled'
                 ) %>
               </div>
             </div>
@@ -150,17 +160,19 @@
 
           <ul>
             <li><span class="icon-check"></span>&nbsp;<%= t("account.show.user_permission_debates") %></li>
-            <li><span class="icon-check"></span>&nbsp;<%= t("account.show.user_permission_proposal") %></li>
+            <% if feature?(:proposals) %>
+              <li><span class="icon-check"></span>&nbsp;<%= t("account.show.user_permission_proposal") %></li>
+              <li>
+                <% if current_user.level_two_or_three_verified? %>
+                  <span class="icon-check"></span>
+                <% else %>
+                  <span class="icon-x"></span>
+                <% end %>
+                <%= t("account.show.user_permission_support_proposal") %>
+              </li>
+            <% end %>
             <li>
-              <% if current_user.level_two_or_three_verified? %>
-                <span class="icon-check"></span>
-              <% else %>
-                <span class="icon-x"></span>
-              <% end %>
-              <%= t("account.show.user_permission_support_proposal") %>
-            </li>
-            <li>
-              <% if current_user.level_three_verified? %>
+              <% if current_user.level_three_verified? && current_user.can_vote? %>
                 <span class="icon-check"></span>
               <% else %>
                 <span class="icon-x"></span>
@@ -170,9 +182,6 @@
           </ul>
 
           <p>
-            <span><%= t("account.show.user_permission_verify_info") %></span>
-          </p>
-          <p>
             <%= t("account.show.user_permission_verify") %>
           </p>
 
@@ -180,14 +189,21 @@
             <div>
               <span class="verify-account">
                 <% if current_user.level_three_verified? %>
-                  <p class="already-verified">
-                    <span class="icon-check"></span>
-                    <%= t("account.show.verified_account") %>
-                  </p>
+                  <% if current_user.can_vote? %>
+                    <p class="already-verified">
+                      <span class="icon-check"></span>
+                      <%= t("account.show.verified_account") %>
+                    </p>
+                  <% else %>
+                    <p class="unverified">
+                      <span class="icon-x"></span>
+                      <%= t("account.show.unverified_account") %>
+                    </p>
+                  <% end %>
                 <% elsif current_user.level_two_verified? %>
-                  <%= link_to t("account.show.finish_verification"), verification_path, class: "button success" %>
+                  <%#= link_to t("account.show.finish_verification"), verification_path, class: "button success" %>
                 <% else %>
-                  <%= link_to t("account.show.verify_my_account"), verification_path, class: "button success" %>
+                  <%#= link_to t("account.show.verify_my_account"), verification_path, class: "button success" %>
                 <% end %>
               </span>
             </div>

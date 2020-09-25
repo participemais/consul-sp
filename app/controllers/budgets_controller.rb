@@ -4,14 +4,25 @@ class BudgetsController < ApplicationController
   feature_flag :budgets
 
   before_action :load_budget, only: :show
+  before_action :load_ballot, only: :show
+  before_action :load_categories, only: :show
   load_and_authorize_resource
   before_action :set_default_budget_filter, only: :show
-  has_filters %w[not_unfeasible feasible unfeasible unselected selected winners], only: :show
 
   respond_to :html, :js
 
   def show
     raise ActionController::RoutingError, "Not Found" unless budget_published?(@budget)
+    @investments = investments.page(params[:page]).per(20).for_render
+    @investment_ids = investments.pluck(:id)
+    @tag_cloud = tag_cloud
+    respond_to do |format|
+      format.html
+      format.csv do
+        send_data Budget::Investment::Exporter.new(investments).proposals_list_csv,
+          filename: "#{@budget.filename}.csv"
+      end
+    end
   end
 
   def index
@@ -24,5 +35,24 @@ class BudgetsController < ApplicationController
 
     def load_budget
       @budget = Budget.find_by_slug_or_id! params[:id]
+    end
+
+    def investments
+      @results ||= @budget.investments
+        .apply_filters_and_search(@budget, params)
+        .sort_by_heading
+    end
+
+    def tag_cloud
+      TagCloud.new(Budget::Investment, params[:search])
+    end
+
+    def load_ballot
+      query = Budget::Ballot.where(user: current_user, budget: @budget)
+      @ballot = @budget.balloting? ? query.first_or_create! : query.first_or_initialize
+    end
+
+    def load_categories
+      @categories = Tag.category.order(:name)
     end
 end

@@ -12,7 +12,7 @@ pt-BR:
     actions:
       destroy:
         notice: Imagem excluída com sucesso.
-        alert: Não é possível destruir a imagem.
+        alert: Não é possível apagar a imagem.
     errors:
       messages:
         in_between: deve estar entre %{min} e %{max}

@@ -31,7 +31,7 @@
 // -----------------
 
 ::selection {
-  color: #fff;
+  color: $text-medium;
   background-color: $brand;
 }
 
@@ -81,12 +81,12 @@ a {
 
   &:focus {
     color: $link-hover;
-    outline: 3px solid #ffbf47;
+    outline: 3px solid $purple;
   }
 }
 
 .button {
-  background: $brand;
+  background: $purple;
   font-size: $base-font-size;
 
   &:hover {
@@ -224,7 +224,6 @@ a {
 .footer,
 .push {
   clear: both;
-  min-height: $line-height * 12;
 }
 
 .ie-callout {
@@ -269,12 +268,12 @@ a {
     }
 
     &.is-active {
-      border-bottom: 2px solid $brand;
-      color: $brand;
+      border-bottom: 2px solid $purple;
+      color: $purple;
       padding-bottom: rem-calc(1);
 
       h2 a {
-        color: $brand;
+        color: $purple;
       }
     }
 
@@ -301,7 +300,7 @@ a {
 
       &.is-active {
         font-weight: bold;
-        color: $brand;
+        color: $purple;
       }
     }
 
@@ -310,8 +309,8 @@ a {
     }
 
     &.is-active {
-      border-bottom: 2px solid $brand;
-      color: $brand;
+      border-bottom: 2px solid $purple;
+      color: $purple;
     }
   }
 
@@ -381,12 +380,12 @@ a {
     &[aria-selected="true"],
     &.is-active {
       border-bottom: 0;
-      color: $brand;
+      color: $purple;
       font-weight: bold;
 
       &::after {
-        background: $brand;
-        border-bottom: 2px solid $brand;
+        background: $purple;
+        border-bottom: 2px solid $purple;
         bottom: 0;
         content: "";
         left: 0;
@@ -407,7 +406,7 @@ a {
 }
 
 .pagination .current {
-  background: $brand;
+  background: $purple;
 }
 
 .pagination li {
@@ -517,12 +516,14 @@ header {
 
 .top-bar {
   background: $brand !important;
-  color: #fff;
+  color: $text-medium;
   padding-bottom: 0;
   padding-top: 0;
+  margin-bottom: 0.5rem;
 
   @include breakpoint(medium) {
     padding: 0;
+    padding-left: rem-calc(15);
   }
 
   ul {
@@ -534,7 +535,7 @@ header {
     padding: 0;
 
     a {
-      color: #fff;
+      color: $text-medium;
       display: inline-block;
       font-family: "Lato" !important;
       font-size: rem-calc(24);
@@ -566,11 +567,11 @@ header {
     }
 
     a {
-      color: #fff;
+      color: $text-medium;
       padding-left: 0;
 
       @include breakpoint(medium) {
-        font-size: $small-font-size;
+        font-size: $base-font-size;
         padding: rem-calc(11) rem-calc(16);
       }
     }
@@ -581,7 +582,7 @@ header {
 
       @include breakpoint(medium) {
         background: #fff;
-        color: $brand;
+        color: $text-medium;
         text-align: center;
       }
     }
@@ -590,7 +591,7 @@ header {
   .has-submenu {
 
     &.is-active a {
-      color: #fff;
+      color: $text-medium;
       font-weight: bold;
     }
   }
@@ -620,12 +621,14 @@ header {
     line-height: $line-height;
 
     a img {
-      height: rem-calc(48);
+      height: auto;
       margin: 0;
-      width: auto;
+      width: 45%;
+      float: right;
 
       @include breakpoint(medium up) {
-        height: auto;
+        float: left;
+        margin-left: $line-height;
       }
     }
   }
@@ -634,11 +637,12 @@ header {
 .menu-icon {
 
   &.dark {
+    background: $text-light;
 
     &:hover::after,
     &::after {
-      background: #fff;
-      box-shadow: 0 7px 0 #fff, 0 14px 0 #fff;
+      background: $text-light;
+      box-shadow: 0 7px 0 #fff, 0 14px 0 #fff !important;
     }
   }
 }
@@ -655,22 +659,22 @@ header {
   }
 
   &.is-active > a {
-    color: #fff;
+    color: $text-medium;
   }
 
   &.is-dropdown-submenu-parent > a::after {
-    border-color: #fff transparent transparent;
+    border-color: $text-medium transparent transparent;
   }
 }
 
 .top-links {
   background: $dark;
-  color: #fff;
+  color: $text-medium;
   font-size: $small-font-size;
   padding-right: $line-height / 2;
 
   a {
-    color: #fff;
+    color: $text-medium;
     margin: 0 rem-calc(6);
 
     &:hover {
@@ -713,13 +717,12 @@ header {
     li {
       @include breakpoint(medium) {
         display: inline-block;
-        margin-right: rem-calc(20);
       }
     }
   }
 
   a {
-    color: #fff;
+    color: $text-medium;
     display: inline-block;
     line-height: $line-height * 2;
     position: relative;
@@ -738,11 +741,11 @@ header {
     }
 
     &.is-active {
-      color: #fff;
+      color: $text-medium;
 
       @include breakpoint(medium) {
-        border-bottom: 2px solid $brand;
-        color: $brand;
+        border-bottom: 2px solid $purple;
+        color: $purple;
       }
     }
   }
@@ -813,8 +816,8 @@ header {
   }
 
   .is-active {
-    border-bottom: 2px solid $brand;
-    color: $brand;
+    border-bottom: 2px solid $purple;
+    color: $purple;
 
     &:hover {
       text-decoration: none;
@@ -834,7 +837,7 @@ header {
 // ----------
 
 footer {
-  color: $text;
+  color: $brand;
 
   .logo a {
     font-family: "Lato" !important;
@@ -856,7 +859,7 @@ footer {
   a,
   a:active,
   a:focus {
-    color: $text;
+    color: $brand;
     text-decoration: underline;
 
     &:hover {
@@ -875,15 +878,20 @@ footer {
 }
 
 .footer {
-  background: #f1f1f1;
+  background: #363636;
   margin-top: $line-height * 2;
-  padding-top: $line-height;
 }
 
 .subfooter {
+  background: $black;
   border-top: 1px solid $text-light;
   font-size: $small-font-size;
-  padding-top: $line-height / 2;
+  max-width: 100%;
+  padding: $line-height / 6 $line-height / 3;
+
+  ul {
+    margin-bottom: 0;
+  }
 }
 
 // 04. Tags
@@ -916,8 +924,8 @@ footer {
 
   &:hover,
   &.is-active {
-    background: $brand;
-    color: #fff;
+    background: $purple;
+    color: $text-medium;
   }
 }
 
@@ -949,19 +957,21 @@ footer {
 }
 
 .auth-image {
-  background: $brand image-url("auth_bg.jpg");
+  background: $brand image-url("auth_bg.png");
   background-repeat: no-repeat;
   background-size: cover;
+  display: flex;
+  justify-content: center;
 
   @include breakpoint(medium) {
     min-height: $line-height * 42;
   }
 
   h1 {
-    margin-top: $line-height;
+    margin-top: $line-height * 13;
 
     a {
-      color: #fff;
+      color: $text-medium;
       display: block;
       text-align: center;
 
@@ -976,7 +986,7 @@ footer {
 .auth-form {
 
   @include breakpoint(medium) {
-    padding-top: $line-height * 4;
+    padding-top: $line-height;
   }
 
   p,
@@ -1007,7 +1017,7 @@ footer {
   position: relative;
 
   label {
-    color: #fff;
+    color: $text-medium;
     font-size: $tiny-font-size;
     font-weight: normal;
   }
@@ -1026,7 +1036,7 @@ footer {
     background: #001d33;
     border: 0;
     border-radius: rem-calc(4);
-    color: #fff;
+    color: $text-medium;
     font-size: $small-font-size;
     height: $line-height;
     margin-bottom: 0;
@@ -1437,6 +1447,7 @@ form {
     margin-top: $line-height / 4;
     position: absolute;
     right: 0;
+    top: -3px;
   }
 }
 
@@ -1450,6 +1461,12 @@ form {
 
   select {
     height: $line-height * 2;
+  }
+
+  .button {
+    @include breakpoint(medium) {
+      margin-top: 1.5rem;
+    }
   }
 }
 
@@ -1552,7 +1569,7 @@ table {
 .ssb-twitter {
   background: #45b0e3;
   background-image: none !important;
-  color: #fff;
+  color: $text-medium;
   height: $line-height * 2 !important;
   position: relative;
   width: $line-height * 2 !important;
@@ -1595,7 +1612,7 @@ table {
 .ssb-facebook {
   background: #3b5998;
   background-image: none !important;
-  color: #fff;
+  color: $text-medium;
   height: rem-calc(48) !important;
   position: relative;
   width: rem-calc(48) !important;
@@ -1638,7 +1655,7 @@ table {
 [class^="ssb-icon ssb-google"] {
   background: #de4c34;
   background-image: none !important;
-  color: #fff;
+  color: $text-medium;
   height: $line-height * 2 !important;
   position: relative;
   width: $line-height * 2 !important;
@@ -1698,7 +1715,7 @@ table {
 .ssb-telegram {
   background: #08c;
   background-image: none !important;
-  color: #fff;
+  color: $text-medium;
   height: $line-height * 2 !important;
   position: relative;
   width: $line-height * 2 !important;
@@ -1751,7 +1768,7 @@ table {
 
   .ssb-twitter {
     background: #45b0e3;
-    color: #fff;
+    color: $text-medium;
     height: $line-height;
     position: relative;
     width: $line-height * 2;
@@ -1776,7 +1793,7 @@ table {
 
   .ssb-facebook {
     background: #3b5998;
-    color: #fff;
+    color: $text-medium;
     height: rem-calc(24);
     position: relative;
     width: rem-calc(48);
@@ -1801,7 +1818,7 @@ table {
 
   [class^="ssb-icon ssb-google"] {
     background: #de4c34;
-    color: #fff;
+    color: $text-medium;
     height: rem-calc(24);
     position: relative;
     width: rem-calc(48);
@@ -1826,7 +1843,7 @@ table {
 
   .ssb-telegram {
     background: #08c;
-    color: #fff;
+    color: $text-medium;
     height: $line-height;
     position: relative;
     width: $line-height * 2;
@@ -1947,7 +1964,7 @@ table {
       display: block;
 
       @include breakpoint(medium) {
-        background-color: #fff;
+        background-color: $text-medium;
         border-radius: rem-calc(30);
         color: #43ac6a;
         display: inline-block;
@@ -1960,7 +1977,7 @@ table {
 
     &.is-active {
       background: #43ac6a;
-      color: #fff;
+      color: $text-medium;
     }
   }
 
@@ -2007,6 +2024,16 @@ table {
     line-height: $line-height * 2;
 
     .icon-check {
+      font-size: rem-calc(24);
+      line-height: rem-calc(45);
+      vertical-align: middle;
+    }
+  }
+
+  .unverified {
+    line-height: $line-height * 2;
+
+    .icon-x {
       font-size: rem-calc(24);
       line-height: rem-calc(45);
       vertical-align: middle;
@@ -2792,15 +2819,8 @@ table {
   a:hover {
 
     h3 {
-      color: #fff;
+      color: $text-medium;
     }
-  }
-
-  .background-header {
-    clip-path: ellipse(60% 80% at 50% 0%);
-    height: $line-height * 2;
-    background: $highlight;
-    margin-top: rem-calc(-48);
   }
 
   .cards-container {
@@ -2946,7 +2966,7 @@ table {
 
     h3,
     .title {
-      color: #fff;
+      color: $text-medium;
     }
 
     &:hover {
@@ -2961,7 +2981,7 @@ table {
 
   figcaption {
     bottom: 0;
-    color: #fff;
+    color: $text-medium;
     font-size: rem-calc(24);
     line-height: rem-calc(24);
     text-transform: uppercase;

@@ -16,17 +16,22 @@ $small-font-size:     rem-calc(14);
 $line-height:         rem-calc(24);
 $tiny-font-size:      rem-calc(12);
 
-$brand:             #004a83;
+$brand:             $white;
 $dark:              darken($brand, 10%);
+$yellow:            #F9B017;
+$pink:              #EA5B71;
+$lighter-gray:      #f9f9f9;
+$darker-gray:       #5d5d5d;
+$purple:            #5657A2;
 
 $text:              #222;
-$text-medium:       #515151;
-$text-light:        #bfbfbf;
+$text-medium:       #575756;
+$text-light:        #c3c3c3;
 
 $border:            #dee0e3;
 
-$link:              $brand;
-$link-hover:        darken($link, 20%);
+$link:              $text-medium;
+$link-hover:        darken($text-medium, 20%);
 
 $debates:           $brand;
 
@@ -74,9 +79,11 @@ $pdf-secondary:     #ff9e00;
 $black: #222;
 $white: #fff;
 
-$body-font-family: "Source Sans Pro", "Helvetica", "Arial", sans-serif !important;
+$body-font-family: "Segoe UI Semilight", "Source Sans Pro", "Helvetica", "Arial", sans-serif !important;
 
-$header-font-family: $body-font-family;
+$header-font-family: "Gotham Bold", "Source Sans Pro", "Helvetica", "Arial", sans-serif !important;
+
+$subheader-font-family: "Segoe UI Semibold", "Source Sans Pro", "Helvetica", "Arial", sans-serif !important;
 
 $global-radius: rem-calc(3);
 
@@ -102,8 +109,6 @@ $header-styles: (
     "h6": ("font-size": 13),
   ),
 );
-
-$small-font-size: rem-calc(14);
 
 $abbr-underline: none;
 

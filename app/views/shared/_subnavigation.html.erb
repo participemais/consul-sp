@@ -37,12 +37,21 @@
                                 accesskey: "4" %>
       </li>
     <% end %>
+    <% if online_hearings_page %>
+      <li>
+        <%= layout_menu_link_to t("layouts.header.online_hearings"),
+                                audiencias_path,
+                                current_page?(audiencias_path),
+                                accesskey: "1",
+                                title: t("shared.go_to_page") + t("layouts.header.online_hearings") %>
+      </li>
+    <% end %>
     <% if feature?(:budgets) %>
       <li>
         <%= layout_menu_link_to t("layouts.header.budgets"),
                                   budgets_path,
                                   controller_name == "budgets" || controller_name == "investments",
-                                  accesskey: "5",
+                                  accesskey: "2",
                                   title: t("shared.go_to_page") + t("layouts.header.budgets") %>
       </li>
     <% end %>
@@ -51,11 +60,10 @@
         <%= layout_menu_link_to t("layouts.header.help"),
                                 help_path,
                                 current_page?(help_path),
-                                accesskey: "6",
+                                accesskey: "3",
                                 title: t("shared.go_to_page") + t("layouts.header.help") %>
       </li>
     <% end %>
-
     <%= raw content_block("subnavigation_right", I18n.locale) %>
   </ul>
 </div>

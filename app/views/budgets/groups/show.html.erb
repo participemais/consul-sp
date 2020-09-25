@@ -26,7 +26,7 @@
 <% end %>
 
 <div class="row margin">
-  <div id="headings" class="small-12 medium-7 column select-district">
+  <div id="headings" class="small-12 medium-8 column select-district">
     <div class="row">
       <% @group.headings.sort_by_name.each_slice(7) do |slice| %>
         <div class="small-6 medium-4 column end">
@@ -44,31 +44,7 @@
     </div>
   </div>
 
-  <div class="medium-5 column show-for-medium text-center">
-    <%= image_tag(image_path_for("map.jpg")) %>
+  <div class="medium-4 column show-for-medium text-center">
+    <%#= image_tag(image_path_for("map.jpg")) %>
   </div>
 </div>
-
-<% if @budget.balloting_or_later? %>
-  <% unless @current_filter == "unfeasible" %>
-    <div class="row">
-      <div class="small-12 column">
-        <small>
-          <%= link_to t("budgets.groups.show.unfeasible"),
-                      budget_path(@budget, filter: "unfeasible") %>
-        </small>
-      </div>
-    </div>
-  <% end %>
-
-  <% unless @current_filter == "unselected" %>
-    <div class="row">
-      <div class="small-12 column">
-        <small>
-          <%= link_to t("budgets.groups.show.unselected"),
-                      budget_path(@budget, filter: "unselected") %>
-        </small>
-      </div>
-    </div>
-  <% end %>
-<% end %>

@@ -14,7 +14,9 @@
 
   <div class="row">
     <div class="small-12 medium-6 column">
-      <%= f.text_field :price, maxlength: 8 %>
+      <% if @budget.resource_allocation_balloting? %>
+        <%= f.text_field :price, maxlength: 8 %>
+      <% end %>
 
       <%= f.text_field :population,
                         maxlength: 8,

@@ -57,7 +57,7 @@ pt-BR:
     messages:
       already_confirmed: "Você já foi verificado; por favor tente conectar-se a sua conta."
       confirmation_period_expired: "Você precisa ser verificado dentro de %{period}; por favor, faça um pedido de repetição."
-      expired: "expirou; por favor, faça um pedido de repetição."
+      expired: "expirou; por favor, faça outro pedido."
       not_found: "não encontrado."
       not_locked: "foi bloqueado."
       not_saved:
