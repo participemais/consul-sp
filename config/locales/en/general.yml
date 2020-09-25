@@ -718,6 +718,7 @@ en:
     check_all: All
     check_none: None
     collective: Collective
+    feasible: Feasible
     flag: Flag as inappropriate
     follow: "Follow"
     following: "Following"
@@ -763,6 +764,8 @@ en:
       categories: "Categories"
     target_blank: " (link opens in new window)"
     you_are_in: "You are in"
+    undecided: Undecided
+    unfeasible: Unfeasible
     unflag: Unflag
     unfollow_entity: "Unfollow %{entity}"
     outline:

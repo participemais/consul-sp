@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20200710201419) do
+ActiveRecord::Schema.define(version: 20200827195018) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -290,7 +290,6 @@ ActiveRecord::Schema.define(version: 20200710201419) do
     t.boolean "selected", default: false
     t.string "location"
     t.string "organization_name"
-    t.datetime "unfeasible_email_sent_at"
     t.integer "ballot_lines_count", default: 0
     t.integer "previous_heading_id"
     t.boolean "winner", default: false
@@ -302,6 +301,8 @@ ActiveRecord::Schema.define(version: 20200710201419) do
     t.datetime "ignored_flag_at"
     t.integer "flags_count", default: 0
     t.integer "original_heading_id"
+    t.string "feasibility_type"
+    t.text "commitment"
     t.index ["administrator_id"], name: "index_budget_investments_on_administrator_id"
     t.index ["author_id"], name: "index_budget_investments_on_author_id"
     t.index ["community_id"], name: "index_budget_investments_on_community_id"
@@ -391,6 +392,8 @@ ActiveRecord::Schema.define(version: 20200710201419) do
     t.text "description_informing"
     t.integer "max_votes"
     t.string "balloting_type"
+    t.text "description_formulation"
+    t.text "description_devolutive"
   end
 
   create_table "campaigns", id: :serial, force: :cascade do |t|
@@ -599,6 +602,30 @@ ActiveRecord::Schema.define(version: 20200710201419) do
     t.integer "poll_officer_id"
     t.integer "year_of_birth"
     t.index ["user_id"], name: "index_failed_census_calls_on_user_id"
+  end
+
+  create_table "feasibility_analyses", id: :serial, force: :cascade do |t|
+    t.string "technical", limit: 15, default: "undecided"
+    t.text "technical_description"
+    t.string "legal", limit: 15, default: "undecided"
+    t.text "legal_description"
+    t.string "budgetary", limit: 15, default: "undecided"
+    t.text "budgetary_description"
+    t.string "budgetary_actions"
+    t.string "sei_number"
+    t.string "feasibility_analyzable_type"
+    t.integer "feasibility_analyzable_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "department_id"
+    t.index ["department_id"], name: "index_feasibility_analyses_on_department_id"
+  end
+
+  create_table "feasibility_analysis_departments", force: :cascade do |t|
+    t.string "name"
+    t.boolean "active", default: true
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "flags", id: :serial, force: :cascade do |t|
@@ -1664,6 +1691,7 @@ ActiveRecord::Schema.define(version: 20200710201419) do
   add_foreign_key "documents", "users"
   add_foreign_key "failed_census_calls", "poll_officers"
   add_foreign_key "failed_census_calls", "users"
+  add_foreign_key "feasibility_analyses", "feasibility_analysis_departments", column: "department_id"
   add_foreign_key "flags", "users"
   add_foreign_key "follows", "users"
   add_foreign_key "geozones_polls", "geozones"

@@ -75,12 +75,10 @@
 }
 
 .login-options {
-  font-family: $header-font-family;
   margin-right: $global-margin;
   border-bottom: 3px solid $brand;
   transition: border-bottom 0.5s;
   transition: color 0.5s;
-  text-transform: uppercase;
 
   &:hover {
     box-sizing: border-box;
@@ -227,7 +225,7 @@
   text-transform: uppercase;
 }
 
-.status-list .status-radio-btn {
+.status-list .status-filters-btn {
   &:checked,
   &:not(:checked) {
     position: absolute;
@@ -289,10 +287,12 @@
   font-family: "Gotham Bold";
   padding: $line-height / 4 $line-height / 3;
   color: $text-medium;
+  float: right;
+  margin-left: 5px;
 
   &.winner {
-    border-top: 1.5px solid #2CB22C;
-    border-right: 1.5px solid #2CB22C;
+    border-top: 1.5px solid $green;
+    border-right: 1.5px solid $green;
   }
 
   &.loser {
@@ -303,9 +303,117 @@
   span {
     text-transform: uppercase;
   }
+
+  & + & {
+    &.winner {
+      border-right: 0;
+    }
+
+    &.loser {
+      border-right: 0;
+    }
+  }
 }
+
 
 .download-link {
   margin-top: 0;
   margin-bottom: -$line-height / 3;
+}
+
+.feasibility-analysis {
+  margin-left: $line-height / 2;
+  padding: 0 $line-height / 2;
+
+  h4 {
+    margin-bottom: 0;
+  }
+
+  span {
+    color: $text-medium;
+    text-transform: uppercase;
+    font-family: $header-font-family;
+    display: block;
+  }
+
+  .feasibility {
+    position: relative;
+    padding-bottom: $line-height / 2;
+
+    &::before {
+      background-color: #fff;
+      border: 4px solid $budget;
+      border-radius: 100%;
+      content: "";
+      height: 15px;
+      left: -20px;
+      position: absolute;
+      top: 6px;
+      width: 15px;
+      z-index: 99;
+    }
+
+    &.feasible::before {
+      border: 4px solid $green;
+    }
+
+    &.unfeasible::before {
+      border: 4px solid $delete;
+    }
+
+    p, li {
+      text-align: justify;
+    }
+  }
+}
+
+.feasibility-responsible-hat {
+  margin-bottom: -0.5rem;
+  font-size: $small-font-size;
+  text-transform: uppercase;
+  color: $text-medium;
+  font-family: $header-font-family;
+}
+
+.feasibility-analysis-margin {
+  margin-left: 10px;
+}
+
+.investment-codes {
+  padding: $line-height / 2 0;
+  border-top: 2px solid $light-gray;
+  border-bottom: 2px solid $light-gray;
+
+  p {
+    margin: 0;
+  }
+}
+
+.feasibility-fieldset {
+  border: 1px solid;
+  padding: $line-height;
+
+  &.feasible {
+    border-color: $green;
+  }
+
+  &.unfeasible {
+    border-color: $delete;
+  }
+
+}
+
+.feasibility-legend {
+  font-size: 1.2rem;
+  font-family: $header-font-family;
+  text-transform: uppercase;
+  margin-bottom: 0;
+}
+
+.fa-check-green {
+  color: $green;
+}
+
+.fa-times-red {
+  color: $delete;
 }

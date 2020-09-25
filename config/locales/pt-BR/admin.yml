@@ -87,11 +87,11 @@ pt-BR:
       edit:
         title: Editar Orçamento
         delete: Deletar Orçamento
-        phase: Fase
+        phase: Etapa
         dates: Datas
         enabled: Habilitado
         actions: Ações
-        edit_phase: Editar fase
+        edit_phase: Editar etapa
         active: Ativo
         blank_dates: Datas estão em branco
         administrators:
@@ -156,9 +156,9 @@ pt-BR:
         submit: "Salvar título"
     budget_phases:
       edit:
-        summary_help_text: Este texto irá informar o usuário sobre a fase. Para mostrá-lo mesmo se a fase não está ativa, selecione a caixa de seleção abaixo
-        description_help_text: Esse texto será exibido no cabeçalho quando a fase estiver ativa
-        enabled_help_text: Esta fase será pública no cronograma de fases do orçamento, bem como ativa para qualquer outra finalidade
+        summary_help_text: Este texto irá informar o usuário sobre a etapa. Para mostrá-lo mesmo se a etapa não está ativa, selecione a caixa de seleção abaixo
+        description_help_text: Esse texto será exibido no cabeçalho quando a etapa estiver ativa
+        enabled_help_text: Esta etapa será pública no cronograma de etapas do orçamento, bem como ativa para qualquer outra finalidade
         save_changes: Salvar alterações
     budget_investments:
       index:
@@ -206,12 +206,12 @@ pt-BR:
           feasibility: Viabilidade
           valuation_finished: Valor Final.
           selected: Selecionado
-          visible_to_valuators: Apresentar aos avaliadores
+          visible_to_valuators: Disponível para avaliadores
           author_username: Username do autor
           incompatible: Incompatível
           price: Preço
           author: Autor
-        cannot_calculate_winners: O orçamento tem que ficar na fase "Projetos de votação", "Revendo votos" ou "Orçamento concluído" em ordem para calcular os projetos vencedores
+        cannot_calculate_winners: O orçamento tem que ficar na etapa "Projetos de votação", "Revendo votos" ou "Orçamento concluído" em ordem para calcular os projetos vencedores
         see_results: "Exibir resultados"
       show:
         assigned_admin: Administrador designado
@@ -257,18 +257,18 @@ pt-BR:
         table_title: "Título"
         table_description: "Descrição"
         table_publication_date: "Data de publicação"
-        table_status: Fases
+        table_status: Etapas
         table_actions: "Ações"
-        delete: "Deletar fases"
-        no_milestones: "Não possui fases definidos"
+        delete: "Deletar etapas"
+        no_milestones: "Não possui etapas definidos"
         image: "Imagem"
         show_image: "Mostrar imagem"
         documents: "Documentos"
-        milestone: Fases
-        new_milestone: Criar fase
-        milestone_tags: Fases de andamento
+        milestone: Etapas
+        new_milestone: Criar etapa
+        milestone_tags: Etapas de andamento
       form:
-        admin_statuses: Fases dos investimentos para administrador
+        admin_statuses: Etapas dos investimentos para administrador
         no_statuses_defined: Ainda não há status de investimento definidos
       new:
         creating: Criar marco
@@ -312,6 +312,31 @@ pt-BR:
         table_percentage: "Posição atual"
       new:
         creating: "Criar barra de progresso"
+    departments:
+      index:
+        title: Órgãos públicos
+        empty_departments: Não há órgãos públicos cadastrados
+        new_department: Cadastrar órgão público
+        table_name: Nome
+        table_actions: Configurações
+        delete: Apagar
+        edit: Editar
+        activate: Ativar
+        deactivate: Desativar
+        status: Status
+        id: ID
+      edit:
+        title: Editar órgão público
+      update:
+        notice: Órgão público atualizado com sucesso
+      new:
+        title: Cadastrar órgão público
+      create:
+        notice: Órgão público criado com sucesso
+      delete:
+        notice: Órgão público excluído com sucesso
+      form:
+        save: Salvar alterações
     comments:
       index:
         id: "ID"
@@ -442,10 +467,10 @@ pt-BR:
         form:
           enabled: Habilitado
           process: Processo
-          debate_phase: Fase de debate
-          draft_phase: Fase de rascunho
-          allegations_phase: Fase de comentários
-          proposals_phase: Fase de propostas
+          debate_phase: Etapa de debate
+          draft_phase: Etapa de rascunho
+          allegations_phase: Etapa de comentários
+          proposals_phase: Etapa de propostas
           use_markdown: Usar Remarcação para formatar o texto
           title_placeholder: O título do processo
           summary_placeholder: Breve resumo da descrição
@@ -788,6 +813,7 @@ pt-BR:
         no_group: "Sem grupo"
         abilities: "Habilidades"
         can_comment: "Pode comentar"
+        can_edit_dossier: "Pode editar dossiês"
       valuator:
         add: Adicionar aos avaliadores
         delete: Apagar
@@ -1261,9 +1287,9 @@ pt-BR:
         level_2_user: Usuários de nível 2
         proposal_created: Propostas dos cidadãos
       budgets:
-        no_data_before_balloting_phase: "Não há dados a mostrar antes da fase de votação."
+        no_data_before_balloting_phase: "Não há dados a mostrar antes da etapa de votação."
         title: "Orçamentos participativos - Estatísticas de participação"
-        supporting_phase: Fase de apoios
+        supporting_phase: Etapa de apoios
         balloting_phase: Votação final
       budget_balloting:
         title: "Estatísticas da votação final"
@@ -1272,7 +1298,7 @@ pt-BR:
         votes_per_heading: Votos por título
         participants_per_district: Participantes por região
       budget_supporting:
-        title: "Estatísticas da fase de apoios"
+        title: "Estatísticas da etapa de apoios"
         headings: Títulos
         users: Usuários
         vote_count: Votos
@@ -1435,6 +1461,7 @@ pt-BR:
         card_title: Editar cartão
         submit_card: Salvar cartão
     audits:
+      title: Histórico de alterações
       changes: "Lista de alterações"
       id: "ID"
       field: "Campo"
@@ -1443,6 +1470,7 @@ pt-BR:
       edited_at: "Editado em"
       edited_by: "Editado por"
       actions: "Ações"
+      auditable_id: ID do registro
     local_census_records:
       index:
         document_type: Tipo do documento

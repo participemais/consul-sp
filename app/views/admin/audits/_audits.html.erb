@@ -7,6 +7,7 @@
     <thead>
       <tr>
         <th><%= t("admin.audits.id") %></th>
+        <th><%= t("admin.audits.auditable_id") %></th>
         <th><%= t("admin.audits.field") %></th>
         <th><%= t("admin.audits.old_value") %></th>
         <th><%= t("admin.audits.new_value") %></th>
@@ -20,6 +21,7 @@
         <% audit.audited_changes.each do |field, (old_value, new_value)| %>
           <tr>
             <td class="text-center"><%= audit.id %></td>
+            <td class="text-center"><%= audit.auditable_id %></td>
             <td class="small"><%= sanitize(resource.class.human_attribute_name(field)) %></td>
             <td class="small">
               <div class="audit-value"><%= truncate_audit_value(resource, field, old_value) %></div>

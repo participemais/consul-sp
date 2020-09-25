@@ -716,6 +716,7 @@ es:
     check_all: Todos
     check_none: Ninguno
     collective: Colectivo
+    feasible: Viable
     flag: Denunciar como inapropiado
     follow: "Seguir"
     following: "Siguiendo"
@@ -761,6 +762,8 @@ es:
       categories: "Categorías"
     target_blank: " (se abre en ventana nueva)"
     you_are_in: "Estás en"
+    undecided: Sin decidir
+    unfeasible: Inviable
     unflag: Deshacer denuncia
     unfollow_entity: "Dejar de seguir %{entity}"
     outline:

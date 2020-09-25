@@ -53,13 +53,6 @@ pt-BR:
       follow_link: "Orçamentos participativos"
       sincerely: "Atenciosamente"
       share: "Compartilhe seu projeto"
-    budget_investment_unfeasible:
-      hi: "Caro cidadão (ã),"
-      new: "Por tudo isso, nós convidamos você a elaborar um <strong>novo investimento</strong> que se ajuste às condições deste processo. Para isso, clique no link: %{url}."
-      new_href: "novo projeto de investimento"
-      sincerely: "Atenciosamente"
-      sorry: "Desculpe o inconveniente e nós mais uma vez agradecemos pela sua valiosa participação."
-      subject: "Seu projeto de investimento '%{code}' foi marcado como inviável"
     budget_investment_selected:
       subject: "Seu projeto de investimento '%{code}' foi selecionado"
       hi: "Caro cidadão (ã),"

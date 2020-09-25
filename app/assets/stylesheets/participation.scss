@@ -1123,7 +1123,7 @@
     .ssb-facebook,
     [class^="ssb-icon ssb-google"] {
       background: none;
-      color: $text;
+      color: $brand;
       height: rem-calc(33) !important;
 
 
@@ -1151,6 +1151,10 @@
     .icon-angle-left,
     .description {
       color: #fff;
+    }
+
+    h1 {
+      font-size: 2.5rem;
     }
 
     a {

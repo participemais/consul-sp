@@ -724,7 +724,7 @@ code {
     display: block;
 
     &.is-active {
-      color: $brand;
+      color: $text-medium;
       font-weight: bold;
       text-decoration: underline;
     }

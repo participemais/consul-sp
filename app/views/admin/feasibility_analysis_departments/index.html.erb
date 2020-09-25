@@ -1,0 +1,29 @@
+<h2 class="inline-block"><%= t("admin.departments.index.title") %></h2>
+
+<%= link_to t("admin.departments.index.new_department"),
+            new_admin_feasibility_analysis_department_path,
+            class: "button float-right margin-right" %>
+
+<% if @departments.any? %>
+  <table>
+    <thead>
+      <tr>
+        <th><%= t("admin.departments.index.status") %></th>
+        <th><%= t("admin.departments.index.id") %></th>
+        <th><%= t("admin.departments.index.table_name") %></th>
+        <th><%= t("admin.departments.index.table_actions") %></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @departments.each do |department| %>
+        <tr id="<%= dom_id(department) %>" class="feasibility_analysis_department">
+          <%= render "department", department: department %>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% else %>
+  <div data-alert class="callout primary margin-top clear">
+    <%= t("admin.departments.index.empty_departments") %>
+  </div>
+<% end %>

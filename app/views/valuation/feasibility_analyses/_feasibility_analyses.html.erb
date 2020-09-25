@@ -1,0 +1,61 @@
+<h3 class="inline-block"><%= t("valuation.feasibility_analyses.index.feasibility_analysis") %></h3>
+
+<% if feasibility_analyzable.feasibility_analyses.any? %>
+  <table>
+    <thead>
+      <tr>
+        <th><%= t("valuation.feasibility_analyses.index.id") %></th>
+        <th><%= t("valuation.feasibility_analyses.index.department") %></th>
+        <th><%= t("valuation.feasibility_analyses.index.technical") %></th>
+        <th><%= t("valuation.feasibility_analyses.index.legal") %></th>
+        <th><%= t("valuation.feasibility_analyses.index.budgetary") %></th>
+        <th><%= t("valuation.feasibility_analyses.index.budgetary_actions") %></th>
+        <th><%= t("valuation.feasibility_analyses.index.sei_number") %></th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% feasibility_analyzable.feasibility_analyses.each do |feasibility_analysis| %>
+        <tr id="<%= dom_id(feasibility_analysis) %>" class="feasibility_analysis">
+          <td class="text-center"><%= feasibility_analysis.id %></td>
+          <td>
+            <%= link_to(feasibility_analysis.department_name,
+              polymorphic_path(
+                [:valuation, *resource_hierarchy_for(feasibility_analysis)],
+                action: :edit)
+            ) %>
+          </td>
+          <td class="small">
+            <%= t("shared.#{feasibility_analysis.technical}") %>
+          </td>
+          <td class="small">
+            <%= t("shared.#{feasibility_analysis.legal}") %>
+          </td>
+          <td class="small">
+            <%= t("shared.#{feasibility_analysis.budgetary}") %>
+          </td>
+          <td class="small"><%= feasibility_analysis.budgetary_actions %></td>
+          <td class="small"><%= feasibility_analysis.sei_number %>
+          </td>
+          <td class="small-2">
+            <%= link_to(t("valuation.feasibility_analyses.index.delete"),
+                polymorphic_path([:valuation, *resource_hierarchy_for(feasibility_analysis)]),
+                method: :delete,
+                class: "button hollow alert expanded"
+            ) %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% else %>
+  <p><%= t("valuation.feasibility_analyses.index.no_feasibility_analyses") %></p>
+<% end %>
+
+<p>
+  <%= link_to(t("valuation.feasibility_analyses.index.new_feasibility_analysis"),
+    polymorphic_path([:valuation, *resource_hierarchy_for(feasibility_analyzable.feasibility_analyses.new)],
+    action: :new),
+    class: "button hollow no-margin-bottom"
+  ) %>
+</p>

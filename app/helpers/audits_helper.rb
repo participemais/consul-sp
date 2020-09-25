@@ -8,8 +8,8 @@ module AuditsHelper
       value.join(",")
     elsif resource.type_for_attribute(field.to_s).type == :boolean
       resource.class.human_attribute_name("#{field}_#{value}")
-    else
-      value.to_s
+    elsif value.present?
+      resource.class.human_attribute_name(value)
     end
   end
 end
