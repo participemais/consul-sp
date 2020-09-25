@@ -1,17 +1,24 @@
-(function() {
+(() => {
   "use strict";
   App.CheckboxToggle = {
-    initialize: function() {
-      $("[data-checkbox-toggle]").on("change", function() {
-        var $target;
-        $target = $($(this).data("checkbox-toggle"));
+    toggleBox: () => {
+      const $checkbox = $("[data-checkbox-toggle]");
+      const $target = $($($checkbox).data("checkbox-toggle"));
 
-        if ($(this).is(":checked")) {
-          $target.show();
-        } else {
-          $target.hide();
-        }
+      if ($($checkbox).is(":checked")) {
+        $target.slideDown();
+      } else {
+        $target.slideUp();
+      }
+    },
+    toggleOnChange: () => {
+      $("[data-checkbox-toggle]").on("change", () => {
+        App.CheckboxToggle.toggleBox()
       });
+    },
+    initialize: () => {
+      App.CheckboxToggle.toggleBox();
+      App.CheckboxToggle.toggleOnChange();
     }
   };
 }).call(this);

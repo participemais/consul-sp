@@ -52,6 +52,7 @@ class User < ApplicationRecord
     class_name:  "Legislation::Question",
     foreign_key: :author_id,
     inverse_of:  :author
+  has_many :legislation_topic_votes, class_name: "Legislation::TopicVote"
   has_many :polls, foreign_key: :author_id, inverse_of: :author
   has_many :poll_answers,
     class_name:  "Poll::Answer",
@@ -239,6 +240,14 @@ class User < ApplicationRecord
 
   def official?
     official_level && official_level > 0
+  end
+
+  def incomplete_registration?
+    document_number.blank?
+  end
+
+  def can_vote?
+    valid? && (document_number.present? || (organization? && cep))
   end
 
   def add_official_position!(position, level)
@@ -449,10 +458,6 @@ class User < ApplicationRecord
 
   def foreigner_document?
     document_type == 'rnm'
-  end
-
-  def can_vote?
-    valid? && (document_number.present? || (organization? && cep))
   end
 
   private

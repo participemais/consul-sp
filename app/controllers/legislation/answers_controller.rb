@@ -6,22 +6,33 @@ class Legislation::AnswersController < Legislation::BaseController
   load_and_authorize_resource :question, through: :process
   load_and_authorize_resource :answer, through: :question
 
-  respond_to :html, :js
-
   def create
     if @process.debate_phase.open?
       @answer.user = current_user
       @answer.save!
       track_event
       respond_to do |format|
-        format.js
-        format.html { redirect_to legislation_process_question_path(@process, @question) }
+        format.html do
+          redirect_to legislation_process_question_path(@process, @question),
+          notice: t("legislation.answers.create.notice")
+        end
       end
     else
       alert = t("legislation.questions.participation.phase_not_open")
       respond_to do |format|
-        format.js { render json: {}, status: :not_found }
         format.html { redirect_to legislation_process_question_path(@process, @question), alert: alert }
+      end
+    end
+  end
+
+  def update
+    if @process.debate_phase.open?
+      @answer.update(answer_params)
+      respond_to do |format|
+        format.html do
+          redirect_to legislation_process_question_path(@process, @question),
+          notice: t("legislation.answers.update.notice")
+        end
       end
     end
   end

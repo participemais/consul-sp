@@ -117,7 +117,7 @@ pt-BR:
               page_column: Orçamentos participativos
             -
               key_column: 5
-              page_column: Processos legislativos
+              page_column: Consultas públicas
         browser_table:
           description: "Dependendo do sistema operacional e do navegador usado, a combinação de teclas será a seguinte:"
           caption: Combinação de teclas, depende do sistema operacional e navegador

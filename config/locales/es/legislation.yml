@@ -65,7 +65,6 @@ es:
         section_header:
           icon_alt: Icono de legislación colaborativa
           title: Legislación colaborativa
-          help: Ayuda sobre legislación colaborativa
         section_footer:
           title: Ayuda sobre Legislación colaborativa
           description: Participa en los debates y procesos previos a la aprobación de nuevas normas o planes. Tu opinión será tenida en cuenta.
@@ -73,9 +72,6 @@ es:
         not_open: Esta etapa del proceso todavía no está abierta
       phase_empty:
         empty: No hay nada publicado todavía
-      process:
-        see_latest_comments: Ver últimas aportaciones
-        see_latest_comments_title: Aportar a este proceso
       shared:
         key_dates: Etapas de participación
         homepage: Inicio
