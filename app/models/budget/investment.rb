@@ -171,7 +171,7 @@ class Budget
       ids += results.where(selected: true).pluck(:id)       if params[:advanced_filters].include?("selected")
       ids += results.undecided.pluck(:id)                   if params[:advanced_filters].include?("undecided")
       ids += results.unfeasible.pluck(:id)                  if params[:advanced_filters].include?("unfeasible")
-      results = results.where("budget_investments.id IN (?)", ids) if ids.any?
+      results = results.where(id: ids) if ids.any?
       results
     end
 
@@ -198,7 +198,7 @@ class Budget
         ids += Investment.where(heading_id: hid).order(confidence_score: :desc).limit(max_per_heading).pluck(:id)
       end
 
-      results.where("budget_investments.id IN (?)", ids)
+      results.where(id: ids)
     end
 
     def self.search_by_title_or_id(title_or_id)
@@ -284,6 +284,8 @@ class Budget
         end
       end
       return :casted_offline if ballot.casted_offline?
+
+      ballot.reason_for_not_being_ballotable(self)
     end
 
     def permission_problem(user)

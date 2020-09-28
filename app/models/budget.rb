@@ -20,6 +20,7 @@ class Budget < ApplicationRecord
   end
 
   CURRENCY_SYMBOLS = %w[R$ € $ £ ¥].freeze
+  VOTING_STYLES = %w[knapsack approval].freeze
 
   validates_translation :name, presence: true
   validates :phase, inclusion: { in: Budget::Phase::PHASE_KINDS }
@@ -34,6 +35,7 @@ class Budget < ApplicationRecord
   validate :unique_balloting_type
 
   validates :slug, presence: true, format: /\A[a-z0-9\-_]+\z/
+  validates :voting_style, inclusion: { in: VOTING_STYLES }
 
   has_many :investments, dependent: :destroy
   has_many :ballots, dependent: :destroy
@@ -186,10 +188,6 @@ class Budget < ApplicationRecord
     formatted_currency_amount(heading_price(heading))
   end
 
-  def formatted_heading_amount_spent(heading)
-    formatted_currency_amount(amount_spent(heading))
-  end
-
   def investments_orders
     case phase
     when "accepting", "reviewing", "finished"
@@ -230,6 +228,10 @@ class Budget < ApplicationRecord
 
   def filename
     name.parameterize
+  end
+
+  def approval_voting?
+    voting_style == "approval"
   end
 
   private
