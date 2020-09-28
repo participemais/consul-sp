@@ -91,6 +91,35 @@
   </fieldset>
 
   <fieldset>
+    <div class="small-12 column">
+      <hr>
+    </div>
+
+    <div class="small-12 medium-4 column">
+      <label><%= t("admin.legislation.processes.form.topics_phase") %></label>
+    </div>
+
+    <div class="small-12 medium-3 column">
+      <%= f.text_field :topics_phase_start_date,
+                        value: format_date_for_calendar_form(@process.topics_phase_start_date),
+                        class: "js-calendar-full",
+                        id: "topics_phase_start_date" %>
+    </div>
+
+    <div class="small-12 medium-3 column">
+      <%= f.text_field :topics_phase_end_date,
+                        value: format_date_for_calendar_form(@process.topics_phase_end_date),
+                        class: "js-calendar-full",
+                        id: "topics_phase_end_date" %>
+    </div>
+    <div class="small-12 medium-2 column margin-top">
+      <%= f.check_box :topics_phase_enabled, checked: @process.topics_phase.enabled?, label: t("admin.legislation.processes.form.enabled") %>
+    </div>
+
+    <div class="small-12 column">
+      <hr>
+    </div>
+
     <div class="small-12 medium-3 column end">
       <%= f.date_field :draft_publication_date, id: "draft_publication_date" %>
     </div>

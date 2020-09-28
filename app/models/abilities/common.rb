@@ -90,7 +90,8 @@ module Abilities
 
         can :vote, Legislation::Proposal
         can :vote_featured, Legislation::Proposal
-        can :create, Legislation::Answer
+        can [:create, :update], Legislation::Answer
+        can [:create, :update], Legislation::TopicVote
 
         can :create, Budget::Investment,               budget: { phase: "accepting" }
         can :edit, Budget::Investment,                 budget: { phase: "accepting" }, author_id: user.id

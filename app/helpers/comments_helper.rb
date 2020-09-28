@@ -82,4 +82,8 @@ module CommentsHelper
       t("comments.comments_closed")
     end
   end
+
+  def incomplete_registration_for_debate_comment?(commentable)
+    commentable.class == Legislation::Question && current_user.incomplete_registration?
+  end
 end

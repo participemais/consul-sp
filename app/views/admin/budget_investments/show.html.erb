@@ -77,4 +77,8 @@
 
 <%= render "admin/audits/audits", resource: @investment %>
 
+<%= render "valuation/feasibility_analyses/feasibility_analyses",
+  feasibility_analyzable: @investment
+%>
+
 <%= render "admin/milestones/milestones", milestoneable: @investment %>

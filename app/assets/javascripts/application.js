@@ -96,6 +96,10 @@
 //= require subprefecture_data
 //= require change_confirmation
 //= require datepicker
+//= require link_target_blank
+//= require proposals_status_filters
+//= require data_info_toggle
+//= require enable_elements
 
 var initialize_modules = function() {
   "use strict";
@@ -154,6 +158,10 @@ var initialize_modules = function() {
   App.SubprefectureData.initialize();
   App.ChangeConfirmation.initialize();
   App.Datepicker.initialize();
+  App.LinkTargetBlank.initialize();
+  App.ProposalsStatusFilters.initialize();
+  App.DataInfoToggle.initialize();
+  App.EnableElements.initialize();
 };
 
 var destroy_non_idempotent_modules = function() {

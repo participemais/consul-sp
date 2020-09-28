@@ -149,6 +149,10 @@ class Budget < ApplicationRecord
     current_phase&.publishing_prices_or_later?
   end
 
+  def devolutive_or_later?
+    current_phase&.devolutive_or_later?
+  end
+
   def balloting_process?
     balloting? || reviewing_ballots?
   end

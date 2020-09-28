@@ -2,7 +2,7 @@
 
 <%= render "legislation/processes/header", process: @process, header: :full %>
 
-<%= render "documents/additional_documents", documents: @process.documents %>
+<%= render "documents/additional_documents", process: @process %>
 
 <%= render "key_dates", process: @process, phase: :homepage %>
 

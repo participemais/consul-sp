@@ -8,10 +8,15 @@ namespace :legislation do
       get :proposals
       get :milestones
       get :summary
+      get :topics
     end
 
     resources :questions, only: [:show] do
-      resources :answers, only: [:create]
+      resources :answers, only: [:create, :update]
+    end
+
+    resources :topics do
+      resources :topic_votes, only: [:create, :update]
     end
 
     resources :proposals do

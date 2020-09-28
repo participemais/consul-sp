@@ -1,7 +1,7 @@
 pt-BR:
   account:
     show:
-      change_credentials_link: Alterar senha
+      change_credentials_link: Alterar email ou senha
       erase_account_link: Apagar minha conta
       finish_verification: Finalizar verificação
       foreigner_document: RNM
@@ -117,10 +117,6 @@ pt-BR:
         actions:
           success: "Recomendações para os debates agora estão desativadas para esta conta"
           error: "Ocorreu um erro. Por favor, vá à página 'Sua conta' para desativar manualmente recomendações para debates"
-      search_form:
-        button: Buscar
-        placeholder: Buscar debates...
-        title: Buscar
       search_results:
         one: " contendo o termo <strong>'%{search_term}'</strong>"
         other: " contendo o termo <strong>'%{search_term}'</strong>"
@@ -130,7 +126,6 @@ pt-BR:
       section_header:
         icon_alt: Ícone de debates
         title: Debates
-        help: Ajuda sobre debates
       section_footer:
         title: Ajuda sobre debates
         description: Inicie um debate e compartilhe opiniões com outras pessoas sobre os temas que te interessam.
@@ -186,6 +181,7 @@ pt-BR:
     legislation/draft_version: Rascunho
     legislation/process: Processo
     legislation/question: Pergunta
+    legislation/topic_level: Título
     poll/shift: Turno
     poll/question/answer: Resposta
     user: Conta
@@ -198,6 +194,7 @@ pt-BR:
     local_census_records/import: Importações de registros do censo local
     site_customization/content_block: Conteúdo
     site_customization/page: Página
+    feasibility_analysis: Análises de viabilidade
   geozones:
     none: Cidade de São Paulo
   layouts:
@@ -227,7 +224,7 @@ pt-BR:
       consul: Aplicativo CONSUL
       consul_url: https://consulproject.org/en/
       contact_us: Para suporte técnico entre em
-      copyright: "O %{org_name}, %{year}, usa %{open_source} do %{consul}"
+      copyright: "O %{org_name}, %{year}, usa o %{open_source} do %{consul}"
       open_source: código aberto
       open_source_url: https://github.com/consul/consul
       privacy: Política de Privacidade
@@ -244,7 +241,7 @@ pt-BR:
       administration_menu: Admin
       administration: Administração
       available_locales: Idiomas disponíveis
-      collaborative_legislation: Processos legislativos
+      collaborative_legislation: Consultas públicas
       debates: Debates
       locale: "Idioma:"
       logo: Consul logotipo
@@ -389,10 +386,6 @@ pt-BR:
         unfeasible: Inviável
         done: Feito
         other: Outros
-      search_form:
-        button: Buscar
-        placeholder: Buscar propostas...
-        title: Buscar
       search_results:
         one: " contendo o termo <strong>'%{search_term}'</strong>"
         other: " contendo o termo <strong>'%{search_term}'</strong>"
@@ -405,7 +398,6 @@ pt-BR:
       section_header:
         icon_alt: Ícone de propostas
         title: Propostas
-        help: Ajuda sobre propostas
       section_footer:
         title: Ajuda sobre propostas
         description: Propostas dos cidadãos são uma oportunidade para os vizinhos e coletivos para decidir diretamente como eles querem que seja sua cidade, após conseguir apoio suficiente e sujeitar à votação dos cidadãos.
@@ -458,7 +450,7 @@ pt-BR:
       dashboard_proposal_link: Painel de controle
       flag: Esta proposta já foi marcada como inadequada por vários usuários.
       notifications_tab: Notificações
-      milestones_tab: Fases
+      milestones_tab: Etapas
       retired_warning: "O autor considera que esta proposta não deve mais receber apoio."
       retired_warning_link_to_explanation: Leia a explicação antes de votar.
       retired: Proposta retirada pelo autor
@@ -478,7 +470,7 @@ pt-BR:
       resources: Recursos
       community: Comunidade
       polls: Votações
-      mailing: E-mail
+      mailing: Email
       poster: Pôster
       recommended_actions: Ações recomendadas
       messages: Mensagem para os usuários
@@ -635,7 +627,8 @@ pt-BR:
       section_header:
         icon_alt: Ícone de votação
         title: Votação
-        help: Ajuda sobre votação
+        participate: Participe das
+        subtitle: Votações abertas
       section_footer:
         title: Ajuda sobre votação
         description: Votações dos cidadãos são um mecanismo de participação na qual os cidadãos podem ter decisões diretas
@@ -719,15 +712,16 @@ pt-BR:
     check_none: Nenhum
     collective: Coletivo
     flag: Marcar como inapropriado
+    feasible: Viável
     follow: "Seguir"
     following: "Seguindo"
     follow_entity: "Seguir %{entity}"
     followable:
       budget_investment:
         create:
-          notice: "Você está seguindo este projeto de investimento! <br>Para que esteja a par de tudo, vamos notificar você sobre alterações assim que elas ocorrerem."
+          notice: "Você está seguindo essa proposta! </br>Para que esteja a par de tudo, vamos notificar você sobre alterações assim que elas ocorrerem."
         destroy:
-          notice: "Você parou de seguir este projeto de investimento! <br> Você não receberá mais notificações relacionadas a ele."
+          notice: "Você parou de seguir essa proposta! </br> Você não receberá mais notificações relacionadas a ela."
       proposal:
         create:
           notice: "Agora você está seguindo esta proposta cidadã! <br> Para que esteja a par de tudo, vamos notificar você sobre alterações assim que elas ocorrerem."
@@ -763,6 +757,8 @@ pt-BR:
       categories: "Categorias"
     target_blank: " (link abre em nova janela)"
     you_are_in: "Você está em"
+    undecided: Não definida
+    unfeasible: Inviável
     unflag: Desmarcar
     unfollow_entity: "Deixar de seguir %{entity}"
     outline:
@@ -879,7 +875,7 @@ pt-BR:
       not_verified: Somente usuários verificados podem votar em projetos de investimento; %{verify_account}.
       organization: Organizações não tem permissão de voto
       unfeasible: Projetos de investimento inviáveis não podem ser apoiados
-      not_voting_allowed: A fase de votação está fechada
+      not_voting_allowed: A etapa de votação está fechada
       different_heading_assigned:
         one: "Você só pode apoiar projetos de investimento em %{count} distrito. Você já apoiou investimentos em %{supported_headings}."
         other: "Você só pode apoiar projetos de investimento em %{count} distritos. Você já apoiou investimentos em %{supported_headings}."
@@ -942,7 +938,7 @@ pt-BR:
     score_negative: "Não"
     content_title:
       proposal: "Proposta"
-      debate: "Debater"
+      debate: "Debate"
       budget_investment: "Investimentos Orçamentários"
   admin/widget:
     header:

@@ -52,6 +52,7 @@ class User < ApplicationRecord
     class_name:  "Legislation::Question",
     foreign_key: :author_id,
     inverse_of:  :author
+  has_many :legislation_topic_votes, class_name: "Legislation::TopicVote"
   has_many :polls, foreign_key: :author_id, inverse_of: :author
   has_many :poll_answers,
     class_name:  "Poll::Answer",
@@ -80,13 +81,13 @@ class User < ApplicationRecord
   validates :username,
     uniqueness: { case_sensitive: false },
     if: :username_required?
-  validates :username, length: { minimum: 3 }
+  validates :username, length: { minimum: 3 }, if: :username_required?
   validates :first_name, length: { minimum: 2 }, allow_nil: true
-
   validates :last_name, length: { minimum: 2 }, allow_nil: true
   validates :cep, length: { minimum: 8 }, allow_nil: true
+  validates :address_number, length: { maximum: 7 }, allow_nil: true
 
-  validate :username_chars_validation
+  validate :username_chars_validation, if: :username_required?
 
   validate :first_and_last_names_chars_validation, if: :persisted?
 
@@ -241,6 +242,14 @@ class User < ApplicationRecord
 
   def official?
     official_level && official_level > 0
+  end
+
+  def incomplete_registration?
+    document_number.blank?
+  end
+
+  def can_vote?
+    valid? && (document_number.present? || (organization? && cep))
   end
 
   def add_official_position!(position, level)
@@ -453,10 +462,6 @@ class User < ApplicationRecord
     document_type == 'rnm'
   end
 
-  def can_vote?
-    document_number.present? && valid?
-  end
-
   private
 
     def clean_document_number
@@ -526,12 +531,8 @@ class User < ApplicationRecord
     end
 
     def sanitaze_name
-      self.first_name = capitalize_word(first_name) if first_name_changed?
-      self.last_name = capitalize_word(last_name) if last_name_changed?
-    end
-
-    def capitalize_word(word)
-      word.split.map(&:capitalize)*' '
+      self.first_name = first_name.squish.titleize if first_name_changed?
+      self.last_name = last_name.squish.titleize if last_name_changed?
     end
 
     def document_number_changes_amount

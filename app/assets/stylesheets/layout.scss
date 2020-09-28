@@ -31,8 +31,8 @@
 // -----------------
 
 ::selection {
-  color: $text-medium;
-  background-color: $brand;
+  color: $brand;
+  background-color: $yellow;
 }
 
 html,
@@ -63,6 +63,7 @@ p {
 
 a {
   color: $link;
+  text-decoration: none;
 
   &:hover,
   &:active {
@@ -88,9 +89,11 @@ a {
 .button {
   background: $purple;
   font-size: $base-font-size;
+  font-family: $header-font-family;
 
   &:hover {
     text-decoration: none !important;
+    background: $light-purple;
   }
 
   &.warning,
@@ -325,6 +328,10 @@ a {
 
 .small {
   font-size: $small-font-size;
+}
+
+.tiny {
+  font-size: $tiny-font-size;
 }
 
 .relative {
@@ -576,6 +583,8 @@ header {
   padding-bottom: 0;
   padding-top: 0;
   margin-bottom: 0.5rem;
+  font-family: $header-font-family;
+  text-transform: uppercase;
 
   @include breakpoint(medium) {
     padding: 0;
@@ -892,24 +901,16 @@ header {
 // 03. Footer
 // ----------
 
+.footer {
+  background: #363636;
+  margin-top: $line-height * 2;
+}
+
 footer {
   color: $brand;
 
-  .logo a {
-    font-family: "Lato" !important;
-    text-decoration: none;
-
-    &:hover {
-      text-decoration: underline;
-    }
-  }
-
   p {
     font-size: $small-font-size;
-
-    &.info a {
-      text-decoration: underline;
-    }
   }
 
   a,
@@ -923,30 +924,101 @@ footer {
     }
   }
 
-  .footer-sections {
-    padding-left: 0;
+  .subfooter {
+    background: $black;
+    border-top: 1px solid $text-light;
+    font-size: $small-font-size;
+    max-width: 100%;
+    padding: $line-height / 6 $line-height / 3;
+
+    ul {
+      margin-bottom: 0;
+    }
   }
 
-  .title {
-    font-weight: bold;
-    text-decoration: none;
+  .info-footer-margin {
+    margin-left: $line-height / 3;
+    @include breakpoint(medium) {
+      margin-left: 0;
+    }
   }
-}
 
-.footer {
-  background: #363636;
-  margin-top: $line-height * 2;
-}
-
-.subfooter {
-  background: $black;
-  border-top: 1px solid $text-light;
-  font-size: $small-font-size;
-  max-width: 100%;
-  padding: $line-height / 6 $line-height / 3;
-
-  ul {
+  .responsible {
+    font-family: $subheader-font-family;
+    line-height: 3 * $line-height / 4;
     margin-bottom: 0;
+  }
+
+  .responsible-address {
+    font-family: $body-font-family;
+    line-height: 3 * $line-height / 4;
+  }
+
+  .contact-footer {
+
+    @include breakpoint(medium) {
+      padding-left: $line-height;
+    }
+
+    .org-mail {
+      font-family: $subheader-font-family;
+      margin-bottom: 0;
+    }
+
+    .social-networks {
+      margin-left: 0;
+      font-family: $subheader-font-family;
+      display: flex;
+      align-items: center;
+
+      li > a {
+        font-size:$base-font-size;
+        text-decoration: none;
+        margin-right: $line-height / 3;
+        &:hover {
+          text-decoration: none;
+        }
+      }
+
+      .at-org {
+        font-size:$small-font-size;
+      }
+    }
+  }
+
+  .footer-logos {
+    width: 100%;
+    height: 10vh;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: 50%;
+    margin-bottom: 1rem;
+
+    @include breakpoint(medium only) {
+      margin-bottom: 0;
+      height: 20vh;
+    }
+
+    @include breakpoint(large) {
+      margin-bottom: 0;
+      height: 10vh;
+      background-position: 0;
+    }
+  }
+
+  .governo-aberto-logo {
+    background-image: image-url("governo_aberto_logo.png");
+  }
+
+  .sao-paulo-logo {
+    background-image: image-url("sao_paulo_logo.png");
+  }
+
+  .subfooter-terms {
+    float: left;
+    @include breakpoint(large) {
+      float: right;
+    }
   }
 }
 
@@ -959,7 +1031,7 @@ footer {
 .geozone a,
 .sidebar-links a,
 .tags span {
-  background: #ececec;
+  background: $tag;
   border-radius: rem-calc(6);
   color: $text;
   display: inline-block;
@@ -969,20 +1041,13 @@ footer {
   text-decoration: none;
 
   &:hover {
-    background: #e0e0e0;
+    background: $tag-hover;
   }
 }
 
-.categories a,
-.geozone a {
-  background: $highlight;
-  color: $link;
-
-  &:hover,
-  &.is-active {
-    background: $purple;
-    color: $text-medium;
-  }
+.categories a.is-active {
+  background: $purple;
+  color: $brand;
 }
 
 .sidebar-map {
@@ -993,12 +1058,12 @@ footer {
 }
 
 .sidebar-title {
-  border-top: 2px solid $brand;
+  border-top: 2px solid $purple;
   display: inline-block;
   font-size: rem-calc(16);
-  font-weight: bold;
+  font-family: $subheader-font-family;
   margin: -1px 0 $line-height / 2;
-  padding-top: $line-height / 4;
+  padding-top: $line-height / 8;
   text-transform: uppercase;
 }
 
@@ -1258,6 +1323,10 @@ form {
     background-color: $warning-bg;
     border-color: $warning-border;
     color: $color-warning;
+
+    a {
+      color: $color-warning;
+    }
   }
 
   &.alert,
@@ -1279,13 +1348,15 @@ form {
 .no-error {
   background: $success-bg;
   color: $color-success;
+  float: right;
+  padding: 0 $line-height / 4;
 }
 
 .error {
   background: $alert-bg;
   color: $color-alert;
-  display: inline-block;
-  margin: 0 $line-height / 4;
+  float: right;
+  padding: 0 $line-height / 4;
 
   a {
     color: $color-alert;
@@ -1649,7 +1720,7 @@ table {
 .ssb-twitter {
   background: #45b0e3;
   background-image: none !important;
-  color: $text-medium;
+  color: $brand;
   height: $line-height * 2 !important;
   position: relative;
   width: $line-height * 2 !important;
@@ -1685,7 +1756,7 @@ table {
 .ssb-facebook {
   background: #3b5998;
   background-image: none !important;
-  color: $text-medium;
+  color: $brand;
   height: rem-calc(48) !important;
   position: relative;
   width: rem-calc(48) !important;
@@ -1715,6 +1786,39 @@ table {
   &::before {
     color: #de4c34;
     content: "B";
+    font-family: "icons" !important;
+    font-size: rem-calc(24);
+    left: 0;
+    line-height: $line-height * 2;
+    padding: 0 rem-calc(20);
+    position: absolute;
+    top: 0;
+  }
+}
+
+[class^="ssb-icon ssb-google"] {
+  background: #de4c34;
+  background-image: none !important;
+  color: $brand;
+  height: $line-height * 2 !important;
+  position: relative;
+  width: $line-height * 2 !important;
+
+  &::before {
+    content: "B";
+    font-family: "icons" !important;
+    font-size: rem-calc(24);
+    left: 50%;
+    line-height: $line-height * 2;
+    margin-left: rem-calc(-11);
+    position: absolute;
+    top: 0;
+  }
+
+  &:hover,
+  &:focus {
+    background: #fff;
+    color: #ce3e26;
   }
 }
 
@@ -1741,7 +1845,7 @@ table {
 .ssb-telegram {
   background: #08c;
   background-image: none !important;
-  color: $text-medium;
+  color: $brand;
   height: $line-height * 2 !important;
   position: relative;
   width: $line-height * 2 !important;
@@ -1794,7 +1898,7 @@ table {
 
   .ssb-twitter {
     background: #45b0e3;
-    color: $text-medium;
+    color: $brand;
     height: $line-height;
     position: relative;
     width: $line-height * 2;
@@ -1819,7 +1923,7 @@ table {
 
   .ssb-facebook {
     background: #3b5998;
-    color: $text-medium;
+    color: $brand;
     height: rem-calc(24);
     position: relative;
     width: rem-calc(48);
@@ -1844,7 +1948,7 @@ table {
 
   .ssb-telegram {
     background: #08c;
-    color: $text-medium;
+    color: $brand;
     height: $line-height;
     position: relative;
     width: $line-height * 2;
@@ -2326,7 +2430,7 @@ table {
 
     span {
       background: none;
-      border: 1px solid #ececec;
+      border: 1px solid $tag;
     }
   }
 }
@@ -2359,7 +2463,7 @@ table {
   .interests {
 
     @include breakpoint(medium) {
-      border-left: 1px solid #ececec;
+      border-left: 1px solid $tag;
       padding-left: $line-height;
     }
   }
@@ -2626,7 +2730,7 @@ table {
 }
 
 .additional-document-link {
-  background: $highlight-soft;
+  background: $lighter-gray;
   border: 1px solid $highlight;
   display: block;
   margin: $line-height / 2 0;
@@ -2635,10 +2739,12 @@ table {
 
   a {
     word-wrap: break-word;
+    color: $text-medium;
+    font-weight: bold;
   }
 
   .icon-document {
-    color: #007bb7;
+    color: $purple;
     display: inline-block;
     font-size: rem-calc(24);
     line-height: $line-height;
@@ -2647,7 +2753,7 @@ table {
 }
 
 .document-divider {
-  background: #fafafa;
+  background: $white;
   border-bottom: 1px solid #eee;
 }
 
@@ -2889,7 +2995,7 @@ table {
     }
 
     .gradient {
-      background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.01) 1%, rgba(0, 0, 0, 1) 100%);
+      background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 0.01) 30%, rgba(0, 0, 0, 1) 100%);
       height: 100%;
       position: absolute;
       width: 100%;

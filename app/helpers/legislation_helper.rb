@@ -14,6 +14,7 @@ module LegislationHelper
       "questions"      => admin_legislation_process_questions_path(process),
       "proposals"      => admin_legislation_process_proposals_path(process),
       "draft_versions" => admin_legislation_process_draft_versions_path(process),
+      "topics"         => admin_legislation_process_topics_path(process),
       "milestones"     => admin_legislation_process_milestones_path(process)
     }
   end
@@ -26,5 +27,9 @@ module LegislationHelper
     if banner_color?
       "background: #{@process.background_color};color: #{@process.font_color};"
     end
+  end
+
+  def process_list_column_width(process)
+    (12.to_f / process.enabled_phases_and_publications_count).round
   end
 end

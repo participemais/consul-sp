@@ -23,6 +23,8 @@ $pink:              #EA5B71;
 $lighter-gray:      #f9f9f9;
 $darker-gray:       #5d5d5d;
 $purple:            #5657A2;
+$light-purple:      #8a87b8;
+$green:             #2cb22c;
 
 $text:              #222;
 $text-medium:       #575756;
@@ -30,8 +32,11 @@ $text-light:        #c3c3c3;
 
 $border:            #dee0e3;
 
-$link:              $text-medium;
-$link-hover:        darken($text-medium, 20%);
+$link:              $purple;
+$link-hover:        darken($link, 20%);
+
+$tag:               #ececec;
+$tag-hover:         #e0e0e0;
 
 $debates:           $brand;
 
@@ -44,8 +49,8 @@ $check:             #46db91;
 $proposals:         #ffa42d;
 $proposals-dark:    #794500;
 
-$budget:            #7e328a;
-$budget-hover:      #7571bf;
+$budget:            $link;
+$budget-hover:      $link-hover;
 
 $highlight:         #e7f2fc;
 $highlight-soft:    #f3f8fd;
@@ -69,6 +74,15 @@ $color-warning:     #8a6d3b;
 $alert-bg:          #f2dede;
 $alert-border:      #ebccd1;
 $color-alert:       #a94442;
+
+$legislation-banner: #Ef7C4C;
+$legislation-banner-info: #E86E3B;
+
+$polls-banner: #F29332;
+$polls-banner-info: #EE8519;
+
+$budget-banner: #8987B6;
+$budget-banner-info: #7471A9;
 
 $pdf-primary:       #0300ff;
 $pdf-secondary:     #ff9e00;

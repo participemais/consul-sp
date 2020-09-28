@@ -1,11 +1,11 @@
-<div class="help-header">
-  <div class="row">
-    <div class="small-12 column" data-magellan>
-      <%= image_tag "help/help_icon_#{image}.png", alt: t("#{i18n_namespace}.icon_alt"), class: "align-top" %>
-      <h1 class="inline-block"><%= t("#{i18n_namespace}.title") %></h1>
-      <div class="float-right-medium">
-        <%= link_to t("#{i18n_namespace}.help"), "#section_help" %>
-      </div>
+<div class="help-header expanded no-margin-top margin-bottom <%= resource %>-header">
+  <div class="row banner">
+    <div class="small-12 medium-9 column" data-magellan>
+      <i class="far fa-file-alt"></i> <h1 class="inline-block"><%= t("#{i18n_namespace}.title") %></h1>
+    </div>
+    <div class="small-12 medium-3 column <%= resource %>-header-info">
+      <p><%= t("#{i18n_namespace}.participate") %></p>
+      <h3><%= t("#{i18n_namespace}.subtitle") %></h3>
     </div>
   </div>
 </div>

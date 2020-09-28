@@ -7,6 +7,8 @@
     toggle_form: function(event) {
       event.preventDefault();
       $("#js-advanced-search").slideToggle();
+      $("#js-advanced-search-title")
+        .toggleClass('icon-plus-square icon-minus-square');
     },
     toggle_date_options: function() {
       if ($("#js-advanced-search-date-min").val() === "custom") {

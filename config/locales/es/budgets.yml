@@ -28,7 +28,7 @@ es:
           one: "Has votado <span>un</span> proyecto."
           other: "Has votado <span>%{count}</span> proyectos."
         voted_info: "¡Tus votos están confirmados!"
-        voted_info_2: "Pero puedes cambiarlos en cualquier momento hasta el cierre de esta fase."
+        voted_info_2: "Pero puedes cambiarlos en cualquier momento hasta el cierre de esta etapa."
         zero: Todavía no has votado ningún proyecto de gasto.
       reasons_for_not_balloting:
         not_logged_in: Necesitas %{signin} o %{signup} para continuar.
@@ -53,7 +53,7 @@ es:
       informing: Información
       accepting: Presentación de proyectos
       reviewing: Revisión interna de proyectos
-      selecting: Fase de apoyos
+      selecting: Etapa de apoyos
       valuating: Evaluación de proyectos
       publishing_prices: Publicación de precios
       balloting: Votación final
@@ -66,8 +66,8 @@ es:
         icon_alt: Icono de Presupuestos participativos
         title: Presupuestos participativos
         help: Ayuda sobre presupuestos participativos
-        all_phases: Ver todas las fases
-      all_phases: Fases de los presupuestos participativos
+        all_phases: Ver todas las etapas
+      all_phases: Etapas de los presupuestos participativos
       map: Proyectos localizables geográficamente
       investment_proyects: Ver lista completa de proyectos de gasto
       unfeasible_investment_proyects: Ver lista de proyectos de gasto inviables
@@ -91,12 +91,8 @@ es:
       index:
         title: Presupuestos participativos
         unfeasible: Proyectos de gasto no viables
-        unfeasible_text: "Los proyectos presentados deben cumplir una serie de criterios (legalidad, concreción, no superar el tope del presupuesto) para ser declarados viables y llegar hasta la fase de votación final. Todos los proyectos que no cumplen estos criterios son marcados como inviables y publicados en la siguiente lista, junto con su informe de inviabilidad."
+        unfeasible_text: "Los proyectos presentados deben cumplir una serie de criterios (legalidad, concreción, no superar el tope del presupuesto) para ser declarados viables y llegar hasta la etapa de votación final. Todos los proyectos que no cumplen estos criterios son marcados como inviables y publicados en la siguiente lista, junto con su informe de inviabilidad."
         by_heading: "Proyectos de gasto con ámbito: %{heading}"
-        search_form:
-          button: Buscar
-          placeholder: Buscar proyectos de gasto...
-          title: Buscar
         search_results:
           one: " que contiene <strong>'%{search_term}'</strong>"
           other: " que contienen <strong>'%{search_term}'</strong>"
@@ -113,6 +109,11 @@ es:
             knapsack: "Puedes %{link} en cualquier momento hasta el cierre de esta fase. No hace falta que gastes todo el dinero disponible."
             approval: "Puedes %{link} en cualquier momento hasta el cierre de esta fase."
           change_vote_link: "cambiar tus votos"
+          voted:
+            one: "<strong>Has votado un proyecto por un valor de %{amount_spent}</strong>"
+            other: "<strong>Has votado %{count} proyectos por un valor de %{amount_spent}</strong>"
+          voted_info: Puedes %{link} en cualquier momento hasta el cierre de esta etapa. No hace falta que gastes todo el dinero disponible.
+          voted_info_link: cambiar tus votos
           different_heading_assigned: "Ya apoyaste proyectos de otra sección del presupuesto: %{heading_link}"
           change_ballot: "Si cambias de opinión puedes borrar tus votos en %{check_ballot} y volver a empezar."
           check_ballot_link: "revisar y confirmar mis votos"
@@ -144,10 +145,9 @@ es:
         comments_tab: Comentarios
         milestones_tab: Seguimiento
         author: Autor
-        project_unfeasible: "Este proyecto de gasto <strong>ha sido marcado como inviable</strong> y no pasará a la fase de votación."
-        project_selected: "Este proyecto de gasto <strong>ha sido seleccionado</strong> para la fase de votación."
+        project_selected: "Este proyecto de gasto <strong>ha sido seleccionado</strong> para la etapa de votación."
         project_winner: "Proyecto de gasto ganador"
-        project_not_selected: "Este proyecto de gasto <strong>no ha sido seleccionado</strong> para la fase de votación."
+        project_not_selected: "Este proyecto de gasto <strong>no ha sido seleccionado</strong> para la etapa de votación."
         see_price_explanation: Ver informe de coste
       wrong_price_format: Solo puede incluir caracteres numéricos
       investment:
@@ -178,7 +178,7 @@ es:
         other: "Has seleccionado <strong>%{count}</strong> proyectos de <strong>%{limit}</strong>"
     show:
       group: Grupo
-      phase: Fase actual
+      phase: Etapa actual
       unfeasible_title: Proyectos de gasto inviables
       unfeasible: Ver los proyectos inviables
       unselected_title: Proyectos no seleccionados para la votación final
@@ -217,5 +217,5 @@ es:
     phases:
       errors:
         dates_range_invalid: "La fecha de comienzo no puede ser igual o superior a la de finalización"
-        prev_phase_dates_invalid: "La fecha de inicio debe ser posterior a la fecha de inicio de la anterior fase habilitada (%{phase_name})"
-        next_phase_dates_invalid: "La fecha de fin debe ser anterior a la fecha de fin de la siguiente fase habilitada (%{phase_name})"
+        prev_phase_dates_invalid: "La fecha de inicio debe ser posterior a la fecha de inicio de la anterior etapa habilitada (%{phase_name})"
+        next_phase_dates_invalid: "La fecha de fin debe ser anterior a la fecha de fin de la siguiente etapa habilitada (%{phase_name})"

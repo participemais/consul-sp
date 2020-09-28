@@ -93,10 +93,6 @@ en:
         unfeasible: Unfeasible investment projects
         unfeasible_text: "The investments must meet a number of criteria (legality, concreteness, not exceed the limit of the budget) to be declared viable and reach the stage of final vote. All investments don't meet these criteria are marked as unfeasible and published in the following list, along with its report of infeasibility."
         by_heading: "Investment projects with scope: %{heading}"
-        search_form:
-          button: Search
-          placeholder: Search investment projects...
-          title: Search
         search_results:
           one: " containing the term <strong>'%{search_term}'</strong>"
           other: " containing the term <strong>'%{search_term}'</strong>"
@@ -144,7 +140,6 @@ en:
         comments_tab: Comments
         milestones_tab: Milestones
         author: Author
-        project_unfeasible: "This investment project <strong>has been marked as not feasible</strong> and will not go to balloting phase."
         project_selected: "This investment project <strong>has been selected</strong> for balloting phase."
         project_winner: "Winning investment project"
         project_not_selected: "This investment project <strong>has not been selected</strong> for balloting phase."

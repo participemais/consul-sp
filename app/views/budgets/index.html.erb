@@ -2,14 +2,6 @@
 
 <% provide :title do %><%= t("budgets.index.title") %><% end %>
 
-<% content_for :header_addon do %>
-  <%= render(
-    "shared/search_form",
-    search_path: budget_investments_path(budget_id: current_budget.id, page: 1),
-    i18n_namespace: "budgets.investments.index.search_form"
-  ) %>
-<% end %>
-
 <% content_for :canonical do %>
   <%= render "shared/canonical", href: budgets_url %>
 <% end %>
@@ -24,9 +16,15 @@
           <%= auto_link_already_sanitized_html wysiwyg(current_budget.description) %>
         </div>
         <p>
-          <% if current_budget.valuating? %>
+          <% if current_budget.devolutive_or_later? %>
+            <%= link_to t("budgets.index.section_header.valuating_result"),
+              budget_path(
+                current_budget.id, status_filters: ['feasibles', 'unfeasibles']
+              )
+            %>
+          <% elsif current_budget.valuating_or_later? %>
             <%= link_to t("budgets.index.section_header.balloting_result"),
-              budget_path(current_budget.id, status_filter: 'winners')
+              budget_path(current_budget.id, status_filters: ['winners'])
             %>
           <% else %>
             <%= link_to t("budgets.index.section_header.help"), "#section_help" %>
@@ -100,13 +98,13 @@
           <div class="row">
             <%= form_tag budget_investments_path(current_budget), id: "advanced_search_form", method: :get do %>
               <div data-advanced-search-terms="<%= @advanced_search_terms.present? %>">
-                <div class="small-12 medium-10 column">
+                <div class="small-12 medium-9 column no-padding-right-medium">
                   <%= text_field_tag(
                     "search", params[:search],
                     placeholder: t("budgets.index.search_proposals_placeholder")
                   ) %>
                 </div>
-                <div class="small-12 medium-2 column end clear">
+                <div class="small-12 medium-3 column end clear">
                   <%= submit_tag(
                     t("budgets.index.search_proposals"),
                     class: "button expanded"
@@ -161,7 +159,7 @@
   <div class="expanded budget no-margin-top margin-bottom">
     <div class="row">
       <div class="small-12 medium-9 column padding">
-          <h1><%= t("budgets.index.title") %></h1>
+        <h1><%= t("budgets.index.title") %></h1>
       </div>
     </div>
   </div>
@@ -178,9 +176,7 @@
 <div class="row">
   <div class="small-12 column">
     <div id="section_help" class="margin" data-magellan-target="section_help">
-      <p class="lead">
-        <strong><%= t("budgets.index.section_footer.title") %></strong>
-      </p>
+      <h3><%= t("budgets.index.section_footer.title") %></h3>
       <p><%= t("budgets.index.section_footer.description") %></p>
     </div>
   </div>

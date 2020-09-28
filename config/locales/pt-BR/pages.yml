@@ -5,9 +5,9 @@ pt-BR:
       subtitle: AVISO LEGAL SOBRE AS CONDIÇÕES DE USO, PRIVACIDADE E PROTEÇÃO DE DADOS PESSOAIS DO PORTAL DO GOVERNO ABERTO
       description: Página de informações sobre as condições de uso, privacidade e proteção de dados pessoais.
     help:
-      title: "%{org}"
+      title: O %{org} é o portal da Prefeitura de São Paulo para a participação social online
       guide: >-
-        O Participe+ é o portal da Prefeitura de São Paulo para a participação social online. No momento, ele permite a participação social para a construção do Projeto de Lei Orçamentária Anual. Nos próximos meses, serão lançadas novas funcionalidades para o portal, como consultas públicas e enquetes. Acompanhe!
+        No momento, ele permite a participação social para a construção do Projeto de Lei Orçamentária Anual. Nos próximos meses, serão lançadas novas funcionalidades para o portal, como consultas públicas e enquetes. Acompanhe!
         <br>
         <br>
         O Participe+ é gerido pela <a href='https://www.prefeitura.sp.gov.br/cidade/secretarias/governo/governo_aberto_na_cidade_de_sao_paulo/index.php?p=252984'>Supervisão para Assuntos de Governo Aberto</a>, unidade da Secretaria de Governo Municipal. Seu desenvolvimento é feito através de um Termo de Cooperação entre a Prefeitura de São Paulo e a Organização das Nações Unidas para a Educação, a Ciência e a Cultura (Unesco). O portal utiliza o software livre <a href='https://consulproject.org/en/'>“Consul”</a>, elaborado pela Prefeitura de Madri e utilizado por dezenas de governos e instituições ao redor do mundo. Isso significa que qualquer município, estado, nação ou instituição pode usar livremente o código e fortalecê-lo! Se quiser mais informações sobre a experiência de São Paulo, entre em contato conosco pelo participemais@prefeitura.sp.gov.br que ficaremos felizes em ajudar!
@@ -21,7 +21,7 @@ pt-BR:
         <br>
         <br>
         <h3>Ficou com alguma dúvida ou tem uma sugestão?</h3>
-        Entre em contato conosco pelo e-mail participemais@prefeitura.sp.gov.br.
+        Entre em contato conosco pelo email participemais@prefeitura.sp.gov.br.
       menu:
         debates: "Debates"
         proposals: "Propostas"
@@ -47,8 +47,8 @@ pt-BR:
         title: "Orçamento cidadão"
         description: "A seção %{link} auxilia às pessoas a decidirem diretamente qual o destino de uma parte do orçamento municipal."
         link: "orçamentos participativos"
-        image_alt: "Diferentes fases de um orçamento cidadão"
-        figcaption: 'Fases de "Apoio" e "Votação" dos orçamentos.'
+        image_alt: "Diferentes etapas de um orçamento cidadão"
+        figcaption: 'Etapas de "Apoio" e "Votação" dos orçamentos.'
       polls:
         title: "Votações"
         description: "A seção %{link} é ativada toda vez que uma proposta atinge 1% de apoio e vai para votação, ou quando a Prefeitura propõe uma questão para as pessoas decidirem."
@@ -119,7 +119,7 @@ pt-BR:
               page_column: Orçamentos participativos
             -
               key_column: 5
-              page_column: Processos legislativos
+              page_column: Consultas públicas
         browser_table:
           description: "Dependendo do sistema operacional e do navegador usado, a combinação de teclas será a seguinte:"
           caption: Combinação de teclas, depende do sistema operacional e navegador

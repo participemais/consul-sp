@@ -13,7 +13,7 @@ pt-BR:
         cancel: Cancelar
         publish_comment: Publicar comentário
       form:
-        phase_not_open: Esta fase não está aberta
+        phase_not_open: Esta etapa não está aberta
       index:
         title: Comentários
         comments_about: Comentários sobre
@@ -53,63 +53,92 @@ pt-BR:
           random: Aleatório
           winners: Selecionado
       debate:
-        empty_questions: Não há perguntas
-        participate: Participar no debate
+        empty_questions: Não há perguntas cadastradas
+        participate: Participe do debate clicando nas perguntas
+        phase_not_open: Fora do período de participação
       index:
         filter: Filtro
         filters:
           open: Processos abertos
-          past: Passados
+          past: Processos encerrados
         no_open_processes: Não existem processos abertos
         no_past_processes: Não existem processos finalizados
         section_header:
-          icon_alt: Ícone de processos legislativos
-          title: Processos legislativos
-          help: Ajuda sobre processos legislativos
+          icon_alt: Ícone de consultas públicas
+          title: Consultas públicas
+          participate: Participe dos
+          subtitle: Processos abertos
         section_footer:
-          title: Ajuda sobre processos legislativos
-          description: Participar nos debates e processos prévios para a aprovação de um instrumento legal ou uma ação municipal. Sua opinião será considerada pela Prefeitura.
+          title: Sobre as consultas públicas
+          description: Participe das Consultas Públicas online para apoiar a elaboração e atualização de projetos, documentos, ações, normas e leis da Prefeitura. Toda a participação é analisada pelos órgãos responsáveis, de modo a tornar os documentos mais completos e condizentes com as necessidades públicas. Acompanhe em Processos Encerrados os resultados das consultas e os próximos passos dos processos.
       phase_not_open:
-        not_open: Nesta fase ainda não está aberta
+        not_open: Esta etapa ainda não está aberta
       phase_empty:
-        empty: Nada publicado ainda
-      process:
-        see_latest_comments: Ver últimos comentários
-        see_latest_comments_title: Comente sobre este processo
+        empty: Não há documento cadastrado
       shared:
-        key_dates: Datas-chave
-        homepage: Página inicial
-        debate_dates: Debater
+        key_dates: Etapas de participação
+        homepage: Instruções
+        debate_dates: Debates
         draft_publication_date: Publicação de rascunho
-        allegations_dates: Comentários
+        allegations_dates: Anotações
         result_publication_date: Publicação do resultado final
-        milestones_date: Seguindo
+        milestones_date: Monitoramento
         proposals_dates: Propostas
+        topics_dates: Revisão
+      topics:
+        title: Versão preliminar do documento
     questions:
       comments:
         comment_button: Publicar resposta
         comments_title: Respostas abertas
-        comments_closed: Fase fechada
+        comments_closed: Fora do período de participação
         form:
           leave_comment: Deixe sua resposta
       question:
         comments:
-          zero: Nenhum comentário
-          one: "%{count} comentário"
-          other: "%{count} comentários"
-        debate: Debater
+          zero: Nenhuma resposta
+          one: "%{count} resposta"
+          other: "%{count} respostas"
+        debate: Debates
       show:
-        answer_question: Enviar resposta
+        answer_question: Alterar
         next_question: Próxima pergunta
         first_question: Primeira pergunta
         share: Compartilhar
-        title: Processo de legislação colaborativa
+        title: Processo de consulta pública
       participation:
-        phase_not_open: Esta fase não está aberta
-        organizations: As organizações não podem participar no debate
-        unauthenticated: Você precisa %{signin} ou %{signup} para participar.
+        phase_not_open: Esta etapa não está aberta
+        organizations: As organizações não podem participar no debate.
+        unauthenticated: Você precisa acessar sua %{signin} ou se %{signup} para participar.
         verified_only: Somente usuários verificados podem participar, %{verify_account}.
-        debate_phase_not_open: A fase de debate terminou e respostas não são mais aceitas
+        incomplete_registration: Você precisa completar o %{register} para participar do debate.
+        debate_phase_not_open: Fora do período de participação
+    answers:
+      create:
+        notice: Resposta recebida com sucesso!
+      update:
+        notice: Resposta alterada com sucesso!
+    topics:
+      index:
+        contributions:
+          one: Já recebemos uma contribuição
+          other: Já recebemos %{count} contribuições
+          zero: Ainda não recebemos contribuições
+        text_toc: Índice
+        text_body: Texto
+        evaluate: Opinar
+        done: Registrado
+      participation:
+        phase_not_open: Esta etapa não está aberta
+        organizations: As organizações não podem participar no debate.
+        unauthenticated: Você precisa acessar sua %{signin} ou se %{signup} para participar.
+        verified_only: Somente usuários verificados podem participar, %{verify_account}.
+        incomplete_registration: Você precisa completar o %{register} para participar.
+        topics_phase_not_open: Fora do período de participação
+    topic_votes:
+      form:
+        new: Enviar opinião
+        edit: Editar opinião
     shared:
       share: Compartilhar
       share_comment: Comente em %{version_name} do rascunho de processo %{process_name}

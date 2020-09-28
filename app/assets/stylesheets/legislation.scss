@@ -78,19 +78,20 @@
 
 .legislation-calendar-info p {
   font-size: $small-font-size;
-  color: $text-medium;
+  color: $darker-gray;
   margin-bottom: 0;
+  font-weight: bold;
 }
 
 .legislation-calendar {
-  background: $highlight;
+  background: $lighter-gray;
   padding-top: 1rem;
 
   h4 {
     font-size: rem-calc(16);
     margin-left: 0.25rem;
     margin-bottom: 0;
-    color: #61686e;
+    color: $darker-gray;
 
     @include breakpoint(medium) {
       margin-left: 0;

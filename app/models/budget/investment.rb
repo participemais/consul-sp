@@ -24,6 +24,7 @@ class Budget
     include Flaggable
     include Milestoneable
     include Randomizable
+    include FeasibilityAnalyzable
 
     translates :title, touch: true
     translates :description, touch: true
@@ -83,17 +84,20 @@ class Budget
     scope :visible_to_valuators,        -> { where(visible_to_valuators: true) }
     scope :valuation_finished,          -> { where(valuation_finished: true) }
     scope :valuation_finished_feasible, -> { where(valuation_finished: true, feasibility: "feasible") }
+    scope :valuation_finished_unfeasible, -> {
+      where(valuation_finished: true, feasibility: "unfeasible")
+    }
     scope :feasible,                    -> { where(feasibility: "feasible") }
     scope :unfeasible,                  -> { where(feasibility: "unfeasible") }
     scope :not_unfeasible,              -> { where.not(feasibility: "unfeasible") }
     scope :undecided,                   -> { where(feasibility: "undecided") }
     scope :with_supports,               -> { where("cached_votes_up > 0") }
-    scope :selected,                    -> { feasible.where(selected: true) }
+    scope :selected,                    -> { where(selected: true) }
     scope :compatible,                  -> { where(incompatible: false) }
     scope :incompatible,                -> { where(incompatible: true) }
-    scope :winners,                     -> { selected.compatible.where(winner: true) }
+    scope :winners,                     -> { selected.where(winner: true) }
     scope :losers,                      -> { selected.where(winner: false) }
-    scope :unselected,                  -> { not_unfeasible.where(selected: false) }
+    scope :unselected,                  -> { where(selected: false) }
     scope :last_week,                   -> { where("created_at >= ?", 7.days.ago) }
     scope :sort_by_flags,               -> { order(flags_count: :desc, updated_at: :desc) }
     scope :sort_by_created_at,          -> { reorder(created_at: :desc) }
@@ -116,6 +120,7 @@ class Budget
     end
 
     before_create :set_original_heading_id
+    before_create :set_vote, if: :budget_vote_counting_balloting?
     before_save :calculate_confidence_score
     after_save :recalculate_heading_winners
     before_validation :set_responsible_name
@@ -123,6 +128,14 @@ class Budget
 
     def comments_count
       comments.count
+    end
+
+    def self.max_feasibility_analyses_count
+      select('COUNT(feasibility_analyses.id) AS analyses_count')
+        .joins(:feasibility_analyses)
+        .group(:id)
+        .order('analyses_count DESC')
+        .first&.analyses_count
     end
 
     def url
@@ -172,6 +185,48 @@ class Budget
       ids += results.undecided.pluck(:id)                   if params[:advanced_filters].include?("undecided")
       ids += results.unfeasible.pluck(:id)                  if params[:advanced_filters].include?("unfeasible")
       results = results.where(id: ids) if ids.any?
+      results
+    end
+
+    def self.apply_filters_and_search(_budget, params, current_filter = nil)
+      investments = all
+      investments = investments.send(current_filter)             if current_filter.present?
+      investments = investments.by_heading(params[:heading_id])  if params[:heading_id].present?
+      investments = investments.search(params[:search])          if params[:search].present?
+      investments = investments.filter(params[:advanced_search]) if params[:advanced_search].present?
+      if params[:status_filters]&.any?
+        investments =
+          investments.status_filters(params[:status_filters], investments)
+      end
+
+      investments
+    end
+
+    def self.status_filters(filters, results)
+      return results if filters.include?('all')
+
+      if (filters & ['winners', 'losers']).any?
+        balloting_ids = []
+        if filters.include?('winners')
+          balloting_ids += results.winners.pluck(:id)
+        end
+        if filters.include?('losers')
+          balloting_ids += results.losers.pluck(:id)
+        end
+        results = results.where("budget_investments.id IN (?)", balloting_ids)
+      end
+
+      if (filters & ['feasibles', 'unfeasibles']).any?
+        feasibility_ids = []
+        if filters.include?('feasibles')
+          feasibility_ids += results.valuation_finished_feasible.pluck(:id)
+        end
+        if filters.include?('unfeasibles')
+          feasibility_ids += results.valuation_finished_unfeasible.pluck(:id)
+        end
+        results = results.where("budget_investments.id IN (?)", feasibility_ids)
+      end
+
       results
     end
 
@@ -243,10 +298,6 @@ class Budget
       feasible? && valuation_finished? && budget_resource_allocation_balloting?
     end
 
-    def unfeasible_email_pending?
-      unfeasible_email_sent_at.blank? && unfeasible? && valuation_finished?
-    end
-
     def total_votes
       if budget_vote_counting_balloting?
         ballot_lines_count
@@ -257,11 +308,6 @@ class Budget
 
     def code
       "#{created_at.strftime("%Y")}-#{id}" + (administrator.present? ? "-A#{administrator.id}" : "")
-    end
-
-    def send_unfeasible_email
-      Mailer.budget_investment_unfeasible(self).deliver_later
-      update!(unfeasible_email_sent_at: Time.current)
     end
 
     def reason_for_not_being_selectable_by(user)
@@ -390,30 +436,16 @@ class Budget
       unfeasible? && valuation_finished? && unfeasibility_explanation.present?
     end
 
+    def should_show_feasibility_analysis?
+      selected? &&
+        valuation_finished? &&
+        !undecided? &&
+        budget.devolutive_or_later?
+    end
+
     def formatted_price
       if budget_resource_allocation_balloting?
         budget.formatted_currency_amount(price)
-      end
-    end
-
-    def self.apply_filters_and_search(_budget, params, current_filter = nil)
-      investments = all
-      investments = investments.send(current_filter)             if current_filter.present?
-      investments = investments.by_heading(params[:heading_id])  if params[:heading_id].present?
-      investments = investments.search(params[:search])          if params[:search].present?
-      investments = investments.filter(params[:advanced_search]) if params[:advanced_search].present?
-      investments = investments.status_filter(params[:status_filter], investments) if params[:status_filter].present?
-      investments
-    end
-
-    def self.status_filter(filter, results)
-      case filter
-      when 'winners'
-        results.winners
-      when 'losers'
-        results.losers
-      else
-        results
       end
     end
 
@@ -450,6 +482,10 @@ class Budget
 
       def set_original_heading_id
         self.original_heading_id = heading_id
+      end
+
+      def set_vote
+        self.price = 1
       end
 
       def searchable_translations_definitions

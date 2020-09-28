@@ -2,7 +2,7 @@ class Polls::QuestionsController < ApplicationController
   load_and_authorize_resource :poll
   load_and_authorize_resource :question, class: "Poll::Question"
 
-  has_orders %w[most_voted newest oldest], only: :show
+  has_orders %w[newest oldest], only: :show
 
   def answer
     answer = @question.answers.find_or_initialize_by(author: current_user)
