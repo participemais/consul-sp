@@ -64,6 +64,7 @@ class Legislation::Process < ApplicationRecord
   validates :allegations_start_date, presence: true, if: :allegations_end_date?
   validates :allegations_end_date, presence: true, if: :allegations_start_date?
   validates :proposals_phase_end_date, presence: true, if: :proposals_phase_start_date?
+  validates :topics_phase_end_date, presence: true, if: :topics_phase_start_date?
   validate :valid_date_ranges
   validates :background_color, format: { allow_blank: true, with: CSS_HEX_COLOR }
   validates :font_color, format: { allow_blank: true, with: CSS_HEX_COLOR }
