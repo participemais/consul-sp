@@ -13,13 +13,13 @@
 
         <%= render "shared/wide_order_selector", i18n_namespace: "comments" %>
 
-        <% if user_signed_in? %>
-          <% if comments_closed_for_commentable?(commentable) %>
-            <br>
-            <div data-alert class="callout warning">
-              <%= comments_closed_text(commentable) %>
-            </div>
-          <% elsif require_verified_resident_for_commentable?(commentable, current_user) %>
+        <% if comments_closed_for_commentable?(commentable) %>
+          <br>
+          <div data-alert class="callout warning">
+            <%= comments_closed_text(commentable) %>
+          </div>
+        <% elsif user_signed_in? %>
+          <% if require_verified_resident_for_commentable?(commentable, current_user) %>
             <br>
             <div data-alert class="callout warning">
               <%= sanitize(t("comments.verified_only", verify_account: link_to_verify_account)) %>
