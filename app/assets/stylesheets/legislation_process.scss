@@ -1063,15 +1063,16 @@
       }
 
       .debate-summary,
-    .proposal-summary,
-    .annotation-summary {
-      @extend %panel;
-      min-height: auto;
-      padding-bottom: rem-calc(16);
-      padding-top: rem-calc(16);
+      .proposal-summary,
+      .annotation-summary {
+        @include panel;
+        min-height: auto;
+        padding-bottom: rem-calc(16);
+        padding-top: rem-calc(16);
 
-      &:not(:last-child) {
-        margin-bottom: $line-height / 2;
+        &:not(:last-child) {
+          margin-bottom: $line-height / 2;
+        }
       }
     }
 
@@ -1346,3 +1347,4 @@
     margin-bottom: $line-height;
   }
 }
+
