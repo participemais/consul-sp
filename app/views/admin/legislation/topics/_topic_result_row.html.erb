@@ -5,7 +5,7 @@
   </td>
   <td>
     <ul>
-      <% topic.assessments.each do |assessment| %>
+      <% topic.assessments.order(:id).each do |assessment| %>
         <li><%= "#{assessment.title} (#{assessment.topic_votes_count})" %></li>
       <% end %>
     </ul>
