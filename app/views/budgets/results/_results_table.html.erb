@@ -19,7 +19,7 @@
         <% if results_type == :compatible %>
           <th scope="col" class="text-right">
             <small><%= t("budgets.results.amount_available") %></small><br>
-            <%= @budget.formatted_amount(heading_price) %><br>
+            <%= @budget.formatted_currency_amount(heading_price) %><br>
           </th>
         <% end %>
       </tr>
@@ -51,12 +51,12 @@
               <%= investment.ballot_lines_count %>
             </td>
             <td class="text-center">
-              <%= @budget.formatted_amount(investment.price) %>
+              <%= @budget.formatted_currency_amount(investment.price) %>
             </td>
             <% if results_type == :compatible %>
               <td class="small text-right"
-                  title="<%= @budget.formatted_amount(amount_available) %> - <%= @budget.formatted_amount(investment.price) %>">
-                  <%= @budget.formatted_amount(amount_available - investment.price) %>
+                  title="<%= @budget.formatted_currency_amount(amount_available) %> - <%= @budget.formatted_currency_amount(investment.price) %>">
+                  <%= @budget.formatted_currency_amount(amount_available - investment.price) %>
                   <% amount_available -= investment.price if investment.winner? %>
               </td>
             <% end %>

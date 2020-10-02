@@ -265,6 +265,7 @@ class Budget < ApplicationRecord
     end
 
     def unique_balloting_type
+      return
       if currency_symbol.present? && max_votes.present?
         errors.add(:base, "Escolha apenas um tipo de votação")
       end

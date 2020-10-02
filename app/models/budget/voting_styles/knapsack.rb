@@ -20,6 +20,6 @@ class Budget::VotingStyles::Knapsack < Budget::VotingStyles::Base
   end
 
   def format(amount)
-    ballot.budget.formatted_amount(amount)
+    ballot.budget.formatted_currency_amount(amount)
   end
 end

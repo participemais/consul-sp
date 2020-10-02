@@ -16,7 +16,7 @@ class Budget::VotingStyles::Base
   def voted_info(heading)
     I18n.t("budgets.investments.index.sidebar.voted_info.#{name}",
       count: investments(heading).count,
-      amount_spent: ballot.budget.formatted_amount(investments_price(heading)))
+      amount_spent: ballot.budget.formatted_currency_amount(investments_price(heading)))
   end
 
   def amount_available_info(heading)
@@ -34,8 +34,12 @@ class Budget::VotingStyles::Base
            count: formatted_amount_limit(heading))
   end
 
-  def amount_available(heading)
-    amount_limit(heading) - amount_spent(heading)
+  def amount_available(heading = nil)
+    if budget.resource_allocation_balloting?
+      amount_limit(heading) - amount_spent(heading)
+    else
+      ballot.votes_per_user - ballot.amount_spent
+    end
   end
 
   def percentage_spent(heading)
@@ -62,5 +66,9 @@ class Budget::VotingStyles::Base
 
     def investments_price(heading)
       investments(heading).sum(:price).to_i
+    end
+
+    def budget
+      ballot.budget
     end
 end
