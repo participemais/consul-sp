@@ -229,7 +229,6 @@ ActiveRecord::Schema.define(version: 20200911175209) do
     t.boolean "allow_custom_content", default: false
     t.text "latitude"
     t.text "longitude"
-    t.integer "max_ballot_lines", default: 1
     t.datetime "created_at"
     t.datetime "updated_at"
     t.decimal "area"
@@ -246,6 +245,7 @@ ActiveRecord::Schema.define(version: 20200911175209) do
     t.integer "population_density_reference_year"
     t.string "analytical_framework_url"
     t.string "action_perimeter_url"
+    t.integer "max_ballot_lines", default: 1
     t.index ["group_id"], name: "index_budget_headings_on_group_id"
   end
 
@@ -391,9 +391,9 @@ ActiveRecord::Schema.define(version: 20200911175209) do
     t.text "description_informing"
     t.integer "max_votes"
     t.string "balloting_type"
-    t.string "voting_style", default: "knapsack"
     t.text "description_formulation"
     t.text "description_devolutive"
+    t.string "voting_style", default: "knapsack"
   end
 
   create_table "campaigns", id: :serial, force: :cascade do |t|
