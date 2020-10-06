@@ -61,7 +61,7 @@ class Legislation::ProcessesController < Legislation::BaseController
         end
         format.csv do
           send_data Legislation::Topic::Exporter.new(@topics).to_csv,
-            filename: "#{@process.title}.csv"
+            filename: "#{@process.filename}.csv"
         end
       end
     else
