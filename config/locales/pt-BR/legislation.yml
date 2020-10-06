@@ -128,6 +128,7 @@ pt-BR:
         text_body: Texto
         evaluate: Opinar
         done: Registrado
+        result_spreadsheet: Download das contribuições (csv)
       participation:
         phase_not_open: Esta etapa não está aberta
         organizations: As organizações não podem participar no debate.
@@ -135,6 +136,14 @@ pt-BR:
         verified_only: Somente usuários verificados podem participar, %{verify_account}.
         incomplete_registration: Você precisa completar o %{register} para participar.
         topics_phase_not_open: Fora do período de participação
+      spreadsheet:
+        assessment: Opção escolhida
+        comment: Sugestão
+        description: Texto
+        id: ID
+        title: Título
+        topic_level_label: Numeração
+        user: Usuário
     topic_votes:
       form:
         new: Enviar opinião
