@@ -13,10 +13,12 @@
 
   <div>
     <p class="download-link inline-block">
-      <%= link_to t("legislation.topics.index.result_spreadsheet"),
-        topics_legislation_process_path(@process, legislation_csv_params),
-        class: "small"
-      %>
+      <% if @process.topics_phase.finished? %>
+        <%= link_to t("legislation.topics.index.result_spreadsheet"),
+          topics_legislation_process_path(@process, legislation_csv_params),
+          class: "small"
+        %>
+      <% end %>
     </p>
 
     <p class="topics-votes-count float-right">

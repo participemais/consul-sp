@@ -13,6 +13,10 @@ class Legislation::Process::Phase
     enabled? && Date.current >= @start_date
   end
 
+  def finished?
+    started? && Date.current > @end_date
+  end
+
   def open?
     started? && Date.current <= @end_date
   end
