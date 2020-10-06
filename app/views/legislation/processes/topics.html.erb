@@ -11,15 +11,24 @@
     <h3><%= t("legislation.processes.topics.title") %></h3>
   </div>
 
-  <p class="topics-votes-count">
-    <i class="fas fa-vote-yea"></i>
-    <span>
-      <%= t(
-        "legislation.topics.index.contributions",
-        count: @process.topics_votes_count
-      ) %>
-    </span>
-  </p>
+  <div>
+    <p class="download-link inline-block">
+      <%= link_to t("legislation.topics.index.result_spreadsheet"),
+        topics_legislation_process_path(@process, legislation_csv_params),
+        class: "small"
+      %>
+    </p>
+
+    <p class="topics-votes-count float-right">
+      <i class="fas fa-vote-yea"></i>
+      <span>
+        <%= t(
+          "legislation.topics.index.contributions",
+          count: @process.topics_votes_count
+        ) %>
+      </span>
+    </p>
+  </div>
 
   <div class="topic-panels small-12 column row">
     <div

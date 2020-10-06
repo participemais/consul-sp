@@ -51,10 +51,18 @@ class Legislation::ProcessesController < Legislation::BaseController
     if @process.topics_phase.started?
       @topics = @process.topics.roots.order(:id)
 
-      if @topics.any?
-        render :topics
-      else
-        render :phase_empty
+      respond_to do |format|
+        format.html do
+          if @topics.any?
+            render :topics
+          else
+            render :phase_empty
+          end
+        end
+        format.csv do
+          send_data Legislation::Topic::Exporter.new(@topics).to_csv,
+            filename: "#{@process.title}.csv"
+        end
       end
     else
       render :phase_not_open
