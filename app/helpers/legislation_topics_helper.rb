@@ -19,7 +19,7 @@ module LegislationTopicsHelper
     end
   end
 
-  def topic_vote(topic)
+  def find_or_build_topic_vote(topic)
     user_topic_vote(topic) || Legislation::TopicVote.new
   end
 
