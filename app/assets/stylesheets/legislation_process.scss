@@ -1029,6 +1029,12 @@
 // -------------------------
 .topics-header {
   margin-top: $line-height;
+  padding-left: 0;
+}
+
+.topics-comments-btn {
+  margin-top: 2 * $line-height / 3;
+  padding-right: 0;
 }
 
 .topics-votes-count {
