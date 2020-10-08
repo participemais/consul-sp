@@ -16,7 +16,7 @@ class Legislation::TopicVotesController < Legislation::BaseController
   end
 
   def update
-    if @process.debate_phase.open?
+    if @process.topics_phase.open?
       @topic_vote.update(topic_vote_params)
     end
   end
