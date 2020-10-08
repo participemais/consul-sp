@@ -1,0 +1,34 @@
+<p class="evaluate-topic contributions">
+  <i class="fas fa-vote-yea"></i><span>
+    <%= t(
+      "legislation.topics.index.participations", count: topic.topic_votes_count
+    ) %>
+  </span>
+</p>
+
+<div id="<%= dom_id(topic) %>_evaluation" class="evaluate-options evaluate-results">
+  <p class="assessment-votes">
+    <% topic.assessments.order(:id).each do |assessment| %>
+      <span class="control <%= "is-active" if topic_vote.legislation_assessment_id == assessment.id %>">
+        <%= assessment.title %> (<%= assessment.topic_votes_count %>)
+      </span>
+    <% end %>
+  </p>
+  <% comments_count = topic.comments_count %>
+  <% if comments_count > 0 %>
+    <p class="topic-votes-comments">
+      <%= link_to comments_legislation_process_topics_path(
+        @process, anchor: "process-list"
+      ), target: :_blank do %>
+        <span class="icon-comments"></span>
+        <%= t("legislation.topics.index.comments", count: comments_count) %>
+      <% end %>
+    </p>
+  <% else %>
+    <p class="topic-votes-comments no-comment">
+      <span class="icon-comments"></span>
+      <%= t("legislation.topics.index.no_comment") %>
+    </p>
+  <% end %>
+  </p>
+</div>

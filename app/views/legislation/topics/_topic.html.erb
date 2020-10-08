@@ -9,9 +9,17 @@
     <% end %>
 
     <% if topic.evaluable %>
-      <div id="<%= dom_id(topic) %>_topic_vote_form" class="topic-assessments">
-        <%= render "/legislation/topics/topic_vote_form", topic: topic %>
-      </div>
+      <% if @process.topics_phase.finished? %>
+        <%= render "/legislation/topics/topic_vote_result",
+          topic: topic, topic_vote: topic_vote(topic)
+        %>
+      <% else %>
+        <div id="<%= dom_id(topic) %>_topic_vote_form">
+          <%= render "/legislation/topics/topic_vote_form",
+            topic: topic, topic_vote: topic_vote(topic)
+          %>
+        </div>
+      <% end %>
     <% end %>
   </div>
 

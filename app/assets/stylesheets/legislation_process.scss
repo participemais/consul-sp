@@ -1146,9 +1146,17 @@
       font-size: $tiny-font-size;
       font-family: $subheader-font-family;
       color: $text-medium;
-      border-bottom: 1px $text-light dashed;
       text-align: right;
       margin-top: -($line-height / 3) ;
+
+      &.with-border {
+        border-bottom: 1px dashed $text-light;
+      }
+
+      &.contributions {
+        border-right: 1px solid $border;
+        padding-right: $line-height / 4;
+      }
 
       i, span {
         cursor: pointer;
@@ -1193,58 +1201,81 @@
     }
   }
 
-  .topic-assessments {
+  .control {
+    background: #fff;
+    border: 3px solid $border;
+    border-radius: rem-calc(4);
+    color: $text-medium;
+    cursor: pointer;
+    display: inline-block;
+    margin-bottom: $line-height / 2;
+    margin-right: $line-height / 4;
+    padding-left: $line-height;
+    padding-right: $line-height / 2;
     position: relative;
-    list-style: none;
+    font-family: $subheader-font-family;
+    font-size: $small-font-size;
+  }
 
-    .control {
-      background: #fff;
-      border: 3px solid $border;
-      border-radius: rem-calc(4);
-      color: $text-medium;
-      cursor: pointer;
-      display: inline-block;
-      margin-bottom: $line-height / 2;
-      margin-right: $line-height / 4;
-      padding-left: $line-height;
-      padding-right: $line-height / 2;
-      position: relative;
-      font-family: $subheader-font-family;
-      font-size: $small-font-size;
-    }
+  .is-active {
+    border: 3px solid $purple;
+  }
 
-    .is-active {
-      border: 3px solid $purple;
-    }
+  .control input {
+    position: absolute;
+    opacity: 0;
+    z-index: -1;
+  }
 
-    .control input {
-      position: absolute;
-      opacity: 0;
-      z-index: -1;
-    }
+  .control input:checked ~ .control-indicator {
+    background-color: $purple;
+    border-color: $white;
+  }
 
-    .control input:checked ~ .control-indicator {
-      background-color: $purple;
-      border-color: $white;
-    }
+  .radio .control-indicator {
+    border-radius: 50%;
+  }
 
-    .radio .control-indicator {
-      border-radius: 50%;
-    }
+  .control-indicator {
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    display: block;
+    width: rem-calc(13);
+    height: rem-calc(13);
+    line-height: rem-calc(16);
+    font-size: 65%;
+    text-align: center;
+    border: 2px solid $border;
+    pointer-events: none;
+    user-select: none;
+  }
 
-    .control-indicator {
-      position: absolute;
-      top: 5px;
-      left: 5px;
-      display: block;
-      width: rem-calc(13);
-      height: rem-calc(13);
-      line-height: rem-calc(16);
-      font-size: 65%;
+  .evaluate-results {
+    padding: $line-height / 2 $line-height / 4 0;
+    background: $lighter-gray;
+    border-right: 1px solid $border;
+    border-bottom: 1px solid $border;
+
+    .assessment-votes {
       text-align: center;
-      border: 2px solid $border;
-      pointer-events: none;
-      user-select: none;
+
+      .control {
+        cursor: auto;
+        padding-left: $line-height / 2;
+      }
+    }
+
+    .topic-votes-comments {
+      text-align: right;
+      font-family: $subheader-font-family;
+      font-size: $tiny-font-size;
+      text-transform: uppercase;
+      margin-top: -$line-height / 2;
+
+      &.no-comment {
+        color: $text-medium;
+      }
     }
   }
 }
