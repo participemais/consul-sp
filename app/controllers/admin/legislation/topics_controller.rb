@@ -51,7 +51,7 @@ class Admin::Legislation::TopicsController < Admin::Legislation::BaseController
   end
 
   def load_topics
-    @topics = @process.topics.roots.order(:id)
+    @topics = @process.root_topics
   end
 
   def load_topic_levels

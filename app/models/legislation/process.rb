@@ -149,6 +149,10 @@ class Legislation::Process < ApplicationRecord
     title.parameterize
   end
 
+  def root_topics
+    topics.roots.order(:id)
+  end
+
   private
 
     def valid_date_ranges
