@@ -91,7 +91,7 @@ pt-BR:
       comments:
         comment_button: Publicar resposta
         comments_title: Respostas abertas
-        comments_closed: Etapa fechada
+        comments_closed: Fora do período de participação
         form:
           leave_comment: Deixe sua resposta
       question:

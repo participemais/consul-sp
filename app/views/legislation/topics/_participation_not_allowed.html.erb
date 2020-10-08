@@ -20,13 +20,13 @@
       )) %>
     </p>
   </div>
+<% elsif !@process.topics_phase.open? %>
+  <div class="participation-not-allowed topic-warning" style="display:none" aria-hidden="false">
+    <%= t("legislation.topics.participation.topics_phase_not_open") %>
+  </div>
 <% elsif !user_signed_in? %>
   <div class="participation-not-allowed topic-warning" style="display:none" aria-hidden="false">
     <%= sanitize(t("legislation.topics.participation.unauthenticated",
           signin: link_to_signin, signup: link_to_signup)) %>
-  </div>
-<% elsif !@process.debate_phase.open? %>
-  <div class="participation-not-allowed topic-warning" style="display:none" aria-hidden="false">
-    <%= t("legislation.topics.participation.topics_phase_not_open") %>
   </div>
 <% end %>
