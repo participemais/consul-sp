@@ -1032,12 +1032,12 @@
 }
 
 .topics-votes-count {
-  text-align: right;
   font-size: $tiny-font-size;
   font-family: $subheader-font-family;
   color: $text-medium;
   margin-bottom: 0;
   text-transform: uppercase;
+  display: inline-block;
 }
 
 .topic-panels {

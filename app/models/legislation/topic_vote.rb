@@ -8,4 +8,9 @@ class Legislation::TopicVote < ApplicationRecord
     inverse_of: :topic_votes,
     counter_cache: true
   belongs_to :user
+
+  # def assessment_title
+  delegate :title, to: :assessment, prefix: true
+
+  delegate :username, to: :user, allow_nil: true
 end
