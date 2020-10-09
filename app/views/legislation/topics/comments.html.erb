@@ -7,8 +7,14 @@
 <%= render "legislation/processes/key_dates", process: @process, phase: :topics_phase %>
 
 <div class="row column">
-  <div class="small-12 medium-9 column topics-header">
+  <div class="small-12 medium-6 column topics-header">
     <h3><%= t("legislation.processes.topics.comments_title") %></h3>
+  </div>
+
+  <div class="small-12 medium-3 column topics-comments-btn">
+    <%= link_to topics_legislation_process_path(@process, anchor: "process-list"), data: { no_turbolink: true }, class: "button expanded" do %>
+      <strong><%= t("legislation.topics.comments.see_document") %></strong>
+    <% end %>
   </div>
 
   <aside class="small-12 medium-3 column topics-header-aside">
