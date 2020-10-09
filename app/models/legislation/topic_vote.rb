@@ -13,4 +13,6 @@ class Legislation::TopicVote < ApplicationRecord
   delegate :title, to: :assessment, prefix: true
 
   delegate :username, to: :user, allow_nil: true
+
+  scope :with_comment, -> { where.not(comment: [nil, ""]) }
 end

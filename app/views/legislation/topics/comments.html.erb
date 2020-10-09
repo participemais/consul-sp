@@ -7,5 +7,16 @@
 <%= render "legislation/processes/key_dates", process: @process, phase: :topics_phase %>
 
 <div class="row column">
+  <div class="small-12 medium-9 column topics-header">
+    <h3><%= t("legislation.processes.topics.comments_title") %></h3>
+  </div>
 
+  <div class="small-12 medium-9 column row legislation-comments end">
+    <% counter_level = 1 %>
+    <% @topics.each.with_index(1) do |topic, index| %>
+      <%= render 'comment',
+        topic: topic, indexes: [index], counter_level: counter_level
+      %>
+    <% end %>
+  </div>
 </div>
