@@ -19,7 +19,7 @@
   <% if comments_count > 0 %>
     <p class="topic-votes-comments">
       <%= link_to comments_legislation_process_topics_path(
-        @process, anchor: "process-list"
+        @process, anchor: dom_id(topic)
       ), target: :_blank do %>
         <span class="icon-comments"></span>
         <%= t("legislation.topics.index.comments", count: comments_count) %>
