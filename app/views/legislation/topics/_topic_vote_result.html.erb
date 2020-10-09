@@ -11,7 +11,7 @@
   <p class="assessment-votes">
     <% topic.assessments.order(:id).each do |assessment| %>
       <span class="control <%= "is-active" if topic_vote.legislation_assessment_id == assessment.id %>">
-        <%= assessment.title %> (<%= assessment.topic_votes_count %>)
+        <%= "#{assessment.title} (#{assessment.topic_votes_count})" %>
       </span>
     <% end %>
   </p>
