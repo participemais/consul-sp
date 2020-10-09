@@ -11,6 +11,17 @@
     <h3><%= t("legislation.processes.topics.comments_title") %></h3>
   </div>
 
+  <aside class="small-12 medium-3 column topics-header-aside">
+    <div id="social-share" class="sidebar-divider"></div>
+    <p class="sidebar-title"><%= t("shared.share") %></p>
+    <%= render "/shared/social_share",
+      title: @process.title,
+      url: comments_legislation_process_topics_url(@process),
+      description: @process.summary,
+      mobile: @process.title
+    %>
+  </aside>
+
   <div class="small-12 medium-9 column row legislation-comments end">
     <% counter_level = 1 %>
     <% @topics.each.with_index(1) do |topic, index| %>
