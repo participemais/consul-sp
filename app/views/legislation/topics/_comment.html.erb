@@ -2,7 +2,7 @@
   <% topic_votes = topic.topic_votes.with_comment %>
 
   <% if topic_votes.any? %>
-    <div id="<%= dom_id(topic) %>" class="topic-vote-comment">
+    <div id="<%= dom_id(topic) %>" class="margin">
       <strong><%= t("legislation.topics.comments.about") %></strong>
       <span class="float-right">
         <%= link_to topics_legislation_process_path(@process, anchor: dom_id(topic)) do %>

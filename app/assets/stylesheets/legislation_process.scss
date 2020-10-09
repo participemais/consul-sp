@@ -1301,36 +1301,31 @@
   }
 }
 
-.topic-vote-comment {
-  margin-bottom: $line-height;
-  margin-top: $line-height;
+.topic-comments {
+  padding-left: $line-height / 2;
 
-  .topic-comments {
-    padding-left: $line-height / 2;
+  .topic-comments-count {
+    font-size: $small-font-size;
+    text-transform: uppercase;
+    font-family: $subheader-font-family;
+    color: $text-medium;
+    margin-top: $line-height / 4;
+    margin-bottom: $line-height / 4;
+  }
 
-    .topic-comments-count {
-      font-size: $small-font-size;
-      text-transform: uppercase;
-      font-family: $subheader-font-family;
-      color: $text-medium;
-      margin-top: $line-height / 4;
-      margin-bottom: $line-height / 4;
+  .topic-vote-comment-body {
+    margin-bottom: $line-height / 3;
+
+    .topic-vote-comment-option span {
+      font-size: $tiny-font-size;
+      padding-top: 0;
+      padding-bottom: 0;
+      margin-bottom: 0;
     }
+  }
 
-    .topic-vote-comment-body {
-      margin-bottom: $line-height / 3;
-
-      .topic-vote-comment-option span {
-        font-size: $tiny-font-size;
-        padding-top: 0;
-        padding-bottom: 0;
-        margin-bottom: 0;
-      }
-    }
-
-    .topic-vote-comment-text {
-      border-bottom: 1px solid $border;
-      padding-bottom: $line-height / 3;
-    }
+  .topic-vote-comment-text {
+    border-bottom: 1px solid $border;
+    padding-bottom: $line-height / 3;
   }
 }
