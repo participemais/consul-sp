@@ -47,6 +47,10 @@ module LegislationTopicsHelper
     topic_vote.new_record? ? "new" : "edit"
   end
 
+  def topic_votes_count_title
+    @process.topics_phase.finished? ? "finished_contributions" : "contributions"
+  end
+
   private
 
   def destroy_topic_message(topic)

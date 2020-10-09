@@ -125,6 +125,10 @@ pt-BR:
           one: Já recebemos uma contribuição
           other: Já recebemos %{count} contribuições
           zero: Ainda não recebemos contribuições
+        finished_contributions:
+          one: Recebemos uma contribuição
+          other: Recebemos %{count} contribuições
+          zero: Não recebemos contribuições
         text_toc: Índice
         text_body: Texto
         evaluate: Opinar
