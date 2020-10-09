@@ -1166,6 +1166,10 @@
       &.contributions {
         border-right: 1px solid $border;
         padding-right: $line-height / 4;
+
+        i, span {
+          cursor: auto;
+        }
       }
 
       i, span {
@@ -1327,5 +1331,6 @@
   .topic-vote-comment-text {
     border-bottom: 1px solid $border;
     padding-bottom: $line-height / 3;
+    padding-top: $line-height / 3;
   }
 }
