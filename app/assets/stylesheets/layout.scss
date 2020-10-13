@@ -848,6 +848,9 @@ header {
 .footer {
   background: #363636;
   margin-top: $line-height * 2;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
 }
 
 footer {
