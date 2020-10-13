@@ -206,6 +206,7 @@ es:
         name: "Nombre de la partida"
         price: "Cantidad"
         population: "Población (opcional)"
+        area: "Zona"
       budget/heading/translation:
         name: "Nombre de la partida"
       budget/phase:

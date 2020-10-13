@@ -255,6 +255,7 @@ pt-BR:
         name: "Nome do título"
         price: "Preço"
         population: "População"
+        area: "Área"
       budget/heading/translation:
         name: "Título"
       budget/phase:
