@@ -79,7 +79,7 @@
               <%= t("budgets.investments.show.project_balloting_winner") %>
             </strong>
           </div>
-        <% elsif investment.feasible? && investment.valuation_finished? && investment.feasibility_type.present? && @budget.devolutive_or_later? %>
+        <% elsif investment.feasible? && investment.valuation_finished? && @budget.devolutive_or_later? %>
           <div class="callout success">
             <strong>
               <%= sanitize(t(
