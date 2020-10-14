@@ -1,13 +1,13 @@
 <div id="<%= dom_id(investment) %>" class="budget-investment clear">
 
-  <% if investment.valuation_finished? && @budget.devolutive_or_later? %>
-    <% if investment.feasible? %>
+  <% if @budget.devolutive_or_later? %>
+    <% if investment.feasible_indeed? %>
       <div class="balloting-result-flag winner">
         <span>
           <%= t("shared.feasible") %> <i class="fa fa-check" aria-hidden="true"></i>
         </span>
       </div>
-    <% elsif investment.unfeasible? %>
+    <% elsif investment.unfeasible_indeed? %>
       <div class="balloting-result-flag loser">
         <span>
           <%= t("shared.unfeasible") %> <i class="fa fa-times" aria-hidden="true"></i>

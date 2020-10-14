@@ -63,10 +63,18 @@
           <% end %>
         <% end %>
 
-        <% if investment.unfeasible? && investment.valuation_finished? && @budget.devolutive_or_later? %>
+        <% if investment.unfeasible_indeed? && @budget.devolutive_or_later? %>
           <div class="callout warning">
             <strong>
               <%= t("budgets.investments.show.unfeasible_project") %>
+            </strong>
+          </div>
+        <% elsif investment.feasible_indeed? && @budget.devolutive_or_later? %>
+          <div class="callout success">
+            <strong>
+              <%= sanitize(t(
+                "budgets.investments.show.#{investment.feasibility_type}"
+              )) %>
             </strong>
           </div>
         <% elsif investment.winner? && @budget.finished? %>
@@ -77,14 +85,6 @@
           <div class="callout success">
             <strong>
               <%= t("budgets.investments.show.project_balloting_winner") %>
-            </strong>
-          </div>
-        <% elsif investment.feasible? && investment.valuation_finished? && @budget.devolutive_or_later? %>
-          <div class="callout success">
-            <strong>
-              <%= sanitize(t(
-                "budgets.investments.show.#{investment.feasibility_type}"
-              )) %>
             </strong>
           </div>
         <% elsif !investment.winner? && @budget.valuating? %>
