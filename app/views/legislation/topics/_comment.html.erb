@@ -1,0 +1,66 @@
+<% if topic.evaluable? %>
+  <% topic_votes = topic.topic_votes.with_comment %>
+
+  <% if topic_votes.any? %>
+    <div id="<%= dom_id(topic) %>" class="margin">
+      <strong><%= t("legislation.topics.comments.about") %></strong>
+      <span class="float-right">
+        <%= link_to topics_legislation_process_path(
+          @process, anchor: dom_id(topic),
+        ), data: { no_turbolink: true } do %>
+          <span><%= t("legislation.topics.comments.see_topic") %></span> <span class="icon-expand" aria-hidden="true"></span>
+        <% end %>
+      </span>
+      <div class="comment-section no-margin-bottom">
+        <h4>
+          <%= "#{topic_level_label(indexes)} #{topic.title}" %>
+        </h4>
+        <% if topic.description.present? %>
+          <%= topic.description %>
+        <% end %>
+      </div>
+
+      <div class="topic-comments">
+        <div class="topic-comments-count">
+          <span class="icon-comments" aria-hidden="true"></span> <span>
+            <%= t("legislation.topics.comments.comments_count", count: topic_votes.size) %>
+          </span>
+        </div>
+        <% topic_votes.each do |topic_vote| %>
+          <div class="topic-vote-comment-body">
+            <div class="comment-info">
+              <div class="inline-block tags topic-vote-comment-option">
+                <span>
+                  <%= topic_vote.assessment_title %>
+                </span>
+              </div>
+              &nbsp;&bull;&nbsp;
+              <span class="user-name">
+                <% if topic_vote.username %>
+                  <%= link_to topic_vote.username, user_path(topic_vote.user) %>
+                <% else %>
+                  <%= t("shared.author_info.author_deleted") %>
+                <% end %>
+              </span>
+            </div>
+            <p class="no-margin-bottom topic-vote-comment-text">
+              <%= topic_vote.comment %>
+            </p>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  <% end %>
+
+<% end %>
+
+<% if topic.children.any? %>
+  <% counter_level += 1 %>
+  <% topic.ordered_children.each.with_index(1) do |child, index| %>
+    <%= render "comment",
+      topic: child,
+      indexes: topic_indexes(indexes, index, counter_level),
+      counter_level: counter_level
+    %>
+  <% end %>
+<% end %>

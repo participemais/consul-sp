@@ -49,7 +49,7 @@ class Legislation::ProcessesController < Legislation::BaseController
     @phase = :topics_phase
 
     if @process.topics_phase.started?
-      @topics = @process.topics.roots.order(:id)
+      @topics = @process.root_topics
 
       respond_to do |format|
         format.html do
