@@ -75,6 +75,8 @@ class User < ApplicationRecord
     foreign_key: :author_id,
     inverse_of:  :author
   has_many :topics, foreign_key: :author_id, inverse_of: :author
+  has_many :electors, class_name: "Poll::Elector"
+
   belongs_to :geozone
 
   validates :username, presence: true, if: :username_required?
