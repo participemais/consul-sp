@@ -29,12 +29,15 @@ class Poll < ApplicationRecord
 
   has_many :geozones_polls
   has_many :geozones, through: :geozones_polls
+
+  has_one :electoral_college,
+    class_name: "Poll::ElectoralCollege",
+    dependent: :destroy
+
   belongs_to :author, -> { with_hidden }, class_name: "User", inverse_of: :polls
   belongs_to :related, polymorphic: true
   belongs_to :budget
-  belongs_to :electoral_college,
-    class_name: "Poll::ElectoralCollege",
-    foreign_key: "poll_electoral_college_id"
+
 
   validates_translation :name, presence: true
   validate :date_range
