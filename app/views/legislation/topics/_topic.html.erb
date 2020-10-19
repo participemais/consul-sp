@@ -5,7 +5,9 @@
     </h4>
 
     <% if topic.description.present? %>
-      <p class="topic-description"><%= topic.description %></p>
+      <div class="topic-description">
+        <%= wysiwyg(topic.description) %>
+      </div>
     <% end %>
 
     <% if topic.evaluable %>

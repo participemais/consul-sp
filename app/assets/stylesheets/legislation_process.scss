@@ -1163,15 +1163,6 @@
         border-bottom: 1px dashed $text-light;
       }
 
-      &.contributions {
-        border-right: 1px solid $border;
-        padding-right: $line-height / 4;
-
-        i, span {
-          cursor: auto;
-        }
-      }
-
       i, span {
         cursor: pointer;
       }
@@ -1180,6 +1171,16 @@
         margin-left: $line-height / 6;
         text-transform: uppercase;
       }
+    }
+
+    .contributions-label {
+      padding-right: $line-height / 4;
+      text-align: center;
+      font-size: 2 * $line-height / 3;
+      color: $text-medium;
+      margin-top: $line-height / 2;
+      background: $lighter-gray;
+      font-family: $subheader-font-family;
     }
 
     .evaluate-options {
@@ -1268,8 +1269,6 @@
   .evaluate-results {
     padding: $line-height / 2 $line-height / 4 0;
     background: $lighter-gray;
-    border-right: 1px solid $border;
-    border-bottom: 1px solid $border;
 
     .assessment-votes {
       text-align: center;
@@ -1284,7 +1283,6 @@
       text-align: right;
       font-family: $subheader-font-family;
       font-size: $tiny-font-size;
-      text-transform: uppercase;
       margin-top: -$line-height / 3;
 
       &.no-comment {
