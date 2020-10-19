@@ -1,6 +1,5 @@
 class Legislation::TopicVotesController < Legislation::BaseController
   before_action :authenticate_user!
-  before_action :verify_resident!
 
   load_and_authorize_resource :process
   load_and_authorize_resource :topic_vote
