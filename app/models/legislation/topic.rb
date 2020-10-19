@@ -17,8 +17,6 @@ class Legislation::Topic < ApplicationRecord
     foreign_key: "legislation_topic_id",
     dependent: :destroy
 
-  validates :title, presence: true
-
   before_save :copy_evaluations, if: :evaluable
 
   def topic_vote_for_user(user)
