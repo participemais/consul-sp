@@ -14,7 +14,7 @@
       <% if @process.topics_phase.finished? %>
         <%= render "/legislation/topics/topic_vote_result", topic: topic %>
       <% else %>
-        <div id="<%= dom_id(topic) %>_topic_vote_form">
+        <div id="<%= dom_id(topic) %>_topic_vote_form" class="topic-vote-form">
           <%= render "/legislation/topics/topic_vote_form", topic: topic %>
         </div>
       <% end %>
