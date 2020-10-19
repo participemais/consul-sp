@@ -87,6 +87,7 @@ pt-BR:
         topics_dates: Revisão
       topics:
         title: Versão preliminar do documento
+        comments_title: Sugestões para o documento
     questions:
       comments:
         comment_button: Publicar resposta
@@ -124,11 +125,21 @@ pt-BR:
           one: Já recebemos uma contribuição
           other: Já recebemos %{count} contribuições
           zero: Ainda não recebemos contribuições
+        finished_contributions:
+          one: Recebemos uma contribuição
+          other: Recebemos %{count} contribuições
+          zero: Não recebemos contribuições
         text_toc: Índice
         text_body: Texto
         evaluate: Opinar
         done: Registrado
         result_spreadsheet: Download das contribuições (csv)
+        participations: Contribuições
+        comments:
+          one: Veja a sugestão recebida
+          other: Veja as %{count} sugestões recebidas
+        no_comment: Não recebemos sugestões
+        see_comments: Veja todas as sugestões
       participation:
         phase_not_open: Esta etapa não está aberta
         organizations: As organizações não podem participar no debate.
@@ -144,6 +155,13 @@ pt-BR:
         title: Título
         topic_level_label: Numeração
         user: Usuário
+      comments:
+        about: Sugestões sobre
+        comments_count:
+          one: "Uma sugestão"
+          other: "%{count} sugestões"
+        see_topic: Ver no documento
+        see_document: Ver documento
     topic_votes:
       form:
         new: Enviar opinião

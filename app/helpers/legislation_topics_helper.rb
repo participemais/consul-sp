@@ -19,7 +19,7 @@ module LegislationTopicsHelper
     end
   end
 
-  def topic_vote(topic)
+  def find_or_build_topic_vote(topic)
     user_topic_vote(topic) || Legislation::TopicVote.new
   end
 
@@ -45,6 +45,10 @@ module LegislationTopicsHelper
 
   def topic_vote_submit(topic_vote)
     topic_vote.new_record? ? "new" : "edit"
+  end
+
+  def topic_votes_count_title
+    @process.topics_phase.finished? ? "finished_contributions" : "contributions"
   end
 
   private

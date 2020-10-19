@@ -1029,6 +1029,16 @@
 // -------------------------
 .topics-header {
   margin-top: $line-height;
+  padding-left: 0;
+}
+
+.topics-header-aside {
+  margin-top: $line-height / 2;
+}
+
+.topics-comments-btn {
+  margin-top: 2 * $line-height / 3;
+  padding-right: 0;
 }
 
 .topics-votes-count {
@@ -1142,13 +1152,20 @@
       margin-bottom: 0;
     }
 
+    .topic-vote-form {
+      position: relative;
+    }
+
     .evaluate-topic {
       font-size: $tiny-font-size;
       font-family: $subheader-font-family;
       color: $text-medium;
-      border-bottom: 1px $text-light dashed;
       text-align: right;
       margin-top: -($line-height / 3) ;
+
+      &.with-border {
+        border-bottom: 1px dashed $text-light;
+      }
 
       i, span {
         cursor: pointer;
@@ -1158,6 +1175,16 @@
         margin-left: $line-height / 6;
         text-transform: uppercase;
       }
+    }
+
+    .contributions-label {
+      padding-right: $line-height / 4;
+      text-align: center;
+      font-size: 2 * $line-height / 3;
+      color: $text-medium;
+      margin-top: $line-height / 2;
+      background: $lighter-gray;
+      font-family: $subheader-font-family;
     }
 
     .evaluate-options {
@@ -1193,58 +1220,78 @@
     }
   }
 
-  .topic-assessments {
+  .control {
+    background: #fff;
+    border: 3px solid $border;
+    border-radius: rem-calc(4);
+    color: $text-medium;
+    cursor: pointer;
+    display: inline-block;
+    margin-bottom: $line-height / 2;
+    margin-right: $line-height / 4;
+    padding-left: $line-height;
+    padding-right: $line-height / 2;
     position: relative;
-    list-style: none;
+    font-family: $subheader-font-family;
+    font-size: $small-font-size;
+  }
 
-    .control {
-      background: #fff;
-      border: 3px solid $border;
-      border-radius: rem-calc(4);
-      color: $text-medium;
-      cursor: pointer;
-      display: inline-block;
-      margin-bottom: $line-height / 2;
-      margin-right: $line-height / 4;
-      padding-left: $line-height;
-      padding-right: $line-height / 2;
-      position: relative;
-      font-family: $subheader-font-family;
-      font-size: $small-font-size;
-    }
+  .is-active {
+    border: 3px solid $purple;
+  }
 
-    .is-active {
-      border: 3px solid $purple;
-    }
+  .control input {
+    position: absolute;
+    opacity: 0;
+    z-index: -1;
+  }
 
-    .control input {
-      position: absolute;
-      opacity: 0;
-      z-index: -1;
-    }
+  .control input:checked ~ .control-indicator {
+    background-color: $purple;
+    border-color: $white;
+  }
 
-    .control input:checked ~ .control-indicator {
-      background-color: $purple;
-      border-color: $white;
-    }
+  .radio .control-indicator {
+    border-radius: 50%;
+  }
 
-    .radio .control-indicator {
-      border-radius: 50%;
-    }
+  .control-indicator {
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    display: block;
+    width: rem-calc(13);
+    height: rem-calc(13);
+    line-height: rem-calc(16);
+    font-size: 65%;
+    text-align: center;
+    border: 2px solid $border;
+    pointer-events: none;
+    user-select: none;
+  }
 
-    .control-indicator {
-      position: absolute;
-      top: 5px;
-      left: 5px;
-      display: block;
-      width: rem-calc(13);
-      height: rem-calc(13);
-      line-height: rem-calc(16);
-      font-size: 65%;
+  .evaluate-results {
+    padding: $line-height / 2 $line-height / 4 0;
+    background: $lighter-gray;
+
+    .assessment-votes {
       text-align: center;
-      border: 2px solid $border;
-      pointer-events: none;
-      user-select: none;
+
+      .control {
+        cursor: auto;
+        padding-left: $line-height / 2;
+      }
+    }
+
+    .topic-votes-comments {
+      text-align: right;
+      font-family: $subheader-font-family;
+      font-size: $tiny-font-size;
+      margin-top: -$line-height / 3;
+
+      &.no-comment {
+        color: $text-medium;
+      }
     }
   }
 }
@@ -1257,5 +1304,39 @@
     text-align: right;
     border-bottom: 1px dashed $text-medium;
     margin-bottom: $line-height;
+  }
+}
+
+.topic-comments {
+  padding-left: $line-height / 2;
+
+  .topic-comments-count {
+    font-size: $small-font-size;
+    text-transform: uppercase;
+    font-family: $subheader-font-family;
+    color: $text-medium;
+    margin-top: $line-height / 4;
+    margin-bottom: $line-height / 4;
+  }
+
+  .topic-vote-comment-body {
+    margin-bottom: $line-height / 3;
+
+    .topic-vote-comment-option span {
+      font-size: $tiny-font-size;
+      margin-bottom: 0;
+      background: $tag;
+      border-radius: rem-calc(6);
+      color: $text;
+      display: inline-block;
+      padding: 0 $line-height / 3;
+      text-decoration: none;
+    }
+  }
+
+  .topic-vote-comment-text {
+    border-bottom: 1px solid $border;
+    padding-bottom: $line-height / 3;
+    padding-top: $line-height / 3;
   }
 }
