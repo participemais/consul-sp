@@ -12,7 +12,7 @@
         <% status = feasibility_analysis.send(field) %>
         <li class="feasibility <%= status %>">
           <h4><%= t("feasibility_analyses.show.#{field}") %></h4>
-          <span>
+          <span class="feasibility-analysis-status">
             <%= t("shared.#{status}") %>
             <% if status == 'feasible' %>
               <i class="fa fa-check" aria-hidden="true"></i>
