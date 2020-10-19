@@ -134,10 +134,7 @@ pt-BR:
         evaluate: Opinar
         done: Registrado
         result_spreadsheet: Download das contribuições (csv)
-        participations:
-          one: Total de uma contribuição
-          other: Total de %{count} contribuições
-          zero: Nenhuma contribuição
+        participations: Contribuições
         comments:
           one: Veja a sugestão recebida
           other: Veja as %{count} sugestões recebidas

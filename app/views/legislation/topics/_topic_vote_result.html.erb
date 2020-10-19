@@ -1,9 +1,7 @@
 <% topic_vote = find_or_build_topic_vote(topic) %>
-<p class="evaluate-topic contributions">
+<p class="contributions-label">
   <i class="fas fa-vote-yea"></i><span>
-    <%= t(
-      "legislation.topics.index.participations", count: topic.topic_votes_count
-    ) %>
+    <%= t("legislation.topics.index.participations") %>
   </span>
 </p>
 
