@@ -16,7 +16,7 @@
           <%= "#{topic_level_label(indexes)} #{topic.title}" %>
         </h4>
         <% if topic.description.present? %>
-          <%= topic.description %>
+          <%= wysiwyg(topic.description) %>
         <% end %>
       </div>
 

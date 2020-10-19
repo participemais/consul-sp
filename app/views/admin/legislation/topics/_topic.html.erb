@@ -15,7 +15,9 @@
     ) %>
 
     <% if topic.description.present? %>
-      <p class="topic-description"><%= topic.description %></p>
+      <div class="topic-description">
+        <%= wysiwyg(topic.description) %>
+      </div>
     <% end %>
 
     <p class="topic-form-link">
