@@ -140,6 +140,8 @@ namespace :admin do
 
       resources :recounts, only: :index
       resources :results, only: :index
+
+      resources :electoral_colleges, except: [:show]
     end
 
     resources :officers, only: [:index, :new, :create, :destroy] do
