@@ -1320,9 +1320,13 @@
 
     .topic-vote-comment-option span {
       font-size: $tiny-font-size;
-      padding-top: 0;
-      padding-bottom: 0;
       margin-bottom: 0;
+      background: $tag;
+      border-radius: rem-calc(6);
+      color: $text;
+      display: inline-block;
+      padding: 0 $line-height / 3;
+      text-decoration: none;
     }
   }
 
