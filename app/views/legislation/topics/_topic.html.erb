@@ -5,13 +5,19 @@
     </h4>
 
     <% if topic.description.present? %>
-      <p class="topic-description"><%= topic.description %></p>
+      <div class="topic-description">
+        <%= wysiwyg(topic.description) %>
+      </div>
     <% end %>
 
     <% if topic.evaluable %>
-      <div id="<%= dom_id(topic) %>_topic_vote_form" class="topic-assessments">
-        <%= render "/legislation/topics/topic_vote_form", topic: topic %>
-      </div>
+      <% if @process.topics_phase.finished? %>
+        <%= render "/legislation/topics/topic_vote_result", topic: topic %>
+      <% else %>
+        <div id="<%= dom_id(topic) %>_topic_vote_form" class="topic-vote-form">
+          <%= render "/legislation/topics/topic_vote_form", topic: topic %>
+        </div>
+      <% end %>
     <% end %>
   </div>
 

@@ -1,5 +1,5 @@
-<% topic_vote = topic_vote(topic) %>
-<p class="evaluate-topic"
+<% topic_vote = find_or_build_topic_vote(topic) %>
+<p class="evaluate-topic with-border"
   data-info-toggle="<%= dom_id(topic) %>_evaluation"
 >
   <% if topic_vote.new_record? %>

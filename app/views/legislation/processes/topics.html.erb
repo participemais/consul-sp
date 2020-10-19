@@ -6,20 +6,40 @@
 
 <%= render "key_dates", process: @process, phase: :topics_phase %>
 
-<div class="column row">
-  <div class="topics-header">
+<div class="row column">
+  <div class="small-12 medium-9 column topics-header">
     <h3><%= t("legislation.processes.topics.title") %></h3>
   </div>
 
-  <p class="topics-votes-count">
-    <i class="fas fa-vote-yea"></i>
-    <span>
-      <%= t(
-        "legislation.topics.index.contributions",
-        count: @process.topics_votes_count
-      ) %>
-    </span>
-  </p>
+  <div class="small-12 medium-3 column topics-comments-btn">
+    <%= link_to comments_legislation_process_topics_path(
+      @process, anchor: "process-list"), class: "button expanded" do %>
+      <strong><%= t("legislation.topics.index.see_comments") %></strong>
+    <% end %>
+  </div>
+</div>
+
+<div class="row column">
+  <div>
+    <p class="download-link inline-block">
+      <% if @process.topics_phase.finished? %>
+        <%= link_to t("legislation.topics.index.result_spreadsheet"),
+          topics_legislation_process_path(@process, legislation_csv_params),
+          class: "small"
+        %>
+      <% end %>
+    </p>
+
+    <p class="topics-votes-count float-right">
+      <i class="fas fa-vote-yea"></i>
+      <span>
+        <%= t(
+          "legislation.topics.index.#{topic_votes_count_title}",
+          count: @process.topics_votes_count
+        ) %>
+      </span>
+    </p>
+  </div>
 
   <div class="topic-panels small-12 column row">
     <div

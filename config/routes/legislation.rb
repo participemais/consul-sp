@@ -15,6 +15,7 @@ namespace :legislation do
     end
 
     resources :topics do
+      get :comments, on: :collection
       resources :topic_votes, only: [:create, :update]
     end
 
