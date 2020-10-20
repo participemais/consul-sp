@@ -1,31 +1,40 @@
-<h2 class="inline-block"><%= t("admin.electoral_colleges.index.title") %></h2>
+<%= render "/admin/poll/polls/poll_header" %>
 
-<%= link_to t("admin.electoral_colleges.index.create"),
-  new_admin_poll_electoral_college_path(@poll),
-  class: "button float-right"
-%>
+<div id="poll-resources">
+  <%= render "/admin/poll/polls/subnav" %>
 
-<div class="tabs-content" data-tabs-content="questions-tabs">
-  <div class="tabs-panel is-active" id="tab-questions">
-    <% if @electoral_college %>
-      <h3><%= @electoral_college.title %></h3>
-      <%= @electoral_college.active %>
-    <% end %>
-  </div>
 
-  <% @electoral_college.electors.each do |elector| %>
-    <%= elector.document_number %>
+  <h2 class="inline-block"><%= t("admin.electoral_colleges.index.title") %></h2>
+
+  <% unless @electoral_college %>
+    <%= link_to t("admin.electoral_colleges.index.create"),
+      new_admin_poll_electoral_college_path(@poll),
+      class: "button float-right"
+    %>
   <% end %>
 
-  <%= link_to t("admin.electoral_colleges.index.elector"),
-    new_admin_poll_electoral_college_elector_path(@poll, @electoral_college),
-    class: "button float-right hollow" %>
+  <div class="tabs-content" data-tabs-content="questions-tabs">
+    <div class="tabs-panel is-active" id="tab-questions">
+      <% if @electoral_college %>
+        <h3><%= @electoral_college.title %></h3>
+        <%= @electoral_college.active %>
+      <% end %>
+    </div>
 
-  <%#= link_to t("admin.electoral_colleges.index.import"),
-    new_admin_poll_electoral_colleges_import_path(@poll),
-    class: "button float-right hollow" %>
+    <% @electoral_college.electors.each do |elector| %>
+      <%= elector.document_number %>
+    <% end %>
 
-  <div class="tabs-panel" id="tab-successful-proposals">
-    <%#= render "electors" %>
+    <%= link_to t("admin.electoral_colleges.index.elector"),
+      new_admin_poll_electoral_college_elector_path(@poll, @electoral_college),
+      class: "button float-right hollow" %>
+
+    <%#= link_to t("admin.electoral_colleges.index.import"),
+      new_admin_poll_electoral_colleges_import_path(@poll),
+      class: "button float-right hollow" %>
+
+    <div class="tabs-panel" id="tab-successful-proposals">
+      <%#= render "electors" %>
+    </div>
   </div>
 </div>
