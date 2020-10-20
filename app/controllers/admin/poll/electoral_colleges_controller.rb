@@ -1,8 +1,8 @@
 class Admin::Poll::ElectoralCollegesController < Admin::Poll::BaseController
-  load_and_authorize_resource 
+  load_and_authorize_resource class: "Poll::ElectoralCollege"
   load_and_authorize_resource :poll
 
-  before_action :load_electoral_college, except: [:new, :create]
+  before_action :load_electoral_college, except: [:index, :new, :create]
 
 
   def index
@@ -46,7 +46,7 @@ class Admin::Poll::ElectoralCollegesController < Admin::Poll::BaseController
   private
 
     def electoral_college_params
-      params.require(:poll_electoral_college).permit(:title)
+      params.require(:poll_electoral_college).permit(:title, :poll_id)
     end
 
     def load_electoral_college
