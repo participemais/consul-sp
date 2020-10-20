@@ -141,7 +141,13 @@ namespace :admin do
       resources :recounts, only: :index
       resources :results, only: :index
 
-      resources :electoral_colleges, except: [:show]
+      resources :electoral_colleges, except: [:show] do
+        resources :electors, only: [:new, :create, :edit, :update, :destroy], controller: "electoral_colleges/electors"
+        # namespace :electors do
+        #   resources :imports, only: [:new, :create]
+        # end
+      end
+
     end
 
     resources :officers, only: [:index, :new, :create, :destroy] do
