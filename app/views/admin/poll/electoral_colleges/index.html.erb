@@ -1,0 +1,19 @@
+<h2 class="inline-block"><%= t("admin.questions.index.title") %></h2>
+
+<%= link_to t("admin.questions.index.create"),
+  new_admin_poll_electoral_college_path(@poll),
+  class: "button float-right"
+%>
+
+<div class="tabs-content" data-tabs-content="questions-tabs">
+  <div class="tabs-panel is-active" id="tab-questions">
+    <% if @electoral_college %>
+      <h3><%= @electoral_college.title %></h3>
+      <%= @electoral_college.active %>
+    <% end %>
+  </div>
+
+  <div class="tabs-panel" id="tab-successful-proposals">
+    <%#= render "electors" %>
+  </div>
+</div>

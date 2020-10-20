@@ -14,7 +14,6 @@ class Admin::Poll::ElectoralCollegesController < Admin::Poll::BaseController
 
   def create
     @electoral_college = Poll::ElectoralCollege.new(electoral_college_params)
-    @electoral_college.poll = @poll
 
     if @electoral_college.save
       redirect_to admin_poll_electoral_colleges_path(@poll)
