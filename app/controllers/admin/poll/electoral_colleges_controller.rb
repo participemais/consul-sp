@@ -6,6 +6,7 @@ class Admin::Poll::ElectoralCollegesController < Admin::Poll::BaseController
 
 
   def index
+    @electoral_college = @poll.electoral_college
   end
 
   def new
