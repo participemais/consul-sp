@@ -204,6 +204,7 @@ en:
         name: "Heading name"
         price: "Amount"
         population: "Population (optional)"
+        area: "Area"
       budget/heading/translation:
         name: "Heading name"
       budget/phase:

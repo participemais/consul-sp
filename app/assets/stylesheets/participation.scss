@@ -1236,8 +1236,8 @@
 }
 
 .jumbo-budget {
-  background: $budget;
-  border-bottom: 1px solid $budget;
+  background: $budget-banner;
+  border-bottom: 1px solid $budget-banner;
 
   &.budget-heading {
     min-height: $line-height * 10;
@@ -1544,7 +1544,7 @@
   z-index: 3;
 
   @include breakpoint(medium) {
-    background-color: $budget;
+    background-color: $budget-banner;
     transition: height 0.3s;
 
     h2 {
