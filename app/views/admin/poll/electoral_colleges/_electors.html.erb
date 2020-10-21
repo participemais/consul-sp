@@ -1,0 +1,33 @@
+<% if @electoral_college.electors.count == 0 %>
+  <div class="callout primary margin-top">
+    <%= t("admin.electoral_college.elector.no_electors") %>
+  </div>
+<% else %>
+  <table class="fixed">
+    <thead>
+      <tr>
+        <th><%= t("admin.electoral_colleges.elector.document_type") %></th>
+        <th><%= t("admin.electoral_colleges.elector.document_number") %></th>
+        <th><%= t("admin.electoral_colleges.elector.category") %></th>
+        <th class="small-4"><%= t("admin.actions.actions") %></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @electoral_college.electors.each do |elector| %>
+        <tr id="<%= dom_id(elector) %>">
+          <td><%= elector.document_type %></td>
+          <td><%= elector.document_number %></td>
+          <td><%= elector.category %></td>
+          <td>
+            <%= binding.pry %>
+            <div class="small-6 column">
+              <%= link_to t("shared.edit"), 
+              edit_admin_poll_electoral_college_elector_path(elector), 
+              class: "button hollow expanded" %>
+            </div>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% end %>

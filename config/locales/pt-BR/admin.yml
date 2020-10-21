@@ -1006,6 +1006,7 @@ pt-BR:
         table_title: "Título"
         edit_answers: Editar respostas
         see_proposal: "(Ver proposta)"
+        electoral_college_tab: Colégio Eleitoral
       flash:
         question_added: "Perguntas adicionadas a essa votação"
         error_on_question_added: "Pergunta não pode ser atribuída a essa votação"
@@ -1050,6 +1051,24 @@ pt-BR:
           documents_list: Lista de documentos
           document_title: Título
           document_actions: Ações
+    electoral_colleges:
+      index:
+        title: Colégio Eleitoral
+        create: Criar colégio eleitoral
+        elector: Criar eleitor
+      edit:
+        title: Editar colégio eleitoral
+      elector:
+        title: Eleitores
+        document_type: Tipo de documento
+        document_number: Número do documento
+        category: Categoria
+        no_electors: "Não há eleitores atribuídos a este Colégio Eleitoral"
+    electors:
+        new:
+          title: Novo eleitor 
+        edit:
+          title: Editar eleitor
     answers:
       new:
         title: Nova resposta
