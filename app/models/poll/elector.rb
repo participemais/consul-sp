@@ -17,6 +17,14 @@ class Poll
 
     validate :cpf_number, if: :local_document?
 
+    scope :user_not_found, -> { where(user_found: false) }
+    scope :active_electoral_college, -> do
+      joins(:electoral_college).where(electoral_college: { active: true })
+    end
+    scope :by_document, ->(document_type, document_number) do
+      where(document_type: document_type, document_number: document_number)
+    end
+
     private
 
     def local_document?
