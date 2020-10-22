@@ -144,7 +144,7 @@ namespace :admin do
       resources :electoral_colleges, except: [:show] do
         resources :electors, only: [:new, :create, :edit, :update, :destroy], controller: "electoral_colleges/electors"
         namespace :electors do
-          resources :imports, only: [:new, :create]
+          resources :imports, only: [:new, :create, :show]
         end
       end
 
