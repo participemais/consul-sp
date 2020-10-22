@@ -1,6 +1,8 @@
 class User < ApplicationRecord
   include Verification
 
+  DOCUMENT_TYPES = %w(cpf rnm).freeze
+
   devise :database_authenticatable, :registerable, :confirmable, :recoverable, :rememberable,
          :trackable, :validatable, :omniauthable, :password_expirable, :secure_validatable,
          authentication_keys: [:login]
