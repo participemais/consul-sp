@@ -1,0 +1,12 @@
+<%= back_link_to %>
+
+<h2><%= t("admin.poll_electors.imports.new.title") %></h2>
+
+<p>
+  <%= t(
+    "admin.poll_electors.imports.new.info",
+    required_headers: electors_import_required_headers
+  ) %>
+</p>
+
+<%= render "form" %>

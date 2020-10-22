@@ -35,8 +35,8 @@
       new_admin_poll_electoral_college_elector_path(@poll, @electoral_college),
       class: "button float-right hollow" %>
 
-    <%#= link_to t("admin.electoral_colleges.index.import"),
-      new_admin_poll_electoral_colleges_import_path(@poll),
+    <%= link_to t("admin.electoral_colleges.index.import"),
+      new_admin_poll_electoral_college_electors_import_path(@poll, @electoral_college),
       class: "button float-right hollow" %>
 
     <div>

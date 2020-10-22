@@ -1,0 +1,25 @@
+<h4><%= title %> (<%= electors.any? ? electors.size : 0 %>)</h4>
+<table id="<%= id %>" class="table table-striped">
+  <thead>
+    <tr>
+      <th><%= t("activerecord.attributes.elector.document_type") %></th>
+      <th><%= t("activerecord.attributes.elector.document_number") %></th>
+      <th><%= t("activerecord.attributes.elector.category") %></th>
+      <th><%= t("activerecord.attributes.elector.user_found") %></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% if electors.any? %>
+      <% electors.each do |elector| %>
+        <%= render "elector", elector: elector %>
+      <% end %>
+    <% else %>
+      <tr>
+        <td colspan="4" style="width: 100% !important;">
+          <%= t("admin.electors.imports.electors.no_records_found") %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

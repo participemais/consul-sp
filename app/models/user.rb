@@ -1,6 +1,8 @@
 class User < ApplicationRecord
   include Verification
 
+  DOCUMENT_TYPES = %w(cpf rnm).freeze
+
   devise :database_authenticatable, :registerable, :confirmable, :recoverable, :rememberable,
          :trackable, :validatable, :omniauthable, :password_expirable, :secure_validatable,
          authentication_keys: [:login]
@@ -155,6 +157,8 @@ class User < ApplicationRecord
     unless: :document_number_changes_count
   before_save :date_of_birth_changes_amount,
     unless: :date_of_birth_changes_count
+  before_save :belongs_to_active_electoral_college,
+    if: :document_number_changed?
 
   # Get the existing user by email if the provider gives us a verified email.
   def self.first_or_initialize_for_oauth(auth)
@@ -545,5 +549,13 @@ class User < ApplicationRecord
       if changes[:date_of_birth] && changes[:date_of_birth][0]
         self.date_of_birth_changes_count = 1
       end
+    end
+
+    def belongs_to_active_electoral_college
+      Poll::Elector.user_not_found
+        .active_electoral_college
+        .by_document(document_type, document_number).each do |elector|
+          elector.update(user: self)
+        end
     end
 end

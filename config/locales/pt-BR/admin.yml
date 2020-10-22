@@ -979,6 +979,11 @@ pt-BR:
         no_booths: "Não há urnas atribuídas a esta votação."
         table_name: "Nome"
         table_location: "Localização"
+    poll_electors:
+      imports:
+        new:
+          title: Importar CSV de eleitores
+          info: "O arquivo deve conter os seguintes cabeçalhos: %{required_headers}"
     polls:
       index:
         title: "Lista de votações"
@@ -1056,6 +1061,7 @@ pt-BR:
         title: Colégio Eleitoral
         create: Criar colégio eleitoral
         elector: Criar eleitor
+        import: Importar CSV
       edit:
         title: Editar colégio eleitoral
       elector:
@@ -1066,7 +1072,7 @@ pt-BR:
         no_electors: "Não há eleitores atribuídos a este Colégio Eleitoral"
     electors:
         new:
-          title: Novo eleitor 
+          title: Novo eleitor
         edit:
           title: Editar eleitor
     answers:
