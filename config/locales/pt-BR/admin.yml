@@ -979,6 +979,11 @@ pt-BR:
         no_booths: "Não há urnas atribuídas a esta votação."
         table_name: "Nome"
         table_location: "Localização"
+    poll_electors:
+      imports:
+        new:
+          title: Importar CSV de eleitores
+          info: "O arquivo deve conter os seguintes cabeçalhos: %{required_headers}"
     polls:
       index:
         title: "Lista de votações"
