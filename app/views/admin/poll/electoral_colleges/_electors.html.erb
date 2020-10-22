@@ -19,11 +19,13 @@
           <td><%= elector.document_number %></td>
           <td><%= elector.category %></td>
           <td>
-            <%= binding.pry %>
             <div class="small-6 column">
               <%= link_to t("shared.edit"), 
-              edit_admin_poll_electoral_college_elector_path(elector), 
+              edit_admin_poll_electoral_college_elector_path(@poll, @electoral_college, elector), 
               class: "button hollow expanded" %>
+            </div>
+            <div class="small-6 column">
+              <%= link_to t("shared.delete"), admin_poll_electoral_college_elector_path(@poll, @electoral_college, elector), class: "button hollow alert expanded", method: :delete %>
             </div>
           </td>
         </tr>
