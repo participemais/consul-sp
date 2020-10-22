@@ -4,10 +4,11 @@ class Admin::Poll::Electors::ImportsController < Admin::Poll::BaseController
   load_and_authorize_resource :electoral_college, class: "::Poll::ElectoralCollege"
 
   def create
-    @import = Poll::Elector::Import.new(electors_import_params)
+    @import = Poll::Elector::Import.new(@electoral_college, electors_import_params)
 
     if @import.save
-      redirect_to admin_poll_electoral_colleges_path(@poll), notice: t("admin.polls.electors.imports.create.notice")
+      flash.now[:notice] = t("admin.polls.electors.imports.create.notice")
+      render :show
     else
       render :new
     end
