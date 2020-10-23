@@ -1,29 +1,31 @@
 <%= back_link_to %>
 <br>
-<h2 class="inline-block"><%= t("admin.polls.electors.imports.show.title") %></h2>
+<h2 class="inline-block"><%= t("admin.poll_electors.import.show.title") %></h2>
 
 <%= link_to(
-  t("admin.polls.electors.imports.show.import"),
-  new_admin_poll_electoral_college_electors_import_path(@poll, @electoral_college),
+  t("admin.poll_electors.import.show.import"),
+  new_admin_poll_electoral_college_electors_import_path(
+    @poll, @electoral_college
+  ),
   class: "button float-right hollow"
 ) %>
 
-<h3><%= t("admin.polls.electors.imports.show.subtitle") %></h3>
+<h3><%= t("admin.poll_electors.import.show.subtitle") %></h3>
 
 <%= render "electors",
-  title: t("admin.polls.electors.imports.show.errored"),
+  title: t("admin.poll_electors.import.show.errored"),
   id: "invalid-electors",
   electors: @import.invalid_records
 %>
 
 <%= render "electors",
-  title: t("admin.polls.electors.imports.show.created"),
+  title: t("admin.poll_electors.import.show.created"),
   id: "created-electors",
   electors: @import.created_records
 %>
 
 <%= render "electors",
-  title: t("admin.polls.electors.imports.show.existing"),
+  title: t("admin.poll_electors.import.show.existing"),
   id: "existing-electors",
   electors: @import.existing_records
 %>

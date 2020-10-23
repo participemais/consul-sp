@@ -47,3 +47,8 @@ pt-BR:
             file:
               extension: "Formato de arquivo inválido. O formato permitido é: %{valid_extensions}."
               headers: "Cabeçalhos dos arquivos inválidos. Os cabeçalhos devem ter os seguintes nomes: %{required_headers}."
+        poll/electors/import:
+          attributes:
+            file:
+              extension: "Formato de arquivo inválido. O formato permitido é: %{valid_extensions}."
+              headers: "Cabeçalhos dos arquivos inválidos. Os cabeçalhos devem ter os seguintes nomes: %{required_headers}."
