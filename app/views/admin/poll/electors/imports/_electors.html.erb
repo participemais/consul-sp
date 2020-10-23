@@ -2,10 +2,12 @@
 <table id="<%= id %>" class="table table-striped">
   <thead>
     <tr>
-      <th><%= t("activerecord.attributes.elector.document_type") %></th>
-      <th><%= t("activerecord.attributes.elector.document_number") %></th>
-      <th><%= t("activerecord.attributes.elector.category") %></th>
-      <th><%= t("activerecord.attributes.elector.user_found") %></th>
+      <th><%= t("admin.electoral_colleges.elector.document_type") %></th>
+      <th><%= t("admin.electoral_colleges.elector.document_number") %></th>
+      <th><%= t("admin.electoral_colleges.elector.category") %></th>
+      <th class="text-center">
+        <%= t("admin.electoral_colleges.elector.user_found") %>
+      </th>
     </tr>
   </thead>
 
@@ -17,7 +19,7 @@
     <% else %>
       <tr>
         <td colspan="4" style="width: 100% !important;">
-          <%= t("admin.electors.imports.electors.no_records_found") %>
+          <%= t("admin.poll_electors.import.show.no_records_found") %>
         </td>
       </tr>
     <% end %>

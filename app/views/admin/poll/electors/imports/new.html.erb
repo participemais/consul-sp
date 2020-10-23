@@ -1,10 +1,10 @@
-<%= back_link_to %>
+<%= back_link_to admin_poll_electoral_colleges_path(@poll) %>
 
-<h2><%= t("admin.poll_electors.imports.new.title") %></h2>
+<h2><%= t("admin.poll_electors.import.new.title") %></h2>
 
 <p>
   <%= t(
-    "admin.poll_electors.imports.new.info",
+    "admin.poll_electors.import.new.info",
     required_headers: electors_import_required_headers
   ) %>
 </p>

@@ -38,11 +38,16 @@ pt-BR:
         year_of_birth: "Ano de nascimento"
       local_census_records/import:
         file: Arquivo
-      poll/elector/import:
+      poll/electors/import:
         file: Arquivo
     errors:
       models:
         local_census_records/import:
+          attributes:
+            file:
+              extension: "Formato de arquivo inválido. O formato permitido é: %{valid_extensions}."
+              headers: "Cabeçalhos dos arquivos inválidos. Os cabeçalhos devem ter os seguintes nomes: %{required_headers}."
+        poll/electors/import:
           attributes:
             file:
               extension: "Formato de arquivo inválido. O formato permitido é: %{valid_extensions}."

@@ -1,6 +1,6 @@
 require "csv"
 
-class Poll::Elector::Import
+class Poll::Electors::Import
   include ActiveModel::Model
 
   ATTRIBUTES = %w[document_type document_number category].freeze
