@@ -984,6 +984,7 @@ pt-BR:
         new:
           title: Importar CSV de eleitores
           info: "O arquivo deve conter os seguintes cabeçalhos: %{required_headers}"
+          load_info: A importação pode demorar alguns minutos
     polls:
       index:
         title: "Lista de votações"
