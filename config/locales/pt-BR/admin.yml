@@ -988,7 +988,7 @@ pt-BR:
         show:
           title: Importação de eleitores
           subtitle: Resultado
-          errored: Registros inválidos
+          errored: Eleitores inválidos
           created: Eleitores adicionados ao colégio eleitoral
           existing: Eleitores já cadastrados
           no_records_found: Nenhum registro encontrado
@@ -1081,7 +1081,7 @@ pt-BR:
         document_number: Número do documento
         category: Categoria
         no_electors: "Não há eleitores atribuídos a este Colégio Eleitoral"
-        user_found: Usuário cadastrado
+        user_found: Eleitor cadastrado
     electors:
         new:
           title: Novo eleitor
