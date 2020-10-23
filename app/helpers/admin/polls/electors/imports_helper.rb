@@ -8,6 +8,6 @@ module Admin::Polls::Electors::ImportsHelper
   end
 
   def electors_import_required_headers
-    Poll::Elector::Import::ATTRIBUTES.to_sentence(last_word_connector: " e ")
+    Poll::Electors::Import::ATTRIBUTES.to_sentence(last_word_connector: " e ")
   end
 end
