@@ -1,8 +1,8 @@
 module Admin::Polls::Electors::ImportsHelper
   def errors_for(resource, field)
     if resource.errors.include? field
-      tag.div class: "error" do
-        resource.errors[field].join(", ")
+      tag.div class: "error float-left" do
+        resource.errors[field].map(&:capitalize).join(". ")
       end
     end
   end
