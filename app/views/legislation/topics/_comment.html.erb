@@ -6,8 +6,8 @@
       <strong><%= t("legislation.topics.comments.about") %></strong>
       <span class="float-right">
         <%= link_to topics_legislation_process_path(
-          @process, anchor: dom_id(topic),
-        ), data: { no_turbolink: true } do %>
+          @process, anchor: dom_id(topic)
+        ) do %>
           <span><%= t("legislation.topics.comments.see_topic") %></span> <span class="icon-expand" aria-hidden="true"></span>
         <% end %>
       </span>
