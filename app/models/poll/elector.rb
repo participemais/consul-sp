@@ -19,7 +19,7 @@ class Poll
 
     scope :user_not_found, -> { where(user_found: false) }
     scope :active_electoral_college, -> do
-      joins(:electoral_college).where(electoral_college: { active: true })
+      joins(:electoral_college).where(poll_electoral_colleges: { active: true })
     end
     scope :by_document, ->(document_type, document_number) do
       where(document_type: document_type, document_number: document_number)
