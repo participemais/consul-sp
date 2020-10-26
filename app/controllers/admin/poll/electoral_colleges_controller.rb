@@ -7,6 +7,14 @@ class Admin::Poll::ElectoralCollegesController < Admin::Poll::BaseController
 
   def index
     @electoral_college = @poll.electoral_college
+    respond_to do |format|
+      format.html
+      format.csv do
+        send_data Poll::Electors::Exporter.new(
+          @electoral_college.electors
+        ).to_csv, filename: "#{@electoral_college.filename}.csv"
+      end
+    end
   end
 
   def new

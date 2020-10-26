@@ -3,6 +3,12 @@
     <%= t("admin.electoral_college.elector.no_electors") %>
   </div>
 <% else %>
+  <p class="download-link inline-block">
+    <%= link_to t("admin.electoral_colleges.elector.result_spreadsheet"),
+      admin_poll_electoral_colleges_path(@poll, csv_params),
+      class: "small"
+    %>
+  </p>
   <table class="fixed">
     <thead>
       <tr>
@@ -20,8 +26,8 @@
           <td><%= elector.category %></td>
           <td>
             <div class="small-6 column">
-              <%= link_to t("shared.edit"), 
-              edit_admin_poll_electoral_college_elector_path(@poll, @electoral_college, elector), 
+              <%= link_to t("shared.edit"),
+              edit_admin_poll_electoral_college_elector_path(@poll, @electoral_college, elector),
               class: "button hollow expanded" %>
             </div>
             <div class="small-6 column">
