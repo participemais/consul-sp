@@ -69,4 +69,11 @@ module ApplicationHelper
   def management_controller?
     controller.class.to_s.include?("Management")
   end
+
+  def csv_params
+    csv_params = params.clone.merge(format: :csv)
+    csv_params = csv_params.to_unsafe_h.map { |k, v| [k.to_sym, v] }.to_h
+    csv_params.delete(:page)
+    csv_params
+  end
 end

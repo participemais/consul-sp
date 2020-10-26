@@ -995,6 +995,13 @@ pt-BR:
           import: Importar CSV
         create:
           notice: Importação concluída com sucesso
+      export:
+        spreadsheet:
+          id: ID
+          document_type: Tipo de documento
+          document_number: Número do documento
+          category: Categoria
+          user_found: Eleitor cadastrado
     polls:
       index:
         title: "Lista de votações"
@@ -1082,6 +1089,7 @@ pt-BR:
         category: Categoria
         no_electors: "Não há eleitores atribuídos a este Colégio Eleitoral"
         user_found: Eleitor cadastrado
+        result_spreadsheet: Download dos eleitores (csv)
     electors:
         new:
           title: Novo eleitor
