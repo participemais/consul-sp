@@ -12,13 +12,6 @@ module BudgetsHelper
     end
   end
 
-  def csv_params
-    csv_params = params.clone.merge(format: :csv)
-    csv_params = csv_params.to_unsafe_h.map { |k, v| [k.to_sym, v] }.to_h
-    csv_params.delete(:page)
-    csv_params
-  end
-
   def budget_phases_select_options
     Budget::Phase::PHASE_KINDS.map { |ph| [t("budgets.phase.#{ph}"), ph] }
   end
