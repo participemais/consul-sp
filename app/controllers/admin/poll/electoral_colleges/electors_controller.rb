@@ -6,6 +6,14 @@ class Admin::Poll::ElectoralColleges::ElectorsController < Admin::Poll::BaseCont
   load_and_authorize_resource :poll
   load_and_authorize_resource class: "Poll::Elector"
 
+  def search_electors
+    load_search
+    @electors = Poll::Elector.quick_search(@search)
+    respond_to do |format|
+      format.js
+    end
+  end
+
   def new
     @elector = Poll::Elector.new
   end
@@ -50,5 +58,13 @@ class Admin::Poll::ElectoralColleges::ElectorsController < Admin::Poll::BaseCont
 
   def load_elector
     @elector = Poll::Elector.find(params[:id])
+  end
+
+  def search_params
+    params.permit(:poll_id, :electoral_college_id, :search)
+  end
+
+  def load_search
+    @search = search_params[:search]
   end
 end

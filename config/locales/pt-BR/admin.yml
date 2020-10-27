@@ -1285,6 +1285,9 @@ pt-BR:
       user_search:
         button: Buscar
         placeholder: Pesquisar usuário por nome ou pelo email
+      electors_search:
+        button: Buscar
+        placeholder: Pesquisar eleitor pelo número do documento
       search_results: "Buscar resultados"
       no_search_results: "Nenhum resultado encontrado."
       actions: Ações

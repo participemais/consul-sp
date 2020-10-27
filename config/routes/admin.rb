@@ -142,7 +142,9 @@ namespace :admin do
       resources :results, only: :index
 
       resources :electoral_colleges, except: [:show] do
-        resources :electors, only: [:new, :create, :edit, :update, :destroy], controller: "electoral_colleges/electors"
+        resources :electors, only: [:new, :create, :edit, :update, :destroy], controller: "electoral_colleges/electors" do
+          get :search_electors, on: :collection
+        end
         namespace :electors do
           resources :imports, only: [:new, :create, :show]
         end

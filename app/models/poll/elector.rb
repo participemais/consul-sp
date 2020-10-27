@@ -25,6 +25,18 @@ class Poll
       where(document_type: document_type, document_number: document_number)
     end
 
+    def self.search(terms)
+      Elector.where("document_number ILIKE ?", "%#{terms}%")
+    end
+
+    def self.quick_search(terms)
+      if terms.blank?
+        Elector.none
+      else
+        search(terms)
+      end
+    end
+
     private
 
     def local_document?
