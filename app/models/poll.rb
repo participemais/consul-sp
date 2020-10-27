@@ -42,6 +42,7 @@ class Poll < ApplicationRecord
   validate :date_range
   validate :only_one_active, unless: :public?
 
+  before_save :activate_electoral_college, if: :trigger_job?
   before_save :schedule_electoral_college_deactivation, if: :trigger_job?
 
   accepts_nested_attributes_for :questions, reject_if: :all_blank, allow_destroy: true
@@ -195,6 +196,13 @@ class Poll < ApplicationRecord
       run_at: ends_at.end_of_day,
       queue: electoral_college.queue_name
     ).deactivate_electoral_college
+  end
+
+  def activate_electoral_college
+    return if electoral_college.active?
+    if Date.current.beginning_of_day <= ends_at
+      electoral_college.update(active: true)
+    end
   end
 
   def trigger_job?
