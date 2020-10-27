@@ -16,11 +16,22 @@ class Poll
       self.update(active: false)
     end
 
+    def destroy_existing_jobs
+      Delayed::Job.where(queue: queue_name).each do |job|
+        job.destroy if job.payload_object.id == self.id
+      end
+    end
+
+    def queue_name
+      "schedules"
+    end
+
     private
 
     def schedule_electoral_college_deactivation
+      destroy_existing_jobs
       self.delay(
-        priority: 10, run_at: poll.ends_at.end_of_day, queue: "schedules"
+        priority: 10, run_at: poll.ends_at.end_of_day, queue: queue_name
       ).deactivate_electoral_college
     end
   end
