@@ -6,7 +6,7 @@ class Poll
       foreign_key: "poll_electoral_college_id",
       dependent: :destroy
 
-    after_save :schedule_electoral_college_deactivation
+    after_create :schedule_electoral_college_deactivation
 
     def filename
       title.parameterize
