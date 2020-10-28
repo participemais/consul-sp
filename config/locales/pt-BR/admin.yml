@@ -1080,6 +1080,8 @@ pt-BR:
         create: Criar colégio eleitoral
         elector: Criar eleitor
         import: Importar CSV
+        active: Ativo
+        inactive: Inativo 
       edit:
         title: Editar colégio eleitoral
       elector:

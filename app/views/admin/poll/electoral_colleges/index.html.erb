@@ -18,6 +18,13 @@
         <tr id="<%= dom_id(@electoral_college) %>">
           <td><%= @electoral_college.title %></td>
           <td>
+            <% if @electoral_college.active %>
+              <%= t("admin.electoral_colleges.index.active") %>
+            <% else %>
+              <%= t("admin.electoral_colleges.index.inactive") %>
+            <% end %>
+          </td>
+          <td>
             <div class="small-6 column">
               <%= link_to t("shared.edit"), edit_admin_poll_electoral_college_path(@poll, @electoral_college), class: "button hollow expanded" %>
             </div>
