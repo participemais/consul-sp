@@ -16,7 +16,6 @@
         <th><%= t("admin.electoral_colleges.elector.document_number") %></th>
         <th><%= t("admin.electoral_colleges.elector.category") %></th>
         <th><%= t("admin.electoral_colleges.elector.user_found") %></th>
-        <th><%= t("admin.electoral_colleges.elector.voted") %></th>
         <th class="small-4 text-center"><%= t("admin.actions.actions") %></th>
       </tr>
     </thead>
@@ -28,13 +27,6 @@
           <td><%= elector.category %></td>
           <td class="text-center">
             <% if elector.user_found? %>
-              <i class="fa fa-check fa-check-green" aria-hidden="true"></i>
-            <% else %>
-              <i class="fa fa-times fa-times-red" aria-hidden="true"></i>
-            <% end %>
-          </td>
-          <td class="text-center">
-            <% if @poll.voted_by?(elector.user) %>
               <i class="fa fa-check fa-check-green" aria-hidden="true"></i>
             <% else %>
               <i class="fa fa-times fa-times-red" aria-hidden="true"></i>

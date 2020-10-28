@@ -1090,7 +1090,6 @@ pt-BR:
         no_electors: "Não há eleitores atribuídos a este Colégio Eleitoral"
         user_found: Eleitor cadastrado
         result_spreadsheet: Download dos eleitores (csv)
-        voted: Realizou a votação
     electors:
         new:
           title: Novo eleitor
