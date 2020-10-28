@@ -1,4 +1,4 @@
-<% if @electoral_college.electors.count == 0 %>
+<% if @electors.empty? %>
   <div class="callout primary margin-top">
     <%= t("admin.electoral_college.elector.no_electors") %>
   </div>
@@ -21,7 +21,7 @@
       </tr>
     </thead>
     <tbody>
-      <% @electoral_college.electors.each do |elector| %>
+      <% @electors.each do |elector| %>
         <tr id="<%= dom_id(elector) %>">
           <td><%= elector.document_type %></td>
           <td><%= elector.document_number %></td>
@@ -54,4 +54,6 @@
       <% end %>
     </tbody>
   </table>
+
+  <%= paginate @electors %>
 <% end %>
