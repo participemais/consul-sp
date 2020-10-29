@@ -3,5 +3,14 @@
 <div id="poll-resources">
   <%= render "subnav" %>
 
-  <%= render "questions" %>
+  <% if @poll.electoral_college_restricted? && !@poll.electoral_college %>
+    <h2 class="inline-block"><%= t("admin.electoral_colleges.index.title") %></h2>
+
+    <%= link_to t("admin.electoral_colleges.index.create"),
+      new_admin_poll_electoral_college_path(@poll),
+      class: "button float-right"
+    %>
+  <% else %>
+    <%= render "questions" %>
+  <% end %>
 </div>

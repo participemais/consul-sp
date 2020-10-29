@@ -1,0 +1,55 @@
+<% if @electors.blank? %>
+  <div class="callout alert margin-bottom">
+    <%= t("admin.shared.no_search_results") %>
+  </div>
+<% else %>
+  <h3><%= t("admin.shared.search_results") %></h3>
+<% end %>
+
+<% if @electors.any? %>
+  <table class="fixed">
+    <thead>
+      <tr>
+        <th><%= t("admin.electoral_colleges.elector.document_type") %></th>
+        <th><%= t("admin.electoral_colleges.elector.document_number") %></th>
+        <th><%= t("admin.electoral_colleges.elector.category") %></th>
+        <th><%= t("admin.electoral_colleges.elector.user_found") %></th>
+        <th><%= t("admin.electoral_colleges.elector.voted") %></th>
+        <th class="small-4 text-center"><%= t("admin.actions.actions") %></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @electors.each do |elector| %>
+        <tr id="<%= dom_id(elector) %>">
+          <td><%= elector.document_type %></td>
+          <td><%= elector.document_number %></td>
+          <td><%= elector.category %></td>
+          <td class="text-center">
+            <% if elector.user_found? %>
+              <i class="fa fa-check fa-check-green" aria-hidden="true"></i>
+            <% else %>
+              <i class="fa fa-times fa-times-red" aria-hidden="true"></i>
+            <% end %>
+          </td>
+          <td class="text-center">
+            <% if @poll.voted_by?(elector.user) %>
+              <i class="fa fa-check fa-check-green" aria-hidden="true"></i>
+            <% else %>
+              <i class="fa fa-times fa-times-red" aria-hidden="true"></i>
+            <% end %>
+          </td>
+          <td>
+            <div class="small-6 column">
+              <%= link_to t("shared.edit"),
+              edit_admin_poll_electoral_college_elector_path(@poll, @electoral_college, elector),
+              class: "button hollow expanded" %>
+            </div>
+            <div class="small-6 column">
+              <%= link_to t("shared.delete"), admin_poll_electoral_college_elector_path(@poll, @electoral_college, elector), class: "button hollow alert expanded", method: :delete %>
+            </div>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% end %>

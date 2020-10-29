@@ -29,6 +29,11 @@ class Poll < ApplicationRecord
 
   has_many :geozones_polls
   has_many :geozones, through: :geozones_polls
+
+  has_one :electoral_college,
+    class_name: "Poll::ElectoralCollege",
+    dependent: :destroy
+
   belongs_to :author, -> { with_hidden }, class_name: "User", inverse_of: :polls
   belongs_to :related, polymorphic: true
   belongs_to :budget
@@ -36,6 +41,9 @@ class Poll < ApplicationRecord
   validates_translation :name, presence: true
   validate :date_range
   validate :only_one_active, unless: :public?
+
+  before_save :activate_electoral_college, if: :trigger_job?
+  before_save :schedule_electoral_college_deactivation, if: :trigger_job?
 
   accepts_nested_attributes_for :questions, reject_if: :all_blank, allow_destroy: true
 
@@ -177,5 +185,27 @@ class Poll < ApplicationRecord
 
   def balloting_ends_at_for_mail
     I18n.l(ends_at.to_date, format: :short_day_and_month)
+  end
+
+  private
+
+  def schedule_electoral_college_deactivation
+    electoral_college.destroy_existing_jobs
+    electoral_college.delay(
+      priority: 10,
+      run_at: ends_at.end_of_day,
+      queue: electoral_college.queue_name
+    ).deactivate_electoral_college
+  end
+
+  def activate_electoral_college
+    return if electoral_college.active?
+    if Date.current.beginning_of_day <= ends_at
+      electoral_college.update(active: true)
+    end
+  end
+
+  def trigger_job?
+    electoral_college_restricted? && electoral_college && ends_at_changed?
   end
 end
