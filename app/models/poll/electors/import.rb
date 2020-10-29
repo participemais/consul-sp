@@ -57,22 +57,7 @@ class Poll::Electors::Import
       elector = Poll::Elector.new
       elector.attributes = row.to_hash.slice(*ATTRIBUTES)
       elector.electoral_college = electoral_college
-
-      if user = find_user(elector)
-        elector.user = user
-        elector.user_found= true
-      end
-
       elector
-    end
-
-    def find_user(elector)
-      if elector.document_type.present? && elector.document_number.present?
-        User.find_by(
-          document_type: elector.document_type.downcase,
-          document_number: elector.document_number.upcase
-        )
-      end
     end
 
     def existing_elector?(elector)

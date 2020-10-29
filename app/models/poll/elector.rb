@@ -1,6 +1,7 @@
 class Poll
   class Elector < ApplicationRecord
     before_validation :sanitize
+    before_validation :set_user
 
     belongs_to :electoral_college,
       class_name: "Poll::ElectoralCollege",
@@ -57,6 +58,22 @@ class Poll
       self.document_type = document_type&.downcase&.strip
       self.document_number = document_number&.upcase&.strip
       self.category = category&.strip
+    end
+
+    def set_user
+      if user = find_user
+        self.user = user
+        self.user_found= true
+      end
+    end
+
+    def find_user
+      if document_type.present? && document_number.present?
+        User.find_by(
+          document_type: document_type,
+          document_number: document_number
+        )
+      end
     end
   end
 end
