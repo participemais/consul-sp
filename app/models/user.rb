@@ -555,7 +555,7 @@ class User < ApplicationRecord
       Poll::Elector.user_not_found
         .active_electoral_college
         .by_document(document_type, document_number).each do |elector|
-          elector.update(user: self)
+          elector.update(user: self, user_found: true)
         end
     end
 end
