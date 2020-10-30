@@ -57,4 +57,13 @@ module PollsHelper
   def show_polls_description?
     @active_poll.present? && @current_filter == "current"
   end
+
+  def able_to_participate?(poll, question)
+    can?(:answer, question) &&
+    !poll.voted_in_booth?(current_user) &&
+    (
+      !poll.electoral_college_restricted? ||
+      poll.belongs_to_electoral_college?(current_user, question.category)
+    )
+  end
 end
