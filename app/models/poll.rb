@@ -33,6 +33,7 @@ class Poll < ApplicationRecord
   has_one :electoral_college,
     class_name: "Poll::ElectoralCollege",
     dependent: :destroy
+  has_many :electors, through: :electoral_college
 
   belongs_to :author, -> { with_hidden }, class_name: "User", inverse_of: :polls
   belongs_to :related, polymorphic: true
@@ -185,6 +186,10 @@ class Poll < ApplicationRecord
 
   def balloting_ends_at_for_mail
     I18n.l(ends_at.to_date, format: :short_day_and_month)
+  end
+
+  def category_options
+    electors.distinct.pluck(:category)
   end
 
   private

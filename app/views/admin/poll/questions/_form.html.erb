@@ -32,6 +32,20 @@
   </div>
 
   <div class="row">
+    <% if @poll.present? %>
+      <div class="small-12 medium-3 column">
+        <%= f.select :votes_per_question, (1..8), include_blank: true %>
+      </div>
+      <% category_options = @poll.category_options %>
+      <% if @poll.electoral_college_restricted? && category_options.any? %>
+        <div class="small-12 medium-3 column end">
+          <%= f.select :category, category_options, include_blank: true %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+
+  <div class="row">
     <div class="small-12 medium-4 large-2 margin-top column">
       <%= f.submit(class: "button success expanded", value: t("shared.save")) %>
     </div>

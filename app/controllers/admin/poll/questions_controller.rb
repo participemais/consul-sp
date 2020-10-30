@@ -56,7 +56,7 @@ class Admin::Poll::QuestionsController < Admin::Poll::BaseController
   private
 
     def question_params
-      attributes = [:poll_id, :question, :proposal_id]
+      attributes = [:poll_id, :question, :proposal_id, :category, :votes_per_question]
       params.require(:poll_question).permit(*attributes, translation_params(Poll::Question))
     end
 
