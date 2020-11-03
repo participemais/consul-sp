@@ -30,6 +30,6 @@ class Poll::Answer < ApplicationRecord
   def destroy_voter_participation(token)
     Poll::Voter.find_by(
       user: author, poll: poll, origin: "web", token: token
-    ).destroy
+    )&.destroy
   end
 end
