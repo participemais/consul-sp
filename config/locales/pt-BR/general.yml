@@ -680,8 +680,9 @@ pt-BR:
         other: "Você só pode escolher %{count} opções"
       remaining_votes:
         zero: "Votação concluída. Clique em uma opção selecionada se quiser alterar seu voto."
-        one: "Você pode selecionar uma opção"
-        other: "Você pode selecionar %{count} opções"
+        one: "Você pode selecionar uma opção."
+        other: "Você pode selecionar %{count} opções."
+      out_of_category: "Você não pode votar por não fazer parte da categoria %{category}."
   proposal_notifications:
     new:
       title: "Enviar mensagem"
