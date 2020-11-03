@@ -2016,11 +2016,9 @@
 }
 
 .poll-question {
-  padding: 0 $line-height;
+  padding: $line-height;
 
   h3 {
-    padding-top: $line-height;
-
     a {
       color: $text;
     }
@@ -2039,6 +2037,7 @@
   .button {
     margin-right: $line-height / 4;
     min-width: rem-calc(168);
+    margin-bottom: 0;
 
     @include breakpoint(medium down) {
       width: 100%;
