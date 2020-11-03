@@ -2021,6 +2021,13 @@
 
 .poll-question-answers {
 
+  .question-votes-counter {
+    font-size: $tiny-font-size;
+    font-family: $subheader-font-family;
+    margin-bottom: $line-height / 6;
+    color: $text-medium;
+  }
+
   .button {
     margin-right: $line-height / 4;
     min-width: rem-calc(168);

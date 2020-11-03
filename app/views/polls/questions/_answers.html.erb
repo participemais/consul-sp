@@ -1,7 +1,12 @@
 <% poll = @poll || question.poll %>
 <div class="poll-question-answers">
   <% if able_to_participate?(poll, question) %>
-    <p class="small text-right no-margin-bottom"><%= question.user_answers_count(current_user) %>/<%= question.votes_per_question %></p>
+    <p class="question-votes-counter">
+      <%= t(
+        "poll_questions.show.remaining_votes",
+        count: poll_votes_counter(question, current_user)
+      ) %>
+    </p>
     <% question.question_answers.each do |answer| %>
       <% if @answers_by_question_id[question.id] &&
         @answers_by_question_id[question.id].include?(answer.title)
@@ -12,11 +17,16 @@
           }),
           method: :delete,
           remote: true,
-          title: t("poll_questions.show.voted", answer: answer.title),
+          title: t("poll_questions.show.destroy_vote", answer: answer.title),
           class: "button secondary hollow js-question-answer answered"
         %>
       <% elsif question.reached_vote_limit?(current_user) %>
-        <span class="button secondary hollow disabled">
+        <span class="button secondary hollow disabled"
+          title="<%= t(
+            "poll_questions.show.vote_limit",
+            count: question.votes_per_question)
+          %>"
+        >
           <%= answer.title %>
         </span>
       <% else %>

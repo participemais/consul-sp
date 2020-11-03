@@ -62,4 +62,8 @@ module PollsHelper
       poll.belongs_to_electoral_college?(current_user, question.category)
     )
   end
+
+  def poll_votes_counter(question, user)
+    question.votes_per_question - question.user_answers_count(user)
+  end
 end

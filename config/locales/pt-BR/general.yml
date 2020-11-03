@@ -671,8 +671,15 @@ pt-BR:
       back_to_proposal: Voltar à proposta
   poll_questions:
     show:
-      vote_answer: "Votar %{answer}"
-      voted: "Você votou %{answer}"
+      vote_answer: "Votar em %{answer}"
+      destroy_vote: "Apagar voto em %{answer}"
+      vote_limit:
+        one: "Você só pode escolher uma opção"
+        other: "Você só pode escolher %{count} opções"
+      remaining_votes:
+        zero: "Votação concluída. Clique em uma opção selecionada se quiser alterar seu voto."
+        one: "Você pode selecionar uma opção"
+        other: "Você pode selecionar %{count} opções"
   proposal_notifications:
     new:
       title: "Enviar mensagem"
