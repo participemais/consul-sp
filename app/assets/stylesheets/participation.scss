@@ -1991,6 +1991,14 @@
       color: $text;
     }
   }
+
+  .question-category {
+    text-transform: uppercase;
+    color: $text-medium;
+    margin-bottom: -($line-height / 3);
+    font-size: $small-font-size;
+    font-weight: bold;
+  }
 }
 
 .questions-callout {
