@@ -19,11 +19,15 @@ class Poll
     validate :cpf_number, if: :local_document?
 
     scope :user_not_found, -> { where(user_found: false) }
+    scope :by_category, ->(category) { where(category: category) }
     scope :active_electoral_college, -> do
       joins(:electoral_college).where(poll_electoral_colleges: { active: true })
     end
     scope :by_document, ->(document_type, document_number) do
       where(document_type: document_type, document_number: document_number)
+    end
+    scope :by_electoral_college, ->(electoral_college) do
+      where(electoral_college: electoral_college)
     end
 
     def self.search(terms)

@@ -28,10 +28,6 @@ module PollsHelper
     Poll::Voter.find_by(poll: poll, user: user, origin: "web")&.token || ""
   end
 
-  def voted_before_sign_in(question)
-    question.answers.where(author: current_user).any? { |vote| current_user.current_sign_in_at > vote.updated_at }
-  end
-
   def link_to_poll(text, poll)
     if can?(:results, poll)
       link_to text, results_poll_path(id: poll.slug || poll.id)
@@ -56,5 +52,18 @@ module PollsHelper
 
   def show_polls_description?
     @active_poll.present? && @current_filter == "current"
+  end
+
+  def able_to_participate?(poll, question)
+    can?(:answer, question) &&
+    !poll.voted_in_booth?(current_user) &&
+    (
+      !poll.electoral_college_restricted? ||
+      poll.belongs_to_electoral_college?(current_user, question.category)
+    )
+  end
+
+  def poll_votes_counter(question, user)
+    question.votes_per_question - question.user_answers_count(user)
   end
 end

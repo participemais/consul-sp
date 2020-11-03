@@ -1,9 +1,12 @@
 <div id="<%= dom_id(question) %>" class="poll-question">
-  <h3>
+  <% if question.category.present? %>
+    <p class="question-category"><%= question.category %></p>
+  <% end %>
+  <h3 class="no-margin-bottom">
     <%= question.title %>
   </h3>
 
-  <div id="<%= dom_id(question) %>_answers" class="padding">
+  <div id="<%= dom_id(question) %>_answers">
     <%= render "polls/questions/answers", question: question, token: token %>
   </div>
 </div>

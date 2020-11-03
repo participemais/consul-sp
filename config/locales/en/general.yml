@@ -666,7 +666,7 @@ en:
   poll_questions:
     show:
       vote_answer: "Vote %{answer}"
-      voted: "You have voted %{answer}"
+      destroy_vote: "You have voted %{answer}"
   proposal_notifications:
     new:
       title: "Send message"

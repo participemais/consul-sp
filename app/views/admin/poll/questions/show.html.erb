@@ -1,7 +1,9 @@
 <%= back_link_to %>
 
-<%= link_to t("admin.questions.show.edit_question"), edit_admin_question_path(@question),
-            class: "button hollow float-right" %>
+<%= link_to t("admin.questions.show.edit_question"),
+  edit_admin_question_path(@question, poll_id: @question.poll&.id),
+  class: "button hollow float-right"
+%>
 
 <div class="clear"></div>
 

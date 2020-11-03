@@ -1991,6 +1991,14 @@
       color: $text;
     }
   }
+
+  .question-category {
+    text-transform: uppercase;
+    color: $text-medium;
+    margin-bottom: -($line-height / 3);
+    font-size: $small-font-size;
+    font-weight: bold;
+  }
 }
 
 .questions-callout {
@@ -2008,11 +2016,9 @@
 }
 
 .poll-question {
-  padding: 0 $line-height;
+  padding: $line-height;
 
   h3 {
-    padding-top: $line-height;
-
     a {
       color: $text;
     }
@@ -2021,9 +2027,17 @@
 
 .poll-question-answers {
 
+  .question-votes-counter {
+    font-size: $tiny-font-size;
+    font-family: $subheader-font-family;
+    margin-bottom: $line-height / 6;
+    color: $text-medium;
+  }
+
   .button {
     margin-right: $line-height / 4;
     min-width: rem-calc(168);
+    margin-bottom: 0;
 
     @include breakpoint(medium down) {
       width: 100%;

@@ -370,6 +370,8 @@ pt-BR:
         summary: "Resumo"
         description: "Descrição"
         external_url: "Link para documentação adicional"
+        votes_per_question: "Número de opções selecionáveis"
+        category: "Categoria"
       poll/question/translation:
         title: "Questão"
       poll/ballot_sheet:
