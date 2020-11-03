@@ -1081,7 +1081,9 @@ pt-BR:
         elector: Criar eleitor
         import: Importar CSV
         active: Ativo
-        inactive: Inativo 
+        inactive: Inativo
+      new:
+        title: Novo colégio eleitoral
       edit:
         title: Editar colégio eleitoral
       elector:
