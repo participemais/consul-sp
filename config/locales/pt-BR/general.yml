@@ -625,7 +625,8 @@ pt-BR:
       already_answer: "Já participou desta votação"
       not_logged_in: "Você deve entrar ou se cadastrar para participar"
       unverified: "Você deve verificar sua conta para participar"
-      cant_answer: "Esta enquete não está disponível para sua subprefeitura"
+      cant_answer: "Esta votação não está disponível para sua subprefeitura"
+      electoral_college_restricted: Esta votação é restrita por colégio eleitoral
       section_header:
         icon_alt: Ícone de votação
         title: Votação
@@ -644,7 +645,8 @@ pt-BR:
       cant_answer_verify: "Você deve %{verify_link} para poder responder."
       verify_link: "verifique sua conta"
       cant_answer_expired: "Esta votação já foi encerrada."
-      cant_answer_wrong_geozone: "Esta questão não está disponível na sua subprefeitura."
+      cant_answer_wrong_geozone: "Esta votação não está disponível na sua subprefeitura."
+      electoral_college_restricted: "Apenas membros de determinado colégio eleitoral podem participar desta votação"
       more_info_title: "Mais informações"
       documents: Documentos
       zoom_plus: Expandir imagem
