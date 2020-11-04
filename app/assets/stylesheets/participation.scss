@@ -953,10 +953,10 @@
     margin-bottom: 0;
     text-transform: initial;
     margin-right: $line-height / 2;
+    padding: rem-calc(50) 0;
   }
 
   div {
-    display: flex;
     align-items: center;
     height: rem-calc(160);
   }
@@ -1984,7 +1984,7 @@
   }
 
   h4 {
-    font-size: rem-calc(30);
+    font-size: rem-calc(24);
     line-height: $line-height * 1.5;
 
     a {

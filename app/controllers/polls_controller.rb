@@ -15,6 +15,7 @@ class PollsController < ApplicationController
     @polls = Kaminari.paginate_array(
       @polls.created_by_admin.not_budget.send(@current_filter).includes(:geozones).sort_for_list
     ).page(params[:page])
+    @expired = @polls.select { |poll| poll.expired? }
   end
 
   def show
