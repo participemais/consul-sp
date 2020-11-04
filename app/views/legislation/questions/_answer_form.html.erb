@@ -17,7 +17,9 @@
           <%= question_option.value %>
         </label>
       <% end %>
-      <%= f.submit t("legislation.questions.show.answer_question"), class: "button" %>
+      <% if question.question_options.size > 1 %>
+        <%= f.submit t("legislation.questions.show.answer_question"), class: "button" %>
+      <% end %>
     <% end %>
 
   <% else %>
