@@ -48,6 +48,11 @@
             <% end %>
           </ul>
         <% end %>
+        <% if poll.electoral_college_restricted? %>
+          <p>
+            <small><%= t("polls.index.electoral_college_info") %></small>
+          </p>
+        <% end %>
         <% if poll.geozones.any? %>
           <p>
             <small><%= t("polls.index.geozone_info") %></small>

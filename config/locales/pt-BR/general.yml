@@ -622,6 +622,7 @@ pt-BR:
       no_geozone_restricted: "Toda a cidade"
       geozone_restricted: "Subprefeituras"
       geozone_info: "Podem participar as pessoas registradas em: "
+      electoral_college_info: "Podem participar membros do colégio eleitoral"
       already_answer: "Já participou desta votação"
       not_logged_in: "Você deve entrar ou se cadastrar para participar"
       unverified: "Você deve verificar sua conta para participar"
