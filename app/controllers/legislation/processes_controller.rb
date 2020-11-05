@@ -49,10 +49,10 @@ class Legislation::ProcessesController < Legislation::BaseController
         exporter = Legislation::Debate::Exporter.new(@process.questions)
         if debate_csv_type == "answers"
           send_data exporter.answers_csv,
-            filename: "votos-debate-#{@process.filename}.csv"
+            filename: "respostas-fechadas-debate-#{@process.filename}.csv"
         elsif debate_csv_type == "comments"
           send_data exporter.comments_csv,
-            filename: "respostas-debate-#{@process.filename}.csv"
+            filename: "respostas-abertas-debate-#{@process.filename}.csv"
         end
       end
     end

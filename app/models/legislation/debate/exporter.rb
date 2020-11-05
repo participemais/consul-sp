@@ -47,7 +47,7 @@ class Legislation::Debate::Exporter
       comment.id.to_s,
       question.title,
       comment.body,
-      comment.user.username
+      comment.username
     ]
   end
 
