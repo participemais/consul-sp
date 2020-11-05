@@ -21,16 +21,12 @@
         <%= sanitize(t(
           "legislation.questions.index.result_spreadsheet",
           answers_link: link_to(
-            t("legislation.questions.index.answers_link"),
-            debate_legislation_process_path(
-              @process, legislation_csv_params.merge(type: "answers")
-            )
+            t("legislation.questions.index.answers_title"),
+            debate_legislation_process_path(@process, answers_debate_csv_params)
           ),
           comments_link: link_to(
-            t("legislation.questions.index.comments_link"),
-            debate_legislation_process_path(
-              @process, legislation_csv_params.merge(type: "comments")
-            )
+            t("legislation.questions.index.comments_title"),
+            debate_legislation_process_path(@process, comments_debate_csv_params)
           )
         )) %>
       </p>

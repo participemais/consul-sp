@@ -90,9 +90,11 @@ pt-BR:
         comments_title: Sugestões para o documento
     questions:
       index:
-        result_spreadsheet: Download dos %{answers_link} ou das %{comments_link} (csv)
-        answers_link: votos
-        comments_link: respostas
+        result_spreadsheet: Download das %{answers_link} ou das %{comments_link} (csv)
+        answers_title: respostas fechadas
+        answers_spreedsheet: Download das respostas fechadas
+        comments_title: respostas abertas
+        comments_spreedsheet: Download das respostas abertas
       comments:
         comment_button: Publicar resposta
         comments_title: Respostas abertas
