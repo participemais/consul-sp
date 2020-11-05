@@ -37,10 +37,24 @@ class Legislation::ProcessesController < Legislation::BaseController
     set_process
     @phase = :debate_phase
 
-    if @process.debate_phase.started? || (current_user&.administrator?)
-      render :debate
-    else
-      render :phase_not_open
+    respond_to do |format|
+      format.html do
+        if @process.debate_phase.started? || (current_user&.administrator?)
+          render :debate
+        else
+          render :phase_not_open
+        end
+      end
+      format.csv do
+        exporter = Legislation::Debate::Exporter.new(@process.questions)
+        if debate_csv_type == "answers"
+          send_data exporter.answers_csv,
+            filename: "respostas-fechadas-debate-#{@process.filename}.csv"
+        elsif debate_csv_type == "comments"
+          send_data exporter.comments_csv,
+            filename: "respostas-abertas-debate-#{@process.filename}.csv"
+        end
+      end
     end
   end
 
@@ -157,5 +171,9 @@ class Legislation::ProcessesController < Legislation::BaseController
       return if member_method?
 
       @process = ::Legislation::Process.find(params[:process_id])
+    end
+
+    def debate_csv_type
+      params[:type]
     end
 end
