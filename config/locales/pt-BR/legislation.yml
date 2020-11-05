@@ -89,6 +89,10 @@ pt-BR:
         title: Versão preliminar do documento
         comments_title: Sugestões para o documento
     questions:
+      index:
+        result_spreadsheet: Download dos %{answers_link} ou das %{comments_link} (csv)
+        answers_link: votos
+        comments_link: respostas
       comments:
         comment_button: Publicar resposta
         comments_title: Respostas abertas
@@ -114,6 +118,12 @@ pt-BR:
         verified_only: Somente usuários verificados podem participar, %{verify_account}.
         incomplete_registration: Você precisa completar o %{register} para participar do debate.
         debate_phase_not_open: Fora do período de participação
+      spreadsheet:
+        id: ID
+        question_title: Questão
+        answer_option: Opção
+        comment: Resposta
+        user: Usuário
     answers:
       create:
         notice: Resposta recebida com sucesso!
