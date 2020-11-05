@@ -11,6 +11,25 @@
 </div>
 
 <div class="small-12 medium-3 column">
+  <% if process.debate_phase.finished? && process.questions.any? %>
+    <p class="no-margin-bottom text-center small">
+      <%= sanitize(t(
+        "legislation.questions.index.result_spreadsheet",
+        answers_link: link_to(
+          t("legislation.questions.index.answers_link"),
+          debate_legislation_process_path(
+            @process, legislation_csv_params.merge(type: "answers")
+          )
+        ),
+        comments_link: link_to(
+          t("legislation.questions.index.comments_link"),
+          debate_legislation_process_path(
+            @process, legislation_csv_params.merge(type: "comments")
+          )
+        )
+      )) %>
+    </p>
+  <% end %>
   <% if process.debate_phase.open? && process.questions.any? %>
     <div class="callout success">
       <p><%= t("legislation.processes.debate.participate") %></p>
