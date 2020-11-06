@@ -1,6 +1,6 @@
 module Statisticable
   extend ActiveSupport::Concern
-  PARTICIPATIONS = %w[gender age geozone].freeze
+  PARTICIPATIONS = %w[gender ethnicity age geozone].freeze
 
   included do
     attr_reader :resource
@@ -8,7 +8,7 @@ module Statisticable
 
   class_methods do
     def stats_methods
-      base_stats_methods + gender_methods + age_methods + geozone_methods
+      base_stats_methods + gender_methods + age_methods + geozone_methods + ethnicity_methods
     end
 
     def base_stats_methods
@@ -34,6 +34,10 @@ module Statisticable
 
     def age_methods
       [:participants_by_age]
+    end
+
+    def ethnicity_methods
+      [:participants_by_ethnicity]
     end
 
     def geozone_methods
@@ -77,6 +81,10 @@ module Statisticable
 
   def geozone?
     participants.where(geozone: geozones).any?
+  end
+
+  def ethnicity?
+    participants.where.not(ethnicity: [nil, ""]).any?
   end
 
   def participants
@@ -146,6 +154,19 @@ module Statisticable
     end.to_h
   end
 
+  def participants_by_ethnicity
+    ethnicities.map do |ethnicity|
+      count = participants.by_ethnicity(ethnicity).count
+      [
+        ethnicity,
+        {
+          count: count,
+          percentage: calculate_percentage(count, total_participants)
+        }
+      ]
+    end.to_h
+  end
+
   def calculate_percentage(fraction, total)
     PercentageCalculator.calculate(fraction, total)
   end
@@ -190,6 +211,10 @@ module Statisticable
        [85, 89],
        [90, 300]
       ]
+    end
+
+    def ethnicities
+      %w(yellow white red brown black)
     end
 
     def participants_between_ages(from, to)

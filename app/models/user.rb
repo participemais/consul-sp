@@ -150,6 +150,7 @@ class User < ApplicationRecord
       from.years.ago.end_of_year
     )
   end
+  scope :by_ethnicity, ->(ethnicity) { where(ethnicity: ethnicity) }
 
   before_validation :clean_document_number, if: :persisted?
   before_validation :clean_cep, if: :persisted?
