@@ -67,8 +67,8 @@ class Poll::Question < ApplicationRecord
     question_answers.reduce(0) { |total, question_answer| total + question_answer.total_votes }
   end
 
-  def most_voted_answer_id
-    question_answers.max_by(&:total_votes)&.id
+  def most_voted_answers
+    questions_by_total_votes.max_by { |key| key }.last
   end
 
   def possible_answers
@@ -91,5 +91,11 @@ class Poll::Question < ApplicationRecord
 
   def user_answers(user)
     answers.by_author(user)
+  end
+
+  def questions_by_total_votes
+    question_answers.group_by do |question|
+      question.total_votes if question.total_votes > 0
+    end
   end
 end
