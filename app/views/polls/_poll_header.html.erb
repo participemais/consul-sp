@@ -28,6 +28,11 @@
         description: @poll.name,
         mobile: @poll.name
       %>
+
+      <% if @poll.image.present? %>
+        <hr>
+        <%= image_tag(@poll.image_url(:large), alt: @poll.title, id: "image") %>
+      <% end %>
     </aside>
   </div>
 </div>
