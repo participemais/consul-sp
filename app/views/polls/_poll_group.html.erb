@@ -1,5 +1,5 @@
 <% poll_group.each do |poll| %>
-  <div class="poll with-image">
+  <div class="poll with-image polls-cards">
     <% if !user_signed_in? %>
       <div class="icon-poll-answer not-logged-in" title="<%= t("polls.index.not_logged_in") %>">
         <span class="show-for-sr"><%= t("polls.index.not_logged_in") %></span>
@@ -35,38 +35,38 @@
       </div>
       <div class="small-12 medium-6 column" data-equalizer-watch>
         <div class="dates"></div>
-        <% if poll.questions.one? %>
-          <h4><%= link_to_poll poll.questions.first.title, poll %></h4>
-          <%= poll_dates(poll) %>
-        <% else %>
           <h4><%= link_to_poll poll.name, poll %></h4>
-          <%= poll_dates(poll) %>
+          <%= auto_link_already_sanitized_html simple_format(poll.summary) %>
 
-          <ul class="margin-top">
-            <% poll.questions.each do |question| %>
-              <li><%= question.title %></li>
+          <% if poll.electoral_college_restricted? %>
+            <p>
+              <small><%= t("polls.index.electoral_college_info") %></small>
+            </p>
+          <% end %>
+
+          <% if poll.geozones.any? %>
+            <p>
+              <small><%= t("polls.index.geozone_info") %></small>
+            </p>
+          <% end %>
+          <ul class="no-bullet inline-block tags">
+            <% poll.geozones.each do |g| %>
+              <li class="inline-block"><span><%= g.name %></span></li>
             <% end %>
           </ul>
-        <% end %>
-        <% if poll.electoral_college_restricted? %>
-          <p>
-            <small><%= t("polls.index.electoral_college_info") %></small>
-          </p>
-        <% end %>
-        <% if poll.geozones.any? %>
-          <p>
-            <small><%= t("polls.index.geozone_info") %></small>
-          </p>
-        <% end %>
-        <ul class="no-bullet inline-block tags">
-          <% poll.geozones.each do |g| %>
-            <li class="inline-block"><span><%= g.name %></span></li>
-          <% end %>
-        </ul>
+
+          <div class="column row small-collapse medium-uncollapse legislation-calendar">
+            <div class="small-6 medium-12 column">
+              <h4><%= t("polls.index.period") %></h4>
+              <p>
+                <%= format_date(poll.starts_at) %> - <%= format_date(poll.ends_at) %>  
+              </p>
+            </div>
+          </div>
       </div>
       <div class="small-12 medium-3 column table" data-equalizer-watch>
         <div class="table-cell align-middle">
-          <%= link_to poll_path(id: poll.slug || poll.id), class: "button hollow expanded" do %>
+          <%= link_to poll_path(id: poll.id), class: "button hollow expanded" do %>
             <% if poll.expired? %>
               <%= t("polls.index.participate_button_expired") %>
             <% else %>
