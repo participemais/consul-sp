@@ -9,6 +9,7 @@
               og_image_url: "social_media_polls.jpg" %>
 <% end %>
 
+
 <div class="polls-show">
   <%= render "poll_header" %>
 
@@ -30,10 +31,23 @@
           </div>
         <% end %>
       <% end %>
+    
+      <% if user_signed_in? && current_user.incomplete_registration? %>
 
-      <% @questions.each do |question| %>
-        <%= render "polls/questions/question", question: question, token: @token %>
+        <div data-alert class="callout warning">
+          <%= sanitize(t(
+            "legislation.questions.participation.incomplete_registration",
+            register: link_to_my_account
+          )) %>
+        </div>
+
+        <% @questions.each do |question| %>
+          <div class="debate-questions" id="legislation-answer-form">
+            <%= render "polls/questions/question", question: question, token: @token %>
+          </div>
+        <% end %>
       <% end %>
+
     </div>
   </div>
 

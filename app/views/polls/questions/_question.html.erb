@@ -1,12 +1,20 @@
 <div id="<%= dom_id(question) %>" class="poll-question">
-  <% if question.category.present? %>
-    <p class="question-category"><%= question.category %></p>
-  <% end %>
-  <h3 class="no-margin-bottom">
-    <%= question.title %>
-  </h3>
+	<% if question.category.present? %>
+		<p class="question-category"><%= question.category %></p>
+		<% end %>
+		<h3 class="no-margin-bottom">
+		<%= question.title %>
+	</h3>
 
-  <div id="<%= dom_id(question) %>_answers">
-    <%= render "polls/questions/answers", question: question, token: token %>
-  </div>
+	<div id="<%= dom_id(question) %>_answers" class="padding">
+		<%= render "polls/questions/answers", question: question, token: token %>
+	</div>
+
+	<div class="participation-not-allowed legislation-debate" style="display:none" aria-hidden="false">
+	  <p>
+	    <%= sanitize(t(
+	      "polls.show.incomplete_registration",
+	      register: link_to_my_account )) %>
+	  </p>
+	</div>
 </div>
