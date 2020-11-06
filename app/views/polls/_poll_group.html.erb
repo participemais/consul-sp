@@ -33,7 +33,7 @@
           <% end %>
         </div>
       </div>
-      <div class="small-12 medium-6 column" data-equalizer-watch>
+      <div class="small-12 medium-9 column" data-equalizer-watch>
         <div class="dates"></div>
           <h4><%= link_to_poll poll.name, poll %></h4>
           <%= auto_link_already_sanitized_html simple_format(poll.summary) %>
@@ -63,17 +63,6 @@
               </p>
             </div>
           </div>
-      </div>
-      <div class="small-12 medium-3 column table" data-equalizer-watch>
-        <div class="table-cell align-middle">
-          <%= link_to poll_path(id: poll.id), class: "button hollow expanded" do %>
-            <% if poll.expired? %>
-              <%= t("polls.index.participate_button_expired") %>
-            <% else %>
-              <%= t("polls.index.participate_button") %>
-            <% end %>
-          <% end %>
-        </div>
       </div>
     </div>
   </div>
