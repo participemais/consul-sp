@@ -31,23 +31,13 @@
           </div>
         <% end %>
       <% end %>
-    
-      <% if user_signed_in? && current_user.incomplete_registration? %>
+  
 
-        <div data-alert class="callout warning">
-          <%= sanitize(t(
-            "legislation.questions.participation.incomplete_registration",
-            register: link_to_my_account
-          )) %>
+      <% @questions.each do |question| %>
+        <div class="debate-questions" id="legislation-answer-form">
+          <%= render "polls/questions/question", question: question, token: @token %>
         </div>
-
-        <% @questions.each do |question| %>
-          <div class="debate-questions" id="legislation-answer-form">
-            <%= render "polls/questions/question", question: question, token: @token %>
-          </div>
-        <% end %>
       <% end %>
-
     </div>
   </div>
 

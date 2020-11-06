@@ -638,6 +638,7 @@ pt-BR:
         description: Votações dos cidadãos são um mecanismo de participação na qual os cidadãos podem ter decisões diretas
       no_open_polls: "Não existem processos abertos"
       no_close_polls: "Não existem processos encerrados"
+      period: Período
     show:
       already_voted_in_booth: "Você já participou de uma urna física. Você não pode participar novamente."
       already_voted_in_web: "Você já participou desta votação. Se você votar novamente, este voto será sobrescrito ao voto anterior."
@@ -647,8 +648,8 @@ pt-BR:
       cant_answer_verify: "Você deve %{verify_link} para poder responder."
       verify_link: "verifique sua conta"
       cant_answer_expired: "Esta votação já foi encerrada."
-      cant_answer_wrong_geozone: "Esta votação não está disponível na sua subprefeitura."
       electoral_college_restricted: "Apenas membros de determinado colégio eleitoral podem participar desta votação"
+      cant_answer_wrong_geozone: "Esta questão não está disponível para a sua localidade."
       more_info_title: "Mais informações"
       documents: Documentos
       zoom_plus: Expandir imagem
@@ -671,6 +672,7 @@ pt-BR:
       results:
         title: "Perguntas"
         most_voted_answer: "Resposta mais votada: "
+      incomplete_registration: "Você precisa completar o %{register} para participar da votação"
     poll_header:
       back_to_proposal: Voltar à proposta
   poll_questions:
