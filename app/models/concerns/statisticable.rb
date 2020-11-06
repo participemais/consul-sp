@@ -12,11 +12,7 @@ module Statisticable
     end
 
     def base_stats_methods
-      %i[total_participants participations] + participation_check_methods
-    end
-
-    def participation_check_methods
-      PARTICIPATIONS.map { |participation| :"#{participation}?" }
+      %i[total_participants participations]
     end
 
     def gender_methods
@@ -68,23 +64,7 @@ module Statisticable
   end
 
   def participations
-    PARTICIPATIONS.select { |participation| send("#{participation}?") }
-  end
-
-  def gender?
-    participants.male.any? || participants.female.any?
-  end
-
-  def age?
-    participants.between_ages(age_groups.flatten.min, age_groups.flatten.max).any?
-  end
-
-  def geozone?
-    participants.where(geozone: geozones).any?
-  end
-
-  def ethnicity?
-    participants.where.not(ethnicity: [nil, ""]).any?
+    PARTICIPATIONS
   end
 
   def participants
