@@ -126,6 +126,8 @@ class User < ApplicationRecord
   scope :officials,      -> { where("official_level > 0") }
   scope :male,           -> { where(gender: "male") }
   scope :female,         -> { where(gender: "female") }
+  scope :non_binary,     -> { where(gender: "non_binary") }
+  scope :unknown,        -> { where(gender: "unknown") }
   scope :newsletter,     -> { where(newsletter: true) }
   scope :for_render,     -> { includes(:organization) }
   scope :by_document,    ->(document_type, document_number) do

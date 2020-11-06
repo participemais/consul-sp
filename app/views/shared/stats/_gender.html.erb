@@ -12,4 +12,16 @@
     t("stats.women_percentage", percentage: number_to_stats_percentage(stats.female_percentage)),
     html_class: "participants female"
   ) %>
+
+  <%= number_with_info_tags(
+    stats.total_non_binary_participants,
+    t("stats.non_binary_percentage", percentage: number_to_stats_percentage(stats.non_binary_percentage)),
+    html_class: "participants non_binary"
+  ) %>
+
+  <%= number_with_info_tags(
+    stats.total_unknown_participants,
+    t("stats.unknown_percentage", percentage: number_to_stats_percentage(stats.unknown_percentage)),
+    html_class: "participants unknown"
+  ) %>
 </div>

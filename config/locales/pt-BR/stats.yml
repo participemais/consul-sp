@@ -8,6 +8,8 @@ pt-BR:
     by_geozone: "Participantes por região"
     men_percentage: "%{percentage} Homens"
     women_percentage: "%{percentage} Mulheres"
+    non_binary_percentage: "%{percentage} Não binários"
+    unknown_percentage: "%{percentage} Gênero não declarado"
     age: "Idade"
     age_more_than: "De %{start} anos ou mais"
     age_range: "De %{start} a %{finish} anos"
