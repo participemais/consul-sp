@@ -1,11 +1,32 @@
+<% poll = @poll || question.poll %>
 <div class="poll-question-answers">
-  <% if can?(:answer, question) && !question.poll.voted_in_booth?(current_user) %>
+  <% if able_to_participate?(poll, question) %>
+    <p class="question-votes-counter">
+      <%= t(
+        "poll_questions.show.remaining_votes",
+        count: poll_votes_counter(question, current_user)
+      ) %>
+    </p>
     <% question.question_answers.each do |answer| %>
-      <% if @answers_by_question_id[question.id] == answer.title &&
-            (!voted_before_sign_in(question) ||
-             question.poll.voted_in_booth?(current_user)) %>
-        <span class="button answered"
-              title="<%= t("poll_questions.show.voted", answer: answer.title) %>">
+      <% if @answers_by_question_id[question.id] &&
+        @answers_by_question_id[question.id].include?(answer.title)
+      %>
+        <%= link_to answer.title,
+          destroy_answer_question_path(question, {
+            answer: answer.title, token: token, poll_id: poll.id
+          }),
+          method: :delete,
+          remote: true,
+          title: t("poll_questions.show.destroy_vote", answer: answer.title),
+          class: "button secondary hollow js-question-answer answered"
+        %>
+      <% elsif question.reached_vote_limit?(current_user) %>
+        <span class="button secondary hollow disabled"
+          title="<%= t(
+            "poll_questions.show.vote_limit",
+            count: question.votes_per_question)
+          %>"
+        >
           <%= answer.title %>
         </span>
       <% else %>
@@ -18,16 +39,34 @@
       <% end %>
     <% end %>
   <% elsif !user_signed_in? %>
-    <% question.question_answers.order(id: :desc).each do |answer| %>
-      <%= link_to answer.title, new_user_session_path, class: "button secondary hollow" %>
-    <% end %>
+    <div class="margin-top">
+      <% question.question_answers.order(id: :desc).each do |answer| %>
+        <%= link_to answer.title, new_user_session_path, class: "button secondary hollow" %>
+      <% end %>
+    </div>
   <% elsif !current_user.level_two_or_three_verified? %>
-    <% question.question_answers.order(id: :desc).each do |answer| %>
-      <%= link_to answer.title, verification_path, class: "button secondary hollow" %>
-    <% end %>
+    <div class="margin-top">
+      <% question.question_answers.order(id: :desc).each do |answer| %>
+        <%= link_to answer.title, verification_path, class: "button secondary hollow" %>
+      <% end %>
+    </div>
   <% else %>
-    <% question.question_answers.order(id: :desc).each do |answer| %>
-      <span class="button secondary hollow disabled"><%= answer.title %></span>
+    <% if poll.electoral_college_restricted? && question.category.present? &&
+      poll.belongs_to_electoral_college?(current_user)
+    %>
+      <p class="question-votes-counter">
+        <%= t(
+          "poll_questions.show.out_of_category",
+          category: question.category.downcase
+        ) %>
+      </p>
+    <div>
+    <% else %>
+    <div class="margin-top">
     <% end %>
+      <% question.question_answers.order(id: :desc).each do |answer| %>
+        <span class="button secondary hollow disabled"><%= answer.title %></span>
+      <% end %>
+    </div>
   <% end %>
 </div>

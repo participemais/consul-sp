@@ -1,6 +1,4 @@
 class Admin::Poll::ElectoralColleges::ElectorsController < Admin::Poll::BaseController
-  before_action :load_elector, only: [:edit, :update, :destroy]
-
   load_and_authorize_resource :electoral_college,
     class: "::Poll::ElectoralCollege"
   load_and_authorize_resource :poll
@@ -54,10 +52,6 @@ class Admin::Poll::ElectoralColleges::ElectorsController < Admin::Poll::BaseCont
     params.require(:poll_elector).permit(
       :document_type, :document_number, :category, :poll_electoral_college_id
     )
-  end
-
-  def load_elector
-    @elector = Poll::Elector.find(params[:id])
   end
 
   def search_params

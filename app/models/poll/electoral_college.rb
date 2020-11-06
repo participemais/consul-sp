@@ -7,6 +7,7 @@ class Poll
       dependent: :destroy
 
     after_create :schedule_electoral_college_deactivation
+    before_destroy :destroy_existing_jobs
 
     def filename
       title.parameterize

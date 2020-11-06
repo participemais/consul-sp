@@ -7,7 +7,7 @@ class Admin::Poll::ElectoralCollegesController < Admin::Poll::BaseController
 
   def index
     @electoral_college = @poll.electoral_college
-    @electors = @electoral_college.electors.page(params[:page]).per(50)
+    @electors = @electoral_college.electors.page(params[:page]).per(50) if @electoral_college
     respond_to do |format|
       format.html
       format.csv do

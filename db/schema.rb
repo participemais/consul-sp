@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20201016195951) do
+ActiveRecord::Schema.define(version: 20201030133307) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -1103,6 +1103,8 @@ ActiveRecord::Schema.define(version: 20201016195951) do
     t.string "title"
     t.boolean "active", default: true, null: false
     t.bigint "poll_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["poll_id"], name: "index_poll_electoral_colleges_on_poll_id"
   end
 
@@ -1113,6 +1115,8 @@ ActiveRecord::Schema.define(version: 20201016195951) do
     t.boolean "user_found", default: false, null: false
     t.bigint "poll_electoral_college_id"
     t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["poll_electoral_college_id"], name: "index_poll_electors_on_poll_electoral_college_id"
     t.index ["user_id"], name: "index_poll_electors_on_user_id"
   end
@@ -1202,6 +1206,8 @@ ActiveRecord::Schema.define(version: 20201016195951) do
     t.datetime "updated_at"
     t.tsvector "tsv"
     t.string "video_url"
+    t.string "category"
+    t.integer "votes_per_question", default: 1, null: false
     t.index ["author_id"], name: "index_poll_questions_on_author_id"
     t.index ["poll_id"], name: "index_poll_questions_on_poll_id"
     t.index ["proposal_id"], name: "index_poll_questions_on_proposal_id"
