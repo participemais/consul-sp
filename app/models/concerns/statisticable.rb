@@ -194,7 +194,8 @@ module Statisticable
     end
 
     def age_groups
-      [[16, 19],
+      [
+       [14, 19],
        [20, 24],
        [25, 29],
        [30, 34],
@@ -230,8 +231,10 @@ module Statisticable
     end
 
     def range_description(start, finish)
-      if finish > 200
-        I18n.t("stats.age_more_than", start: start)
+      if finish < 20
+        I18n.t("stats.age_less_than", finish: (finish + 1))
+      elsif finish > 200
+        I18n.t("stats.age_more_than", start: (start - 1))
       else
         I18n.t("stats.age_range", start: start, finish: finish)
       end
