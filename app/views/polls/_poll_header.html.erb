@@ -21,6 +21,19 @@
     </div>
 
     <aside class="small-12 medium-3 column margin-top">
+
+      <div id="social-share" class="sidebar-divider"></div>
+      <p class="sidebar-title"><%= t("polls.index.votes") %></p>
+      <div>
+        <span>
+          <% if @poll.answer_count == 1 %>
+            <%= t("polls.index.vote.one", count: @poll.answer_count) %>
+          <% else %>
+            <%= t("polls.index.vote.other", count: @poll.answer_count) %>
+          <% end %>
+        </span>
+      </div>
+
       <%= render "shared/social_share",
         share_title: t("shared.share"),
         title: @poll.name,

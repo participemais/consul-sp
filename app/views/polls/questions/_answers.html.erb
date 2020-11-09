@@ -7,10 +7,21 @@
         count: poll_votes_counter(question, current_user)
       ) %>
     </p>
+
     <% question.question_answers.each do |answer| %>
       <% if @answers_by_question_id[question.id] &&
         @answers_by_question_id[question.id].include?(answer.title)
       %>
+
+        <span class="votes">
+          <% votes = Poll::Answer.votes(question.id, answer.title) %>
+          <% if votes == 1 %>
+            <%= t("polls.index.vote.one", count: votes) %>
+          <% else %>
+            <%= t("polls.index.vote.other", count: votes) %>
+          <% end %>
+        </span>
+
         <%= link_to answer.title,
           destroy_answer_question_path(question, {
             answer: answer.title, token: token, poll_id: poll.id
@@ -20,6 +31,7 @@
           title: t("poll_questions.show.destroy_vote", answer: answer.title),
           class: "button secondary hollow js-question-answer answered"
         %>
+
       <% elsif question.reached_vote_limit?(current_user) %>
         <span class="button secondary hollow disabled"
           title="<%= t(
@@ -27,9 +39,27 @@
             count: question.votes_per_question)
           %>"
         >
+
+        <span class="votes">
+          <% votes = Poll::Answer.votes(question.id, answer.title) %>
+          <% if votes == 1 %>
+            <%= t("polls.index.vote.one", count: votes) %>
+          <% else %>
+            <%= t("polls.index.vote.other", count: votes) %>
+          <% end %>
+        </span>
+
           <%= answer.title %>
         </span>
       <% else %>
+        <span class="votes">
+          <% votes = Poll::Answer.votes(question.id, answer.title) %>
+          <% if votes == 1 %>
+            <%= t("polls.index.vote.one", count: votes) %>
+          <% else %>
+            <%= t("polls.index.vote.other", count: votes) %>
+          <% end %>
+        </span>
         <%= link_to answer.title,
           answer_question_path(question, answer: answer.title, token: token),
           method: :post,
@@ -51,21 +81,36 @@
       <% end %>
     </div>
   <% else %>
-    <% if poll.electoral_college_restricted? && question.category.present? &&
-      poll.belongs_to_electoral_college?(current_user)
-    %>
-      <p class="question-votes-counter">
-        <%= t(
-          "poll_questions.show.out_of_category",
-          category: question.category.downcase
-        ) %>
-      </p>
-    <div>
-    <% else %>
-    <div class="margin-top">
-    <% end %>
+      <% if poll.electoral_college_restricted? && question.category.present? &&
+        poll.belongs_to_electoral_college?(current_user)
+      %>
+        <p class="question-votes-counter">
+          <%= t(
+            "poll_questions.show.out_of_category",
+            category: question.category.downcase
+          ) %>
+        </p>
+      <% else %>
+        <div class="margin-top">
+      <% end %>
+
       <% question.question_answers.order(id: :desc).each do |answer| %>
-        <span class="button secondary hollow disabled"><%= answer.title %></span>
+        <span class="votes">
+          <% votes = Poll::Answer.votes(question.id, answer.title) %>
+          <% if votes == 1 %>
+            <%= t("polls.index.vote.one", count: votes) %>
+          <% else %>
+            <%= t("polls.index.vote.other", count: votes) %>
+          <% end %>
+        </span>
+
+        <% if @answers_by_question_id[question.id] &&
+          @answers_by_question_id[question.id].include?(answer.title)
+        %>
+          <span class="button secondary hollow answered"><%= answer.title %></span>
+        <% else %>
+          <span class="button secondary hollow disabled"><%= answer.title %></span>
+        <% end %>
       <% end %>
     </div>
   <% end %>

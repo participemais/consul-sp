@@ -2064,6 +2064,10 @@
       }
     }
   }
+
+  .votes {
+    font-size: 10px;
+  }
 }
 
 // 09. Polls results and stats
@@ -2119,13 +2123,6 @@
   border-radius: 0;
   box-shadow: 0 1px 3px 0 #dee0e3;
   min-height: 12rem;
-
-  .votes-result {
-    color: #5657A2;
-    font-size: 17px;
-    font-weight: bold;
-    float: inherit;
-  }
 }
 
 

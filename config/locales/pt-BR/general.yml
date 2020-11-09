@@ -623,10 +623,10 @@ pt-BR:
       geozone_restricted: "Votações regionalizadas"
       geozone_info: "Podem participar as pessoas registradas em: "
       electoral_college_info: "Podem participar membros do colégio eleitoral"
-      already_answer: "Já participou desta votação"
+      can_answer: "Você pode participar dessa votação"
       not_logged_in: "Você deve entrar ou se cadastrar para participar"
       unverified: "Você deve verificar sua conta para participar"
-      cant_answer: "Esta votação não está disponível para sua subprefeitura"
+      cant_answer: "Esta votação não está disponível para sua localidade"
       electoral_college_restricted: Esta votação é restrita por colégio eleitoral
       section_header:
         icon_alt: Ícone de votação
@@ -639,6 +639,7 @@ pt-BR:
       no_open_polls: "Não existem processos abertos"
       no_close_polls: "Não existem processos encerrados"
       period: Período
+      votes: "Voto"
       vote:
         one: "%{count} voto"
         other: "%{count} votos"

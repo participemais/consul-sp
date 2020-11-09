@@ -23,6 +23,10 @@ class Poll::Answer < ApplicationRecord
     end
   end
 
+  def self.votes(question_id, title)
+    where(question_id: question_id, answer: title).count
+  end
+
   def record_voter_participation(token)
     Poll::Voter.find_or_create_by(user: author, poll: poll, origin: "web", token: token)
   end
