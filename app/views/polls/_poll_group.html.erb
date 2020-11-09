@@ -19,8 +19,8 @@
         <div class="icon-poll-answer cant-answer" title="<%= t("polls.index.cant_answer") %>">
           <span class="show-for-sr"><%= t("polls.index.cant_answer") %></span>
         </div>
-      <% elsif !poll.votable_by?(current_user) %>
-        <div class="icon-poll-answer already-answer" title="<%= t("polls.index.already_answer") %>">
+      <% else %>
+        <div class="icon-poll-answer already-answer" title="<%= t("polls.index.can_answer") %>">
           <span class="show-for-sr"><%= t("polls.index.already_answer") %></span>
         </div>
       <% end %>
@@ -49,21 +49,12 @@
               <small><%= t("polls.index.geozone_info") %></small>
             </p>
           <% end %>
+          
           <ul class="no-bullet inline-block tags">
             <% poll.geozones.each do |g| %>
               <li class="inline-block"><span><%= g.name %></span></li>
             <% end %>
           </ul>
-
-          <div class="votes-result">
-            <span>
-              <% if poll.answer_count == 1 %>
-                <%= t("polls.index.vote.one", count: poll.answer_count) %>
-              <% else %>
-                <%= t("polls.index.vote.other", count: poll.answer_count) %>
-              <% end %>
-            </span>
-          </div>
 
           <div class="column row small-collapse medium-uncollapse legislation-calendar">
             <div class="small-6 medium-12 column">
