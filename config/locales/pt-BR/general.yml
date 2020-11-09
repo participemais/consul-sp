@@ -639,6 +639,9 @@ pt-BR:
       no_open_polls: "Não existem processos abertos"
       no_close_polls: "Não existem processos encerrados"
       period: Período
+      vote:
+        one: "%{count} voto"
+        other: "%{count} votos"
     show:
       already_voted_in_booth: "Você já participou de uma urna física. Você não pode participar novamente."
       already_voted_in_web: "Você já participou desta votação. Se você votar novamente, este voto será sobrescrito ao voto anterior."

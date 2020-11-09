@@ -4,7 +4,7 @@
       <div class="icon-poll-answer not-logged-in" title="<%= t("polls.index.not_logged_in") %>">
         <span class="show-for-sr"><%= t("polls.index.not_logged_in") %></span>
       </div>
-    <% elsif user_signed_in? %>
+    <% elsif user_signed_in?  && !poll.expired? %>
       <% if current_user.unverified? %>
         <div class="icon-poll-answer unverified" title="<%= t("polls.index.unverified") %>">
           <span class="show-for-sr"><%= t("polls.index.unverified") %></span>
@@ -54,6 +54,16 @@
               <li class="inline-block"><span><%= g.name %></span></li>
             <% end %>
           </ul>
+
+          <div class="votes-result">
+            <span>
+              <% if poll.answer_count == 1 %>
+                <%= t("polls.index.vote.one", count: poll.answer_count) %>
+              <% else %>
+                <%= t("polls.index.vote.other", count: poll.answer_count) %>
+              <% end %>
+            </span>
+          </div>
 
           <div class="column row small-collapse medium-uncollapse legislation-calendar">
             <div class="small-6 medium-12 column">
