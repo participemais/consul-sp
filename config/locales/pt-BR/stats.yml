@@ -45,3 +45,11 @@ pt-BR:
       web_percentage: "%{percentage} Internet"
       booth_percentage: "%{percentage} Presencial"
       letter_percentage: "%{percentage} Correios"
+      result_spreadsheet: Download dos votos (csv)
+      spreadsheet:
+        answer: Resposta
+        booth: Presencial
+        id: ID
+        origin: Canal
+        question: Pergunta
+        web: Online

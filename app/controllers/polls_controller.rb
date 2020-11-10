@@ -38,6 +38,13 @@ class PollsController < ApplicationController
   end
 
   def results
+    respond_to do |format|
+      format.html
+      format.csv do
+        send_data Poll::Question::Answer::Exporter.new(@poll.questions).to_csv,
+          filename: "votacao-#{@poll.filename}.csv"
+      end
+    end
   end
 
   private

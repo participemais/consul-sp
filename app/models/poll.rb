@@ -210,6 +210,10 @@ class Poll < ApplicationRecord
     electors.distinct.pluck(:category).compact
   end
 
+  def filename
+    name.parameterize
+  end
+
   private
 
   def schedule_electoral_college_deactivation
