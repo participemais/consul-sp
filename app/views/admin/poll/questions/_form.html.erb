@@ -36,9 +36,12 @@
       <div class="small-12 medium-4 column">
         <%= f.number_field :votes_per_question, min: 1, max: 50 %>
       </div>
+      <div class="small-12 medium-4 column">
+        <%= f.number_field :winners_amount, min: 1, max: 50 %>
+      </div>
       <% category_options = @poll.category_options %>
       <% if @poll.electoral_college_restricted? && category_options.any? %>
-        <div class="small-12 medium-4 column end">
+        <div class="small-12 medium-4 column">
           <%= f.select :category, category_options, include_blank: true %>
         </div>
       <% end %>
