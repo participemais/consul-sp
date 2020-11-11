@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20201030133307) do
+ActiveRecord::Schema.define(version: 20201111124047) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -1276,6 +1276,7 @@ ActiveRecord::Schema.define(version: 20201030133307) do
     t.string "origin"
     t.integer "officer_id"
     t.string "token"
+    t.string "ethnicity"
     t.index ["booth_assignment_id"], name: "index_poll_voters_on_booth_assignment_id"
     t.index ["document_number"], name: "index_poll_voters_on_document_number"
     t.index ["officer_assignment_id"], name: "index_poll_voters_on_officer_assignment_id"

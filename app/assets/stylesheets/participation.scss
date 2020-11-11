@@ -2105,6 +2105,12 @@
         line-height: $line-height;
       }
     }
+
+    .questions-list {
+      padding: 0;
+      margin-top: $line-height / 2;
+      margin-left: $line-height / 2;
+    }
   }
 
   table {

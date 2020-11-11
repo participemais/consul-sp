@@ -1,0 +1,28 @@
+<div id="participants_by_ethnicity" class="stats-group">
+  <h4><%= t("stats.by_ethnicity") %></h4>
+
+  <table>
+    <thead>
+      <tr>
+        <th class="small-4"><%= t("stats.ethnicity") %></th>
+        <th><%= t("stats.total") %></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% stats.participants_by_ethnicity.each do |key, value| %>
+        <tr>
+          <td><%= t(key, scope: 'activerecord.attributes.user.ethnicity_options') %></td>
+          <td>
+            <strong>
+              <%= "#{value[:count]} (#{number_to_stats_percentage(value[:percentage])})" %>
+            </strong>
+            <div class="progress" tabindex="0">
+              <span class="progress-meter" style="width: <%= value[:percentage] %>%"></span>
+            </div>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
