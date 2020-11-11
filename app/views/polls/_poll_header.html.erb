@@ -9,9 +9,22 @@
 
       <h1><%= @poll.name %></h1>
 
-      <%= auto_link_already_sanitized_html simple_format(@poll.summary) %>
+      <h5><%= t("polls.index.period") %>:</h5>
+
+      <p>
+        <%= format_date(@poll.starts_at) %> - <%= format_date(@poll.ends_at) %>
+      </p>
+
+
+      <% if @poll.description.present? %>
+        <h5><%= t("legislation.processes.header.description") %></h5>
+        <%= auto_link_already_sanitized_html simple_format(@poll.description) %>
+      <% end %>
 
       <% if @poll.geozones.any? %>
+        <p>
+          <small><%= t("polls.index.geozone_info") %></small>
+        </p>
         <ul class="no-bullet margin-top tags">
           <% @poll.geozones.each do |g| %>
             <li class="inline-block"><span><%= g.name %></span></li>
