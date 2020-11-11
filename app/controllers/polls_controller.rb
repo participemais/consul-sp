@@ -35,6 +35,13 @@ class PollsController < ApplicationController
 
   def stats
     @stats = Poll::Stats.new(@poll)
+    respond_to do |format|
+      format.html
+      format.csv do
+        send_data Poll::Voters::Exporter.new(@poll).to_csv,
+          filename: "participacao-#{@poll.filename}.csv"
+      end
+    end
   end
 
   def results

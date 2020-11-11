@@ -46,6 +46,7 @@ pt-BR:
       booth_percentage: "%{percentage} Presencial"
       letter_percentage: "%{percentage} Correios"
       result_spreadsheet: Download dos votos (csv)
+      stats_spreadsheet: Download das estatísticas de participação (csv)
       spreadsheet:
         answer: Resposta
         booth: Presencial
@@ -53,3 +54,25 @@ pt-BR:
         origin: Canal
         question: Pergunta
         web: Online
+      voters:
+        spreadsheet:
+          age: Idade
+          booth: Presencial
+          city: Cidade
+          ethnicity: Raça
+          ethnicity_options:
+            yellow: Amarela
+            white: Branca
+            red: Indígena
+            brown: Parda
+            black: Preta
+          gender: Gênero
+          gender_options:
+            female: Feminino
+            male: Masculino
+            non_binary: Não binário
+            unknown: Não declarado
+          id: ID
+          origin: Canal
+          uf: UF
+          web: Online
