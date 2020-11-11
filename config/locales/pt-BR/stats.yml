@@ -19,8 +19,8 @@ pt-BR:
     total: "Total"
     geozone: "Região"
     no_demographic_data:
-      one: "* Não há dados demográficos de 1 participante."
-      other: "* Não há dados demográficos data para %{count} participantes."
+      one: "Não há dados de gênero, raça ou idade de um participante."
+      other: "Não há dados de gênero, raça ou idade de %{count} participantes."
     budgets:
       link: "Estatísticas"
       page_title: "%{budget} - Estatísticas de participação"
@@ -37,8 +37,8 @@ pt-BR:
       participants_every_phase: "Total de participantes"
       percent_total_participants: "% Total de participantes"
       percent_heading_census: "% Censo de títulos"
-      participatory_disclaimer: "** Os números do total de participantes se referem a personas que criaram, apoiaram ou votaram em propostas de investimentos."
-      heading_disclaimer: "*** Os dados dos títulos se referem ao título no qual o usuário votou, no necessariamente naquele em que a pessoa se registrou."
+      participatory_disclaimer: "* Os números do total de participantes se referem a personas que criaram, apoiaram ou votaram em propostas de investimentos."
+      heading_disclaimer: "** Os dados dos títulos se referem ao título no qual o usuário votou, no necessariamente naquele em que a pessoa se registrou."
     polls:
       by_channel: "Participantes"
       vote_by_channel: "Tipo de votos"

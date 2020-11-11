@@ -88,7 +88,7 @@ module Statisticable
   end
 
   def total_no_demographic_data
-    participants.where("gender IS NULL OR date_of_birth IS NULL OR geozone_id IS NULL").count
+    participants.where("gender IS NULL OR date_of_birth IS NULL OR ethnicity IS NULL").count
   end
 
   def male_percentage
