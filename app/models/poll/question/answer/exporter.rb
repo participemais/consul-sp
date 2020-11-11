@@ -46,5 +46,3 @@ class Poll::Question::Answer::Exporter
     end
   end
 end
-
-# ID voto | pergunta | resposta selecionada | canal de voto (presencial ou online) | idade | gênero | raça | localidade
