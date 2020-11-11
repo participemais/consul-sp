@@ -1,6 +1,6 @@
 module Statisticable
   extend ActiveSupport::Concern
-  PARTICIPATIONS = %w[gender age geozone].freeze
+  PARTICIPATIONS = %w[gender ethnicity age geozone].freeze
 
   included do
     attr_reader :resource
@@ -8,23 +8,32 @@ module Statisticable
 
   class_methods do
     def stats_methods
-      base_stats_methods + gender_methods + age_methods + geozone_methods
+      base_stats_methods + gender_methods + age_methods + geozone_methods + ethnicity_methods
     end
 
     def base_stats_methods
-      %i[total_participants participations] + participation_check_methods
-    end
-
-    def participation_check_methods
-      PARTICIPATIONS.map { |participation| :"#{participation}?" }
+      %i[total_participants participations]
     end
 
     def gender_methods
-      %i[total_male_participants total_female_participants male_percentage female_percentage]
+      %i[
+        total_male_participants
+        total_female_participants
+        total_non_binary_participants
+        total_unknown_participants
+        male_percentage
+        female_percentage
+        non_binary_percentage
+        unknown_percentage
+      ]
     end
 
     def age_methods
       [:participants_by_age]
+    end
+
+    def ethnicity_methods
+      [:participants_by_ethnicity]
     end
 
     def geozone_methods
@@ -55,19 +64,7 @@ module Statisticable
   end
 
   def participations
-    PARTICIPATIONS.select { |participation| send("#{participation}?") }
-  end
-
-  def gender?
-    participants.male.any? || participants.female.any?
-  end
-
-  def age?
-    participants.between_ages(age_groups.flatten.min, age_groups.flatten.max).any?
-  end
-
-  def geozone?
-    participants.where(geozone: geozones).any?
+    PARTICIPATIONS
   end
 
   def participants
@@ -82,8 +79,16 @@ module Statisticable
     participants.female.count
   end
 
+  def total_non_binary_participants
+    participants.non_binary.count
+  end
+
+  def total_unknown_participants
+    participants.unknown.count
+  end
+
   def total_no_demographic_data
-    participants.where("gender IS NULL OR date_of_birth IS NULL OR geozone_id IS NULL").count
+    participants.where("gender IS NULL OR date_of_birth IS NULL OR ethnicity IS NULL").count
   end
 
   def male_percentage
@@ -92,6 +97,14 @@ module Statisticable
 
   def female_percentage
     calculate_percentage(total_female_participants, total_participants_with_gender)
+  end
+
+  def non_binary_percentage
+    calculate_percentage(total_non_binary_participants, total_participants_with_gender)
+  end
+
+  def unknown_percentage
+    calculate_percentage(total_unknown_participants, total_participants_with_gender)
   end
 
   def participants_by_age
@@ -116,6 +129,19 @@ module Statisticable
         {
           count: stats.count,
           percentage: stats.percentage
+        }
+      ]
+    end.to_h
+  end
+
+  def participants_by_ethnicity
+    ethnicities.map do |ethnicity|
+      count = participants.by_ethnicity(ethnicity).count
+      [
+        ethnicity,
+        {
+          count: count,
+          percentage: calculate_percentage(count, total_participants)
         }
       ]
     end.to_h
@@ -148,7 +174,8 @@ module Statisticable
     end
 
     def age_groups
-      [[16, 19],
+      [
+       [14, 19],
        [20, 24],
        [25, 29],
        [30, 34],
@@ -167,6 +194,10 @@ module Statisticable
       ]
     end
 
+    def ethnicities
+      %w(yellow white red brown black)
+    end
+
     def participants_between_ages(from, to)
       participants.between_ages(from, to)
     end
@@ -180,8 +211,10 @@ module Statisticable
     end
 
     def range_description(start, finish)
-      if finish > 200
-        I18n.t("stats.age_more_than", start: start)
+      if finish < 20
+        I18n.t("stats.age_less_than", finish: (finish + 1))
+      elsif finish > 200
+        I18n.t("stats.age_more_than", start: (start - 1))
       else
         I18n.t("stats.age_range", start: start, finish: finish)
       end
