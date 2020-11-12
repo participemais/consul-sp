@@ -96,8 +96,8 @@ class Poll::Question < ApplicationRecord
   end
 
   def questions_by_total_votes
-    question_answers.group_by do |question|
-      question.total_votes if question.total_votes > 0
-    end
+    groups = question_answers.group_by(&:total_votes)
+    groups.delete(0)
+    groups
   end
 end
