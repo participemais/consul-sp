@@ -24,6 +24,7 @@ class Poll::Question < ApplicationRecord
   validates :author, presence: true
   validates :poll_id, presence: true, if: proc { |question| question.poll.nil? }
   validates :votes_per_question, presence: true
+  validates :winners_amount, presence: true
 
   accepts_nested_attributes_for :question_answers, reject_if: :all_blank, allow_destroy: true
 
@@ -68,7 +69,8 @@ class Poll::Question < ApplicationRecord
   end
 
   def most_voted_answers
-    questions_by_total_votes.max_by { |key| key }.last
+    winners = questions_by_total_votes.max_by(winners_amount) { |key| key }.to_h
+    winners.values.flatten
   end
 
   def possible_answers
