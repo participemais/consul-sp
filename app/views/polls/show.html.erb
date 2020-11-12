@@ -23,20 +23,18 @@
         <div class="callout warning">
           <%= t("polls.show.already_voted_in_booth") %>
         </div>
-      <% else %>
-
-        <% if current_user && @poll.voted_in_web?(current_user) && !@poll.expired? %>
-          <div class="callout warning">
-            <%= t("polls.show.already_voted_in_web") %>
-          </div>
-        <% end %>
+      <% elsif current_user && @poll.voted_in_web?(current_user) &&
+        !@poll.expired?
+      %>
+        <div class="callout warning">
+          <%= t("polls.show.already_voted_in_web") %>
+        </div>
       <% end %>
-  
 
       <% @questions.each do |question| %>
-        <div class="debate-questions" id="legislation-answer-form">
-          <%= render "polls/questions/question", question: question, token: @token %>
-        </div>
+        <%= render "polls/questions/question",
+          question: question, token: @token
+        %>
       <% end %>
     </div>
   </div>
