@@ -16,7 +16,7 @@ class Poll
     validates :document_number, presence: true
     validates :document_number, uniqueness: { scope: :electoral_college }
 
-    validate :cpf_number, if: :local_document?
+    validate :valid_document_number
 
     scope :user_not_found, -> { where(user_found: false) }
     scope :by_category, ->(category) { where(category: category) }
@@ -44,12 +44,10 @@ class Poll
 
     private
 
-    def local_document?
-      document_number.present? && document_type == 'cpf'
-    end
+    def valid_document_number
+      return if document_number.blank? || document_type.blank?
 
-    def cpf_number
-      unless CPF.valid?(document_number)
+      if invalid_cpf? || invalid_rnm?
         message = I18n.t(
           :invalid_number,
           scope: 'activerecord.errors.models.user.attributes.cpf'
@@ -60,8 +58,13 @@ class Poll
 
     def sanitize
       self.document_type = document_type&.downcase&.strip
-      self.document_number = document_number&.upcase&.strip
+      self.document_number = clean_document_number
       self.category = category&.strip
+    end
+
+    def clean_document_number
+      return unless document_number
+      self.document_number = document_number.gsub(/[^a-z0-9]+/i, "").upcase
     end
 
     def set_user
@@ -78,6 +81,14 @@ class Poll
           document_number: document_number
         )
       end
+    end
+
+    def invalid_cpf?
+      document_type == 'cpf' && !CPF.valid?(document_number)
+    end
+
+    def invalid_rnm?
+      document_type == 'rnm' && !(document_number =~ /^[A-Z]\d{6}[A-Z]$/)
     end
   end
 end
