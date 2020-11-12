@@ -658,12 +658,11 @@ pt-BR:
       less_info_title: "Menos informações"
       documents: Documentos
       zoom_plus: Expandir imagem
-      read_more: "Ler mais sobre %{answer}"
-      read_less: "Ler menos sobre %{answer}"
       videos: "Vídeo externo"
       info_menu: "Informação"
       stats_menu: "Estatísticas da participação"
       results_menu: "Resultados da votação"
+      more_info: "Mais informações"
       stats:
         total_votes: "Quantidade total de votos emitidos"
         votes: "VOTOS"
