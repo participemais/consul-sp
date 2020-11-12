@@ -17,6 +17,7 @@ class User < ApplicationRecord
   has_one :moderator
   has_one :valuator
   has_one :manager
+  has_one :editor
   has_one :poll_officer, class_name: "Poll::Officer"
   has_one :organization
   has_one :lock
@@ -222,6 +223,10 @@ class User < ApplicationRecord
 
   def moderator?
     moderator.present?
+  end
+
+  def editor?
+    editor.present?  
   end
 
   def valuator?

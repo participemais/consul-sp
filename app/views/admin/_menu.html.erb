@@ -219,6 +219,10 @@
         <li <%= "class=is-active" if controller_name == "users" %>>
           <%= link_to t("admin.menu.users"), admin_users_path %>
         </li>
+
+        <li <%= "class=is-active" if controller_name == "editors" %>>
+          <%= link_to t("admin.menu.editors"), admin_editors_path %>
+        </li>
       </ul>
     </li>
 

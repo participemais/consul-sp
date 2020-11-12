@@ -69,9 +69,6 @@ module Abilities
       can [:create], Document
       can [:destroy], Document, documentable_type: "Poll::Question::Answer"
       can [:create, :destroy], DirectUpload
-
-      can :manage, LocalCensusRecord
-      can [:create, :read], LocalCensusRecords::Import
     end
   end
 end
