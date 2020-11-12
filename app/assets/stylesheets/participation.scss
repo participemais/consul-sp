@@ -1812,11 +1812,16 @@
 .poll-more-info,
 .poll-more-info-answers {
   border-top: 1px solid #eee;
+
+  h4 {
+    font-family: $subheader-font-family;
+  }
 }
 
 .poll-more-info-answers {
   background: #fafafa;
   border-bottom: 1px solid #eee;
+  margin-bottom: $line-height / 2;
 
   .column:nth-child(odd) {
     border-right: 2px solid $text;
@@ -1921,7 +1926,6 @@
 .poll,
 .poll-question {
   border: 1px solid $border;
-  margin-bottom: $line-height / 2;
   padding: $line-height / 2;
   position: relative;
 
@@ -2012,6 +2016,17 @@
     margin-bottom: -($line-height / 3);
     font-size: $small-font-size;
     font-weight: bold;
+  }
+
+  .poll-answers-more-info {
+    border-top: 1px dashed $border;
+    margin-bottom: 0;
+
+    a {
+      font-family: $subheader-font-family;
+      text-transform: uppercase;
+      font-size: $tiny-font-size;
+    }
   }
 }
 

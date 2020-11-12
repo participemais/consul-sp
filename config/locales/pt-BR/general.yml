@@ -654,16 +654,15 @@ pt-BR:
       cant_answer_expired: "Esta votação já foi encerrada."
       electoral_college_restricted: "Apenas membros de determinado colégio eleitoral podem participar desta votação"
       cant_answer_wrong_geozone: "Esta questão não está disponível para a sua localidade."
-      more_info_title: "Mais informações"
+      more_info_title: "Descrição"
       less_info_title: "Menos informações"
       documents: Documentos
       zoom_plus: Expandir imagem
-      read_more: "Ler mais sobre %{answer}"
-      read_less: "Ler menos sobre %{answer}"
       videos: "Vídeo externo"
       info_menu: "Informação"
       stats_menu: "Estatísticas da participação"
       results_menu: "Resultados da votação"
+      more_info: "Mais informações"
       stats:
         total_votes: "Quantidade total de votos emitidos"
         votes: "VOTOS"
