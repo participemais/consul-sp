@@ -1812,6 +1812,10 @@
 .poll-more-info,
 .poll-more-info-answers {
   border-top: 1px solid #eee;
+
+  h4 {
+    font-family: $subheader-font-family;
+  }
 }
 
 .poll-more-info-answers {
