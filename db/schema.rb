@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20201030133307) do
+ActiveRecord::Schema.define(version: 20201111193449) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -1208,6 +1208,7 @@ ActiveRecord::Schema.define(version: 20201030133307) do
     t.string "video_url"
     t.string "category"
     t.integer "votes_per_question", default: 1, null: false
+    t.integer "winners_amount", default: 1, null: false
     t.index ["author_id"], name: "index_poll_questions_on_author_id"
     t.index ["poll_id"], name: "index_poll_questions_on_poll_id"
     t.index ["proposal_id"], name: "index_poll_questions_on_proposal_id"
@@ -1276,6 +1277,7 @@ ActiveRecord::Schema.define(version: 20201030133307) do
     t.string "origin"
     t.integer "officer_id"
     t.string "token"
+    t.string "ethnicity"
     t.index ["booth_assignment_id"], name: "index_poll_voters_on_booth_assignment_id"
     t.index ["document_number"], name: "index_poll_voters_on_document_number"
     t.index ["officer_assignment_id"], name: "index_poll_voters_on_officer_assignment_id"

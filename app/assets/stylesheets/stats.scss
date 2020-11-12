@@ -32,6 +32,13 @@
     margin-top: $line-height;
   }
 
+  .gender-icons {
+    font-size: 3.5rem;
+    position: relative;
+    top: -5px;
+    margin-right: $line-height / 6;
+  }
+
   .number-with-info {
     display: inline-block;
 
@@ -71,7 +78,7 @@
 
     .content {
       display: inline-block;
-      margin-right: $line-height * 2;
+      margin-right: $line-height;
     }
 
     .number {

@@ -1795,16 +1795,33 @@
       color: $color-alert;
     }
   }
+
+  .tags span {
+    background: $tag;
+    border-radius: rem-calc(6);
+    color: $text;
+    display: inline-block;
+    font-size: $small-font-size;
+    margin-bottom: $line-height / 3;
+    padding: $line-height / 4 $line-height / 3;
+    text-decoration: none;
+  }
+
 }
 
 .poll-more-info,
 .poll-more-info-answers {
   border-top: 1px solid #eee;
+
+  h4 {
+    font-family: $subheader-font-family;
+  }
 }
 
 .poll-more-info-answers {
   background: #fafafa;
   border-bottom: 1px solid #eee;
+  margin-bottom: $line-height / 2;
 
   .column:nth-child(odd) {
     border-right: 2px solid $text;
@@ -1848,6 +1865,7 @@
 
 .orbit-slide {
   max-height: none !important;
+  position: relative;
 }
 
 .orbit-caption {
@@ -1908,7 +1926,6 @@
 .poll,
 .poll-question {
   border: 1px solid $border;
-  margin-bottom: $line-height / 2;
   padding: $line-height / 2;
   position: relative;
 
@@ -2000,6 +2017,17 @@
     font-size: $small-font-size;
     font-weight: bold;
   }
+
+  .poll-answers-more-info {
+    border-top: 1px dashed $border;
+    margin-bottom: 0;
+
+    a {
+      font-family: $subheader-font-family;
+      text-transform: uppercase;
+      font-size: $tiny-font-size;
+    }
+  }
 }
 
 .questions-callout {
@@ -2064,6 +2092,18 @@
       }
     }
   }
+
+  .answer-votes {
+    display: inline-block;
+  }
+
+  .votes {
+    color: #5657A2;
+    font-size: 17px;
+    font-weight: bold;
+    float: right;
+    margin-right: 8px;
+  }
 }
 
 // 09. Polls results and stats
@@ -2080,6 +2120,12 @@
         color: $link;
         line-height: $line-height;
       }
+    }
+
+    .questions-list {
+      padding: 0;
+      margin-top: $line-height / 2;
+      margin-left: $line-height / 2;
     }
   }
 
@@ -2120,3 +2166,7 @@
   box-shadow: 0 1px 3px 0 #dee0e3;
   min-height: 12rem;
 }
+
+
+
+

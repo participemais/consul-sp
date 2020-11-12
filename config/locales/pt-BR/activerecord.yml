@@ -2,8 +2,8 @@ pt-BR:
   attributes:
     geozone_id: "ID da subprefeitura"
     results_enabled: "Exibir resultados"
-    stats_enabled: "Exibir estatísticas"
-    advanced_stats_enabled: "Exibir estatísticas avançadas"
+    stats_enabled: "Exibir estatísticas de participação"
+    advanced_stats_enabled: "Exibir dados de participação por canal"
   activerecord:
     models:
       activity:
@@ -373,6 +373,7 @@ pt-BR:
         external_url: "Link para documentação adicional"
         votes_per_question: "Número de opções selecionáveis"
         category: "Categoria"
+        winners_amount: "Quantidade de vencedores"
       poll/question/translation:
         title: "Questão"
       poll/ballot_sheet:

@@ -24,6 +24,7 @@ class Poll::Question < ApplicationRecord
   validates :author, presence: true
   validates :poll_id, presence: true, if: proc { |question| question.poll.nil? }
   validates :votes_per_question, presence: true
+  validates :winners_amount, presence: true
 
   accepts_nested_attributes_for :question_answers, reject_if: :all_blank, allow_destroy: true
 
@@ -67,8 +68,9 @@ class Poll::Question < ApplicationRecord
     question_answers.reduce(0) { |total, question_answer| total + question_answer.total_votes }
   end
 
-  def most_voted_answer_id
-    question_answers.max_by(&:total_votes)&.id
+  def most_voted_answers
+    winners = questions_by_total_votes.max_by(winners_amount) { |key| key }.to_h
+    winners.values.flatten
   end
 
   def possible_answers
@@ -91,5 +93,11 @@ class Poll::Question < ApplicationRecord
 
   def user_answers(user)
     answers.by_author(user)
+  end
+
+  def questions_by_total_votes
+    question_answers.group_by do |question|
+      question.total_votes if question.total_votes > 0
+    end
   end
 end
