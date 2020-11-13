@@ -646,7 +646,7 @@ pt-BR:
     show:
       already_voted_in_booth: "Você já participou de uma urna física. Você não pode participar novamente."
       already_voted_in_web: "Você já participou desta votação. Se você votar novamente, este voto será sobrescrito ao voto anterior."
-      back: Voltar à votações
+      back: Voltar às votações
       cant_answer_not_logged_in: "Você precisa acessar sua %{signin} ou se %{signup} para participar."
       comments_tab: Comentários
       cant_answer_verify: "Você deve %{verify_link} para poder responder."
