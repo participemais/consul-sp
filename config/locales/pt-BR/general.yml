@@ -640,7 +640,7 @@ pt-BR:
       no_open_polls: "Não existem processos abertos"
       no_close_polls: "Não existem processos encerrados"
       period: Período
-      votes: "Voto"
+      votes: "Votos"
       votes_counter:
         one: "%{count} voto"
         other: "%{count} votos"
