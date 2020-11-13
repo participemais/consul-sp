@@ -60,7 +60,7 @@ class Poll
     def sanitize
       self.document_type = document_type&.downcase&.strip
       self.document_number = clean_document_number
-      self.category = category&.strip
+      self.category = category&.capitalize&.strip
     end
 
     def clean_document_number
