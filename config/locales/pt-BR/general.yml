@@ -663,7 +663,8 @@ pt-BR:
       info_menu: "Informação"
       stats_menu: "Estatísticas da participação"
       results_menu: "Resultados da votação"
-      more_info: "Mais informações"
+      more_info: "Exibir informações adicionais"
+      less_info: "Ocultar informações adicionais"
       stats:
         total_votes: "Quantidade total de votos emitidos"
         votes: "VOTOS"

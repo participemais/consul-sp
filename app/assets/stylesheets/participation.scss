@@ -1811,7 +1811,6 @@
 
 .poll-more-info,
 .poll-more-info-answers {
-  border-top: 1px solid #eee;
 
   h4 {
     font-family: $subheader-font-family;
@@ -1822,9 +1821,11 @@
   background: #fafafa;
   border-bottom: 1px solid #eee;
   margin-bottom: $line-height / 2;
+  padding: $line-height / 2;
 
-  .column:nth-child(odd) {
-    border-right: 2px solid $text;
+  .column:nth-child(even) {
+    border-right: 2px solid $text-medium;
+    border-left: 2px solid $text-medium;
   }
 
   .answer-divider {
