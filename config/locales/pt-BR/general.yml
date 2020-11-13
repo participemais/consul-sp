@@ -641,7 +641,7 @@ pt-BR:
       no_close_polls: "Não existem processos encerrados"
       period: Período
       votes: "Voto"
-      vote:
+      votes_counter:
         one: "%{count} voto"
         other: "%{count} votos"
     show:
