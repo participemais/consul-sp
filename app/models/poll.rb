@@ -43,8 +43,8 @@ class Poll < ApplicationRecord
   validate :date_range
   validate :only_one_active, unless: :public?
 
-  before_save :activate_electoral_college, if: :trigger_job?
   before_save :schedule_electoral_college_deactivation, if: :trigger_job?
+  before_save :activate_electoral_college, if: :trigger_job?
 
   accepts_nested_attributes_for :questions, reject_if: :all_blank, allow_destroy: true
 
