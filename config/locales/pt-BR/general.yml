@@ -685,8 +685,8 @@ pt-BR:
       vote_answer: "Votar em %{answer}"
       destroy_vote: "Apagar voto em %{answer}"
       vote_limit:
-        one: "Você só pode selecionar uma opção"
-        other: "Você pode selecionar até %{count} opções"
+        one: "Você só pode selecionar uma opção."
+        other: "Você pode selecionar até %{count} opções."
       remaining_votes:
         zero: "Votação concluída. Clique em uma opção selecionada se quiser alterar seu voto."
         one: "Você ainda pode selecionar uma opção."
