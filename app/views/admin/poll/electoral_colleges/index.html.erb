@@ -38,13 +38,15 @@
 
     <h3 class="inline-block"><%= t("admin.electoral_colleges.elector.title") %></h3>
 
-    <%= link_to t("admin.electoral_colleges.index.elector"),
+    <% if @electoral_college.active %>
+      <%= link_to t("admin.electoral_colleges.index.elector"),
       new_admin_poll_electoral_college_elector_path(@poll, @electoral_college),
       class: "button float-right hollow" %>
 
-    <%= link_to t("admin.electoral_colleges.index.import"),
-      new_admin_poll_electoral_college_electors_import_path(@poll, @electoral_college),
-      class: "button float-right hollow" %>
+      <%= link_to t("admin.electoral_colleges.index.import"),
+        new_admin_poll_electoral_college_electors_import_path(@poll, @electoral_college),
+        class: "button float-right hollow" %>
+    <% end %>
 
     <%= render "/admin/poll/electoral_colleges/electors/search_electors" %>
 
