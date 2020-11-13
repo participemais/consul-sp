@@ -572,7 +572,7 @@ pt-BR:
         user:
           attributes:
             cpf:
-              invalid_number: "Número de CPF inválido"
+              invalid_number: "Número de documento inválido"
             email:
               password_already_set: "Este usuário já possui uma senha"
             date_of_birth:

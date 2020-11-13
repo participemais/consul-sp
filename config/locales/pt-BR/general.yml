@@ -198,6 +198,7 @@ pt-BR:
     site_customization/content_block: Conteúdo
     site_customization/page: Página
     feasibility_analysis: Análises de viabilidade
+    poll/electors/import: Arquivo
   geozones:
     none: Cidade de São Paulo
   layouts:
@@ -639,14 +640,14 @@ pt-BR:
       no_open_polls: "Não existem processos abertos"
       no_close_polls: "Não existem processos encerrados"
       period: Período
-      votes: "Voto"
-      vote:
+      votes: "Votos"
+      votes_counter:
         one: "%{count} voto"
         other: "%{count} votos"
     show:
       already_voted_in_booth: "Você já participou de uma urna física. Você não pode participar novamente."
       already_voted_in_web: "Você já participou desta votação. Se você votar novamente, este voto será sobrescrito ao voto anterior."
-      back: Voltar à votações
+      back: Voltar às votações
       cant_answer_not_logged_in: "Você precisa acessar sua %{signin} ou se %{signup} para participar."
       comments_tab: Comentários
       cant_answer_verify: "Você deve %{verify_link} para poder responder."
@@ -657,12 +658,12 @@ pt-BR:
       more_info_title: "Descrição"
       less_info_title: "Menos informações"
       documents: Documentos
-      zoom_plus: Expandir imagem
       videos: "Vídeo externo"
       info_menu: "Informação"
       stats_menu: "Estatísticas da participação"
       results_menu: "Resultados da votação"
-      more_info: "Mais informações"
+      more_info: "Exibir informações adicionais"
+      less_info: "Ocultar informações adicionais"
       stats:
         total_votes: "Quantidade total de votos emitidos"
         votes: "VOTOS"
@@ -684,12 +685,12 @@ pt-BR:
       vote_answer: "Votar em %{answer}"
       destroy_vote: "Apagar voto em %{answer}"
       vote_limit:
-        one: "Você só pode escolher uma opção"
-        other: "Você só pode escolher %{count} opções"
+        one: "Você só pode selecionar uma opção"
+        other: "Você pode selecionar até %{count} opções"
       remaining_votes:
         zero: "Votação concluída. Clique em uma opção selecionada se quiser alterar seu voto."
-        one: "Você pode selecionar uma opção."
-        other: "Você pode selecionar %{count} opções."
+        one: "Você ainda pode selecionar uma opção."
+        other: "Você ainda pode selecionar %{count} opções."
       out_of_category: "Você não pode votar por não fazer parte da categoria %{category}."
   proposal_notifications:
     new:

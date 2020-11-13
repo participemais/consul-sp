@@ -1779,7 +1779,7 @@
 // ----------------------
 
 .polls-show-header {
-  background: #fafafa;
+  background: #e7f2fc;
 
   .callout {
 
@@ -1811,7 +1811,6 @@
 
 .poll-more-info,
 .poll-more-info-answers {
-  border-top: 1px solid #eee;
 
   h4 {
     font-family: $subheader-font-family;
@@ -1822,16 +1821,11 @@
   background: #fafafa;
   border-bottom: 1px solid #eee;
   margin-bottom: $line-height / 2;
+  padding: $line-height / 2;
 
-  .column:nth-child(odd) {
-    border-right: 2px solid $text;
-  }
-
-  .answer-divider {
-    border-bottom: 2px solid $text;
-    border-right: 0 !important;
-    margin-bottom: $line-height;
-    padding-bottom: $line-height;
+  .column:nth-child(even) {
+    border-right: 2px solid $text-medium;
+    border-left: 2px solid $text-medium;
   }
 
   .answer-description {
@@ -1876,29 +1870,6 @@
 .orbit-next,
 .orbit-previous {
   background: rgba(34, 34, 34, 0.25);
-}
-
-.zoom-link {
-  background: #fff;
-  border-radius: rem-calc(48);
-  color: #000;
-  font-size: rem-calc(24);
-  font-weight: bold;
-  height: rem-calc(48);
-  line-height: rem-calc(48);
-  right: 12px;
-  padding-top: rem-calc(4);
-  position: absolute;
-  text-align: center;
-  top: 24px;
-  width: rem-calc(48);
-  z-index: 9;
-
-  &:hover {
-    background: $dark;
-    color: #fff;
-    text-decoration: none;
-  }
 }
 
 .image-container {

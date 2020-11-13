@@ -992,7 +992,7 @@ pt-BR:
           created: Eleitores adicionados ao colégio eleitoral
           existing: Eleitores já cadastrados
           no_records_found: Nenhum registro encontrado
-          import: Importar CSV
+          import: Importar eleitores por CSV
         create:
           notice: Importação concluída com sucesso
       export:
@@ -1046,6 +1046,8 @@ pt-BR:
         table_proposal: "Proposta"
         table_question: "Questão"
         table_poll: "Votação"
+      form:
+        all_categories: "Todas as categorias"
       edit:
         title: "Editar pergunta"
       new:
@@ -1078,8 +1080,8 @@ pt-BR:
       index:
         title: Colégio Eleitoral
         create: Criar colégio eleitoral
-        elector: Criar eleitor
-        import: Importar CSV
+        elector: Adicionar eleitor
+        import: Importar eleitores por CSV
         active: Ativo
         inactive: Inativo
       new:

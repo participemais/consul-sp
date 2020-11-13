@@ -1,5 +1,5 @@
 <div class="row margin-top">
-  <div class="small-12 medium-9 column">
+  <div class="small-12 column">
     <div id="<%= dom_id(question) %>" class="poll-question">
       <% if question.category.present? %>
         <p class="question-category"><%= question.category %></p>
@@ -14,10 +14,30 @@
 
       <% if question.question_answers.with_description.any? %>
         <p class="poll-answers-more-info">
-          <a id="<%= dom_id(question) %>_more_info" data-toggle="<%= dom_id(question) %>_answer_info">
+          <a id="<%= dom_id(question) %>_more_info"
+            data-toggle="<%= dom_id(question) %>_answer_info
+              <%= dom_id(question) %>_more_info
+              <%= dom_id(question) %>_less_info"
+            data-toggler="hide"
+          >
             <%= t("polls.show.more_info") %>
           </a>
+          <a id="<%= dom_id(question) %>_less_info"
+            data-toggle="<%= dom_id(question) %>_answer_info
+              <%= dom_id(question) %>_more_info
+              <%= dom_id(question) %>_less_info"
+            data-toggler="hide" class="hide"
+          >
+            <%= t("polls.show.less_info") %>
+          </a>
         </p>
+      <% end %>
+
+      <% if question.question_answers.with_description.any? %>
+        <div id="<%= dom_id(question) %>_answer_info"
+          class="hide" data-toggler="hide">
+          <%= render "polls/questions/info_answers", question: question %>
+        </div>
       <% end %>
 
       <% if user_signed_in? && current_user.incomplete_registration? %>
@@ -37,8 +57,3 @@
     </div>
   </div>
 </div>
-<% if question.question_answers.with_description.any? %>
-  <div id="<%= dom_id(question) %>_answer_info" class="hide" data-toggler="hide">
-    <%= render "polls/questions/info_answers", question: question %>
-  </div>
-<% end %>

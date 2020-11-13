@@ -1,8 +1,8 @@
-<div id="poll_more_info_answers" class="expanded poll-more-info-answers padding">
-  <% question.question_answers.each_slice(2) do |answers| %>
+<div id="poll_more_info_answers" class="expanded poll-more-info-answers">
+  <% question.question_answers.each_slice(3) do |answers| %>
     <div class="row" data-equalizer data-equalizer-on="medium">
       <% answers.each do |answer| %>
-        <div class="small-12 medium-6 column end answer padding-bottom <%= cycle("first", "") %>" id="answer_<%= answer.id %>" data-equalizer-watch>
+        <div class="small-12 medium-4 column end answer padding-bottom" id="answer_<%= answer.id %>" data-equalizer-watch>
           <% if answer.description.present? %>
             <h3><%= answer.title %></h3>
           <% end %>

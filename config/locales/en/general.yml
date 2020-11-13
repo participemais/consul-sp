@@ -641,7 +641,6 @@ en:
       cant_answer_wrong_geozone: "This question is not available on your geozone."
       more_info_title: "More information"
       documents: Documents
-      zoom_plus: Expand image
       videos: "External video"
       info_menu: "Information"
       stats_menu: "Participation statistics"

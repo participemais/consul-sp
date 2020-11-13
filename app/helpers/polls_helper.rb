@@ -63,7 +63,15 @@ module PollsHelper
     )
   end
 
-  def poll_votes_counter(question, user)
-    question.votes_per_question - question.user_answers_count(user)
+  def poll_votes_counter(question)
+    question.votes_per_question - question.user_answers_count(current_user)
+  end
+
+  def votes_counter_key(question)
+    if question.user_answers_count(current_user) == 0
+      "vote_limit"
+    else
+      "remaining_votes"
+    end
   end
 end
