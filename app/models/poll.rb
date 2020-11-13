@@ -207,7 +207,7 @@ class Poll < ApplicationRecord
   end
 
   def category_options
-    electors.distinct.pluck(:category).compact
+    electors.distinct.pluck(:category).reject(&:blank?)
   end
 
   def filename

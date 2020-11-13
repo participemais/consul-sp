@@ -1046,6 +1046,8 @@ pt-BR:
         table_proposal: "Proposta"
         table_question: "Questão"
         table_poll: "Votação"
+      form:
+        all_categories: "Todas as categorias"
       edit:
         title: "Editar pergunta"
       new:
