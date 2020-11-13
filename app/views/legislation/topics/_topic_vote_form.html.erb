@@ -1,0 +1,61 @@
+<% topic_vote = find_or_build_topic_vote(topic) %>
+<p class="evaluate-topic with-border"
+  data-info-toggle="<%= dom_id(topic) %>_evaluation"
+>
+  <% if topic_vote.new_record? %>
+    <i class="fas fa-vote-yea"></i><span>
+      <%= t("legislation.topics.index.evaluate") %>
+    </span>
+  <% else %>
+    <span class="icon-check-circle purple-font"
+      title=" ">
+      <%= t("legislation.topics.index.done") %>
+    </span>
+  <% end %>
+</p>
+
+<div id="<%= dom_id(topic) %>_evaluation" class="evaluate-options <%= hide_box %>">
+  <%= form_for topic_vote,
+    url: topic_vote_url(topic, topic_vote),
+    html: { class: "controls-stacked" },
+    remote: true do |f|
+  %>
+    <div class="form">
+      <% topic.assessments.order(:id).each do |assessment| %>
+        <label class="control radio <%= "is-active" if topic_vote.legislation_assessment_id == assessment.id %>">
+          <%= f.radio_button(
+            :legislation_assessment_id,
+            assessment.id,
+            label: false,
+            data: { choose_option: "#{dom_id(topic)}_options" }
+          ) %>
+          <span class="control-indicator"></span>
+          <%= assessment.title %>
+        </label>
+      <% end %>
+    </div>
+    <%= f.hidden_field(
+      :legislation_topic_id,
+      value: topic.id,
+      id: "topic-id-#{topic.id}"
+    ) %>
+    <%= f.label(
+      :comment, nil, for: "comment_#{dom_id(topic)}", class: "evaluate-label"
+    ) %>
+    <%= f.text_area(
+      :comment,
+      id: "comment_#{dom_id(topic)}",
+      class: "#{dom_id(topic)}_options",
+      label: false,
+      disabled: topic_vote.new_record?
+    ) %>
+    <p class="submit-topic-vote no-margin-bottom">
+      <%= f.submit(
+        t("legislation.topic_votes.form.#{topic_vote_submit(topic_vote)}"),
+        class: "button #{dom_id(topic)}_options",
+        disabled: topic_vote.new_record?
+      ) %>
+    </p>
+  <% end %>
+  <%= render "/legislation/topics/participation_not_allowed" %>
+</div>

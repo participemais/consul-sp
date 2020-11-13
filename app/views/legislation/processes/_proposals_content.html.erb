@@ -5,7 +5,7 @@
         <div class="legislation-proposals">
           <%= render "shared/filter_subnav", i18n_namespace: "legislation.processes.proposals" %>
           <% if proposals.empty? %>
-            <div class="callout primary">
+            <div class="callout warning">
               <p><%= t("legislation.processes.proposals.empty_proposals") %></p>
             </div>
           <% else %>

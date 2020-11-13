@@ -26,6 +26,8 @@ class Legislation::ProcessesController < Legislation::BaseController
       redirect_to debate_legislation_process_path(@process)
     elsif @process.proposals_phase.enabled?
       redirect_to proposals_legislation_process_path(@process)
+    elsif @process.topics_phase.enabled?
+      redirect_to topics_legislation_process_path(@process)
     else
       redirect_to allegations_legislation_process_path(@process)
     end
@@ -37,6 +39,31 @@ class Legislation::ProcessesController < Legislation::BaseController
 
     if @process.debate_phase.started? || (current_user&.administrator?)
       render :debate
+    else
+      render :phase_not_open
+    end
+  end
+
+  def topics
+    set_process
+    @phase = :topics_phase
+
+    if @process.topics_phase.started?
+      @topics = @process.root_topics
+
+      respond_to do |format|
+        format.html do
+          if @topics.any?
+            render :topics
+          else
+            render :phase_empty
+          end
+        end
+        format.csv do
+          send_data Legislation::Topic::Exporter.new(@topics).to_csv,
+            filename: "contribuicoes-revisao-#{@process.filename}.csv"
+        end
+      end
     else
       render :phase_not_open
     end

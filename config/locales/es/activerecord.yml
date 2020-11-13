@@ -134,15 +134,15 @@ es:
         description: Descripción
       budget:
         name: "Nombre"
-        description_accepting: "Descripción durante la fase de presentación de proyectos"
-        description_reviewing: "Descripción durante la fase de revisión interna"
-        description_selecting: "Descripción durante la fase de apoyos"
-        description_valuating: "Descripción durante la fase de evaluación"
-        description_balloting: "Descripción durante la fase de votación"
-        description_reviewing_ballots: "Descripción durante la fase de revisión de votos"
-        description_devolutive: "Descripción durante la fase devolutiva"
+        description_accepting: "Descripción durante la etapa de presentación de proyectos"
+        description_reviewing: "Descripción durante la etapa de revisión interna"
+        description_selecting: "Descripción durante la etapa de apoyos"
+        description_valuating: "Descripción durante la etapa de evaluación"
+        description_balloting: "Descripción durante la etapa de votación"
+        description_reviewing_ballots: "Descripción durante la etapa de revisión de votos"
+        description_devolutive: "Descripción durante la etapa devolutiva"
         description_finished: "Descripción cuando el presupuesto ha finalizado / Resultados"
-        phase: "Fase"
+        phase: "Etapa"
         currency_symbol: "Divisa"
       budget/translation:
         name: "Nombre"
@@ -206,10 +206,11 @@ es:
         name: "Nombre de la partida"
         price: "Cantidad"
         population: "Población (opcional)"
+        area: "Zona"
       budget/heading/translation:
         name: "Nombre de la partida"
       budget/phase:
-        enabled: "Fase habilitada"
+        enabled: "Etapa habilitada"
         ends_at: "Fecha de fin"
         starts_at: "Fecha de inicio"
       budget/phase/translation:

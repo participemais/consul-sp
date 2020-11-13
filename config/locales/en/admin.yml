@@ -827,9 +827,6 @@ en:
       budget_investment_selected:
         title: "Budget investment selected"
         description: "Sent to the author when its budget investment has been selected."
-      budget_investment_unfeasible:
-        title: "Budget investment unfeasible"
-        description: "Sent to the author when its budget investment has been marked as unfeasible."
       budget_investment_unselected:
         title: "Budget investment unselected"
         description: "Sent to the author when its budget investment hasn't been selected for voting phase."

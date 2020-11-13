@@ -13,7 +13,7 @@ es:
         cancel: Cancelar
         publish_comment: Publicar Comentario
       form:
-        phase_not_open: Esta fase del proceso no está abierta
+        phase_not_open: Esta etapa del proceso no está abierta
       index:
         title: Comentarios
         comments_about: Comentarios sobre
@@ -65,19 +65,15 @@ es:
         section_header:
           icon_alt: Icono de legislación colaborativa
           title: Legislación colaborativa
-          help: Ayuda sobre legislación colaborativa
         section_footer:
           title: Ayuda sobre Legislación colaborativa
           description: Participa en los debates y procesos previos a la aprobación de nuevas normas o planes. Tu opinión será tenida en cuenta.
       phase_not_open:
-        not_open: Esta fase del proceso todavía no está abierta
+        not_open: Esta etapa del proceso todavía no está abierta
       phase_empty:
         empty: No hay nada publicado todavía
-      process:
-        see_latest_comments: Ver últimas aportaciones
-        see_latest_comments_title: Aportar a este proceso
       shared:
-        key_dates: Fases de participación
+        key_dates: Etapas de participación
         homepage: Inicio
         debate_dates: Debate previo
         draft_publication_date: Publicación borrador
@@ -89,7 +85,7 @@ es:
       comments:
         comment_button: Publicar respuesta
         comments_title: Respuestas abiertas
-        comments_closed: Fase cerrada
+        comments_closed: Etapa cerrada
         form:
           leave_comment: Deja tu respuesta
       question:
@@ -105,11 +101,11 @@ es:
         share: Compartir
         title: Proceso de legislación colaborativa
       participation:
-        phase_not_open: Esta fase no está abierta
+        phase_not_open: Esta etapa no está abierta
         organizations: Las organizaciones no pueden participar en el debate
         unauthenticated: Necesitas %{signin} o %{signup} para participar en el debate.
         verified_only: Solo los usuarios verificados pueden participar en el debate, %{verify_account}.
-        debate_phase_not_open: La fase de debate previo ya ha finalizado y en este momento no se aceptan respuestas
+        debate_phase_not_open: La etapa de debate previo ya ha finalizado y en este momento no se aceptan respuestas
     shared:
       share: Compartir
       share_comment: Comentario sobre la %{version_name} del borrador del proceso %{process_name}

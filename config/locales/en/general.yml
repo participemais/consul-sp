@@ -1,7 +1,7 @@
 en:
   account:
     show:
-      change_credentials_link: Change my password
+      change_credentials_link: Change email or password
       erase_account_link: Erase my account
       finish_verification: Complete verification
       foreigner_document: RNM
@@ -115,10 +115,6 @@ en:
         actions:
           success: "Recommendations for debates are now disabled for this account"
           error: "An error has occured. Please go to 'My account' page to manually disable recommendations for debates"
-      search_form:
-        button: Search
-        placeholder: Search debates...
-        title: Search
       search_results:
         one: " containing the term <strong>'%{search_term}'</strong>"
         other: " containing the term <strong>'%{search_term}'</strong>"
@@ -128,7 +124,6 @@ en:
       section_header:
         icon_alt: Debates icon
         title: Debates
-        help: Help about debates
       section_footer:
         title: Help about debates
         description: Start a debate to share opinions with others about the topics you are concerned about.
@@ -386,10 +381,6 @@ en:
         unfeasible: Unfeasible
         done: Done
         other: Other
-      search_form:
-        button: Search
-        placeholder: Search proposals...
-        title: Search
       search_results:
         one: " containing the term <strong>'%{search_term}'</strong>"
         other: " containing the term <strong>'%{search_term}'</strong>"
@@ -402,7 +393,6 @@ en:
       section_header:
         icon_alt: Proposals icon
         title: Proposals
-        help: Help about proposals
       section_footer:
         title: Help about proposals
         description: Citizens' proposals are an opportunity for neighbours and collectives to decide directly how they want their city to be, after getting sufficient support and submitting to a citizens' vote.
@@ -635,7 +625,6 @@ en:
       section_header:
         icon_alt: Voting icon
         title: Voting
-        help: Help about voting
       section_footer:
         title: Help about voting
         description: Citizens' polls are a participatory mechanism by which citizens with voting rights can make direct decisions
@@ -718,6 +707,7 @@ en:
     check_all: All
     check_none: None
     collective: Collective
+    feasible: Feasible
     flag: Flag as inappropriate
     follow: "Follow"
     following: "Following"
@@ -763,6 +753,8 @@ en:
       categories: "Categories"
     target_blank: " (link opens in new window)"
     you_are_in: "You are in"
+    undecided: Undecided
+    unfeasible: Unfeasible
     unflag: Unflag
     unfollow_entity: "Unfollow %{entity}"
     outline:

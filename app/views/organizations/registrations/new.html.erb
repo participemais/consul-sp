@@ -1,4 +1,11 @@
 <% provide :title do %><%= t("devise_views.organizations.registrations.new.title") %><% end %>
+
+<h1 class="logo margin sessions-form-logo">
+  <%= link_to root_path do %>
+    <%= image_tag(image_path_for("logo_header.png"), class: "float-left", alt: t("layouts.header.logo")) %>
+  <% end %>
+</h1>
+
 <h2><%= t("devise_views.organizations.registrations.new.title") %></h2>
 
  <%= form_for(resource, as: :user, url: organization_registration_path) do |f| %>

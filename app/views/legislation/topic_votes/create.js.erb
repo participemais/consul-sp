@@ -1,0 +1,9 @@
+<%= render "vote", topic: @topic_vote.topic %>
+$("#<%= dom_id(@topic_vote.topic) %>_index").append(
+  "<span class='icon-check-circle purple-font small'></span>"
+);
+$(".topics-votes-count span").html(
+  "<%= j t(
+    'legislation.topics.index.contributions', count: @process.topics_votes_count
+  ) %>"
+);

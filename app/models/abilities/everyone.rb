@@ -20,11 +20,12 @@ module Abilities
       can :read_executions, Budget, phase: "finished"
       can :new, DirectMessage
       can [:read, :debate, :draft_publication, :allegations, :result_publication,
-           :proposals, :milestones], Legislation::Process, published: true
+           :proposals, :topics, :milestones], Legislation::Process, published: true
       can [:read, :changes, :go_to_version], Legislation::DraftVersion
       can [:read], Legislation::Question
       can [:read, :map, :share], Legislation::Proposal
       can [:search, :comments, :read, :create, :new_comment], Legislation::Annotation
+      can [:comments], Legislation::Topic
     end
   end
 end

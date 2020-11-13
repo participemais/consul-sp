@@ -95,6 +95,10 @@
 //= require district_data
 //= require subprefecture_data
 //= require change_confirmation
+//= require link_target_blank
+//= require proposals_status_filters
+//= require data_info_toggle
+//= require enable_elements
 
 var initialize_modules = function() {
   "use strict";
@@ -154,6 +158,10 @@ var initialize_modules = function() {
   App.DistrictData.initialize();
   App.SubprefectureData.initialize();
   App.ChangeConfirmation.initialize();
+  App.LinkTargetBlank.initialize();
+  App.ProposalsStatusFilters.initialize();
+  App.DataInfoToggle.initialize();
+  App.EnableElements.initialize();
 };
 
 $(function() {

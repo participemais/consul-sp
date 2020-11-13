@@ -11,7 +11,7 @@ describe "System Emails" do
     let(:system_emails_with_preview) { %w[proposal_notification_digest] }
     let(:system_emails) do
       %w[proposal_notification_digest budget_investment_created budget_investment_selected
-         budget_investment_unfeasible budget_investment_unselected comment reply
+         budget_investment_unselected comment reply
          direct_message_for_receiver direct_message_for_sender email_verification user_invite
          evaluation_comment]
     end
@@ -120,15 +120,6 @@ describe "System Emails" do
       expect(page).to have_link "Share your investment project", href: share_url
     end
 
-    scenario "#budget_investment_unfeasible" do
-      investment = create(:budget_investment, title: "Cleaner city", heading: heading, author: user)
-
-      visit admin_system_email_view_path("budget_investment_unfeasible")
-
-      expect(page).to have_content "Your investment project '#{investment.code}' "
-      expect(page).to have_content "has been marked as unfeasible"
-    end
-
     scenario "#budget_investment_unselected" do
       investment = create(:budget_investment, title: "Cleaner city", heading: heading, author: user)
 
@@ -214,10 +205,6 @@ describe "System Emails" do
       expect(page).to have_content "Some example data is needed in order to preview the email."
 
       visit admin_system_email_view_path("budget_investment_selected")
-      expect(page).to have_content "There aren't any budget investment created."
-      expect(page).to have_content "Some example data is needed in order to preview the email."
-
-      visit admin_system_email_view_path("budget_investment_unfeasible")
       expect(page).to have_content "There aren't any budget investment created."
       expect(page).to have_content "Some example data is needed in order to preview the email."
 

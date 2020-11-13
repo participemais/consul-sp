@@ -1,7 +1,7 @@
 es:
   account:
     show:
-      change_credentials_link: Cambiar mi contraseña
+      change_credentials_link: Cambiar email o contraseña
       erase_account_link: Darme de baja
       finish_verification: Finalizar verificación
       foreigner_document: RNM
@@ -115,10 +115,6 @@ es:
         actions:
           success: "Las recomendaciones de debates han sido desactivadas"
           error: "Ha ocurrido un error. Por favor dirígete al apartado 'Mi cuenta' para desactivar las recomendaciones manualmente"
-      search_form:
-        button: Buscar
-        placeholder: Buscar debates...
-        title: Buscar
       search_results:
         one: " que contiene <strong>'%{search_term}'</strong>"
         other: " que contienen <strong>'%{search_term}'</strong>"
@@ -128,7 +124,6 @@ es:
       section_header:
         icon_alt: Icono de Debates
         title: Debates
-        help: Ayuda sobre los debates
       section_footer:
         title: Ayuda sobre los debates
         description: Inicia un debate para compartir puntos de vista con otras personas sobre los temas que te preocupan.
@@ -386,10 +381,6 @@ es:
         unfeasible: Inviables
         done: Realizadas
         other: Otras
-      search_form:
-        button: Buscar
-        placeholder: Buscar propuestas...
-        title: Buscar
       search_results:
         one: " que contiene <strong>'%{search_term}'</strong>"
         other: " que contienen <strong>'%{search_term}'</strong>"
@@ -402,7 +393,6 @@ es:
       section_header:
         icon_alt: Icono de Propuestas
         title: Propuestas
-        help: Ayuda sobre las propuestas
       section_footer:
         title: Ayuda sobre las propuestas
         description: Las propuestas ciudadanas son una oportunidad para que los vecinos y colectivos decidan directamente cómo quieren que sea su ciudad, después de conseguir los apoyos suficientes y de someterse a votación ciudadana.
@@ -633,7 +623,6 @@ es:
       section_header:
         icon_alt: Icono de Votaciones
         title: Votaciones
-        help: Ayuda sobre las votaciones
       section_footer:
         title: Ayuda sobre las votaciones
         description: Las votaciones ciudadanas son un mecanismo de participación por el que la ciudadanía con derecho a voto puede tomar decisiones de forma directa.
@@ -716,6 +705,7 @@ es:
     check_all: Todos
     check_none: Ninguno
     collective: Colectivo
+    feasible: Viable
     flag: Denunciar como inapropiado
     follow: "Seguir"
     following: "Siguiendo"
@@ -761,6 +751,8 @@ es:
       categories: "Categorías"
     target_blank: " (se abre en ventana nueva)"
     you_are_in: "Estás en"
+    undecided: Sin decidir
+    unfeasible: Inviable
     unflag: Deshacer denuncia
     unfollow_entity: "Dejar de seguir %{entity}"
     outline:

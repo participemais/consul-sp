@@ -27,7 +27,7 @@
 
     .ui-state-hover,
     .ui-state-active {
-      background: #ececec;
+      background: $tag;
       border-radius: rem-calc(6);
     }
   }

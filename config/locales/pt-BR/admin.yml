@@ -57,7 +57,7 @@ pt-BR:
           on_debates: Debates
           on_proposals: Propostas
           on_users: Usuários
-          on_system_emails: E-mails do sistema
+          on_system_emails: Emails do sistema
         title: Atividade do moderador
         type: Tipo
         no_activity: Não há nenhuma atividade de moderadores.
@@ -87,11 +87,11 @@ pt-BR:
       edit:
         title: Editar Orçamento
         delete: Deletar Orçamento
-        phase: Fase
+        phase: Etapa
         dates: Datas
         enabled: Habilitado
         actions: Ações
-        edit_phase: Editar fase
+        edit_phase: Editar etapa
         active: Ativo
         blank_dates: Datas estão em branco
         administrators:
@@ -156,9 +156,9 @@ pt-BR:
         submit: "Salvar título"
     budget_phases:
       edit:
-        summary_help_text: Este texto irá informar o usuário sobre a fase. Para mostrá-lo mesmo se a fase não está ativa, selecione a caixa de seleção abaixo
-        description_help_text: Esse texto será exibido no cabeçalho quando a fase estiver ativa
-        enabled_help_text: Esta fase será pública no cronograma de fases do orçamento, bem como ativa para qualquer outra finalidade
+        summary_help_text: Este texto irá informar o usuário sobre a etapa. Para mostrá-lo mesmo se a etapa não está ativa, selecione a caixa de seleção abaixo
+        description_help_text: Esse texto será exibido no cabeçalho quando a etapa estiver ativa
+        enabled_help_text: Esta etapa será pública no cronograma de etapas do orçamento, bem como ativa para qualquer outra finalidade
         save_changes: Salvar alterações
     budget_investments:
       index:
@@ -206,12 +206,12 @@ pt-BR:
           feasibility: Viabilidade
           valuation_finished: Valor Final.
           selected: Selecionado
-          visible_to_valuators: Apresentar aos avaliadores
+          visible_to_valuators: Disponível para avaliadores
           author_username: Username do autor
           incompatible: Incompatível
           price: Preço
           author: Autor
-        cannot_calculate_winners: O orçamento tem que ficar na fase "Projetos de votação", "Revendo votos" ou "Orçamento concluído" em ordem para calcular os projetos vencedores
+        cannot_calculate_winners: O orçamento tem que ficar na etapa "Projetos de votação", "Revendo votos" ou "Orçamento concluído" em ordem para calcular os projetos vencedores
         see_results: "Exibir resultados"
       show:
         assigned_admin: Administrador designado
@@ -257,18 +257,18 @@ pt-BR:
         table_title: "Título"
         table_description: "Descrição"
         table_publication_date: "Data de publicação"
-        table_status: Fases
+        table_status: Etapas
         table_actions: "Ações"
-        delete: "Deletar fases"
-        no_milestones: "Não possui fases definidos"
+        delete: "Deletar etapas"
+        no_milestones: "Não possui etapas definidos"
         image: "Imagem"
         show_image: "Mostrar imagem"
         documents: "Documentos"
-        milestone: Fases
-        new_milestone: Criar fase
-        milestone_tags: Fases de andamento
+        milestone: Etapas
+        new_milestone: Criar etapa
+        milestone_tags: Etapas de andamento
       form:
-        admin_statuses: Fases dos investimentos para administrador
+        admin_statuses: Etapas dos investimentos para administrador
         no_statuses_defined: Ainda não há status de investimento definidos
       new:
         creating: Criar marco
@@ -312,6 +312,31 @@ pt-BR:
         table_percentage: "Posição atual"
       new:
         creating: "Criar barra de progresso"
+    departments:
+      index:
+        title: Órgãos públicos
+        empty_departments: Não há órgãos públicos cadastrados
+        new_department: Cadastrar órgão público
+        table_name: Nome
+        table_actions: Configurações
+        delete: Apagar
+        edit: Editar
+        activate: Ativar
+        deactivate: Desativar
+        status: Status
+        id: ID
+      edit:
+        title: Editar órgão público
+      update:
+        notice: Órgão público atualizado com sucesso
+      new:
+        title: Cadastrar órgão público
+      create:
+        notice: Órgão público criado com sucesso
+      delete:
+        notice: Órgão público excluído com sucesso
+      form:
+        save: Salvar alterações
     comments:
       index:
         id: "ID"
@@ -442,10 +467,11 @@ pt-BR:
         form:
           enabled: Habilitado
           process: Processo
-          debate_phase: Fase de debate
-          draft_phase: Fase de rascunho
-          allegations_phase: Fase de comentários
-          proposals_phase: Fase de propostas
+          debate_phase: Etapa de debate
+          draft_phase: Etapa de rascunho
+          allegations_phase: Etapa de anotações
+          proposals_phase: Etapa de propostas
+          topics_phase: Etapa de revisão
           use_markdown: Usar Remarcação para formatar o texto
           title_placeholder: O título do processo
           summary_placeholder: Breve resumo da descrição
@@ -454,7 +480,7 @@ pt-BR:
         index:
           create: Novo processo
           delete: Apagar
-          title: Processos legislativos
+          title: Consultas públicas
           filters:
             active: Ativo
             all: Tudo
@@ -479,11 +505,12 @@ pt-BR:
           status_planned: Planejados
         subnav:
           info: Informações
-          homepage: Página inicial
-          draft_versions: Seleção
-          questions: Debater
+          homepage: Instruções
+          draft_versions: Anotações
+          questions: Debates
           proposals: Propostas
-          milestones: Seguindo
+          milestones: Monitoramento
+          topics: Revisão
       proposals:
         index:
           title: Título
@@ -554,7 +581,7 @@ pt-BR:
           question_options: "Respostas possíveis (opcionais, por respostas abertas padrão)"
         index:
           back: Voltar
-          title: Perguntas associadas a esse processo
+          title: Perguntas associadas ao processo
           create: Criar questão
           delete: Apagar
         new:
@@ -571,6 +598,59 @@ pt-BR:
       milestones:
         index:
           title: Seguindo
+      topics:
+        index:
+          create: Criar documento
+          edit: Editar documento
+          title: Documento associado ao processo
+        document:
+          edit: Editar
+          empty_topic_levels: Não há títulos cadastrados
+          delete: Apagar
+          new_topic: Adicionar %{title}
+          new_topic_level: Cadastrar novo título
+          title: Documento
+          topic_level_title: Estrutura do documento
+        new:
+          title: Adicionar %{title}
+        create:
+          notice: Trecho criado com sucesso
+        edit:
+          title: Editar %{title}
+        update:
+          notice: Trecho atualizado com sucesso
+        delete:
+          notice: Trecho apagado com sucesso
+        form:
+          save: Gravar
+        destroy:
+          confirm:
+            one: Se apagar %{title}, um subtópico associado também será apagado. Tem certeza que deseja continuar?
+            other: Se apagar %{title}, %{count} subtópicos associados também serão apagados. Tem certeza que deseja continuar?
+        table:
+          assessments: Opções
+          comments_count: Total de sugestões
+          evaluable: "\"Opinar\" habilitado"
+          table_actions: Ações
+          title: Título
+          topic_level_label: Numeração
+          topic_votes_count: Total de votos
+      topic_levels:
+        new:
+          title: Novo título
+        create:
+          notice: Título criado com sucesso
+        edit:
+          title: Editar título
+        update:
+          notice: Título atualizado com sucesso
+        delete:
+          notice: Título apagado com sucesso
+        form:
+          add_option: Adicionar opção
+          evaluations: Opções
+          remove_option: Remover opção
+          save: Gravar
     managers:
       index:
         title: Gerentes
@@ -602,7 +682,7 @@ pt-BR:
       messaging_users: Mensagens para os usuários
       newsletters: Boletins informativos
       admin_notifications: Notificações
-      system_emails: Sistema de E-mails
+      system_emails: Sistema de Emails
       emails_download: Download de emails
       valuators: Avaliadores
       poll_officers: Presidentes da votação
@@ -627,7 +707,7 @@ pt-BR:
           proposals: "Propostas"
           polls: "Votações"
           layouts: "Layouts"
-          mailers: "E-mails"
+          mailers: "Emails"
           management: "Gerenciamento"
           welcome: "Bem-vindo"
         buttons:
@@ -637,7 +717,7 @@ pt-BR:
       title_settings: Configurações
       title_site_customization: Conteúdo do site
       title_booths: Cabines de votação
-      legislation: Legislação colaborativa
+      legislation: Consulta pública
       users: Usuários
       debates: "Debates"
       comments: "Comentários"
@@ -711,8 +791,8 @@ pt-BR:
         sent_at: Enviado em
         subject: Assunto
         segment_recipient: Destinatários
-        from: Endereço de e-mail para envio de boletim informativo
-        body: Conteúdo do e-mail
+        from: Endereço de email para envio de boletim informativo
+        body: Conteúdo do email
         body_help_text: Os usuários visualizarão o email desta forma
         send_alert: Você tem certeza que quer enviar este boletim informativo para %{n} usuários?
     admin_notifications:
@@ -762,7 +842,7 @@ pt-BR:
         send_pending_notification: Notificações pendentes enviadas com sucesso
       proposal_notification_digest:
         title: "Resumo danotificação da proposta"
-        description: "Juntar todas as notificações de proposta para um usuário em uma mensagem para evitar muitos e-mails."
+        description: "Juntar todas as notificações de proposta para um usuário em uma mensagem para evitar muitos emails."
         preview_detail: "Usuários apenas vão receber notificações das rpopostas que eles estão seguindo"
       comment:
         title: "Comentário"
@@ -788,6 +868,7 @@ pt-BR:
         no_group: "Sem grupo"
         abilities: "Habilidades"
         can_comment: "Pode comentar"
+        can_edit_dossier: "Pode editar dossiês"
       valuator:
         add: Adicionar aos avaliadores
         delete: Apagar
@@ -1074,7 +1155,7 @@ pt-BR:
         reject: Rejeitar
         rejected: Rejeitado
         search: Buscar
-        search_placeholder: Nome, e-mail ou número de telefone
+        search_placeholder: Nome, email ou número de telefone
         title: Organizações
         verified: Verificado
         verify: Verificar
@@ -1235,7 +1316,7 @@ pt-BR:
         summary:
           comment_votes: Comentário de votos
           comments: Comentários
-          debate_votes: Debater votos
+          debate_votes: Debates votos
           debates: Debates
           proposal_votes: Votos de proposta
           proposals: Propostas
@@ -1261,9 +1342,9 @@ pt-BR:
         level_2_user: Usuários de nível 2
         proposal_created: Propostas dos cidadãos
       budgets:
-        no_data_before_balloting_phase: "Não há dados a mostrar antes da fase de votação."
+        no_data_before_balloting_phase: "Não há dados a mostrar antes da etapa de votação."
         title: "Orçamentos participativos - Estatísticas de participação"
-        supporting_phase: Fase de apoios
+        supporting_phase: Etapa de apoios
         balloting_phase: Votação final
       budget_balloting:
         title: "Estatísticas da votação final"
@@ -1272,7 +1353,7 @@ pt-BR:
         votes_per_heading: Votos por título
         participants_per_district: Participantes por região
       budget_supporting:
-        title: "Estatísticas da fase de apoios"
+        title: "Estatísticas da etapa de apoios"
         headings: Títulos
         users: Usuários
         vote_count: Votos
@@ -1316,7 +1397,7 @@ pt-BR:
         title: Usuário
         no_users: Não há usuários.
       search:
-        placeholder: Buscar usuário por e-mail, nome ou número do documento
+        placeholder: Buscar usuário por email, nome ou número do documento
         search: Buscar
     verifications:
       index:
@@ -1435,6 +1516,7 @@ pt-BR:
         card_title: Editar cartão
         submit_card: Salvar cartão
     audits:
+      title: Histórico de alterações
       changes: "Lista de alterações"
       id: "ID"
       field: "Campo"
@@ -1443,6 +1525,7 @@ pt-BR:
       edited_at: "Editado em"
       edited_by: "Editado por"
       actions: "Ações"
+      auditable_id: ID do registro
     local_census_records:
       index:
         document_type: Tipo do documento
