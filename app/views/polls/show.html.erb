@@ -37,15 +37,6 @@
     <%= render "polls/questions/question", question: question, token: @token %>
   <% end %>
 
-  <div class="expanded poll-more-info">
-    <div class="row margin">
-      <div class="small-12 medium-9 column">
-        <h4><%= t("polls.show.more_info_title") %></h4>
-        <%= auto_link_already_sanitized_html simple_format(@poll.description) %>
-      </div>
-    </div>
-  </div>
-
   <div class="tabs-content" data-tabs-content="polls_tabs">
     <%= render "filter_subnav" %>
 
