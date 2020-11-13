@@ -27,7 +27,7 @@
             %>
           </div>
 
-          <div class="votes">
+          <div class="votes margin-bottom">
             <% votes = Poll::Answer.votes(question.id, answer.title) %>
             <% if votes == 1 %>
               <p><%= t("polls.index.vote.one", count: votes) %></p>
@@ -50,7 +50,7 @@
               </span>
           </div>
 
-          <div class="votes">
+          <div class="votes margin-bottom">
             <% votes = Poll::Answer.votes(question.id, answer.title) %>
             <% if votes == 1 %>
               <%= t("polls.index.vote.one", count: votes) %>
@@ -70,7 +70,7 @@
               class: "button secondary hollow js-question-answer" %>
           </div>
 
-          <div class="votes">
+          <div class="votes margin-bottom">
             <% votes = Poll::Answer.votes(question.id, answer.title) %>
             <% if votes == 1 %>
               <%= t("polls.index.vote.one", count: votes) %>
@@ -116,7 +116,7 @@
             <% end %>
           </div>
 
-          <div class="votes">
+          <div class="votes margin-bottom">
             <% votes = Poll::Answer.votes(question.id, answer.title) %>
             <% if votes == 1 %>
               <%= t("polls.index.vote.one", count: votes) %>
