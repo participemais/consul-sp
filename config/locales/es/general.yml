@@ -639,7 +639,6 @@ es:
       cant_answer_wrong_geozone: "Esta votación no está disponible en tu zona."
       more_info_title: "Más información"
       documents: Documentos
-      zoom_plus: Ampliar imagen
       videos: "Vídeo externo"
       info_menu: "Información"
       stats_menu: "Estadísticas de participación"
