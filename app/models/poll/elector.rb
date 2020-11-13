@@ -14,7 +14,8 @@ class Poll
       inclusion: { in: User::DOCUMENT_TYPES, allow_blank: true }
 
     validates :document_number, presence: true
-    validates :document_number, uniqueness: { scope: :electoral_college }
+    validates :document_number,
+      uniqueness: { scope: [:electoral_college, :category] }
 
     validate :valid_document_number
 
