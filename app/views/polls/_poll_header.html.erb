@@ -37,13 +37,11 @@
 
       <div id="social-share" class="sidebar-divider"></div>
       <p class="sidebar-title"><%= t("polls.index.votes") %></p>
-      <div>
+      <div class="text-center">
         <span>
-          <% if @poll.answer_count == 1 %>
-            <%= t("polls.index.vote.one", count: @poll.answer_count) %>
-          <% else %>
-            <%= t("polls.index.vote.other", count: @poll.answer_count) %>
-          <% end %>
+          <strong class="poll-total-votes-counter">
+            <%= t("polls.index.votes_counter", count: @poll.answer_count) %>
+          </strong>
         </span>
       </div>
 
