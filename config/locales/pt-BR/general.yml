@@ -198,6 +198,7 @@ pt-BR:
     site_customization/content_block: Conteúdo
     site_customization/page: Página
     feasibility_analysis: Análises de viabilidade
+    poll/electors/import: Arquivo
   geozones:
     none: Cidade de São Paulo
   layouts:
@@ -639,8 +640,8 @@ pt-BR:
       no_open_polls: "Não existem processos abertos"
       no_close_polls: "Não existem processos encerrados"
       period: Período
-      votes: "Voto"
-      vote:
+      votes: "Votos"
+      votes_counter:
         one: "%{count} voto"
         other: "%{count} votos"
     show:
@@ -684,12 +685,12 @@ pt-BR:
       vote_answer: "Votar em %{answer}"
       destroy_vote: "Apagar voto em %{answer}"
       vote_limit:
-        one: "Você só pode escolher uma opção"
-        other: "Você só pode escolher %{count} opções"
+        one: "Você só pode selecionar uma opção"
+        other: "Você pode selecionar até %{count} opções"
       remaining_votes:
         zero: "Votação concluída. Clique em uma opção selecionada se quiser alterar seu voto."
-        one: "Você pode selecionar uma opção."
-        other: "Você pode selecionar %{count} opções."
+        one: "Você ainda pode selecionar uma opção."
+        other: "Você ainda pode selecionar %{count} opções."
       out_of_category: "Você não pode votar por não fazer parte da categoria %{category}."
   proposal_notifications:
     new:
