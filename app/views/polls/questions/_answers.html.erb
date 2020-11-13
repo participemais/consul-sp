@@ -3,8 +3,8 @@
   <% if able_to_participate?(poll, question) %>
     <p class="question-votes-counter">
       <%= t(
-        "poll_questions.show.remaining_votes",
-        count: poll_votes_counter(question, current_user)
+        "poll_questions.show.#{votes_counter_key(question)}",
+        count: poll_votes_counter(question)
       ) %>
     </p>
 

@@ -685,12 +685,12 @@ pt-BR:
       vote_answer: "Votar em %{answer}"
       destroy_vote: "Apagar voto em %{answer}"
       vote_limit:
-        one: "Você só pode escolher uma opção"
-        other: "Você só pode escolher %{count} opções"
+        one: "Você só pode selecionar uma opção"
+        other: "Você pode selecionar até %{count} opções"
       remaining_votes:
         zero: "Votação concluída. Clique em uma opção selecionada se quiser alterar seu voto."
-        one: "Você pode selecionar uma opção."
-        other: "Você pode selecionar %{count} opções."
+        one: "Você ainda pode selecionar uma opção."
+        other: "Você ainda pode selecionar %{count} opções."
       out_of_category: "Você não pode votar por não fazer parte da categoria %{category}."
   proposal_notifications:
     new:
