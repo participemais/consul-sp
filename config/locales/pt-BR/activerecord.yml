@@ -382,6 +382,10 @@ pt-BR:
         officer_assignment_id: "ID do responsável"
       poll/shift:
         task: "Tarefa"
+      poll/elector:
+        document_type: "Tipo de documento"
+        document_number: "Número do documento"
+        category: "Categoria"
       proposal_notification:
         body: "Mensagem"
         title: "Título"
