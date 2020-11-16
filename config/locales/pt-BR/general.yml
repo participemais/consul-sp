@@ -199,6 +199,7 @@ pt-BR:
     site_customization/page: Página
     feasibility_analysis: Análises de viabilidade
     poll/electors/import: Arquivo
+    poll/elector: Eleitor
   geozones:
     none: Cidade de São Paulo
   layouts:

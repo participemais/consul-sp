@@ -980,6 +980,12 @@ pt-BR:
         table_name: "Nome"
         table_location: "Localização"
     poll_electors:
+      create:
+        notice: Eleitor incluído com sucesso
+      update:
+        notice: Eleitor atualizado com sucesso
+      destroy:
+        notice: Eleitor excluído com sucesso
       import:
         new:
           title: Importar CSV de eleitores
