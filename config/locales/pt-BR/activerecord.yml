@@ -331,7 +331,7 @@ pt-BR:
         gender_options:
           female: Feminino
           male: Masculino
-          non_binary: Não binário
+          non_binary: Não-binário
           unknown: Prefiro não responder
         uf: UF
         first_name: "Nome"
