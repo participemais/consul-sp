@@ -36,14 +36,19 @@
           </td>
           <% if @electoral_college.active %>
             <td>
-              <div class="small-6 column">
+              <p class="text-center no-margin-bottom">
                 <%= link_to t("shared.edit"),
-                edit_admin_poll_electoral_college_elector_path(@poll, @electoral_college, elector),
-                class: "button hollow expanded" %>
-              </div>
-              <div class="small-6 column">
-                <%= link_to t("shared.delete"), admin_poll_electoral_college_elector_path(@poll, @electoral_college, elector), class: "button hollow alert expanded", method: :delete %>
-              </div>
+                  edit_admin_poll_electoral_college_elector_path(@poll, @electoral_college, elector),
+                  class: "button hollow"
+                %>
+
+                <% unless @poll.current? %>
+                  <%= link_to t("shared.delete"),
+                  admin_poll_electoral_college_elector_path(@poll, @electoral_college, elector),
+                  class: "button hollow alert", method: :delete
+                  %>
+                <% end %>
+              </p>
             </td>
           <% end %>
         </tr>
