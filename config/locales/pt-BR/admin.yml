@@ -1083,6 +1083,8 @@ pt-BR:
           document_title: Título
           document_actions: Ações
     electoral_colleges:
+      destroy:
+        notice: Colégio eleitoral excluído com sucesso
       index:
         title: Colégio Eleitoral
         create: Criar colégio eleitoral
