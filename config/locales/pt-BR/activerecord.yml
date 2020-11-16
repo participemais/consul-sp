@@ -353,7 +353,7 @@ pt-BR:
         starts_at: "Data de início"
         ends_at: "Data de encerramento"
         geozone_restricted: "Restrito por subprefeitura"
-        electoral_college_restricted: "Restrito por colégio eleitoral"
+        electoral_college_restricted: "Votação restrita por colégio eleitoral"
         summary: "Resumo"
         description: "Descrição"
       active_poll/translation:
