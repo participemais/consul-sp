@@ -9,52 +9,8 @@
       class: "small"
     %>
   </p>
-  <table class="fixed">
-    <thead>
-      <tr>
-        <th><%= t("admin.electoral_colleges.elector.document_type") %></th>
-        <th><%= t("admin.electoral_colleges.elector.document_number") %></th>
-        <th><%= t("admin.electoral_colleges.elector.category") %></th>
-        <th><%= t("admin.electoral_colleges.elector.user_found") %></th>
-        <% if @electoral_college.active %>
-          <th class="small-4 text-center"><%= t("admin.actions.actions") %></th>
-        <% end %>
-      </tr>
-    </thead>
-    <tbody>
-      <% @electors.each do |elector| %>
-        <tr id="<%= dom_id(elector) %>">
-          <td><%= elector.document_type %></td>
-          <td><%= elector.document_number %></td>
-          <td><%= elector.category %></td>
-          <td class="text-center">
-            <% if elector.user_found? %>
-              <i class="fa fa-check fa-check-green" aria-hidden="true"></i>
-            <% else %>
-              <i class="fa fa-times fa-times-red" aria-hidden="true"></i>
-            <% end %>
-          </td>
-          <% if @electoral_college.active %>
-            <td>
-              <p class="text-center no-margin-bottom">
-                <%= link_to t("shared.edit"),
-                  edit_admin_poll_electoral_college_elector_path(@poll, @electoral_college, elector),
-                  class: "button hollow"
-                %>
 
-                <% unless @poll.current? %>
-                  <%= link_to t("shared.delete"),
-                  admin_poll_electoral_college_elector_path(@poll, @electoral_college, elector),
-                  class: "button hollow alert", method: :delete
-                  %>
-                <% end %>
-              </p>
-            </td>
-          <% end %>
-        </tr>
-      <% end %>
-    </tbody>
-  </table>
+  <%= render "electors_table" %>
 
   <%= paginate @electors %>
 <% end %>
