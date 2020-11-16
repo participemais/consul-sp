@@ -12,7 +12,7 @@
     %>
   <% end %>
 
-  <% if @electoral_college %>      
+  <% if @electoral_college %>
     <table class="fixed">
       <tbody>
         <tr id="<%= dom_id(@electoral_college) %>">
@@ -25,12 +25,16 @@
             <% end %>
           </td>
           <td>
-            <div class="small-6 column">
-              <%= link_to t("shared.edit"), edit_admin_poll_electoral_college_path(@poll, @electoral_college), class: "button hollow expanded" %>
-            </div>
-            <div class="small-6 column">
-              <%= link_to t("shared.delete"), admin_poll_electoral_college_path(@poll, @electoral_college), class: "button hollow alert expanded", method: :delete %>
-            </div>
+            <p class="text-center no-margin-bottom">
+              <%= link_to t("shared.edit"),
+                edit_admin_poll_electoral_college_path(@poll, @electoral_college),
+                class: "button hollow"
+              %>
+              <%= link_to t("shared.delete"),
+                admin_poll_electoral_college_path(@poll, @electoral_college),
+                class: "button hollow alert", method: :delete
+              %>
+            </p>
           </td>
         </tr>
       </tbody>
