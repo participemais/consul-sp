@@ -13,7 +13,7 @@
   <tbody>
     <% @electors.each do |elector| %>
       <tr id="<%= dom_id(elector) %>">
-        <td><%= elector.document_type %></td>
+        <td><%= elector.document_type.upcase %></td>
         <td><%= elector.document_number %></td>
         <td><%= elector.category %></td>
         <td class="text-center">
