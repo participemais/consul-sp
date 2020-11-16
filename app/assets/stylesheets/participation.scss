@@ -1825,7 +1825,6 @@
 
   .column:nth-child(even) {
     border-right: 2px solid $text-medium;
-    border-left: 2px solid $text-medium;
   }
 
   .answer-description {
@@ -1835,6 +1834,10 @@
       height: rem-calc(300);
       overflow: hidden;
     }
+  }
+
+  .answer-info-border-right {
+    border-right: 2px solid $text-medium;
   }
 }
 

@@ -74,4 +74,9 @@ module PollsHelper
       "remaining_votes"
     end
   end
+
+  def answer_border(index)
+    return "" if index.even?
+    index % 3 == 0 ? "" : "answer-info-border-right"
+  end
 end
