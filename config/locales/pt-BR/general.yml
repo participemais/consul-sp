@@ -199,6 +199,7 @@ pt-BR:
     site_customization/page: Página
     feasibility_analysis: Análises de viabilidade
     poll/electors/import: Arquivo
+    poll/elector: Eleitor
   geozones:
     none: Cidade de São Paulo
   layouts:
@@ -653,7 +654,7 @@ pt-BR:
       cant_answer_verify: "Você deve %{verify_link} para poder responder."
       verify_link: "verifique sua conta"
       cant_answer_expired: "Esta votação já foi encerrada."
-      electoral_college_restricted: "Apenas membros de determinado colégio eleitoral podem participar desta votação"
+      electoral_college_restricted: "Apenas membros do colégio eleitoral desta votação podem participar deste processo."
       cant_answer_wrong_geozone: "Esta questão não está disponível para a sua localidade."
       more_info_title: "Descrição"
       less_info_title: "Menos informações"
@@ -685,8 +686,8 @@ pt-BR:
       vote_answer: "Votar em %{answer}"
       destroy_vote: "Apagar voto em %{answer}"
       vote_limit:
-        one: "Você só pode selecionar uma opção"
-        other: "Você pode selecionar até %{count} opções"
+        one: "Você só pode selecionar uma opção."
+        other: "Você pode selecionar até %{count} opções."
       remaining_votes:
         zero: "Votação concluída. Clique em uma opção selecionada se quiser alterar seu voto."
         one: "Você ainda pode selecionar uma opção."

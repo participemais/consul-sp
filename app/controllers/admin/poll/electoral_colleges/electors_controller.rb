@@ -21,7 +21,7 @@ class Admin::Poll::ElectoralColleges::ElectorsController < Admin::Poll::BaseCont
 
     if @elector.save
       redirect_to admin_poll_electoral_colleges_path(@poll),
-        notice: t("flash.actions.create.poll_electoral_college_elector")
+        notice: t("admin.poll_electors.create.notice")
     else
       render :new
     end
@@ -33,7 +33,7 @@ class Admin::Poll::ElectoralColleges::ElectorsController < Admin::Poll::BaseCont
   def update
     if @elector.update(elector_params)
       redirect_to admin_poll_electoral_colleges_path(@poll),
-        notice: t("flash.actions.update.poll_electoral_college_elector")
+        notice: t("admin.poll_electors.update.notice")
     else
       render :edit
     end
@@ -42,7 +42,7 @@ class Admin::Poll::ElectoralColleges::ElectorsController < Admin::Poll::BaseCont
   def destroy
     @elector.destroy
     redirect_to admin_poll_electoral_colleges_path(@poll),
-      notice: t("flash.actions.destroy.poll_electoral_college_elector")
+      notice: t("admin.poll_electors.destroy.notice")
   end
 
 

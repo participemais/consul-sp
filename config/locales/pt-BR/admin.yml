@@ -980,6 +980,12 @@ pt-BR:
         table_name: "Nome"
         table_location: "Localização"
     poll_electors:
+      create:
+        notice: Eleitor incluído com sucesso
+      update:
+        notice: Eleitor atualizado com sucesso
+      destroy:
+        notice: Eleitor excluído com sucesso
       import:
         new:
           title: Importar CSV de eleitores
@@ -1077,6 +1083,8 @@ pt-BR:
           document_title: Título
           document_actions: Ações
     electoral_colleges:
+      destroy:
+        notice: Colégio eleitoral excluído com sucesso
       index:
         title: Colégio Eleitoral
         create: Criar colégio eleitoral

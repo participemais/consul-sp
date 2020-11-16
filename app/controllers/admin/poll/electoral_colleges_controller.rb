@@ -44,12 +44,9 @@ class Admin::Poll::ElectoralCollegesController < Admin::Poll::BaseController
   end
 
   def destroy
-    if @electoral_college.destroy
-      notice = "Question destroyed succesfully"
-    else
-      notice = t("flash.actions.destroy.error")
-    end
-    redirect_to admin_poll_electoral_colleges_path(@poll), notice: notice
+    @electoral_college.destroy
+    redirect_to admin_poll_electoral_colleges_path(@poll),
+      notice: t("admin.electoral_colleges.destroy.notice")
   end
 
   private

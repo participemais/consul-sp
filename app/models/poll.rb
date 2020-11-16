@@ -186,12 +186,16 @@ class Poll < ApplicationRecord
     related.nil?
   end
 
-  def all_answers
-    Poll::Answer.where(question: questions)
+  def web_answers_count
+    Poll::Answer.where(question: questions).count
+  end
+
+  def booth_answers_count
+    Poll::PartialResult.where(question: questions).sum(:amount)
   end
 
   def answer_count
-    all_answers.count
+    web_answers_count + booth_answers_count
   end
 
   def last_user_answer?(user)
