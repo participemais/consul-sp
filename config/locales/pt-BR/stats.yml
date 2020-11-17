@@ -7,9 +7,9 @@ pt-BR:
     by_age: "Participantes por idade"
     by_geozone: "Participantes por região"
     by_ethnicity: "Participantes por raça"
-    men_percentage: "%{percentage} Homens"
-    women_percentage: "%{percentage} Mulheres"
-    non_binary_percentage: "%{percentage} Não binários"
+    men_percentage: "%{percentage} Masculino"
+    women_percentage: "%{percentage} Feminino"
+    non_binary_percentage: "%{percentage} Não-binário"
     unknown_percentage: "%{percentage} Não declarado"
     age: "Idade"
     age_less_than: "Menos de %{finish} anos"
@@ -70,7 +70,7 @@ pt-BR:
           gender_options:
             female: Feminino
             male: Masculino
-            non_binary: Não binário
+            non_binary: Não-binário
             unknown: Não declarado
           id: ID
           origin: Canal
