@@ -1818,7 +1818,9 @@
   padding: $line-height / 2;
 
   .column:nth-child(even) {
-    border-right: 2px solid $text-medium;
+    @include breakpoint(medium) {
+      border-right: 2px solid $text-medium;
+    }
   }
 
   .answer-description {
@@ -1831,7 +1833,9 @@
   }
 
   .answer-info-border-right {
-    border-right: 2px solid $text-medium;
+    @include breakpoint(medium) {
+      border-right: 2px solid $text-medium;
+    }
   }
 }
 
