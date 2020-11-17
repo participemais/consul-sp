@@ -26,13 +26,13 @@
 
       <%= paginate @polls %>
     <% else %>
-        <div class="callout primary margin-top">
-          <% unless @expired.any? %>
-            <%= t("polls.index.no_close_polls") %>
-          <% else %>
-            <%= t("polls.index.no_open_polls") %>
-          <% end %>
-        </div>
+      <div class="callout primary margin-top">
+        <% if @expireds.empty? %>
+          <%= t("polls.index.no_close_polls") %>
+        <% else %>
+          <%= t("polls.index.no_open_polls") %>
+        <% end %>
+      </div>
     <% end %>
 
     <div id="section_help" class="margin" data-magellan-target="section_help">
