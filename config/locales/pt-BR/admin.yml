@@ -1094,6 +1094,8 @@ pt-BR:
         inactive: Inativo
       new:
         title: Novo colégio eleitoral
+      create:
+        notice: Colégio eleitoral criado com sucesso
       edit:
         title: Editar colégio eleitoral
       elector:

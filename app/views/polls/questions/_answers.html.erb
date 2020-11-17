@@ -92,7 +92,7 @@
         </div>
 
         <div class="votes margin-bottom">
-          <% votes = Poll::Answer.votes(question.id, answer.title) %>
+          <% votes = Poll::Answer.votes_count(question.id, answer.title) %>
           <p><%= t("polls.index.votes_counter", count: votes) %></p>
         </div>
       </div>
