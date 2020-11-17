@@ -32,7 +32,7 @@ class Poll
     end
 
     def self.search(terms)
-      Elector.where("document_number ILIKE ?", "%#{terms}%")
+      where("document_number ILIKE ?", "%#{terms}%")
     end
 
     def self.quick_search(terms)
