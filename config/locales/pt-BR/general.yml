@@ -636,8 +636,8 @@ pt-BR:
         participate: Participe dos
         subtitle: Processos abertos
       section_footer:
-        title: Ajuda sobre votações
-        description: Votações dos cidadãos são um mecanismo de participação na qual os cidadãos podem ter decisões diretas
+        title: Sobre as votações
+        description: Participe das Votações para opinar sobre políticas públicas, projetos e composição de conselhos. Acompanhe em Processos Encerrados os resultados das votações.
       no_open_polls: "Não existem processos abertos"
       no_close_polls: "Não existem processos encerrados"
       period: Período
