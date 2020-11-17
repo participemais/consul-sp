@@ -1801,6 +1801,12 @@
       background: $tag;
     }
   }
+
+  h5 {
+    font-family: $subheader-font-family;
+    text-transform: uppercase;
+    font-size: 17px;
+  }
 }
 
 .poll-more-info,
