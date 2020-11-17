@@ -1895,6 +1895,7 @@
 .poll-question {
   border: 1px solid $border;
   padding: $line-height / 2;
+  padding-bottom: 0;
   position: relative;
 
   .icon-poll-answer {
@@ -2132,8 +2133,11 @@
   min-height: 12rem;
 
   .poll-card-info {
-    padding-right: 3px;
-    padding-left: 0;
+    padding: 0;
+
+    @include breakpoint(medium) {
+      padding-right: 3px;
+    }
   }
 }
 
