@@ -54,9 +54,15 @@
 
   <% elsif !user_signed_in? %>
     <% question.question_answers.order(id: :desc).each do |answer| %>
-      <span class="button secondary hollow disabled">
-        <%= answer.title %>
-      </span>
+      <div class="answer-votes">
+        <div>
+          <%= link_to answer.title, new_user_session_path, class: "button secondary hollow" %>
+        </div>
+        <div class="votes margin-bottom">
+          <% votes = question.answers.votes_count(answer.title) %>
+          <p><%= t("polls.index.votes_counter", count: votes) %></p>
+        </div>
+      </div>
     <% end %>
   <% elsif !current_user.level_two_or_three_verified? %>
     <% question.question_answers.order(id: :desc).each do |answer| %>
