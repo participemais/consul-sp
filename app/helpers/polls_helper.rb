@@ -79,4 +79,8 @@ module PollsHelper
     return "" if index.even?
     index % 3 == 0 ? "" : "answer-info-border-right"
   end
+
+  def poll_total_votes_count
+    @poll.expired? ? @poll.answer_count : @poll.web_answers_count
+  end
 end
