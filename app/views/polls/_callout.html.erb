@@ -10,6 +10,12 @@
       <%= sanitize(t("polls.show.cant_answer_verify",
             verify_link: link_to(t("polls.show.verify_link"), verification_path))) %>
     </div>
+  <% elsif current_user.incomplete_registration? %>
+    <div class="callout primary">
+      <%= sanitize(t(
+            "polls.show.incomplete_registration",
+            register: link_to_my_account )) %>
+    </div>
   <% elsif @poll.expired? %>
     <div class="callout alert no-margin-bottom">
       <%= t("polls.show.cant_answer_expired") %>
@@ -25,11 +31,4 @@
       <%= t("polls.show.cant_answer_wrong_geozone") %>
     </div>
   <% end %>
-<% end %>
-
-<% if user_signed_in? && current_user.incomplete_registration? %>
-  <div class="callout primary">
-    <%= sanitize(t(
-          "polls.show.incomplete_registration",
-          register: link_to_my_account )) %>  </div>
 <% end %>
