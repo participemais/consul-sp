@@ -32,3 +32,11 @@
     </div>
   <% end %>
 <% end %>
+
+<% if can?(:answer, @poll) && current_user.incomplete_registration? %>
+  <div class="callout primary">
+    <%= sanitize(t(
+          "polls.show.incomplete_registration",
+          register: link_to_my_account )) %>
+  </div>
+<% end %>

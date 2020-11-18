@@ -55,7 +55,7 @@
             <%= answer.title %>
           </span>
         </div>
-        <div class="votes margin-bottom">
+        <div class="answer-votes-count margin-bottom">
           <% votes = question.answers.votes_count(answer.title) %>
           <p><%= t("polls.index.votes_counter", count: votes) %></p>
         </div>
