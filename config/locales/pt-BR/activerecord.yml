@@ -94,7 +94,7 @@ pt-BR:
         one: "Versão preliminar"
         other: "Versões preliminares"
       legislation/questions:
-        one: "Questão"
+        one: "Pergunta"
         other: "Perguntas"
       legislation/question_options:
         one: "Opção de pergunta"
@@ -366,12 +366,12 @@ pt-BR:
         description: "Descrição"
       poll/question:
         poll_id: "Votação"
-        title: "Questão"
+        title: "Pergunta"
         summary: "Resumo"
         description: "Descrição"
         external_url: "Link para documentação adicional"
       poll/question/translation:
-        title: "Questão"
+        title: "Pergunta"
       poll/ballot_sheet:
         data: "dados CSV"
         poll_id: "ID da Votação"
@@ -473,7 +473,7 @@ pt-BR:
         title: Título
         question_options: Opções
       legislation/question/translation:
-        title: Questão
+        title: Pergunta
       legislation/question_option:
         value: Valor
       legislation/annotation:
