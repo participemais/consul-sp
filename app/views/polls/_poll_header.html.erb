@@ -17,7 +17,7 @@
 
 
       <% if @poll.description.present? %>
-        <h5><%= t("legislation.processes.header.description") %></h5>
+        <h5><%= t("polls.index.description") %></h5>
         <%= auto_link_already_sanitized_html simple_format(@poll.description) %>
       <% end %>
 
@@ -40,7 +40,7 @@
       <div class="text-center">
         <span>
           <strong class="poll-total-votes-counter">
-            <%= t("polls.index.votes_counter", count: @poll.answer_count) %>
+            <%= t("polls.index.votes_counter", count: poll_total_votes_count) %>
           </strong>
         </span>
       </div>

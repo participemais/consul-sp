@@ -23,8 +23,8 @@ class Poll::Answer < ApplicationRecord
     end
   end
 
-  def self.votes_count(question_id, title)
-    where(question_id: question_id, answer: title).count
+  def self.votes_count(answer)
+    where(answer: answer).count
   end
 
   def record_voter_participation(token)

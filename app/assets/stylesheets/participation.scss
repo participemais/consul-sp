@@ -1801,6 +1801,12 @@
       background: $tag;
     }
   }
+
+  h5 {
+    font-family: $subheader-font-family;
+    text-transform: uppercase;
+    font-size: 17px;
+  }
 }
 
 .poll-more-info,
@@ -1818,7 +1824,9 @@
   padding: $line-height / 2;
 
   .column:nth-child(even) {
-    border-right: 2px solid $text-medium;
+    @include breakpoint(medium) {
+      border-right: 2px solid $text-medium;
+    }
   }
 
   .answer-description {
@@ -1831,7 +1839,9 @@
   }
 
   .answer-info-border-right {
-    border-right: 2px solid $text-medium;
+    @include breakpoint(medium) {
+      border-right: 2px solid $text-medium;
+    }
   }
 }
 
@@ -1895,6 +1905,7 @@
 .poll-question {
   border: 1px solid $border;
   padding: $line-height / 2;
+  padding-bottom: 0;
   position: relative;
 
   .icon-poll-answer {
@@ -1963,10 +1974,8 @@
     }
   }
 
-  .dates {
-    color: $text-medium;
-    font-size: $small-font-size;
-    margin-bottom: $line-height / 2;
+  .poll-details {
+    padding: $line-height;
   }
 
   h4 {
@@ -2065,13 +2074,19 @@
     display: inline-block;
   }
 
-  .votes {
+  .answer-votes-count {
     color: $purple;
-    font-size: 17px;
+    text-align: right;
+    font-size: $small-font-size;
     font-weight: bold;
-    float: right;
-    margin-right: 8px;
+    margin-right: $line-height / 4;
+    margin-bottom: $line-height / 2;
+
+    @include breakpoint(medium) {
+      margin-bottom: $line-height / 4;
+    }
   }
+
 }
 
 // 09. Polls results and stats
@@ -2130,9 +2145,22 @@
   margin: 0 0 $line-height;
   border: 1px solid;
   border-color: #e5e6e9 #dfe0e4 #d0d1d5;
-  border-radius: 0;
   box-shadow: 0 1px 3px 0 #dee0e3;
   min-height: 12rem;
+
+  .poll-card-info {
+    padding: 0;
+
+    @include breakpoint(medium) {
+      padding-right: 3px;
+    }
+  }
+  
+  .tags span {
+    &:hover {
+      background: $tag;
+    }
+  }
 }
 
 

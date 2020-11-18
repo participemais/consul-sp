@@ -626,7 +626,7 @@ pt-BR:
       geozone_info: "Podem participar as pessoas registradas em: "
       electoral_college_info: "Podem participar membros do colégio eleitoral"
       can_answer: "Você pode participar dessa votação"
-      not_logged_in: "Você deve entrar ou se cadastrar para participar"
+      not_logged_in: " Você precisa acessar sua conta ou se registrar para participar."
       unverified: "Você deve verificar sua conta para participar"
       cant_answer: "Esta votação não está disponível para sua localidade"
       electoral_college_restricted: Esta votação é restrita por colégio eleitoral
@@ -636,11 +636,12 @@ pt-BR:
         participate: Participe dos
         subtitle: Processos abertos
       section_footer:
-        title: Ajuda sobre votações
-        description: Votações dos cidadãos são um mecanismo de participação na qual os cidadãos podem ter decisões diretas
+        title: Sobre as votações
+        description: Participe das Votações para opinar sobre políticas públicas, projetos e composição de conselhos. Acompanhe em Processos Encerrados os resultados das votações.
       no_open_polls: "Não existem processos abertos"
       no_close_polls: "Não existem processos encerrados"
       period: Período
+      description: Descrição
       votes: "Votos"
       votes_counter:
         one: "%{count} voto"
@@ -655,7 +656,7 @@ pt-BR:
       verify_link: "verifique sua conta"
       cant_answer_expired: "Esta votação já foi encerrada."
       electoral_college_restricted: "Apenas membros do colégio eleitoral desta votação podem participar deste processo."
-      cant_answer_wrong_geozone: "Esta questão não está disponível para a sua localidade."
+      cant_answer_wrong_geozone: "Esta votação não está disponível para a sua localidade."
       more_info_title: "Descrição"
       less_info_title: "Menos informações"
       documents: Documentos
