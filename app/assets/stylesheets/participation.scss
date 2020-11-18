@@ -2074,13 +2074,19 @@
     display: inline-block;
   }
 
-  .votes {
+  .answer-votes-count {
     color: $purple;
-    font-size: 17px;
+    text-align: right;
+    font-size: $small-font-size;
     font-weight: bold;
-    float: right;
-    margin-right: 8px;
+    margin-right: $line-height / 4;
+    margin-bottom: $line-height / 2;
+
+    @include breakpoint(medium) {
+      margin-bottom: $line-height / 4;
+    }
   }
+
 }
 
 // 09. Polls results and stats
