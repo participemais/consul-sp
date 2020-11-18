@@ -950,11 +950,15 @@
   }
 
   h1, i {
-    font-size: 2.5rem;
+    font-size: 1.85rem;
     margin-bottom: 0;
     text-transform: initial;
     margin-right: $line-height / 2;
     padding: rem-calc(50) 0;
+
+    @include breakpoint(medium) {
+      font-size: 2.5rem;
+    }
   }
 
   div {
@@ -1802,7 +1806,7 @@
     }
   }
 
-  h5 {
+  h5, .period {
     font-family: $subheader-font-family;
     text-transform: uppercase;
     font-size: 17px;
