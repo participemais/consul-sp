@@ -1,4 +1,4 @@
-class Admin::Legislation::ProcessesController < Admin::Legislation::BaseController
+class Edition::Legislation::ProcessesController < Edition::Legislation::BaseController
   include Translatable
   include ImageAttributes
 
@@ -7,19 +7,8 @@ class Admin::Legislation::ProcessesController < Admin::Legislation::BaseControll
   load_and_authorize_resource :process, class: "Legislation::Process"
 
   def index
-    @processes = ::Legislation::Process.send(@current_filter).order(start_date: :desc)
+    @processes = ::Legislation::Process.joins(:editors).where(editors: { id: current_user.id }).send(@current_filter).order(start_date: :desc)
                  .page(params[:page])
-  end
-
-  def create
-    if @process.save
-      link = legislation_process_path(@process)
-      notice = t("admin.legislation.processes.create.notice", link: link)
-      redirect_to edit_admin_legislation_process_path(@process), notice: notice
-    else
-      flash.now[:error] = t("admin.legislation.processes.create.error")
-      render :new
-    end
   end
 
   def update
@@ -31,12 +20,6 @@ class Admin::Legislation::ProcessesController < Admin::Legislation::BaseControll
       flash.now[:error] = t("admin.legislation.processes.update.error")
       render :edit
     end
-  end
-
-  def destroy
-    @process.destroy!
-    notice = t("admin.legislation.processes.destroy.notice")
-    redirect_to admin_legislation_processes_path, notice: notice
   end
 
   private
@@ -74,8 +57,7 @@ class Admin::Legislation::ProcessesController < Admin::Legislation::BaseControll
         :font_color,
         translation_params(::Legislation::Process),
         documents_attributes: [:id, :title, :attachment, :cached_attachment, :user_id, :_destroy],
-        image_attributes: image_attributes,
-        editors_ids: [:id]
+        image_attributes: image_attributes
       ]
     end
 

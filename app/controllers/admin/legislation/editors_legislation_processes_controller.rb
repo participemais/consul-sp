@@ -1,24 +1,21 @@
-class Admin::Legislation::ProcessesController < Admin::Legislation::BaseController
+class Admin::Legislation::EditorsLegislationProcessesController < Admin::Legislation::BaseController
   include Translatable
-  include ImageAttributes
 
   has_filters %w[active all], only: :index
 
   load_and_authorize_resource :process, class: "Legislation::Process"
 
   def index
-    @processes = ::Legislation::Process.send(@current_filter).order(start_date: :desc)
+    @editors = Editor.send(@current_filter).order(start_date: :desc)
                  .page(params[:page])
   end
 
   def create
     if @process.save
-      link = legislation_process_path(@process)
-      notice = t("admin.legislation.processes.create.notice", link: link)
-      redirect_to edit_admin_legislation_process_path(@process), notice: notice
+      render :index, notice: notice
     else
       flash.now[:error] = t("admin.legislation.processes.create.error")
-      render :new
+      render :index
     end
   end
 

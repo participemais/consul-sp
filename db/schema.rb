@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20201112181416) do
+ActiveRecord::Schema.define(version: 20201118132343) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -593,6 +593,13 @@ ActiveRecord::Schema.define(version: 20201112181416) do
   create_table "editors", force: :cascade do |t|
     t.bigint "user_id"
     t.index ["user_id"], name: "index_editors_on_user_id"
+  end
+
+  create_table "editors_legislation_processes", id: false, force: :cascade do |t|
+    t.bigint "process_id"
+    t.bigint "editor_id"
+    t.index ["editor_id"], name: "index_on_leg_procs_and_editors_on_editors_id"
+    t.index ["process_id"], name: "index_on_leg_procs_and_editors_on_leg_procs_id"
   end
 
   create_table "failed_census_calls", id: :serial, force: :cascade do |t|

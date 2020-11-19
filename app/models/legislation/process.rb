@@ -54,6 +54,10 @@ class Legislation::Process < ApplicationRecord
     inverse_of:  :process,
     dependent:   :destroy
 
+  belongs_to :user
+
+  has_and_belongs_to_many :editors
+
   validates_translation :title, presence: true
   validates :start_date, presence: true
   validates :end_date, presence: true

@@ -122,6 +122,7 @@ class User < ApplicationRecord
   attr_accessor :login
 
   scope :administrators, -> { joins(:administrator) }
+  scope :editors,        -> { joins(:editor) }
   scope :moderators,     -> { joins(:moderator) }
   scope :organizations,  -> { joins(:organization) }
   scope :officials,      -> { where("official_level > 0") }
