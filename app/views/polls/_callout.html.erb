@@ -26,6 +26,10 @@
     <div class="callout warning no-margin-bottom">
       <%= t("polls.show.electoral_college_restricted") %>
     </div>
+  <% elsif @poll.voted_in_booth?(current_user) %>
+    <div class="callout warning no-margin-bottom">
+      <%= t("polls.show.already_voted_in_booth") %>
+    </div>
   <% else %>
     <div class="callout warning no-margin-bottom">
       <%= t("polls.show.cant_answer_wrong_geozone") %>
