@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20201111193449) do
+ActiveRecord::Schema.define(version: 20201122233830) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -963,6 +963,8 @@ ActiveRecord::Schema.define(version: 20201111193449) do
     t.string "postal_code", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "ethnicity"
+    t.string "gender"
     t.index ["document_number", "document_type"], name: "index_local_census_records_on_document_number_and_document_type", unique: true
     t.index ["document_number"], name: "index_local_census_records_on_document_number"
   end
