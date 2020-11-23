@@ -44,7 +44,6 @@ class Officing::ResultsController < Officing::BaseController
           next if count.blank?
 
           answer = question.question_answers.find_by(given_order: answer_index.to_i + 1).title
-          go_back_to_new if question.blank?
 
           partial_result = ::Poll::PartialResult.find_or_initialize_by(booth_assignment_id: @officer_assignment.booth_assignment_id,
                                                                        date: Date.current,
