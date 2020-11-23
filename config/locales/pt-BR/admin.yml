@@ -1612,6 +1612,29 @@ pt-BR:
           search: Pesquisar
         import: Importar CSV
       new:
-        creating: Criando novo registro de censo local
+        creating: Criar eleitor
       create:
-        notice: Novo registro de censo local criado com sucesso!
+        notice: Eleitor criado com sucesso
+      edit:
+        editing: Editar eleitor
+      update:
+        notice: Eleitor atualizado com sucesso
+      destroy:
+        notice: Eleitor excluído com sucesso
+      imports:
+        new:
+          title: Importar CSV de eleitores
+          info: "O arquivo deve conter os seguintes cabeçalhos: %{required_headers}"
+          gender_info: "Opções de gênero válidas: %{gender_options}"
+          ethnicity_info: "Opções de raça válidas: %{ethnicity_options}"
+          load_info: A importação pode demorar alguns minutos
+        create:
+          notice: Importação de eleitores realizada com sucesso
+        show:
+          title: Importação de eleitores
+          subtitle: Resultado
+          errored: Eleitores inválidos
+          created: Eleitores adicionados
+          import: Importar eleitores por CSV
+        local_census_records:
+          no_records_found: Nenhum registro encontrado
