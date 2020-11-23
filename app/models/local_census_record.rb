@@ -6,7 +6,9 @@ class LocalCensusRecord < ApplicationRecord
 
   validates :document_number, presence: true
   validates :document_type, presence: true
-  validates :document_type, inclusion: { in: User.document_type_options }
+  validates :document_type, inclusion: {
+    in: User.document_type_options, allow_blank: true
+  }
   validates :date_of_birth, presence: true
   validates :postal_code, presence: true
   validates :document_number, uniqueness: true
