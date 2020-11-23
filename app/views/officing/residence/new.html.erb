@@ -6,7 +6,10 @@
       <%= render "errors" %>
 
       <div class="small-12 medium-6">
-        <%= f.select :document_type, document_types, prompt: "" %>
+        <%= f.select :document_type,
+          User.document_type_options,
+          include_blank: true
+        %>
 
         <%= f.text_field :document_number,
                          placeholder: t("officing.residence.new.document_number"),
