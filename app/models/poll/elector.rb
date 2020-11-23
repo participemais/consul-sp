@@ -1,5 +1,7 @@
 class Poll
   class Elector < ApplicationRecord
+    include DocumentValidation
+
     before_validation :sanitize
     before_validation :set_user
 
@@ -16,8 +18,6 @@ class Poll
     validates :document_number, presence: true
     validates :document_number,
       uniqueness: { scope: [:electoral_college, :category] }
-
-    validate :valid_document_number
 
     scope :user_not_found, -> { where(user_found: false) }
     scope :by_category, ->(category) { where(category: category) }
@@ -44,18 +44,6 @@ class Poll
     end
 
     private
-
-    def valid_document_number
-      return if document_number.blank? || document_type.blank?
-
-      if invalid_cpf? || invalid_rnm?
-        message = I18n.t(
-          :invalid_number,
-          scope: 'activerecord.errors.models.user.attributes.cpf'
-        )
-        errors.add(:document_number, message)
-      end
-    end
 
     def sanitize
       self.document_type = document_type&.downcase&.strip
@@ -84,12 +72,5 @@ class Poll
       end
     end
 
-    def invalid_cpf?
-      document_type == User::DOCUMENT_TYPES.first && !CPF.valid?(document_number)
-    end
-
-    def invalid_rnm?
-      document_type == User::DOCUMENT_TYPES.first && !(document_number =~ /^[A-Z]\d{6}[A-Z]$/)
-    end
   end
 end
