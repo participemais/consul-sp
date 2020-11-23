@@ -3,7 +3,7 @@ require "csv"
 class LocalCensusRecords::Import
   include ActiveModel::Model
 
-  ATTRIBUTES = %w[document_type document_number date_of_birth postal_code].freeze
+  ATTRIBUTES = %w[document_type document_number date_of_birth gender ethnicity postal_code].freeze
   ALLOWED_FILE_EXTENSIONS = %w[csv].freeze
 
   attr_accessor :file, :created_records, :invalid_records
@@ -35,6 +35,22 @@ class LocalCensusRecords::Import
 
   def save!
     validate! && save
+  end
+
+  def gender_options
+    gender_values.keys.to_sentence(last_word_connector: " e ")
+  end
+
+  def ethnicity_options
+    ethnicity_values.keys.to_sentence(last_word_connector: " e ")
+  end
+
+  def gender_values
+    local_census_record_translation_attr(:gender_options).invert
+  end
+
+  def ethnicity_values
+    local_census_record_translation_attr(:ethnicity_options).invert
   end
 
   private
@@ -84,5 +100,9 @@ class LocalCensusRecords::Import
 
     def extension
       File.extname(file.original_filename).delete(".")
+    end
+
+    def local_census_record_translation_attr(attr_key)
+      I18n.t(attr_key, scope: 'activerecord.attributes.local_census_record')
     end
 end
