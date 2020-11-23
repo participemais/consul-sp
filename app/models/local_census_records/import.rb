@@ -38,19 +38,11 @@ class LocalCensusRecords::Import
   end
 
   def gender_options
-    gender_values.keys.to_sentence(last_word_connector: " e ")
+    LocalCensusRecord.gender_values.to_sentence(last_word_connector: " e ")
   end
 
   def ethnicity_options
-    ethnicity_values.keys.to_sentence(last_word_connector: " e ")
-  end
-
-  def gender_values
-    local_census_record_translation_attr(:gender_options).invert
-  end
-
-  def ethnicity_values
-    local_census_record_translation_attr(:ethnicity_options).invert
+    LocalCensusRecord.ethnicity_values.to_sentence(last_word_connector: " e ")
   end
 
   private
@@ -100,9 +92,5 @@ class LocalCensusRecords::Import
 
     def extension
       File.extname(file.original_filename).delete(".")
-    end
-
-    def local_census_record_translation_attr(attr_key)
-      I18n.t(attr_key, scope: 'activerecord.attributes.local_census_record')
     end
 end
