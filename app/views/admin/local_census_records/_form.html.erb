@@ -28,13 +28,13 @@
   <div class="row">
     <div class="small-12 medium-6 column">
       <%= f.select :gender,
-        options_for_gender,
+        options_for_gender(@local_census_record),
         include_blank: true
       %>
     </div>
     <div class="small-12 medium-6 column">
       <%= f.select :ethnicity,
-        options_for_ethnicity,
+        options_for_ethnicity(@local_census_record),
         include_blank: true
       %>
     </div>
