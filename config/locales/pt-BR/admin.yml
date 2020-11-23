@@ -721,6 +721,7 @@ pt-BR:
       users: Usuários
       debates: "Debates"
       comments: "Comentários"
+      local_census_records: Colégio eleitoral presencial
     administrators:
       index:
         title: Administradores
@@ -1598,10 +1599,14 @@ pt-BR:
       auditable_id: ID do registro
     local_census_records:
       index:
+        title: Colégio eleitoral presencial
+        create: Adicionar eleitor
         document_type: Tipo do documento
         document_number: Número do documento
         date_of_birth: Data de nascimento
         postal_code: CEP
+        ethnicity: Raça
+        gender: Gênero
         search:
           placeholder: Pesquisar por número de documento
           search: Pesquisar
