@@ -12,7 +12,6 @@ class Officing::Residence
   validates :document_type, presence: true
   validates :date_of_birth, presence: true, if: -> { Setting.force_presence_date_of_birth? }
   validates :postal_code, presence: true, if: -> { Setting.force_presence_postal_code? }
-  validates :year_of_birth, presence: true, unless: -> { Setting.force_presence_date_of_birth? }
 
   validate :allowed_age
   validate :residence_in_madrid
@@ -41,7 +40,6 @@ class Officing::Residence
         verified_at:           Time.current,
         erased_at:             Time.current,
         password:              random_password,
-        terms_of_service:      "1",
         email:                 nil
       }
       self.user = User.create!(user_params)
