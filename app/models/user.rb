@@ -368,6 +368,10 @@ class User < ApplicationRecord
     (Setting["min_age_to_participate"] || 16).to_i
   end
 
+  def self.document_type_options
+    DOCUMENT_TYPES.map(&:upcase)
+  end
+
   def show_welcome_screen?
     verification = Setting["feature.user.skip_verification"].present? ? true : unverified?
     sign_in_count == 1 && verification && !organization && !administrator?

@@ -3,7 +3,10 @@
 
   <div class="row">
     <div class="small-12">
-      <%= f.select :document_type, document_types, prompt: "" %>
+      <%= f.select :document_type,
+        User.document_type_options,
+        include_blank: true
+      %>
     </div>
   </div>
 
