@@ -1900,9 +1900,7 @@
     img {
       height: 100%;
       max-width: none;
-      display: block;
-      margin-left: auto;
-      margin-right: auto;
+      position: absolute;
     }
   }
 }
@@ -2087,6 +2085,7 @@
     font-weight: bold;
     margin-right: $line-height / 4;
     margin-bottom: $line-height / 2;
+    font-family: $header-font-family;
 
     @include breakpoint(medium) {
       margin-bottom: $line-height / 4;

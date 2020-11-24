@@ -680,6 +680,7 @@ pt-BR:
         title: "Perguntas"
         most_voted_answer: "Resposta mais votada: "
       incomplete_registration: "Você precisa completar o %{register} para participar da votação"
+      not_open: "Fora do período de participação"
     poll_header:
       back_to_proposal: Voltar à proposta
   poll_questions:

@@ -71,7 +71,7 @@ class Poll
     def set_user
       if user = find_user
         self.user = user
-        self.user_found= true
+        self.user_found = true
       end
     end
 
@@ -85,11 +85,11 @@ class Poll
     end
 
     def invalid_cpf?
-      document_type == 'cpf' && !CPF.valid?(document_number)
+      document_type == User::DOCUMENT_TYPES.first && !CPF.valid?(document_number)
     end
 
     def invalid_rnm?
-      document_type == 'rnm' && !(document_number =~ /^[A-Z]\d{6}[A-Z]$/)
+      document_type == User::DOCUMENT_TYPES.first && !(document_number =~ /^[A-Z]\d{6}[A-Z]$/)
     end
   end
 end
