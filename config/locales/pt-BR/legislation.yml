@@ -122,7 +122,7 @@ pt-BR:
         debate_phase_not_open: Fora do período de participação
       spreadsheet:
         id: ID
-        question_title: Questão
+        question_title: Pergunta
         answer_option: Opção
         comment: Resposta
         user: Usuário
