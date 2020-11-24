@@ -6,7 +6,9 @@
     <%= local_census_record.document_number %>
   </td>
   <td>
-    <%= l local_census_record.date_of_birth %>
+    <% if local_census_record.date_of_birth.present? %>
+      <%= l local_census_record.date_of_birth %>
+    <% end %>
   </td>
   <td>
     <% if local_census_record.ethnicity.present? %>
@@ -32,12 +34,12 @@
   <td>
     <%= link_to t("admin.actions.edit"),
                 edit_admin_local_census_record_path(local_census_record),
-                class: "button hollow small" %>
+                class: "button hollow" %>
 
     <%= link_to t("admin.actions.delete"),
                 admin_local_census_record_path(local_census_record),
                 method: :delete,
-                class: "button hollow alert small",
+                class: "button hollow alert",
                 data: { confirm: t("admin.actions.confirm") } %>
   </td>
 </tr>

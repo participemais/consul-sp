@@ -60,7 +60,9 @@ class LocalCensusRecords::Import
 
     def build_local_census_record(row)
       local_census_record = LocalCensusRecord.new
-      local_census_record.attributes = row.to_hash.slice(*ATTRIBUTES)
+      attrs = row.to_hash
+      attrs["date_of_birth"] = parse_date(attrs)
+      local_census_record.attributes = attrs.slice(*ATTRIBUTES)
       local_census_record
     end
 
@@ -92,5 +94,9 @@ class LocalCensusRecords::Import
 
     def extension
       File.extname(file.original_filename).delete(".")
+    end
+
+    def parse_date(attrs)
+      Date.parse(attrs["date_of_birth"]) rescue nil
     end
 end
