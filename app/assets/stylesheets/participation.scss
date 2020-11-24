@@ -1900,9 +1900,7 @@
     img {
       height: 100%;
       max-width: none;
-      display: block;
-      margin-left: auto;
-      margin-right: auto;
+      position: absolute;
     }
   }
 }
