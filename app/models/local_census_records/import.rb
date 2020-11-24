@@ -38,11 +38,11 @@ class LocalCensusRecords::Import
   end
 
   def gender_options
-    LocalCensusRecord.gender_values.to_sentence(last_word_connector: " e ")
+    LocalCensusRecord.gender_options.to_sentence(last_word_connector: " e ")
   end
 
   def ethnicity_options
-    LocalCensusRecord.ethnicity_values.to_sentence(last_word_connector: " e ")
+    LocalCensusRecord.ethnicity_options.to_sentence(last_word_connector: " e ")
   end
 
   private
