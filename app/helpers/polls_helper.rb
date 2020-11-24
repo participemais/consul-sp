@@ -88,9 +88,9 @@ module PollsHelper
     @current_filter == "expired"
   end
 
-  def question_answers_count(question, answer)
+  def question_answers_count(poll, question, answer)
     count = question.answers.votes_count(answer.title)
-    return count unless @poll.expired?
+    return count unless poll.expired?
     count + question.partial_results.booth_votes_count(answer.title)
   end
 end

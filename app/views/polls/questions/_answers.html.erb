@@ -43,7 +43,7 @@
         <p class="answer-votes-count">
           <%= t(
             "polls.index.votes_counter",
-            count: question_answers_count(question, answer)
+            count: question_answers_count(poll, question, answer)
           ) %>
         </p>
       </div>
@@ -100,7 +100,7 @@
         <p class="answer-votes-count">
           <%= t(
             "polls.index.votes_counter",
-            count: question_answers_count(question, answer)
+            count: question_answers_count(poll, question, answer)
           ) %>
         </p>
       </div>
