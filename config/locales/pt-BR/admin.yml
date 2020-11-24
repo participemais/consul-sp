@@ -1601,9 +1601,9 @@ pt-BR:
       index:
         title: Colégio eleitoral presencial
         create: Adicionar eleitor
-        document_type: Tipo do documento
-        document_number: Número do documento
-        date_of_birth: Data de nascimento
+        document_type: Tipo
+        document_number: Documento
+        date_of_birth: Nascimento
         postal_code: CEP
         ethnicity: Raça
         gender: Gênero
@@ -1627,6 +1627,7 @@ pt-BR:
           info: "O arquivo deve conter os seguintes cabeçalhos: %{required_headers}"
           gender_info: "Opções de gênero válidas: %{gender_options}"
           ethnicity_info: "Opções de raça válidas: %{ethnicity_options}"
+          date_format_info: "Formato da data de nascimento: dd/mm/aaaa"
           load_info: A importação pode demorar alguns minutos
         create:
           notice: Importação de eleitores realizada com sucesso
