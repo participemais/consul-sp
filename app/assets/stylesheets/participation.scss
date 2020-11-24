@@ -2087,6 +2087,7 @@
     font-weight: bold;
     margin-right: $line-height / 4;
     margin-bottom: $line-height / 2;
+    font-family: $header-font-family;
 
     @include breakpoint(medium) {
       margin-bottom: $line-height / 4;
