@@ -2,24 +2,29 @@ class LocalCensusRecord < ApplicationRecord
   include DocumentValidation
 
   before_validation :sanitize
-  before_save :sanitize_attributes
 
   validates :document_number, presence: true
   validates :document_type, presence: true
   validates :document_type, inclusion: {
-    in: User.document_type_options, allow_blank: true
+    in: User::DOCUMENT_TYPES, allow_blank: true
   }
-  validates :date_of_birth, presence: true
-  validates :postal_code, presence: true
   validates :document_number, uniqueness: true
   validates :gender, inclusion: {
-    in: ->(record) { record.class.gender_options }, allow_blank: true
+    in: ->(record) { record.class.valid_gender_options }, allow_blank: true
   }
   validates :ethnicity, inclusion: {
-    in: ->(record) { record.class.ethnicity_options }, allow_blank: true
+    in: ->(record) { record.class.valid_ethnicity_options }, allow_blank: true
   }
 
   scope :search, ->(terms) { where("document_number ILIKE ?", "%#{terms}%") }
+
+  def self.valid_gender_options
+    gender_values.values.map(&:to_s)
+  end
+
+  def self.valid_ethnicity_options
+    ethnicity_values.values.map(&:to_s)
+  end
 
   def self.gender_options
     gender_values.keys.map(&:downcase)
@@ -31,18 +36,12 @@ class LocalCensusRecord < ApplicationRecord
 
   private
 
-    def sanitize_attributes
-      self.document_type = self.document_type.downcase
-      set_gender if gender.present?
-      set_ethnicity if ethnicity.present?
-    end
-
     def sanitize
-      self.document_type = self.document_type&.upcase&.strip
+      self.document_type = self.document_type&.downcase&.strip
       self.document_number = self.document_number&.strip
       self.postal_code = self.postal_code&.strip
-      self.gender = self.gender&.downcase&.strip
-      self.ethnicity = self.ethnicity&.downcase&.strip
+      set_gender if gender.present?
+      set_ethnicity if ethnicity.present?
     end
 
     def self.gender_values
@@ -58,10 +57,16 @@ class LocalCensusRecord < ApplicationRecord
     end
 
     def set_gender
-      self.gender = self.class.gender_values[gender.capitalize]
+      return if self.class.valid_gender_options.include? gender
+      if value = self.class.gender_values[gender.capitalize]
+        self.gender = value
+      end
     end
 
     def set_ethnicity
-      self.ethnicity = self.class.ethnicity_values[ethnicity.capitalize]
+      return if self.class.valid_ethnicity_options.include? ethnicity
+      if value = self.class.ethnicity_values[ethnicity.capitalize]
+        self.ethnicity = value
+      end
     end
 end
