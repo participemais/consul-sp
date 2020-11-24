@@ -8,6 +8,7 @@ class LocalCensusRecord < ApplicationRecord
   validates :document_type, inclusion: {
     in: User::DOCUMENT_TYPES, allow_blank: true
   }
+  validates :postal_code, length: { is: 8 }, allow_blank: true
   validates :document_number, uniqueness: true
   validates :gender, inclusion: {
     in: ->(record) { record.class.valid_gender_options }, allow_blank: true
