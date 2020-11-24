@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20201122233830) do
+ActiveRecord::Schema.define(version: 20201124025219) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -959,8 +959,8 @@ ActiveRecord::Schema.define(version: 20201122233830) do
   create_table "local_census_records", id: :serial, force: :cascade do |t|
     t.string "document_number", null: false
     t.string "document_type", null: false
-    t.date "date_of_birth", null: false
-    t.string "postal_code", null: false
+    t.date "date_of_birth"
+    t.string "postal_code"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "ethnicity"
