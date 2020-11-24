@@ -3,8 +3,7 @@ class Officing::Residence
   include ActiveModel::Dates
   include ActiveModel::Validations::Callbacks
 
-  attr_accessor :user, :officer, :document_number, :document_type, :year_of_birth,
-                :date_of_birth, :postal_code
+  attr_accessor :user, :officer, :document_number, :document_type, :year_of_birth, :date_of_birth, :postal_code
 
   before_validation :retrieve_census_data
 
@@ -36,6 +35,7 @@ class Officing::Residence
         geozone:               geozone,
         date_of_birth:         response_date_of_birth.in_time_zone.to_datetime,
         gender:                gender,
+        ethnicity:             ethnicity,
         residence_verified_at: Time.current,
         verified_at:           Time.current,
         erased_at:             Time.current,
@@ -102,6 +102,10 @@ class Officing::Residence
 
   def gender
     @census_api_response.gender
+  end
+
+  def ethnicity
+    @census_api_response.ethnicity
   end
 
   def response_date_of_birth
