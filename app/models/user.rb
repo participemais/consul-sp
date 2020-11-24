@@ -368,7 +368,7 @@ class User < ApplicationRecord
   end
 
   def self.document_type_options
-    DOCUMENT_TYPES.map(&:upcase)
+    DOCUMENT_TYPES.map { |type| [type.upcase, type] }
   end
 
   def show_welcome_screen?
