@@ -16,8 +16,11 @@ class LocalCensusRecord < ApplicationRecord
   validates :ethnicity, inclusion: {
     in: ->(record) { record.class.valid_ethnicity_options }, allow_blank: true
   }
+  validate :valid_date_of_birth
 
   scope :search, ->(terms) { where("document_number ILIKE ?", "%#{terms}%") }
+
+  attr_accessor :invalid_date
 
   def self.valid_gender_options
     gender_values.values.map(&:to_s)
@@ -69,5 +72,11 @@ class LocalCensusRecord < ApplicationRecord
       if value = self.class.ethnicity_values[ethnicity.capitalize]
         self.ethnicity = value
       end
+    end
+
+    def valid_date_of_birth
+      return unless invalid_date
+      message = I18n.t("admin.local_census_records.errors.invalid_date")
+      errors.add(:invalid_date, message)
     end
 end
