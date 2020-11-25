@@ -83,4 +83,8 @@ module PollsHelper
   def poll_total_votes_count
     @poll.expired? ? @poll.answer_count : @poll.web_answers_count
   end
+
+  def expired?
+    @current_filter == "expired"
+  end
 end

@@ -20,7 +20,7 @@
     <div class="callout alert no-margin-bottom">
       <%= t("polls.show.cant_answer_expired") %>
     </div>
-  <% elsif !@poll.open? %>
+  <% elsif !@poll.current? %>
     <div class="callout warning no-margin-bottom">
       <%= t("polls.show.not_open") %>
     </div>

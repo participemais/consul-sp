@@ -1,6 +1,6 @@
 <% poll_group.each do |poll| %>
   <div class="poll with-image polls-cards">
-    <% if !user_signed_in? && !@expired %>
+    <% if !user_signed_in? && !expired? %>
       <div class="icon-poll-answer not-logged-in" title="<%= t("polls.index.not_logged_in") %>">
         <span class="show-for-sr"><%= t("polls.index.not_logged_in") %></span>
       </div>
