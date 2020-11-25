@@ -3,11 +3,11 @@
 <% end %>
 
 <div class="legislation-draft-versions-index">
-  <%= back_link_to admin_legislation_processes_path, t("shared.back") %>
+  <%= back_link_to edition_legislation_processes_path, t("shared.back") %>
 
   <h2><%= @process.title %></h2>
 
-  <%= render "admin/legislation/processes/subnav",
+  <%= render "edition/legislation/processes/subnav",
     process: @process, active: "topics"
   %>
 
@@ -18,7 +18,7 @@
 
     <div class="float-right">
       <%= link_to(
-        document_link, document_admin_legislation_process_topics_path,
+        document_link, document_edition_legislation_process_topics_path,
         class: "button"
       ) %>
     </div>

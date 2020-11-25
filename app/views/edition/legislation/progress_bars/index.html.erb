@@ -3,10 +3,10 @@
   <%= "#{@process.title} - #{t("admin.progress_bars.index.title")}" %>
 <% end %>
 
-<%= back_link_to admin_legislation_process_milestones_path(@progressable),
+<%= back_link_to edition_legislation_process_milestones_path(@progressable),
                  t("admin.legislation.processes.edit.back") %>
 
 <h2><%= @process.title %></h2>
 
-<%= render "admin/legislation/processes/subnav", process: @process, active: "milestones" %>
-<%= render "admin/progress_bars/progress_bars", progressable: @process %>
+<%= render "edition/legislation/processes/subnav", process: @process, active: "milestones" %>
+<%= render "edition/progress_bars/progress_bars", progressable: @process %>

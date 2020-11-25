@@ -3,7 +3,7 @@
            display_style: lambda { |locale| enable_translation_style(@process, locale) },
            manage_languages: false %>
 
-<%= translatable_form_for [:admin, @process] do |f| %>
+<%= translatable_form_for [:edition, @process] do |f| %>
   <div class="row">
     <%= f.translatable_fields do |translations_form| %>
       <div class="column">

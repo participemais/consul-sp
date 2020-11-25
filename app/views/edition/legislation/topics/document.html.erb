@@ -4,11 +4,11 @@
 
 <div class="legislation-draft-versions-index">
 
-  <%= back_link_to admin_legislation_process_topics_path, t("shared.back") %>
+  <%= back_link_to edition_legislation_process_topics_path, t("shared.back") %>
 
   <h2><%= @process.title %></h2>
 
-  <%= render "admin/legislation/processes/subnav", process: @process, active: "topics" %>
+  <%= render "edition/legislation/processes/subnav", process: @process, active: "topics" %>
 
   <%= render "topic_levels" %>
 

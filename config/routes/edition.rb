@@ -17,4 +17,6 @@ namespace :edition do
       resources :topic_levels, except: [:index, :show]
     end
   end
+
+  resources :milestone_statuses, only: [:index, :new, :create, :update, :edit, :destroy]
 end

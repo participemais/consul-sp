@@ -4,7 +4,7 @@
 
 <%= link_to(
   t("admin.legislation.topics.document.new_topic_level"),
-  new_admin_legislation_process_topic_level_path,
+  new_edition_legislation_process_topic_level_path,
   class: "button float-right margin-right"
 ) %>
 
@@ -37,7 +37,7 @@
           <td>
             <%= link_to(
               t("admin.legislation.topics.document.edit"),
-              edit_admin_legislation_process_topic_level_path(@process, topic_level),
+              edit_edition_legislation_process_topic_level_path(@process, topic_level),
               class: "button hollow"
             ) %>
             <% if topic_level == @topic_levels.last &&
@@ -45,7 +45,7 @@
             %>
               <%= link_to(
                 t("admin.legislation.topics.document.delete"),
-                admin_legislation_process_topic_level_path(@process, topic_level),
+                edition_legislation_process_topic_level_path(@process, topic_level),
                 method: :delete,
                 class: "button hollow alert"
               ) %>

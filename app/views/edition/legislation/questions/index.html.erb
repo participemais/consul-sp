@@ -3,17 +3,17 @@
 <% end %>
 
 <div class="legislation-draft-versions-index">
-  <%= back_link_to admin_legislation_processes_path, t("admin.legislation.questions.index.back") %>
+  <%= back_link_to edition_legislation_processes_path, t("admin.legislation.questions.index.back") %>
 
   <h2><%= @process.title %></h2>
 
-  <%= render "admin/legislation/processes/subnav", process: @process, active: "questions" %>
+  <%= render "edition/legislation/processes/subnav", process: @process, active: "questions" %>
 
   <div class="small-12 column">
     <h4 class="inline-block"><%= t("admin.legislation.questions.index.title") %></h4>
 
     <div class="float-right">
-      <%= link_to t("admin.legislation.questions.index.create"), new_admin_legislation_process_question_path, class: "button" %>
+      <%= link_to t("admin.legislation.questions.index.create"), new_edition_legislation_process_question_path, class: "button" %>
     </div>
 
     <% if @process.questions.any? %>
@@ -43,7 +43,7 @@
         <% @process.questions.each do |question| %>
           <tr id="<%= dom_id(question) %>">
             <td>
-              <%= link_to question.title, edit_admin_legislation_process_question_path(@process, question) %>
+              <%= link_to question.title, edit_edition_legislation_process_question_path(@process, question) %>
             </td>
             <td>
               <ul>
