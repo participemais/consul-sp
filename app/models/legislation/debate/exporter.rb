@@ -31,8 +31,8 @@ class Legislation::Debate::Exporter
 
   private
 
-  ANSWER_COLUMNS = %w(id question_title answer_option).freeze
-  COMMENT_COLUMNS = %w(id question_title comment user).freeze
+  ANSWER_COLUMNS = %w(id question_title answer).freeze
+  COMMENT_COLUMNS = %w(id question_title answer user).freeze
 
   def answer_csv_row(question, answer)
     [
