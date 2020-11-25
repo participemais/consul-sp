@@ -49,9 +49,11 @@ pt-BR:
         booth: "Urna"
         date: "Data"
         select_booth: "Selecione a urna"
-        ballots_white: "Cédulas completamente em branco"
-        ballots_null: "Cédulas inválidas"
-        ballots_total: "Total de células"
+        ballots_white_1: "e"
+        ballots_white_2: "em branco, se houver."
+        ballots_null_1: "sendo"
+        ballots_null_2: "inválidas"
+        ballots_total: "Total de cédulas"
         submit: "Salvar"
         results_list: "Seus resultados"
         see_results: "Exibir resultados"
@@ -62,7 +64,7 @@ pt-BR:
         table_votes: Votos
         table_whites: "Cédulas completamente em branco"
         table_nulls: "Cédulas inválidas"
-        table_total: "Total de células"
+        table_total: "Total de cédulas"
     residence:
       flash:
         create: "Documento verificado com o Censo"
