@@ -123,8 +123,7 @@ pt-BR:
       spreadsheet:
         id: ID
         question_title: Pergunta
-        answer_option: Opção
-        comment: Resposta
+        answer: Resposta
         user: Usuário
     answers:
       create:
