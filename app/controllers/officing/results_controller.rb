@@ -71,16 +71,29 @@ class Officing::ResultsController < Officing::BaseController
           recount["#{recount_type.to_s.singularize}_amount"] = results_params[recount_type].to_i
         end
       end
+      recount.difference_explanation = results_params[:difference_explanation]
+      recount_warning(recount) if recount.invalid?
       @results << recount
     end
 
     def go_back_to_new(alert = nil)
+      render_new
+      flash.now[:alert] = (alert || t("officing.results.flash.error_create"))
+      render :new
+    end
+
+    def recount_warning(recount)
+      render_new
+      load_voters
+      flash.now[:alert] = t("officing.results.flash.difference_explanation")
+      render :new
+    end
+
+    def render_new
       params[:d] = Date.current
       params[:oa] = results_params[:officer_assignment_id]
-      flash.now[:alert] = (alert || t("officing.results.flash.error_create"))
       load_officer_assignments
       load_partial_results
-      render :new
     end
 
     def load_poll
@@ -110,10 +123,15 @@ class Officing::ResultsController < Officing::BaseController
     end
 
     def results_params
-      params.permit(:officer_assignment_id, :questions, :whites, :nulls, :total)
+      params.permit(:officer_assignment_id, :questions, :whites, :nulls, :total, :difference_explanation)
     end
 
     def index_params
       params.permit(:booth_assignment_id, :date)
+    end
+
+    def load_voters
+      load_officer_assignment
+      @voters = @officer_assignment.booth_assignment.voters
     end
 end

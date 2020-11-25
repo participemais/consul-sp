@@ -12,3 +12,15 @@
     </tr>
   </tbody>
 </table>
+
+<% explanations = resource.recounts.select(&:difference_explanation) %>
+<% if explanations.any? %>
+  <div>
+    <h5><%= t("officing.results.new.difference_explanation") %></h5>
+    <% explanations.each do |explanation| %>
+      <p><%= explanation.difference_explanation %></p>
+    <% end %>
+  </div>
+<% end %>
+
+<hr>
