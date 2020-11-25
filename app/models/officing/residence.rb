@@ -3,7 +3,7 @@ class Officing::Residence
   include ActiveModel::Dates
   include ActiveModel::Validations::Callbacks
 
-  attr_accessor :user, :officer, :document_number, :document_type, :year_of_birth, :date_of_birth, :postal_code
+  attr_accessor :user, :officer, :document_number, :document_type, :date_of_birth, :postal_code
 
   before_validation :retrieve_census_data
 
@@ -12,7 +12,6 @@ class Officing::Residence
   validates :date_of_birth, presence: true, if: -> { Setting.force_presence_date_of_birth? }
   validates :postal_code, presence: true, if: -> { Setting.force_presence_postal_code? }
 
-  # validate :allowed_age
   validate :residence_in_madrid
 
   def initialize(attrs = {})
@@ -57,7 +56,6 @@ class Officing::Residence
       document_type: document_type,
       date_of_birth: date_of_birth,
       postal_code: postal_code,
-      year_of_birth: year_of_birth,
       poll_officer: officer
     )
   end
@@ -77,19 +75,6 @@ class Officing::Residence
       store_failed_census_call
       errors.add(:residence_in_madrid, false)
     end
-  end
-
-  def allowed_age
-    return if errors[:year_of_birth].any?
-    return unless @census_api_response.valid?
-
-    unless allowed_age?
-      errors.add(:year_of_birth, I18n.t("verification.residence.new.error_not_allowed_age"))
-    end
-  end
-
-  def allowed_age?
-    Age.in_years(response_date_of_birth) >= User.minimum_required_age
   end
 
   def geozone
@@ -123,13 +108,6 @@ class Officing::Residence
 
     def residency_valid?
       @census_api_response.valid?
-        # && valid_year_of_birth?
-    end
-
-    def valid_year_of_birth?
-      return true if Setting.force_presence_date_of_birth?
-
-      @census_api_response.date_of_birth.year.to_s == year_of_birth.to_s
     end
 
     def clean_document_number
