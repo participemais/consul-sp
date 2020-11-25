@@ -12,7 +12,7 @@ class Officing::Residence
   validates :date_of_birth, presence: true, if: -> { Setting.force_presence_date_of_birth? }
   validates :postal_code, presence: true, if: -> { Setting.force_presence_postal_code? }
 
-  validate :allowed_age
+  # validate :allowed_age
   validate :residence_in_madrid
 
   def initialize(attrs = {})
@@ -122,7 +122,8 @@ class Officing::Residence
     end
 
     def residency_valid?
-      @census_api_response.valid? && valid_year_of_birth?
+      @census_api_response.valid?
+        # && valid_year_of_birth?
     end
 
     def valid_year_of_birth?
