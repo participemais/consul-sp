@@ -2,7 +2,7 @@ namespace :edition do
   root to: "dashboard#index"
 
   namespace :legislation do
-    resources :processes, except: [:create, :destroy] do
+    resources :processes, except: [:new, :create, :destroy] do
       resources :questions
       resources :proposals do
         member { patch :toggle_selection }

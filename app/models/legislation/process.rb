@@ -56,7 +56,8 @@ class Legislation::Process < ApplicationRecord
 
   belongs_to :user
 
-  has_and_belongs_to_many :editors
+  has_many :editor_legislation_processes, foreign_key: "legislation_process_id"
+  has_many :editors, through: :editor_legislation_processes
 
   validates_translation :title, presence: true
   validates :start_date, presence: true

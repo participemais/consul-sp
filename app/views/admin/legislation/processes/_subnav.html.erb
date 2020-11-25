@@ -1,13 +1,12 @@
 <ul class="menu simple clear">
   <% legislation_process_tabs(process).each do |tab_name, path| %>
-  <% active = "homepage" if current_user.editor? %>
     <% if active == tab_name %>
       <li class="is-active">
         <h2><%= t("admin.legislation.processes.subnav.#{tab_name}") %></h2>
       </li>
     <% else %>
       <li>
-        <%= link_to(t("admin.legislation.processes.subnav.#{tab_name}"), path) unless tab_name == "info" && current_user.editor? %>
+        <%= link_to(t("admin.legislation.processes.subnav.#{tab_name}"), path) %>
       </li>
     <% end %>
   <% end %>

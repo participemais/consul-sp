@@ -590,16 +590,18 @@ ActiveRecord::Schema.define(version: 20201118132343) do
     t.index ["user_id"], name: "index_documents_on_user_id"
   end
 
+  create_table "editor_legislation_processes", force: :cascade do |t|
+    t.bigint "editor_id"
+    t.bigint "legislation_process_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["editor_id"], name: "index_editor_legislation_processes_on_editor_id"
+    t.index ["legislation_process_id"], name: "index_editor_legislation_processes_on_legislation_process_id"
+  end
+
   create_table "editors", force: :cascade do |t|
     t.bigint "user_id"
     t.index ["user_id"], name: "index_editors_on_user_id"
-  end
-
-  create_table "editors_legislation_processes", id: false, force: :cascade do |t|
-    t.bigint "process_id"
-    t.bigint "editor_id"
-    t.index ["editor_id"], name: "index_on_leg_procs_and_editors_on_editors_id"
-    t.index ["process_id"], name: "index_on_leg_procs_and_editors_on_leg_procs_id"
   end
 
   create_table "failed_census_calls", id: :serial, force: :cascade do |t|
@@ -1776,6 +1778,8 @@ ActiveRecord::Schema.define(version: 20201118132343) do
   add_foreign_key "dashboard_executed_actions", "dashboard_actions", column: "action_id"
   add_foreign_key "dashboard_executed_actions", "proposals"
   add_foreign_key "documents", "users"
+  add_foreign_key "editor_legislation_processes", "editors"
+  add_foreign_key "editor_legislation_processes", "legislation_processes"
   add_foreign_key "editors", "users"
   add_foreign_key "failed_census_calls", "poll_officers"
   add_foreign_key "failed_census_calls", "users"

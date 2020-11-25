@@ -7,7 +7,7 @@ class Edition::Legislation::ProcessesController < Edition::Legislation::BaseCont
   load_and_authorize_resource :process, class: "Legislation::Process"
 
   def index
-    @processes = ::Legislation::Process.joins(:editors).where(editors: { id: current_user.id }).send(@current_filter).order(start_date: :desc)
+    @processes = ::Legislation::Process.joins(:editors).where(editors: { user_id: current_user.id }).send(@current_filter).order(start_date: :desc)
                  .page(params[:page])
   end
 
@@ -29,30 +29,7 @@ class Edition::Legislation::ProcessesController < Edition::Legislation::BaseCont
     end
 
     def allowed_params
-      [
-        :start_date,
-        :end_date,
-        :debate_start_date,
-        :debate_end_date,
-        :draft_start_date,
-        :draft_end_date,
-        :draft_publication_date,
-        :allegations_start_date,
-        :allegations_end_date,
-        :proposals_phase_start_date,
-        :proposals_phase_end_date,
-        :topics_phase_start_date,
-        :topics_phase_end_date,
-        :result_publication_date,
-        :debate_phase_enabled,
-        :draft_phase_enabled,
-        :allegations_phase_enabled,
-        :proposals_phase_enabled,
-        :topics_phase_enabled,
-        :draft_publication_enabled,
-        :result_publication_enabled,
-        :published,
-        :custom_list,
+      [ :custom_list,
         :background_color,
         :font_color,
         translation_params(::Legislation::Process),
