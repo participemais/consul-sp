@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20201124025219) do
+ActiveRecord::Schema.define(version: 20201125025939) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -1231,6 +1231,7 @@ ActiveRecord::Schema.define(version: 20201124025219) do
     t.text "null_amount_log", default: ""
     t.integer "total_amount", default: 0
     t.text "total_amount_log", default: ""
+    t.text "difference_explanation"
     t.index ["booth_assignment_id"], name: "index_poll_recounts_on_booth_assignment_id"
     t.index ["officer_assignment_id"], name: "index_poll_recounts_on_officer_assignment_id"
   end
