@@ -19,6 +19,8 @@ class Poll::Recount < ApplicationRecord
 
   before_save :update_logs
 
+  delegate :booth_name, to: :booth_assignment
+
   def update_logs
     amounts_changed = false
 

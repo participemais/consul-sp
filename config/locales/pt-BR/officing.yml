@@ -58,7 +58,7 @@ pt-BR:
         submit: "Salvar"
         results_list: "Seus resultados"
         see_results: "Exibir resultados"
-        difference_explanation: "Justificativa para quantidade diferente de usuários que votaram e total de cédulas"
+        difference_explanation: "Justificativa para quantidade diferente de eleitores que votaram e total de cédulas"
       index:
         no_results: "Nenhum resultado"
         results: Resultados
@@ -67,6 +67,10 @@ pt-BR:
         table_whites: "Cédulas em branco"
         table_nulls: "Cédulas inválidas"
         table_total: "Total de cédulas"
+        table_total_count: "Total de cédulas: %{count}"
+        table_electors_count: "Eleitores: %{count}"
+        table_booth_name: "Urna: %{name}"
+        difference_explanation: "Justificativa para a quantidade diferente de eleitores que votaram presencialmente e o total de cédulas"
     residence:
       flash:
         create: "Documento verificado com o Censo"
