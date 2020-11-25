@@ -41,7 +41,7 @@
         <% end %>
 
         <% votes = question.answers.votes_count(answer.title) %>
-        <p class="answer-votes-count">
+        <p class="answer-votes-count margin-bottom">
           <%= t("polls.index.votes_counter", count: votes) %>
         </p>
       </div>
@@ -55,10 +55,11 @@
             <%= answer.title %>
           </span>
         </div>
-        <div class="answer-votes-count margin-bottom">
-          <% votes = question.answers.votes_count(answer.title) %>
-          <p><%= t("polls.index.votes_counter", count: votes) %></p>
-        </div>
+
+        <% votes = question.answers.votes_count(answer.title) %>
+        <p class="answer-votes-count margin-bottom">
+          <%= t("polls.index.votes_counter", count: votes) %>
+        </p>
       </div>
     <% end %>
   <% elsif !current_user.level_two_or_three_verified? %>
@@ -96,7 +97,7 @@
         <% end %>
 
         <% votes = question.answers.votes_count(answer.title) %>
-        <p class="answer-votes-count">
+        <p class="answer-votes-count margin-bottom">
           <%= t("polls.index.votes_counter", count: votes) %>
         </p>
       </div>
