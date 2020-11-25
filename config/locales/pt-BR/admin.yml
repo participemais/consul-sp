@@ -755,6 +755,9 @@ pt-BR:
         title: Editores
         name: Nome
         email: Email
+        processes: Processos habilitados
+        tabs: Abas habilitadas
+        abilities: Habilidades
         no_editors: Não há editores.
       editor:
         add: Adicionar

@@ -9,8 +9,11 @@
     <table>
       <thead>
         <th scope="col"><%= t("admin.editors.index.name") %></th>
-        <th scope="col" class="small-6"><%= t("admin.editors.index.email") %></th>
-        <th scope="col" class="small-3"><%= t("admin.shared.actions") %></th>
+        <th scope="col" class="small-2"><%= t("admin.editors.index.email") %></th>
+        <th scope="col" class="small-2"><%= t("admin.editors.index.processes") %></th>
+        <th scope="col" class="small-2"><%= t("admin.editors.index.tabs") %></th>
+        <th scope="col" class="small-2"><%= t("admin.editors.index.abilities") %></th>
+        <th scope="col" class="small-2"><%= t("admin.shared.actions") %></th>
       </thead>
       <tbody>
         <% @editors.each do |editor| %>
@@ -21,6 +24,9 @@
             <td>
               <%= editor.email %>
             </td>
+            <td></td>
+            <td></td>
+            <td></td>
             <td>
               <% if editor.persisted? %>
                 <%= link_to t("admin.editors.editor.delete"),
