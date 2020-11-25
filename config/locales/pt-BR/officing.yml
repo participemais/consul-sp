@@ -85,6 +85,6 @@ pt-BR:
         cannot_vote: A pessoa não pode votar porque não está registrada na(s) região(ões) em questão.
         error_already_voted: Já participou desta votação
         submit: Confirmar voto
-        success: "Voto introduzido!"
+        success: "Voto registrado!"
       can_vote:
         submit_disable_with: "Aguarde, confirmando voto..."
