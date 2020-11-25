@@ -1153,7 +1153,7 @@ pt-BR:
         title: "Resultados"
         no_results: "Não há resultados"
       result:
-        table_whites: "Cédulas completamente em branco"
+        table_whites: "Cédulas em branco"
         table_nulls: "Cédulas inválidas"
         table_total: "Total de cédulas"
         table_answer: Resposta
@@ -1166,7 +1166,7 @@ pt-BR:
     booths:
       index:
         title: "Lista de cabines ativas"
-        no_booths: "Não jhá cabines ativas para nenhuma votação futura."
+        no_booths: "Não há cabines ativas para nenhuma votação futura."
         add_booth: "Adicionar urna"
         name: "Nome"
         location: "Localização"
