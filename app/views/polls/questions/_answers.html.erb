@@ -40,9 +40,11 @@
             class: "button secondary hollow js-question-answer" %>
         <% end %>
 
-        <% votes = question.answers.votes_count(answer.title) %>
         <p class="answer-votes-count margin-bottom">
-          <%= t("polls.index.votes_counter", count: votes) %>
+          <%= t(
+            "polls.index.votes_counter",
+            count: question_answers_count(poll, question, answer)
+          ) %>
         </p>
       </div>
     <% end %>
@@ -96,9 +98,11 @@
           </span>
         <% end %>
 
-        <% votes = question.answers.votes_count(answer.title) %>
         <p class="answer-votes-count margin-bottom">
-          <%= t("polls.index.votes_counter", count: votes) %>
+          <%= t(
+            "polls.index.votes_counter",
+            count: question_answers_count(poll, question, answer)
+          ) %>
         </p>
       </div>
     <% end %>

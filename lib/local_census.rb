@@ -20,10 +20,14 @@ class LocalCensus
 
     def date_of_birth
       @body.date_of_birth
+    rescue
+      nil
     end
 
     def postal_code
       @body.postal_code
+    rescue
+      nil
     end
 
     def district_code
@@ -33,13 +37,14 @@ class LocalCensus
     end
 
     def gender
-      case @body.gender
-      when "Varón"
-        "male"
-      when "Mujer"
-        "female"
-      end
-    rescue NoMethodError
+      @body.gender
+    rescue
+      nil
+    end
+
+    def ethnicity
+      @body.ethnicity
+    rescue
       nil
     end
 
@@ -48,12 +53,6 @@ class LocalCensus
     rescue
       nil
     end
-
-    private
-
-      def data
-        @body.attributes
-      end
   end
 
   private

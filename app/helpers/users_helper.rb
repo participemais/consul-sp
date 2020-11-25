@@ -80,12 +80,12 @@ module UsersHelper
     end
   end
 
-  def options_for_gender
-    options_for_select(gender_options, current_user.gender)
+  def options_for_gender(user)
+    options_for_select(gender_options, user.gender)
   end
 
-  def options_for_ethnicity
-    options_for_select(ethnicity_options, current_user.ethnicity)
+  def options_for_ethnicity(user)
+    options_for_select(ethnicity_options, user.ethnicity)
   end
 
   def options_for_erase_reason
