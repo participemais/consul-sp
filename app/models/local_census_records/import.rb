@@ -60,9 +60,13 @@ class LocalCensusRecords::Import
 
     def build_local_census_record(row)
       local_census_record = LocalCensusRecord.new
-      attrs = row.to_hash
-      attrs["date_of_birth"] = parse_date(attrs)
-      local_census_record.attributes = attrs.slice(*ATTRIBUTES)
+      attrs = row.to_hash.slice(*ATTRIBUTES)
+      if date = parse_date(attrs)
+        attrs["date_of_birth"] = date
+      else
+        attrs["invalid_date"] = attrs["date_of_birth"]
+      end
+      local_census_record.attributes = attrs
       local_census_record
     end
 

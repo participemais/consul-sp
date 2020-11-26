@@ -1636,6 +1636,8 @@ pt-BR:
         notice: Eleitor atualizado com sucesso
       destroy:
         notice: Eleitor excluído com sucesso
+      errors:
+        invalid_date: Formato da data inválido
       imports:
         new:
           title: Importar CSV de eleitores
