@@ -31,6 +31,8 @@ class Comment < ApplicationRecord
 
   before_save :calculate_confidence_score
 
+  delegate :username, to: :user
+
   scope :for_render, -> { with_hidden.includes(user: :organization) }
   scope :with_visible_author, -> { joins(:user).where("users.hidden_at IS NULL") }
   scope :not_as_admin_or_moderator, -> do

@@ -20,4 +20,18 @@
       <p><%= t("legislation.processes.debate.phase_not_open") %></p>
     </div>
   <% end %>
+  <% if process.debate_phase.finished? && process.questions.any? %>
+    <ul class="small">
+      <li>
+        <%= link_to t("legislation.questions.index.answers_spreedsheet"),
+          debate_legislation_process_path(@process, answers_debate_csv_params)
+        %>
+      </li>
+      <li>
+        <%= link_to t("legislation.questions.index.comments_spreedsheet"),
+          debate_legislation_process_path(@process, comments_debate_csv_params)
+        %>
+      </li>
+    </ul>
+  <% end %>
 </div>

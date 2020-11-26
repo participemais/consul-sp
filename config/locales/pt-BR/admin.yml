@@ -563,34 +563,34 @@ pt-BR:
           status: Status
       questions:
         create:
-          notice: 'Questão criada com sucesso. <a href="%{link}">Clique para visitar</a>'
-          error: Questão não pôde ser criada
+          notice: 'Pergunta criada com sucesso. <a href="%{link}">Clique para visitar</a>'
+          error: Pergunta não pôde ser criada
         update:
-          notice: 'Questão atualizada com sucesso. <a href="%{link}">Clique para visitar</a>'
-          error: Questão não pôde ser atualizada
+          notice: 'Pergunta atualizada com sucesso. <a href="%{link}">Clique para visitar</a>'
+          error: Pergunta não pôde ser atualizada
         destroy:
-          notice: Questão excluída com sucesso
+          notice: Pergunta excluída com sucesso
         edit:
           back: Voltar
           title: "Editar \"%{question_title}\""
           submit_button: Salvar alterações
         form:
-          add_option: Adicionar opção
+          add_option: Adicionar resposta
           title_placeholder: Adicionar pergunta
           value_placeholder: Adicionar resposta fechada
-          question_options: "Respostas possíveis (opcionais, por respostas abertas padrão)"
+          question_options: "Respostas fechadas (campo opcional)"
         index:
           back: Voltar
           title: Perguntas associadas ao processo
-          create: Criar questão
+          create: Criar pergunta
           delete: Apagar
         new:
           back: Voltar
           title: Criar nova pergunta
-          submit_button: Criar questão
+          submit_button: Criar pergunta
         table:
-          title: Título
-          question_options: Opções de pergunta
+          title: Pergunta
+          question_options: Opções de resposta
           answers_count: Contagem de respostas
           comments_count: Contagem de comentários
         question_option_fields:
@@ -1042,22 +1042,22 @@ pt-BR:
     questions:
       index:
         title: "Perguntas"
-        create: "Criar questão"
+        create: "Criar pergunta"
         no_questions: "Não há perguntas."
         filter_poll: Filtrar por votação
         select_poll: Selecionar votação
         questions_tab: "Perguntas"
         successful_proposals_tab: "Propostas bem sucedidas"
-        create_question: "Criar questão"
+        create_question: "Criar pergunta"
         table_proposal: "Proposta"
-        table_question: "Questão"
+        table_question: "Pergunta"
         table_poll: "Votação"
       form:
         all_categories: "Todas as categorias"
       edit:
         title: "Editar pergunta"
       new:
-        title: "Criar questão para pesquisa %{poll}"
+        title: "Criar pergunta para pesquisa %{poll}"
         title_proposal: "Criar pergunta"
       answers:
         images:
@@ -1066,8 +1066,8 @@ pt-BR:
       show:
         proposal: Proposta original
         author: Autor
-        question: Questão
-        edit_question: Editar questão
+        question: Pergunta
+        edit_question: Editar pergunta
         valid_answers: Respostas válidas
         add_answer: Adicionar resposta
         video_url: Vídeo externo
@@ -1439,7 +1439,7 @@ pt-BR:
         poll_questions: "Perguntas da votação: %{poll}"
         table:
           poll_name: Votação
-          question_name: Questão
+          question_name: Pergunta
           origin_web: Participantes da Web
           origin_total: Total de participantes
     tags:
