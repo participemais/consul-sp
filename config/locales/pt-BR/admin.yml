@@ -312,6 +312,7 @@ pt-BR:
         table_percentage: "Posição atual"
       new:
         creating: "Criar barra de progresso"
+      manage: "Gerenciar barras de progresso"
     departments:
       index:
         title: Órgãos públicos
