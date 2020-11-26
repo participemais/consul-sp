@@ -26,7 +26,7 @@
     <% if @topics.any? %>
       <p class="download-link">
         <%= link_to t("legislation.topics.index.result_spreadsheet"),
-          topics_legislation_process_path(@process, legislation_csv_params),
+          topics_legislation_process_path(@process, csv_params),
           class: "small"
         %>
       </p>

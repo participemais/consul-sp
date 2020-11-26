@@ -1,0 +1,57 @@
+<div id="poll_more_info_answers" class="expanded poll-more-info-answers">
+  <% question.question_answers.each_slice(3) do |answers| %>
+    <div class="row" data-equalizer data-equalizer-on="medium">
+      <% answers.each.with_index(1) do |answer, index| %>
+        <div class="small-12 medium-4 column end answer padding-bottom <%= answer_border(index) %>" id="answer_<%= answer.id %>" data-equalizer-watch>
+          <% if answer.description.present? %>
+            <h3><%= answer.title %></h3>
+          <% end %>
+
+          <% if answer.images.any? %>
+            <%= render "gallery", answer: answer %>
+          <% end %>
+
+          <% if answer.description.present? %>
+            <div class="margin-top">
+              <div id="answer_description_<%= answer.id %>" class="answer-description">
+                <%= wysiwyg(answer.description) %>
+              </div>
+            </div>
+          <% end %>
+
+          <% if answer.documents.present? %>
+            <div class="document-link">
+              <p>
+                <span class="icon-document"></span>&nbsp;
+                <strong><%= t("polls.show.documents") %></strong>
+              </p>
+
+              <% answer.documents.each do |document| %>
+                  <%= link_to document.title,
+                              document.attachment.url,
+                              target: "_blank",
+                              rel: "nofollow" %><br>
+              <% end %>
+            </div>
+          <% end %>
+
+          <% if answer.videos.present? %>
+            <div class="video-link">
+              <p>
+                <span class="icon-video"></span>&nbsp;
+                <strong><%= t("polls.show.videos") %></strong>
+              </p>
+
+              <% answer.videos.each do |video| %>
+                  <%= link_to video.title,
+                              video.url,
+                              target: "_blank",
+                              rel: "nofollow" %><br>
+              <% end %>
+            </div>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
+</div>

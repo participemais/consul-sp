@@ -1,0 +1,28 @@
+<%= form_for(@elector, url: form_url) do |f| %>
+
+  <%= render "shared/errors", resource: @elector %>
+
+  <div class="row">
+    <% if action_name == "new" || action_name == "create" %>
+      <%= f.hidden_field :poll_electoral_college_id, value: @electoral_college.id %>
+
+      <div class="small-12 medium-4 column">
+        <%= f.select :document_type, options_for_document_type %>
+      </div>
+      <div class="small-12 medium-4 column">
+        <%= f.text_field :document_number %>
+      </div>
+    <% end %>
+
+    <div class="small-12 medium-4 column end">
+      <%= f.text_field :category %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="small-12 medium-4 large-2 margin-top column">
+      <%= f.submit(class: "button success expanded", value: t("shared.save")) %>
+    </div>
+  </div>
+
+<% end %>

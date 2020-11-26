@@ -62,9 +62,10 @@ class Budget
 
     validates :author, presence: true
     validates :heading_id, presence: true
-    validates :unfeasibility_explanation, presence: { if: :unfeasibility_explanation_required? }
+    validates :unfeasibility_explanation, presence: { if: :unfeasible_indeed? }
     validates :price, presence: { if: :price_required? }
     validates :terms_of_service, acceptance: { allow_nil: false }, on: :create
+    validates :feasibility_type, presence: { if: :feasible? }
 
     scope :sort_by_confidence_score, -> { reorder(confidence_score: :desc, id: :desc) }
     scope :sort_by_ballots,          -> { reorder(ballot_lines_count: :desc, id: :desc) }
@@ -290,7 +291,11 @@ class Budget
       feasibility == "unfeasible"
     end
 
-    def unfeasibility_explanation_required?
+    def feasible_indeed?
+      feasible? && valuation_finished?
+    end
+
+    def unfeasible_indeed?
       unfeasible? && valuation_finished?
     end
 
@@ -399,18 +404,12 @@ class Budget
       budget.vote_counting_balloting?
     end
 
-    def should_show_aside?
-      (budget.selecting? && !unfeasible?) ||
-        (budget.balloting? && feasible?) ||
-        (budget.valuating? && !unfeasible?)
-    end
-
     def should_show_votes?
       budget.selecting?
     end
 
     def should_show_vote_count?
-      budget.valuating?
+      budget.valuating_or_later?
     end
 
     def should_show_ballots?

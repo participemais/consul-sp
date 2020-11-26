@@ -979,6 +979,35 @@ pt-BR:
         no_booths: "Não há urnas atribuídas a esta votação."
         table_name: "Nome"
         table_location: "Localização"
+    poll_electors:
+      create:
+        notice: Eleitor incluído com sucesso
+      update:
+        notice: Eleitor atualizado com sucesso
+      destroy:
+        notice: Eleitor excluído com sucesso
+      import:
+        new:
+          title: Importar CSV de eleitores
+          info: "O arquivo deve conter os seguintes cabeçalhos: %{required_headers}"
+          load_info: A importação pode demorar alguns minutos
+        show:
+          title: Importação de eleitores
+          subtitle: Resultado
+          errored: Eleitores inválidos
+          created: Eleitores adicionados ao colégio eleitoral
+          existing: Eleitores já cadastrados
+          no_records_found: Nenhum registro encontrado
+          import: Importar eleitores por CSV
+        create:
+          notice: Importação concluída com sucesso
+      export:
+        spreadsheet:
+          id: ID
+          document_type: Tipo de documento
+          document_number: Número do documento
+          category: Categoria
+          user_found: Eleitor cadastrado
     polls:
       index:
         title: "Lista de votações"
@@ -1006,6 +1035,7 @@ pt-BR:
         table_title: "Título"
         edit_answers: Editar respostas
         see_proposal: "(Ver proposta)"
+        electoral_college_tab: Colégio Eleitoral
       flash:
         question_added: "Perguntas adicionadas a essa votação"
         error_on_question_added: "Pergunta não pode ser atribuída a essa votação"
@@ -1022,6 +1052,8 @@ pt-BR:
         table_proposal: "Proposta"
         table_question: "Pergunta"
         table_poll: "Votação"
+      form:
+        all_categories: "Todas as categorias"
       edit:
         title: "Editar pergunta"
       new:
@@ -1050,6 +1082,35 @@ pt-BR:
           documents_list: Lista de documentos
           document_title: Título
           document_actions: Ações
+    electoral_colleges:
+      destroy:
+        notice: Colégio eleitoral excluído com sucesso
+      index:
+        title: Colégio Eleitoral
+        create: Criar colégio eleitoral
+        elector: Adicionar eleitor
+        import: Importar eleitores por CSV
+        active: Ativo
+        inactive: Inativo
+      new:
+        title: Novo colégio eleitoral
+      create:
+        notice: Colégio eleitoral criado com sucesso
+      edit:
+        title: Editar colégio eleitoral
+      elector:
+        title: Eleitores
+        document_type: Tipo de documento
+        document_number: Número do documento
+        category: Categoria
+        no_electors: "Não há eleitores atribuídos a este Colégio Eleitoral"
+        user_found: Eleitor cadastrado
+        result_spreadsheet: Download dos eleitores (csv)
+    electors:
+        new:
+          title: Novo eleitor
+        edit:
+          title: Editar eleitor
     answers:
       new:
         title: Nova resposta
@@ -1239,6 +1300,9 @@ pt-BR:
       user_search:
         button: Buscar
         placeholder: Pesquisar usuário por nome ou pelo email
+      electors_search:
+        button: Buscar
+        placeholder: Pesquisar eleitor pelo número do documento
       search_results: "Buscar resultados"
       no_search_results: "Nenhum resultado encontrado."
       actions: Ações
@@ -1255,7 +1319,7 @@ pt-BR:
       delete: Apagar
       color_help: Formato hexadecimal
       show_results_and_stats: "Exibir resultados e estatísticas"
-      results_and_stats_reminder: "Ao marcar estas caixas de seleção, os resultado e/ou estatísticas estarão disponíveis publicamente e qualquer usuário poderá vê-los."
+      results_and_stats_reminder: "Ao marcar estas caixas de seleção, os resultado e/ou estatísticas estarão disponíveis publicamente assim que o processo estiver encerrado."
     geozones:
       index:
         title: Geozona

@@ -7,11 +7,24 @@
         <%= link_to t("polls.poll_header.back_to_proposal"), [@poll.related] %>
       <% end %>
 
-      <h1><%= @poll.name %></h1>
+      <h2><%= @poll.name %></h2>
 
-      <%= auto_link_already_sanitized_html simple_format(@poll.summary) %>
+      <h5><%= t("polls.index.period") %>:</h5>
+
+      <p>
+        <%= format_date(@poll.starts_at) %> - <%= format_date(@poll.ends_at) %>
+      </p>
+
+
+      <% if @poll.description.present? %>
+        <h5><%= t("legislation.processes.header.description") %></h5>
+        <%= auto_link_already_sanitized_html simple_format(@poll.description) %>
+      <% end %>
 
       <% if @poll.geozones.any? %>
+        <p>
+          <small><%= t("polls.index.geozone_info") %></small>
+        </p>
         <ul class="no-bullet margin-top tags">
           <% @poll.geozones.each do |g| %>
             <li class="inline-block"><span><%= g.name %></span></li>
@@ -21,6 +34,17 @@
     </div>
 
     <aside class="small-12 medium-3 column margin-top">
+
+      <div id="social-share" class="sidebar-divider"></div>
+      <p class="sidebar-title"><%= t("polls.index.votes") %></p>
+      <div class="text-center">
+        <span>
+          <strong class="poll-total-votes-counter">
+            <%= t("polls.index.votes_counter", count: @poll.answer_count) %>
+          </strong>
+        </span>
+      </div>
+
       <%= render "shared/social_share",
         share_title: t("shared.share"),
         title: @poll.name,
@@ -28,6 +52,11 @@
         description: @poll.name,
         mobile: @poll.name
       %>
+
+      <% if @poll.image.present? %>
+        <hr>
+        <%= image_tag(@poll.image_url(:large), alt: @poll.title, id: "image") %>
+      <% end %>
     </aside>
   </div>
 </div>

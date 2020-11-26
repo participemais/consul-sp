@@ -26,9 +26,10 @@ class Poll
     def set_demographic_info
       return if user.blank?
 
-      self.gender  = user.gender
-      self.age     = user.age
+      self.gender = user.gender
+      self.age = user.age
       self.geozone = user.geozone
+      self.ethnicity = user.ethnicity
     end
 
     def set_document_info

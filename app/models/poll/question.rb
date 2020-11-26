@@ -23,6 +23,8 @@ class Poll::Question < ApplicationRecord
   validates_translation :title, presence: true, length: { minimum: 4 }
   validates :author, presence: true
   validates :poll_id, presence: true, if: proc { |question| question.poll.nil? }
+  validates :votes_per_question, presence: true
+  validates :winners_amount, presence: true
 
   accepts_nested_attributes_for :question_answers, reject_if: :all_blank, allow_destroy: true
 
@@ -66,11 +68,36 @@ class Poll::Question < ApplicationRecord
     question_answers.reduce(0) { |total, question_answer| total + question_answer.total_votes }
   end
 
-  def most_voted_answer_id
-    question_answers.max_by(&:total_votes)&.id
+  def most_voted_answers
+    winners = questions_by_total_votes.max_by(winners_amount) { |key| key }.to_h
+    winners.values.flatten
   end
 
   def possible_answers
     question_answers.joins(:translations).pluck("poll_question_answer_translations.title")
+  end
+
+  def user_answers_choices(user)
+    user_answers(user).pluck(:answer)
+  end
+
+  def user_answers_count(user)
+    user_answers(user).count
+  end
+
+  def reached_vote_limit?(user)
+    user_answers_count(user) == votes_per_question
+  end
+
+  private
+
+  def user_answers(user)
+    answers.by_author(user)
+  end
+
+  def questions_by_total_votes
+    groups = question_answers.group_by(&:total_votes)
+    groups.delete(0)
+    groups
   end
 end

@@ -13,21 +13,21 @@ class PollsController < ApplicationController
 
   def index
     @polls = Kaminari.paginate_array(
-      @polls.created_by_admin.not_budget.send(@current_filter).includes(:geozones).sort_for_list
+      @polls.created_by_admin.not_budget.send(@current_filter).includes(:geozones).order(:starts_at)
     ).page(params[:page])
+    @expireds = @polls.select { |poll| poll.expired? }
   end
 
   def show
     @questions = @poll.questions.for_render.sort_for_list
     @token = poll_voter_token(@poll, current_user)
-    @poll_questions_answers = Poll::Question::Answer.where(question: @poll.questions)
-                                                    .where.not(description: "").order(:given_order)
+    @poll_questions_answers = Poll::Question::Answer.where(
+      question: @poll.questions
+    ).where.not(description: "").order(:given_order)
 
-    @answers_by_question_id = {}
-    poll_answers = ::Poll::Answer.by_question(@poll.question_ids).by_author(current_user&.id)
-    poll_answers.each do |answer|
-      @answers_by_question_id[answer.question_id] = answer.answer
-    end
+    @answers_by_question_id = ::Poll::Answer.answers_by_question_id(
+      @poll.question_ids, current_user&.id
+    )
 
     @commentable = @poll
     @comment_tree = CommentTree.new(@commentable, params[:page], @current_order)
@@ -35,9 +35,23 @@ class PollsController < ApplicationController
 
   def stats
     @stats = Poll::Stats.new(@poll)
+    respond_to do |format|
+      format.html
+      format.csv do
+        send_data Poll::Voters::Exporter.new(@poll).to_csv,
+          filename: "participacao-#{@poll.filename}.csv"
+      end
+    end
   end
 
   def results
+    respond_to do |format|
+      format.html
+      format.csv do
+        send_data Poll::Question::Answer::Exporter.new(@poll.questions).to_csv,
+          filename: "votacao-#{@poll.filename}.csv"
+      end
+    end
   end
 
   private
