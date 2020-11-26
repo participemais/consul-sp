@@ -12,14 +12,14 @@
     </div>
 
     <div class="small-12 medium-9 column stats-content">
+      <p class="download-link float-right">
+        <%= link_to t("stats.polls.stats_spreadsheet"),
+          stats_poll_path(@poll, csv_params),
+          class: "small"
+        %>
+      </p>
       <%= render "shared/stats/participation", stats: @stats %>
       <%= render "advanced_stats", stats: @stats if @stats.advanced? %>
-
-      <div id="total_no_demographic_data">
-        <p class="help-text">
-          <%= t("stats.no_demographic_data", count: @stats.total_no_demographic_data) %>
-        </p>
-      </div>
     </div>
   </div>
 

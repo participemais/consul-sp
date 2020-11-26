@@ -2,8 +2,8 @@ pt-BR:
   attributes:
     geozone_id: "ID da subprefeitura"
     results_enabled: "Exibir resultados"
-    stats_enabled: "Exibir estatísticas"
-    advanced_stats_enabled: "Exibir estatísticas avançadas"
+    stats_enabled: "Exibir estatísticas de participação"
+    advanced_stats_enabled: "Exibir dados de participação por canal"
   activerecord:
     models:
       activity:
@@ -331,7 +331,7 @@ pt-BR:
         gender_options:
           female: Feminino
           male: Masculino
-          non_binary: Não binário
+          non_binary: Não-binário
           unknown: Prefiro não responder
         uf: UF
         first_name: "Nome"
@@ -353,6 +353,7 @@ pt-BR:
         starts_at: "Data de início"
         ends_at: "Data de encerramento"
         geozone_restricted: "Restrito por subprefeitura"
+        electoral_college_restricted: "Votação restrita por colégio eleitoral"
         summary: "Resumo"
         description: "Descrição"
       active_poll/translation:
@@ -370,6 +371,9 @@ pt-BR:
         summary: "Resumo"
         description: "Descrição"
         external_url: "Link para documentação adicional"
+        votes_per_question: "Número de opções selecionáveis"
+        category: "Categoria"
+        winners_amount: "Quantidade de vencedores"
       poll/question/translation:
         title: "Questão"
       poll/ballot_sheet:
@@ -378,6 +382,10 @@ pt-BR:
         officer_assignment_id: "ID do responsável"
       poll/shift:
         task: "Tarefa"
+      poll/elector:
+        document_type: "Tipo de documento"
+        document_number: "Número do documento"
+        category: "Categoria"
       proposal_notification:
         body: "Mensagem"
         title: "Título"
@@ -493,6 +501,8 @@ pt-BR:
       image:
         title: Título
         attachment: "Anexo"
+      poll/electoral_college:
+        title: Nome
       poll/question/answer:
         title: Resposta
         description: Descrição
@@ -566,7 +576,7 @@ pt-BR:
         user:
           attributes:
             cpf:
-              invalid_number: "Número de CPF inválido"
+              invalid_number: "Número de documento inválido"
             email:
               password_already_set: "Este usuário já possui uma senha"
             date_of_birth:

@@ -86,11 +86,7 @@
         <div class="row">
           <% if @budget.new_record? || @budget.vote_counting_balloting? %>
             <div class="small-3 column">
-              <%= f.select(
-                :max_votes,
-                (1..10),
-                include_blank: true
-              ) %>
+              <%= f.number_field(:max_votes, min: 1, max: 20) %>
               <% if @budget.new_record? %>
                 <p class="small"><%= t("admin.budgets.new.one_option") %></p>
               <% end %>

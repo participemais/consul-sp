@@ -9,6 +9,7 @@
 // 07. Proposals successful
 // 08. Polls
 // 09. Polls results and stats
+// 10. Polls cards
 //
 
 // 01. Votes and supports
@@ -953,10 +954,10 @@
     margin-bottom: 0;
     text-transform: initial;
     margin-right: $line-height / 2;
+    padding: rem-calc(50) 0;
   }
 
   div {
-    display: flex;
     align-items: center;
     height: rem-calc(160);
   }
@@ -1778,7 +1779,7 @@
 // ----------------------
 
 .polls-show-header {
-  background: #fafafa;
+  background: $highlight;
 
   .callout {
 
@@ -1794,26 +1795,30 @@
       color: $color-alert;
     }
   }
+
+  .tags span {
+    &:hover {
+      background: $tag;
+    }
+  }
 }
 
 .poll-more-info,
 .poll-more-info-answers {
-  border-top: 1px solid #eee;
+
+  h4 {
+    font-family: $subheader-font-family;
+  }
 }
 
 .poll-more-info-answers {
   background: #fafafa;
   border-bottom: 1px solid #eee;
+  margin-bottom: $line-height / 2;
+  padding: $line-height / 2;
 
-  .column:nth-child(odd) {
-    border-right: 2px solid $text;
-  }
-
-  .answer-divider {
-    border-bottom: 2px solid $text;
-    border-right: 0 !important;
-    margin-bottom: $line-height;
-    padding-bottom: $line-height;
+  .column:nth-child(even) {
+    border-right: 2px solid $text-medium;
   }
 
   .answer-description {
@@ -1823,6 +1828,10 @@
       height: rem-calc(300);
       overflow: hidden;
     }
+  }
+
+  .answer-info-border-right {
+    border-right: 2px solid $text-medium;
   }
 }
 
@@ -1847,6 +1856,7 @@
 
 .orbit-slide {
   max-height: none !important;
+  position: relative;
 }
 
 .orbit-caption {
@@ -1857,29 +1867,6 @@
 .orbit-next,
 .orbit-previous {
   background: rgba(34, 34, 34, 0.25);
-}
-
-.zoom-link {
-  background: #fff;
-  border-radius: rem-calc(48);
-  color: #000;
-  font-size: rem-calc(24);
-  font-weight: bold;
-  height: rem-calc(48);
-  line-height: rem-calc(48);
-  right: 12px;
-  padding-top: rem-calc(4);
-  position: absolute;
-  text-align: center;
-  top: 24px;
-  width: rem-calc(48);
-  z-index: 9;
-
-  &:hover {
-    background: $dark;
-    color: #fff;
-    text-decoration: none;
-  }
 }
 
 .image-container {
@@ -1907,7 +1894,6 @@
 .poll,
 .poll-question {
   border: 1px solid $border;
-  margin-bottom: $line-height / 2;
   padding: $line-height / 2;
   position: relative;
 
@@ -1984,11 +1970,30 @@
   }
 
   h4 {
-    font-size: rem-calc(30);
+    font-size: rem-calc(24);
     line-height: $line-height * 1.5;
 
     a {
       color: $text;
+    }
+  }
+
+  .question-category {
+    text-transform: uppercase;
+    color: $text-medium;
+    margin-bottom: -($line-height / 3);
+    font-size: $small-font-size;
+    font-weight: bold;
+  }
+
+  .poll-answers-more-info {
+    border-top: 1px dashed $border;
+    margin-bottom: 0;
+
+    a {
+      font-family: $subheader-font-family;
+      text-transform: uppercase;
+      font-size: $tiny-font-size;
     }
   }
 }
@@ -2008,11 +2013,9 @@
 }
 
 .poll-question {
-  padding: 0 $line-height;
+  padding: $line-height;
 
   h3 {
-    padding-top: $line-height;
-
     a {
       color: $text;
     }
@@ -2021,9 +2024,17 @@
 
 .poll-question-answers {
 
+  .question-votes-counter {
+    font-size: $tiny-font-size;
+    font-family: $subheader-font-family;
+    margin-bottom: $line-height / 6;
+    color: $text-medium;
+  }
+
   .button {
     margin-right: $line-height / 4;
     min-width: rem-calc(168);
+    margin-bottom: 0;
 
     @include breakpoint(medium down) {
       width: 100%;
@@ -2049,6 +2060,18 @@
       }
     }
   }
+
+  .answer-votes {
+    display: inline-block;
+  }
+
+  .votes {
+    color: $purple;
+    font-size: 17px;
+    font-weight: bold;
+    float: right;
+    margin-right: 8px;
+  }
 }
 
 // 09. Polls results and stats
@@ -2065,6 +2088,12 @@
         color: $link;
         line-height: $line-height;
       }
+    }
+
+    .questions-list {
+      padding: 0;
+      margin-top: $line-height / 2;
+      margin-left: $line-height / 2;
     }
   }
 
@@ -2093,3 +2122,19 @@
     }
   }
 }
+
+// 10. Polls cards
+// ----------------
+
+.polls-cards {
+  margin: 0 0 $line-height;
+  border: 1px solid;
+  border-color: #e5e6e9 #dfe0e4 #d0d1d5;
+  border-radius: 0;
+  box-shadow: 0 1px 3px 0 #dee0e3;
+  min-height: 12rem;
+}
+
+
+
+

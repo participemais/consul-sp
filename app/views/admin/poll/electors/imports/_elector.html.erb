@@ -1,0 +1,21 @@
+<tr id="<%= dom_id(elector) %>">
+  <td>
+    <div><%= elector.document_type&.upcase %></div>
+    <%= errors_for elector, :document_type %>
+  </td>
+  <td>
+    <div><%= elector.document_number %></div>
+    <%= errors_for elector, :document_number %>
+  </td>
+  <td>
+    <div><%= elector.category %></div>
+    <%= errors_for elector, :category %>
+  </td>
+  <td class="text-center">
+    <% if elector.user_found? %>
+      <i class="fa fa-check fa-check-green" aria-hidden="true"></i>
+    <% else %>
+      <i class="fa fa-times fa-times-red" aria-hidden="true"></i>
+    <% end %>
+  </td>
+</tr>

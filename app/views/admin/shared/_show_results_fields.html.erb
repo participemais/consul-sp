@@ -1,7 +1,9 @@
 <fieldset class="fieldset">
   <legend><%= t("admin.shared.show_results_and_stats") %></legend>
   <%= form.check_box :results_enabled %>
-  <%= form.check_box :stats_enabled %>
-  <%= form.check_box :advanced_stats_enabled %>
+  <%= form.check_box :stats_enabled, data: { checkbox_toggle: "#advanced_stats" } %>
+  <div id="advanced_stats">
+    <%= form.check_box :advanced_stats_enabled %>
+  </div>
   <p class="small"><%= t("admin.shared.results_and_stats_reminder") %></p>
 </fieldset>

@@ -1,22 +1,35 @@
 <% unless can?(:answer, @poll) %>
   <% if current_user.nil? %>
-    <div class="callout primary">
+    <div class="callout primary no-margin-bottom">
       <%= sanitize(t("polls.show.cant_answer_not_logged_in",
             signin: link_to_signin(class: "probe-message"),
             signup: link_to_signup(class: "probe-message"))) %>
     </div>
   <% elsif current_user.unverified? %>
-    <div class="callout warning">
+    <div class="callout warning no-margin-bottom">
       <%= sanitize(t("polls.show.cant_answer_verify",
             verify_link: link_to(t("polls.show.verify_link"), verification_path))) %>
     </div>
   <% elsif @poll.expired? %>
-    <div class="callout alert">
+    <div class="callout alert no-margin-bottom">
       <%= t("polls.show.cant_answer_expired") %>
     </div>
+  <% elsif @poll.electoral_college_restricted? &&
+    !@poll.belongs_to_electoral_college?(current_user)
+  %>
+    <div class="callout warning no-margin-bottom">
+      <%= t("polls.show.electoral_college_restricted") %>
+    </div>
   <% else %>
-    <div class="callout warning">
+    <div class="callout warning no-margin-bottom">
       <%= t("polls.show.cant_answer_wrong_geozone") %>
     </div>
   <% end %>
+<% end %>
+
+<% if user_signed_in? && current_user.incomplete_registration? %>
+  <div class="callout primary">
+    <%= sanitize(t(
+          "polls.show.incomplete_registration",
+          register: link_to_my_account )) %>  </div>
 <% end %>

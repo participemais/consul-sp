@@ -62,7 +62,7 @@ pt-BR:
           open: Processos abertos
           past: Processos encerrados
         no_open_processes: Não existem processos abertos
-        no_past_processes: Não existem processos finalizados
+        no_past_processes: Não existem processos encerrados
         section_header:
           icon_alt: Ícone de consultas públicas
           title: Consultas públicas
