@@ -979,6 +979,12 @@ pt-BR:
         no_booths: "Não há urnas atribuídas a esta votação."
         table_name: "Nome"
         table_location: "Localização"
+    active_polls:
+      edit:
+        title: "Adicionar descrição"
+      form:
+        description:
+          help_text: "Este texto aparecerá no cabeçalho da página de votações. Ele pode ser usado para adicionar um contexto às votações abertas."
     poll_electors:
       create:
         notice: Eleitor incluído com sucesso
