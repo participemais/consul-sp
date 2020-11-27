@@ -1449,13 +1449,19 @@ pt-BR:
           origin_web: Participantes da Web
           origin_total: Total de participantes
     tags:
-      create: Criar tópico
-      destroy: Deletar tópico
+      create:
+        notice: Tag criada com sucesso
+      destroy: Deletar categoria
+      edit: Editar categoria
       index:
-        add_tag: Adicionar um novo tópico de proposta
-        title: Tópicos da proposta
-        topic: Tema
-        help: "Quando um usuário criar uma proposta, os tópicos a seguir são sugeridos como etiquetas padrão."
+        add_tag: Adicionar uma nova categoria de proposta
+        title: Categorias da proposta
+        topic: Temas
+        subprefecture: Subprefeituras
+        district: Distritos
+        help: "Quando um usuário criar uma proposta, as categorias a seguir são sugeridos como etiquetas padrão."
+        kind: Tipo
+      back: Voltar
     users:
       columns:
         name: Nome

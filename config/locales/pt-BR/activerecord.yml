@@ -419,6 +419,7 @@ pt-BR:
         body: Descrição
       tag:
         name: "Digite o nome do tópico"
+        kind: "Tipo"
       topic:
         title: "Título"
         description: "Texto inicial"
