@@ -1,5 +1,6 @@
 <ul class="menu simple clear" id="assigned-resources-tabs">
-  <% unless @poll.budget_poll? %>
+
+  <% if (!@poll.budget_poll? && !@poll.electoral_college_restricted?) || @poll.electoral_college %>
     <% if controller_name == "polls" %>
       <li class="is-active">
         <h2>
@@ -12,6 +13,22 @@
         <%= link_to admin_poll_path(@poll) do %>
           <%= t("admin.polls.show.questions_tab") %>
           (<%= @poll.questions.count %>)
+        <% end %>
+      </li>
+    <% end %>
+  <% end %>
+
+  <% if @poll.electoral_college_restricted? %>
+    <% if controller_name == "electoral_colleges" || (controller_name == "polls" && !@poll.electoral_college) %>
+      <li class="is-active">
+        <h2>
+          <%= t("admin.polls.show.electoral_college_tab") %>
+        </h2>
+      </li>
+    <% else %>
+      <li>
+        <%= link_to admin_poll_electoral_colleges_path(@poll) do %>
+          <%= t("admin.polls.show.electoral_college_tab") %>
         <% end %>
       </li>
     <% end %>

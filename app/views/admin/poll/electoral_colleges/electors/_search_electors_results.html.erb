@@ -1,0 +1,11 @@
+<% if @electors.blank? %>
+  <div class="callout alert margin-bottom">
+    <%= t("admin.shared.no_search_results") %>
+  </div>
+<% else %>
+  <h3><%= t("admin.shared.search_results") %></h3>
+<% end %>
+
+<% if @electors.any? %>
+  <%= render "admin/poll/electoral_colleges/electors_table" %>
+<% end %>

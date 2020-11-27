@@ -10,12 +10,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20200911175209) do
+ActiveRecord::Schema.define(version: 20201118132343) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-  enable_extension "unaccent"
   enable_extension "pg_trgm"
+  enable_extension "unaccent"
 
   create_table "active_poll_translations", id: :serial, force: :cascade do |t|
     t.integer "active_poll_id", null: false
@@ -590,6 +590,20 @@ ActiveRecord::Schema.define(version: 20200911175209) do
     t.index ["user_id"], name: "index_documents_on_user_id"
   end
 
+  create_table "editor_legislation_processes", force: :cascade do |t|
+    t.bigint "editor_id"
+    t.bigint "legislation_process_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["editor_id"], name: "index_editor_legislation_processes_on_editor_id"
+    t.index ["legislation_process_id"], name: "index_editor_legislation_processes_on_legislation_process_id"
+  end
+
+  create_table "editors", force: :cascade do |t|
+    t.bigint "user_id"
+    t.index ["user_id"], name: "index_editors_on_user_id"
+  end
+
   create_table "failed_census_calls", id: :serial, force: :cascade do |t|
     t.integer "user_id"
     t.string "document_number"
@@ -1102,6 +1116,28 @@ ActiveRecord::Schema.define(version: 20200911175209) do
     t.string "location"
   end
 
+  create_table "poll_electoral_colleges", force: :cascade do |t|
+    t.string "title"
+    t.boolean "active", default: true, null: false
+    t.bigint "poll_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["poll_id"], name: "index_poll_electoral_colleges_on_poll_id"
+  end
+
+  create_table "poll_electors", force: :cascade do |t|
+    t.string "document_type"
+    t.string "document_number"
+    t.string "category"
+    t.boolean "user_found", default: false, null: false
+    t.bigint "poll_electoral_college_id"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["poll_electoral_college_id"], name: "index_poll_electors_on_poll_electoral_college_id"
+    t.index ["user_id"], name: "index_poll_electors_on_user_id"
+  end
+
   create_table "poll_officer_assignments", id: :serial, force: :cascade do |t|
     t.integer "booth_assignment_id"
     t.integer "officer_id"
@@ -1187,6 +1223,9 @@ ActiveRecord::Schema.define(version: 20200911175209) do
     t.datetime "updated_at"
     t.tsvector "tsv"
     t.string "video_url"
+    t.string "category"
+    t.integer "votes_per_question", default: 1, null: false
+    t.integer "winners_amount", default: 1, null: false
     t.index ["author_id"], name: "index_poll_questions_on_author_id"
     t.index ["poll_id"], name: "index_poll_questions_on_poll_id"
     t.index ["proposal_id"], name: "index_poll_questions_on_proposal_id"
@@ -1255,6 +1294,7 @@ ActiveRecord::Schema.define(version: 20200911175209) do
     t.string "origin"
     t.integer "officer_id"
     t.string "token"
+    t.string "ethnicity"
     t.index ["booth_assignment_id"], name: "index_poll_voters_on_booth_assignment_id"
     t.index ["document_number"], name: "index_poll_voters_on_document_number"
     t.index ["officer_assignment_id"], name: "index_poll_voters_on_officer_assignment_id"
@@ -1277,6 +1317,7 @@ ActiveRecord::Schema.define(version: 20200911175209) do
     t.integer "budget_id"
     t.string "related_type"
     t.integer "related_id"
+    t.boolean "electoral_college_restricted", default: false
     t.index ["budget_id"], name: "index_polls_on_budget_id", unique: true
     t.index ["related_type", "related_id"], name: "index_polls_on_related_type_and_related_id"
     t.index ["starts_at", "ends_at"], name: "index_polls_on_starts_at_and_ends_at"
@@ -1739,6 +1780,9 @@ ActiveRecord::Schema.define(version: 20200911175209) do
   add_foreign_key "dashboard_executed_actions", "dashboard_actions", column: "action_id"
   add_foreign_key "dashboard_executed_actions", "proposals"
   add_foreign_key "documents", "users"
+  add_foreign_key "editor_legislation_processes", "editors"
+  add_foreign_key "editor_legislation_processes", "legislation_processes"
+  add_foreign_key "editors", "users"
   add_foreign_key "failed_census_calls", "poll_officers"
   add_foreign_key "failed_census_calls", "users"
   add_foreign_key "feasibility_analyses", "feasibility_analysis_departments", column: "department_id"
@@ -1766,6 +1810,9 @@ ActiveRecord::Schema.define(version: 20200911175209) do
   add_foreign_key "organizations", "users"
   add_foreign_key "poll_answers", "poll_questions", column: "question_id"
   add_foreign_key "poll_booth_assignments", "polls"
+  add_foreign_key "poll_electoral_colleges", "polls"
+  add_foreign_key "poll_electors", "poll_electoral_colleges"
+  add_foreign_key "poll_electors", "users"
   add_foreign_key "poll_officer_assignments", "poll_booth_assignments", column: "booth_assignment_id"
   add_foreign_key "poll_partial_results", "poll_booth_assignments", column: "booth_assignment_id"
   add_foreign_key "poll_partial_results", "poll_officer_assignments", column: "officer_assignment_id"

@@ -17,6 +17,19 @@
     </div>
 
     <% if @process.questions.any? %>
+      <p class="download-link small">
+        <%= sanitize(t(
+          "legislation.questions.index.result_spreadsheet",
+          answers_link: link_to(
+            t("legislation.questions.index.answers_title"),
+            debate_legislation_process_path(@process, answers_debate_csv_params)
+          ),
+          comments_link: link_to(
+            t("legislation.questions.index.comments_title"),
+            debate_legislation_process_path(@process, comments_debate_csv_params)
+          )
+        )) %>
+      </p>
       <table class="stack">
        <thead>
           <tr>

@@ -563,34 +563,34 @@ pt-BR:
           status: Status
       questions:
         create:
-          notice: 'Questão criada com sucesso. <a href="%{link}">Clique para visitar</a>'
-          error: Questão não pôde ser criada
+          notice: 'Pergunta criada com sucesso. <a href="%{link}">Clique para visitar</a>'
+          error: Pergunta não pôde ser criada
         update:
-          notice: 'Questão atualizada com sucesso. <a href="%{link}">Clique para visitar</a>'
-          error: Questão não pôde ser atualizada
+          notice: 'Pergunta atualizada com sucesso. <a href="%{link}">Clique para visitar</a>'
+          error: Pergunta não pôde ser atualizada
         destroy:
-          notice: Questão excluída com sucesso
+          notice: Pergunta excluída com sucesso
         edit:
           back: Voltar
           title: "Editar \"%{question_title}\""
           submit_button: Salvar alterações
         form:
-          add_option: Adicionar opção
+          add_option: Adicionar resposta
           title_placeholder: Adicionar pergunta
           value_placeholder: Adicionar resposta fechada
-          question_options: "Respostas possíveis (opcionais, por respostas abertas padrão)"
+          question_options: "Respostas fechadas (campo opcional)"
         index:
           back: Voltar
           title: Perguntas associadas ao processo
-          create: Criar questão
+          create: Criar pergunta
           delete: Apagar
         new:
           back: Voltar
           title: Criar nova pergunta
-          submit_button: Criar questão
+          submit_button: Criar pergunta
         table:
-          title: Título
-          question_options: Opções de pergunta
+          title: Pergunta
+          question_options: Opções de resposta
           answers_count: Contagem de respostas
           comments_count: Contagem de comentários
         question_option_fields:
@@ -979,6 +979,35 @@ pt-BR:
         no_booths: "Não há urnas atribuídas a esta votação."
         table_name: "Nome"
         table_location: "Localização"
+    poll_electors:
+      create:
+        notice: Eleitor incluído com sucesso
+      update:
+        notice: Eleitor atualizado com sucesso
+      destroy:
+        notice: Eleitor excluído com sucesso
+      import:
+        new:
+          title: Importar CSV de eleitores
+          info: "O arquivo deve conter os seguintes cabeçalhos: %{required_headers}"
+          load_info: A importação pode demorar alguns minutos
+        show:
+          title: Importação de eleitores
+          subtitle: Resultado
+          errored: Eleitores inválidos
+          created: Eleitores adicionados ao colégio eleitoral
+          existing: Eleitores já cadastrados
+          no_records_found: Nenhum registro encontrado
+          import: Importar eleitores por CSV
+        create:
+          notice: Importação concluída com sucesso
+      export:
+        spreadsheet:
+          id: ID
+          document_type: Tipo de documento
+          document_number: Número do documento
+          category: Categoria
+          user_found: Eleitor cadastrado
     polls:
       index:
         title: "Lista de votações"
@@ -1006,26 +1035,29 @@ pt-BR:
         table_title: "Título"
         edit_answers: Editar respostas
         see_proposal: "(Ver proposta)"
+        electoral_college_tab: Colégio Eleitoral
       flash:
         question_added: "Perguntas adicionadas a essa votação"
         error_on_question_added: "Pergunta não pode ser atribuída a essa votação"
     questions:
       index:
         title: "Perguntas"
-        create: "Criar questão"
+        create: "Criar pergunta"
         no_questions: "Não há perguntas."
         filter_poll: Filtrar por votação
         select_poll: Selecionar votação
         questions_tab: "Perguntas"
         successful_proposals_tab: "Propostas bem sucedidas"
-        create_question: "Criar questão"
+        create_question: "Criar pergunta"
         table_proposal: "Proposta"
-        table_question: "Questão"
+        table_question: "Pergunta"
         table_poll: "Votação"
+      form:
+        all_categories: "Todas as categorias"
       edit:
         title: "Editar pergunta"
       new:
-        title: "Criar questão para pesquisa %{poll}"
+        title: "Criar pergunta para pesquisa %{poll}"
         title_proposal: "Criar pergunta"
       answers:
         images:
@@ -1034,8 +1066,8 @@ pt-BR:
       show:
         proposal: Proposta original
         author: Autor
-        question: Questão
-        edit_question: Editar questão
+        question: Pergunta
+        edit_question: Editar pergunta
         valid_answers: Respostas válidas
         add_answer: Adicionar resposta
         video_url: Vídeo externo
@@ -1050,6 +1082,35 @@ pt-BR:
           documents_list: Lista de documentos
           document_title: Título
           document_actions: Ações
+    electoral_colleges:
+      destroy:
+        notice: Colégio eleitoral excluído com sucesso
+      index:
+        title: Colégio Eleitoral
+        create: Criar colégio eleitoral
+        elector: Adicionar eleitor
+        import: Importar eleitores por CSV
+        active: Ativo
+        inactive: Inativo
+      new:
+        title: Novo colégio eleitoral
+      create:
+        notice: Colégio eleitoral criado com sucesso
+      edit:
+        title: Editar colégio eleitoral
+      elector:
+        title: Eleitores
+        document_type: Tipo de documento
+        document_number: Número do documento
+        category: Categoria
+        no_electors: "Não há eleitores atribuídos a este Colégio Eleitoral"
+        user_found: Eleitor cadastrado
+        result_spreadsheet: Download dos eleitores (csv)
+    electors:
+        new:
+          title: Novo eleitor
+        edit:
+          title: Editar eleitor
     answers:
       new:
         title: Nova resposta
@@ -1239,6 +1300,9 @@ pt-BR:
       user_search:
         button: Buscar
         placeholder: Pesquisar usuário por nome ou pelo email
+      electors_search:
+        button: Buscar
+        placeholder: Pesquisar eleitor pelo número do documento
       search_results: "Buscar resultados"
       no_search_results: "Nenhum resultado encontrado."
       actions: Ações
@@ -1255,7 +1319,7 @@ pt-BR:
       delete: Apagar
       color_help: Formato hexadecimal
       show_results_and_stats: "Exibir resultados e estatísticas"
-      results_and_stats_reminder: "Ao marcar estas caixas de seleção, os resultado e/ou estatísticas estarão disponíveis publicamente e qualquer usuário poderá vê-los."
+      results_and_stats_reminder: "Ao marcar estas caixas de seleção, os resultado e/ou estatísticas estarão disponíveis publicamente assim que o processo estiver encerrado."
     geozones:
       index:
         title: Geozona
@@ -1375,7 +1439,7 @@ pt-BR:
         poll_questions: "Perguntas da votação: %{poll}"
         table:
           poll_name: Votação
-          question_name: Questão
+          question_name: Pergunta
           origin_web: Participantes da Web
           origin_total: Total de participantes
     tags:

@@ -1,6 +1,8 @@
 class Legislation::Topic::Exporter
-  include LegislationTopicsHelper
   require "csv"
+
+  include LegislationTopicsHelper
+  include ExporterSpreadsheet
 
   def initialize(root_topics)
     @root_topics = root_topics
@@ -33,7 +35,7 @@ class Legislation::Topic::Exporter
       topic_vote.id.to_s,
       topic_level_label(indexes),
       topic.title,
-      topic.description,
+      sanitize_description(topic.description),
       topic_vote.assessment_title
     ]
 

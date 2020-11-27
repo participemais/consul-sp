@@ -641,9 +641,6 @@ en:
       cant_answer_wrong_geozone: "This question is not available on your geozone."
       more_info_title: "More information"
       documents: Documents
-      zoom_plus: Expand image
-      read_more: "Read more about %{answer}"
-      read_less: "Read less about %{answer}"
       videos: "External video"
       info_menu: "Information"
       stats_menu: "Participation statistics"
@@ -666,7 +663,7 @@ en:
   poll_questions:
     show:
       vote_answer: "Vote %{answer}"
-      voted: "You have voted %{answer}"
+      destroy_vote: "You have voted %{answer}"
   proposal_notifications:
     new:
       title: "Send message"

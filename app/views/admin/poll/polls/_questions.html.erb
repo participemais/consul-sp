@@ -35,8 +35,10 @@
                                                             class: "button hollow expanded" %>
           </div>
           <div class="small-4 column">
-            <%= link_to t("shared.edit"), edit_admin_question_path(question),
-                                          class: "button hollow expanded" %>
+            <%= link_to t("shared.edit"),
+              edit_admin_question_path(question, poll_id: @poll.id),
+              class: "button hollow expanded"
+            %>
           </div>
           <div class="small-4 column">
             <%= link_to t("shared.delete"), admin_question_path(question),

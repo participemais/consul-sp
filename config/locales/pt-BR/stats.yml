@@ -1,21 +1,26 @@
 pt-BR:
   stats:
     title: "Dados sobre a participação"
-    advanced: "Estatísticas avançadas"
+    advanced: "Dados sobre participação por canal"
     total_participants: "Participantes"
     by_gender: "Participantes por gênero"
     by_age: "Participantes por idade"
     by_geozone: "Participantes por região"
-    men_percentage: "%{percentage} Homens"
-    women_percentage: "%{percentage} Mulheres"
+    by_ethnicity: "Participantes por raça"
+    men_percentage: "%{percentage} Masculino"
+    women_percentage: "%{percentage} Feminino"
+    non_binary_percentage: "%{percentage} Não-binário"
+    unknown_percentage: "%{percentage} Não declarado"
     age: "Idade"
-    age_more_than: "De %{start} anos ou mais"
+    age_less_than: "Menos de %{finish} anos"
+    age_more_than: "Mais de %{start} anos"
     age_range: "De %{start} a %{finish} anos"
+    ethnicity: "Raça"
     total: "Total"
     geozone: "Região"
     no_demographic_data:
-      one: "* Não há dados demográficos de 1 participante."
-      other: "* Não há dados demográficos data para %{count} participantes."
+      one: "Não há dados de gênero, raça ou idade de um participante."
+      other: "Não há dados de gênero, raça ou idade de %{count} participantes."
     budgets:
       link: "Estatísticas"
       page_title: "%{budget} - Estatísticas de participação"
@@ -32,11 +37,42 @@ pt-BR:
       participants_every_phase: "Total de participantes"
       percent_total_participants: "% Total de participantes"
       percent_heading_census: "% Censo de títulos"
-      participatory_disclaimer: "** Os números do total de participantes se referem a personas que criaram, apoiaram ou votaram em propostas de investimentos."
-      heading_disclaimer: "*** Os dados dos títulos se referem ao título no qual o usuário votou, no necessariamente naquele em que a pessoa se registrou."
+      participatory_disclaimer: "* Os números do total de participantes se referem a personas que criaram, apoiaram ou votaram em propostas de investimentos."
+      heading_disclaimer: "** Os dados dos títulos se referem ao título no qual o usuário votou, no necessariamente naquele em que a pessoa se registrou."
     polls:
-      by_channel: "Participantes por canal"
-      vote_by_channel: "Tipo de votos por canal"
+      by_channel: "Participantes"
+      vote_by_channel: "Tipo de votos"
       web_percentage: "%{percentage} Internet"
-      booth_percentage: "%{percentage} Cabines"
+      booth_percentage: "%{percentage} Presencial"
       letter_percentage: "%{percentage} Correios"
+      result_spreadsheet: Download dos votos (csv)
+      stats_spreadsheet: Download das estatísticas de participação (csv)
+      spreadsheet:
+        answer: Resposta
+        booth: Presencial
+        id: ID
+        origin: Canal
+        question: Pergunta
+        web: Online
+      voters:
+        spreadsheet:
+          age: Idade
+          booth: Presencial
+          city: Cidade
+          ethnicity: Raça
+          ethnicity_options:
+            yellow: Amarela
+            white: Branca
+            red: Indígena
+            brown: Parda
+            black: Preta
+          gender: Gênero
+          gender_options:
+            female: Feminino
+            male: Masculino
+            non_binary: Não-binário
+            unknown: Não declarado
+          id: ID
+          origin: Canal
+          uf: UF
+          web: Online

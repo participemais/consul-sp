@@ -1,6 +1,8 @@
 class Budget::Investment::Exporter
   require "csv"
 
+  include ExporterSpreadsheet
+
   def initialize(investments, budget)
     @investments = investments
     @budget = budget
@@ -160,9 +162,5 @@ class Budget::Investment::Exporter
 
     def header_translation(key)
       I18n.t(key, scope: 'budgets.show.spreadsheet')
-    end
-
-    def sanitize_description(description)
-      Nokogiri::HTML.parse(description).text.squish
     end
 end

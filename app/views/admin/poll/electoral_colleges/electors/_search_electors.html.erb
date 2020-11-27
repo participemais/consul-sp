@@ -1,0 +1,14 @@
+<div class="small-12 medium-6 margin-top">
+  <%= form_tag(search_electors_admin_poll_electoral_college_electors_path(@poll, @electoral_college), method: :get, remote: true) do |f| %>
+    <div class="input-group">
+      <%= text_field_tag :search,
+                         @search,
+                         placeholder: t("admin.shared.electors_search.placeholder"), id: "search-electors" %>
+      <div class="input-group-button">
+        <%= submit_tag t("admin.shared.electors_search.button"), class: "button" %>
+      </div>
+    </div>
+  <% end %>
+</div>
+
+<div id="search-electors-results"></div>

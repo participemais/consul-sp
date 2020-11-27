@@ -1,6 +1,8 @@
 class User < ApplicationRecord
   include Verification
 
+  DOCUMENT_TYPES = %w(cpf rnm).freeze
+
   devise :database_authenticatable, :registerable, :confirmable, :recoverable, :rememberable,
          :trackable, :validatable, :omniauthable, :password_expirable, :secure_validatable,
          authentication_keys: [:login]
@@ -75,6 +77,8 @@ class User < ApplicationRecord
     foreign_key: :author_id,
     inverse_of:  :author
   has_many :topics, foreign_key: :author_id, inverse_of: :author
+  has_many :electors, class_name: "Poll::Elector"
+
   belongs_to :geozone
 
   validates :username, presence: true, if: :username_required?
@@ -122,6 +126,8 @@ class User < ApplicationRecord
   scope :officials,      -> { where("official_level > 0") }
   scope :male,           -> { where(gender: "male") }
   scope :female,         -> { where(gender: "female") }
+  scope :non_binary,     -> { where(gender: "non_binary") }
+  scope :unknown,        -> { where(gender: "unknown") }
   scope :newsletter,     -> { where(newsletter: true) }
   scope :for_render,     -> { includes(:organization) }
   scope :by_document,    ->(document_type, document_number) do
@@ -144,6 +150,7 @@ class User < ApplicationRecord
       from.years.ago.end_of_year
     )
   end
+  scope :by_ethnicity, ->(ethnicity) { where(ethnicity: ethnicity) }
 
   before_validation :clean_document_number, if: :persisted?
   before_validation :clean_cep, if: :persisted?
@@ -153,6 +160,8 @@ class User < ApplicationRecord
     unless: :document_number_changes_count
   before_save :date_of_birth_changes_amount,
     unless: :date_of_birth_changes_count
+  before_save :belongs_to_active_electoral_college,
+    if: :document_number_changed?
 
   # Get the existing user by email if the provider gives us a verified email.
   def self.first_or_initialize_for_oauth(auth)
@@ -543,5 +552,13 @@ class User < ApplicationRecord
       if changes[:date_of_birth] && changes[:date_of_birth][0]
         self.date_of_birth_changes_count = 1
       end
+    end
+
+    def belongs_to_active_electoral_college
+      Poll::Elector.user_not_found
+        .active_electoral_college
+        .by_document(document_type, document_number).each do |elector|
+          elector.update(user: self, user_found: true)
+        end
     end
 end

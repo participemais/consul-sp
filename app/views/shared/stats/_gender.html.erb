@@ -1,15 +1,31 @@
 <div id="participants_by_gender" class="stats-group">
   <h4><%= t("stats.by_gender") %></h4>
 
-  <%= number_with_info_tags(
-    stats.total_male_participants,
-    t("stats.men_percentage", percentage: number_to_stats_percentage(stats.male_percentage)),
-    html_class: "participants male"
-  ) %>
-
+  <i class="fas fa-venus gender-icons"></i>
   <%= number_with_info_tags(
     stats.total_female_participants,
     t("stats.women_percentage", percentage: number_to_stats_percentage(stats.female_percentage)),
-    html_class: "participants female"
+    html_class: "participants"
+  ) %>
+
+  <i class="fas fa-mars gender-icons"></i>
+  <%= number_with_info_tags(
+    stats.total_male_participants,
+    t("stats.men_percentage", percentage: number_to_stats_percentage(stats.male_percentage)),
+    html_class: "participants"
+  ) %>
+
+  <i class="fas fa-venus-mars gender-icons"></i>
+  <%= number_with_info_tags(
+    stats.total_non_binary_participants,
+    t("stats.non_binary_percentage", percentage: number_to_stats_percentage(stats.non_binary_percentage)),
+    html_class: "participants"
+  ) %>
+
+  <i class="fas fa-neuter gender-icons"></i>
+  <%= number_with_info_tags(
+    stats.total_unknown_participants,
+    t("stats.unknown_percentage", percentage: number_to_stats_percentage(stats.unknown_percentage)),
+    html_class: "participants"
   ) %>
 </div>

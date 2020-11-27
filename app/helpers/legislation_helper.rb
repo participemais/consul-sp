@@ -57,4 +57,12 @@ module LegislationHelper
     csv_params = params.clone.merge(format: :csv)
     csv_params.to_unsafe_h.map { |k, v| [k.to_sym, v] }.to_h
   end
+
+  def answers_debate_csv_params
+    legislation_csv_params.merge(type: "answers")
+  end
+
+  def comments_debate_csv_params
+    legislation_csv_params.merge(type: "comments")
+  end
 end
