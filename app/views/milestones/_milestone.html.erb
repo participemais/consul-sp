@@ -4,8 +4,7 @@
     <% if milestone.publication_date.present? %>
       <span class="milestone-date">
         <strong>
-          <%= t("milestones.show.publication_date",
-                publication_date: l(milestone.publication_date.to_date)) %>
+          <%= l(milestone.publication_date.to_date) %>
         </strong>
       </span>
     <% end %>
