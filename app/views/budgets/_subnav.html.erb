@@ -4,11 +4,10 @@
       <% budget_subnav_items_for(budget).each do |item| %>
         <% if item[:active] %>
           <li class="is-active">
-            <span class="show-for-sr"><%= t("shared.you_are_in") %></span>
             <h2><%= item[:text] %></h2>
           </li>
         <% else %>
-          <li><h2><%= link_to item[:text], item[:url] %></h2></li>
+          <li><%= link_to item[:text], item[:url] %></li>
         <% end %>
       <% end %>
     </ul>
