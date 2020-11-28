@@ -27,7 +27,7 @@
 <%= render "budgets/subnav", budget: @budget %>
 
 <div class="row">
-  <div class="small-12 medium-3 large-2 column">
+  <div class="small-12 medium-3 column">
     <h3 class="margin-bottom">
       <%= t("budgets.results.heading_selection_title") %>
     </h3>
@@ -42,7 +42,7 @@
     </ul>
   </div>
 
-  <div class="small-12 medium-9 large-10 column">
+  <div class="small-12 medium-9 column">
     <%= link_to t("budgets.results.show_all_link"), "#",
                 class: "js-toggle-link button hollow margin-bottom float-right-medium",
                 data: { "toggle-selector" => ".js-discarded",
