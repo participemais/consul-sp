@@ -22,7 +22,7 @@ pt-BR:
       one: "Não há dados de gênero, raça ou idade de um participante."
       other: "Não há dados de gênero, raça ou idade de %{count} participantes."
     budgets:
-      link: "Estatísticas"
+      link: "Estatísticas da participação"
       page_title: "%{budget} - Estatísticas de participação"
       total_investments: "Total de projetos de investimento"
       total_selected_investments: "Projetos em etapa final de votação"

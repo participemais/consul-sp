@@ -226,7 +226,7 @@ pt-BR:
         unfeasibility_explanation: Justificativa
         votes: Votos
     results:
-      link: Resultados
+      link: Resultados do orçamento
       page_title: "%{budget} - Resultados"
       heading: "Resultados do orçamento cidadão"
       heading_selection_title: "Por Subprefeitura"
