@@ -82,6 +82,10 @@ class Poll < ApplicationRecord
     name
   end
 
+  def open?(timestamp = Date.current.beginning_of_day)
+    starts_at <= timestamp
+  end
+
   def current?(timestamp = Date.current.beginning_of_day)
     starts_at <= timestamp && timestamp <= ends_at
   end
