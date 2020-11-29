@@ -344,3 +344,12 @@
 .purple-font {
   color: $purple;
 }
+
+.subprefecture-headings {
+  border-right: 1px solid $border;
+
+  .menu {
+    margin: 0;
+    padding: 0;
+  }
+}
