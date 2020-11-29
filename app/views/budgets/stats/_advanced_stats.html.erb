@@ -4,22 +4,73 @@
   <div id="total_investments" class="stats-group">
     <h4><%= t("stats.budgets.total_investments") %></h4>
 
-    <%= number_with_info_tags(
-      stats.total_budget_investments,
-      t("stats.budgets.total_investments"),
-      html_class: "total-investments"
-    ) %>
+    <div class="row">
+      <div class="small-12 column">
+        <%= number_with_info_tags(
+          stats.total_budget_investments,
+          t("stats.budgets.total_investments"),
+          html_class: "total-investments"
+        ) %>
+      </div>
+    </div>
 
-    <%= number_with_info_tags(stats.total_unfeasible_investments,
-                              t("stats.budgets.total_unfeasible_investments")) %>
-    <%= number_with_info_tags(stats.total_selected_investments,
-                              t("stats.budgets.total_selected_investments")) %>
+    <div class="row">
+      <div class="small-6 medium-4 column">
+        <i class="fas fa-file-alt file-icons"></i>
+        <%= number_with_info_tags(
+          stats.total_selected_investments,
+          t("stats.budgets.total_selected_investments")
+        ) %>
+      </div>
+      <div class="small-6 medium-4 column end">
+        <i class="fas fa-file file-icons"></i>
+        <%= number_with_info_tags(
+          stats.total_unselected_investments,
+          t("stats.budgets.total_unselected_investments")
+        ) %>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="small-6 medium-4 column">
+        <i class="fas fa-file-alt file-icons"></i>
+        <%= number_with_info_tags(
+          stats.total_winner_investments,
+          t("stats.budgets.total_winner_investments")
+        ) %>
+      </div>
+      <div class="small-6 medium-4 column end">
+        <i class="fas fa-file file-icons"></i>
+        <%= number_with_info_tags(
+          stats.total_loser_investments,
+          t("stats.budgets.total_loser_investments")
+        ) %>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="small-6 medium-4 column">
+        <i class="fas fa-file-alt file-icons"></i>
+        <%= number_with_info_tags(
+          stats.total_feasible_investments,
+          t("stats.budgets.total_feasible_investments")
+        ) %>
+      </div>
+      <div class="small-6 medium-4 column end">
+        <i class="fas fa-file file-icons"></i>
+        <%= number_with_info_tags(
+          stats.total_unfeasible_investments,
+          t("stats.budgets.total_unfeasible_investments")
+        ) %>
+      </div>
+    </div>
   </div>
 
   <div id="stats_by_phase" class="stats-group">
     <h4><%= t("stats.budgets.by_phase") %></h4>
 
     <% stats.phases.each do |phase| %>
+      <i class="fas fa-users users-icons"></i>
       <%= number_with_info_tags(
         stats.send("total_participants_#{phase}_phase"),
         t("stats.budgets.participants_#{phase}_phase")
