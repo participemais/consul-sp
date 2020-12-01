@@ -204,7 +204,7 @@ pt-BR:
           valuation_group: Grupo de avaliação
           geozone: Subprefeitura
           feasibility: Viabilidade
-          valuation_finished: Valor Final.
+          valuation_finished: Avaliação concluída
           selected: Selecionado
           visible_to_valuators: Disponível para avaliadores
           author_username: Username do autor
@@ -254,13 +254,13 @@ pt-BR:
     milestones:
       index:
         table_id: "ID"
-        table_title: "Título"
+        table_title: "Última atualização"
         table_description: "Descrição"
-        table_publication_date: "Data de publicação"
+        table_publication_date: "Data da etapa"
         table_status: Etapas
         table_actions: "Ações"
-        delete: "Deletar etapas"
-        no_milestones: "Não possui etapas definidos"
+        delete: "Deletar etapa"
+        no_milestones: "Não há etapas definidas"
         image: "Imagem"
         show_image: "Mostrar imagem"
         documents: "Documentos"
@@ -268,39 +268,41 @@ pt-BR:
         new_milestone: Criar etapa
         milestone_tags: Etapas de andamento
       form:
-        admin_statuses: Etapas dos investimentos para administrador
+        admin_statuses: Acesso ao catálogo de status de monitoramento
         no_statuses_defined: Ainda não há status de investimento definidos
+        submit: Atualizar etapa
       new:
-        creating: Criar marco
+        creating: Criar etapa
       edit:
-        title: Editar marco
+        title: Editar etapa
       create:
-        notice: Novo marco criado com sucesso!
+        notice: Nova etapa criada com sucesso!
       update:
-        notice: Marco atualizado com sucesso
+        notice: Etapa atualizada com sucesso
       delete:
-        notice: Marco excluído com sucesso
+        notice: Etapa excluída com sucesso
     statuses:
       index:
-        title: Status de investimento
-        empty_statuses: Ainda não há status de investimento definidos
-        new_status: Criar novo status de investimento
+        title: Catálogo de status de monitoramento
+        empty_statuses: Ainda não há status de monitoramento definidos
+        new_status: Criar novo status
         table_name: Nome
         table_description: Descrição
         table_actions: Ações
         delete: Apagar
         edit: Editar
       edit:
-        title: Editar status de investimento
+        title: Editar status de monitoramento
       update:
-        notice: Situação de investimento atualizada com sucesso
+        notice: Status de monitoramento atualizado com sucesso
       new:
-        title: Criar status de investimento
+        title: Criar status de monitoramento
       create:
-        notice: Status de investimento criado com sucesso
+        notice: Status de monitoramento criado com sucesso
       delete:
-        notice: Status de investimento excluído com sucesso
+        notice: Status de monitoramento excluído com sucesso
     progress_bars:
+      manage: "Gerenciar barras de progresso"
       index:
         title: "Barras de progresso"
         no_progress_bars: "Não existem barras de progresso"
@@ -312,6 +314,12 @@ pt-BR:
         table_percentage: "Posição atual"
       new:
         creating: "Criar barra de progresso"
+      create:
+        notice: "Barra de progresso criada com sucesso"
+      update:
+        notice: "Barra de progresso atualizada com sucesso"
+      delete:
+        notice: "Barra de progresso excluída com sucesso"
     departments:
       index:
         title: Órgãos públicos
@@ -1253,7 +1261,7 @@ pt-BR:
         author: Autor
         select: Selecionar
         selected: Selecionado
-        milestones: Marcos
+        milestones: Monitoramento
         no_proposals: Não existem propostas.
       form:
         update: Atualizar proposta

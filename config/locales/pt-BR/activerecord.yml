@@ -219,10 +219,10 @@ pt-BR:
         census_code: "Código do censo (opcional)"
         html_map_coordinates: "Coordenadas do MAL <map> (opcional)"
       milestone:
-        status_id: "Status atual do investimento (opcional)"
+        status_id: "Status do monitoramento"
         title: "Título"
         description: "Descrição (opcional, se houver uma condição atribuída)"
-        publication_date: "Data de publicação"
+        publication_date: "Data"
       milestone/translation:
         description: "Descrição"
       milestone/status:

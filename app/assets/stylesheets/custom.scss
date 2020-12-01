@@ -46,6 +46,10 @@
   padding-left: $line-height !important;
 }
 
+.half-margin-top {
+  margin-top: $line-height / 2 !important;
+}
+
 .subprefecture-label {
   color: $white;
   cursor: pointer;
@@ -343,4 +347,13 @@
 
 .purple-font {
   color: $purple;
+}
+
+.subprefecture-headings {
+  border-right: 1px solid $border;
+
+  .menu {
+    margin: 0;
+    padding: 0;
+  }
 }
