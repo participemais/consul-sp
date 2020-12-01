@@ -6,7 +6,7 @@ class Legislation::Process < ApplicationRecord
   include Documentable
 
   acts_as_paranoid column: :hidden_at
-  acts_as_taggable_on :customs
+  acts_as_taggable_on :customs, :subprefectures, :districts
 
   translates :title,              touch: true
   translates :summary,            touch: true
