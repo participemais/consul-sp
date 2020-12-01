@@ -51,13 +51,13 @@
     <%= render "results_table", results_type: :compatible,
                                 title: @heading.name,
                                 heading_price: @heading.price,
-                                investments: @investments.compatible %>
+                                investments: @investments.winners %>
 
-    <% if @investments.incompatible.present? %>
+    <% if @investments.losers.present? %>
       <%= render "results_table", results_type: :incompatible,
-                                  title: t("budgets.results.incompatibles"),
+                                  title: t("budgets.results.losers"),
                                   heading_price: @heading.price,
-                                  investments: @investments.incompatible %>
+                                  investments: @investments.losers %>
     <% end %>
 
     <p>

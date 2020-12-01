@@ -237,7 +237,7 @@ pt-BR:
       amount_available: Orçamento disponível
       accepted: "Proposta de gasto aceita: "
       discarded: "Proposta de gasto descartada: "
-      incompatibles: Incompatíveis
+      losers: Não eleitas
       investment_title: Título da proposta
       investment_proyects: Lista de todas as propostas de orçamento
       unfeasible_investment_proyects: Lista de todas as propostas de orçamento inviáveis
