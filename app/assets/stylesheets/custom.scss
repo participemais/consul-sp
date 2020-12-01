@@ -46,6 +46,10 @@
   padding-left: $line-height !important;
 }
 
+.half-margin-top {
+  margin-top: $line-height / 2 !important;
+}
+
 .subprefecture-label {
   color: $white;
   cursor: pointer;
