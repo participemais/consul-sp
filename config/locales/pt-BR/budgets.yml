@@ -164,11 +164,16 @@ pt-BR:
         add: Votar
         already_added: Você já adicionou este proposta de orçamento
         already_supported: Você já votou nesta proposta de orçamento. Compartilhe!
-        support_title: Apoiar este proposta
+        support_title: Apoiar esta proposta
+        vote_title: Votar nesta proposta
         confirm_group:
           one: "Você pode somente apoiar propostas no distrito de %{count}. Se você continuar, não poderá alterar a eleição de seu distrito. Tem certeza?"
           other: "Você pode somente apoiar propostas no distrito de %{count}. Se você continuar, não poderá alterar a eleição de seu distrito. Tem certeza?"
         supports:
+          zero: Nenhum apoio
+          one: 1 apoio
+          other: "%{count} apoios"
+        votes:
           zero: Nenhum voto
           one: 1 voto
           other: "%{count} votos"
