@@ -148,7 +148,6 @@ pt-BR:
         milestones_tab: Monitoramento
         author: Autor
         project_selected: "Esta proposta de orçamento <strong>está selecionada</strong> para a etapa de votação."
-        project_winner: "Proposta de orçamento ganhando"
         project_balloting_loser: "Esta proposta não foi eleita na etapa de votação"
         project_balloting_winner: "Esta proposta foi eleita na etapa de votação"
         running_project: "Esta proposta foi classificada como <strong>viável</strong> - projeto em execução"
