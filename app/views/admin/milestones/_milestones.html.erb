@@ -52,10 +52,13 @@
           <td class="small">
             <% if milestone.documents.present? %>
               <% milestone.documents.each do |document| %>
-                <%= link_to document.title,
-                              document.attachment.url,
-                              target: "_blank",
-                              rel: "nofollow" %><br>
+                <div>
+                  <%= link_to document.title,
+                    document.attachment.url,
+                    target: "_blank",
+                    rel: "nofollow"
+                  %>
+                </div>
               <% end %>
             <% end %>
           </td>
