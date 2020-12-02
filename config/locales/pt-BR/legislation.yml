@@ -49,6 +49,8 @@ pt-BR:
         more_info: Mais informação e contexto
       proposals:
         empty_proposals: Não existem propostas
+        spreedsheet: Download das propostas
+        comments_spreedsheet: Download dos comentários
         filters:
           random: Aleatório
           winners: Selecionado
@@ -185,3 +187,11 @@ pt-BR:
         tags_label: "Categorias"
       not_verified: "Para votar as propostas %{verify_account}."
       process_title: Processo de legislação colaborativa
+      spreadsheet:
+        id: ID
+        title: Proposta
+        cached_votes_up: Votos a favor
+        cached_votes_down: Votos contra
+        cached_votes_total: Total de votos
+        comment: Comentário
+        user: Usuário
