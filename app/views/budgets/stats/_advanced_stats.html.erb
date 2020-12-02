@@ -66,17 +66,19 @@
     </div>
   </div>
 
-  <div id="stats_by_phase" class="stats-group">
-    <h4><%= t("stats.budgets.by_phase") %></h4>
+  <% if stats.budget_supports.any? %>
+    <div id="stats_by_phase" class="stats-group">
+      <h4><%= t("stats.budgets.by_phase") %></h4>
 
-    <% stats.phases.each do |phase| %>
-      <i class="fas fa-users users-icons"></i>
-      <%= number_with_info_tags(
-        stats.send("total_participants_#{phase}_phase"),
-        t("stats.budgets.participants_#{phase}_phase")
-      ) %>
-    <% end %>
-  </div>
+      <% stats.phases.each do |phase| %>
+        <i class="fas fa-users users-icons"></i>
+        <%= number_with_info_tags(
+          stats.send("total_participants_#{phase}_phase"),
+          t("stats.budgets.participants_#{phase}_phase")
+        ) %>
+      <% end %>
+    </div>
+  <% end %>
 
   <div id="stats_by_heading" class="stats-group">
     <h4 class="margin-bottom"><%= t("stats.budgets.by_heading") %></h4>
@@ -88,7 +90,7 @@
           <th scope="col" rowspan="2"><%= sanitize(t("stats.budgets.investments_sent")) %></th>
 
           <% stats.all_phases.each do |phase| %>
-            <th scope="col" colspan="3">
+            <th scope="col" colspan="2">
               <%= t("stats.budgets.participants_#{phase}_phase") %>
             </th>
           <% end %>
@@ -97,7 +99,6 @@
           <% stats.all_phases.each do %>
             <th scope="col" class="phase-subheader"><%= t("stats.budgets.total") %></th>
             <th scope="col" class="phase-subheader"><%= t("stats.budgets.percent_total_participants") %></th>
-            <th scope="col" class="phase-subheader"><%= t("stats.budgets.percent_heading_census") %></th>
           <% end %>
         </tr>
       </thead>
@@ -120,10 +121,6 @@
               <td id="percentage_participants_<%= phase %>_phase_heading_<%= heading.id %>"
                   class="border-left border-right text-center">
                 <%= number_to_stats_percentage(stats.headings[heading.id]["percentage_participants_#{phase}_phase".to_sym]) %>
-              </td>
-              <td id="percentage_district_population_<%= phase %>_phase_heading_<%= heading.id %>"
-                  class="text-center border-right">
-                <%= number_to_stats_percentage(stats.headings[heading.id]["percentage_district_population_#{phase}_phase".to_sym]) %>
               </td>
             <% end %>
           </tr>

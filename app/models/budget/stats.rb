@@ -22,13 +22,14 @@ class Budget::Stats
   end
 
   def phases
-    %w[support vote].select { |phase| send("#{phase}_phase_finished?") }
+    types = ["vote"]
+    types.unshift("support") if budget_supports.any?
+    types.select { |phase| send("#{phase}_phase_finished?") }
   end
 
   def all_phases
-    return phases unless phases.many?
-
-    [*phases, "every"]
+    every = ["every"]
+    phases.one? ? every : phases + every
   end
 
   def support_phase_finished?
@@ -106,6 +107,10 @@ class Budget::Stats
     groups
   end
 
+  def budget_supports
+    Vote.where(votable: budget.investments)
+  end
+
   private
 
     def phase_methods
@@ -166,11 +171,8 @@ class Budget::Stats
     def calculate_heading_stats_with_totals(heading_totals, groups_totals, population)
       {
         percentage_participants_support_phase: participants_percent(heading_totals, groups_totals, :total_participants_support_phase),
-        percentage_district_population_support_phase: population_percent(population, heading_totals[:total_participants_support_phase]),
         percentage_participants_vote_phase: participants_percent(heading_totals, groups_totals, :total_participants_vote_phase),
-        percentage_district_population_vote_phase: population_percent(population, heading_totals[:total_participants_vote_phase]),
         percentage_participants_every_phase: participants_percent(heading_totals, groups_totals, :total_participants_every_phase),
-        percentage_district_population_every_phase: population_percent(population, heading_totals[:total_participants_every_phase])
       }
     end
 

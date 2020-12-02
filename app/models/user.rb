@@ -501,7 +501,7 @@ class User < ApplicationRecord
           scope: 'activerecord.errors.models.user.attributes.date_of_birth',
           age: min_age
         )
-        errors.add(:base, message)
+        errors.add(:date_of_birth, message)
       end
     end
 

@@ -46,7 +46,6 @@ pt-BR:
       balloting: Votação popular
       reviewing_ballots: Revisão de voto
       valuating: Análise de viabilidade
-      formulation: Elaboração do PLOA
       devolutive: Devolutiva
       finished: Monitoramento
     index:
@@ -70,7 +69,7 @@ pt-BR:
         title: Sobre o orçamento cidadão
         description: >-
           O orçamento cidadão é um espaço de participação social online para colher contribuições da população em relação ao orçamento da Prefeitura de São Paulo. Todos os anos, a Prefeitura deve elaborar o Projeto de Lei Orçamentária Anual (PLOA). Quando transformada em lei, ela define qual o orçamento da Prefeitura para o ano seguinte e como ele será distribuído. Uma decisão muito importante, não é? É por isso que a PLOA deve ser construída junto com a população! Este ano, aqui no Participe+, você poderá votar em até 5 propostas que você julga prioritárias e, ao longo do ano que vem, acompanhar a implementação das propostas aprovadas em lei (LOA).
-      milestones: Etapas
+      milestones: Monitoramento
       search_proposals: Buscar propostas
       search_proposals_placeholder: Encontre propostas relacionadas a termos de seu interesse, como saúde, educação, cultura, meio ambiente, mobilidade, entre outros
     investments:
@@ -88,7 +87,7 @@ pt-BR:
         title: Orçamento cidadão
         unfeasible: Propostas inviáveis
         unfeasible_text: "As propostas devem atender a uma série de critérios (legalidade, concretude, ser de responsabilidade da cidade, não exceder o limite do orçamento, respeitar as especificações técnicas e jurídicas) para serem declaradas viáveis e chegarem ao estágio de votação final. Todas as propostas que não atendem a esses critérios são marcadas como inviáveis e publicadas na lista a seguir, juntamente com seu relatório de inviabilidade."
-        by_heading: "Propostas para Subprefeitura %{heading}"
+        by_heading: "Propostas para a Subprefeitura %{heading}"
         population: "População: <strong>%{population}</strong>"
         area: "Área: <strong>%{population} km²</strong>"
         subprefecture_label: Mais informações da Subprefeitura
@@ -123,7 +122,9 @@ pt-BR:
             other: O Distrito apresenta uma densidade de <strong>%{population_density}</strong> habitantes por m². São <strong>%{households}</strong> domicílios em seu território, sendo que <strong>%{slum_households_percentage}%</strong> deles estão localizados em favelas (%{slum_households_reference_year}).
             zero: O Distrito apresenta uma densidade de <strong>%{population_density}</strong> habitantes por m². São <strong>%{households}</strong> domicílios em seu território, sendo que nenhum deles está localizado em favelas (%{slum_households_reference_year}).
           district_formal_jobs_by_population: Para cada pessoa em idade ativa, há <strong>%{formal_jobs_by_population}</strong> empregos formais (%{formal_jobs_by_population_reference_year}).
-          districts: Distritos
+          districts:
+            one: Distrito
+            other: Distritos
         orders:
           random: aleatório
           confidence_score: melhor avaliado
@@ -148,7 +149,6 @@ pt-BR:
         milestones_tab: Monitoramento
         author: Autor
         project_selected: "Esta proposta de orçamento <strong>está selecionada</strong> para a etapa de votação."
-        project_winner: "Proposta de orçamento ganhando"
         project_balloting_loser: "Esta proposta não foi eleita na etapa de votação"
         project_balloting_winner: "Esta proposta foi eleita na etapa de votação"
         running_project: "Esta proposta foi classificada como <strong>viável</strong> - projeto em execução"
@@ -164,11 +164,16 @@ pt-BR:
         add: Votar
         already_added: Você já adicionou este proposta de orçamento
         already_supported: Você já votou nesta proposta de orçamento. Compartilhe!
-        support_title: Apoiar este proposta
+        support_title: Apoiar esta proposta
+        vote_title: Votar nesta proposta
         confirm_group:
           one: "Você pode somente apoiar propostas no distrito de %{count}. Se você continuar, não poderá alterar a eleição de seu distrito. Tem certeza?"
           other: "Você pode somente apoiar propostas no distrito de %{count}. Se você continuar, não poderá alterar a eleição de seu distrito. Tem certeza?"
         supports:
+          zero: Nenhum apoio
+          one: 1 apoio
+          other: "%{count} apoios"
+        votes:
           zero: Nenhum voto
           one: 1 voto
           other: "%{count} votos"
@@ -253,9 +258,6 @@ pt-BR:
       filters:
         status:
           label: "Estado atual da proposta"
-          all: "Todo (%{count})"
-        milestone_tag:
-          label: "Status de andamento"
           all: "Todo (%{count})"
     phases:
       errors:

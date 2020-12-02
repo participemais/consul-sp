@@ -180,10 +180,12 @@ class Budget < ApplicationRecord
   end
 
   def formatted_currency_amount(amount)
-    ActionController::Base.helpers.number_to_currency(amount,
-                                                      precision: 0,
-                                                      locale: I18n.locale,
-                                                      unit: currency_symbol)
+    ActionController::Base.helpers.number_to_currency(
+      amount,
+      precision: 0,
+      locale: I18n.locale,
+      unit: currency_symbol.nil? ? "" : currency_symbol
+    )
   end
 
   def formatted_heading_price(heading)

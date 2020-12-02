@@ -147,12 +147,11 @@ pt-BR:
         description_accepting: "Descrição durante a etapa de aceitação"
         description_reviewing: "Descrição durante a etapa de revisão"
         description_selecting: "Descrição durante a seleção da etapa"
-        description_valuating: "Descrição durante a etapa de avaliação"
+        description_valuating: "Descrição durante a etapa de análise de viabilidade"
         description_balloting: "Descrição durante a etapa de votação"
         description_reviewing_ballots: "Descrição durante a etapa de revisão das cédulas"
         description_devolutive: "Descrição durante a etapa devolutiva"
         description_finished: "Descrição sobre o orçamento concluído."
-        description_formulation: "Descrição sobre a etapa análise de viabilidade."
         phase: "Etapa"
         currency_symbol: Distribuição de recursos
         max_votes: Votos por usuário
