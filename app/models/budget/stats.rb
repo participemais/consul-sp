@@ -22,13 +22,14 @@ class Budget::Stats
   end
 
   def phases
-    %w[support vote].select { |phase| send("#{phase}_phase_finished?") }
+    types = ["vote"]
+    types.unshift("support") if budget_supports.any?
+    types.select { |phase| send("#{phase}_phase_finished?") }
   end
 
   def all_phases
-    return phases unless phases.many?
-
-    [*phases, "every"]
+    every = ["every"]
+    phases.one? ? every : phases + every
   end
 
   def support_phase_finished?
@@ -104,6 +105,10 @@ class Budget::Stats
     groups[:total][:percentage_participants_every_phase] = groups.map { |_k, v| v[:percentage_participants_every_phase] }.sum
 
     groups
+  end
+
+  def budget_supports
+    Vote.where(votable: budget.investments)
   end
 
   private

@@ -32,7 +32,7 @@ pt-BR:
       total_feasible_investments: "Propostas viáveis"
       total_unfeasible_investments: "Inviáveis"
       by_phase: "Participantes por etapa"
-      by_heading: "Participantes por etapa e título"
+      by_heading: "Participantes por Subprefeitura"
       total: "Total"
       heading: "Título"
       investments_sent: "Propostas enviadas"
