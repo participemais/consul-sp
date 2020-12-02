@@ -259,9 +259,6 @@ pt-BR:
         status:
           label: "Estado atual da proposta"
           all: "Todo (%{count})"
-        milestone_tag:
-          label: "Status de andamento"
-          all: "Todo (%{count})"
     phases:
       errors:
         dates_range_invalid: "Data de início não pode ser igual ou posterior à data de término"

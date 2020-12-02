@@ -177,9 +177,6 @@ es:
         status:
           label: "Estado actual del proyecto"
           all: "Todos (%{count})"
-        milestone_tag:
-          label: "Etiquetas de Seguimiento"
-          all: "Todos (%{count})"
     phases:
       errors:
         dates_range_invalid: "La fecha de comienzo no puede ser igual o superior a la de finalización"

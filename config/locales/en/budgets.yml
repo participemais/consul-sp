@@ -177,9 +177,6 @@ en:
         status:
           label: "Project's current state"
           all: "All (%{count})"
-        milestone_tag:
-          label: "Milestone tag"
-          all: "All (%{count})"
     phases:
       errors:
         dates_range_invalid: "Start date can't be equal or later than End date"
