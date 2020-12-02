@@ -88,7 +88,7 @@
           <th scope="col" rowspan="2"><%= sanitize(t("stats.budgets.investments_sent")) %></th>
 
           <% stats.all_phases.each do |phase| %>
-            <th scope="col" colspan="3">
+            <th scope="col" colspan="2">
               <%= t("stats.budgets.participants_#{phase}_phase") %>
             </th>
           <% end %>
@@ -97,7 +97,6 @@
           <% stats.all_phases.each do %>
             <th scope="col" class="phase-subheader"><%= t("stats.budgets.total") %></th>
             <th scope="col" class="phase-subheader"><%= t("stats.budgets.percent_total_participants") %></th>
-            <th scope="col" class="phase-subheader"><%= t("stats.budgets.percent_heading_census") %></th>
           <% end %>
         </tr>
       </thead>
@@ -120,10 +119,6 @@
               <td id="percentage_participants_<%= phase %>_phase_heading_<%= heading.id %>"
                   class="border-left border-right text-center">
                 <%= number_to_stats_percentage(stats.headings[heading.id]["percentage_participants_#{phase}_phase".to_sym]) %>
-              </td>
-              <td id="percentage_district_population_<%= phase %>_phase_heading_<%= heading.id %>"
-                  class="text-center border-right">
-                <%= number_to_stats_percentage(stats.headings[heading.id]["percentage_district_population_#{phase}_phase".to_sym]) %>
               </td>
             <% end %>
           </tr>
