@@ -123,7 +123,9 @@ pt-BR:
             other: O Distrito apresenta uma densidade de <strong>%{population_density}</strong> habitantes por m². São <strong>%{households}</strong> domicílios em seu território, sendo que <strong>%{slum_households_percentage}%</strong> deles estão localizados em favelas (%{slum_households_reference_year}).
             zero: O Distrito apresenta uma densidade de <strong>%{population_density}</strong> habitantes por m². São <strong>%{households}</strong> domicílios em seu território, sendo que nenhum deles está localizado em favelas (%{slum_households_reference_year}).
           district_formal_jobs_by_population: Para cada pessoa em idade ativa, há <strong>%{formal_jobs_by_population}</strong> empregos formais (%{formal_jobs_by_population_reference_year}).
-          districts: Distritos
+          districts:
+            one: Distrito
+            other: Distritos
         orders:
           random: aleatório
           confidence_score: melhor avaliado
