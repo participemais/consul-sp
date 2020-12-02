@@ -229,7 +229,7 @@ class User < ApplicationRecord
   end
 
   def editor?
-    editor.present?  
+    editor.present?
   end
 
   def valuator?
