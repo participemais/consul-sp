@@ -65,4 +65,12 @@ module LegislationHelper
   def comments_debate_csv_params
     legislation_csv_params.merge(type: "comments")
   end
+
+  def proposals_csv_params
+    legislation_csv_params.merge(type: "proposals")
+  end
+
+  def proposal_comments_csv_params
+    legislation_csv_params.merge(type: "proposal_comments")
+  end
 end
