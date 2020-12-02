@@ -88,7 +88,7 @@ pt-BR:
         title: Orçamento cidadão
         unfeasible: Propostas inviáveis
         unfeasible_text: "As propostas devem atender a uma série de critérios (legalidade, concretude, ser de responsabilidade da cidade, não exceder o limite do orçamento, respeitar as especificações técnicas e jurídicas) para serem declaradas viáveis e chegarem ao estágio de votação final. Todas as propostas que não atendem a esses critérios são marcadas como inviáveis e publicadas na lista a seguir, juntamente com seu relatório de inviabilidade."
-        by_heading: "Propostas para Subprefeitura %{heading}"
+        by_heading: "Propostas para a Subprefeitura %{heading}"
         population: "População: <strong>%{population}</strong>"
         area: "Área: <strong>%{population} km²</strong>"
         subprefecture_label: Mais informações da Subprefeitura
