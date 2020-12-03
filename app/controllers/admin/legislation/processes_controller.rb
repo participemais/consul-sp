@@ -72,6 +72,8 @@ class Admin::Legislation::ProcessesController < Admin::Legislation::BaseControll
         :result_publication_enabled,
         :published,
         :custom_list,
+        :subprefecture_list,
+        :district_list,
         :background_color,
         :font_color,
         translation_params(::Legislation::Process),

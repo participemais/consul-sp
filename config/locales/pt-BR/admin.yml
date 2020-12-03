@@ -492,6 +492,10 @@ pt-BR:
           filters:
             active: Ativo
             all: Tudo
+          tag_category_label: Temas
+          tag_subprefecture_label: Subprefeituras
+          tag_district_label: Distritos
+          categories: Adicione as categorias
         new:
           back: Voltar
           title: Criar novo processo colaborativo de legislação
@@ -525,6 +529,7 @@ pt-BR:
           back: Voltar
           id: ID
           supports: Apoios
+          new_tag: Criar uma nova categoria
         form:
           custom_categories: Categorias
           custom_categories_description: Categorias que os usuários podem selecionar criando a proposta.
@@ -1260,8 +1265,10 @@ pt-BR:
         id: ID
         author: Autor
         select: Selecionar
-        selected: Selecionado
+        selected: Propostas priorizadas
         milestones: Monitoramento
+        selected: Propostas priorizadas
+        milestones: Marcos
         no_proposals: Não existem propostas.
       form:
         update: Atualizar proposta
@@ -1473,13 +1480,19 @@ pt-BR:
           origin_web: Participantes da Web
           origin_total: Total de participantes
     tags:
-      create: Criar tópico
-      destroy: Deletar tópico
+      create:
+        notice: Tag criada com sucesso
+      destroy: Deletar categoria
+      edit: Editar categoria
       index:
-        add_tag: Adicionar um novo tópico de proposta
-        title: Tópicos da proposta
-        topic: Tema
-        help: "Quando um usuário criar uma proposta, os tópicos a seguir são sugeridos como etiquetas padrão."
+        add_tag: Adicionar uma nova categoria de proposta
+        title: Categorias da proposta
+        topic: Temas
+        subprefecture: Subprefeituras
+        district: Distritos
+        help: "Quando um usuário criar uma proposta, as categorias a seguir são sugeridos como etiquetas padrão."
+        kind: Tipo
+      back: Voltar
     users:
       columns:
         name: Nome
