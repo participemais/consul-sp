@@ -98,7 +98,10 @@ class User < ApplicationRecord
 
   validate :first_and_last_names_chars_validation, if: :persisted?
 
-  validates :document_number, uniqueness: { scope: :document_type }, allow_nil: true
+  validates :document_number,
+    uniqueness: { scope: :document_type },
+    allow_nil: true,
+    if: :no_disabled_user?
 
   validate :validate_username_length
 
@@ -163,6 +166,7 @@ class User < ApplicationRecord
     unless: :date_of_birth_changes_count
   before_save :belongs_to_active_electoral_college,
     if: :document_number_changed?
+  before_save :copy_votes_from_erased_user, if: :document_number_changed?
 
   # Get the existing user by email if the provider gives us a verified email.
   def self.first_or_initialize_for_oauth(auth)
@@ -340,22 +344,15 @@ class User < ApplicationRecord
   end
 
   def take_votes_if_erased_document(document_number, document_type)
-    erased_user = User.erased.find_by(document_number: document_number,
-                                      document_type: document_type)
+    erased_user = User.erased.find_by(
+      document_number: document_number,
+      document_type: document_type
+    )
     if erased_user.present?
       take_votes_from(erased_user)
+      update!(former_users_data_log: data_log(erased_user))
       erased_user.update!(document_number: nil, document_type: nil)
     end
-  end
-
-  def take_votes_from(other_user)
-    return if other_user.blank?
-
-    Poll::Voter.where(user_id: other_user.id).update_all(user_id: id)
-    Budget::Ballot.where(user_id: other_user.id).update_all(user_id: id)
-    Vote.where("voter_id = ? AND voter_type = ?", other_user.id, "User").update_all(voter_id: id)
-    data_log = "id: #{other_user.id} - #{Time.current.strftime("%Y-%m-%d %H:%M:%S")}"
-    update!(former_users_data_log: "#{former_users_data_log} | #{data_log}")
   end
 
   def locked?
@@ -556,5 +553,39 @@ class User < ApplicationRecord
         .by_document(document_type, document_number).each do |elector|
           elector.update(user: self, user_found: true)
         end
+    end
+
+    def disabled_user
+      self.class.erased.find_by(
+        document_number: document_number, document_type: document_type
+      )
+    end
+
+    def no_disabled_user?
+      disabled_user.blank?
+    end
+
+    def copy_votes_from_erased_user
+      if disabled_user.present?
+        take_votes_from(disabled_user)
+        self.former_users_data_log = data_log(disabled_user)
+        disabled_user.update!(document_number: nil, document_type: nil)
+      end
+    end
+
+    def take_votes_from(other_user)
+      other_user_id = other_user.id
+      Budget::Ballot.where(user_id: other_user_id).update_all(user_id: id)
+      Poll::Answer.where(author_id: other_user_id).update_all(author_id: id)
+      Poll::Voter.where(user_id: other_user_id).update_all(user_id: id)
+      Legislation::Annotation.where(author_id: other_user_id).update_all(author_id: id)
+      Legislation::Answer.where(user_id: other_user_id).update_all(user_id: id)
+      Legislation::TopicVote.where(user_id: other_user_id).update_all(user_id: id)
+      Vote.where("voter_id = ? AND voter_type = ?", other_user_id, "User").update_all(voter_id: id)
+    end
+
+    def data_log(other_user)
+      log = "id: #{other_user.id} - #{Time.current.strftime("%Y-%m-%d %H:%M:%S")}"
+      "#{former_users_data_log} | #{log}"
     end
 end
