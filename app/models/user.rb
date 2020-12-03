@@ -1,5 +1,6 @@
 class User < ApplicationRecord
   include Verification
+  include DocumentValidation
 
   DOCUMENT_TYPES = %w(cpf rnm).freeze
 
@@ -17,6 +18,7 @@ class User < ApplicationRecord
   has_one :moderator
   has_one :valuator
   has_one :manager
+  has_one :editor
   has_one :poll_officer, class_name: "Poll::Officer"
   has_one :organization
   has_one :lock
@@ -101,8 +103,6 @@ class User < ApplicationRecord
 
   validate :min_user_age
 
-  validate :cpf_number, if: :local_document?
-
   validates :gender, presence: true, allow_nil: true
   validates :ethnicity, presence: true, allow_nil: true
   validates :date_of_birth, presence: true, allow_nil: true
@@ -121,6 +121,7 @@ class User < ApplicationRecord
   attr_accessor :login
 
   scope :administrators, -> { joins(:administrator) }
+  scope :editors,        -> { joins(:editor) }
   scope :moderators,     -> { joins(:moderator) }
   scope :organizations,  -> { joins(:organization) }
   scope :officials,      -> { where("official_level > 0") }
@@ -225,6 +226,10 @@ class User < ApplicationRecord
 
   def moderator?
     moderator.present?
+  end
+
+  def editor?
+    editor.present?
   end
 
   def valuator?
@@ -368,6 +373,10 @@ class User < ApplicationRecord
     (Setting["min_age_to_participate"] || 16).to_i
   end
 
+  def self.document_type_options
+    DOCUMENT_TYPES.map { |type| [type.upcase, type] }
+  end
+
   def show_welcome_screen?
     verification = Setting["feature.user.skip_verification"].present? ? true : unverified?
     sign_in_count == 1 && verification && !organization && !administrator?
@@ -461,10 +470,6 @@ class User < ApplicationRecord
     devise_mailer.send(notification, self, *args).deliver_later
   end
 
-  def local_document?
-    document_number && document_type == 'cpf'
-  end
-
   def foreigner_document?
     document_type == 'rnm'
   end
@@ -496,17 +501,7 @@ class User < ApplicationRecord
           scope: 'activerecord.errors.models.user.attributes.date_of_birth',
           age: min_age
         )
-        errors.add(:base, message)
-      end
-    end
-
-    def cpf_number
-      unless CPF.valid?(document_number)
-        message = I18n.t(
-          :invalid_number,
-          scope: 'activerecord.errors.models.user.attributes.cpf'
-        )
-        errors.add(:base, message)
+        errors.add(:date_of_birth, message)
       end
     end
 
