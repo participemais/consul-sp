@@ -1,6 +1,8 @@
 class Document < ApplicationRecord
   include DocumentsHelper
   include DocumentablesHelper
+  include Rails.application.routes.url_helpers
+
   has_attached_file :attachment, url: "/system/:class/:prefix/:style/:hash.:extension",
                                  hash_data: ":class/:style/:custom_hash_data",
                                  use_timestamp: false,
@@ -71,6 +73,10 @@ class Document < ApplicationRecord
 
   def humanized_content_type
     attachment_content_type.split("/").last.upcase
+  end
+
+  def url
+    URI.join(root_url, attachment.url).to_s
   end
 
   private

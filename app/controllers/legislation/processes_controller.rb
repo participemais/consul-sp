@@ -162,7 +162,8 @@ class Legislation::ProcessesController < Legislation::BaseController
         end
 
         format.csv do
-          exporter = Legislation::Proposal::Exporter.new(@proposals)
+          all_proposals = ::Legislation::Proposal.where(process: @process)
+          exporter = Legislation::Proposal::Exporter.new(all_proposals)
           if csv_type == "proposals"
             send_data exporter.to_csv,
               filename: "resultado-propostas-#{@process.filename}.csv"

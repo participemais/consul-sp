@@ -1241,7 +1241,7 @@ pt-BR:
         id: ID
         author: Autor
         select: Selecionar
-        selected: Selecionado
+        selected: Propostas priorizadas
         milestones: Marcos
         no_proposals: Não existem propostas.
       form:
