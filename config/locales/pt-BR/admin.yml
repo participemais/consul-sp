@@ -301,6 +301,9 @@ pt-BR:
         notice: Status de monitoramento criado com sucesso
       delete:
         notice: Status de monitoramento excluído com sucesso
+        error: Não foi possível excluir o status porque ele está sendo usado em algum processo
+      form:
+        submit: Criar status
     progress_bars:
       manage: "Gerenciar barras de progresso"
       index:
