@@ -296,10 +296,32 @@ class User < ApplicationRecord
   end
 
   def erase(attrs)
-    assign_attributes(
+    update!(
       erased_at: Time.current,
       erase_reason: attrs[:erase_reason],
       erase_reason_description: attrs[:erase_reason_description],
+      username: nil,
+      email: nil,
+      date_of_birth: nil,
+      gender: nil,
+      ethnicity: nil,
+      home_address: nil,
+      address_number: nil,
+      address_complement: nil,
+      uf: nil,
+      city: nil,
+      cep: nil,
+      geozone_id: nil,
+      first_name: nil,
+      last_name: nil,
+      unconfirmed_email: nil,
+      phone_number: nil,
+      encrypted_password: "",
+      confirmation_token: nil,
+      reset_password_token: nil,
+      email_verification_token: nil,
+      confirmed_phone: nil,
+      unconfirmed_phone: nil,
       email_on_comment: false,
       email_on_comment_reply: false,
       newsletter: false,
@@ -308,24 +330,7 @@ class User < ApplicationRecord
       recommended_debates: false,
       recommended_proposals: false
     )
-
-    unless can_vote?
-      assign_attributes(
-        username: nil,
-        email: nil,
-        unconfirmed_email: nil,
-        phone_number: nil,
-        encrypted_password: "",
-        confirmation_token: nil,
-        reset_password_token: nil,
-        email_verification_token: nil,
-        confirmed_phone: nil,
-        unconfirmed_phone: nil
-      )
-      identities.destroy_all
-    end
-
-    save
+    identities.destroy_all
   end
 
   def erased?
@@ -527,8 +532,8 @@ class User < ApplicationRecord
     end
 
     def sanitaze_name
-      self.first_name = first_name.squish.titleize if first_name_changed?
-      self.last_name = last_name.squish.titleize if last_name_changed?
+      self.first_name = first_name&.squish&.titleize if first_name_changed?
+      self.last_name = last_name&.squish&.titleize if last_name_changed?
     end
 
     def document_number_changes_amount
