@@ -217,7 +217,7 @@ pt-BR:
         assigned_admin: Administrador designado
         assigned_valuators: Avaliadores designados
         classification: Classificação
-        info: "%{budget_name} - Grupo: %{group_name} - Projeto de investimento %{id}"
+        info: "%{budget_name} - Grupo: %{group_name} - Proposta %{id}"
         edit: Editar
         edit_classification: Editar classificação
         by: Por
