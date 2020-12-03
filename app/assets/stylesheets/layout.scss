@@ -1296,7 +1296,10 @@ form {
   background: $alert-bg;
   color: $color-alert;
   float: right;
-  padding: 0 $line-height / 4;
+
+  &.small {
+    padding: 0 $line-height / 4;
+  }
 
   a {
     color: $color-alert;

@@ -217,7 +217,7 @@ pt-BR:
         assigned_admin: Administrador designado
         assigned_valuators: Avaliadores designados
         classification: Classificação
-        info: "%{budget_name} - Grupo: %{group_name} - Projeto de investimento %{id}"
+        info: "%{budget_name} - Grupo: %{group_name} - Proposta %{id}"
         edit: Editar
         edit_classification: Editar classificação
         by: Por
@@ -301,6 +301,9 @@ pt-BR:
         notice: Status de monitoramento criado com sucesso
       delete:
         notice: Status de monitoramento excluído com sucesso
+        error: Não foi possível excluir o status porque ele está sendo usado em algum processo
+      form:
+        submit: Criar status
     progress_bars:
       manage: "Gerenciar barras de progresso"
       index:

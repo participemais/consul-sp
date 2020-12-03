@@ -853,7 +853,7 @@ pt-BR:
       deleted: Apagado
       deleted_debate: Este debate foi apagado
       deleted_proposal: Esta proposta foi apagado
-      deleted_budget_investment: Este projeto de investimento foi deletado
+      deleted_budget_investment: Esta proposta foi deletada
       proposals: Propostas
       proposals_status: Status
       debates: Debates
@@ -880,7 +880,7 @@ pt-BR:
       no_private_messages: "Este usuário não aceita mensagens privadas."
       private_activity: Este usuário decidiu manter a lista de atividades privada
       send_private_message: "Enviar mensagem privada"
-      delete_alert: "Tem certeza que deseja excluir seu projeto de investimento? Esta ação não pode ser desfeita"
+      delete_alert: "Tem certeza que deseja excluir sua proposta? Esta ação não pode ser desfeita"
     proposals:
       retired: "Proposta retirada"
       draft: Rascunho
