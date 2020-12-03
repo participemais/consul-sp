@@ -41,7 +41,9 @@ class User < ApplicationRecord
     class_name:  "DirectMessage",
     foreign_key: :receiver_id,
     inverse_of:  :receiver
-  has_many :legislation_answers, class_name: "Legislation::Answer", dependent: :destroy, inverse_of: :user
+  has_many :legislation_answers,
+    class_name: "Legislation::Answer",
+    inverse_of: :user
   has_many :follows
   has_many :legislation_annotations,
     class_name:  "Legislation::Annotation",
