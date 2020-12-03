@@ -42,11 +42,19 @@ pt-BR:
         text_toc: Índice
         text_body: Texto
         text_comments: Comentários
+      spreedsheet:
+        id: ID
+        title: Título da versão
+        text: Parágrafo do texto
+        comment: Comentário
+        user: Usuário
     processes:
       header:
         additional_info: Informações adicionais
         description: Descrição
         more_info: Mais informação e contexto
+      draft_versions:
+        spreedsheet: Download das anotações versão - %{version}
       proposals:
         empty_proposals: Não existem propostas
         spreedsheet: Download das propostas

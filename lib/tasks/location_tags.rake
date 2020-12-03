@@ -11,6 +11,7 @@ namespace :location_tags do
       "Vila Maria/Vila Guilherme", "Vila Prudente"]
 
     subprefectures.each do |name|
+      puts "Criando tag de subpreitura - #{name}"
       Tag.create(name: name, kind: "subprefecture")
     end
 
@@ -32,7 +33,9 @@ namespace :location_tags do
       "Saúde", "Vila Mariana", "São Lucas", "Vila Prudente"]
 
     districts.each do |name|
+      puts "Criando tag de distritos - #{name}"
       Tag.create(name: name, kind: "district")
     end
+    puts "Tarefa finalizada"
   end
 end
