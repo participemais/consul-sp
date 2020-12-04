@@ -1307,6 +1307,12 @@
   }
 }
 
+.text-preview {
+  margin-top: $line-height;
+  padding-right: $line-height / 2;
+  background: $lighter-gray;
+}
+
 .topic-comments {
   padding-left: $line-height / 2;
 
