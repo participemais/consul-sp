@@ -21,16 +21,16 @@
       <h2> <%= @draft_version.title %> </h2>
     </div>
 
-    <div class="small-12 medium-9 column text-preview">
-      <%= sanitize(@draft_version.body) %>
-    </div>
-
-    <div class="small-12 medium-9 column">
+    <div class="small-12 column">
       <% status =  @draft_version.status %>
-      <p>
+      <h5>
         <%= t("admin.legislation.draft_versions.show.status.#{status}") %> - 
         <%= t("admin.legislation.draft_versions.form.hints.status.#{status}") %>
-      </p>
+      </h5>
+    </div>
+
+    <div class="small-12 column text-preview">
+      <%= sanitize(@draft_version.body) %>
     </div>
   </div>
 </div>
