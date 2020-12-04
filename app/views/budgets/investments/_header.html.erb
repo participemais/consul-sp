@@ -1,5 +1,5 @@
 <% if @heading.present? %>
-  <section class="no-margin-top margin-bottom">
+  <section class="no-margin-top">
     <div class="expanded jumbo-budget budget-heading padding-top">
 
       <div class="row">
@@ -153,18 +153,18 @@
               %>
             <% else %>
               <div class="callout warning margin-top">
-                <%= sanitize(
-                  t("budgets.investments.index.sidebar.verified_only",
-                  verify: link_to_verify_account)
-                ) %>
+                <%= sanitize(t(
+                  "budgets.investments.index.sidebar.verified_only",
+                  verify: link_to_verify_account
+                )) %>
               </div>
             <% end %>
           <% else %>
             <div class="callout primary margin-top">
-              <%= sanitize(
-                t("budgets.investments.index.sidebar.not_logged_in",
-                sign_in: link_to_signin, sign_up: link_to_signup)
-              ) %>
+              <%= sanitize(t(
+                "budgets.investments.index.sidebar.not_logged_in",
+                sign_in: link_to_signin, sign_up: link_to_signup
+              )) %>
             </div>
           <% end %>
         <% end %>
