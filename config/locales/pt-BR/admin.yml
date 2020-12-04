@@ -454,10 +454,10 @@ pt-BR:
     legislation:
       processes:
         create:
-          notice: 'Processo criado com sucesso. <a href="%{link}">Click to visit</a>'
+          notice: 'Processo criado com sucesso. <a href="%{link}">Acesse o processo aqui</a>'
           error: Processo não pode ser criado
         update:
-          notice: 'Processo atualizado com sucesso. <a href="%{link}">Click to visit</a>'
+          notice: 'Processo atualizado com sucesso. <a href="%{link}">Acesse o processo aqui</a>'
           error: Processo não pode ser atualizado
         destroy:
           notice: Processo excluído com sucesso
@@ -532,10 +532,10 @@ pt-BR:
             draft: Rascunho
             published: Publicado
         create:
-          notice: 'Rascunho criado com sucesso. <a href="%{link}">Click to visit</a>'
+          notice: 'Rascunho criado com sucesso. <a href="%{link}">Acesse o rascunho aqui</a>'
           error: Rascunho não pode ser criado
         update:
-          notice: 'Rascunho atualizado com sucesso. <a href="%{link}">Click to visit</a>'
+          notice: 'Rascunho atualizado com sucesso. <a href="%{link}">Acesse o rascunho aqui</a>'
           error: Rascunho não pode ser atualizado
         destroy:
           notice: Rascunho excluído com sucesso
