@@ -357,3 +357,11 @@
     padding: 0;
   }
 }
+
+.warning-mail {
+  background: $warning-bg;
+  color: $color-warning;
+  padding: 0 $line-height / 4;
+  margin-top: -$line-height / 2;
+  border: 1px solid $warning-bg;
+}

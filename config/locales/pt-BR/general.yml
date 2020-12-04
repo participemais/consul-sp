@@ -24,8 +24,7 @@ pt-BR:
       user_permission_verify: Para realizar todas as ações, complete seu cadastro.
       user_permission_votes: Participar dos processos abertos.
       username_label: Nome de usuário
-      unverified_account: Cadastro incompleto
-      verified_account: Cadastro está completo
+      verified_account: Cadastro completo
       verify_my_account: Verificar minha conta
       change_field_instruction: "Campo desabilitado. Para alterá-lo, é necessário enviar email para %{email}"
     edit:
