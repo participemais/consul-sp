@@ -158,6 +158,10 @@ class Legislation::Process < ApplicationRecord
     topics.roots.order(:id)
   end
 
+  def editable?
+    start_date - 1.day > Date.today
+  end
+
   private
 
     def valid_date_ranges

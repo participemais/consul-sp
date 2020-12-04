@@ -4,7 +4,7 @@
       <li class="is-active">
         <h2><%= t("admin.legislation.processes.subnav.#{tab_name}") %></h2>
       </li>
-    <% else %>
+    <% elsif process.editable? %>
       <li>
         <%= link_to(t("admin.legislation.processes.subnav.#{tab_name}"), path) %>
       </li>
