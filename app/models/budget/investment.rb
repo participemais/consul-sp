@@ -213,6 +213,9 @@ class Budget
       if params[:advanced_search].present?
         investments = investments.filter(params[:advanced_search])
       end
+      if params[:tag].present?
+        investments = investments.tagged_with(params[:tag])
+      end
       if params[:status_filters]&.any?
         investments =
           investments.status_filters(params[:status_filters], investments)
