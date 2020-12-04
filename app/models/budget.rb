@@ -86,8 +86,6 @@ class Budget < ApplicationRecord
   def description_for_phase(phase)
     if phases.exists? && phases.send(phase).description.present?
       phases.send(phase).description
-    else
-      send("description_#{phase}")
     end
   end
 
