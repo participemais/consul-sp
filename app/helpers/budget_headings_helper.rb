@@ -17,4 +17,8 @@ module BudgetHeadingsHelper
     heading_path = budget_investments_path(budget, heading_id: assigned_heading&.id)
     link_to(assigned_heading.name, heading_path)
   end
+
+  def existing_heading(slug)
+    @heading ||= @budget.headings.find_by_slug(slug)
+  end
 end

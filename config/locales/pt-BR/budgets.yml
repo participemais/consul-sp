@@ -98,9 +98,15 @@ pt-BR:
         subprefecture_formal_jobs_by_population: Para cada pessoa em idade ativa, há <strong>%{formal_jobs_by_population}</strong> empregos formais nesta Subprefeitura (%{formal_jobs_by_population_reference_year}).
         info_source_text: "*Dados disponíveis em"
         info_source: ObservaSampa
-        search_results:
-          one: " contendo o termo <strong>'%{search_term}'</strong>"
-          other: " contendo o termo <strong>'%{search_term}'</strong>"
+        search_results_with_heading_and_term:
+          one: " da Subprefeitura <strong>%{heading_name}</strong> com o termo <strong>'%{search_term}'</strong>."
+          other: " da Subprefeitura <strong>%{heading_name}</strong> com o termo <strong>'%{search_term}'</strong>."
+        search_results_with_heading:
+          one: " para a Subprefeitura <strong>%{heading_name}</strong>."
+          other: " para a Subprefeitura <strong>%{heading_name}</strong>."
+        search_results_with_term:
+          one: " com o termo <strong>'%{search_term}'</strong>."
+          other: " com o termo <strong>'%{search_term}'</strong>."
         sidebar:
           my_ballot: Meus votos
           voted:
