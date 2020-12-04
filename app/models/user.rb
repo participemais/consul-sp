@@ -166,9 +166,9 @@ class User < ApplicationRecord
     unless: :document_number_changes_count
   before_save :date_of_birth_changes_amount,
     unless: :date_of_birth_changes_count
-  before_save :belongs_to_active_electoral_college,
-    if: :document_number_changed?
   before_save :copy_votes_from_erased_user, if: :document_number_changed?
+  after_save :belongs_to_active_electoral_college,
+    if: :document_number_changed?
 
   # Get the existing user by email if the provider gives us a verified email.
   def self.first_or_initialize_for_oauth(auth)
