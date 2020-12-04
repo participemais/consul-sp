@@ -203,7 +203,12 @@ class Budget
         investments = investments.by_heading_slug(params[:heading_slug])
       end
       if params[:search].present?
-        investments = investments.search(params[:search])
+        search_by_id = investments.where(id: params[:search])
+        if search_by_id.any?
+          investments = search_by_id
+        else
+          investments = investments.search(params[:search])
+        end
       end
       if params[:advanced_search].present?
         investments = investments.filter(params[:advanced_search])
