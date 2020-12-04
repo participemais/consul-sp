@@ -15,7 +15,7 @@ class LocalCensus
     end
 
     def valid?
-      @body.present? ? !@body.attributes.values.include?("" || nil) : false
+      @body.present?
     end
 
     def date_of_birth

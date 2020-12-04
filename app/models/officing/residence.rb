@@ -32,7 +32,7 @@ class Officing::Residence
         document_number:       document_number,
         document_type:         document_type,
         geozone:               geozone,
-        date_of_birth:         response_date_of_birth.in_time_zone.to_datetime,
+        date_of_birth:         response_date_of_birth&.in_time_zone&.to_datetime,
         gender:                gender,
         ethnicity:             ethnicity,
         residence_verified_at: Time.current,
@@ -86,11 +86,13 @@ class Officing::Residence
   end
 
   def gender
-    @census_api_response.gender
+    gender = @census_api_response.gender
+    gender if gender.present?
   end
 
   def ethnicity
-    @census_api_response.ethnicity
+    ethnicity = @census_api_response.ethnicity
+    ethnicity if ethnicity.present?
   end
 
   def response_date_of_birth

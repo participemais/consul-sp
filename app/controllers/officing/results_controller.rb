@@ -36,7 +36,7 @@ class Officing::ResultsController < Officing::BaseController
     def build_results
       @results = []
 
-      params[:questions].each_pair do |question_id, results|
+      params[:questions]&.each_pair do |question_id, results|
         question = @poll.questions.find(question_id)
         go_back_to_new if question.blank?
 
