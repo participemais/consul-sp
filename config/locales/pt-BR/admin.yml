@@ -465,10 +465,10 @@ pt-BR:
     legislation:
       processes:
         create:
-          notice: 'Processo criado com sucesso. <a href="%{link}">Click to visit</a>'
+          notice: 'Processo criado com sucesso. <a href="%{link}">Acesse o processo aqui</a>'
           error: Processo não pode ser criado
         update:
-          notice: 'Processo atualizado com sucesso. <a href="%{link}">Click to visit</a>'
+          notice: 'Processo atualizado com sucesso. <a href="%{link}">Acesse o processo aqui</a>'
           error: Processo não pode ser atualizado
         destroy:
           notice: Processo excluído com sucesso
@@ -538,11 +538,15 @@ pt-BR:
           custom_categories_description: Categorias que os usuários podem selecionar criando a proposta.
           custom_categories_placeholder: Insira as marcações que você deseja usar, separadas por vírgulas (,) e entre aspas ("")
       draft_versions:
+        show:
+          status:
+            draft: Rascunho
+            published: Publicado
         create:
-          notice: 'Rascunho criado com sucesso. <a href="%{link}">Click to visit</a>'
+          notice: 'Rascunho criado com sucesso. <a href="%{link}">Acesse o rascunho aqui</a>'
           error: Rascunho não pode ser criado
         update:
-          notice: 'Rascunho atualizado com sucesso. <a href="%{link}">Click to visit</a>'
+          notice: 'Rascunho atualizado com sucesso. <a href="%{link}">Acesse o rascunho aqui</a>'
           error: Rascunho não pode ser atualizado
         destroy:
           notice: Rascunho excluído com sucesso
@@ -550,6 +554,7 @@ pt-BR:
           back: Voltar
           submit_button: Salvar alterações
           warning: Você editou o texto. Não esqueça de clicar em Salvar para salvar permanentemente as mudanças.
+          title: Editar versão
         form:
           launch_text_editor: Iniciar o editor de texto
           close_text_editor: Fechar o editor de texto

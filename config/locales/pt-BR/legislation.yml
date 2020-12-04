@@ -48,6 +48,7 @@ pt-BR:
         text: Parágrafo do texto
         comment: Comentário
         user: Usuário
+        no_comments: Essa versão não possui comentários
     processes:
       header:
         additional_info: Informações adicionais
