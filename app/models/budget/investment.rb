@@ -203,19 +203,26 @@ class Budget
         investments = investments.by_heading_slug(params[:heading_slug])
       end
       if params[:search].present?
+<<<<<<< HEAD
         search_by_id = investments.where(id: params[:search])
         if search_by_id.any?
           investments = search_by_id
         else
           investments = investments.search(params[:search])
         end
+=======
+        investments = investments.search(params[:search])
+>>>>>>> Altera formulário na busca de propostas
       end
       if params[:advanced_search].present?
         investments = investments.filter(params[:advanced_search])
       end
+<<<<<<< HEAD
       if params[:tag].present?
         investments = investments.tagged_with(params[:tag])
       end
+=======
+>>>>>>> Altera formulário na busca de propostas
       if params[:status_filters]&.any?
         investments =
           investments.status_filters(params[:status_filters], investments)
