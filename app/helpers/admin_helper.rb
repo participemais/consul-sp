@@ -85,7 +85,6 @@ module AdminHelper
   end
 
   def admin_select_options
-    return []
     Administrator.with_user.map { |v| [v.description_or_name, v.id] }.sort_by { |a| a[0] }
   end
 
