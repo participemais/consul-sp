@@ -17,7 +17,7 @@
   <% end %>
 
   <% if params[:search].present? || params[:advanced_search].present? %>
-    <div class="highlight no-margin-top padding margin-bottom">
+    <div class="highlight no-margin-top padding">
       <div class="row">
         <div class="small-12 column">
           <h2>
@@ -53,15 +53,22 @@
             <%= t("budgets.investments.index.unfeasible_text") %>
           </div>
         </div>
-      <% elsif @heading.present? %>
-        <div class="row">
+      <% elsif @heading.present? && params[:commit].nil? %>
+        <div class="row margin-top">
           <div class="small-12 column">
             <%= render "view_mode" %>
           </div>
         </div>
       <% end %>
 
-      <%= render("shared/advanced_search", search_path: budget_investments_path(@budget)) %>
+      <% if @heading.present? && params[:commit].nil? %>
+        <%= render(
+          "shared/advanced_search",
+          search_path: budget_investments_path(@budget)
+        ) %>
+      <% else %>
+        <%= render('search') %>
+      <% end %>
 
       <% if unfeasible_or_unselected_filter %>
         <ul class="no-bullet submenu">
@@ -97,7 +104,7 @@
     </div>
 
     <div class="small-12 medium-3 column">
-      <aside class="margin-bottom">
+      <aside class="margin">
         <div id="sidebar">
           <%= render "/budgets/investments/sidebar" %>
         </div>

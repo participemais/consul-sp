@@ -5,6 +5,12 @@ module BudgetHeadingsHelper
     end
   end
 
+  def budget_heading_slug_options(budget)
+    budget.headings.sort_by_name.map do |heading|
+      [heading.name, heading.slug]
+    end
+  end
+
   def heading_link(assigned_heading = nil, budget = nil)
     return nil unless assigned_heading && budget
 
