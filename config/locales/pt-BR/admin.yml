@@ -721,6 +721,7 @@ pt-BR:
       users: Usuários
       debates: "Debates"
       comments: "Comentários"
+      local_census_records: Colégio eleitoral presencial
     administrators:
       index:
         title: Administradores
@@ -1152,7 +1153,7 @@ pt-BR:
         title: "Resultados"
         no_results: "Não há resultados"
       result:
-        table_whites: "Cédulas completamente em branco"
+        table_whites: "Cédulas em branco"
         table_nulls: "Cédulas inválidas"
         table_total: "Total de cédulas"
         table_answer: Resposta
@@ -1165,7 +1166,7 @@ pt-BR:
     booths:
       index:
         title: "Lista de cabines ativas"
-        no_booths: "Não jhá cabines ativas para nenhuma votação futura."
+        no_booths: "Não há cabines ativas para nenhuma votação futura."
         add_booth: "Adicionar urna"
         name: "Nome"
         location: "Localização"
@@ -1598,15 +1599,45 @@ pt-BR:
       auditable_id: ID do registro
     local_census_records:
       index:
-        document_type: Tipo do documento
-        document_number: Número do documento
-        date_of_birth: Data de nascimento
+        title: Colégio eleitoral presencial
+        create: Adicionar eleitor
+        document_type: Tipo
+        document_number: Documento
+        date_of_birth: Nascimento
         postal_code: CEP
+        ethnicity: Raça
+        gender: Gênero
         search:
           placeholder: Pesquisar por número de documento
           search: Pesquisar
         import: Importar CSV
       new:
-        creating: Criando novo registro de censo local
+        creating: Criar eleitor
       create:
-        notice: Novo registro de censo local criado com sucesso!
+        notice: Eleitor criado com sucesso
+      edit:
+        editing: Editar eleitor
+      update:
+        notice: Eleitor atualizado com sucesso
+      destroy:
+        notice: Eleitor excluído com sucesso
+      errors:
+        invalid_date: Formato da data inválido
+      imports:
+        new:
+          title: Importar CSV de eleitores
+          info: "O arquivo deve conter os seguintes cabeçalhos: %{required_headers}"
+          gender_info: "Opções de gênero válidas: %{gender_options}"
+          ethnicity_info: "Opções de raça válidas: %{ethnicity_options}"
+          date_format_info: "Formato da data de nascimento: dd/mm/aaaa"
+          load_info: A importação pode demorar alguns minutos
+        create:
+          notice: Importação de eleitores realizada com sucesso
+        show:
+          title: Importação de eleitores
+          subtitle: Resultado
+          errored: Eleitores inválidos
+          created: Eleitores adicionados
+          import: Importar eleitores por CSV
+        local_census_records:
+          no_records_found: Nenhum registro encontrado
