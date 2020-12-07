@@ -106,6 +106,7 @@ class User < ApplicationRecord
   validate :validate_username_length
 
   validate :min_user_age
+  validate :max_user_age
 
   validates :gender, presence: true, allow_nil: true
   validates :ethnicity, presence: true, allow_nil: true
@@ -498,6 +499,17 @@ class User < ApplicationRecord
           :min_user_age,
           scope: 'activerecord.errors.models.user.attributes.date_of_birth',
           age: min_age
+        )
+        errors.add(:date_of_birth, message)
+      end
+    end
+
+    def max_user_age
+      max_age = 120
+      if age && age > max_age
+        message = I18n.t(
+          :max_user_age,
+          scope: 'activerecord.errors.models.user.attributes.date_of_birth'
         )
         errors.add(:date_of_birth, message)
       end

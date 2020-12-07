@@ -594,6 +594,7 @@ pt-BR:
               password_already_set: "Este usuário já possui uma senha"
             date_of_birth:
               min_user_age: "Usuário deve ter mais de %{age} anos"
+              max_user_age: "Data de nascimento inválida"
             username: Nome de usuário inválido
         debate:
           attributes:
