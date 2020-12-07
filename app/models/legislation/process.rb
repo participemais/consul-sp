@@ -54,6 +54,11 @@ class Legislation::Process < ApplicationRecord
     inverse_of:  :process,
     dependent:   :destroy
 
+  belongs_to :user
+
+  has_many :editor_legislation_processes, foreign_key: "legislation_process_id"
+  has_many :editors, through: :editor_legislation_processes
+
   validates_translation :title, presence: true
   validates :start_date, presence: true
   validates :end_date, presence: true
@@ -151,6 +156,10 @@ class Legislation::Process < ApplicationRecord
 
   def root_topics
     topics.roots.order(:id)
+  end
+
+  def editable?
+    start_date - 1.day > Date.today
   end
 
   private

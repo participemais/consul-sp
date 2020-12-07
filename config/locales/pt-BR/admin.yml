@@ -743,6 +743,7 @@ pt-BR:
       debates: "Debates"
       comments: "Comentários"
       local_census_records: Colégio eleitoral presencial
+      editors: Editores
     administrators:
       index:
         title: Administradores
@@ -771,6 +772,20 @@ pt-BR:
         delete: Apagar
       search:
         title: "Moderadores: Pesquisa de usuário"
+    editors:
+      index:
+        title: Editores
+        name: Nome
+        email: Email
+        processes: Processos habilitados
+        tabs: Abas habilitadas
+        abilities: Habilidades
+        no_editors: Não há editores.
+      editor:
+        add: Adicionar
+        delete: Apagar
+      search:
+        title: "Editores: Pesquisa de usuário"
     segment_recipient:
       all_users: Todos os usuários
       administrators: Administradores
