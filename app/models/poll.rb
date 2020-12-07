@@ -95,8 +95,8 @@ class Poll < ApplicationRecord
     ends_at < 1.month.ago
   end
 
-  def self.current_or_recounting
-    current.or(recounting)
+  def self.not_expired_or_recounting
+    not_expired.or(recounting)
   end
 
   def answerable_by?(user)
