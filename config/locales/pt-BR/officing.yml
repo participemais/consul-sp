@@ -80,7 +80,9 @@ pt-BR:
         document_number: "Número do documento (incluindo as letras)"
         submit: Validar documento
         error_verifying_census: "O Censo foi incapaz de verificar este documento."
-        form_errors: impediu a verificação deste documento
+        form_errors:
+          one: "Um erro impediu a verificação deste documento"
+          other: "%{count} erros impediram a verificação deste documento"
     voters:
       new:
         title: Votações
