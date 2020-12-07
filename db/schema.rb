@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20201201232213) do
+ActiveRecord::Schema.define(version: 20201111193449) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -391,6 +391,7 @@ ActiveRecord::Schema.define(version: 20201201232213) do
     t.text "description_informing"
     t.integer "max_votes"
     t.string "balloting_type"
+    t.text "description_formulation"
     t.text "description_devolutive"
     t.string "voting_style", default: "knapsack"
   end
