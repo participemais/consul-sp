@@ -15,7 +15,7 @@ pt-BR:
       configure: Configurar
       delete: Apagar
     officing_booth:
-      title: "Você é responsável pela cabine localizada em %{booth}. Se isto estiver errado, não faça nada e peça ajuda por telefone. Obrigado."
+      title: "Você é responsável pela cabine localizada em %{booth}. Se isto estiver errado, não faça nada e nos informe pelo %{email}. Obrigado."
     banners:
       index:
         title: Banners
