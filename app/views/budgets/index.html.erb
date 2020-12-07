@@ -74,39 +74,43 @@
     <div class="row margin-top">
       <div class="small-12 column">
 
-        <div id="groups_and_headings" class="groups-and-headings">
-          <% current_budget.groups.each do |group| %>
-            <h2 id="<%= group.name.parameterize %>"><%= group.name %></h2>
-            <ul class="no-bullet" data-equalizer data-equalizer-on="medium">
-              <% group.headings.sort_by_name.each do |heading| %>
-                <li class="heading small-12 medium-4 large-3 subtitle-font-family" data-equalizer-watch>
-                  <% unless current_budget.informing? || current_budget.finished? %>
-                    <%= link_to budget_investments_path(current_budget.id,
-                                                        heading_id: heading.id) do %>
-                      <%= heading_name_and_price_html(heading, current_budget) %>
-                    <% end %>
-                  <% else %>
-                    <div class="heading-name">
-                      <%= heading_name_and_price_html(heading, current_budget) %>
-                    </div>
-                  <% end %>
-                </li>
-              <% end %>
-            </ul>
-          <% end %>
-        </div>
+        <% unless current_budget.finished? %>
+          <div id="groups_and_headings" class="groups-and-headings">
+            <% current_budget.groups.each do |group| %>
+              <h2 id="<%= group.name.parameterize %>"><%= group.name %></h2>
+              <ul class="no-bullet" data-equalizer data-equalizer-on="medium">
+                <% group.headings.sort_by_name.each do |heading| %>
+                  <div class="heading small-12 medium-4 large-3 subtitle-font-family column end" data-equalizer-watch>
+                    <li>
+                      <% unless current_budget.informing? %>
+                        <%= link_to budget_investments_path(current_budget.id,
+                                                            heading_id: heading.id) do %>
+                          <%= heading_name_and_price_html(heading, current_budget) %>
+                        <% end %>
+                      <% else %>
+                        <div class="heading-name">
+                          <%= heading_name_and_price_html(heading, current_budget) %>
+                        </div>
+                      <% end %>
+                    </li>
+                  </div>
+                <% end %>
+              </ul>
+            <% end %>
+          </div>
+        <% end %>
 
         <% unless current_budget.informing? %>
           <div class="row">
             <%= form_tag budget_investments_path(current_budget), id: "advanced_search_form", method: :get do %>
               <div data-advanced-search-terms="<%= @advanced_search_terms.present? %>">
-                <div class="small-12 medium-9 column no-padding-right-medium">
+                <div class="small-12 medium-9 column no-padding-right-medium half-margin-top">
                   <%= text_field_tag(
                     "search", params[:search],
                     placeholder: t("budgets.index.search_proposals_placeholder")
                   ) %>
                 </div>
-                <div class="small-12 medium-3 column end clear">
+                <div class="small-12 medium-3 column end clear half-margin-top">
                   <%= submit_tag(
                     t("budgets.index.search_proposals"),
                     class: "button expanded"

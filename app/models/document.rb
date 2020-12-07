@@ -72,7 +72,13 @@ class Document < ApplicationRecord
   end
 
   def humanized_content_type
-    attachment_content_type.split("/").last.upcase
+    content_type = attachment_content_type.split("/").last
+
+    if type = CONTENT_TYPE_PATTERN[content_type.to_sym]
+      type
+    else
+      content_type.upcase
+    end
   end
 
   def url
@@ -80,6 +86,14 @@ class Document < ApplicationRecord
   end
 
   private
+
+    CONTENT_TYPE_PATTERN = {
+      "msword": "DOC",
+      "plain": "CSV",
+      "vnd.openxmlformats-officedocument.wordprocessingml.document": "DOCX",
+      "vnd.openxmlformats-officedocument.spreadsheetml.sheet": "XLSX",
+      "x-ole-storage": "XLS"
+    }.freeze
 
     def documentable_class
       documentable_type.constantize if documentable_type.present?
