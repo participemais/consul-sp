@@ -943,6 +943,7 @@ pt-BR:
         table_shift: "Turno"
         table_email: "Email"
         table_name: "Nome"
+        processes: "Processos"
       flash:
         create: "Turno adicionado"
         destroy: "Turno removido"

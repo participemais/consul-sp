@@ -58,6 +58,9 @@ class Poll < ApplicationRecord
   scope :public_for_api, -> { all }
   scope :not_budget, -> { where(budget_id: nil) }
   scope :created_by_admin, -> { where(related_type: nil) }
+  scope :date_between, ->(date) do
+    where("starts_at <= :date and :date <= ends_at", date: date)
+  end
 
   def self.sort_for_list
     all.sort do |poll, another_poll|
