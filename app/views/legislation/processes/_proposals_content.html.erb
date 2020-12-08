@@ -4,7 +4,11 @@
       <div class="small-12 medium-9 column">
         <div class="legislation-proposals">
           <%= render "shared/filter_subnav", i18n_namespace: "legislation.processes.proposals" %>
-          <% if proposals.empty? %>
+          <% if !(process.proposals_phase.open? || process.draft_phase.open?) && proposals.empty? %>
+            <div class="callout warning">
+              <p><%= t("legislation.processes.proposals.not_open") %></p>
+            </div>
+          <% elsif proposals.empty? %>
             <div class="callout warning">
               <p><%= t("legislation.processes.proposals.empty_proposals") %></p>
             </div>
@@ -21,7 +25,7 @@
                          new_legislation_process_proposal_path(process),
                          class: "button expanded",
                          id: "create-new-proposal" %></p>
-        <% else %>
+        <% elsif proposals.present? %>
           <ul class="small">
             <li>
               <%= link_to t("legislation.processes.proposals.spreedsheet"),

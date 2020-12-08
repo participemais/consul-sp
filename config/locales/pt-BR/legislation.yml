@@ -58,6 +58,7 @@ pt-BR:
         spreedsheet: Download das anotações versão - %{version}
         download: Download
       proposals:
+        not_open: Fora do período de participação
         empty_proposals: Não existem propostas
         spreedsheet: Download das propostas
         comments_spreedsheet: Download dos comentários
