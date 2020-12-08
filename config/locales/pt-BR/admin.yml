@@ -949,7 +949,7 @@ pt-BR:
         destroy: "Turno removido"
         date_missing: "Uma data deve ser selecionada"
       vote_collection: Coletar votos
-      recount_scrutiny: Recontagem e Escrutínio
+      recount_scrutiny: Adicionar resultados
     booth_assignments:
       manage_assignments: Gerenciar atribuições
       manage:
