@@ -42,7 +42,7 @@ pt-BR:
       flash:
         create: "Resultados salvos"
         error_create: "Resultados NÃO foram salvos. Erro nas informações."
-        error_wrong_booth: "Cabine incorreta. Resultados NÃO foram salvos."
+        error_wrong_booth: "Selecione a urna. Resultados NÃO foram salvos."
         difference_explanation: "O total de cédulas é maior que a quantidade de usuários com votos registrados. Por favor, adicione uma justificativa"
       new:
         title: "%{poll} - Adicionar resultados"

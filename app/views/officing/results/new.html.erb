@@ -19,7 +19,12 @@
         <% question.question_answers.each_with_index do |answer, i| %>
           <div class="small-12 medium-6 large-3 column end">
             <label><%= answer.title %></label>
-            <%= text_field_tag "questions[#{question.id}][#{i}]", answer_result_value(question.id, i), placeholder: "0" %>
+            <%= number_field_tag "questions[#{question.id}][#{i}]",
+              answer_result_value(question.id, i),
+              placeholder: "0",
+              min: 0,
+              required: true
+            %>
           </div>
         <% end %>
       </div>
@@ -32,9 +37,11 @@
           <h3><%= t("officing.results.new.ballots_total") %></h3>
         </div>
         <div>
-          <%= text_field_tag :total,
+          <%= number_field_tag :total,
             params[:total].presence,
-            placeholder: "0"
+            placeholder: "0",
+            min: 0,
+            required: true
           %>
         </div>
       </div>
@@ -44,9 +51,11 @@
           <h3><%= t("officing.results.new.ballots_null_1") %></h3>
         </div>
         <div>
-          <%= text_field_tag :nulls,
+          <%= number_field_tag :nulls,
             params[:nulls].presence,
             placeholder: "0",
+            min: 0,
+            required: true,
             class: "small-result"
           %>
         </div>
@@ -57,9 +66,11 @@
           <h3><%= t("officing.results.new.ballots_white_1") %></h3>
         </div>
         <div>
-          <%= text_field_tag :whites,
+          <%= number_field_tag :whites,
             params[:whites].presence,
             placeholder: "0",
+            min: 0,
+            required: true,
             class: "small-result"
           %>
         </div>

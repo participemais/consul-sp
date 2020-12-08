@@ -2175,8 +2175,8 @@
   display: inline-block;
   margin-right: $line-height / 4;
 
-  [type="text"].small-result {
-    width: rem-calc(60);
+  [type="number"].small-result {
+    width: rem-calc(70);
   }
 }
 
