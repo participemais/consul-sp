@@ -3,7 +3,7 @@
   App.Tags = {
     initialize: function() {
 
-      var $selected_tags = $(".js-add-tags-selected").text();
+      var $selected_tags = $(".js-add-tags-selected").text().split(",").filter(Boolean).map(function(x){ return x.trim() });
 
       // Category
       var $tag_input;
