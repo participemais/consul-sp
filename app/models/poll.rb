@@ -14,7 +14,7 @@ class Poll < ApplicationRecord
   translates :description, touch: true
   include Globalizable
 
-  RECOUNT_DURATION = 1.week
+  RECOUNT_DURATION = 2.weeks
 
   has_many :booth_assignments, class_name: "Poll::BoothAssignment"
   has_many :booths, through: :booth_assignments
@@ -92,6 +92,10 @@ class Poll < ApplicationRecord
 
   def expired?(timestamp = Date.current.beginning_of_day)
     ends_at < timestamp
+  end
+
+  def until_recounting?(timestamp = Date.current.beginning_of_day)
+    timestamp <= ends_at + RECOUNT_DURATION
   end
 
   def recounts_confirmed?
