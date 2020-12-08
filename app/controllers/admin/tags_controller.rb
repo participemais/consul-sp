@@ -9,13 +9,20 @@ class Admin::TagsController < Admin::BaseController
     @category_tags = Tag.category.page(params[:page])
     @subprefecture_tags = Tag.subprefecture.page(params[:page])
     @district_tags = Tag.district.page(params[:page])
+  end
+
+  def new
     @tag = Tag.new
   end
 
   def create
-    Tag.find_or_create_by!(name: tag_params["name"], kind: KINDS.key(tag_params["kind"]))
+    @tag = Tag.find_or_create_by(name: tag_params["name"], kind: KINDS.key(tag_params["kind"]))
 
-    redirect_to admin_tags_path, notice: t("admin.tags.create.notice")
+    if @tag.save
+      redirect_to admin_tags_path, notice: t("admin.tags.create.notice")
+    else
+      render :new
+    end
   end
 
   def edit

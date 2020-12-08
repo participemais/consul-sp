@@ -183,6 +183,7 @@ pt-BR:
     geozone: subprefeitura
     legislation/draft_version: Rascunho
     legislation/process: Processo
+    legislation/proposal: Proposta
     legislation/question: Pergunta
     legislation/topic_level: Título
     poll/shift: Turno
@@ -200,6 +201,7 @@ pt-BR:
     feasibility_analysis: Análises de viabilidade
     poll/electors/import: Arquivo
     poll/elector: Eleitor
+    tag: Categoria
   geozones:
     none: Cidade de São Paulo
   layouts:

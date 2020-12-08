@@ -1,4 +1,6 @@
 <%= form_for(@tag, url: form_url, as: :tag) do |f| %>
+  <%= render "shared/errors", resource: @tag %>
+
   <div class="small-12 medium-6">
     <%= f.text_field :name %>
   </div>

@@ -1462,7 +1462,8 @@ pt-BR:
           origin_total: Total de participantes
     tags:
       create:
-        notice: Tag criada com sucesso
+        notice: Categoria criada com sucesso
+        title: Criar categoria
       destroy: Deletar categoria
       edit: Editar categoria
       index:

@@ -418,7 +418,7 @@ pt-BR:
         locale: localização
         body: Descrição
       tag:
-        name: "Digite o nome do tópico"
+        name: "Nome da nova categoria"
         kind: "Tipo"
       topic:
         title: "Título"

@@ -1,7 +1,7 @@
-<h2><%= t("admin.tags.index.add_tag") %></h2>
-<p><%= t("admin.tags.index.help") %></p>
-
-<%= render "form", form_url: admin_tags_path(@tag) %>
+<p>
+	<%= link_to t('admin.tags.create.title'), new_admin_tag_path,
+    class: "button" %>
+</p>
 
 <hr>
 
