@@ -59,7 +59,7 @@ pt-BR:
         download: Download
       proposals:
         not_open: Fora do período de participação
-        empty_proposals: Não existem propostas
+        empty_proposals: Ainda não recebemos propostas
         spreedsheet: Download das propostas
         comments_spreedsheet: Download dos comentários
         filters:

@@ -1249,7 +1249,7 @@ pt-BR:
         select: Selecionar
         selected: Propostas priorizadas
         milestones: Marcos
-        no_proposals: Não existem propostas.
+        no_proposals: Ainda não recebemos propostas.
         download: Download
       form:
         update: Atualizar proposta
