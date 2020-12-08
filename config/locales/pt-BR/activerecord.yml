@@ -151,6 +151,7 @@ pt-BR:
         description_balloting: "Descrição durante a etapa de votação"
         description_reviewing_ballots: "Descrição durante a etapa de revisão das cédulas"
         description_devolutive: "Descrição durante a etapa devolutiva"
+        description_formulation: "Descrição durante a etapa elaboração do PLOA"
         description_finished: "Descrição sobre o orçamento concluído."
         phase: "Etapa"
         currency_symbol: Distribuição de recursos
