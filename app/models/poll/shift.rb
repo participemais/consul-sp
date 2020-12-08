@@ -18,7 +18,7 @@ class Poll
     before_destroy :destroy_officer_assignments
 
     def open_polls
-      polls.date_between(date)
+      polls.open_or_recounting(date)
     end
 
     def persist_data

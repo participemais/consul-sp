@@ -61,6 +61,9 @@ class Poll < ApplicationRecord
   scope :date_between, ->(date) do
     where("starts_at <= :date and :date <= ends_at", date: date)
   end
+  scope :recount_interval, ->(date) do
+    where(ends_at: (date - RECOUNT_DURATION)..date)
+  end
 
   def self.sort_for_list
     all.sort do |poll, another_poll|
@@ -104,6 +107,10 @@ class Poll < ApplicationRecord
 
   def self.not_expired_or_recounting
     not_expired.or(recounting)
+  end
+
+  def self.open_or_recounting(date)
+    date_between(date).or(recount_interval(date))
   end
 
   def answerable_by?(user)
