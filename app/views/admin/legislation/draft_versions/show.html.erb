@@ -15,6 +15,10 @@
     <div class="float-right">
       <%= link_to t("admin.legislation.draft_versions.edit.title"), edit_admin_legislation_process_draft_version_path(@process, @draft_version), 
           class: "button" %>
+
+      <%= link_to t("legislation.processes.draft_versions.download", version: @draft_version.title),
+            legislation_process_draft_version_path(@process, @draft_version, csv_params), class: "button"
+          %>
     </div>    
 
     <div class="small-12 medium-9 column">

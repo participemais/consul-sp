@@ -571,6 +571,7 @@ pt-BR:
           comments: Comentários
           final_version: Versão final
           status: Status
+          download: Download
       questions:
         create:
           notice: 'Pergunta criada com sucesso. <a href="%{link}">Clique para visitar</a>'
@@ -1249,6 +1250,7 @@ pt-BR:
         selected: Propostas priorizadas
         milestones: Marcos
         no_proposals: Não existem propostas.
+        download: Download
       form:
         update: Atualizar proposta
       update:

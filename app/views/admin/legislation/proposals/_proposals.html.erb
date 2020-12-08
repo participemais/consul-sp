@@ -10,6 +10,7 @@
         <th><%= t("admin.legislation.proposals.index.title") %></th>
         <th class="text-center"><%= t("admin.legislation.proposals.index.supports") %></th>
         <th><%= t("admin.proposals.index.selected") %></th>
+        <th><%= t("admin.proposals.index.download") %></th>
       </tr>
     </thead>
 
@@ -20,6 +21,20 @@
           <td><%= proposal.title %></td>
           <td class="text-center"><%= proposal.votes_score %></td>
           <td class="select"><%= render "select_proposal", proposal: proposal %></td>
+          <td>
+            <ul class="small">
+              <li>
+                <%= link_to t("legislation.processes.proposals.spreedsheet"),
+                  proposals_legislation_process_path(@process, proposals_csv_params)
+                %>
+              </li>
+              <li>
+                <%= link_to t("legislation.processes.proposals.comments_spreedsheet"),
+                  proposals_legislation_process_path(@process, proposal_comments_csv_params)
+                %>
+              </li>
+            </ul>
+          </td>
         </tr>
       <% end %>
     </tbody>
