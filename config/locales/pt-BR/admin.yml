@@ -1172,6 +1172,7 @@ pt-BR:
         name: "Nome"
         location: "Localização"
         no_location: "Sem localização"
+        processes: "Processos"
       new:
         title: "Nova urna"
         submit_button: "Criar urna"
