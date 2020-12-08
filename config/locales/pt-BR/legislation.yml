@@ -56,6 +56,7 @@ pt-BR:
         more_info: Mais informação e contexto
       draft_versions:
         spreedsheet: Download das anotações versão - %{version}
+        download: Download
       proposals:
         empty_proposals: Não existem propostas
         spreedsheet: Download das propostas
