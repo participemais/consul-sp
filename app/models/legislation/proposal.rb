@@ -30,7 +30,8 @@ class Legislation::Proposal < ApplicationRecord
   validates :process, presence: true
 
   validates :title, length: { in: 4..Legislation::Proposal.title_max_length }
-  validates :description, length: { maximum: Legislation::Proposal.description_max_length }
+  validates :summary, length: { maximum: Legislation::Proposal.summary_max_length }
+  validates :description, length: { maximum: Legislation::Proposal.description_length }
 
   validates :terms_of_service, acceptance: { allow_nil: false }, on: :create
 
@@ -50,10 +51,6 @@ class Legislation::Proposal < ApplicationRecord
   scope :last_week,                -> { where("proposals.created_at >= ?", 7.days.ago) }
   scope :selected,                 -> { where(selected: true) }
   scope :winners,                  -> { selected.sort_by_confidence_score }
-
-  def to_param
-    "#{id}-#{title}".parameterize
-  end
 
   def searchable_values
     { title              => "A",

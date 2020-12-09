@@ -11,13 +11,14 @@
     <%= f.invisible_captcha :subtitle %>
 
     <div class="small-12 column">
-      <%= f.text_area :summary, rows: 4, maxlength: 200,
+      <%= f.text_area :summary, rows: 4, maxlength: Legislation::Proposal.summary_max_length,
         hint: t("proposals.form.proposal_summary_note") %>
     </div>
 
     <div class="small-12 column">
       <%= f.text_area :description,
-        maxlength: Legislation::Proposal.description_max_length,
+        maxlength: Legislation::Proposal.description_length,
+        hint: t("proposals.form.proposal_description_note"),
         class: "html-area" %>
     </div>
 
