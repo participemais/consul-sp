@@ -109,10 +109,6 @@ class Poll < ApplicationRecord
     not_expired.or(recounting)
   end
 
-  def self.open_or_recounting(date)
-    date_between(date).or(recount_interval(date))
-  end
-
   def answerable_by?(user)
     user.present? &&
       user.level_two_or_three_verified? &&

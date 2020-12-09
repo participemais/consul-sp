@@ -17,8 +17,12 @@ class Poll
     after_create :create_officer_assignments
     before_destroy :destroy_officer_assignments
 
-    def open_polls
-      polls.open_or_recounting(date)
+    def polls_related_to_task
+      if task == "vote_collection"
+        polls.date_between(date)
+      else
+        polls.recount_interval(date)
+      end
     end
 
     def persist_data
