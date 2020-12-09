@@ -37,17 +37,13 @@
       <%= render "documents/nested_documents", documentable: @proposal, f: f %>
     </div>
 
-    <div class="small-12 medium-6 column">
-      <%= f.select :geozone_id, geozone_select_options, include_blank: t("geozones.none") %>
-    </div>
-
     <div class="small-12 column">
       <%= f.label :tag_list, t("legislation.proposals.form.tags_label") %>
 
       <div id="category_tags" class="tags categories">
         <% customs_tags = @process.tag_list_on(:customs) %>
         <% if customs_tags.any? %>
-          <p><%= t("admin.legislation.processes.index.tag_category_label") %></p>
+          <div class="tag-label"><%= t("admin.legislation.processes.index.tag_category_label") %></div>
           <% customs_tags.each do |tag| %>
               <a class="js-add-tag-link-category"><%= tag %></a>
           <% end %>
@@ -55,7 +51,7 @@
 
         <% subprefectures_tags = @process.tag_list_on(:subprefectures) %>
         <% if subprefectures_tags.any? %>
-          <p><%= t("admin.legislation.processes.index.tag_subprefecture_label") %></p>
+          <div class="tag-label"><%= t("admin.legislation.processes.index.tag_subprefecture_label") %></div>
           <% subprefectures_tags.each do |tag| %>
             <a class="js-add-tag-link-subprefecture"><%= tag %></a>
           <% end %>
@@ -63,7 +59,7 @@
 
         <% districts_tags = @process.tag_list_on(:districts) %>
         <% if districts_tags.any? %>
-          <p><%= t("admin.legislation.processes.index.tag_district_label") %></p>
+          <div class="tag-label"><%= t("admin.legislation.processes.index.tag_district_label") %></div>
           <% districts_tags.each do |tag| %>
             <a class="js-add-tag-link-district"><%= tag %></a>
           <% end %>
@@ -76,17 +72,6 @@
                         placeholder: t("proposals.form.tags_placeholder"),
                         class: "js-tag-list-category js-tag-list-subprefecture js-tag-list-district",
                         aria: { describedby: "tag-list-help-text" } %>
-    </div>
-
-    <div class="small-12 column">
-      <% if @proposal.new_record? %>
-        <%= f.check_box :terms_of_service,
-          title: t("form.accept_terms_title"),
-          label: t("form.accept_terms",
-                   policy: link_to(t("form.policy"), "/privacy", target: "blank"),
-                   conditions: link_to(t("form.conditions"), "/conditions", target: "blank")
-                  ) %>
-      <% end %>
     </div>
 
     <div class="actions small-12 column">

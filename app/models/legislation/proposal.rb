@@ -14,7 +14,7 @@ class Legislation::Proposal < ApplicationRecord
   include Imageable
   include Randomizable
 
-  accepts_nested_attributes_for :documents, allow_destroy: true
+  accepts_nested_attributes_for :documents, allow_destroy: false
 
   acts_as_votable
   acts_as_paranoid column: :hidden_at
@@ -32,8 +32,6 @@ class Legislation::Proposal < ApplicationRecord
   validates :title, length: { in: 4..Legislation::Proposal.title_max_length }
   validates :summary, length: { maximum: Legislation::Proposal.summary_max_length }
   validates :description, length: { maximum: Legislation::Proposal.description_length }
-
-  validates :terms_of_service, acceptance: { allow_nil: false }, on: :create
 
   before_validation :set_responsible_name
 

@@ -50,8 +50,6 @@
 
         </div>
 
-        <%= render_image(@proposal.image, :large, true) if @proposal.image.present? %>
-
         <br>
         <p>
           <%= t("proposals.show.code") %>
@@ -60,6 +58,12 @@
 
         <blockquote><%= @proposal.summary %></blockquote>
 
+        <%= auto_link_already_sanitized_html wysiwyg(@proposal.description) %>
+
+        <%= render "shared/tags", taggable: @proposal %>
+
+        <%= render_image(@proposal.image, :large, true) if @proposal.image.present? %>
+
         <% if @proposal.video_url.present? %>
           <div class="small-12 medium-7 small-centered">
             <div class="flex-video">
@@ -67,8 +71,6 @@
             </div>
           </div>
         <% end %>
-
-        <%= auto_link_already_sanitized_html wysiwyg(@proposal.description) %>
 
         <% if @proposal.video_url.present? %>
           <div class="video-link">
@@ -86,10 +88,6 @@
                       documents: @proposal.documents,
                       max_documents_allowed: Proposal.max_documents_allowed %>
         <% end %>
-
-        <%= render "shared/tags", taggable: @proposal %>
-
-        <%= render "shared/geozone", geozonable: @proposal %>
 
         <div class="js-moderator-proposal-actions margin">
           <%= render "legislation/proposals/actions", proposal: @proposal %>
