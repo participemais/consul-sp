@@ -42,10 +42,20 @@ class LocalCensusRecord < ApplicationRecord
 
     def sanitize
       self.document_type = self.document_type&.downcase&.strip
-      self.document_number = self.document_number&.strip
+      self.document_number = clean_document_number
       self.postal_code = self.postal_code&.strip
       set_gender if gender.present?
       set_ethnicity if ethnicity.present?
+    end
+
+    def clean_document_number
+      if document_number.present? && document_type.present?
+        if document_type == 'cpf'
+          document_number.gsub(/\D/, '')
+        else
+          document_number.gsub(/[^a-z0-9]+/i, '').upcase
+        end
+      end
     end
 
     def self.gender_values
