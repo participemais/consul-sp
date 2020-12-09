@@ -10,7 +10,7 @@
 // 08. Polls
 // 09. Polls results and stats
 // 10. Polls cards
-//
+// 11. Tags
 
 // 01. Votes and supports
 // ----------------------
@@ -2168,6 +2168,14 @@
   }
 }
 
+// 11. Tags
+// ----------------------
 
+.tag-text {
+  p {
+    color: $purple;
+    font-size: $small-font-size;
+  }
+}
 
 

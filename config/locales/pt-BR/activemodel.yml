@@ -52,3 +52,6 @@ pt-BR:
             file:
               extension: "Formato de arquivo inválido. O formato permitido é: %{valid_extensions}."
               headers: "O cabeçalho do arquivo inserido é inválido. O cabeçalho deve ter os seguintes itens: %{required_headers}."
+        tag:
+          attributes:
+            taggings_count: "Não é possível editar/excluir essa categoria porque a mesma já está em uso"

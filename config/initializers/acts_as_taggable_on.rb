@@ -89,6 +89,56 @@ module ActsAsTaggableOn
     def subprefecture?
       kind == "subprefecture"
     end
+
+    include Graphqlable
+
+    scope :public_for_api, -> do
+      where("(tags.kind IS NULL or tags.kind = ?) and tags.id in (?)",
+            "subprefecture",
+            Tagging.public_for_api.pluck("DISTINCT taggings.tag_id"))
+    end
+
+    include PgSearch
+
+    pg_search_scope :pg_search, against: :name,
+                                using: {
+                                  tsearch: { prefix: true }
+                                },
+                                ignoring: :accents
+
+    def self.search(term)
+      pg_search(term)
+    end
+
+    def increment_custom_counter_for(taggable_type)
+      Tag.increment_counter(custom_counter_field_name_for(taggable_type), id)
+    end
+
+    def decrement_custom_counter_for(taggable_type)
+      Tag.decrement_counter(custom_counter_field_name_for(taggable_type), id)
+    end
+
+    def self.subprefecture_names
+      Tag.subprefecture.pluck(:name)
+    end
+
+    def self.graphql_field_name
+      :tag
+    end
+
+    def self.graphql_pluralized_field_name
+      :tags
+    end
+
+    def self.graphql_type_name
+      "Tag"
+    end
+
+    private
+
+      def custom_counter_field_name_for(taggable_type)
+        "#{taggable_type.underscore.pluralize}_count"
+      end
   end
 
   Tag.class_eval do
@@ -97,5 +147,55 @@ module ActsAsTaggableOn
     def district?
       kind == "district"
     end
+
+    include Graphqlable
+
+    scope :public_for_api, -> do
+      where("(tags.kind IS NULL or tags.kind = ?) and tags.id in (?)",
+            "district",
+            Tagging.public_for_api.pluck("DISTINCT taggings.tag_id"))
+    end
+
+    include PgSearch
+
+    pg_search_scope :pg_search, against: :name,
+                                using: {
+                                  tsearch: { prefix: true }
+                                },
+                                ignoring: :accents
+
+    def self.search(term)
+      pg_search(term)
+    end
+
+    def increment_custom_counter_for(taggable_type)
+      Tag.increment_counter(custom_counter_field_name_for(taggable_type), id)
+    end
+
+    def decrement_custom_counter_for(taggable_type)
+      Tag.decrement_counter(custom_counter_field_name_for(taggable_type), id)
+    end
+
+    def self.district_names
+      Tag.district.pluck(:name)
+    end
+
+    def self.graphql_field_name
+      :tag
+    end
+
+    def self.graphql_pluralized_field_name
+      :tags
+    end
+
+    def self.graphql_type_name
+      "Tag"
+    end
+
+    private
+
+      def custom_counter_field_name_for(taggable_type)
+        "#{taggable_type.underscore.pluralize}_count"
+      end
   end
 end

@@ -1,9 +1,9 @@
-<h3 class="margin"><%= t("admin.tags.index.district") %>: <%= page_entries_info @district_tags %></h3>
+<h3 class="margin"><%= t("admin.tags.index.title.distric") %>: <%= page_entries_info @district_tags %></h3>
 
 <table>
   <thead>
     <th scope="col" class="small-9"><%= t("admin.tags.index.district") %></th>
-    <th scope="col"><%= t("admin.actions.actions") %></th>
+    <th scope="col" colspan="2" class="text-center"><%= t("admin.actions.actions") %></th>
   </thead>
   <tbody>
   <% @district_tags.each do |tag| %>
@@ -17,12 +17,18 @@
             <strong><%= tag.name %></strong>
         <% end %>
       </td>
-      <td id="tag_<%= tag.id %>">
-        <%= link_to t("admin.tags.edit"), edit_admin_tag_path(tag), class: "button hollow" %>
-      </td>
-      <td id="tag_<%= tag.id %>">
-        <%= link_to t("admin.tags.destroy"), admin_tag_path(tag), method: :delete, class: "button hollow alert" %>
-      </td>
+      <% if tag.taggings_count == 0 %>
+        <td id="tag_<%= tag.id %>">
+          <%= link_to t("admin.tags.edit.title"), edit_admin_tag_path(tag), class: "button hollow" %>
+        </td>
+        <td id="tag_<%= tag.id %>">
+          <%= link_to t("admin.tags.destroy"), admin_tag_path(tag), method: :delete, class: "button hollow alert" %>
+        </td>
+      <% else %>
+        <td id="tag_<%= tag.id %>" colspan="2" class="tag-text">
+          <p><%= t("admin.tags.errors.taggings_count") %></p>
+        </td>
+      <% end %>
     </tr>
   <% end %>
   </tbody>
