@@ -93,7 +93,7 @@ pt-BR:
       show:
         can_vote: Pode votar
         cannot_vote: A pessoa não pode votar porque não faz parte do colégio eleitoral.
-        error_already_voted: Já participou desta votação
+        error_already_voted: Já participou online desta votação
         submit: Confirmar voto
         success: "Voto registrado!"
       can_vote:
