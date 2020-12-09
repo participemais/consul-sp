@@ -947,6 +947,7 @@ pt-BR:
       flash:
         create: "Turno adicionado"
         destroy: "Turno removido"
+        unable_to_destroy: "Não é possível apagar turnos de uma urna que já tenha resultados adicionados"
         date_missing: "Uma data deve ser selecionada"
       vote_collection: Coletar votos
       recount_scrutiny: Adicionar resultados

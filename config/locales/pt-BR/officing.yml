@@ -73,13 +73,13 @@ pt-BR:
         difference_explanation: "Justificativa para a quantidade diferente de eleitores que votaram presencialmente e o total de cédulas"
     residence:
       flash:
-        create: "Documento verificado com o Censo"
+        create: "Documento validado no Colégio Eleitoral Presencial"
         not_allowed: "Você não tem turnos como presidente hoje"
       new:
         title: Validar documento
         document_number: "Número do documento"
         submit: Validar documento
-        error_verifying_census: "Documento inválido. Verifique novamente."
+        error_verifying_census: "Documento não foi encontrado no Colégio Eleitoral Presencial. Não é possível validar o documento."
         form_errors:
           one: "Um erro impediu a verificação deste documento"
           other: "%{count} erros impediram a verificação deste documento"
@@ -92,7 +92,7 @@ pt-BR:
         not_to_vote: A pessoa decidiu não votar neste momento
       show:
         can_vote: Pode votar
-        cannot_vote: A pessoa não pode votar porque não está registrada na(s) região(ões) em questão.
+        cannot_vote: A pessoa não pode votar porque não faz parte do colégio eleitoral.
         error_already_voted: Já participou desta votação
         submit: Confirmar voto
         success: "Voto registrado!"
