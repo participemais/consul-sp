@@ -6,9 +6,9 @@ class Admin::TagsController < Admin::BaseController
   KINDS = { "category" => "Tema",  "subprefecture" => "Subprefeitura", "district" => "Distrito" }.freeze
 
   def index
-    @category_tags = Tag.category.page(params[:page])
-    @subprefecture_tags = Tag.subprefecture.page(params[:page])
-    @district_tags = Tag.district.page(params[:page])
+    @category_tags = Tag.category.page(params[:page]).order(:name)
+    @subprefecture_tags = Tag.subprefecture.page(params[:page]).order(:name)
+    @district_tags = Tag.district.page(params[:page]).order(:name)
   end
 
   def new
@@ -29,8 +29,11 @@ class Admin::TagsController < Admin::BaseController
   end
 
   def update
-    @tag.update(tag_params)
-    redirect_to admin_tags_path, notice: t("flash.actions.save_changes.notice")
+    if @tag.update(name: tag_params["name"], kind: KINDS.key(tag_params["kind"]))
+      redirect_to admin_tags_path, notice: t("flash.actions.save_changes.notice")
+    else
+      render :edit
+    end
   end
 
   def destroy
