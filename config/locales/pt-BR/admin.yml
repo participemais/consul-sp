@@ -15,7 +15,7 @@ pt-BR:
       configure: Configurar
       delete: Apagar
     officing_booth:
-      title: "Você é responsável pela cabine localizada em %{booth}. Se isto estiver errado, não faça nada e peça ajuda por telefone. Obrigado."
+      title: "Você é responsável pela cabine localizada em %{booth}. Se isto estiver errado, não faça nada e nos informe pelo %{email}. Obrigado."
     banners:
       index:
         title: Banners
@@ -980,12 +980,14 @@ pt-BR:
         table_shift: "Turno"
         table_email: "Email"
         table_name: "Nome"
+        processes: "Processos"
       flash:
         create: "Turno adicionado"
         destroy: "Turno removido"
+        unable_to_destroy: "Não é possível apagar turnos de uma urna que já tenha resultados adicionados"
         date_missing: "Uma data deve ser selecionada"
       vote_collection: Coletar votos
-      recount_scrutiny: Recontagem e Escrutínio
+      recount_scrutiny: Adicionar resultados
     booth_assignments:
       manage_assignments: Gerenciar atribuições
       manage:
@@ -1072,7 +1074,7 @@ pt-BR:
         questions_tab: Perguntas
         booths_tab: Urnas
         officers_tab: Presidentes
-        recounts_tab: Recontar
+        recounts_tab: Votação presencial
         results_tab: Resultados
         no_questions: "Não há perguntas atribuídas a esta votação."
         questions_title: "Lista de perguntas"
@@ -1178,28 +1180,23 @@ pt-BR:
           title: Editar vídeo
     recounts:
       index:
-        title: "Recontagens"
+        title: "Votos recebidos nas urnas presenciais"
         no_recounts: "Não há nada para ser recontado"
-        total_final: "Recontagens finais"
+        total_final: "Total de cédulas"
         total_system: "Votos (automático)"
         table_booth_name: "Urna"
         table_total_recount: "Recontagem total (por presidente)"
         table_system_count: "Votos (automático)"
-    results:
-      index:
-        title: "Resultados"
-        no_results: "Não há resultados"
-      result:
-        table_whites: "Cédulas em branco"
-        table_nulls: "Cédulas inválidas"
-        table_total: "Total de cédulas"
-        table_answer: Resposta
-        table_votes: Votos
-      results_by_booth:
-        booth: Urna
-        results: Resultados
-        see_results: Exibir resultados
-        title: "Resultados por urna"
+        all_booths_total: Resultado global (soma das urnas)
+        white_final: "Cédulas em branco"
+        null_final: "Cédulas inválidas"
+        table_answer: "Resposta"
+        table_votes: "Votos"
+        results_by_booth: "Resultados por urna"
+        difference_explanation: "Justificativa para a quantidade diferente de eleitores que votaram presencialmente e o total de cédulas"
+        table_total_count: "Total de cédulas: %{count}"
+        table_electors_count: "Eleitores: %{count}"
+        table_booth: "Urna: %{name}"
     booths:
       index:
         title: "Lista de cabines ativas"
@@ -1208,6 +1205,7 @@ pt-BR:
         name: "Nome"
         location: "Localização"
         no_location: "Sem localização"
+        processes: "Processos"
       new:
         title: "Nova urna"
         submit_button: "Criar urna"

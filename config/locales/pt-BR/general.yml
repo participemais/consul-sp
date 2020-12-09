@@ -695,6 +695,7 @@ pt-BR:
         one: "Você ainda pode selecionar uma opção."
         other: "Você ainda pode selecionar %{count} opções."
       out_of_category: "Você não pode votar por não fazer parte da categoria %{category}."
+      voted_in_booth: "Não é possível registrar seu voto online. Você já participou presencialmente desta votação."
   proposal_notifications:
     new:
       title: "Enviar mensagem"

@@ -81,6 +81,10 @@
           category: question.category.downcase
         ) %>
       </p>
+    <% elsif poll.voted_in_booth?(current_user) %>
+      <p class="question-votes-counter">
+        <%= t("poll_questions.show.voted_in_booth") %>
+      </p>
     <% end %>
 
     <% question.question_answers.order(id: :desc).each do |answer| %>

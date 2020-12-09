@@ -11,6 +11,7 @@ class Poll
     has_many :partial_results
     has_many :recounts
 
+    # def booth_name
     delegate :name, to: :booth, prefix: true
 
     def shifts?

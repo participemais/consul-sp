@@ -9,6 +9,7 @@
 
 <% else %>
   <%= render "shared/errors",
-             resource: @residence,
-             message: t("officing.residence.new.form_errors") %>
+    resource: @residence,
+    message: t("officing.residence.new.form_errors", count: @residence.errors.count)
+  %>
 <% end %>

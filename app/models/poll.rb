@@ -14,7 +14,7 @@ class Poll < ApplicationRecord
   translates :description, touch: true
   include Globalizable
 
-  RECOUNT_DURATION = 1.week
+  RECOUNT_DURATION = 2.weeks
 
   has_many :booth_assignments, class_name: "Poll::BoothAssignment"
   has_many :booths, through: :booth_assignments
@@ -58,6 +58,12 @@ class Poll < ApplicationRecord
   scope :public_for_api, -> { all }
   scope :not_budget, -> { where(budget_id: nil) }
   scope :created_by_admin, -> { where(related_type: nil) }
+  scope :date_between, ->(date) do
+    where("starts_at <= :date and :date <= ends_at", date: date)
+  end
+  scope :recount_interval, ->(date) do
+    where(ends_at: (date - RECOUNT_DURATION)..date)
+  end
 
   def self.sort_for_list
     all.sort do |poll, another_poll|
@@ -91,12 +97,16 @@ class Poll < ApplicationRecord
     ends_at < timestamp
   end
 
+  def until_recounting?(timestamp = Date.current.beginning_of_day)
+    timestamp <= ends_at + RECOUNT_DURATION
+  end
+
   def recounts_confirmed?
     ends_at < 1.month.ago
   end
 
-  def self.current_or_recounting
-    current.or(recounting)
+  def self.not_expired_or_recounting
+    not_expired.or(recounting)
   end
 
   def answerable_by?(user)

@@ -52,8 +52,13 @@ class Poll
     end
 
     def clean_document_number
-      return unless document_number
-      self.document_number = document_number.gsub(/[^a-z0-9]+/i, "").upcase
+      if document_number.present? && document_type.present?
+        if document_type == 'cpf'
+          document_number.gsub(/\D/, '')
+        else
+          document_number.gsub(/[^a-z0-9]+/i, '').upcase
+        end
+      end
     end
 
     def set_user

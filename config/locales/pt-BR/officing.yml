@@ -9,7 +9,7 @@ pt-BR:
         no_shifts: Você não tem turnos como presidente hoje.
     menu:
       voters: Validar documento
-      total_recounts: Recontagem total e resultados
+      total_recounts: Adicionar resultados
     polls:
       final:
         title: Lista de votações finalizadas prontas para recontagem
@@ -42,7 +42,7 @@ pt-BR:
       flash:
         create: "Resultados salvos"
         error_create: "Resultados NÃO foram salvos. Erro nas informações."
-        error_wrong_booth: "Cabine incorreta. Resultados NÃO foram salvos."
+        error_wrong_booth: "Selecione a urna. Resultados NÃO foram salvos."
         difference_explanation: "O total de cédulas é maior que a quantidade de usuários com votos registrados. Por favor, adicione uma justificativa"
       new:
         title: "%{poll} - Adicionar resultados"
@@ -73,14 +73,16 @@ pt-BR:
         difference_explanation: "Justificativa para a quantidade diferente de eleitores que votaram presencialmente e o total de cédulas"
     residence:
       flash:
-        create: "Documento verificado com o Censo"
+        create: "Documento validado no Colégio Eleitoral Presencial"
         not_allowed: "Você não tem turnos como presidente hoje"
       new:
         title: Validar documento
-        document_number: "Número do documento (incluindo as letras)"
+        document_number: "Número do documento"
         submit: Validar documento
-        error_verifying_census: "O Censo foi incapaz de verificar este documento."
-        form_errors: impediu a verificação deste documento
+        error_verifying_census: "Documento não foi encontrado no Colégio Eleitoral Presencial. Não é possível validar o documento."
+        form_errors:
+          one: "Um erro impediu a verificação deste documento"
+          other: "%{count} erros impediram a verificação deste documento"
     voters:
       new:
         title: Votações
@@ -90,8 +92,8 @@ pt-BR:
         not_to_vote: A pessoa decidiu não votar neste momento
       show:
         can_vote: Pode votar
-        cannot_vote: A pessoa não pode votar porque não está registrada na(s) região(ões) em questão.
-        error_already_voted: Já participou desta votação
+        cannot_vote: A pessoa não pode votar porque não faz parte do colégio eleitoral.
+        error_already_voted: Já participou online desta votação
         submit: Confirmar voto
         success: "Voto registrado!"
       can_vote:
