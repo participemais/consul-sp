@@ -35,7 +35,6 @@ es:
       officing/residence:
         document_type: "Tipo de documento"
         document_number: "Número de documento (incluida letra)"
-        year_of_birth: "Año de nacimiento"
       local_census_records/import:
         file: Archivo
     errors:

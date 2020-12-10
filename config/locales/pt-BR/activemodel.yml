@@ -34,8 +34,7 @@ pt-BR:
         confirmation_code: "Informe o código recebido pelo celular"
       officing/residence:
         document_type: "Tipo de documento"
-        document_number: "Número do documento (incluindo as letras)"
-        year_of_birth: "Ano de nascimento"
+        document_number: "Número do documento"
       local_census_records/import:
         file: Arquivo
       poll/electors/import:
