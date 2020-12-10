@@ -93,4 +93,9 @@ module PollsHelper
     return count unless poll.expired?
     count + question.partial_results.booth_votes_count(answer.title)
   end
+
+  def answers_stats_columns(amount, answers)
+    return answers if answers.empty?
+    answers + Array.new(amount - answers.size, "")
+  end
 end

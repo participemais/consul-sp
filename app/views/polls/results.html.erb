@@ -26,37 +26,46 @@
           class: "small"
         %>
       </p>
-      <%- @poll.questions.each do |question| %>
+      <% @poll.questions.each do |question| %>
         <% most_voted_answers = question.most_voted_answers || [] %>
         <h3 id="<%= question.title.parameterize %>"><%= question.title %></h3>
-        <table id="question_<%= question.id %>_results_table">
-          <thead>
-            <tr>
-              <%- question.question_answers.each do |answer| %>
-                <th scope="col"
-                  <%= most_voted_answers.include?(answer) ? "class=win" : "" %>
-                >
-                  <% if most_voted_answers.include?(answer) %>
-                    <span class="show-for-sr"><%= t("polls.show.results.most_voted_answer") %></span>
+        <% amount = 3 %>
+        <% question.question_answers.each_slice(amount) do |answers| %>
+          <table id="question_<%= question.id %>_results_table">
+            <thead>
+              <tr>
+                <% answers.each do |answer| %>
+                  <th scope="col"
+                    <%= most_voted_answers.include?(answer) ? "class=win" : "" %>
+                  >
+                    <% if most_voted_answers.include?(answer) %>
+                      <span class="show-for-sr">
+                        <%= t("polls.show.results.most_voted_answer") %>
+                      </span>
+                    <% end %>
+                    <%= answer.title %>
+                  </th>
+                <% end %>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <% answers_stats_columns(amount, answers).each do |answer| %>
+                  <% if answer.present? %>
+                    <td id="answer_<%= answer.id %>_result"
+                      <%= most_voted_answers.include?(answer) ? "class=win" : "" %>
+                    >
+                      <%= answer.total_votes %>
+                      (<%= answer.total_votes_percentage.round(2) %>%)
+                    </td>
+                  <% else %>
+                    <td></td>
                   <% end %>
-                  <%= answer.title %>
-                </th>
-              <% end %>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <%- question.question_answers.each do |answer| %>
-                <td id="answer_<%= answer.id %>_result"
-                  <%= most_voted_answers.include?(answer) ? "class=win" : "" %>
-                >
-                  <%= answer.total_votes %>
-                  (<%= answer.total_votes_percentage.round(2) %>%)
-                </td>
-              <% end %>
-            </tr>
-          </tbody>
-        </table>
+                <% end %>
+              </tr>
+            </tbody>
+          </table>
+        <% end %>
       <% end %>
     </div>
   </div>
