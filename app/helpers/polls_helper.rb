@@ -87,4 +87,8 @@ module PollsHelper
   def expired?
     @current_filter == "expired"
   end
+
+  def answers_stats_columns(amount, answers)
+    answers + Array.new(amount - answers.size, "")
+  end
 end
