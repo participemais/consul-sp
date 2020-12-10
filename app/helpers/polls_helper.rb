@@ -89,6 +89,7 @@ module PollsHelper
   end
 
   def answers_stats_columns(amount, answers)
+    return answers if answers.empty?
     answers + Array.new(amount - answers.size, "")
   end
 end
