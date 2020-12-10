@@ -63,7 +63,7 @@ pt-BR:
         spreedsheet: Download das propostas
         comments_spreedsheet: Download dos comentários
         filters:
-          random: Aleatório
+          random: Propostas populares
           winners: Propostas priorizadas
       debate:
         empty_questions: Não há perguntas cadastradas

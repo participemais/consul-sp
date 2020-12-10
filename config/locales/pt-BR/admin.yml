@@ -1246,8 +1246,9 @@ pt-BR:
         title: Propostas
         id: ID
         author: Autor
-        select: Selecionar
-        selected: Propostas priorizadas
+        prioritization: Priorização de propostas
+        select: Priorizar
+        selected: Priorizada
         milestones: Marcos
         no_proposals: Ainda não recebemos propostas.
         download: Download

@@ -148,7 +148,7 @@ class Legislation::ProcessesController < Legislation::BaseController
     @current_filter = "winners" if params[:filter].blank? && @proposals.winners.any?
 
     if @current_filter == "random"
-      @proposals = @proposals.sort_by_random(session[:random_seed]).page(params[:page])
+      @proposals = @proposals.page(params[:page]).order(:created_at)
     else
       @proposals = @proposals.send(@current_filter).page(params[:page])
     end
