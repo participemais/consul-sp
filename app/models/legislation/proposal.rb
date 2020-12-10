@@ -111,7 +111,7 @@ class Legislation::Proposal < ApplicationRecord
   end
 
   def code
-    "#{Setting["proposal_code_prefix"]}-#{created_at.strftime("%Y-%m")}-#{id}"
+    id
   end
 
   def after_commented
