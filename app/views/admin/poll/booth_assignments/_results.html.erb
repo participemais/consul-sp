@@ -6,7 +6,7 @@
       <%= t("admin.results.index.no_results") %>
     </div>
   <% else %>
-    <%= render "admin/poll/results/recount", resource: @booth_assignment %>
-    <%= render "admin/poll/results/result" %>
+    <%= render "admin/poll/recounts/results_totals" %>
+    <%= render "admin/poll/recounts/results_questions" %>
   <% end %>
 </div>
