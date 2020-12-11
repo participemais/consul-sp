@@ -1148,8 +1148,8 @@ pt-BR:
         total_final: "Total de cédulas"
         total_system: "Votos (automático)"
         table_booth_name: "Urna"
-        table_total_recount: "Recontagem total (por presidente)"
-        table_system_count: "Votos (automático)"
+        table_total_recount: "Número de cédulas"
+        table_system_count: "Documentos validados"
         all_booths_total: Resultado global (soma das urnas)
         white_final: "Cédulas em branco"
         null_final: "Cédulas inválidas"
