@@ -33,7 +33,7 @@
 
     <div class="row">
       <div class="small-12 medium-6 large-3 column">
-        <h3><%= t("officing.results.new.ballots_white") %></h3>
+        <h4><%= t("officing.results.new.ballots_white") %></h4>
         <%= number_field_tag :whites,
           params[:whites].presence,
           placeholder: "0",
@@ -43,7 +43,7 @@
       </div>
 
       <div class="small-12 medium-6 large-3 column end">
-        <h3><%= t("officing.results.new.ballots_null") %></h3>
+        <h4><%= t("officing.results.new.ballots_null") %></h4>
         <%= number_field_tag :nulls,
           params[:nulls].presence,
           placeholder: "0",
@@ -53,7 +53,7 @@
       </div>
 
       <div class="small-12 medium-6 large-3 column end">
-        <h3><%= t("officing.results.new.ballots_total") %></h3>
+        <h4><%= t("officing.results.new.ballots_total") %></h4>
         <%= number_field_tag :total,
           params[:total].presence,
           placeholder: "0",

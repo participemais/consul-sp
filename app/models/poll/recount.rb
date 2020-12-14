@@ -1,5 +1,6 @@
 class Poll::Recount < ApplicationRecord
   VALID_ORIGINS = %w[web booth letter].freeze
+  BOLLOT_TYPES = %w[white null total].freeze
 
   belongs_to :author, -> { with_hidden }, class_name: "User", inverse_of: :poll_recounts
   belongs_to :booth_assignment
@@ -24,7 +25,7 @@ class Poll::Recount < ApplicationRecord
   def update_logs
     amounts_changed = false
 
-    [:white, :null, :total].each do |amount|
+    BOLLOT_TYPES.each do |amount|
       next unless send("will_save_change_to_#{amount}_amount?") && send("#{amount}_amount_in_database").present?
 
       self["#{amount}_amount_log"] += ":#{send("#{amount}_amount_in_database")}"
@@ -41,8 +42,12 @@ class Poll::Recount < ApplicationRecord
 
   def match_voters_and_ballots
     return if voters.empty?
-    if total_amount > voters.size && difference_explanation.blank?
+    if ballots_amount > voters.size && difference_explanation.blank?
       errors.add(:total_amount)
     end
+  end
+
+  def ballots_amount
+    BOLLOT_TYPES.reduce(0) { |total, type| total + send("#{type}_amount") }
   end
 end
