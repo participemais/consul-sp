@@ -54,6 +54,6 @@ class Poll::Voters::Exporter
   end
 
   def unidentified_voters_amount(recount)
-    recount.total_amount - recount.voters.size
+    recount.ballots_amount - recount.voters.size
   end
 end
