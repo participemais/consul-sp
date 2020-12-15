@@ -1637,7 +1637,13 @@
 .budgets-stats {
 
   .header {
-    background: $highlight;
+    background: $budget-banner;
+    color: $white;
+
+    .back,
+    .icon-angle-left {
+      color: $white
+    }
   }
 
   .big-number-stat {
