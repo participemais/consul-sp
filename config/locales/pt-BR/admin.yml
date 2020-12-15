@@ -317,6 +317,10 @@ pt-BR:
         table_percentage: "Posição atual"
       new:
         creating: "Criar barra de progresso"
+      edit:
+        title:
+          primary: "Editar barra de progreso primária"
+          secondary: "Editar barra de progreso %{title}"
       create:
         notice: "Barra de progresso criada com sucesso"
       update:

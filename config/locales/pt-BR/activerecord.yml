@@ -232,6 +232,8 @@ pt-BR:
         kind: "Tipo"
         title: "Título"
         percentage: "Posição atual"
+      progress_bar/translation:
+        title: Título da barra de progresso
       progress_bar/kind:
         primary: "Primário"
         secondary: "Secundário"
