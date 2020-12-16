@@ -839,6 +839,7 @@ pt-BR:
   users:
     login_to_comment: "Você precisa acessar sua %{signin} ou se %{signup} para fazer um comentário"
     login_to_continue: "Você precisa acessar sua %{signin} ou se %{signup} para continuar"
+    incomplete_registration: Você precisa completar o %{register} para votar.
     signin: "conta"
     signup: "registrar"
     verify_account: "verifique sua conta"

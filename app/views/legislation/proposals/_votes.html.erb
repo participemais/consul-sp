@@ -36,6 +36,10 @@
               verify_account: link_to_verify_account)) %>
         </p>
       </div>
+    <% elsif user_signed_in? && current_user.incomplete_registration? %>
+      <div tabindex="0">
+        <%= render "shared/complete_registration_to_vote" %>
+      </div>
     <% elsif !user_signed_in? %>
       <div tabindex="0">
         <%= render "shared/login_to_vote" %>
