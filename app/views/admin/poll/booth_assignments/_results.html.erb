@@ -6,7 +6,10 @@
       <%= t("admin.results.index.no_results") %>
     </div>
   <% else %>
-    <%= render "admin/poll/recounts/results_totals" %>
+    <%= render "admin/poll/recounts/results_totals",
+      stats: @booth_assignment,
+      explanations: @booth_assignment.recounts.with_difference_explanation
+    %>
     <%= render "admin/poll/recounts/results_questions" %>
   <% end %>
 </div>

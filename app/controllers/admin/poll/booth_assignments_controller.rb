@@ -21,7 +21,6 @@ class Admin::Poll::BoothAssignmentsController < Admin::Poll::BaseController
     @voters_by_date = @booth_assignment.voters.group_by { |v| v.created_at.to_date }
     @partial_results = @booth_assignment.partial_results
     @recounts = @booth_assignment.recounts
-    @stats = Poll::Stats.new(@poll)
   end
 
   def create

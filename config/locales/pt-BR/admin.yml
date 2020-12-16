@@ -1007,18 +1007,22 @@ pt-BR:
         officers: "Presidentes"
         officers_list: "Lista de presidentes para esta urna"
         no_officers: "Não há presidentes para esta urna"
-        recounts: "Recontagens"
-        recounts_list: "Recontar lista para esta urna"
+        recounts: "Votos recebidos"
+        recounts_list: "Votos recebidos nesta urna"
         results: "Resultados"
         date: "Data"
-        count_final: "Recontagem final (por presidente)"
-        count_by_system: "Votos (automático)"
-        total_system: Total de votos (automático)
+        count_final: "Número de cédulas"
+        count_by_system: "Eleitores presenciais com documento validado"
+        total_system: Total de eleitores presenciais com documento validado
       index:
         booths_title: "Lista de urnas"
         no_booths: "Não há urnas atribuídas a esta votação."
         table_name: "Nome"
         table_location: "Localização"
+    results:
+      index:
+        title: "Resultado desta urna"
+        no_results: "Nenhum resultado"
     active_polls:
       edit:
         title: "Adicionar descrição"
@@ -1183,11 +1187,11 @@ pt-BR:
         title: "Votos recebidos nas urnas presenciais"
         no_recounts: "Não há nada para ser recontado"
         total_final: "Total de cédulas"
-        total_system: "Votos (automático)"
+        total_system: "Eleitores presenciais com documento validado"
         table_booth_name: "Urna"
         table_total_recount: "Número de cédulas"
         table_system_count: "Documentos validados"
-        all_booths_total: Resultado global (soma das urnas)
+        all_booths_total: Resultado dessa urna
         white_final: "Cédulas em branco"
         null_final: "Cédulas inválidas"
         table_answer: "Resposta"

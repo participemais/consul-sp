@@ -15,6 +15,9 @@ class Poll::Recount < ApplicationRecord
   scope :web,    -> { where(origin: "web") }
   scope :booth,  -> { where(origin: "booth") }
   scope :letter, -> { where(origin: "letter") }
+  scope :with_difference_explanation, -> do
+    where.not(difference_explanation: ["", nil])
+  end
 
   scope :by_author, ->(author_id) { where(author_id: author_id) }
 

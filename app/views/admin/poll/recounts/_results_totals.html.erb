@@ -24,24 +24,23 @@
       <td><strong><%= t("admin.recounts.index.all_booths_total") %></strong></td>
       <% unless @poll.budget_poll? %>
         <td class="text-center" id="white_final">
-          <%= @stats.total_booth_white %>
+          <%= stats.total_booth_white %>
         </td>
         <td class="text-center" id="null_final">
-          <%= @stats.total_booth_null %>
+          <%= stats.total_booth_null %>
         </td>
         <td class="text-center" id="total_final">
-          <%= @stats.total_participants_booth %>
+          <%= stats.total_participants_booth %>
         </td>
       <% end %>
 
       <% unless @poll.recounts_confirmed? %>
-        <td class="text-center" id="total_system"><%= @stats.total_registered_booth %></td>
+        <td class="text-center" id="total_system"><%= stats.total_registered_booth %></td>
       <% end %>
     </tr>
   </tbody>
 </table>
 
-<% explanations = @poll.recounts.select(&:difference_explanation) %>
 <% if explanations.any? %>
   <div>
     <h4><%= t("admin.recounts.index.difference_explanation") %></h4>
