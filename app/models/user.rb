@@ -3,6 +3,7 @@ class User < ApplicationRecord
   include DocumentValidation
 
   DOCUMENT_TYPES = %w(cpf rnm).freeze
+  MAX_USER_AGE = 120.freeze
 
   devise :database_authenticatable, :registerable, :confirmable, :recoverable, :rememberable,
          :trackable, :validatable, :omniauthable, :password_expirable, :secure_validatable,
@@ -497,8 +498,7 @@ class User < ApplicationRecord
     end
 
     def max_user_age
-      max_age = 120
-      if age && age > max_age
+      if age && age > MAX_USER_AGE
         message = I18n.t(
           :max_user_age,
           scope: 'activerecord.errors.models.user.attributes.date_of_birth'
