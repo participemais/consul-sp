@@ -438,9 +438,9 @@ pt-BR:
         one: 1 apoio
         other: "%{count} apoios"
       votes:
-        zero: Nenhum voto
-        one: 1 voto
-        other: "%{count} votos"
+        zero: Nenhum apoio
+        one: 1 apoio
+        other: "%{count} apoios"
       supports_necessary: "%{number} apoios necessários"
       total_percent: 100%
       archived: "Esta proposta foi arquivada e não é possível receber voto."
