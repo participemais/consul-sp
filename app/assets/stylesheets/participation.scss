@@ -11,6 +11,7 @@
 // 09. Polls results and stats
 // 10. Polls cards
 // 11. Tags
+// 12. Legislation Proposal
 
 // 01. Votes and supports
 // ----------------------
@@ -2182,6 +2183,14 @@
   font-size: 14px;
   font-family: $subheader-font-family;
   margin-top: 11px;
+}
+
+// 12. Legislation Proposal
+// ----------------------
+
+.proposal-votes {
+  color: $purple;
+  padding: 35px 0px;
 }
 
 
