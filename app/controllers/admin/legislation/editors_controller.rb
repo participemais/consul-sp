@@ -25,10 +25,8 @@ class Admin::Legislation::EditorsController < Admin::Legislation::BaseController
   end
 
   def search
-    @users = User.search(params[:name_or_email])
-                 .includes(:editor)
-                 .page(params[:page])
-                 .for_render
+    @editors = Editor.search(params[:name_or_email]).page(params[:page])
+    render :index
   end
 
   private

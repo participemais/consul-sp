@@ -9,12 +9,11 @@
 
   <%= render "admin/legislation/processes/subnav", process: @process, active: "editors" %>
 
-  <%= render "admin/shared/user_search", url: search_admin_editors_path %>
+  <%= render "admin/shared/user_search", url: search_admin_legislation_process_editors_path %>
 
   <div id="editors">
     <% if @editors.any? %>
-      <h3 class="margin"><%= page_entries_info @editors %></h3>
-
+      
       <table>
         <thead>
           <th scope="col"><%= t("admin.editors.index.name") %></th>

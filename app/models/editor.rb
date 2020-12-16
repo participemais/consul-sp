@@ -7,4 +7,8 @@ class Editor < ApplicationRecord
 
   validates :user_id, presence: true, uniqueness: true
 
+  def self.search(term)
+    term.present? ? joins(:user).where("users.email = ? OR users.username ILIKE ?", term, "%#{term}%") : none
+  end
+
 end
