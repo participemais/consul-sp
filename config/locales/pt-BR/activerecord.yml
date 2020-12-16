@@ -440,12 +440,12 @@ pt-BR:
         start_date: Data de início
         end_date: Data de término
         debate_start_date: Data de início do debate
-        debate_end_date: Data término do debate
-        draft_start_date: Início
-        draft_end_date: Final
+        debate_end_date: Data de término do debate
+        draft_start_date: Data de início das propostas
+        draft_end_date: Data de termino das propostas
         draft_publication_date: Data de publicação do rascunho
-        allegations_start_date: Data de início das alegações
-        allegations_end_date: Data de conclusão das alegações
+        allegations_start_date: Data de início das anotações
+        allegations_end_date: Data de conclusão das anotações
         proposals_phase_start_date: Início
         proposals_phase_end_date: Final
         topics_phase_start_date: Data de início da revisão
