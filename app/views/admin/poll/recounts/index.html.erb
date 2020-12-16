@@ -10,7 +10,10 @@
     </div>
   <% else %>
 
-    <%= render "results_totals" %>
+    <%= render "results_totals",
+      stats: @stats,
+      explanations: @poll.recounts.with_difference_explanation
+    %>
 
     <%= render "results_questions" %>
 
