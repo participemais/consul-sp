@@ -222,7 +222,7 @@ namespace :admin do
 
   namespace :legislation do
     resources :processes do
-      resources :editors, only: [:index, :update] do
+      resources :editors, only: [:index, :create, :destroy] do
         get :search, on: :collection
       end
       resources :questions

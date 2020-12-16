@@ -2,8 +2,6 @@ class Admin::Legislation::ProcessesController < Admin::Legislation::BaseControll
   include Translatable
   include ImageAttributes
 
-  before_action :load_editors, only: [:new, :edit]
-
   has_filters %w[active all], only: :index
 
   load_and_authorize_resource :process, class: "Legislation::Process"
@@ -76,17 +74,11 @@ class Admin::Legislation::ProcessesController < Admin::Legislation::BaseControll
         :font_color,
         translation_params(::Legislation::Process),
         documents_attributes: [:id, :title, :attachment, :cached_attachment, :user_id, :_destroy],
-        image_attributes: image_attributes,
-        editor_ids: []
+        image_attributes: image_attributes
       ]
     end
 
     def resource
       @process || ::Legislation::Process.find(params[:id])
-    end
-
-    def load_editors
-     # @editors = Editor.includes(:user).order(description: :asc).order("users.email ASC")
-      @editors = Editor.includes(:user).order("users.email ASC")
     end
 end

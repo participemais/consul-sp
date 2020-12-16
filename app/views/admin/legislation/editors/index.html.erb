@@ -31,18 +31,22 @@
                 <%= editor.email %>
               </td>
               <td>
-                <% if editor.persisted? %>
+                <% if @process.editors.include?(editor) %>
                   <%= link_to t("admin.editors.editor.delete"),
-                              admin_editor_path(editor),
+                              admin_legislation_process_editor_path(@process, editor),
                               method: :delete,
                               class: "button hollow alert expanded"
                   %>
                 <% else %>
                   <%= link_to t("admin.editors.editor.add"),
-                              { controller: "admin/editors", action: :create,
-                                user_id: editor.user_id },
-                                method: :post,
-                                class: "button success expanded" %>
+                              { controller: "legislation/editors", 
+                                action: :create,
+                                editor_legislation_process: {
+                                  editor_id: editor.id,
+                                  legislation_process_id: @process.id }
+                              },
+                              method: :post,
+                              class: "button success expanded" %>
                 <% end %>
               </td>
             </tr>
