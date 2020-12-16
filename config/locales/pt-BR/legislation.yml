@@ -60,8 +60,9 @@ pt-BR:
       proposals:
         not_open: Fora do período de participação
         empty_proposals: Ainda não recebemos propostas
-        spreedsheet: Download das propostas
-        comments_spreedsheet: Download dos comentários
+        spreedsheet:  Download das %{answers_link} ou dos %{comments_link} (csv) - Há %{count} propostas
+        proposals_spreedsheet: propostas
+        comments_spreedsheet: comentários
         filters:
           random: Propostas populares
           winners: Propostas priorizadas
