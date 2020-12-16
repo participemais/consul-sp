@@ -10,9 +10,7 @@
       <thead>
         <th scope="col"><%= t("admin.editors.index.name") %></th>
         <th scope="col" class="small-2"><%= t("admin.editors.index.email") %></th>
-        <th scope="col" class="small-2"><%= t("admin.editors.index.processes") %></th>
-        <th scope="col" class="small-2"><%= t("admin.editors.index.tabs") %></th>
-        <th scope="col" class="small-2"><%= t("admin.editors.index.abilities") %></th>
+        <th scope="col" class="small-3"><%= t("admin.editors.index.processes") %></th>
         <th scope="col" class="small-2"><%= t("admin.shared.actions") %></th>
       </thead>
       <tbody>
@@ -24,9 +22,13 @@
             <td>
               <%= editor.email %>
             </td>
-            <td></td>
-            <td></td>
-            <td></td>
+            <td>
+              <ul>
+                <% editor.legislation_processes.each do |legislation_process| %>
+                  <li><%= link_to "#{t("admin.editors.index.legislation_process")} - #{legislation_process.id}", legislation_process_path(legislation_process) %></li>
+                <% end %>
+              </ul>
+            </td>
             <td>
               <% if editor.persisted? %>
                 <%= link_to t("admin.editors.editor.delete"),

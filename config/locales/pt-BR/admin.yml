@@ -520,6 +520,7 @@ pt-BR:
           status_planned: Planejados
         subnav:
           info: Informações
+          editors: Editores
           homepage: Instruções
           draft_versions: Anotações
           questions: Debates
@@ -779,8 +780,9 @@ pt-BR:
         name: Nome
         email: Email
         processes: Processos habilitados
-        tabs: Abas habilitadas
-        abilities: Habilidades
+        legislation_process: Consulta pública
+        poll: Votação
+        Budget: Orçamento
         no_editors: Não há editores.
       editor:
         add: Adicionar

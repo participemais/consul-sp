@@ -222,6 +222,9 @@ namespace :admin do
 
   namespace :legislation do
     resources :processes do
+      resources :editors, only: [:index, :create, :destroy] do
+        get :search, on: :collection
+      end
       resources :questions
       resources :proposals do
         member { patch :toggle_selection }
