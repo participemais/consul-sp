@@ -1340,7 +1340,7 @@ pt-BR:
       delete: Apagar
       color_help: Formato hexadecimal
       show_results_and_stats: "Exibir resultados e estatísticas"
-      results_and_stats_reminder: "Ao marcar estas caixas de seleção, os resultado e/ou estatísticas estarão disponíveis publicamente assim que o processo estiver encerrado."
+      results_and_stats_reminder: "Ao marcar estas caixas de seleção, o resultado e as estatísticas serão publicados assim que o processo estiver encerrado."
     geozones:
       index:
         title: Geozona

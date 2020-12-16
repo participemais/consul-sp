@@ -242,7 +242,7 @@ pt-BR:
       discarded: "Proposta de gasto descartada: "
       losers: Não eleitas
       investment_title: Título da proposta
-      investment_proyects: Lista de todas as propostas de orçamento
+      investment_proyects: Acesse o índice completo das propostas populares
       unfeasible_investment_proyects: Lista de todas as propostas de orçamento inviáveis
       not_selected_investment_proyects: Lista de todas as propostas de orçamento não selecionadas para votação
       balloting_title: Eleita
@@ -252,11 +252,11 @@ pt-BR:
       page_title: "%{budget} - Andamento do(s) projeto(s)"
       heading: "Orçamento cidadão (Monitoramento)"
       heading_selection_title: "Por Subprefeitura"
-      no_winner_investments: "Não há propostas de orçamento ganhadoras"
+      no_winner_investments: "Não há propostas nessa etapa"
       filters:
         status:
-          label: "Estado atual da proposta"
-          all: "Todo (%{count})"
+          label: "Filtrar por status"
+          all: "Todas as propostas (%{count})"
     phases:
       errors:
         dates_range_invalid: "Data de início não pode ser igual ou posterior à data de término"
