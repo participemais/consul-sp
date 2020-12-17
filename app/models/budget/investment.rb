@@ -140,6 +140,7 @@ class Budget
         .joins(:feasibility_analyses)
         .group(:id)
         .order('analyses_count DESC')
+        .group('ids.ordering')
         .first&.analyses_count
     end
 

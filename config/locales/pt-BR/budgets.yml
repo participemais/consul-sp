@@ -96,6 +96,7 @@ pt-BR:
         subprefecture_formal_jobs_by_population: Para cada pessoa em idade ativa, há <strong>%{formal_jobs_by_population}</strong> empregos formais nesta Subprefeitura (%{formal_jobs_by_population_reference_year}).
         info_source_text: "*Dados disponíveis em"
         info_source: ObservaSampa
+        download_proposals: Download das propostas abaixo (csv)
         search_results_with_heading_and_term:
           one: " da Subprefeitura <strong>%{heading_name}</strong> com o termo <strong>'%{search_term}'</strong>."
           other: " da Subprefeitura <strong>%{heading_name}</strong> com o termo <strong>'%{search_term}'</strong>."
@@ -134,6 +135,27 @@ pt-BR:
           confidence_score: melhor avaliado
           price: por preço
           ballots: mais votadas
+        spreadsheet:
+          balloting_result: Resultado da votação
+          budgetary: Viabilidade orçamentária
+          budgetary_actions: Ações orçamentárias
+          budgetary_description: Parecer orçamentário
+          categories: Categoria
+          commitment: Compromisso
+          department: Órgão público responsável
+          description: Descrição
+          feasibility: Viabilidade
+          id: ID
+          legal: Viabilidade jurídica
+          legal_description: Parecer jurídico
+          prioritization: Resultado da priorização
+          sei_number: Número do processo SEI
+          subprefecture: Subprefeitura
+          technical: Viabilidade técnica
+          technical_description: Parecer técnico
+          title: Título
+          unfeasibility_explanation: Justificativa
+          votes: Votos
       share:
         message: "Estou apoiando a proposta de orçamento %{title} em %{handle}."
       show:
@@ -197,7 +219,6 @@ pt-BR:
       available: "Votos disponíveis: "
     show:
       by_subprefecture: Por subprefeitura
-      download_proposals: Download das propostas abaixo (csv)
       filters:
         all: Todas
         winners: Eleitas
@@ -213,27 +234,6 @@ pt-BR:
       unselected_title: Propostas não selecionados para a etapa de votação
       unselected: Ver propostas não selecionados para a etapa de votação
       see_results: Exibir resultados
-      spreadsheet:
-        balloting_result: Resultado da votação
-        budgetary: Viabilidade orçamentária
-        budgetary_actions: Ações orçamentárias
-        budgetary_description: Parecer orçamentário
-        categories: Categoria
-        commitment: Compromisso
-        department: Órgão público responsável
-        description: Descrição
-        feasibility: Viabilidade
-        id: ID
-        legal: Viabilidade jurídica
-        legal_description: Parecer jurídico
-        prioritization: Resultado da priorização
-        sei_number: Número do processo SEI
-        subprefecture: Subprefeitura
-        technical: Viabilidade técnica
-        technical_description: Parecer técnico
-        title: Título
-        unfeasibility_explanation: Justificativa
-        votes: Votos
     results:
       link: Resultados do orçamento
       page_title: "%{budget} - Resultados"

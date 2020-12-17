@@ -86,12 +86,6 @@
     <% end %>
 
     <% if @investments.any? %>
-      <p class="download-link">
-        <%= link_to t("budgets.show.download_proposals"),
-          budget_path(csv_params),
-          class: "small"
-        %>
-      </p>
       <% @investments.each do |investment| %>
         <%= render "/budgets/investments/investment",
           investment: investment,
