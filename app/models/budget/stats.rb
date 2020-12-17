@@ -33,11 +33,15 @@ class Budget::Stats
   end
 
   def status_phases
-    %i[selecting balloting valuating]
+    phases = %i[balloting valuating]
+    phases.unshift(:selecting) if unselected_investments?
+    phases
   end
 
   def status_proposals
-    %i[selected unselected winner loser feasible unfeasible]
+    status = %i[winner loser feasible unfeasible]
+    status.unshift(:selected, :unselected) if unselected_investments?
+    status
   end
 
   def support_phase_finished?
@@ -120,6 +124,10 @@ class Budget::Stats
   end
 
   private
+
+    def unselected_investments?
+      budget.investments.unselected.any?
+    end
 
     def phase_methods
       phases.map { |phase| self.class.send("#{phase}_phase_methods") }.flatten
