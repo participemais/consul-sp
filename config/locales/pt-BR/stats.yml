@@ -44,6 +44,25 @@ pt-BR:
       percent_total_participants: "% Total de participantes"
       participatory_disclaimer: "* A quantidade de participantes considera o número de pessoas que criaram, apoiaram ou votaram em propostas"
       heading_disclaimer: "** A quantidade de participantes por Subprefeitura considera o número de pessoas que criaram, apoiaram ou votaram em propostas daquela Subprefeitura, independentemente do local de residência do usuário"
+      participants:
+        spreadsheet:
+          age: Idade
+          city: Cidade
+          ethnicity: Raça
+          ethnicity_options:
+            yellow: Amarela
+            white: Branca
+            red: Indígena
+            brown: Parda
+            black: Preta
+          gender: Gênero
+          gender_options:
+            female: Feminino
+            male: Masculino
+            non_binary: Não-binário
+            unknown: Não declarado
+          id: ID
+          uf: UF
     polls:
       by_channel: "Participantes"
       vote_by_channel: "Tipo de votos"
