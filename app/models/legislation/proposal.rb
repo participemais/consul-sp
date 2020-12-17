@@ -87,7 +87,7 @@ class Legislation::Proposal < ApplicationRecord
   end
 
   def votes_score
-    cached_votes_score == 1 ? 1 : 0
+    cached_votes_score
   end
 
   def voters

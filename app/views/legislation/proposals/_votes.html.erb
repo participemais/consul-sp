@@ -1,21 +1,16 @@
 <% voted_classes = css_classes_for_vote(@legislation_proposal_votes, proposal) %>
+<% user_voted_for = voted_for?(@legislation_proposal_votes, proposal) %>
+
 <div class="votes">
   <% if @process.proposals_phase.open? %>
-    <div class="in-favor inline-block">
       <% if user_signed_in? %>
-
-        <% if proposal.votes_score == 0 %>
+        <% unless user_voted_for %>
           <%= link_to vote_legislation_process_proposal_path(process_id: proposal.process, id: proposal, value: "yes"),
               class: "button button-support expanded", title: t("votes.agree"), method: "post", remote: true do %>
               <%= t("proposals.proposal.support") %>
           <% end %>
-        <% else %>
-          <%= link_to vote_legislation_process_proposal_path(process_id: proposal.process, id: proposal, value: "no"), class: "button button-support expanded", title: t("votes.disagree"), method: "post", remote: true do %>
-            <%= t("proposals.proposal.support") %>
-          <% end %>
         <% end %>
       <% end %>
-    </div>
   <% end %>
 
   <div class="proposal-votes">
@@ -46,7 +41,11 @@
       </div>
     <% end %>
 
-    <% if voted_for?(@legislation_proposal_votes, proposal) && setting["twitter_handle"] %>
+    <% if user_voted_for && setting["twitter_handle"] %>
+      <div class="supported callout success">
+        <%= t("legislation.processes.proposals.already_supported") %>
+      </div>
+
       <div class="share-supported">
         <%= render "shared/social_share",
             title: proposal.title,

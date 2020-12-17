@@ -58,6 +58,7 @@ pt-BR:
         spreedsheet: Download das anotações versão - %{version}
         download: Download
       proposals:
+        already_supported: Você já votou nessa proposta
         not_open: Fora do período de participação
         empty_proposals: Ainda não recebemos propostas
         spreedsheet:  Download das %{answers_link} ou dos %{comments_link} (csv) - Há %{count} propostas
