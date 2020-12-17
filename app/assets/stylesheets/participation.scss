@@ -797,13 +797,34 @@
 
   .votes {
     min-height: $line-height * 8;
+    border-left: 0;
+  }
+
+  .callout {
+    padding: 0.2rem;
   }
 }
 
-.proposal-show .votes,
+.proposal .panel {
+  padding-bottom: 0;
+}
+
+.legislation-proposals .proposal {
+  @include breakpoint(medium) {
+    .column:last-child:not(:first-child) {
+      padding-top: 0;
+    }
+  }
+}
+
 .debate-show .votes {
   border: 0;
   padding: $line-height / 2 0;
+}
+
+.proposal-show .votes {
+  border: 0;
+  padding: 0;
 }
 
 .proposal {
@@ -2190,7 +2211,6 @@
 
 .proposal-votes {
   color: $purple;
-  padding: 35px 0px;
 }
 
 
