@@ -214,9 +214,7 @@ pt-BR:
         custom_tags: Categoria de tipo
         subprefecture_tags: Categoria de localidade - subprefeitura
         district_tags: Categoria de localidade - distrito
-        cached_votes_up: Votos favoráveis à proposta
-        cached_votes_down: Votos contrários à proposta
-        cached_votes_total: Total de votos
+        cached_votes_up: Total de apoios
         selected: Proposta priorizada
         comment: Comentário
         user: Usuário

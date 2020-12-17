@@ -53,15 +53,13 @@ class Legislation::Proposal::Exporter
     subprefecture_tags
     district_tags
     cached_votes_up
-    cached_votes_down
-    cached_votes_total
     selected
   ).freeze
 
   def proposal_csv_row(proposal)
     [
       proposal.id.to_s,
-      proposal.created_at,
+      I18n.l(proposal.created_at.to_date),
       proposal.author.name,
       proposal.title,
       proposal.summary,
@@ -75,8 +73,6 @@ class Legislation::Proposal::Exporter
       @subprefecture_tags,
       @district_tags,
       proposal.cached_votes_up,
-      proposal.cached_votes_down,
-      proposal.cached_votes_total,
       @selected
     ]
   end
