@@ -1,5 +1,5 @@
 <div id="advanced_statistics">
-  <h3 class="section-title"><%= t("stats.advanced") %></h3>
+  <h3 class="section-title"><%= t("stats.participants_by_phase") %></h3>
 
   <div id="total_investments" class="stats-group">
     <h4><%= t("stats.budgets.total_investments") %></h4>
@@ -14,56 +14,33 @@
       </div>
     </div>
 
-    <div class="row">
-      <div class="small-6 medium-4 column">
-        <i class="fas fa-file-alt file-icons"></i>
-        <%= number_with_info_tags(
-          stats.total_selected_investments,
-          t("stats.budgets.total_selected_investments")
-        ) %>
-      </div>
-      <div class="small-6 medium-4 column end">
-        <i class="fas fa-file file-icons"></i>
-        <%= number_with_info_tags(
-          stats.total_unselected_investments,
-          t("stats.budgets.total_unselected_investments")
-        ) %>
-      </div>
-    </div>
-
-    <div class="row">
-      <div class="small-6 medium-4 column">
-        <i class="fas fa-file-alt file-icons"></i>
-        <%= number_with_info_tags(
-          stats.total_winner_investments,
-          t("stats.budgets.total_winner_investments")
-        ) %>
-      </div>
-      <div class="small-6 medium-4 column end">
-        <i class="fas fa-file file-icons"></i>
-        <%= number_with_info_tags(
-          stats.total_loser_investments,
-          t("stats.budgets.total_loser_investments")
-        ) %>
-      </div>
-    </div>
-
-    <div class="row">
-      <div class="small-6 medium-4 column">
-        <i class="fas fa-file-alt file-icons"></i>
-        <%= number_with_info_tags(
-          stats.total_feasible_investments,
-          t("stats.budgets.total_feasible_investments")
-        ) %>
-      </div>
-      <div class="small-6 medium-4 column end">
-        <i class="fas fa-file file-icons"></i>
-        <%= number_with_info_tags(
-          stats.total_unfeasible_investments,
-          t("stats.budgets.total_unfeasible_investments")
-        ) %>
-      </div>
-    </div>
+    <h4><%= t("stats.budgets.progress_investments") %></h4>
+    <table>
+      <colgroup span="2"></colgroup>
+      <tr>
+        <% stats.status_phases.each do |phase| %>
+          <th scope="colgroup" colspan="2">
+            <%= t("budgets.phase.#{phase}") %>
+          </th>
+        <% end %>
+      </tr>
+      <tr>
+        <% stats.status_proposals.each do |status| %>
+          <th scope="col">
+            <%= t("stats.budgets.total_#{status}_investments") %>
+          </th>
+        <% end %>
+      </tr>
+      <tbody>
+        <tr>
+          <% stats.status_proposals.each do |status| %>
+            <td class="text-center">
+              <%= stats.send("total_#{status}_investments") %>
+            </td>
+          <% end %>
+        </tr>
+      </tbody>
+    </table>
   </div>
 
   <% if stats.budget_supports.any? %>

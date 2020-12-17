@@ -32,6 +32,14 @@ class Budget::Stats
     phases.one? ? every : phases + every
   end
 
+  def status_phases
+    %i[selecting balloting valuating]
+  end
+
+  def status_proposals
+    %i[selected unselected winner loser feasible unfeasible]
+  end
+
   def support_phase_finished?
     budget.valuating_or_later?
   end
