@@ -360,6 +360,7 @@ pt-BR:
       map_location_instructions: "Navegue no mapa até o local e fixe o marcador."
       map_remove_marker: "Remover o marcador do mapa"
       map_skip_checkbox: "Esta proposta não tem uma localização concreta ou não a conheço."
+      confirm: "Tem certeza de que deseja enviar a proposta? Depois de enviá-la, não será possível editar ou excluir a proposta."
     index:
       featured_proposals: Destaques
       filter_topic:
