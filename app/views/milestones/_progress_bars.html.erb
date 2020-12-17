@@ -8,7 +8,7 @@
 
     <% if milestoneable.secondary_progress_bars.any? %>
       <div class="milestone-progress">
-        <% milestoneable.secondary_progress_bars.each do |progress_bar| %>
+        <% milestoneable.secondary_progress_bars.order(:id).each do |progress_bar| %>
           <div class="row margin-bottom">
             <div class="small-12 medium-6 large-4 column subtitle-font-family">
               <%= progress_bar.title %>

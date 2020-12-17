@@ -3,7 +3,7 @@ pt-BR:
     geozone_id: "ID da subprefeitura"
     results_enabled: "Exibir resultados"
     stats_enabled: "Exibir estatísticas de participação"
-    advanced_stats_enabled: "Exibir dados de participação por canal"
+    advanced_stats_enabled: "Exibir dados de participação por canal ou etapa"
   activerecord:
     models:
       activity:
@@ -232,6 +232,8 @@ pt-BR:
         kind: "Tipo"
         title: "Título"
         percentage: "Posição atual"
+      progress_bar/translation:
+        title: Título da barra de progresso
       progress_bar/kind:
         primary: "Primário"
         secondary: "Secundário"

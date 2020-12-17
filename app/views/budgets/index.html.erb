@@ -18,7 +18,11 @@
           <%= auto_link_already_sanitized_html wysiwyg(current_budget.description) %>
         </div>
         <p>
-          <% if current_budget.devolutive_or_later? %>
+          <% if current_budget.finished? %>
+            <%= link_to t("budgets.index.section_header.finished_result"),
+              budget_executions_path(current_budget.id)
+            %>
+          <% elsif current_budget.devolutive_or_later? %>
             <%= link_to t("budgets.index.section_header.valuating_result"),
               budget_investments_path(
                 current_budget, status_filters: ['feasibles', 'unfeasibles']
@@ -154,7 +158,7 @@
   </div>
 <% end %>
 
-<div class="row">
+<div class="row margin-top">
   <div class="small-12 column">
     <div id="section_help" class="margin" data-magellan-target="section_help">
       <h3><%= t("budgets.index.section_footer.title") %></h3>

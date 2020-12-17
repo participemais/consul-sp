@@ -16,7 +16,7 @@
     <div class="row">
       <div class="small-12 column">
         <%= back_link_to budgets_path %>
-        <h2 class="margin-top">
+        <h2 class="half-margin-top">
           <%= t("budgets.executions.heading") %><br>
           <span><%= @budget.name %></span>
         </h2>
@@ -51,7 +51,7 @@
                       params[:status]),
                       class: "js-submit-on-change",
                       prompt: t("budgets.executions.filters.status.all",
-                      count: @budget.investments.winners.with_milestones.count) %>
+                      count: @budget.investments.with_milestones.count) %>
       </div>
     <% end %>
 
