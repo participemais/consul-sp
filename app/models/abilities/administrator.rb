@@ -14,7 +14,10 @@ module Abilities
       can :restore, Proposal
       cannot :restore, Proposal, hidden_at: nil
 
-      can :create, Legislation::Proposal
+      can :create, Legislation::Proposal do |proposal|
+        proposal.process.proposals_phase.open?
+      end
+
       can :show, Legislation::Proposal
       can :proposals, ::Legislation::Process
 
@@ -97,7 +100,6 @@ module Abilities
       can [:manage], ::Legislation::Process
       can [:manage], ::Legislation::DraftVersion
       can [:manage], ::Legislation::Question
-      can [:manage], ::Legislation::Proposal
       can [:manage], ::Legislation::Topic
       cannot :comment_as_moderator, [::Legislation::Question, Legislation::Annotation, ::Legislation::Proposal]
 

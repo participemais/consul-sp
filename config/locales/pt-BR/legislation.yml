@@ -58,11 +58,14 @@ pt-BR:
         spreedsheet: Download das anotações versão - %{version}
         download: Download
       proposals:
-        empty_proposals: Não existem propostas
-        spreedsheet: Download das propostas
-        comments_spreedsheet: Download dos comentários
+        already_supported: Você já votou nessa proposta
+        not_open: Fora do período de participação
+        empty_proposals: Ainda não recebemos propostas
+        spreedsheet:  Download das %{answers_link} ou dos %{comments_link} (csv) - Há %{count} propostas
+        proposals_spreedsheet: propostas
+        comments_spreedsheet: comentários
         filters:
-          random: Aleatório
+          random: Propostas populares
           winners: Propostas priorizadas
       debate:
         empty_questions: Não há perguntas cadastradas
@@ -212,9 +215,7 @@ pt-BR:
         custom_tags: Categoria de tipo
         subprefecture_tags: Categoria de localidade - subprefeitura
         district_tags: Categoria de localidade - distrito
-        cached_votes_up: Votos favoráveis à proposta
-        cached_votes_down: Votos contrários à proposta
-        cached_votes_total: Total de votos
+        cached_votes_up: Total de apoios
         selected: Proposta priorizada
         comment: Comentário
         user: Usuário

@@ -1281,11 +1281,11 @@ pt-BR:
         title: Propostas
         id: ID
         author: Autor
-        select: Selecionar
-        selected: Selecionado
-        milestones: Monitoramento
-        no_proposals: Não existem propostas.
-        download: Download
+        prioritization: Priorização de propostas
+        select: Priorizar
+        selected: Priorizada
+        milestones: Marcos
+        no_proposals: Ainda não recebemos propostas.
       form:
         update: Atualizar proposta
       update:
@@ -1497,18 +1497,27 @@ pt-BR:
           origin_total: Total de participantes
     tags:
       create:
-        notice: Tag criada com sucesso
+        notice: Categoria criada com sucesso
+        title: Criar categoria
       destroy: Deletar categoria
-      edit: Editar categoria
+      edit:
+        title: Editar categoria
+        select_heading: Selecione o tipo
       index:
         add_tag: Adicionar uma nova categoria de proposta
-        title: Categorias da proposta
+        edit_tag: Editar categoria
+        title:
+          category: Categorias do tipo Categoria
+          subprefecture: Categorias do tipo Subprefeitura
+          district: Categorias do tipo Distrito
         topic: Temas
         subprefecture: Subprefeituras
         district: Distritos
-        help: "Quando um usuário criar uma proposta, as categorias a seguir são sugeridos como etiquetas padrão."
+        help: "As categorias de proposta a seguir são sugeridas como padrão para propostas de orçamento cidadão ou consulta pública. Adicione novas marcações se necessário."
         kind: Tipo
       back: Voltar
+      errors:
+        taggings_count: "Não é possível editar/excluir essa categoria porque a mesma já está em uso"
     users:
       columns:
         name: Nome

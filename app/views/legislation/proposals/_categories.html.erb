@@ -8,9 +8,17 @@
 		<p><%= t("admin.legislation.processes.index.tag_category_label") %></p>
 		<% @process.tag_list_on(:customs).each do |tag| %>
 			<li class="inline-block">
-			  <% css_class = { class: "is-active" } if params[:search] == tag %>
+			  <% tag_search = tag %>
+
+			  <% if params[:search] == tag %>
+				<% css_class = { class: "is-active" } %>
+			  <% else %>
+				<% css_class = nil %>
+			  <% end %>
+
+			  <% tag_search = "" if css_class == { class: "is-active" } %>
 			  <%= link_to tag,
-			              legislation_process_proposals_path(process_id: @process, search: tag),
+			              legislation_process_proposals_path(process_id: @process, search: tag_search),
 			              css_class || {} %>
 			</li>
 		<% end %>
@@ -22,10 +30,20 @@
 		<p><%= t("admin.legislation.processes.index.tag_subprefecture_label") %></p>
 		<% @process.tag_list_on(:subprefectures).each do |tag| %>
 			<li class="inline-block">
-			  <% css_class = { class: "is-active" } if params[:search] == tag %>
+			  <% tag_search = tag %>
+
+			  <% if params[:search] == tag %>
+				<% css_class = { class: "is-active" } %>
+			  <% else %>
+				<% css_class = nil %>
+			  <% end %>
+
+			  <% tag_search = "" if css_class == { class: "is-active" } %>
+
 			  <%= link_to tag,
-			              legislation_process_proposals_path(process_id: @process, search: tag),
+			              legislation_process_proposals_path(process_id: @process, search: tag_search),
 			              css_class || {} %>
+
 			</li>
 		<% end %>
 	<% end %>
@@ -35,9 +53,18 @@
 		<p><%= t("admin.legislation.processes.index.tag_district_label") %></p>
 		<% @process.tag_list_on(:districts).each do |tag| %>
 			<li class="inline-block">
-			  <% css_class = { class: "is-active" } if params[:search] == tag %>
+			  <% tag_search = tag %>
+
+			  <% if params[:search] == tag %>
+				<% css_class = { class: "is-active" } %>
+			  <% else %>
+				<% css_class = nil %>
+			  <% end %>
+
+			  <% tag_search = "" if css_class == { class: "is-active" } %>
+
 			  <%= link_to tag,
-			              legislation_process_proposals_path(process_id: @process, search: tag),
+			              legislation_process_proposals_path(process_id: @process, search: tag_search),
 			              css_class || {} %>
 			</li>
 		<% end %>
