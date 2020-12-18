@@ -42,8 +42,8 @@ pt-BR:
       participants_vote_phase: "Votação"
       participants_every_phase: "Total de participantes**"
       percent_total_participants: "% Total de participantes"
-      participatory_disclaimer: "* A quantidade de participantes considera o número de pessoas que criaram, apoiaram ou votaram em propostas. Caso uma mesma pessoa tenha participado em mais de uma etapa, ela é contabilizada apenas uma vez"
-      heading_disclaimer: "** A quantidade de participantes por Subprefeitura considera o número de pessoas que criaram, apoiaram ou votaram em propostas daquela Subprefeitura, independentemente do local de residência do usuário. Caso uma mesma pessoa tenha participado em mais de uma etapa, ela é contabilizada apenas uma vez, por Subprefeitura"
+      participatory_disclaimer: "* A quantidade de participantes considera o número de pessoas que criaram, apoiaram ou votaram em propostas. Caso uma mesma pessoa tenha participado em mais de uma etapa, ela é contabilizada apenas uma vez."
+      heading_disclaimer: "** A quantidade de participantes por Subprefeitura considera o número de pessoas que criaram, apoiaram ou votaram em propostas daquela Subprefeitura, independentemente do local de residência do usuário. Caso uma mesma pessoa tenha participado em mais de uma etapa, ela é contabilizada apenas uma vez, por Subprefeitura."
       participants:
         spreadsheet:
           age: Idade
