@@ -2,6 +2,7 @@ pt-BR:
   stats:
     title: "Dados sobre a participação"
     advanced: "Dados sobre participação por canal"
+    participants_by_phase: "Dados de participação por etapa"
     total_participants: "Participantes"
     by_gender: "Participantes por gênero"
     by_age: "Participantes por idade"
@@ -25,11 +26,12 @@ pt-BR:
       link: "Estatísticas da participação"
       page_title: "%{budget} - Estatísticas de participação"
       total_investments: "Total de propostas"
+      progress_investments: "Andamento das propostas"
       total_selected_investments: "Priorizadas"
       total_unselected_investments: "Não priorizadas"
-      total_winner_investments: "Propostas eleitas"
+      total_winner_investments: "Eleitas"
       total_loser_investments: "Não eleitas"
-      total_feasible_investments: "Propostas viáveis"
+      total_feasible_investments: "Viáveis"
       total_unfeasible_investments: "Inviáveis"
       by_phase: "Participantes por etapa"
       by_heading: "Participantes por Subprefeitura"
@@ -42,6 +44,25 @@ pt-BR:
       percent_total_participants: "% Total de participantes"
       participatory_disclaimer: "* A quantidade de participantes considera o número de pessoas que criaram, apoiaram ou votaram em propostas"
       heading_disclaimer: "** A quantidade de participantes por Subprefeitura considera o número de pessoas que criaram, apoiaram ou votaram em propostas daquela Subprefeitura, independentemente do local de residência do usuário"
+      participants:
+        spreadsheet:
+          age: Idade
+          city: Cidade
+          ethnicity: Raça
+          ethnicity_options:
+            yellow: Amarela
+            white: Branca
+            red: Indígena
+            brown: Parda
+            black: Preta
+          gender: Gênero
+          gender_options:
+            female: Feminino
+            male: Masculino
+            non_binary: Não-binário
+            unknown: Não declarado
+          id: ID
+          uf: UF
     polls:
       by_channel: "Participantes"
       vote_by_channel: "Tipo de votos"
