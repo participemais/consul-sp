@@ -50,6 +50,11 @@
   margin-top: $line-height / 2 !important;
 }
 
+.margin-auto {
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
 .subprefecture-label {
   color: $white;
   cursor: pointer;
