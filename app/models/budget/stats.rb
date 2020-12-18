@@ -109,7 +109,6 @@ class Budget::Stats
     end
 
     groups[:total] = Hash.new(0)
-    groups[:total][:total_investments_count] = groups.map { |_k, v| v[:total_investments_count] }.sum
     groups[:total][:total_participants_accepting_phase] = groups.map { |_k, v| v[:total_participants_accepting_phase] }.sum
     groups[:total][:total_participants_support_phase] = groups.map { |_k, v| v[:total_participants_support_phase] }.sum
     groups[:total][:total_participants_vote_phase] = groups.map { |_k, v| v[:total_participants_vote_phase] }.sum
@@ -197,7 +196,6 @@ class Budget::Stats
 
     def calculate_heading_totals(heading)
       {
-        total_investments_count: heading.investments.count,
         total_participants_accepting_phase: authors_by_heading(heading).count,
         total_participants_support_phase: voters_by_heading(heading).count,
         total_participants_vote_phase: balloters_by_heading(heading.id).count,
