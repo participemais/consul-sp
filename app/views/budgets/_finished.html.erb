@@ -18,12 +18,12 @@
                   <% if can?(:read_results, budget) %>
                     <%= link_to t("budgets.index.see_results"),
                                 budget_results_path(budget),
-                                class: "button" %>
+                                class: "button margin-auto" %>
                   <% end %>
 
                   <%= link_to t("budgets.index.milestones"),
                               budget_executions_path(budget),
-                              class: "button" %>
+                              class: "button margin-auto" %>
                 </div>
               </div>
             </div>
