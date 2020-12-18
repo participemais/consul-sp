@@ -54,15 +54,13 @@ pt-BR:
       section_header:
         balloting_result: Veja o resultado da votação
         valuating_result: Veja o resultado da análise de viabilidade
+        finished_result: Acompanhe a implementação das propostas
         icon_alt: Ícone dos orçamentos
         title: Orçamentos cidadão
         help: Sobre o orçamento cidadão
         all_phases: Ver todas as etapas
       all_phases: Etapas do orçamento cidadão
       map: Propostas de orçamento cidadão por subprefeitura
-      investment_proyects: Todas as propostas de orçamento
-      unfeasible_investment_proyects: Propostas de orçamento inviáveis
-      not_selected_investment_proyects: Propostas de orçamento não selecionadas para votação
       finished_budgets: Orçamentos concluídos
       see_results: Exibir resultados
       section_footer:
@@ -98,6 +96,7 @@ pt-BR:
         subprefecture_formal_jobs_by_population: Para cada pessoa em idade ativa, há <strong>%{formal_jobs_by_population}</strong> empregos formais nesta Subprefeitura (%{formal_jobs_by_population_reference_year}).
         info_source_text: "*Dados disponíveis em"
         info_source: ObservaSampa
+        download_proposals: Download das propostas abaixo (csv)
         search_results_with_heading_and_term:
           one: " da Subprefeitura <strong>%{heading_name}</strong> com o termo <strong>'%{search_term}'</strong>."
           other: " da Subprefeitura <strong>%{heading_name}</strong> com o termo <strong>'%{search_term}'</strong>."
@@ -136,6 +135,27 @@ pt-BR:
           confidence_score: melhor avaliado
           price: por preço
           ballots: mais votadas
+        spreadsheet:
+          balloting_result: Resultado da votação
+          budgetary: Viabilidade orçamentária
+          budgetary_actions: Ações orçamentárias
+          budgetary_description: Parecer orçamentário
+          categories: Categoria
+          commitment: Compromisso
+          department: Órgão público responsável
+          description: Descrição
+          feasibility: Viabilidade
+          id: ID
+          legal: Viabilidade jurídica
+          legal_description: Parecer jurídico
+          prioritization: Resultado da priorização
+          sei_number: Número do processo SEI
+          subprefecture: Subprefeitura
+          technical: Viabilidade técnica
+          technical_description: Parecer técnico
+          title: Título
+          unfeasibility_explanation: Justificativa
+          votes: Votos
       share:
         message: "Estou apoiando a proposta de orçamento %{title} em %{handle}."
       show:
@@ -199,7 +219,6 @@ pt-BR:
       available: "Votos disponíveis: "
     show:
       by_subprefecture: Por subprefeitura
-      download_proposals: Download das propostas abaixo (csv)
       filters:
         all: Todas
         winners: Eleitas
@@ -215,27 +234,6 @@ pt-BR:
       unselected_title: Propostas não selecionados para a etapa de votação
       unselected: Ver propostas não selecionados para a etapa de votação
       see_results: Exibir resultados
-      spreadsheet:
-        balloting_result: Resultado da votação
-        budgetary: Viabilidade orçamentária
-        budgetary_actions: Ações orçamentárias
-        budgetary_description: Parecer orçamentário
-        categories: Categoria
-        commitment: Compromisso
-        department: Órgão público responsável
-        description: Descrição
-        feasibility: Viabilidade
-        id: ID
-        legal: Viabilidade jurídica
-        legal_description: Parecer jurídico
-        prioritization: Resultado da priorização
-        sei_number: Número do processo SEI
-        subprefecture: Subprefeitura
-        technical: Viabilidade técnica
-        technical_description: Parecer técnico
-        title: Título
-        unfeasibility_explanation: Justificativa
-        votes: Votos
     results:
       link: Resultados do orçamento
       page_title: "%{budget} - Resultados"
@@ -250,7 +248,7 @@ pt-BR:
       discarded: "Proposta de gasto descartada: "
       losers: Não eleitas
       investment_title: Título da proposta
-      investment_proyects: Lista de todas as propostas de orçamento
+      investment_proyects: Acesse o índice completo das propostas populares
       unfeasible_investment_proyects: Lista de todas as propostas de orçamento inviáveis
       not_selected_investment_proyects: Lista de todas as propostas de orçamento não selecionadas para votação
       balloting_title: Eleita
@@ -260,11 +258,11 @@ pt-BR:
       page_title: "%{budget} - Andamento do(s) projeto(s)"
       heading: "Orçamento cidadão (Monitoramento)"
       heading_selection_title: "Por Subprefeitura"
-      no_winner_investments: "Não há propostas de orçamento ganhadoras"
+      no_winner_investments: "Não há propostas nessa etapa"
       filters:
         status:
-          label: "Estado atual da proposta"
-          all: "Todo (%{count})"
+          label: "Filtrar por status"
+          all: "Todas as propostas (%{count})"
     phases:
       errors:
         dates_range_invalid: "Data de início não pode ser igual ou posterior à data de término"
