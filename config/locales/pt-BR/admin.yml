@@ -319,8 +319,8 @@ pt-BR:
         creating: "Criar barra de progresso"
       edit:
         title:
-          primary: "Editar barra de progreso primária"
-          secondary: "Editar barra de progreso %{title}"
+          primary: "Editar barra de progresso primária"
+          secondary: "Editar barra de progresso %{title}"
       create:
         notice: "Barra de progresso criada com sucesso"
       update:

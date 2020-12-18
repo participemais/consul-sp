@@ -189,7 +189,6 @@ describe Budget::Stats do
 
     it "returns headings data" do
       heading_stats = stats.headings[investment.heading.id]
-      expect(heading_stats[:total_investments_count]).to be 2
       expect(heading_stats[:total_participants_support_phase]).to be 2
       expect(heading_stats[:total_participants_vote_phase]).to be 1
       expect(heading_stats[:total_participants_every_phase]).to be 3
