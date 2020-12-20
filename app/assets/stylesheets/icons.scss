@@ -181,6 +181,10 @@
   content: "\f200";
 }
 
+.icon-folder::before {
+  content: "\f07c"
+}
+
 .icon-notification::before {
   content: "\f0f3";
 }
