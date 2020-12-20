@@ -270,4 +270,8 @@ namespace :admin do
   namespace :local_census_records do
     resources :imports, only: [:new, :create, :show]
   end
+
+  namespace :open_gov do
+    resources :articles
+  end
 end
