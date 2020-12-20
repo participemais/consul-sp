@@ -695,6 +695,7 @@ pt-BR:
       proposals: Propostas
       proposals_topics: Tópicos de propostas
       budgets: Orçamento Cidadão
+      open_gov: Governo Aberto
       geozones: Gerenciar geozonas
       hidden_comments: Comentários ocultos
       hidden_debates: Debates ocultos
@@ -1685,3 +1686,7 @@ pt-BR:
           import: Importar eleitores por CSV
         local_census_records:
           no_records_found: Nenhum registro encontrado
+    open_gov:
+      articles:
+        index:
+          title: Governo Aberto
