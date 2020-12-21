@@ -39,3 +39,50 @@
     <%= t("admin.open_gov.articles.index.no_articles") %>
   </div>
 <% end %>
+
+<div>
+  <h3 class="inline-block">
+    <%= t("admin.open_gov.articles.index.projects") %>
+  </h3>
+
+  <%= link_to t("admin.open_gov.articles.index.create_project"),
+    new_admin_open_gov_project_path,
+    class: "button float-right"
+  %>
+</div>
+
+<% if @projects.any? %>
+  <table>
+    <thead>
+      <th class="small-9">
+        <%= t("admin.open_gov.articles.index.project_title") %>
+      </th>
+      <th class="text-center"><%= t("admin.actions.actions") %></th>
+    </thead>
+    <tbody>
+      <% @projects.each do |project| %>
+        <tr id="<%= dom_id(project) %>">
+          <td>
+            <%= project.title%>
+          </td>
+          <td class="text-center">
+            <%= link_to t("admin.actions.edit"),
+              edit_admin_open_gov_project_path(project),
+              class: "button hollow small"
+            %>
+            <%= link_to t("admin.actions.delete"),
+              admin_open_gov_project_path(project),
+              method: :delete,
+              "data-confirm": t("admin.open_gov.articles.delete.project_alert"),
+              class: "button hollow alert small"
+            %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% else %>
+  <div class="callout primary margin-top clear">
+    <%= t("admin.open_gov.articles.index.no_projects") %>
+  </div>
+<% end %>

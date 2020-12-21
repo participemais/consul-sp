@@ -273,5 +273,6 @@ namespace :admin do
 
   namespace :open_gov do
     resources :articles
+    resources :projects, only: [:new, :create, :edit, :update, :destroy]
   end
 end

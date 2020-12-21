@@ -1694,8 +1694,12 @@ pt-BR:
           articles: Artigos
           article_title: Título
           create: Novo artigo
+          create_project: Novo projeto
           created_at: Data de criação
+          project_title: Título
+          projects: Projetos
           no_articles: Nenhum artigo cadastrado
+          no_projects: Nenhum projeto cadastrado
           title: Governo Aberto
         new:
           title: Criar artigo
@@ -1708,5 +1712,20 @@ pt-BR:
         delete:
           notice: Artigo excluído com sucesso
           alert: Tem certeza que deseja apagar este artigo?
+          project_alert: Tem certeza que deseja apagar este projeto?
+        form:
+          save: Salvar
+      projects:
+        new:
+          title: Criar projeto
+        create:
+          notice: Projeto criado com sucesso
+        edit:
+          title: Editar projeto
+        update:
+          notice: Projeto editado com sucesso
+        delete:
+          notice: Projeto excluído com sucesso
+          alert: Tem certeza que deseja apagar este projeto?
         form:
           save: Salvar
