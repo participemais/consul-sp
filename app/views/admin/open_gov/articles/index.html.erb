@@ -2,11 +2,40 @@
   <%= t("admin.header.title") %> - <%= t("admin.menu.open_gov") %> %>
 <% end %>
 
-<h2 class="inline-block"><%= t("admin.open_gov.articles.index.title") %></h2>
+<h2><%= t("admin.open_gov.articles.index.title") %></h2>
 
-<%= link_to t("admin.open_gov.articles.index.create"),
-  new_admin_open_gov_article_path,
-  class: "button float-right"
-%>
+<%= render "subnav", active: "articles" %>
 
-<%= render "subnav" %>
+<div>
+  <h3 class="inline-block">
+    <%= t("admin.open_gov.articles.index.articles") %>
+  </h3>
+
+  <%= link_to t("admin.open_gov.articles.index.create"),
+    new_admin_open_gov_article_path,
+    class: "button float-right"
+  %>
+</div>
+
+<% if @articles.any? %>
+  <table>
+    <thead>
+      <th>
+        <%= t("admin.open_gov.articles.index.created_at") %>
+      </th>
+      <th class="small-8">
+        <%= t("admin.open_gov.articles.index.article_title") %>
+      </th>
+      <th class="text-center"><%= t("admin.actions.actions") %></th>
+    </thead>
+    <tbody>
+      <% @articles.each do |article| %>
+        <%= render "article", article: article %>
+      <% end %>
+    </tbody>
+  </table>
+<% else %>
+  <div class="callout primary margin-top clear">
+    <%= t("admin.open_gov.articles.index.no_articles") %>
+  </div>
+<% end %>
