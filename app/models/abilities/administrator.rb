@@ -111,6 +111,8 @@ module Abilities
 
       can :manage, LocalCensusRecord
       can [:create, :read], LocalCensusRecords::Import
+
+      can [:manage], OpenGov::Article
     end
   end
 end

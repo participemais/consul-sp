@@ -1,5 +1,7 @@
 class Admin::OpenGov::ArticlesController < Admin::BaseController
 
+  load_and_authorize_resource class: "OpenGov::Article"
+
   before_action :load_article, only: [:show, :edit, :update, :destroy]
 
   def index
