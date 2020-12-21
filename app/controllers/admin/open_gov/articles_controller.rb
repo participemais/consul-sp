@@ -6,6 +6,7 @@ class Admin::OpenGov::ArticlesController < Admin::BaseController
 
   def index
     @articles = OpenGov::Article.all
+    @projects = OpenGov::Project.all
   end
 
   def new
