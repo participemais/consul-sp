@@ -8,4 +8,6 @@
 
 <h2><%= @article.title %></h2>
 
-<%= wysiwyg(@article.text) %>
+<%= auto_link_already_sanitized_html(
+  AdminWYSIWYGSanitizer.new.sanitize(@article.text)
+) %>
