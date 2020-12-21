@@ -1687,6 +1687,26 @@ pt-BR:
         local_census_records:
           no_records_found: Nenhum registro encontrado
     open_gov:
+      subnav:
+        articles: Governo Aberto em São Paulo
       articles:
         index:
+          articles: Artigos
+          article_title: Título
+          create: Novo artigo
+          created_at: Data de criação
+          no_articles: Nenhum artigo cadastrado
           title: Governo Aberto
+        new:
+          title: Criar artigo
+        create:
+          notice: Artigo criado com sucesso
+        edit:
+          title: Editar artigo
+        update:
+          notice: Artigo editado com sucesso
+        delete:
+          notice: Artigo excluído com sucesso
+          alert: Tem certeza que deseja apagar este artigo?
+        form:
+          save: Salvar

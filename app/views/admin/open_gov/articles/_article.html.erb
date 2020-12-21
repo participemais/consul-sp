@@ -1,0 +1,22 @@
+<tr id="<%= dom_id(article) %>">
+  <td>
+    <%= l article.created_at.to_date %>
+  </td>
+  <td class="small-8">
+    <strong>
+      <%= link_to article.title, admin_open_gov_article_path(article) %>
+    </strong>
+  </td>
+  <td class="text-center">
+    <%= link_to t("admin.actions.edit"),
+      edit_admin_open_gov_article_path(article),
+      class: "button hollow small"
+    %>
+    <%= link_to t("admin.actions.delete"),
+      admin_open_gov_article_path(article),
+      method: :delete,
+      "data-confirm": t("admin.open_gov.articles.delete.alert"),
+      class: "button hollow alert small"
+    %>
+  </td>
+</tr>

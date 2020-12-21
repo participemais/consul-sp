@@ -587,6 +587,9 @@ pt-BR:
           male: Masculino
           non_binary: Não-binário
           unknown: Não declarado
+      open_gov/article:
+        title: Título
+        text: Texto
     errors:
       models:
         user:
