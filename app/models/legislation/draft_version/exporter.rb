@@ -17,7 +17,9 @@ class Legislation::DraftVersion::Exporter
         csv << ANNOTATION_COLUMNS.map { |column| header_translation(column) }
 
         @draft_version.annotations.each do |annotation|
-          csv << annotation_csv_row(@draft_version, annotation)
+          annotation.comments.each do |comment|
+            csv << annotation_csv_row(@draft_version, annotation, comment.body)
+          end
         end
       end
     end
@@ -30,12 +32,12 @@ class Legislation::DraftVersion::Exporter
   NO_ANNOTATION_COLUMNS = %w(id title comment).freeze
 
 
-  def annotation_csv_row(draft_version, annotation)
+  def annotation_csv_row(draft_version, annotation, comment)
     [
       draft_version.id.to_s,
       draft_version.title,
       sanitize_description(annotation.context),
-      annotation.text,
+      comment,
       annotation.author.name
     ]
   end
