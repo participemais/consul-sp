@@ -40,6 +40,10 @@ class Admin::OpenGov::ArticlesController < Admin::BaseController
       notice: t("admin.open_gov.articles.delete.notice")
   end
 
+  def participations
+
+  end
+
   private
 
   def article_params
