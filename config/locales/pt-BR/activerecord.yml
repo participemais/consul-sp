@@ -486,7 +486,7 @@ pt-BR:
       legislation/question_option:
         value: Valor
       legislation/annotation:
-        text: Comentar
+        text: Comentário
       legislation/topic:
         title: Título
         description: Texto
