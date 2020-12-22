@@ -124,16 +124,16 @@ describe Poll do
     end
   end
 
-  describe "#current_or_recounting" do
+  describe "#not_expired_or_recounting" do
     it "returns current or recounting polls" do
       current = create(:poll, :current)
       expired = create(:poll, :expired)
       recounting = create(:poll, :recounting)
 
-      current_or_recounting = Poll.current_or_recounting
+      not_expired_or_recounting = Poll.not_expired_or_recounting
 
-      expect(current_or_recounting).to match_array [current, recounting]
-      expect(current_or_recounting).not_to include(expired)
+      expect(not_expired_or_recounting).to match_array [current, recounting]
+      expect(not_expired_or_recounting).not_to include(expired)
     end
   end
 

@@ -1103,21 +1103,6 @@ es:
         table_booth_name: "Urna"
         table_total_recount: "Recuento total (presidente de mesa)"
         table_system_count: "Votos (automático)"
-    results:
-      index:
-        title: "Resultados"
-        no_results: "No hay resultados"
-      result:
-        table_whites: "Papeletas totalmente en blanco"
-        table_nulls: "Papeletas nulas"
-        table_total: "Papeletas válidas"
-        table_answer: Respuesta
-        table_votes: Votos
-      results_by_booth:
-        booth: Urna
-        results: Resultados
-        see_results: Ver resultados
-        title: "Resultados por urna"
     booths:
       index:
         title: "Listado de urnas activas"

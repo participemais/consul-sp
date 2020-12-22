@@ -96,14 +96,14 @@
                 <div class="small-6 medium-4 column">
                   <%= f.select(
                     :gender,
-                    options_for_gender,
+                    options_for_gender(@account),
                     include_blank: true
                   ) %>
                 </div>
                 <div class="small-6 medium-4 column">
                   <%= f.select(
                     :ethnicity,
-                    options_for_ethnicity,
+                    options_for_ethnicity(@account),
                     include_blank: true
                   ) %>
                 </div>
