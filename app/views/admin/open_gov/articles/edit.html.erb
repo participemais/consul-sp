@@ -1,0 +1,21 @@
+<% provide :title do %>
+  <%= t("admin.header.title") %> - <%= t("admin.menu.open_gov") %> %>
+<% end %>
+
+<div>
+
+  <%= back_link_to(
+    admin_open_gov_articles_path, t("shared.back")
+  ) %>
+
+  <h2><%= t("admin.open_gov.articles.index.title") %></h2>
+
+  <%= render "/admin/open_gov/subnav", active: "articles" %>
+
+  <h2>
+    <%= t("admin.open_gov.articles.new.title") %>
+  </h2>
+
+  <%= render 'form', url: admin_open_gov_article_path(@article) %>
+
+</div>

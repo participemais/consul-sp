@@ -277,4 +277,11 @@ namespace :admin do
   namespace :local_census_records do
     resources :imports, only: [:new, :create, :show]
   end
+
+  namespace :open_gov do
+    resources :articles do
+      get :participations, on: :collection
+    end
+    resources :projects, only: [:new, :create, :edit, :update, :destroy]
+  end
 end

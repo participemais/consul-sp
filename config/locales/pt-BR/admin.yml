@@ -696,6 +696,7 @@ pt-BR:
       proposals: Propostas
       proposals_topics: Tópicos de propostas
       budgets: Orçamento Cidadão
+      open_gov: Governo Aberto
       geozones: Gerenciar geozonas
       hidden_comments: Comentários ocultos
       hidden_debates: Debates ocultos
@@ -1702,3 +1703,47 @@ pt-BR:
           import: Importar eleitores por CSV
         local_census_records:
           no_records_found: Nenhum registro encontrado
+    open_gov:
+      subnav:
+        articles: Governo Aberto em São Paulo
+        participations: Participação social em São Paulo
+      articles:
+        index:
+          articles: Artigos
+          article_title: Título
+          create: Novo artigo
+          create_project: Novo projeto
+          created_at: Data de criação
+          project_title: Título
+          projects: Projetos
+          no_articles: Nenhum artigo cadastrado
+          no_projects: Nenhum projeto cadastrado
+          title: Governo Aberto
+        new:
+          title: Criar artigo
+        create:
+          notice: Artigo criado com sucesso
+        edit:
+          title: Editar artigo
+        update:
+          notice: Artigo editado com sucesso
+        delete:
+          notice: Artigo excluído com sucesso
+          alert: Tem certeza que deseja apagar este artigo?
+          project_alert: Tem certeza que deseja apagar este projeto?
+        form:
+          save: Salvar
+      projects:
+        new:
+          title: Criar projeto
+        create:
+          notice: Projeto criado com sucesso
+        edit:
+          title: Editar projeto
+        update:
+          notice: Projeto editado com sucesso
+        delete:
+          notice: Projeto excluído com sucesso
+          alert: Tem certeza que deseja apagar este projeto?
+        form:
+          save: Salvar
