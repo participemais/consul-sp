@@ -21,13 +21,11 @@
         <span><%= t("legislation.draft_versions.show.updated_at", date: format_date(@draft_version.updated_at)) %></span>
       </div>
       <div class="small-12 medium-3 column">
-        <%= link_to legislation_process_draft_version_path(@process, @draft_version), title: t(".see_text"), class: "button" do %>
+        <%= link_to legislation_process_draft_version_path(@process, @draft_version), title: t(".see_text"), class: "button expanded" do %>
           <strong><%= t(".see_text") %></strong>
         <% end %>
       </div>
     </div>
-
-    <%= render "legislation/processes/help_gif" %>
 
     <div class="row">
       <div class="small-12 medium-8 column legislation-changes">
