@@ -34,7 +34,7 @@
     </div>
 
     <div class="small-12 column text-preview">
-      <%= sanitize(@draft_version.body) %>
+      <%= AdminWYSIWYGSanitizer.new.sanitize(@draft_version.body) %>
     </div>
   </div>
 </div>
