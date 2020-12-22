@@ -14,7 +14,7 @@
   <% end %>
 
   <div class="proposal-votes">
-    <span class="total-votes">
+    <span class="total-votes center">
       <%= t("proposals.proposal.votes", count: proposal.votes_score) %>
     </span>
 
@@ -42,9 +42,11 @@
     <% end %>
 
     <% if user_voted_for && setting["twitter_handle"] %>
-      <div class="supported callout success">
-        <%= t("legislation.processes.proposals.already_supported") %>
-      </div>
+      <% if @process.proposals_phase.open? %>
+        <div class="supported callout success">
+          <%= t("legislation.processes.proposals.already_supported") %>
+        </div>
+      <% end %>
 
       <div class="share-supported">
         <%= render "shared/social_share",
