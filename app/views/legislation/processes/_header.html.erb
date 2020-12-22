@@ -63,7 +63,7 @@
           <%= t("legislation.processes.shared.draft_publication_date") %>
         </p>
         <p>
-          <%= link_to draft_publication_legislation_process_path(process), style: "color: #{process.font_color};" do %>
+          <%= link_to draft_publication_legislation_process_path(process, anchor: "process-list"), style: "color: #{process.font_color};" do %>
             <strong><%= format_date(process.draft_publication_date) %></strong>
           <% end %>
         </p>
@@ -75,7 +75,7 @@
           <%= t("legislation.processes.shared.result_publication_date") %>
         </p>
         <p>
-          <%= link_to result_publication_legislation_process_path(process), style: "color: #{process.font_color};" do %>
+          <%= link_to result_publication_legislation_process_path(process, anchor: "process-list"), style: "color: #{process.font_color};" do %>
             <strong><%= format_date(process.result_publication_date) %></strong>
           <% end %>
         </p>
