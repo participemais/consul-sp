@@ -380,7 +380,7 @@ a {
 
     &:hover {
       background: none;
-      color: $brand;
+      color: $text;
       text-decoration: none;
     }
 
@@ -2093,25 +2093,18 @@ table {
 .verify-account {
   padding-right: $line-height / 2;
 
-  .already-verified {
+  .icon-check {
+    font-size: rem-calc(24);
+    line-height: rem-calc(45);
+    vertical-align: middle;
     color: $check;
-    line-height: $line-height * 2;
-
-    .icon-check {
-      font-size: rem-calc(24);
-      line-height: rem-calc(45);
-      vertical-align: middle;
-    }
   }
 
-  .unverified {
-    line-height: $line-height * 2;
-
-    .icon-x {
-      font-size: rem-calc(24);
-      line-height: rem-calc(45);
-      vertical-align: middle;
-    }
+  .icon-x {
+    font-size: rem-calc(24);
+    line-height: rem-calc(45);
+    vertical-align: middle;
+    color: $delete;
   }
 }
 

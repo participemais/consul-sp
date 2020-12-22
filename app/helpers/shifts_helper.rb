@@ -1,8 +1,9 @@
 module ShiftsHelper
   def shift_vote_collection_dates(booth, polls)
     return [] if polls.blank?
-
-    date_options((start_date(polls)..end_date(polls)), Poll::Shift.tasks[:vote_collection], booth)
+    date_options(
+      dates_interval(polls), Poll::Shift.tasks[:vote_collection], booth
+    )
   end
 
   def shift_recount_scrutiny_dates(booth, polls)
@@ -23,17 +24,19 @@ module ShiftsHelper
     dates.reject { |date| officer_shifts(task_id, booth).include?(date) }
   end
 
-  def start_date(polls)
-    start_date = polls.map(&:starts_at).min.to_date
-    start_date < Date.current ? Date.current : start_date
-  end
-
-  def end_date(polls)
-    polls.map(&:ends_at).max.to_date
-  end
-
   def officer_select_options(officers)
     officers.map { |officer| [officer.name, officer.id] }
+  end
+
+  def dates_interval(polls)
+    polls.reduce([]) do |dates, poll|
+      dates.push(*[*(shift_starts_at(poll)..poll.ends_at.to_date)])
+    end.uniq.sort
+  end
+
+  def shift_starts_at(poll)
+    start_date = poll.starts_at.to_date
+    start_date < Date.current ? Date.current : start_date
   end
 
   private

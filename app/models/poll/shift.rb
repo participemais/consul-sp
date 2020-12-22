@@ -2,6 +2,7 @@ class Poll
   class Shift < ApplicationRecord
     belongs_to :booth
     belongs_to :officer
+    has_many :polls, through: :booth
 
     validates :booth_id, presence: true
     validates :officer_id, presence: true
@@ -15,6 +16,14 @@ class Poll
     before_create :persist_data
     after_create :create_officer_assignments
     before_destroy :destroy_officer_assignments
+
+    def polls_related_to_task
+      if task == "vote_collection"
+        polls.date_between(date)
+      else
+        polls.recount_interval(date)
+      end
+    end
 
     def persist_data
       self.officer_name = officer.name
