@@ -46,6 +46,15 @@
   padding-left: $line-height !important;
 }
 
+.half-margin-top {
+  margin-top: $line-height / 2 !important;
+}
+
+.margin-auto {
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
 .subprefecture-label {
   color: $white;
   cursor: pointer;
@@ -244,6 +253,11 @@
   margin-bottom: -$line-height / 3;
 }
 
+.download-proposals-link {
+  margin-top: -$line-height / 2;
+  margin-bottom: 0;
+}
+
 .feasibility-analysis {
   margin-left: $line-height / 2;
   padding: 0 $line-height / 2;
@@ -344,6 +358,14 @@
 .purple-font {
   color: $purple;
 }
+
+.subprefecture-headings {
+  border-right: 1px solid $border;
+
+  .menu {
+    margin: 0;
+    padding: 0;
+  }
 
 .warning-mail {
   background: $warning-bg;

@@ -1296,7 +1296,10 @@ form {
   background: $alert-bg;
   color: $color-alert;
   float: right;
-  padding: 0 $line-height / 4;
+
+  &.small {
+    padding: 0 $line-height / 4;
+  }
 
   a {
     color: $color-alert;
@@ -1517,8 +1520,8 @@ form {
     margin-bottom: 0;
     margin-top: $line-height / 4;
     position: absolute;
-    right: 0;
-    top: -3px;
+    right: 3px;
+    top: -5px;
   }
 }
 
