@@ -1,0 +1,18 @@
+<% provide :title do %>
+  <%= t("admin.header.title") %> - <%= t("admin.menu.open_gov") %> %>
+<% end %>
+
+<h2><%= t("admin.open_gov.articles.index.title") %></h2>
+
+<%= render "/admin/open_gov/subnav", active: "articles" %>
+
+<div>
+  <h3 class="inline-block">
+    <%= t("admin.open_gov.articles.participations.title") %>
+  </h3>
+
+  <%= link_to t("admin.open_gov.articles.index.create"),
+    new_admin_open_gov_article_path,
+    class: "button float-right"
+  %>
+</div>
