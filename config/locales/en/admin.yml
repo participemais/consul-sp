@@ -1104,21 +1104,6 @@ en:
         table_booth_name: "Booth"
         table_total_recount: "Total recount (by officer)"
         table_system_count: "Votes (automatic)"
-    results:
-      index:
-        title: "Results"
-        no_results: "There are no results"
-      result:
-        table_whites: "Totally blank ballots"
-        table_nulls: "Invalid ballots"
-        table_total: "Valid ballots"
-        table_answer: Answer
-        table_votes: Votes
-      results_by_booth:
-        booth: Booth
-        results: Results
-        see_results: See results
-        title: "Results by booth"
     booths:
       index:
         title: "List of active booths"

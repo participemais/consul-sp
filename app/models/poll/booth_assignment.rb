@@ -11,12 +11,35 @@ class Poll
     has_many :partial_results
     has_many :recounts
 
+    # def booth_name
+    delegate :name, to: :booth, prefix: true
+
     def shifts?
       shifts.empty? ? false : true
     end
 
     def unable_to_destroy?
       (partial_results.count + recounts.count).positive?
+    end
+
+    def total_booth_valid
+      recounts.sum(:total_amount)
+    end
+
+    def total_booth_white
+      recounts.sum(:white_amount)
+    end
+
+    def total_booth_null
+      recounts.sum(:null_amount)
+    end
+
+    def total_participants_booth
+      total_booth_valid + total_booth_white + total_booth_null
+    end
+
+    def total_registered_booth
+      voters.where(origin: "booth").count
     end
 
     private

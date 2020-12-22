@@ -15,7 +15,7 @@ pt-BR:
       configure: Configurar
       delete: Apagar
     officing_booth:
-      title: "Você é responsável pela cabine localizada em %{booth}. Se isto estiver errado, não faça nada e peça ajuda por telefone. Obrigado."
+      title: "Você é responsável pela cabine localizada em %{booth}. Se isto estiver errado, não faça nada e nos informe pelo %{email}. Obrigado."
     banners:
       index:
         title: Banners
@@ -204,7 +204,7 @@ pt-BR:
           valuation_group: Grupo de avaliação
           geozone: Subprefeitura
           feasibility: Viabilidade
-          valuation_finished: Valor Final.
+          valuation_finished: Avaliação concluída
           selected: Selecionado
           visible_to_valuators: Disponível para avaliadores
           author_username: Username do autor
@@ -217,7 +217,7 @@ pt-BR:
         assigned_admin: Administrador designado
         assigned_valuators: Avaliadores designados
         classification: Classificação
-        info: "%{budget_name} - Grupo: %{group_name} - Projeto de investimento %{id}"
+        info: "%{budget_name} - Grupo: %{group_name} - Proposta %{id}"
         edit: Editar
         edit_classification: Editar classificação
         by: Por
@@ -254,13 +254,13 @@ pt-BR:
     milestones:
       index:
         table_id: "ID"
-        table_title: "Título"
+        table_title: "Última atualização"
         table_description: "Descrição"
-        table_publication_date: "Data de publicação"
+        table_publication_date: "Data da etapa"
         table_status: Etapas
         table_actions: "Ações"
-        delete: "Deletar etapas"
-        no_milestones: "Não possui etapas definidos"
+        delete: "Deletar etapa"
+        no_milestones: "Não há etapas definidas"
         image: "Imagem"
         show_image: "Mostrar imagem"
         documents: "Documentos"
@@ -268,39 +268,44 @@ pt-BR:
         new_milestone: Criar etapa
         milestone_tags: Etapas de andamento
       form:
-        admin_statuses: Etapas dos investimentos para administrador
+        admin_statuses: Acesso ao catálogo de status de monitoramento
         no_statuses_defined: Ainda não há status de investimento definidos
+        submit: Atualizar etapa
       new:
-        creating: Criar marco
+        creating: Criar etapa
       edit:
-        title: Editar marco
+        title: Editar etapa
       create:
-        notice: Novo marco criado com sucesso!
+        notice: Nova etapa criada com sucesso!
       update:
-        notice: Marco atualizado com sucesso
+        notice: Etapa atualizada com sucesso
       delete:
-        notice: Marco excluído com sucesso
+        notice: Etapa excluída com sucesso
     statuses:
       index:
-        title: Status de investimento
-        empty_statuses: Ainda não há status de investimento definidos
-        new_status: Criar novo status de investimento
+        title: Catálogo de status de monitoramento
+        empty_statuses: Ainda não há status de monitoramento definidos
+        new_status: Criar novo status
         table_name: Nome
         table_description: Descrição
         table_actions: Ações
         delete: Apagar
         edit: Editar
       edit:
-        title: Editar status de investimento
+        title: Editar status de monitoramento
       update:
-        notice: Situação de investimento atualizada com sucesso
+        notice: Status de monitoramento atualizado com sucesso
       new:
-        title: Criar status de investimento
+        title: Criar status de monitoramento
       create:
-        notice: Status de investimento criado com sucesso
+        notice: Status de monitoramento criado com sucesso
       delete:
-        notice: Status de investimento excluído com sucesso
+        notice: Status de monitoramento excluído com sucesso
+        error: Não foi possível excluir o status porque ele está sendo usado em algum processo
+      form:
+        submit: Criar status
     progress_bars:
+      manage: "Gerenciar barras de progresso"
       index:
         title: "Barras de progresso"
         no_progress_bars: "Não existem barras de progresso"
@@ -312,6 +317,16 @@ pt-BR:
         table_percentage: "Posição atual"
       new:
         creating: "Criar barra de progresso"
+      edit:
+        title:
+          primary: "Editar barra de progresso primária"
+          secondary: "Editar barra de progresso %{title}"
+      create:
+        notice: "Barra de progresso criada com sucesso"
+      update:
+        notice: "Barra de progresso atualizada com sucesso"
+      delete:
+        notice: "Barra de progresso excluída com sucesso"
     departments:
       index:
         title: Órgãos públicos
@@ -721,6 +736,7 @@ pt-BR:
       users: Usuários
       debates: "Debates"
       comments: "Comentários"
+      local_census_records: Colégio eleitoral presencial
     administrators:
       index:
         title: Administradores
@@ -942,12 +958,14 @@ pt-BR:
         table_shift: "Turno"
         table_email: "Email"
         table_name: "Nome"
+        processes: "Processos"
       flash:
         create: "Turno adicionado"
         destroy: "Turno removido"
+        unable_to_destroy: "Não é possível apagar turnos de uma urna que já tenha resultados adicionados"
         date_missing: "Uma data deve ser selecionada"
       vote_collection: Coletar votos
-      recount_scrutiny: Recontagem e Escrutínio
+      recount_scrutiny: Adicionar resultados
     booth_assignments:
       manage_assignments: Gerenciar atribuições
       manage:
@@ -967,18 +985,22 @@ pt-BR:
         officers: "Presidentes"
         officers_list: "Lista de presidentes para esta urna"
         no_officers: "Não há presidentes para esta urna"
-        recounts: "Recontagens"
-        recounts_list: "Recontar lista para esta urna"
+        recounts: "Votos recebidos"
+        recounts_list: "Votos recebidos nesta urna"
         results: "Resultados"
         date: "Data"
-        count_final: "Recontagem final (por presidente)"
-        count_by_system: "Votos (automático)"
-        total_system: Total de votos (automático)
+        count_final: "Número de cédulas"
+        count_by_system: "Eleitores presenciais com documento validado"
+        total_system: Total de eleitores presenciais com documento validado
       index:
         booths_title: "Lista de urnas"
         no_booths: "Não há urnas atribuídas a esta votação."
         table_name: "Nome"
         table_location: "Localização"
+    results:
+      index:
+        title: "Resultado desta urna"
+        no_results: "Nenhum resultado"
     active_polls:
       edit:
         title: "Adicionar descrição"
@@ -1034,7 +1056,7 @@ pt-BR:
         questions_tab: Perguntas
         booths_tab: Urnas
         officers_tab: Presidentes
-        recounts_tab: Recontar
+        recounts_tab: Votação presencial
         results_tab: Resultados
         no_questions: "Não há perguntas atribuídas a esta votação."
         questions_title: "Lista de perguntas"
@@ -1140,36 +1162,32 @@ pt-BR:
           title: Editar vídeo
     recounts:
       index:
-        title: "Recontagens"
+        title: "Votos recebidos nas urnas presenciais"
         no_recounts: "Não há nada para ser recontado"
-        total_final: "Recontagens finais"
-        total_system: "Votos (automático)"
+        total_final: "Total de cédulas"
+        total_system: "Eleitores presenciais com documento validado"
         table_booth_name: "Urna"
-        table_total_recount: "Recontagem total (por presidente)"
-        table_system_count: "Votos (automático)"
-    results:
-      index:
-        title: "Resultados"
-        no_results: "Não há resultados"
-      result:
-        table_whites: "Cédulas completamente em branco"
-        table_nulls: "Cédulas inválidas"
-        table_total: "Total de cédulas"
-        table_answer: Resposta
-        table_votes: Votos
-      results_by_booth:
-        booth: Urna
-        results: Resultados
-        see_results: Exibir resultados
-        title: "Resultados por urna"
+        table_total_recount: "Número de cédulas"
+        table_system_count: "Documentos validados"
+        all_booths_total: Resultado dessa urna
+        white_final: "Cédulas em branco"
+        null_final: "Cédulas inválidas"
+        table_answer: "Resposta"
+        table_votes: "Votos"
+        results_by_booth: "Resultados por urna"
+        difference_explanation: "Justificativa para a quantidade diferente de eleitores que votaram presencialmente e o total de cédulas"
+        table_total_count: "Total de cédulas: %{count}"
+        table_electors_count: "Eleitores: %{count}"
+        table_booth: "Urna: %{name}"
     booths:
       index:
         title: "Lista de cabines ativas"
-        no_booths: "Não jhá cabines ativas para nenhuma votação futura."
+        no_booths: "Não há cabines ativas para nenhuma votação futura."
         add_booth: "Adicionar urna"
         name: "Nome"
         location: "Localização"
         no_location: "Sem localização"
+        processes: "Processos"
       new:
         title: "Nova urna"
         submit_button: "Criar urna"
@@ -1237,7 +1255,7 @@ pt-BR:
         author: Autor
         select: Selecionar
         selected: Selecionado
-        milestones: Marcos
+        milestones: Monitoramento
         no_proposals: Não existem propostas.
       form:
         update: Atualizar proposta
@@ -1325,7 +1343,7 @@ pt-BR:
       delete: Apagar
       color_help: Formato hexadecimal
       show_results_and_stats: "Exibir resultados e estatísticas"
-      results_and_stats_reminder: "Ao marcar estas caixas de seleção, os resultado e/ou estatísticas estarão disponíveis publicamente assim que o processo estiver encerrado."
+      results_and_stats_reminder: "Ao marcar estas caixas de seleção, o resultado e as estatísticas serão publicados assim que o processo estiver encerrado."
     geozones:
       index:
         title: Geozona
@@ -1598,15 +1616,45 @@ pt-BR:
       auditable_id: ID do registro
     local_census_records:
       index:
-        document_type: Tipo do documento
-        document_number: Número do documento
-        date_of_birth: Data de nascimento
+        title: Colégio eleitoral presencial
+        create: Adicionar eleitor
+        document_type: Tipo
+        document_number: Documento
+        date_of_birth: Nascimento
         postal_code: CEP
+        ethnicity: Raça
+        gender: Gênero
         search:
           placeholder: Pesquisar por número de documento
           search: Pesquisar
         import: Importar CSV
       new:
-        creating: Criando novo registro de censo local
+        creating: Criar eleitor
       create:
-        notice: Novo registro de censo local criado com sucesso!
+        notice: Eleitor criado com sucesso
+      edit:
+        editing: Editar eleitor
+      update:
+        notice: Eleitor atualizado com sucesso
+      destroy:
+        notice: Eleitor excluído com sucesso
+      errors:
+        invalid_date: Formato da data inválido
+      imports:
+        new:
+          title: Importar CSV de eleitores
+          info: "O arquivo deve conter os seguintes cabeçalhos: %{required_headers}"
+          gender_info: "Opções de gênero válidas: %{gender_options}"
+          ethnicity_info: "Opções de raça válidas: %{ethnicity_options}"
+          date_format_info: "Formato da data de nascimento: dd/mm/aaaa"
+          load_info: A importação pode demorar alguns minutos
+        create:
+          notice: Importação de eleitores realizada com sucesso
+        show:
+          title: Importação de eleitores
+          subtitle: Resultado
+          errored: Eleitores inválidos
+          created: Eleitores adicionados
+          import: Importar eleitores por CSV
+        local_census_records:
+          no_records_found: Nenhum registro encontrado

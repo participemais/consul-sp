@@ -51,9 +51,6 @@ en:
         all_phases: See all phases
       all_phases: Budget investment's phases
       map: Budget investments' proposals located geographically
-      investment_proyects: List of all investment projects
-      unfeasible_investment_proyects: List of all unfeasible investment projects
-      not_selected_investment_proyects: List of all investment projects not selected for balloting
       finished_budgets: Finished participatory budgets
       see_results: See results
       section_footer:
@@ -117,7 +114,6 @@ en:
         milestones_tab: Milestones
         author: Author
         project_selected: "This investment project <strong>has been selected</strong> for balloting phase."
-        project_winner: "Winning investment project"
         project_not_selected: "This investment project <strong>has not been selected</strong> for balloting phase."
         see_price_explanation: See price explanation
       wrong_price_format: Only integer numbers
@@ -177,9 +173,6 @@ en:
       filters:
         status:
           label: "Project's current state"
-          all: "All (%{count})"
-        milestone_tag:
-          label: "Milestone tag"
           all: "All (%{count})"
     phases:
       errors:

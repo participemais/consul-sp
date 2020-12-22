@@ -19,7 +19,7 @@
       </tr>
     </thead>
     <tbody>
-      <% progressable.progress_bars.each do |progress_bar| %>
+      <% progressable.progress_bars.order(:id).each do |progress_bar| %>
         <tr id="<%= dom_id(progress_bar) %>" class="progress-bar">
           <td>
             <%= progress_bar.id %>

@@ -5,6 +5,13 @@
   <td>
     <%= booth.location %>
   </td>
+  <td>
+    <ul>
+      <% booth.polls_not_expired_or_recounting.each do |poll| %>
+        <li><%= poll.name %></li>
+      <% end %>
+    </ul>
+  </td>
   <td class="text-right">
     <% if controller_name == "shifts" || controller_name == "booths" && action_name == "available" %>
       <%= link_to t("admin.booths.booth.shifts"),
