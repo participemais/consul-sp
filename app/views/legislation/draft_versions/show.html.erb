@@ -17,7 +17,7 @@
             <%= submit_tag t(".select_version_submit"), class: "button" %>
           <% end %>
           <% if @draft_version.changelog.present? %>
-            <span><%= link_to t(".see_changes"), legislation_process_draft_version_changes_path(@process, @draft_version), class: "see-changes" %></span>
+            <span><%= link_to t(".see_changes"), legislation_process_draft_version_changes_path(@process, @draft_version,  anchor: "comments"), class: "see-changes" %></span>
           <% end %>
         </div>
         <span><%= t(".updated_at", date: format_date(@draft_version.updated_at)) %></span>
@@ -25,7 +25,7 @@
 
       <% unless @draft_version.final_version? %>
         <div class="small-12 medium-3 column">
-          <%= link_to legislation_process_draft_version_annotations_path(@process, @draft_version), title: t(".see_comments"), class: "button expanded" do %>
+          <%= link_to legislation_process_draft_version_annotations_path(@process, @draft_version, anchor: "comments"), title: t(".see_comments"), class: "button expanded" do %>
             <strong><%= t(".see_comments") %></strong>
           <% end %>
         </div>
@@ -33,7 +33,11 @@
 
     </div>
 
-    <%= render "legislation/processes/help_gif" %>
+    <% if !@draft_version.final_version? %>
+      <%= render "legislation/processes/help_gif" %>
+    <% else %>
+      <div class="margin-bottom"></div>
+    <% end %>
 
     <% if !@process.allegations_phase.open? && !@draft_version.final_version? %>
       <ul class="small">
@@ -76,7 +80,7 @@
                    data-legislation-annotatable-base-url="<%= legislation_process_draft_version_path(@process, @draft_version) %>"
                    data-legislation-open-phase="<%= @process.allegations_phase.open? %>">
           <% end %>
-            <%= sanitize(@draft_version.body_html, { attributes: ["id"] }) %>
+            <%= AdminWYSIWYGSanitizer.new.sanitize(@draft_version.body_html) %>
           </section>
         </div>
       </div>
