@@ -552,24 +552,6 @@
           left: 24px;
         }
       }
-
-      a {
-        color: $text;
-
-        &:hover,
-        &:active,
-        &:focus {
-          text-decoration: none;
-
-          h3 {
-            color: $text;
-          }
-
-          .anchor::before {
-            display: block;
-          }
-        }
-      }
     }
 
     .calc-comments {
