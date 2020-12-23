@@ -523,6 +523,7 @@
 
       h1 {
         font-family: $subheader-font-family;
+        font-size: rem-calc(28);
       }
 
       h2 {
@@ -530,13 +531,14 @@
         margin-bottom: rem-calc(32);
         margin-top: rem-calc(32);
         font-family: $subheader-font-family;
-
+        font-size: rem-calc(23);
       }
 
       h3 {
         font-weight: 350;
         margin-bottom: rem-calc(16);
         font-family: $subheader-font-family;
+        font-size: rem-calc(20);
       }
 
       .anchor::before {
