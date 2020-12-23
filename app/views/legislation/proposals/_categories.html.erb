@@ -5,7 +5,7 @@
 <ul id="categories" class="no-bullet categories">
 	<% customs_tags = @process.tag_list_on(:customs) %>
 	<% if customs_tags.any? %>
-		<p><%= t("admin.legislation.processes.index.tag_category_label") %></p>
+		<p class="tag-label"><%= t("admin.legislation.processes.index.tag_category_label") %></p>
 		<% @process.tag_list_on(:customs).each do |tag| %>
 			<li class="inline-block">
 			  <% tag_search = tag %>
@@ -18,7 +18,7 @@
 
 			  <% tag_search = "" if css_class == { class: "is-active" } %>
 			  <%= link_to tag,
-			              legislation_process_proposals_path(process_id: @process, search: tag_search),
+			              legislation_process_proposals_path(process_id: @process, search: tag_search, filter: params[:filter]),
 			              css_class || {} %>
 			</li>
 		<% end %>
@@ -27,7 +27,7 @@
 	<% subprefectures_tags = @process.tag_list_on(:subprefectures) %>
 	<% if subprefectures_tags.any? %>
 
-		<p><%= t("admin.legislation.processes.index.tag_subprefecture_label") %></p>
+		<p class="tag-label"><%= t("admin.legislation.processes.index.tag_subprefecture_label") %></p>
 		<% @process.tag_list_on(:subprefectures).each do |tag| %>
 			<li class="inline-block">
 			  <% tag_search = tag %>
@@ -41,7 +41,7 @@
 			  <% tag_search = "" if css_class == { class: "is-active" } %>
 
 			  <%= link_to tag,
-			              legislation_process_proposals_path(process_id: @process, search: tag_search),
+			              legislation_process_proposals_path(process_id: @process, search: tag_search, filter: params[:filter]),
 			              css_class || {} %>
 
 			</li>
@@ -50,7 +50,7 @@
 
 	<% districts_tags = @process.tag_list_on(:districts) %>
     <% if districts_tags.any? %>
-		<p><%= t("admin.legislation.processes.index.tag_district_label") %></p>
+		<p class="tag-label"><%= t("admin.legislation.processes.index.tag_district_label") %></p>
 		<% @process.tag_list_on(:districts).each do |tag| %>
 			<li class="inline-block">
 			  <% tag_search = tag %>
@@ -64,7 +64,7 @@
 			  <% tag_search = "" if css_class == { class: "is-active" } %>
 
 			  <%= link_to tag,
-			              legislation_process_proposals_path(process_id: @process, search: tag_search),
+			              legislation_process_proposals_path(process_id: @process, search: tag_search, filter: params[:filter]),
 			              css_class || {} %>
 			</li>
 		<% end %>

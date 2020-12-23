@@ -5,15 +5,15 @@ class Legislation::Proposal::Exporter
 
   def initialize(proposals)
     @proposals = proposals
-    @image_url = ''
-    @documents = ['', '', ''] 
   end
 
   def to_csv
     CSV.generate(headers: true) do |csv|
       csv << PROPOSALS_COLUMNS.map { |column| header_translation(column) }
 
-      @proposals.each do |proposal|
+      @proposals.order(:created_at).each do |proposal|
+        @image_url = ''
+        @documents = ['', '', ''] 
         image_url(proposal.image)
         documents_url(proposal.documents)
         initialize_tags(proposal.tags)

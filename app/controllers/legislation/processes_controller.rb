@@ -148,9 +148,9 @@ class Legislation::ProcessesController < Legislation::BaseController
     @current_filter = "winners" if params[:filter].blank? && @proposals.winners.any?
 
     if @current_filter == "random"
-      @proposals = @proposals.page(params[:page]).order(:created_at)
+      @proposals = @proposals.page(params[:page]).order(created_at: :desc)
     else
-      @proposals = @proposals.send(@current_filter).page(params[:page])
+      @proposals = @proposals.order(created_at: :desc).send(@current_filter).page(params[:page])
     end
 
     if @process.proposals_phase.started? || (current_user&.administrator?)

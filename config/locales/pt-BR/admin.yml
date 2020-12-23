@@ -1508,7 +1508,7 @@ pt-BR:
         add_tag: Adicionar uma nova categoria de proposta
         edit_tag: Editar categoria
         title:
-          category: Categorias do tipo Categoria
+          category: Categorias do tipo Tema
           subprefecture: Categorias do tipo Subprefeitura
           district: Categorias do tipo Distrito
         topic: Temas

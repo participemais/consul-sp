@@ -2249,7 +2249,7 @@ table {
     &.is-author,
     &.is-admin,
     &.is-moderator {
-      background: rgba(70, 219, 145, 0.3);
+      background: none;
       padding: $line-height / 4 $line-height / 2;
     }
 
@@ -2258,13 +2258,13 @@ table {
     }
 
     &.level-5 {
-      background: rgba(255, 241, 204, 1);
+      background: none;
     }
 
     &.is-author,
     &.is-admin,
     &.is-moderator {
-      background: rgba(45, 144, 248, 0.15);
+      background: none;
     }
   }
 }

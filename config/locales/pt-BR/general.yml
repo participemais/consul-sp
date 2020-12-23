@@ -349,7 +349,7 @@ pt-BR:
       other: Outro
     form:
       proposal_responsible_name_note: "(indivudualmente ou como representante de um\ncoletivo; não será mostrado publicamente)"
-      proposal_summary_note: "(máximo de 200 caracteres)"
+      proposal_summary_note: "(máximo de 300 caracteres)"
       proposal_description_note: "(máximo de 2100 caracteres)"
       proposal_video_url_note: Você pode adicionar um link para o Youtube
       tag_category_label: "Categorias"

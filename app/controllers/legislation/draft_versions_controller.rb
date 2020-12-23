@@ -30,11 +30,11 @@ class Legislation::DraftVersionsController < Legislation::BaseController
     version = visible_draft_versions.find(params[:draft_version_id])
 
     if params[:redirect_action] == "changes"
-      redirect_to legislation_process_draft_version_changes_path(@process, version)
+      redirect_to legislation_process_draft_version_changes_path(@process, version, anchor: "process-list")
     elsif params[:redirect_action] == "annotations"
-      redirect_to legislation_process_draft_version_annotations_path(@process, version)
+      redirect_to legislation_process_draft_version_annotations_path(@process, version, anchor: "process-list")
     else
-      redirect_to legislation_process_draft_version_path(@process, version)
+      redirect_to legislation_process_draft_version_path(@process, version, anchor: "process-list")
     end
   end
 

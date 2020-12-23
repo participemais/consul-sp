@@ -16,7 +16,7 @@
 
           <div class="comment-actions">
             <a class="cancel-comment" href="#" data-cancel-annotation><%= t("legislation.annotations.comments.cancel") %></a>
-            <%= f.submit value: t("legislation.annotations.comments.publish_comment"), class: "button publish-comment" %>
+            <%= f.submit value: t("legislation.annotations.comments.publish_comment"), class: "button publish-comment", data: { disable_with: false } %>
           </div>
 
           <%= f.hidden_field :quote %>
