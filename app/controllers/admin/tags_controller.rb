@@ -16,7 +16,7 @@ class Admin::TagsController < Admin::BaseController
   end
 
   def create
-    @tag = Tag.find_or_create_by(name: tag_params["name"], kind: KINDS.key(tag_params["kind"]))
+    @tag = Tag.create(name: tag_params["name"], kind: KINDS.key(tag_params["kind"]))
 
     if @tag.save
       redirect_to admin_tags_path, notice: t("admin.tags.create.notice")
