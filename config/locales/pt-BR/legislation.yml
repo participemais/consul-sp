@@ -31,7 +31,7 @@ pt-BR:
       changes:
         title: Alterar
         seeing_changelog_version: Resumo das mudanças da versão
-        see_text: Ver rascunho do texto
+        see_text: Ver o texto da versão
       show:
         loading_comments: Carregando comentários
         seeing_version: Você está vendo a versão preliminar
