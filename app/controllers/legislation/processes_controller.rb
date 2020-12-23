@@ -145,7 +145,7 @@ class Legislation::ProcessesController < Legislation::BaseController
     @proposals = ::Legislation::Proposal.where(process: @process)
     @proposals = @proposals.search(params[:search]) if params[:search].present?
 
-    @current_filter = "winners" if params[:filter].blank? && @proposals.winners.any?
+    @current_filter = "random" if params[:filter].blank?
 
     if @current_filter == "random"
       @proposals = @proposals.page(params[:page]).order(created_at: :desc)

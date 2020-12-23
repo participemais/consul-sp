@@ -61,7 +61,7 @@ pt-BR:
       proposals:
         already_supported: Você já votou nessa proposta
         not_open: Fora do período de participação
-        empty_proposals: Ainda não recebemos propostas
+        empty_proposals: Não há propostas priorizadas pela Secretaria
         spreedsheet:  Download das %{answers_link} ou dos %{comments_link} (csv) - Há %{count} propostas
         proposals_spreedsheet: propostas
         comments_spreedsheet: comentários
