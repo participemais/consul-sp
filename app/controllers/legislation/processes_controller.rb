@@ -88,7 +88,7 @@ class Legislation::ProcessesController < Legislation::BaseController
     @phase = :draft_publication
 
     if @process.draft_publication.started?
-      draft_version = @process.draft_versions.published.last
+      draft_version = @process.draft_versions.published.first
 
       if draft_version.present?
         redirect_to legislation_process_draft_version_path(@process, draft_version)
