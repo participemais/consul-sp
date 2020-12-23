@@ -72,7 +72,7 @@
           <div><span class="panel-title"><%= t(".text_body") %></span></div>
         </div>
         <div id="sticky-panel" class="draft-text">
-          <% if @draft_version.final_version? %>
+          <% if @draft_version.final_version? || !@process.allegations_phase.open? %>
           <section>
           <% else %>
           <section class="legislation-annotatable"
