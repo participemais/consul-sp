@@ -8,6 +8,10 @@
             <div class="callout warning">
               <p><%= t("legislation.processes.proposals.not_open") %></p>
             </div>
+          <% elsif proposals.selected.empty? && params[:filter] == "winners" %>
+            <div class="callout warning">
+              <p><%= t("legislation.processes.proposals.empty_selected_proposals") %></p>
+            </div>
           <% elsif proposals.empty? %>
             <div class="callout warning">
               <p><%= t("legislation.processes.proposals.empty_proposals") %></p>
