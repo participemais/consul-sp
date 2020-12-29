@@ -8,6 +8,12 @@
         <%= f.text_field(:title, required: true) %>
       </div>
       <div class="small-12 column">
+        <%= f.text_area(:description, rows: 5) %>
+      </div>
+      <div class="small-12 column">
+        <%= f.text_field(:link_text) %>
+      </div>
+      <div class="small-12 column">
         <%= f.text_field(:link_url) %>
       </div>
       <div class="small-12 column">

@@ -39,7 +39,11 @@ class Admin::OpenGov::ProjectsController < Admin::BaseController
 
   def project_params
     params.require(:open_gov_project).permit(
-      :title, :link_url, image_attributes: image_attributes
+      :title,
+      :link_url,
+      :description,
+      :link_text,
+      image_attributes: image_attributes
     )
   end
 
