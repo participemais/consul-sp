@@ -395,7 +395,6 @@ GEM
       activerecord (>= 4.0, < 6.1)
     parser (2.6.5.0)
       ast (~> 2.4.0)
-    parslet (1.8.2)
     pg (0.21.0)
     pg_search (2.0.1)
       activerecord (>= 4.2)
@@ -583,8 +582,6 @@ GEM
       execjs (>= 0.3.0, < 3)
     unicode-display_width (1.6.0)
     uniform_notifier (1.13.0)
-    upmark (1.0.0)
-      parslet (~> 1.8.2)
     user_agent_parser (2.6.0)
     uuidtools (2.1.5)
     warden (1.2.8)
@@ -677,7 +674,7 @@ DEPENDENCIES
   pg (~> 0.21.0)
   pg_search (~> 2.0.1)
   pry-byebug
-  puma (~> 4.3.6)
+  puma (~> 4.3.5)
   rails (= 5.1.7)
   rails-assets-leaflet!
   rails-assets-markdown-it (~> 8.2.1)!
@@ -705,7 +702,6 @@ DEPENDENCIES
   turbolinks (~> 2.5.3)
   turnout (~> 2.4.0)
   uglifier (~> 4.1.2)
-  upmark (~> 1.0)
   web-console (~> 3.3.0)
   webdrivers (~> 4.3.0)
   whenever (~> 0.10.0)
