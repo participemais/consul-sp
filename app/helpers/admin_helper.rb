@@ -33,7 +33,7 @@ module AdminHelper
   end
 
   def menu_polls?
-    controller.class.parent == Admin::Poll::Questions::Answers ||
+    controller.class.parent == Edition::Poll::Questions::Answers ||
       %w[polls active_polls recounts results questions answers].include?(controller_name) &&
       action_name != "booth_assignments"
   end
