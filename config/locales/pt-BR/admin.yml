@@ -1691,6 +1691,9 @@ pt-BR:
         articles: Governo Aberto em São Paulo
         participations: Participação social em São Paulo
       articles:
+        participations:
+          title: Informações sobre Participação Social
+          create: Editar informações
         index:
           articles: Artigos
           article_title: Título
