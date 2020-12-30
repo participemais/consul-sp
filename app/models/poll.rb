@@ -30,6 +30,9 @@ class Poll < ApplicationRecord
   has_many :geozones_polls
   has_many :geozones, through: :geozones_polls
 
+  has_many :editor_polls, foreign_key: "poll_id"
+  has_many :editors, through: :editor_polls
+
   has_one :electoral_college,
     class_name: "Poll::ElectoralCollege",
     dependent: :destroy
@@ -227,6 +230,10 @@ class Poll < ApplicationRecord
 
   def filename
     name.parameterize
+  end
+
+  def editable?
+    starts_at - 1.day > Date.today
   end
 
   private

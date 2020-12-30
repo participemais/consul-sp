@@ -10,7 +10,8 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20201223150921) do
+
+ActiveRecord::Schema.define(version: 20201230001255) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -597,6 +598,15 @@ ActiveRecord::Schema.define(version: 20201223150921) do
     t.datetime "updated_at", null: false
     t.index ["editor_id"], name: "index_editor_legislation_processes_on_editor_id"
     t.index ["legislation_process_id"], name: "index_editor_legislation_processes_on_legislation_process_id"
+  end
+
+  create_table "editor_polls", force: :cascade do |t|
+    t.bigint "editor_id"
+    t.bigint "poll_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["editor_id"], name: "index_editor_polls_on_editor_id"
+    t.index ["poll_id"], name: "index_editor_polls_on_poll_id"
   end
 
   create_table "editors", force: :cascade do |t|
@@ -1798,6 +1808,8 @@ ActiveRecord::Schema.define(version: 20201223150921) do
   add_foreign_key "documents", "users"
   add_foreign_key "editor_legislation_processes", "editors"
   add_foreign_key "editor_legislation_processes", "legislation_processes"
+  add_foreign_key "editor_polls", "editors"
+  add_foreign_key "editor_polls", "polls"
   add_foreign_key "editors", "users"
   add_foreign_key "failed_census_calls", "poll_officers"
   add_foreign_key "failed_census_calls", "users"

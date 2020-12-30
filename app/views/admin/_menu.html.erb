@@ -27,7 +27,7 @@
 
     <% if feature?(:polls) %>
       <li class="section-title <%= "is-active" if menu_polls? %>">
-        <%= link_to admin_polls_path do %>
+        <%= link_to edition_polls_path do %>
           <span class="icon-checkmark-circle"></span>
           <strong><%= t("admin.menu.polls") %></strong>
         <% end %>
@@ -78,7 +78,7 @@
                                       action_name == "booth_assignments") ||
                                       controller_name == "booth_assignments" &&
                                       action_name == "manage" %>>
-          <%= link_to t("admin.menu.poll_booth_assignments"), booth_assignments_admin_polls_path %>
+          <%= link_to t("admin.menu.poll_booth_assignments"), booth_assignments_edition_polls_path %>
         </li>
 
         <li <%= "class=is-active" if %w[shifts booths].include?(controller_name) &&

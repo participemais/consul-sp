@@ -1087,6 +1087,7 @@ pt-BR:
         officers_tab: Presidentes
         recounts_tab: Votação presencial
         results_tab: Resultados
+        editors_tab: Editores
         no_questions: "Não há perguntas atribuídas a esta votação."
         questions_title: "Lista de perguntas"
         table_title: "Título"

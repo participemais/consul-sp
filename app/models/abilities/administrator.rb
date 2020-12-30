@@ -3,6 +3,7 @@ module Abilities
     include CanCan::Ability
 
     def initialize(user)
+      merge Abilities::Editor.new(user)
       merge Abilities::Moderation.new(user)
 
       can :restore, Comment
