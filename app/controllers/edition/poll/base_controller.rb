@@ -4,6 +4,10 @@ class Edition::Poll::BaseController < Edition::BaseController
   private
 
     def namespace
-      "admin"
+    	if current_user.administrator?
+      	"admin"
+      elsif current_user.editor?
+      	"edition"
+      end
     end
 end

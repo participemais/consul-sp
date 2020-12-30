@@ -22,6 +22,7 @@ pt-BR:
         notice: "%{resource_name} atualizado com êxito."
         debate: "Debate atualizado com êxito."
         poll: "Votação atualizada com sucesso."
+        poll_error: "Não foi possível atualizar a votação."
         poll_booth: "Urna atualizada com sucesso."
         active_poll: "Descrição das votações atualizada com sucesso."
         proposal: "Proposta atualizada com sucesso."

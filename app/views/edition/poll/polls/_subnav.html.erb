@@ -80,11 +80,24 @@
 
   <% if current_user.administrator? %>  
     <% if controller_name == "results" %>
-      
-   
+      <h2>
+        <%= t("admin.polls.show.results_tab") %>
+      </h2>
+    <% else %>
       <li>
         <%= link_to t("admin.polls.show.results_tab"), edition_poll_results_path(@poll) %>
       </li>
     <% end %>
+
+    <% if controller_name == "editors" %>
+      <h2>
+        <%= t("admin.polls.show.editors_tab") %>
+      </h2>
+    <% else %>
+      <li>
+        <%= link_to t("admin.polls.show.editors_tab"), edition_poll_editors_path(@poll) %>
+      </li>
+    <% end %>
+
   <% end %>
 </ul>
