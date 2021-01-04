@@ -161,6 +161,6 @@ class Budget::Investment::Exporter
     end
 
     def header_translation(key)
-      I18n.t(key, scope: 'budgets.show.spreadsheet')
+      I18n.t(key, scope: 'budgets.investments.index.spreadsheet')
     end
 end

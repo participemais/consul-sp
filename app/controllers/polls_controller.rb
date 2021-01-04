@@ -13,7 +13,7 @@ class PollsController < ApplicationController
 
   def index
     @polls = Kaminari.paginate_array(
-      @polls.created_by_admin.not_budget.send(@current_filter).includes(:geozones).order(:ends_at, :starts_at)
+      @polls.created_by_admin.not_budget.send(@current_filter).includes(:geozones).order(ends_at: :desc, starts_at: :desc)
     ).page(params[:page])
   end
 

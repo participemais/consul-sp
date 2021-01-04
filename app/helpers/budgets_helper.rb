@@ -1,8 +1,4 @@
 module BudgetsHelper
-  def show_links_to_budget_investments(budget)
-    ["balloting", "reviewing_ballots", "finished"].include? budget.phase
-  end
-
   def heading_name_and_price_html(heading, budget)
     tag.div do
       concat(heading.name + " ")

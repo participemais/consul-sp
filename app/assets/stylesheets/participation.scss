@@ -1335,10 +1335,14 @@
 .groups-and-headings {
 
   .heading {
-    border: 1px solid $border;
-    border-radius: rem-calc(3);
-    display: inline-block;
     margin-bottom: $line-height / 2;
+    padding-left: 0;
+    padding-right: $line-height / 2;
+
+    li {
+      border: 1px solid $border;
+      border-radius: rem-calc(3);
+    }
 
     a {
       display: block;
@@ -1658,7 +1662,13 @@
 .budgets-stats {
 
   .header {
-    background: $highlight;
+    background: $budget-banner;
+    color: $white;
+
+    .back,
+    .icon-angle-left {
+      color: $white
+    }
   }
 
   .big-number-stat {
@@ -2185,7 +2195,7 @@
       padding-right: 3px;
     }
   }
-  
+
   .tags span {
     &:hover {
       background: $tag;
@@ -2217,4 +2227,11 @@
   color: $purple;
 }
 
+.result-explanation-alert {
+  color: $color-alert;
+}
+
+.result-explanation-field-alert {
+  border-color: $color-alert;
+}
 

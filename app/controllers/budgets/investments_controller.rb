@@ -48,6 +48,15 @@ module Budgets
       load_investment_votes(@investments)
       @tag_cloud = tag_cloud
       @remote_translations = detect_remote_translations(@investments)
+
+      respond_to do |format|
+        format.html
+        format.csv do
+          send_data Budget::Investment::Exporter.new(
+            investments, @budget
+          ).proposals_list_csv, filename: "#{@budget.filename}.csv"
+        end
+      end
     end
 
     def new

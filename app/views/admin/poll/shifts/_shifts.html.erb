@@ -3,6 +3,7 @@
   <thead>
     <tr>
       <th><%= t("admin.poll_shifts.new.date") %></th>
+      <th><%= t("admin.poll_shifts.new.processes") %></th>
       <th><%= t("admin.poll_shifts.new.officer") %></th>
       <th><%= t("admin.poll_shifts.new.table_email") %></th>
       <th><%= Poll::Shift.human_attribute_name(:task) %></th>
@@ -13,6 +14,15 @@
     <% @shifts.each do |shift| %>
       <tr id="shift_<%= shift.id %>" class="shift">
         <td><%= l(shift.date.to_date, format: :long) %></td>
+        <td>
+          <ul>
+            <% shift.polls_related_to_task.each do |poll| %>
+              <li>
+                <%= link_to(poll.name, admin_poll_path(poll), target: :blank) %>
+              </li>
+            <% end %>
+          </ul>
+        </td>
         <td><%= shift.officer_name %></td>
         <td><%= shift.officer_email %></td>
         <td><%= t("admin.poll_shifts.#{shift.task}") %></td>
