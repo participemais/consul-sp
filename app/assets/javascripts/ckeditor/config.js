@@ -12,7 +12,7 @@ CKEDITOR.editorConfig = function( config )
   config.filebrowserUploadMethod = "form";
 
   config.allowedContent = true;
-  config.format_tags = "p;h2;h3";
+  config.format_tags = "p;h1;h2;h3";
 
   config.removePlugins = "balloonpanel,balloontoolbar,copyformatting,scayt,wsc";
 
@@ -100,6 +100,12 @@ CKEDITOR.editorConfig = function( config )
   config.toolbar_admin = config.toolbar_mini.concat([
     { name: "insert", items: [ "Image", "Table" ] }
   ]);
+
+  config.toolbar_simple = [
+    { name: "paragraph", groups: [ "list" ], items: [ "NumberedList", "BulletedList" ] },
+    { name: "links", items: [ "Link", "Unlink" ] },
+    { name: "basicstyles", groups: [ "basicstyles", "cleanup" ], items: [ "Bold", "Italic", "Underline", "Strike" ] }
+  ];
 
   config.toolbar = "mini";
 };

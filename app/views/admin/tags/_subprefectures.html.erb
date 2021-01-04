@@ -1,0 +1,38 @@
+<h3 class="margin"><%= t("admin.tags.index.title.subprefecture") %>: <%= page_entries_info @subprefecture_tags %></h3>
+
+<table>
+  <thead>
+    <th scope="col" class="small-9"><%= t("admin.tags.index.subprefecture") %></th>
+    <th scope="col" colspan="2" class="text-center"><%= t("admin.actions.actions") %></th>
+  </thead>
+  <tbody>
+  <% @subprefecture_tags.each do |tag| %>
+    <tr>
+      <td>
+        <%= form_for(tag,
+            url: admin_tag_path(tag),
+            as: :tag,
+            html: { id: "edit_tag_#{tag.id}" }) do |f| %>
+
+            <strong><%= tag.name %></strong>
+        <% end %>
+      </td>
+      <% if tag.taggings_count == 0 %>
+        <td id="tag_<%= tag.id %>">
+          <%= link_to t("admin.tags.edit.title"), edit_admin_tag_path(tag), class: "button hollow" %>
+        </td>
+        <td id="tag_<%= tag.id %>">
+          <%= link_to t("admin.tags.destroy"), admin_tag_path(tag), method: :delete, class: "button hollow alert" %>
+        </td>
+      <% else %>
+        <td id="tag_<%= tag.id %>" colspan="2" class="tag-text">
+          <p><%= t("admin.tags.errors.taggings_count") %></p>
+        </td>
+      <% end %>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
+
+
+<%= paginate @subprefecture_tags %>

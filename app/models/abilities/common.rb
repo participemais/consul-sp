@@ -47,7 +47,9 @@ module Abilities
       can :create, Comment
       can :create, Debate
       can [:create, :created], Proposal
-      can :create, Legislation::Proposal
+      can :create, Legislation::Proposal do |proposal|
+        proposal.process.proposals_phase.open?
+      end
 
       can :suggest, Debate
       can :suggest, Proposal

@@ -416,6 +416,7 @@
     @media screen and (min-width: 40em) {
       .calc-index {
         width: calc(35% - 25px);
+        height: rem-calc(98);
       }
 
       .calc-text {
@@ -426,6 +427,7 @@
         cursor: pointer;
         background: #f2f2f2;
         width: rem-calc(50);
+        height: rem-calc(146);
 
         .draft-panel {
 
@@ -468,6 +470,8 @@
     }
 
     .draft-index {
+      max-width: fit-content !important;
+
       ul:first-child {
         font-size: rem-calc(16);
         text-decoration: underline;
@@ -480,6 +484,11 @@
 
         li {
           margin-bottom: rem-calc(16);
+        }
+
+        a {
+          font-family: $subheader-font-family;
+          color: $text;
         }
 
         .open::before {
@@ -512,15 +521,24 @@
         padding: rem-calc(32) rem-calc(32) rem-calc(32) rem-calc(48);
       }
 
+      h1 {
+        font-family: $subheader-font-family;
+        font-size: rem-calc(28);
+      }
+
       h2 {
         font-weight: 400;
         margin-bottom: rem-calc(32);
         margin-top: rem-calc(32);
+        font-family: $subheader-font-family;
+        font-size: rem-calc(23);
       }
 
       h3 {
-        font-weight: 400;
+        font-weight: 350;
         margin-bottom: rem-calc(16);
+        font-family: $subheader-font-family;
+        font-size: rem-calc(20);
       }
 
       .anchor::before {
@@ -532,24 +550,6 @@
 
         @include breakpoint(medium) {
           left: 24px;
-        }
-      }
-
-      a {
-        color: $text;
-
-        &:hover,
-        &:active,
-        &:focus {
-          text-decoration: none;
-
-          h3 {
-            color: $text;
-          }
-
-          .anchor::before {
-            display: block;
-          }
         }
       }
     }
@@ -700,6 +700,15 @@
             padding: $line-height / 2;
             top: -18px;
           }
+
+          .comment-actions {
+            .cancel-comment {
+              color: #cf2a0e;
+              text-decoration: underline;
+              font-size: $small-font-size;
+              display: inline-block;
+            }
+          }
         }
 
         .comment-input {
@@ -741,7 +750,7 @@
 
           .comment-actions {
             .cancel-comment {
-              color: #87a3b9;
+              color: #cf2a0e;
               text-decoration: underline;
               font-size: $small-font-size;
               display: inline-block;
@@ -896,6 +905,10 @@
     border: 1px solid #dee0e3;
     margin-top: rem-calc(4);
     margin-bottom: rem-calc(16);
+
+    .annotator-hl {
+      cursor: inherit;
+    }
   }
 
   .comment {
@@ -1005,8 +1018,9 @@
   margin-bottom: $line-height;
 
   .header {
-    background: $highlight;
+    background: $legislation-banner;
     padding: $line-height;
+    color: $white;
 
     @include breakpoint(medium) {
       height: $line-height * 4;
@@ -1015,8 +1029,17 @@
 
   .process-title {
     font-size: $small-font-size;
+    font-weight: 700;
     margin-bottom: 0;
     text-transform: uppercase;
+  }
+
+  h4 a {
+    color: $brand;
+
+    &:hover {
+      text-decoration: none;
+    }
   }
 
   .process-link {
@@ -1304,6 +1327,17 @@
     text-align: right;
     border-bottom: 1px dashed $text-medium;
     margin-bottom: $line-height;
+  }
+}
+
+.text-preview {
+  margin-top: $line-height;
+  padding-right: $line-height / 2;
+  background: $lighter-gray;
+  font-family: $body-font-family;
+
+  h1, h2, h3 {
+    font-family: $subheader-font-family;
   }
 }
 

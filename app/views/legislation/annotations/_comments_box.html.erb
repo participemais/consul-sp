@@ -16,8 +16,10 @@
     <% end %>
 
     <% if @process.allegations_phase.open? %>
-      <a class="button publish-comment" href="#"><strong><%= t("legislation.annotations.comments.publish_comment") %></strong></a>
-      &nbsp;
+      <div class="comment-form">
+        <a class="button publish-comment" href="#"><strong><%= t("legislation.annotations.comments.publish_comment") %></strong></a>
+        &nbsp;
+      </div>
     <% end %>
 
     <% if @process.allegations_phase.open? %>
@@ -30,7 +32,10 @@
               maxlength: Comment.body_max_length,
               label: leave_comment_text(annotation),
               rows: 8 %>
-            <%= f.submit comment_button_text(nil, annotation), class: "button" %>
+            <div class="comment-actions">
+              <a class="cancel-comment" href="#" data-cancel-annotation><%= t("legislation.annotations.comments.cancel") %></a>
+              <%= f.submit comment_button_text(nil, annotation), class: "button publish-comment" %>
+            </div>
           <% end %>
         </div>
       <% else %>

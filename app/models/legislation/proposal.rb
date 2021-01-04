@@ -14,7 +14,7 @@ class Legislation::Proposal < ApplicationRecord
   include Imageable
   include Randomizable
 
-  accepts_nested_attributes_for :documents, allow_destroy: true
+  accepts_nested_attributes_for :documents, allow_destroy: false
 
   acts_as_votable
   acts_as_paranoid column: :hidden_at
@@ -30,9 +30,8 @@ class Legislation::Proposal < ApplicationRecord
   validates :process, presence: true
 
   validates :title, length: { in: 4..Legislation::Proposal.title_max_length }
-  validates :description, length: { maximum: Legislation::Proposal.description_max_length }
-
-  validates :terms_of_service, acceptance: { allow_nil: false }, on: :create
+  validates :summary, length: { maximum: Legislation::Proposal.summary_max_length }
+  validates :description, length: { maximum: Legislation::Proposal.description_length }
 
   before_validation :set_responsible_name
 
@@ -50,10 +49,6 @@ class Legislation::Proposal < ApplicationRecord
   scope :last_week,                -> { where("proposals.created_at >= ?", 7.days.ago) }
   scope :selected,                 -> { where(selected: true) }
   scope :winners,                  -> { selected.sort_by_confidence_score }
-
-  def to_param
-    "#{id}-#{title}".parameterize
-  end
 
   def searchable_values
     { title              => "A",
@@ -116,7 +111,7 @@ class Legislation::Proposal < ApplicationRecord
   end
 
   def code
-    "#{Setting["proposal_code_prefix"]}-#{created_at.strftime("%Y-%m")}-#{id}"
+    id
   end
 
   def after_commented

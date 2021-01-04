@@ -27,12 +27,6 @@ class Legislation::DraftVersion < ApplicationRecord
     Redcarpet::Markdown.new(renderer).render(body)
   end
 
-  def toc_html
-    renderer = Redcarpet::Render::HTML_TOC.new(with_toc_data: true)
-
-    Redcarpet::Markdown.new(renderer).render(body)
-  end
-
   def display_title
     status == "draft" ? "#{title} *" : title
   end

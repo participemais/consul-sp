@@ -420,7 +420,8 @@ pt-BR:
         locale: localização
         body: Descrição
       tag:
-        name: "Digite o nome do tópico"
+        name: "Nome da nova categoria"
+        kind: "Tipo"
       topic:
         title: "Título"
         description: "Texto inicial"
@@ -441,17 +442,17 @@ pt-BR:
         start_date: Data de início
         end_date: Data de término
         debate_start_date: Data de início do debate
-        debate_end_date: Data término do debate
+        debate_end_date: Data de término do debate
         draft_start_date: Início
         draft_end_date: Final
-        draft_publication_date: Data de publicação do rascunho
-        allegations_start_date: Data de início das alegações
-        allegations_end_date: Data de conclusão das alegações
-        proposals_phase_start_date: Início
-        proposals_phase_end_date: Final
+        draft_publication_date: Link para publicação de versão preliminar em anotações
+        allegations_start_date: Data de início das anotações
+        allegations_end_date: Data de término das anotações
+        proposals_phase_start_date: Data de início das propostas
+        proposals_phase_end_date: Data de término das propostas
         topics_phase_start_date: Data de início da revisão
         topics_phase_end_date: Data de término da revisão
-        result_publication_date: Data de publicação do resultado final
+        result_publication_date: Link para publicação de versão final em anotações
         background_color: Cor de fundo
         font_color: Cor da fonte
         homepage_enabled: "Instruções habilitada"
@@ -477,8 +478,8 @@ pt-BR:
         final_version: Versão final
       legislation/draft_version/translation:
         title: Título da Versão
-        body: Descrição
-        changelog: Alterar
+        body: Texto da versão
+        changelog: Resumo das mudanças
       legislation/question:
         title: Título
         question_options: Opções
@@ -487,7 +488,7 @@ pt-BR:
       legislation/question_option:
         value: Valor
       legislation/annotation:
-        text: Comentar
+        text: Comentário
       legislation/topic:
         title: Título
         description: Texto

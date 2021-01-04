@@ -469,10 +469,10 @@ pt-BR:
     legislation:
       processes:
         create:
-          notice: 'Processo criado com sucesso. <a href="%{link}">Click to visit</a>'
+          notice: 'Processo criado com sucesso. <a href="%{link}">Acesse o processo aqui</a>'
           error: Processo não pode ser criado
         update:
-          notice: 'Processo atualizado com sucesso. <a href="%{link}">Click to visit</a>'
+          notice: 'Processo atualizado com sucesso. <a href="%{link}">Acesse o processo aqui</a>'
           error: Processo não pode ser atualizado
         destroy:
           notice: Processo excluído com sucesso
@@ -499,6 +499,10 @@ pt-BR:
           filters:
             active: Ativo
             all: Tudo
+          tag_category_label: Temas
+          tag_subprefecture_label: Subprefeituras
+          tag_district_label: Distritos
+          categories: Adicione as categorias
         new:
           back: Voltar
           title: Criar novo processo colaborativo de legislação
@@ -532,16 +536,21 @@ pt-BR:
           back: Voltar
           id: ID
           supports: Apoios
+          new_tag: Criar uma nova categoria
         form:
           custom_categories: Categorias
           custom_categories_description: Categorias que os usuários podem selecionar criando a proposta.
           custom_categories_placeholder: Insira as marcações que você deseja usar, separadas por vírgulas (,) e entre aspas ("")
       draft_versions:
+        show:
+          status:
+            draft: Rascunho
+            published: Publicado
         create:
-          notice: 'Rascunho criado com sucesso. <a href="%{link}">Click to visit</a>'
+          notice: 'Rascunho criado com sucesso. <a href="%{link}">Acesse o rascunho aqui</a>'
           error: Rascunho não pode ser criado
         update:
-          notice: 'Rascunho atualizado com sucesso. <a href="%{link}">Click to visit</a>'
+          notice: 'Rascunho atualizado com sucesso. <a href="%{link}">Acesse o rascunho aqui</a>'
           error: Rascunho não pode ser atualizado
         destroy:
           notice: Rascunho excluído com sucesso
@@ -549,6 +558,7 @@ pt-BR:
           back: Voltar
           submit_button: Salvar alterações
           warning: Você editou o texto. Não esqueça de clicar em Salvar para salvar permanentemente as mudanças.
+          title: Editar versão
         form:
           launch_text_editor: Iniciar o editor de texto
           close_text_editor: Fechar o editor de texto
@@ -576,6 +586,7 @@ pt-BR:
           comments: Comentários
           final_version: Versão final
           status: Status
+          download: Download
       questions:
         create:
           notice: 'Pergunta criada com sucesso. <a href="%{link}">Clique para visitar</a>'
@@ -1253,10 +1264,11 @@ pt-BR:
         title: Propostas
         id: ID
         author: Autor
-        select: Selecionar
-        selected: Selecionado
+        prioritization: Priorização de propostas
+        select: Priorizar
+        selected: Priorizada
         milestones: Monitoramento
-        no_proposals: Não existem propostas.
+        no_proposals: Ainda não recebemos propostas.
       form:
         update: Atualizar proposta
       update:
@@ -1467,13 +1479,28 @@ pt-BR:
           origin_web: Participantes da Web
           origin_total: Total de participantes
     tags:
-      create: Criar tópico
-      destroy: Deletar tópico
+      create:
+        notice: Categoria criada com sucesso
+        title: Criar categoria
+      destroy: Deletar categoria
+      edit:
+        title: Editar categoria
+        select_heading: Selecione o tipo
       index:
-        add_tag: Adicionar um novo tópico de proposta
-        title: Tópicos da proposta
-        topic: Tema
-        help: "Quando um usuário criar uma proposta, os tópicos a seguir são sugeridos como etiquetas padrão."
+        add_tag: Adicionar uma nova categoria de proposta
+        edit_tag: Editar categoria
+        title:
+          category: Categorias do tipo Tema
+          subprefecture: Categorias do tipo Subprefeitura
+          district: Categorias do tipo Distrito
+        topic: Temas
+        subprefecture: Subprefeituras
+        district: Distritos
+        help: "As categorias de proposta a seguir são sugeridas como padrão para propostas de orçamento cidadão ou consulta pública. Adicione novas marcações se necessário."
+        kind: Tipo
+      back: Voltar
+      errors:
+        taggings_count: "Não é possível editar/excluir essa categoria porque a mesma já está em uso"
     users:
       columns:
         name: Nome

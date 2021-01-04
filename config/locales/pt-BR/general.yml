@@ -182,6 +182,7 @@ pt-BR:
     geozone: subprefeitura
     legislation/draft_version: Rascunho
     legislation/process: Processo
+    legislation/proposal: Proposta
     legislation/question: Pergunta
     legislation/topic_level: Título
     poll/shift: Turno
@@ -199,6 +200,7 @@ pt-BR:
     feasibility_analysis: Análises de viabilidade
     poll/electors/import: Arquivo
     poll/elector: Eleitor
+    tag: Categoria
   geozones:
     none: Cidade de São Paulo
   layouts:
@@ -346,7 +348,8 @@ pt-BR:
       other: Outro
     form:
       proposal_responsible_name_note: "(indivudualmente ou como representante de um\ncoletivo; não será mostrado publicamente)"
-      proposal_summary_note: "(máximo de 200 caracteres)"
+      proposal_summary_note: "(máximo de 300 caracteres)"
+      proposal_description_note: "(máximo de 2100 caracteres)"
       proposal_video_url_note: Você pode adicionar um link para o Youtube
       tag_category_label: "Categorias"
       tags_instructions: "Marque esta proposta. Você pode escolher entre as categorias propostas ou adicionar a sua própria"
@@ -356,6 +359,7 @@ pt-BR:
       map_location_instructions: "Navegue no mapa até o local e fixe o marcador."
       map_remove_marker: "Remover o marcador do mapa"
       map_skip_checkbox: "Esta proposta não tem uma localização concreta ou não a conheço."
+      confirm: "Tem certeza de que deseja enviar a proposta? Depois de enviá-la, não será possível editar ou excluir a proposta."
     index:
       featured_proposals: Destaques
       filter_topic:
@@ -434,9 +438,9 @@ pt-BR:
         one: 1 apoio
         other: "%{count} apoios"
       votes:
-        zero: Nenhum voto
-        one: 1 voto
-        other: "%{count} votos"
+        zero: Nenhum apoio
+        one: 1 apoio
+        other: "%{count} apoios"
       supports_necessary: "%{number} apoios necessários"
       total_percent: 100%
       archived: "Esta proposta foi arquivada e não é possível receber voto."
@@ -836,6 +840,7 @@ pt-BR:
   users:
     login_to_comment: "Você precisa acessar sua %{signin} ou se %{signup} para fazer um comentário"
     login_to_continue: "Você precisa acessar sua %{signin} ou se %{signup} para continuar"
+    incomplete_registration: Você precisa completar o %{register} para votar.
     signin: "conta"
     signup: "registrar"
     verify_account: "verifique sua conta"

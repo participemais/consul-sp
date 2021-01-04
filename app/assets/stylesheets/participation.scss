@@ -10,7 +10,8 @@
 // 08. Polls
 // 09. Polls results and stats
 // 10. Polls cards
-//
+// 11. Tags
+// 12. Legislation Proposal
 
 // 01. Votes and supports
 // ----------------------
@@ -126,6 +127,10 @@
 
   .divider {
     margin: 0 rem-calc(6);
+  }
+
+  .center {
+    margin-top: $line-height * 1.5;
   }
 }
 
@@ -550,7 +555,6 @@
   }
 
   .filter-subnav {
-    background: $highlight;
     margin-bottom: $line-height;
     padding-top: $line-height / 4;
   }
@@ -797,13 +801,34 @@
 
   .votes {
     min-height: $line-height * 8;
+    border-left: 0;
+  }
+
+  .callout {
+    padding: 0.2rem;
   }
 }
 
-.proposal-show .votes,
+.proposal .panel {
+  padding-bottom: 0;
+}
+
+.legislation-proposals .proposal {
+  @include breakpoint(medium) {
+    .column:last-child:not(:first-child) {
+      padding-top: 0;
+    }
+  }
+}
+
 .debate-show .votes {
   border: 0;
   padding: $line-height / 2 0;
+}
+
+.proposal-show .votes {
+  border: 0;
+  padding: 0;
 }
 
 .proposal {
@@ -2178,6 +2203,30 @@
   }
 }
 
+// 11. Tags
+// ----------------------
+
+.tag-text {
+  p {
+    color: $purple;
+    font-size: $small-font-size;
+  }
+}
+
+.tag-label {
+  color: $text-medium;
+  font-size: 14px;
+  font-family: $subheader-font-family;
+  margin-top: 11px;
+}
+
+// 12. Legislation Proposal
+// ----------------------
+
+.proposal-votes {
+  color: $purple;
+}
+
 .result-explanation-alert {
   color: $color-alert;
 }
@@ -2185,3 +2234,4 @@
 .result-explanation-field-alert {
   border-color: $color-alert;
 }
+

@@ -1,17 +1,39 @@
 class Admin::TagsController < Admin::BaseController
-  before_action :find_tag, only: [:update, :destroy]
+  before_action :find_tag, only: [:edit, :update, :destroy]
 
   respond_to :html, :js
 
+  KINDS = { "category" => "Tema",  "subprefecture" => "Subprefeitura", "district" => "Distrito" }.freeze
+
   def index
-    @tags = Tag.category.page(params[:page])
-    @tag  = Tag.category.new
+    @category_tags = Tag.category.page(params[:page]).order(:name)
+    @subprefecture_tags = Tag.subprefecture.page(params[:page]).order(:name)
+    @district_tags = Tag.district.page(params[:page]).order(:name)
+  end
+
+  def new
+    @tag = Tag.new
   end
 
   def create
-    Tag.find_or_create_by!(name: tag_params["name"]).update!(kind: "category")
+    @tag = Tag.create(name: tag_params["name"], kind: KINDS.key(tag_params["kind"]))
 
-    redirect_to admin_tags_path
+    if @tag.save
+      redirect_to admin_tags_path, notice: t("admin.tags.create.notice")
+    else
+      render :new
+    end
+  end
+
+  def edit
+  end
+
+  def update
+    if @tag.update(name: tag_params["name"], kind: KINDS.key(tag_params["kind"]))
+      redirect_to admin_tags_path, notice: t("flash.actions.save_changes.notice")
+    else
+      render :edit
+    end
   end
 
   def destroy
@@ -22,10 +44,10 @@ class Admin::TagsController < Admin::BaseController
   private
 
     def tag_params
-      params.require(:tag).permit(:name)
+      params.require(:tag).permit(:name, :kind)
     end
 
     def find_tag
-      @tag = Tag.category.find(params[:id])
+      @tag = Tag.find(params[:id])
     end
 end
