@@ -43,7 +43,7 @@ class Admin::OpenGov::ParticipationArticlesController < Admin::BaseController
   private
 
   def participation_article_params
-    params.require(:open_gov_participation_article).permit(:title, :text)
+    params.require(:open_gov_participation_article).permit(:title, :text, documents_attributes: [:id, :title, :attachment, :cached_attachment, :user_id])
   end
 
   def load_article

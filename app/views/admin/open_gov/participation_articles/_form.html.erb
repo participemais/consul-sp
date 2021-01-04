@@ -1,4 +1,4 @@
-<div class="row">
+<div class="open-gov-form row">
   <%= form_for([:admin, @article], url: url) do |f| %>
 
     <%= render "shared/errors", resource: @article %>
@@ -9,6 +9,9 @@
       </div>
       <div class="small-12 column">
         <%= f.text_area(:text, class: "html-area admin") %>
+      </div>
+      <div class="documents small-12 column">
+        <%= render "documents/nested_documents", documentable: @article, f: f %>
       </div>
     </div>
 
