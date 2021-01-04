@@ -948,6 +948,14 @@
   border-bottom: 1px solid #eee;
   color: $white;
 
+  &.open-gov-header {
+    background: $open-gov-banner;
+  }
+
+  .open-gov-header-info {
+    background: $open-gov-banner-info;
+  }
+
   &.polls-header {
     background: $polls-banner;
   }
@@ -964,7 +972,7 @@
     background: $legislation-banner-info;
   }
 
-  .polls-header-info, .legislation-header-info {
+  .polls-header-info, .legislation-header-info, .open-gov-header-info {
     display: block;
 
     p {
