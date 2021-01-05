@@ -18,8 +18,8 @@ class Admin::Legislation::ProposalsController < Admin::Legislation::BaseControll
   end
 
   def load_categories
-    @categories = Tag.category.order(:name)
-    @subprefectures = Tag.subprefecture.order(:name)
-    @districts = Tag.district.order(:name)
+    @categories = Tag.where(kind: "category").order(:name)
+    @subprefectures = Tag.where(kind: "subprefecture").order(:name)
+    @districts = Tag.where(kind: "district").order(:name)
   end
 end
