@@ -28,41 +28,26 @@ module ActsAsTaggableOn
   Tag.class_eval do
     clear_validators!
     validates_presence_of :name
-    validates_uniqueness_of :name, if: :validates_name_uniqueness?, case_sensitive: true, scope: :kind
+    validates_uniqueness_of :name, case_sensitive: true, scope: :kind
     validates_length_of :name, maximum: 255
 
-    # monkey patch this method if don't need name uniqueness validation
-    def validates_name_uniqueness?
-      true
-    end
-
-    scope :category, -> { where(kind: "category") }
     scope :subprefecture, -> { where(kind: "subprefecture") }
     scope :district, -> { where(kind: "district") }
-
-    def subprefecture?
-      kind == "subprefecture"
-    end
+    scope :category, -> { where(kind: "category") }
 
     def category?
       kind == "category"
-    end
-
-    def district?
-      kind == "district"
     end
 
     include Graphqlable
 
     scope :public_for_api, -> do
       where("(tags.kind IS NULL or tags.kind = ?) and tags.id in (?)",
-            ["category", "subprefecture", "district"],
+            ["category"],
             Tagging.public_for_api.pluck("DISTINCT taggings.tag_id"))
     end
 
     include PgSearch
-
-
 
     pg_search_scope :pg_search, against: :name,
                                 using: {
@@ -84,14 +69,6 @@ module ActsAsTaggableOn
 
     def self.category_names
       Tag.category.pluck(:name)
-    end
-
-    def self.subprefecture_names
-      Tag.subprefecture.pluck(:name)
-    end
-
-    def self.district_names
-      Tag.district.pluck(:name)
     end
 
     def self.graphql_field_name
