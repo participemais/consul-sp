@@ -128,34 +128,6 @@ namespace :admin do
   resources :users, only: [:index, :show]
 
   scope module: :poll do
-    resources :polls do
-      get :booth_assignments, on: :collection
-      patch :add_question, on: :member
-
-      resources :booth_assignments, only: [:index, :show, :create, :destroy] do
-        get :search_booths, on: :collection
-        get :manage, on: :collection
-      end
-
-      resources :officer_assignments, only: [:index, :create, :destroy] do
-        get :search_officers, on: :collection
-        get :by_officer, on: :collection
-      end
-
-      resources :recounts, only: :index
-      resources :results, only: :index
-
-      resources :electoral_colleges, except: [:show] do
-        resources :electors, only: [:new, :create, :edit, :update, :destroy], controller: "electoral_colleges/electors" do
-          get :search_electors, on: :collection
-        end
-        namespace :electors do
-          resources :imports, only: [:new, :create, :show]
-        end
-      end
-
-    end
-
     resources :officers, only: [:index, :new, :create, :destroy] do
       get :search, on: :collection
     end
@@ -166,15 +138,6 @@ namespace :admin do
       resources :shifts do
         get :search_officers, on: :collection
       end
-    end
-
-    resources :questions, shallow: true do
-      resources :answers, except: [:index, :destroy], controller: "questions/answers" do
-        resources :images, controller: "questions/answers/images"
-        resources :videos, controller: "questions/answers/videos"
-        get :documents, to: "questions/answers#documents"
-      end
-      post "/answers/order_answers", to: "questions/answers#order_answers"
     end
 
     resource :active_polls, only: [:create, :edit, :update]
