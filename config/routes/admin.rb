@@ -242,9 +242,8 @@ namespace :admin do
   end
 
   namespace :open_gov do
-    resources :articles do
-      get :participations, on: :collection
-    end
-    resources :projects, only: [:new, :create, :edit, :update, :destroy]
+    resources :articles
+    resources :participation_articles
+    resources :projects
   end
 end

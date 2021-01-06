@@ -1709,6 +1709,9 @@ pt-BR:
         articles: Governo Aberto em São Paulo
         participations: Participação social em São Paulo
       articles:
+        participations:
+          title: Informações sobre Participação Social
+          create: Editar informações
         index:
           articles: Artigos
           article_title: Título
@@ -1748,3 +1751,7 @@ pt-BR:
           alert: Tem certeza que deseja apagar este projeto?
         form:
           save: Salvar
+        show:
+          link_url: URL do projeto
+          link_text: Texto do link
+          description: Descrição

@@ -192,6 +192,15 @@ $sidebar-active: #f4fcd0;
       text-align: right;
     }
 
+    &.align-right {
+      text-align: right;
+    }
+
+    &.align-action {
+      padding-left: 4rem;;
+      text-align: center;
+    }
+
     &.with-button {
       line-height: $line-height * 2;
 

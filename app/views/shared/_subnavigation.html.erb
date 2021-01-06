@@ -61,12 +61,20 @@
       </li>
     <% end %>
 
+    <li>
+      <%= layout_menu_link_to t("layouts.header.open_gov"),
+                              open_gov_articles_path(filter: "government"),
+                              controller.class.parent == OpenGov,
+                              accesskey: "5",
+                              title: t("shared.go_to_page") + t("layouts.header.open_gov") %>
+    </li>
+
     <% if feature?(:help_page) %>
       <li>
         <%= layout_menu_link_to t("layouts.header.help"),
                                 help_path,
                                 current_page?(help_path),
-                                accesskey: "5",
+                                accesskey: "6",
                                 title: t("shared.go_to_page") + t("layouts.header.help") %>
       </li>
     <% end %>

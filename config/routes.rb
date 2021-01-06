@@ -19,6 +19,7 @@ Rails.application.routes.draw do
   draw :moderation
   draw :notification
   draw :officing
+  draw :open_gov
   draw :poll
   draw :proposal
   draw :related_content

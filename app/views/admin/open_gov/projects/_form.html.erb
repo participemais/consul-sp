@@ -1,4 +1,4 @@
-<div class="row">
+<div class="open-gov-form row">
   <%= form_for([:admin, @project], url: url) do |f| %>
 
     <%= render "shared/errors", resource: @project %>
@@ -6,6 +6,12 @@
     <div class="row">
       <div class="small-12 column">
         <%= f.text_field(:title, required: true) %>
+      </div>
+      <div class="small-12 column">
+        <%= f.text_area(:description, rows: 5) %>
+      </div>
+      <div class="small-12 column">
+        <%= f.text_field(:link_text) %>
       </div>
       <div class="small-12 column">
         <%= f.text_field(:link_url) %>

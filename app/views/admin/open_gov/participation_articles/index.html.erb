@@ -1,0 +1,43 @@
+<% provide :title do %>
+  <%= t("admin.header.title") %> - <%= t("admin.menu.open_gov") %> %>
+<% end %>
+
+<h2><%= t("admin.open_gov.articles.index.title") %></h2>
+
+<%= render "/admin/open_gov/subnav", active: "participations" %>
+
+<div>
+  <h3 class="inline-block">
+    <%= t("admin.open_gov.articles.participations.title") %>
+  </h3>
+
+  <% if @article.present? %>
+    <%= link_to t("admin.open_gov.articles.participations.create"),
+      edit_admin_open_gov_participation_article_path(@article), class: "button float-right"
+    %>
+
+    <%= link_to t("admin.actions.delete"),
+      admin_open_gov_participation_article_path(@article),
+      method: :delete,
+      "data-confirm": t("admin.open_gov.articles.delete.project_alert"),
+      class: "button float-right hollow alert "
+    %>
+
+    <% provide :title do %>
+      <%= t("admin.header.title") %> - <%= t("admin.menu.open_gov") %> %>
+    <% end %>
+
+    <h2><%= @article.title %></h2>
+
+    <%= auto_link_already_sanitized_html(
+      AdminWYSIWYGSanitizer.new.sanitize(@article.text)
+    ) %>
+
+    <%= render "documents/documents", documents: @article.documents %>
+
+  <% else %>
+  	<%= link_to t("admin.open_gov.articles.participations.create"),
+      new_admin_open_gov_participation_article_path, class: "button float-right"
+	  %>
+  <% end %>
+</div>

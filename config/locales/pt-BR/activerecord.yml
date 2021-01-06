@@ -590,9 +590,14 @@ pt-BR:
       open_gov/article:
         title: Título
         text: Texto
+      open_gov/participation_article:
+        title: Título
+        text: Texto
       open_gov/project:
         title: Título
         link_url: URL do projeto
+        link_text: Texto do link
+        description: Descrição
     errors:
       models:
         user:
