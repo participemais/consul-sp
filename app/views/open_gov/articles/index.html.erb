@@ -7,9 +7,9 @@
 
     <%= render "filter_subnav", i18n_namespace: "open_gov.index" %>
 
-    <% if @articles.any? %>
-      <%= render "article_group", article_group: @articles %>
+    <% if @current_filter == "government" %>
+      <%= render "government" %>
+    <% else %>
     <% end %>
-    
   </div>
 </div>

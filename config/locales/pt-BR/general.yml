@@ -1006,6 +1006,10 @@ pt-BR:
     button: Traduzir página
   open_gov:
     index:
+      projects:
+        title: Projetos
+      articles:
+        title: Artigos
       section_header:
         title: Governo aberto
         participate: Conheça os projetos e ações

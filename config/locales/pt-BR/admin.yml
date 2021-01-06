@@ -1733,3 +1733,7 @@ pt-BR:
           alert: Tem certeza que deseja apagar este projeto?
         form:
           save: Salvar
+        show:
+          link_url: URL do projeto
+          link_text: Texto do link
+          description: Descrição

@@ -8,9 +8,9 @@ class OpenGov::ArticlesController < ApplicationController
   before_action :load_article, only: :show
 
   def index
-    @articles = OpenGov::Article.all
+    @articles = OpenGov::Article.all.order(created_at: :desc)
     @projects = OpenGov::Project.all
-    @current_filter = "government"
+    @current_filter = params[:filter]
   end
 
   def show
