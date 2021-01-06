@@ -274,6 +274,6 @@ namespace :admin do
   namespace :open_gov do
     resources :articles
     resources :participation_articles
-    resources :projects, only: [:new, :create, :edit, :update, :destroy]
+    resources :projects
   end
 end

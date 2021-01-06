@@ -1,0 +1,32 @@
+<% provide :title do %>
+  <%= t("admin.header.title") %> - <%= t("admin.menu.open_gov") %> %>
+<% end %>
+
+<%= back_link_to(
+  admin_open_gov_articles_path, t("shared.back")
+) %>
+
+<div class="row">
+  <div class="small-12 column">
+
+	<h2><%= @project.title %></h2>
+
+	<p>
+		<strong><%= t("admin.open_gov.projects.show.link_text") %>:</strong>
+		<%= @project.link_text %>
+	</p>
+	
+	<p>
+		<strong><%= t("admin.open_gov.projects.show.link_url") %>:</strong>
+		<%= @project.link_url %>
+	</p>
+	
+	<div>
+		<p><strong><%= t("admin.open_gov.projects.show.description") %>:</strong><p>
+		<%= auto_link_already_sanitized_html(AdminWYSIWYGSanitizer.new.sanitize(@project.description)) %>
+	</div>
+
+
+	<%= render_image(@project.image, :large, true) if @project.image.present? %>
+	</div>
+</div>

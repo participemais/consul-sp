@@ -63,7 +63,9 @@
       <% @projects.each do |project| %>
         <tr id="<%= dom_id(project) %>">
           <td>
-            <%= project.title%>
+            <strong>
+              <%= link_to project.title, admin_open_gov_project_path(project)%>
+            </strong>
           </td>
           <td class="align-right">
             <%= link_to t("admin.actions.edit"),

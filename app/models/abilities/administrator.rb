@@ -114,7 +114,7 @@ module Abilities
 
       can [:manage], OpenGov::Article
       can [:manage], OpenGov::ParticipationArticle
-      can [:create, :update, :destroy], OpenGov::Project
+      can [:manage], OpenGov::Project
     end
   end
 end
