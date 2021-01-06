@@ -6,9 +6,9 @@ class Admin::TagsController < Admin::BaseController
   KINDS = { "category" => "Tema",  "subprefecture" => "Subprefeitura", "district" => "Distrito" }.freeze
 
   def index
-    @category_tags = Tag.category.page(params[:page]).order(:name)
-    @subprefecture_tags = Tag.subprefecture.page(params[:page]).order(:name)
-    @district_tags = Tag.district.page(params[:page]).order(:name)
+    @category_tags = Tag.where(kind: "category").page(params[:page]).order(:name)
+    @subprefecture_tags = Tag.where(kind: "subprefecture").page(params[:page]).order(:name)
+    @district_tags = Tag.where(kind: "district").page(params[:page]).order(:name)
   end
 
   def new

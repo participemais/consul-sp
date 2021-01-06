@@ -31,8 +31,6 @@ module ActsAsTaggableOn
     validates_uniqueness_of :name, case_sensitive: true, scope: :kind
     validates_length_of :name, maximum: 255
 
-    scope :subprefecture, -> { where(kind: "subprefecture") }
-    scope :district, -> { where(kind: "district") }
     scope :category, -> { where(kind: "category") }
 
     def category?
