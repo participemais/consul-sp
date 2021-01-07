@@ -109,10 +109,10 @@ module Abilities
         can :show, DirectMessage, sender_id: user.id
 
         can :answer, Poll do |poll|
-          poll.answerable_by?(user)
+          poll.answerable_by?(user) && user.can_vote?
         end
         can [:answer, :destroy_answer], Poll::Question do |question|
-          question.answerable_by?(user)
+          question.answerable_by?(user) && user.can_vote?
         end
       end
 
