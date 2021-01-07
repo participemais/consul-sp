@@ -116,6 +116,7 @@ class Poll < ApplicationRecord
     user.present? &&
       user.level_two_or_three_verified? &&
       current? &&
+      user.can_vote? &&
       (!geozone_restricted || geozone_ids.include?(user.geozone_id)) &&
       (!electoral_college_restricted? || belongs_to_electoral_college?(user))
   end
