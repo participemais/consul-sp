@@ -9,6 +9,8 @@ class BudgetsController < ApplicationController
   load_and_authorize_resource
   before_action :set_default_budget_filter, only: :show
 
+  has_filters %w[unselected], only: :show
+
   respond_to :html, :js
 
   def show
@@ -32,7 +34,7 @@ class BudgetsController < ApplicationController
 
     def investments
       @results ||= @budget.investments
-        .apply_filters_and_search(@budget, params)
+        .apply_filters_and_search(@budget, params, @current_filter)
         .sort_by_heading
     end
 
