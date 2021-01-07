@@ -126,7 +126,7 @@
         <strong><%= t("admin.menu.title_site_customization") %></strong>
       </a>
       <ul <%= "class=is-active" if menu_customization? &&
-                                   controller.class.parent != Admin::Poll::Questions::Answers %>>
+                                   controller.class.parent != Edition::Poll::Questions::Answers %>>
 
         <li <%= "class=is-active" if menu_homepage? %>>
           <%= link_to t("admin.menu.site_customization.homepage"), admin_homepage_path %>
@@ -258,7 +258,7 @@
         </li>
 
         <li <%= "class=is-active" if controller_name == "images" &&
-                                  controller.class.parent != Admin::Poll::Questions::Answers %>>
+                                  controller.class.parent != Edition::Poll::Questions::Answers %>>
           <%= link_to t("admin.menu.site_customization.images"), admin_site_customization_images_path %>
         </li>
 
