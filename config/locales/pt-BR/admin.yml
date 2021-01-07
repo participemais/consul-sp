@@ -524,6 +524,7 @@ pt-BR:
           status_planned: Planejados
         subnav:
           info: Informações
+          editors: Editores
           homepage: Instruções
           draft_versions: Anotações
           questions: Debates
@@ -695,6 +696,7 @@ pt-BR:
       proposals: Propostas
       proposals_topics: Tópicos de propostas
       budgets: Orçamento Cidadão
+      open_gov: Governo Aberto
       geozones: Gerenciar geozonas
       hidden_comments: Comentários ocultos
       hidden_debates: Debates ocultos
@@ -748,6 +750,7 @@ pt-BR:
       debates: "Debates"
       comments: "Comentários"
       local_census_records: Colégio eleitoral presencial
+      editors: Editores
     administrators:
       index:
         title: Administradores
@@ -776,6 +779,21 @@ pt-BR:
         delete: Apagar
       search:
         title: "Moderadores: Pesquisa de usuário"
+    editors:
+      index:
+        title: Editores
+        name: Nome
+        email: Email
+        processes: Processos habilitados
+        legislation_process: Consulta pública
+        poll: Votação
+        Budget: Orçamento
+        no_editors: Não há editores.
+      editor:
+        add: Adicionar
+        delete: Apagar
+      search:
+        title: "Editores: Pesquisa de usuário"
     segment_recipient:
       all_users: Todos os usuários
       administrators: Administradores
@@ -1069,6 +1087,7 @@ pt-BR:
         officers_tab: Presidentes
         recounts_tab: Votação presencial
         results_tab: Resultados
+        editors_tab: Editores
         no_questions: "Não há perguntas atribuídas a esta votação."
         questions_title: "Lista de perguntas"
         table_title: "Título"
@@ -1685,3 +1704,54 @@ pt-BR:
           import: Importar eleitores por CSV
         local_census_records:
           no_records_found: Nenhum registro encontrado
+    open_gov:
+      subnav:
+        articles: Governo Aberto em São Paulo
+        participations: Participação social em São Paulo
+      articles:
+        participations:
+          title: Informações sobre Participação Social
+          create: Editar informações
+        index:
+          articles: Artigos
+          article_title: Título
+          create: Novo artigo
+          create_project: Novo projeto
+          created_at: Data de criação
+          project_title: Título
+          projects: Projetos
+          no_articles: Nenhum artigo cadastrado
+          no_projects: Nenhum projeto cadastrado
+          title: Governo Aberto
+        new:
+          title: Criar artigo
+        create:
+          notice: Artigo criado com sucesso
+        edit:
+          title: Editar artigo
+        update:
+          notice: Artigo editado com sucesso
+        delete:
+          notice: Artigo excluído com sucesso
+          alert: Tem certeza que deseja apagar este artigo?
+          project_alert: Tem certeza que deseja apagar este projeto?
+        form:
+          save: Salvar
+      projects:
+        new:
+          title: Criar projeto
+        create:
+          notice: Projeto criado com sucesso
+        edit:
+          title: Editar projeto
+        update:
+          notice: Projeto editado com sucesso
+        delete:
+          notice: Projeto excluído com sucesso
+          alert: Tem certeza que deseja apagar este projeto?
+        form:
+          save: Salvar
+        show:
+          link_url: URL do projeto
+          link_text: Texto do link
+          description: Descrição

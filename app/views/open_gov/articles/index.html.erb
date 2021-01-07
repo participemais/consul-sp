@@ -1,0 +1,15 @@
+<% provide :title do %><%= t("layouts.header.open_gov") %><% end %>
+
+<%= render "shared/section_header", i18n_namespace: "open_gov.index.section_header", image: "open-gov", resource: "open-gov"%>
+
+<div class="row">
+  <div class="small-12 column">
+
+    <%= render "filter_subnav", i18n_namespace: "open_gov.index" %>
+
+    <% if @current_filter == "government" %>
+      <%= render "government" %>
+    <% else %>
+    <% end %>
+  </div>
+</div>

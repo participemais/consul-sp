@@ -33,7 +33,7 @@ module AdminHelper
   end
 
   def menu_polls?
-    controller.class.parent == Admin::Poll::Questions::Answers ||
+    controller.class.parent == Edition::Poll::Questions::Answers ||
       %w[polls active_polls recounts results questions answers].include?(controller_name) &&
       action_name != "booth_assignments"
   end
@@ -51,7 +51,7 @@ module AdminHelper
     controllers_names = ["settings", "tags", "geozones", "images", "content_blocks",
       "local_census_records", "imports"]
     controllers_names.include?(controller_name) &&
-      controller.class.parent != Admin::Poll::Questions::Answers
+      controller.class.parent != Edition::Poll::Questions::Answers
   end
 
   def menu_customization?

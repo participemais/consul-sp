@@ -1,0 +1,21 @@
+<div>
+  <% if @projects.any? %>
+    <h3 class="title"><%= t("open_gov.index.projects.title") %></h3>
+
+    <div class="row custom-page">
+        <div class="cards-container">
+          <% @projects.each do |project| %>
+            <%= render "project", project: project %>
+          <% end %>
+        </div>
+    </div>
+  <% end %>
+</div>
+
+<div>
+  <% if @articles.any? %>
+    <h3 class="title"><%= t("open_gov.index.articles.title") %></h3>
+
+    <%= render "article_group", article_group: @articles %>
+  <% end %>
+</div>

@@ -1,0 +1,34 @@
+<div class="open-gov-form row">
+  <%= form_for([:admin, @project], url: url) do |f| %>
+
+    <%= render "shared/errors", resource: @project %>
+
+    <div class="row">
+      <div class="small-12 column">
+        <%= f.text_field(:title, required: true) %>
+      </div>
+      <div class="small-12 column">
+        <%= f.text_area(:description, rows: 5) %>
+      </div>
+      <div class="small-12 column">
+        <%= f.text_field(:link_text) %>
+      </div>
+      <div class="small-12 column">
+        <%= f.text_field(:link_url) %>
+      </div>
+      <div class="small-12 column">
+        <%= render "images/admin_image", imageable: @project, f: f %>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="actions small-12 medium-4 column">
+        <%= f.submit(
+          class: "button expanded large",
+          value: t("admin.open_gov.projects.form.save")
+        ) %>
+      </div>
+    </div>
+
+  <% end %>
+</div>

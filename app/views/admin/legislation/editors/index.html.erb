@@ -1,0 +1,63 @@
+<% provide :title do %>
+  <%= t("admin.header.title") %> - <%= t("admin.menu.legislation") %> - <%= @process.title %> - <%= t("admin.legislation.questions.index.title") %>
+<% end %>
+
+<div class="legislation-draft-versions-index">
+  <%= back_link_to admin_legislation_processes_path, t("admin.legislation.questions.index.back") %>
+
+  <h2><%= @process.title %></h2>
+
+  <%= render "admin/legislation/processes/subnav", process: @process, active: "editors" %>
+
+  <%= render "admin/shared/user_search", url: search_admin_legislation_process_editors_path %>
+
+  <div id="editors">
+    <% if @editors.any? %>
+      
+      <table>
+        <thead>
+          <th scope="col"><%= t("admin.editors.index.name") %></th>
+          <th scope="col" class="small-2"><%= t("admin.editors.index.email") %></th>
+          <th scope="col" class="small-2"><%= t("admin.shared.actions") %></th>
+        </thead>
+        <tbody>
+          <% @editors.each do |editor| %>
+            <tr>
+              <td>
+                <%= editor.name %>
+              </td>
+              <td>
+                <%= editor.email %>
+              </td>
+              <td>
+                <% if @process.editors.include?(editor) %>
+                  <%= link_to t("admin.editors.editor.delete"),
+                              admin_legislation_process_editor_path(@process, editor),
+                              method: :delete,
+                              class: "button hollow alert expanded"
+                  %>
+                <% else %>
+                  <%= link_to t("admin.editors.editor.add"),
+                              { controller: "legislation/editors", 
+                                action: :create,
+                                editor_legislation_process: {
+                                  editor_id: editor.id,
+                                  legislation_process_id: @process.id }
+                              },
+                              method: :post,
+                              class: "button success expanded" %>
+                <% end %>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+
+      <%= paginate @editors %>
+    <% else %>
+      <div class="callout primary">
+        <%= t("admin.editors.index.no_editors") %>
+      </div>
+    <% end %>
+  </div>
+</div>

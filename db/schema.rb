@@ -10,13 +10,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20201223150921) do
-
+ActiveRecord::Schema.define(version: 20201230001255) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-  enable_extension "unaccent"
   enable_extension "pg_trgm"
+  enable_extension "unaccent"
 
   create_table "active_poll_translations", id: :serial, force: :cascade do |t|
     t.integer "active_poll_id", null: false
@@ -246,7 +245,6 @@ ActiveRecord::Schema.define(version: 20201223150921) do
     t.integer "population_density_reference_year"
     t.string "analytical_framework_url"
     t.string "action_perimeter_url"
-    t.integer "max_ballot_lines", default: 1
     t.index ["group_id"], name: "index_budget_headings_on_group_id"
   end
 
@@ -266,6 +264,8 @@ ActiveRecord::Schema.define(version: 20201223150921) do
   create_table "budget_investments", id: :serial, force: :cascade do |t|
     t.integer "author_id"
     t.integer "administrator_id"
+    t.string "deprecated_title"
+    t.text "deprecated_description"
     t.string "external_url"
     t.bigint "price"
     t.string "feasibility", limit: 15, default: "undecided"
@@ -394,7 +394,6 @@ ActiveRecord::Schema.define(version: 20201223150921) do
     t.string "balloting_type"
     t.text "description_formulation"
     t.text "description_devolutive"
-    t.string "voting_style", default: "knapsack"
   end
 
   create_table "campaigns", id: :serial, force: :cascade do |t|
@@ -432,6 +431,7 @@ ActiveRecord::Schema.define(version: 20201223150921) do
   create_table "comments", id: :serial, force: :cascade do |t|
     t.integer "commentable_id"
     t.string "commentable_type"
+    t.text "deprecated_body"
     t.string "subject"
     t.integer "user_id", null: false
     t.datetime "created_at"
@@ -515,6 +515,8 @@ ActiveRecord::Schema.define(version: 20201223150921) do
   end
 
   create_table "debates", id: :serial, force: :cascade do |t|
+    t.string "deprecated_title", limit: 80
+    t.text "deprecated_description"
     t.integer "author_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -575,7 +577,7 @@ ActiveRecord::Schema.define(version: 20201223150921) do
     t.string "title"
     t.string "attachment_file_name"
     t.string "attachment_content_type"
-    t.bigint "attachment_file_size"
+    t.integer "attachment_file_size"
     t.datetime "attachment_updated_at"
     t.integer "user_id"
     t.string "documentable_type"
@@ -586,6 +588,29 @@ ActiveRecord::Schema.define(version: 20201223150921) do
     t.index ["documentable_type", "documentable_id"], name: "index_documents_on_documentable_type_and_documentable_id"
     t.index ["user_id", "documentable_type", "documentable_id"], name: "access_documents"
     t.index ["user_id"], name: "index_documents_on_user_id"
+  end
+
+  create_table "editor_legislation_processes", force: :cascade do |t|
+    t.bigint "editor_id"
+    t.bigint "legislation_process_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["editor_id"], name: "index_editor_legislation_processes_on_editor_id"
+    t.index ["legislation_process_id"], name: "index_editor_legislation_processes_on_legislation_process_id"
+  end
+
+  create_table "editor_polls", force: :cascade do |t|
+    t.bigint "editor_id"
+    t.bigint "poll_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["editor_id"], name: "index_editor_polls_on_editor_id"
+    t.index ["poll_id"], name: "index_editor_polls_on_poll_id"
+  end
+
+  create_table "editors", force: :cascade do |t|
+    t.bigint "user_id"
+    t.index ["user_id"], name: "index_editors_on_user_id"
   end
 
   create_table "failed_census_calls", id: :serial, force: :cascade do |t|
@@ -695,7 +720,7 @@ ActiveRecord::Schema.define(version: 20201223150921) do
     t.datetime "updated_at", null: false
     t.string "attachment_file_name"
     t.string "attachment_content_type"
-    t.bigint "attachment_file_size"
+    t.integer "attachment_file_size"
     t.datetime "attachment_updated_at"
     t.integer "user_id"
     t.index ["imageable_type", "imageable_id"], name: "index_images_on_imageable_type_and_imageable_id"
@@ -1050,6 +1075,31 @@ ActiveRecord::Schema.define(version: 20201223150921) do
     t.index ["user_id"], name: "index_notifications_on_user_id"
   end
 
+  create_table "open_gov_articles", id: :serial, force: :cascade do |t|
+    t.string "title"
+    t.text "text"
+    t.integer "author_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["author_id"], name: "index_open_gov_articles_on_author_id"
+  end
+
+  create_table "open_gov_participation_articles", id: :serial, force: :cascade do |t|
+    t.string "title"
+    t.text "text"
+    t.integer "author_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["author_id"], name: "index_open_gov_participation_articles_on_author_id"
+  end
+
+  create_table "open_gov_projects", force: :cascade do |t|
+    t.string "title"
+    t.string "link_url"
+    t.string "description"
+    t.string "link_text"
+  end
+
   create_table "organizations", id: :serial, force: :cascade do |t|
     t.integer "user_id"
     t.string "name", limit: 60
@@ -1358,6 +1408,8 @@ ActiveRecord::Schema.define(version: 20201223150921) do
   end
 
   create_table "proposals", id: :serial, force: :cascade do |t|
+    t.string "deprecated_title", limit: 80
+    t.text "deprecated_description"
     t.integer "author_id"
     t.datetime "hidden_at"
     t.integer "flags_count", default: 0
@@ -1370,11 +1422,13 @@ ActiveRecord::Schema.define(version: 20201223150921) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "responsible_name", limit: 60
+    t.text "deprecated_summary"
     t.string "video_url"
     t.tsvector "tsv"
     t.integer "geozone_id"
     t.datetime "retired_at"
     t.string "retired_reason"
+    t.text "deprecated_retired_explanation"
     t.integer "community_id"
     t.datetime "published_at"
     t.boolean "selected", default: false
@@ -1477,7 +1531,7 @@ ActiveRecord::Schema.define(version: 20201223150921) do
     t.string "name", null: false
     t.string "image_file_name"
     t.string "image_content_type"
-    t.bigint "image_file_size"
+    t.integer "image_file_size"
     t.datetime "image_updated_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -1539,9 +1593,9 @@ ActiveRecord::Schema.define(version: 20201223150921) do
     t.integer "debates_count", default: 0
     t.integer "proposals_count", default: 0
     t.string "kind"
-    t.integer "budget_investments_count", default: 0
-    t.integer "legislation_proposals_count", default: 0
-    t.integer "legislation_processes_count", default: 0
+    t.integer "budget/investments_count", default: 0
+    t.integer "legislation/proposals_count", default: 0
+    t.integer "legislation/processes_count", default: 0
     t.index ["debates_count"], name: "index_tags_on_debates_count"
     t.index ["legislation/processes_count"], name: "index_tags_on_legislation/processes_count"
     t.index ["legislation/proposals_count"], name: "index_tags_on_legislation/proposals_count"
@@ -1762,6 +1816,11 @@ ActiveRecord::Schema.define(version: 20201223150921) do
   add_foreign_key "dashboard_executed_actions", "dashboard_actions", column: "action_id"
   add_foreign_key "dashboard_executed_actions", "proposals"
   add_foreign_key "documents", "users"
+  add_foreign_key "editor_legislation_processes", "editors"
+  add_foreign_key "editor_legislation_processes", "legislation_processes"
+  add_foreign_key "editor_polls", "editors"
+  add_foreign_key "editor_polls", "polls"
+  add_foreign_key "editors", "users"
   add_foreign_key "failed_census_calls", "poll_officers"
   add_foreign_key "failed_census_calls", "users"
   add_foreign_key "feasibility_analyses", "feasibility_analysis_departments", column: "department_id"

@@ -249,6 +249,7 @@ pt-BR:
       available_locales: Idiomas disponíveis
       collaborative_legislation: Consultas públicas
       debates: Debates
+      edition: Edição
       locale: "Idioma:"
       logo: Consul logotipo
       management: Gestão
@@ -262,6 +263,7 @@ pt-BR:
       proposals: Propostas
       poll_questions: Votações
       budgets: Orçamento cidadão
+      open_gov: Governo Aberto
       notification_item:
         new_notifications:
           one: Você tem uma nova notificação
@@ -1003,3 +1005,17 @@ pt-BR:
     create:
       enqueue_remote_translation: As traduções foram solicitadas corretamente.
     button: Traduzir página
+  open_gov:
+    index:
+      projects:
+        title: Projetos
+      articles:
+        title: Artigos
+      section_header:
+        title: Governo aberto
+        participate: Conheça os projetos e ações
+        subtitle: em São Paulo
+      filters:
+        government: Governo Aberto em São Paulo
+        participation: Participação social em São Paulo
+        action_plan: Plano de Ação em Governo Aberto

@@ -1,0 +1,13 @@
+<% provide :title do %>
+  <%= t("admin.header.title") %> - <%= t("admin.menu.open_gov") %> %>
+<% end %>
+
+<%= back_link_to(
+  admin_open_gov_articles_path, t("shared.back")
+) %>
+
+<h2><%= @article.title %></h2>
+
+<%= auto_link_already_sanitized_html(
+  AdminWYSIWYGSanitizer.new.sanitize(@article.text)
+) %>

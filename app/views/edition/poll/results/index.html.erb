@@ -1,0 +1,9 @@
+<%= render "/edition/poll/polls/poll_header" %>
+
+<div id="poll-resources">
+  <%= render "/edition/poll/polls/subnav" %>
+
+  <% if @poll.voters.any? %>
+    <%= render "show_results", resource: @poll %>
+  <% end %>
+</div>

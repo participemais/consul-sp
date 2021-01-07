@@ -1,0 +1,23 @@
+<%= render "/edition/poll/polls/poll_header" %>
+<div id="poll-resources">
+  <%= render "/edition/poll/polls/subnav" %>
+
+  <h3><%= t("admin.recounts.index.title") %></h3>
+
+  <% if @booth_assignments.empty? %>
+    <div class="callout primary margin-top">
+      <%= t("admin.recounts.index.no_recounts") %>
+    </div>
+  <% else %>
+
+    <%= render "results_totals",
+      stats: @stats,
+      explanations: @poll.recounts.with_difference_explanation
+    %>
+
+    <%= render "results_questions" %>
+
+    <%= render "results_by_booth" %>
+
+  <% end %>
+</div>
