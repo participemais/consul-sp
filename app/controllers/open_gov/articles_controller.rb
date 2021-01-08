@@ -9,6 +9,7 @@ class OpenGov::ArticlesController < ApplicationController
 
   def index
     @articles = OpenGov::Article.all.order(created_at: :desc)
+    @participation_article = OpenGov::ParticipationArticle.first
     @projects = OpenGov::Project.all
     @current_filter = params[:filter]
   end

@@ -1,11 +1,7 @@
-<% article_group.each do |article| %>
-  <div class="poll polls-cards">
-    <div class="row" data-equalizer data-equalize-on="medium">
-      <div class="small-12 medium-9 column poll-card-info" data-equalizer-watch>
-        <div class="poll-details">
-          <h4><%=  link_to article.title, open_gov_article_path(article) %></h4>
-        </div>
-      </div>
-    </div>
-  </div>
-<% end %>
+<div class="feed-content" data-equalizer-watch>
+	<% article_group.each do |article| %>
+		<div class="debate">
+			<strong><%=  link_to article.title, open_gov_article_path(article) %></strong>
+		</div>
+	<% end %>
+</div>
