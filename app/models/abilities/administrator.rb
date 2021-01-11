@@ -87,9 +87,6 @@ module Abilities
       can [:create, :destroy], ::Poll::OfficerAssignment
       can [:read, :create, :update], Poll::Question
       can :destroy, Poll::Question
-      can [:manage], Poll::ElectoralCollege
-      can [:manage], Poll::Elector
-      can [:create, :read], Poll::Electors::Import
 
       can :manage, SiteCustomization::Page
       can :manage, SiteCustomization::Image

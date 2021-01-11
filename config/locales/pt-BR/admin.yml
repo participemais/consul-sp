@@ -790,8 +790,8 @@ pt-BR:
         Budget: Orçamento
         no_editors: Não há editores.
       editor:
-        add: Adicionar
-        delete: Apagar
+        add: Habilitar
+        delete: Desabilitar
       search:
         title: "Editores: Pesquisa de usuário"
     segment_recipient:
