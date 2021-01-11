@@ -18,7 +18,7 @@
           <ul>
             <% shift.polls_related_to_task.each do |poll| %>
               <li>
-                <%= link_to(poll.name, admin_poll_path(poll), target: :blank) %>
+                <%= link_to(poll.name, edition_poll_path(poll), target: :blank) %>
               </li>
             <% end %>
           </ul>
