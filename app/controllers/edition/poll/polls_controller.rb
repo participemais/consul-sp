@@ -8,7 +8,11 @@ class Edition::Poll::PollsController < Edition::Poll::BaseController
   before_action :load_geozones, only: [:new, :create, :edit, :update], if: :is_admin?
 
   def index
-    @polls = Poll.not_budget.created_by_admin.order(starts_at: :desc)
+    if is_admin?
+      @polls = Poll.not_budget.created_by_admin.order(starts_at: :desc)
+    else
+      @polls = Poll.not_budget.created_by_admin.joins(:editors).where(editors: { user_id: current_user.id }).order(starts_at: :desc)
+    end
   end
 
   def show

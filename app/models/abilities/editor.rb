@@ -25,6 +25,8 @@ module Abilities
       can [:read, :update, :add_question, :search_booths, :search_officers, :booth_assignments], Poll, editors: { user_id: user.id }
       can [:read, :create, :update, :destroy], Poll::Question
       can [:manage], Poll::ElectoralCollege
+      can [:manage], Poll::Elector
+      can [:create, :read], Poll::Electors::Import
 
       can :access, :ckeditor
       can :manage, Ckeditor::Picture
