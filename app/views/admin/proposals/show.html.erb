@@ -11,14 +11,14 @@
 
       <div class="float-right">
         <%= link_to t("admin.proposals.show.create_question"),
-                    new_admin_question_path(proposal_id: @proposal.id),
+                    new_edition_question_path(proposal_id: @proposal.id),
                     class: "button medium" %>
       </div>
     </div>
   <% else %>
     <div class="float-right">
       <%= link_to t("admin.proposals.show.create_question"),
-                  new_admin_question_path(proposal_id: @proposal.id),
+                  new_edition_question_path(proposal_id: @proposal.id),
                   class: "button hollow medium" %>
     </div>
   <% end %>
