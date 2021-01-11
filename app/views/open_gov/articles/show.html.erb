@@ -4,9 +4,16 @@
 
 <div class="row">
   <div class="small-12 medium-9 column">
-    <%= back_link_to(open_gov_articles_path, t("shared.back")) %>
+    <%= back_link_to(open_gov_articles_path(filter: "government"), t("shared.back")) %>
 
     <h2><%= @article.title %></h2>
+
+	<div>
+		<p>
+			<strong><%= t("open_gov.index.articles.date")%>:</strong>
+			<%= format_date(@article.created_at) %>
+		</p>
+	</div>
 
     <%= auto_link_already_sanitized_html(AdminWYSIWYGSanitizer.new.sanitize(@article.text)) %>
   </div>
