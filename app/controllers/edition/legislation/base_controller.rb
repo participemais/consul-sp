@@ -8,6 +8,10 @@ class Edition::Legislation::BaseController < Edition::BaseController
   private
 
     def namespace
-      "edition"
+    	if current_user.administrator?
+    		"admin"
+    	elsif current_user.editor?
+      	"edition"
+      end
     end
 end
