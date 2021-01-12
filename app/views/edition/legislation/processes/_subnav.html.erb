@@ -1,10 +1,16 @@
 <ul class="menu simple clear">
-  <% edition_legislation_process_tabs(process).each do |tab_name, path| %>
+  <% if current_user.administrator? %>
+    <% tabs = legislation_process_tabs(process) %>
+  <% elsif current_user.editor? %>
+    <% tabs = edition_legislation_process_tabs(process) %>
+  <% end %>
+
+  <% tabs.each do |tab_name, path| %>
     <% if active == tab_name %>
       <li class="is-active">
         <h2><%= t("admin.legislation.processes.subnav.#{tab_name}") %></h2>
       </li>
-    <% elsif process.editable? %>
+    <% else %>
       <li>
         <%= link_to(t("admin.legislation.processes.subnav.#{tab_name}"), path) %>
       </li>
