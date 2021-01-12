@@ -1,0 +1,46 @@
+<% provide :title do %>
+  <%= t("admin.header.title") %> - <%= t("admin.menu.open_gov") %> %>
+<% end %>
+
+<%= back_link_to(
+  admin_open_gov_plans_path, t("shared.back")
+) %>
+
+<div class="row">
+  <div class="small-12 column">
+
+    <h2><%= @plan.title %></h2>
+
+    <p>
+        <strong><%= t("admin.open_gov.plans.show.period") %>:</strong>
+        <%= format_date(@plan.starts_at) %> - <%= format_date(@plan.ends_at) %>
+    </p>
+    
+    <p>
+        <strong><%= t("admin.open_gov.plans.show.video_url") %>:</strong>
+        <%= link_to @plan.video_url %>
+    </p>
+
+    <% documents = @plan.documents %>
+    <% if documents.any? %>
+      <div id="documents" class="documents">
+        <h2><%= t("documents.title") %>&nbsp;<span>(<%= documents.count %>)</span></h2>
+        <ul class="no-bullet document-link">
+            <% documents.each do |document| %>
+              <li id="<%= dom_id(document) %>">
+                  <%= link_to t("documents.buttons.download_document"),
+                              document.attachment.url, target: "_blank",
+                              rel: "nofollow", class: "button hollow medium float-right" %>
+
+                  <strong><%= document.title %></strong>
+                  <br>
+                  <small>
+                    <%= document.humanized_content_type %>&nbsp;|&nbsp;
+                    <%= number_to_human_size(document.attachment_file_size, precision: 2) %>
+                  </small>
+              </li>
+            <% end %>
+        </ul>
+      </div>
+    <% end %>
+</div>

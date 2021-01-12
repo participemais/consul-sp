@@ -598,6 +598,11 @@ pt-BR:
         link_url: URL do projeto
         link_text: Texto do link
         description: Descrição
+      open_gov/plan:
+        title: Título
+        video_url: Link da página do plano
+        starts_at: Data de início
+        ends_at: Data de término
     errors:
       models:
         user:

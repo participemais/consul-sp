@@ -115,6 +115,10 @@ module Abilities
       can [:manage], OpenGov::Article
       can [:manage], OpenGov::ParticipationArticle
       can [:manage], OpenGov::Project
+      can [:manage], OpenGov::Plan
+      can [:manage], OpenGov::Commitment
+      can [:manage], OpenGov::Mark
+      can [:manage], OpenGov::Line
     end
   end
 end

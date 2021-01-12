@@ -1687,9 +1687,37 @@ pt-BR:
         local_census_records:
           no_records_found: Nenhum registro encontrado
     open_gov:
+      index:
+        title: Governo Aberto
       subnav:
         articles: Governo Aberto em São Paulo
         participations: Participação social em São Paulo
+        monitoring: Monitoramento do Plano de Ação
+      plans:
+        index:
+          plans: Planos
+          create: Novo plano
+          title: Título
+          start_date: Data de início
+          end_date: Date de término
+          no_plans: Nenhum plano cadastrado
+        new:
+          title: Criar plano
+        create:
+          notice: Plano criado com sucesso
+        edit:
+          title: Editar plano
+        update:
+          notice: Plano editado com sucesso
+        delete:
+          notice: Plano excluído com sucesso
+          alert: Tem certeza que deseja apagar este plano?
+        form:
+          save: Salvar
+          period: Período
+        show:
+          period: Período
+          video_url: URL do plano
       articles:
         participations:
           title: Informações sobre Participação Social
@@ -1704,7 +1732,6 @@ pt-BR:
           projects: Projetos
           no_articles: Nenhum artigo cadastrado
           no_projects: Nenhum projeto cadastrado
-          title: Governo Aberto
         new:
           title: Criar artigo
         create:

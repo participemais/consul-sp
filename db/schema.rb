@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20201229175858) do
+ActiveRecord::Schema.define(version: 20210111182719) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -1058,6 +1058,40 @@ ActiveRecord::Schema.define(version: 20201229175858) do
     t.index ["author_id"], name: "index_open_gov_articles_on_author_id"
   end
 
+  create_table "open_gov_commitments", force: :cascade do |t|
+    t.string "title"
+    t.string "coordenation"
+    t.text "work_group"
+    t.datetime "starts_at"
+    t.datetime "ends_at"
+    t.bigint "open_gov_plan_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["open_gov_plan_id"], name: "index_open_gov_commitments_on_open_gov_plan_id"
+  end
+
+  create_table "open_gov_lines", force: :cascade do |t|
+    t.string "title"
+    t.string "author"
+    t.datetime "starts_at"
+    t.datetime "ends_at"
+    t.boolean "status"
+    t.bigint "open_gov_mark_id"
+    t.index ["open_gov_mark_id"], name: "index_open_gov_lines_on_open_gov_mark_id"
+  end
+
+  create_table "open_gov_marks", force: :cascade do |t|
+    t.string "title"
+    t.string "author"
+    t.datetime "starts_at"
+    t.datetime "ends_at"
+    t.boolean "status"
+    t.bigint "open_gov_commitment_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["open_gov_commitment_id"], name: "index_open_gov_marks_on_open_gov_commitment_id"
+  end
+
   create_table "open_gov_participation_articles", id: :serial, force: :cascade do |t|
     t.string "title"
     t.text "text"
@@ -1065,6 +1099,15 @@ ActiveRecord::Schema.define(version: 20201229175858) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["author_id"], name: "index_open_gov_participation_articles_on_author_id"
+  end
+
+  create_table "open_gov_plans", force: :cascade do |t|
+    t.string "title"
+    t.datetime "starts_at"
+    t.datetime "ends_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "video_url"
   end
 
   create_table "open_gov_projects", force: :cascade do |t|
