@@ -22,9 +22,7 @@ module Abilities
 
       can :manage, Dashboard::Action
 
-      can [:read, :update, :add_question, :search_booths, :search_officers, :booth_assignments], Poll do |poll|
-        poll.editable? && poll.editors.include?(user.editor)
-      end
+      can [:read, :update, :add_question, :search_booths, :search_officers, :booth_assignments], Poll
       can [:read, :create, :update, :destroy], Poll::Question, poll: { editors: { user_id: user.id } }
       can [:manage], Poll::ElectoralCollege
       can [:manage], Poll::Elector
