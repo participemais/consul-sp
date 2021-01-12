@@ -113,7 +113,7 @@
 
   ul > li > a {
     color: $text-medium;
-    padding: 0 $line-height;
+    padding: 0 $line-height/2;
     font-family: $header-font-family;
 
     &:hover {

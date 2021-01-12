@@ -1008,9 +1008,10 @@ pt-BR:
   open_gov:
     index:
       projects:
-        title: Projetos
+        title: Projetos da Supervisão para Assuntos de Governo Aberto
       articles:
-        title: Artigos
+        title: Artigos de Governo Aberto
+        date: Data
       section_header:
         title: Governo aberto
         participate: Conheça os projetos e ações
@@ -1019,3 +1020,6 @@ pt-BR:
         government: Governo Aberto em São Paulo
         participation: Participação social em São Paulo
         action_plan: Plano de Ação em Governo Aberto
+      participation_article:
+        document: Documentos em destaque
+        title: Participação social no município
