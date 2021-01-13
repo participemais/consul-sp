@@ -609,6 +609,12 @@ pt-BR:
         work_group: Grupo de trabalho
         starts_at: Data de início
         ends_at: Data de término
+      open_gov/mark:
+        title: Título
+        starts_at: Data de início
+        ends_at: Data de término
+        status: Finalizado
+        author: Responsável
     errors:
       models:
         user:

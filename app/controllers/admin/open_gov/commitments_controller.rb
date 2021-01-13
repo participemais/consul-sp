@@ -43,8 +43,7 @@ class Admin::OpenGov::CommitmentsController < Admin::BaseController
       :ends_at,
       :coordenation,
       :work_group,
-      :open_gov_plan_id,
-      :plan_id)
+      :open_gov_plan_id)
   end
 
   def load_commitment
