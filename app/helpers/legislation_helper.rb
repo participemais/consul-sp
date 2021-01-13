@@ -36,6 +36,12 @@ module LegislationHelper
     }
   end
 
+  def edition_finished_legislation_process_tabs(process)
+    {
+      "milestones"     => edition_legislation_process_milestones_path(process)
+    }
+  end
+
   def banner_color?
     @process.background_color.present? && @process.font_color.present?
   end
