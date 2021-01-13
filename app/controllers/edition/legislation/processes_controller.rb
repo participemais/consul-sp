@@ -8,7 +8,7 @@ class Edition::Legislation::ProcessesController < Edition::Legislation::BaseCont
 
   def index
     if current_user.administrator?
-      @processes = ::Legislation::Process.joins(:editors).send(@current_filter).order(start_date: :desc)
+      @processes = ::Legislation::Process.send(@current_filter).order(start_date: :desc)
                  .page(params[:page])
     elsif current_user.editor?
       @processes = ::Legislation::Process.joins(:editors).where(editors: { user_id: current_user.id }).send(@current_filter).order(start_date: :desc)
