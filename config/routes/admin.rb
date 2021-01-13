@@ -275,8 +275,9 @@ namespace :admin do
     resources :articles
     resources :participation_articles
     resources :projects
-    resources :plans
-    resources :commitments
+    resources :plans do
+      resources :commitments, except: [:index]
+    end
     resources :marks
     resources :lines
   end

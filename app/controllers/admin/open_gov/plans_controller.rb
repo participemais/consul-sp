@@ -12,6 +12,9 @@ class Admin::OpenGov::PlansController < Admin::BaseController
     @plan = OpenGov::Plan.new
   end
 
+  def show
+  end
+
   def create
     @plan = OpenGov::Plan.new(plan_params)
 
@@ -36,10 +39,6 @@ class Admin::OpenGov::PlansController < Admin::BaseController
     @plan.destroy
     redirect_to admin_open_gov_plans_path,
       notice: t("admin.open_gov.plans.delete.notice")
-  end
-
-  def participations
-
   end
 
   private
