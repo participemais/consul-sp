@@ -2,10 +2,10 @@
 
 <% if documents.any? %>
 
-  <h4 class="margin-top"><%= t("open_gov.index.participation_article.document") %></h4>
+  <h3 class="margin-top"><%= t("open_gov.index.participation_article.document") %></h3>
 
   <% documents.each do |document| %>
-    <div class="document-cards small-12 medium-3">
+    <div class="document-cards small-12 medium-3 align-middle">
         <h4>
           <%=  link_to document.attachment.url, target: "_blank" do %>
             <%= document.title %>
@@ -17,7 +17,7 @@
 
 <div class="draft-panels">
   <div class="row draft-allegation">
-    <h4><%= t("open_gov.index.participation_article.title") %></h4>
+    <h3><%= t("open_gov.index.participation_article.title") %></h3>
 
     <div class="small-12 column border-all">
       <div id="sticky-panel" class="draft-text">
