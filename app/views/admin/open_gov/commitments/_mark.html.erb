@@ -1,0 +1,24 @@
+<div class="row topics-preview">
+  <div class="small-12 column">
+
+    <h3><%= mark.title %></h3>
+
+    <p>
+      <strong><%= t("admin.open_gov.commitments.show.period") %>:</strong>
+      <%= format_date(mark.starts_at) %> - <%= format_date(mark.ends_at) %>
+
+      <br>
+
+      <strong><%= t("admin.open_gov.commitments.show.coordenation") %>:</strong>
+      <%= mark.author %>
+    </p>
+
+    <p class="topic-form-link">
+      <%= link_to t("admin.open_gov.commitments.show.add_line"), new_admin_open_gov_plan_commitment_mark_line_path(@plan, @commitment, mark) %>
+    </p>
+
+    <% if mark.lines.present? %>
+      <%= render "lines", mark: mark %>
+    <% end %>
+  </div>
+</div>

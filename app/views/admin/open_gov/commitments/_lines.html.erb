@@ -1,0 +1,31 @@
+<% mark.lines.each do |line| %>
+  <div class="row lines-preview">
+    <div class="small-12 column">
+
+      <h3><%= line.title %></h3>
+
+      <p>
+        <strong><%= t("admin.open_gov.commitments.show.period") %>:</strong>
+        <%= format_date(line.starts_at) %> - <%= format_date(line.ends_at) %>
+
+        <br>
+
+        <strong><%= t("admin.open_gov.commitments.show.coordenation") %>:</strong>
+        <%= line.author %>
+
+        <br>
+
+        <%= link_to t("admin.actions.edit"),
+          edit_admin_open_gov_plan_commitment_mark_line_path(@plan, @commitment, mark, line)
+        %>
+        <%= link_to t("admin.actions.delete"),
+          admin_open_gov_plan_commitment_mark_line_path(@plan, @commitment, mark, line),
+          method: :delete,
+          "data-confirm": t("admin.open_gov.lines.delete.alert")
+        %>
+      </p>
+
+      <p class="topic-form-link"></p>
+    </div>
+  </div>
+<% end %>
