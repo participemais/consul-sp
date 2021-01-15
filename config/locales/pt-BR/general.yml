@@ -201,6 +201,10 @@ pt-BR:
     poll/electors/import: Arquivo
     poll/elector: Eleitor
     tag: Categoria
+    open_gov/line: Linha de ação
+    open_gov/mark: Marco
+    open_gov/commitment: Compromisso
+    open_gov/plan: Plano de ação
   geozones:
     none: Cidade de São Paulo
   layouts:

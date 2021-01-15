@@ -277,9 +277,10 @@ namespace :admin do
     resources :projects
     resources :plans do
       resources :commitments, except: [:index] do
-        resources :marks, except: [:index]
+        resources :marks, except: [:index, :show] do
+          resources :lines, except: [:index, :show]
+        end
       end
     end
-    resources :lines
   end
 end

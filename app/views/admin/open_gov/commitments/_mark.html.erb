@@ -11,14 +11,14 @@
 
       <strong><%= t("admin.open_gov.commitments.show.coordenation") %>:</strong>
       <%= mark.author %>
-
-      <br>
-    
-      <strong><%= t("admin.open_gov.commitments.show.text") %>:</strong>
     </p>
 
     <p class="topic-form-link">
-      <%= link_to t("admin.open_gov.commitments.show.add_line"), new_admin_open_gov_plan_commitment_mark_path(@plan, @commitment) %>
+      <%= link_to t("admin.open_gov.commitments.show.add_line"), new_admin_open_gov_plan_commitment_mark_line_path(@plan, @commitment, mark) %>
     </p>
+
+    <% if mark.lines.present? %>
+      <%= render "lines", mark: mark %>
+    <% end %>
   </div>
 </div>

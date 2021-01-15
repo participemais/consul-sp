@@ -1747,6 +1747,28 @@ pt-BR:
           author: Responsável
           text: Entregas
           add_line: Adicionar linha de ação
+      lines:
+        index:
+          marks: Linhas de ação
+          create: Nova linha de ação
+          title: Título
+          start_date: Data de início
+          end_date: Date de término
+          no_marks: Nenhuma linha de ação cadastrada
+        new:
+          title: Criar linha de ação
+        create:
+          notice: Linha de ação criada com sucesso
+        edit:
+          title: Editar linha de ação
+        update:
+          notice: Linha de ação editada com sucesso
+        delete:
+          notice: Linha de ação excluída com sucesso
+          alert: Tem certeza que deseja apagar esta linha de ação?
+        form:
+          save: Salvar
+          period: Período
       marks:
         index:
           marks: Marcos

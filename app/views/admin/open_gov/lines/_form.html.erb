@@ -1,9 +1,9 @@
 <div class="open-gov-form row">
-  <%= form_for([:admin, @mark], url: url) do |f| %>
+  <%= form_for([:admin, @line], url: url) do |f| %>
 
-    <%= render "shared/errors", resource: @mark %>
+    <%= render "shared/errors", resource: @line %>
 
-    <%= f.hidden_field(:open_gov_commitment_id, :value => @commitment.id) %>
+    <%= f.hidden_field(:open_gov_mark_id, :value => @mark.id) %>
 
     <div class="row">
       <div class="small-12 column">
@@ -12,14 +12,14 @@
 
       <div class="small-12 medium-3 column">
         <%= f.text_field :starts_at,
-                          value: format_date_for_calendar_form(@mark.starts_at),
+                          value: format_date_for_calendar_form(@line.starts_at),
                           class: "js-calendar-full",
                           id: "start_date" %>
       </div>
 
       <div class="small-12 medium-3 column">
         <%= f.text_field :ends_at,
-                          value: format_date_for_calendar_form(@mark.ends_at),
+                          value: format_date_for_calendar_form(@line.ends_at),
                           class: "js-calendar-full",
                           id: "end_date" %>
       </div>

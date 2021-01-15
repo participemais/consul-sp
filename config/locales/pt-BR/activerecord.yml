@@ -615,6 +615,14 @@ pt-BR:
         ends_at: Data de término
         status: Finalizado
         author: Responsável
+        delivered: Entregáveis
+      open_gov/line:
+        title: Título
+        starts_at: Data de início
+        ends_at: Data de término
+        status: Finalizado
+        author: Responsável
+        delivered: Entregáveis
     errors:
       models:
         user:

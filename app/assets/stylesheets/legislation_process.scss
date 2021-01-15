@@ -1334,6 +1334,10 @@
   }
 }
 
+.lines-preview {
+  padding-left: $line-height;
+}
+
 .text-preview {
   margin-top: $line-height;
   padding-right: $line-height / 2;
