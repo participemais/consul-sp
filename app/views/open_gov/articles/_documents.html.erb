@@ -1,0 +1,12 @@
+<p>
+  <strong><%= t("admin.open_gov.commitments.show.docs") %>:</strong>
+<p>
+
+<div class="small-12 medium-12">
+  <% documents.each do |document| %>
+
+      <%=  link_to document.attachment.url, target: "_blank", class: "action-plan-docs" do %>
+        <%= document.title %>
+      <% end %>
+  <% end %>
+</div>

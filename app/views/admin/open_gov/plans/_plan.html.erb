@@ -5,10 +5,10 @@
     </strong>
   </td>
   <td class="small-8 medium-2">
-    <%= l plan.starts_at.to_date %>
+    <%= l plan.starts_at.to_date if plan.starts_at.present? %>
   </td>
   <td class="small-8 medium-2">
-    <%= l plan.ends_at.to_date %>
+    <%= l plan.ends_at.to_date if plan.starts_at.present? %>
   </td>
   <td class="text-center">
     <%= link_to t("admin.actions.edit"),

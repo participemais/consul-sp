@@ -11,20 +11,22 @@
 
 	<h2><%= @commitment.title %></h2>
 
-	<p>
-        <strong><%= t("admin.open_gov.commitments.show.period") %>:</strong>
-        <%= format_date(@commitment.starts_at) %> - <%= format_date(@commitment.ends_at) %>
-    </p>
+    <div class="info-preview">
+        <p>
+            <strong><%= t("admin.open_gov.commitments.show.period") %>:</strong>
+            <%= format_date(@commitment.starts_at) %> - <%= format_date(@commitment.ends_at) %>
+        </p>
 
-	<p>
-		<strong><%= t("admin.open_gov.commitments.show.coordenation") %>:</strong>
-		<%= @commitment.coordenation %>
-	</p>
-	
-	<p>
-		<strong><%= t("admin.open_gov.commitments.show.work_group") %>:</strong>
-		<%= @commitment.work_group %>
-	</p>
+        <p>
+            <strong><%= t("admin.open_gov.commitments.show.coordenation") %>:</strong>
+            <%= @commitment.coordenation %>
+        </p>
+ 
+        <p>
+            <strong><%= t("admin.open_gov.commitments.show.work_group") %>:</strong>
+            <%= @commitment.work_group %>
+        </p>
+    </div>
 
     <%= render "marks" %>
 	

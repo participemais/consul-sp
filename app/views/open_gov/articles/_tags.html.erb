@@ -1,0 +1,13 @@
+<% if resource %>
+  <div class="balloting-result-flag winner">
+    <span>
+      <%= t("admin.open_gov.tags.fineshed") %>
+    </span>
+  </div>
+<% else %>
+  <div class="balloting-result-flag in-progress">
+    <span>
+      <%= t("admin.open_gov.tags.not_fineshed") %>
+    </span>
+  </div>
+<% end %>
