@@ -1026,3 +1026,6 @@ pt-BR:
       participation_article:
         document: Documentos em destaque
         title: Participação social no município
+      action_plans:
+        title: Monitoramento do %{action_plan}
+        closed: Planos anteriores

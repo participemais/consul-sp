@@ -11,17 +11,30 @@
 
     <h2><%= @plan.title %></h2>
 
-    <p>
-        <strong><%= t("admin.open_gov.plans.show.period") %>:</strong>
-        <%= format_date(@plan.starts_at) %> - <%= format_date(@plan.ends_at) %>
-    </p>
-    
-    <p>
-        <strong><%= t("admin.open_gov.plans.show.video_url") %>:</strong>
-        <%= link_to @plan.video_url %>
-    </p>
+    <div class="info-preview">
+        <p>
+            <strong><%= t("admin.open_gov.plans.show.period") %>:</strong>
+            <%= format_date(@plan.starts_at) %> - <%= format_date(@plan.ends_at) %>
+        </p>
 
-    <%= render "commitments" %>
+        <p>
+            <strong><%= t("admin.open_gov.plans.show.video_url") %>:</strong>
+            <%= link_to @plan.video_url %>
+        </p>
+    </div>
 
-    <%= render "documents", documents: @plan.documents %>
+
+    <div class="column">
+        <%= link_to t("admin.progress_bars.manage"),
+            admin_open_gov_plan_progress_bars_path(@plan),
+            class: "button hollow float-right" %>
+    </div>
+
+    <div class="column">
+        <%= render "commitments" %>
+    </div>
+
+    <div class="column">
+        <%= render "documents", documents: @plan.documents %>
+    </div>
 </div>
