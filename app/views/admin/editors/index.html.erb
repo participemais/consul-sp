@@ -27,6 +27,9 @@
                 <% editor.legislation_processes.each do |legislation_process| %>
                   <li><%= link_to "#{t("admin.editors.index.legislation_process")} - #{legislation_process.id}", legislation_process_path(legislation_process) %></li>
                 <% end %>
+                <% editor.polls.each do |poll| %>
+                  <li><%= link_to "#{t("admin.editors.index.poll")} - #{poll.id}", poll_path(poll) %></li>
+                <% end %>
               </ul>
             </td>
             <td>
