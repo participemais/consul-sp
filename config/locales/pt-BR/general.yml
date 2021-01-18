@@ -838,7 +838,7 @@ pt-BR:
   unauthorized:
     default: Você não possui permissão de acesso a esta página.
     manage:
-      all: "Você não possui permissão para executar esta ação '%{action}' em %{subject}."
+      all: Você não possui permissão de acesso a esta página.
   users:
     login_to_comment: "Você precisa acessar sua %{signin} ou se %{signup} para fazer um comentário"
     login_to_continue: "Você precisa acessar sua %{signin} ou se %{signup} para continuar"
