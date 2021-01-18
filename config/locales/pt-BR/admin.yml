@@ -1705,9 +1705,110 @@ pt-BR:
         local_census_records:
           no_records_found: Nenhum registro encontrado
     open_gov:
+      index:
+        title: Governo Aberto
       subnav:
         articles: Governo Aberto em São Paulo
         participations: Participação social em São Paulo
+        monitoring: Monitoramento do Plano de Ação
+      plans:
+        index:
+          plans: Planos
+          create: Novo plano
+          title: Título
+          start_date: Data de início
+          end_date: Date de término
+          no_plans: Nenhum plano cadastrado
+        new:
+          title: Criar plano
+        create:
+          notice: Plano criado com sucesso
+        edit:
+          title: Editar plano
+        update:
+          notice: Plano editado com sucesso
+        delete:
+          notice: Plano excluído com sucesso
+          alert: Tem certeza que deseja apagar este plano?
+        form:
+          save: Salvar
+          period: Período
+        show:
+          period: Período
+          video_url: URL do plano
+      commitments:
+        index:
+          commitments: Compromissos
+          create: Novo compromisso
+          title: Título
+          start_date: Data de início
+          end_date: Date de término
+          no_commitments: Nenhum compromisso cadastrado
+        new:
+          title: Criar compromisso
+        create:
+          notice: Compromisso criado com sucesso
+        edit:
+          title: Editar compromisso
+        update:
+          notice: Compromisso editado com sucesso
+        delete:
+          notice: Compromisso excluído com sucesso
+          alert: Tem certeza que deseja apagar este compromisso?
+        form:
+          save: Salvar
+          period: Período
+        show:
+          period: Período
+          coordenation: Coordenação
+          work_group: Grupo de Trabalho
+          author: Responsável
+          text: Entregas
+          add_line: Adicionar linha de ação
+      lines:
+        index:
+          marks: Linhas de ação
+          create: Nova linha de ação
+          title: Título
+          start_date: Data de início
+          end_date: Date de término
+          no_marks: Nenhuma linha de ação cadastrada
+        new:
+          title: Criar linha de ação
+        create:
+          notice: Linha de ação criada com sucesso
+        edit:
+          title: Editar linha de ação
+        update:
+          notice: Linha de ação editada com sucesso
+        delete:
+          notice: Linha de ação excluída com sucesso
+          alert: Tem certeza que deseja apagar esta linha de ação?
+        form:
+          save: Salvar
+          period: Período
+      marks:
+        index:
+          marks: Marcos
+          create: Novo marco
+          title: Título
+          start_date: Data de início
+          end_date: Date de término
+          no_marks: Nenhum marco cadastrado
+        new:
+          title: Criar marco
+        create:
+          notice: Marco criado com sucesso
+        edit:
+          title: Editar marco
+        update:
+          notice: Marco editado com sucesso
+        delete:
+          notice: Marco excluído com sucesso
+          alert: Tem certeza que deseja apagar este marco?
+        form:
+          save: Salvar
+          period: Período
       articles:
         participations:
           title: Informações sobre Participação Social
@@ -1722,7 +1823,6 @@ pt-BR:
           projects: Projetos
           no_articles: Nenhum artigo cadastrado
           no_projects: Nenhum projeto cadastrado
-          title: Governo Aberto
         new:
           title: Criar artigo
         create:

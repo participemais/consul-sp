@@ -1,0 +1,27 @@
+<% provide :title do %>
+  <%= t("admin.header.title") %> - <%= t("admin.menu.open_gov") %> %>
+<% end %>
+
+<%= back_link_to(
+  admin_open_gov_plans_path, t("shared.back")
+) %>
+
+<div class="row">
+  <div class="small-12 column">
+
+    <h2><%= @plan.title %></h2>
+
+    <p>
+        <strong><%= t("admin.open_gov.plans.show.period") %>:</strong>
+        <%= format_date(@plan.starts_at) %> - <%= format_date(@plan.ends_at) %>
+    </p>
+    
+    <p>
+        <strong><%= t("admin.open_gov.plans.show.video_url") %>:</strong>
+        <%= link_to @plan.video_url %>
+    </p>
+
+    <%= render "commitments" %>
+
+    <%= render "documents", documents: @plan.documents %>
+</div>
