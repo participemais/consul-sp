@@ -74,9 +74,9 @@ module ProposalsHelper
 
     case proposal.class.to_s
     when "Proposal"
-      path = toggle_selection_admin_proposal_path(proposal)
+      path = toggle_selection_edition_proposal_path(proposal)
     when "Legislation::Proposal"
-      path = toggle_selection_admin_legislation_process_proposal_path(proposal.process, proposal)
+      path = toggle_selection_edition_legislation_process_proposal_path(proposal.process, proposal)
     end
 
     link_to button_text, path, remote: true, method: :patch, class: html_class
