@@ -15,9 +15,9 @@
     <%= l poll.ends_at.to_date %>
   </td>
   <td>
-    <% if current_user.editor? && poll.editable? || current_user.administrator? %>
+    <% if current_user.editor? || current_user.administrator? %>
       <%= link_to t("admin.actions.edit"),
-                  edit_edition_poll_path(poll),
+                  edit_poll_path(poll),
                   class: "button hollow" %>
 
       <%= link_to t("admin.actions.delete"),
@@ -25,10 +25,6 @@
               method: :delete,
               "data-confirm": t("admin.polls.destroy.alert"),
               class: "button hollow alert" %>
-
-      <%= link_to t("admin.actions.configure"),
-                  edition_poll_path(poll),
-                  class: "button hollow " %>
     <% end %>
   </td>
 </tr>
