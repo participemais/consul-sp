@@ -1,0 +1,25 @@
+<h3 class="margin-top">
+  <%= t("open_gov.index.action_plans.title", action_plan: @current_action_plan.title) %>
+</h3>
+
+<p>
+  <strong><%= t("admin.open_gov.plans.show.period") %>:</strong>
+  <%= format_date(@current_action_plan.starts_at) %> - <%= format_date(@current_action_plan.ends_at) %>
+</p>
+
+<p>
+  <strong><%= t("admin.open_gov.plans.show.video_url") %>:</strong>
+  <%= link_to @current_action_plan.video_url %>
+</p>
+
+<div class="tab-milestones">
+  <%= render "milestones/progress_bars", milestoneable: @current_action_plan %>
+</div>
+
+<div>
+  <%= render "commitments", commitments: @current_action_plan.commitments %>
+</div>
+
+<% if @action_plans.present? %>
+  <%= render "plans_finished" %>
+<% end %>

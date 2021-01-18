@@ -2258,3 +2258,54 @@
   cursor: pointer;
   display: inline-block;
 }
+
+.action-plans-cards {
+  margin: 0 0 $line-height;
+  border: 1px solid;
+  border-color: #e5e6e9 #dfe0e4 #d0d1d5;
+  box-shadow: 0 1px 3px 0 #dee0e3;
+  min-height: 20rem;
+  padding-top: $line-height/2;
+  background: #ffffff;
+
+  .mark-number {
+    text-transform: uppercase;
+    color: $text-medium;
+    margin-bottom: -($line-height / 3);
+    font-size: $small-font-size;
+    font-weight: bold;
+  }
+
+  p {
+    font-size: 1rem;
+  }
+}
+
+.lines-cards {
+  border: 1px solid;
+  border-color: #e5e6e9 #dfe0e4 #d0d1d5;
+  border-radius: 8px;
+  min-height: 10rem;
+  padding-top: $line-height/2;
+  background: #ffffff;
+}
+
+
+.commitment-preview {
+  background: #fafafa;
+  padding: $line-height;
+  margin-top: $line-height;
+
+  p {
+    margin-bottom: 0;
+    font-family: $body-font-family;
+
+    strong {
+      font-family: $subheader-font-family;
+    }
+  }
+}
+
+.lines-preview {
+  padding-left: $line-height;
+}

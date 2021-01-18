@@ -1747,6 +1747,12 @@ pt-BR:
           author: Responsável
           text: Entregas
           add_line: Adicionar linha de ação
+          mark: Marco %{number}
+          line: Linha de Ação %{mark_number}.%{number}
+          show_lines: Exibir as linhas de ação
+          hide_lines: Ocultar as linhas de ação
+          more_info: Exibir mais informações
+          less_info: Ocultar mais informações
       lines:
         index:
           marks: Linhas de ação

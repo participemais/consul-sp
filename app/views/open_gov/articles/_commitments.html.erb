@@ -1,0 +1,52 @@
+<% if commitments.present? %>
+  <% commitments.each do |commitment| %>
+    <div class="commitment-preview">
+      <h3><%= commitment.title %></h3>
+
+      <p class="poll-answers-more-info">
+        <a id="<%= dom_id(commitment) %>_more_info"
+          data-toggle="<%= dom_id(commitment) %>_answer_info
+            <%= dom_id(commitment) %>_more_info
+            <%= dom_id(commitment) %>_less_info"
+          data-toggler="hide"
+        >
+          <%= t("admin.open_gov.commitments.show.more_info") %>
+        </a>
+        <a id="<%= dom_id(commitment) %>_less_info"
+          data-toggle="<%= dom_id(commitment) %>_answer_info
+            <%= dom_id(commitment) %>_more_info
+            <%= dom_id(commitment) %>_less_info"
+          data-toggler="hide" class="hide"
+        >
+          <%= t("admin.open_gov.commitments.show.less_info") %>
+        </a>
+      </p>
+
+      <div id="<%= dom_id(commitment) %>_answer_info"
+        class="hide" data-toggler="hide">
+        <div>
+          <p>
+            <strong><%= t("admin.open_gov.commitments.show.period") %>:</strong>
+            <%= format_date(commitment.starts_at) %> - <%= format_date(commitment.ends_at) %>
+          </p>
+
+          <p>
+            <strong><%= t("admin.open_gov.commitments.show.coordenation") %>:</strong>
+            <%= commitment.coordenation %>
+          </p>
+
+          <p>
+            <strong><%= t("admin.open_gov.commitments.show.work_group") %>:</strong>
+            <%= commitment.work_group %>
+          </p>
+
+          <% if commitment.marks.present? %>
+            <% commitment.marks.each_with_index do |mark, number| %>
+              <%= render "mark", mark: mark, number: number %>
+            <% end %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+<% end %>
