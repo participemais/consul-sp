@@ -17,7 +17,7 @@
   <td>
     <% if current_user.editor? || current_user.administrator? %>
       <%= link_to t("admin.actions.edit"),
-                  edit_poll_path(poll),
+                  edit_edition_poll_path(poll),
                   class: "button hollow" %>
 
       <%= link_to t("admin.actions.delete"),
