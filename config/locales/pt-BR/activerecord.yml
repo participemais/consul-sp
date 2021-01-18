@@ -39,6 +39,9 @@ pt-BR:
       moderator:
         one: "Moderador"
         other: "Moderadores"
+      editor:
+        one: "Editor"
+        other: "Editores"
       administrator:
         one: "Administrador"
         other: "Administradores"
