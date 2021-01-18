@@ -787,7 +787,7 @@ pt-BR:
         processes: Processos habilitados
         legislation_process: Consulta pública
         poll: Votação
-        Budget: Orçamento
+        budget: Orçamento
         no_editors: Não há editores.
       editor:
         add: Habilitar
