@@ -28,7 +28,7 @@
       <% @processes.each do |process| %>
         <tr id="<%= dom_id(process) %>">
           <td class="small-12 medium-6 large-4">
-            <% process.editable? || current_user.administrator? ? process_link = edit_edition_legislation_process_path(process) : process_link = edition_legislation_process_milestones_path(process) %>
+            <% process.editable? && !process.finished?|| current_user.administrator? ? process_link = edit_edition_legislation_process_path(process) : process_link = edition_legislation_process_milestones_path(process) %>
             <%= link_to process.title, process_link %>
           </td>
           <td><%= t("admin.legislation.processes.process.status_#{process.status}") %></td>

@@ -162,6 +162,10 @@ class Legislation::Process < ApplicationRecord
     start_date - 1.day > Date.today
   end
 
+  def finished
+    end_date > Date.today
+  end
+
   private
 
     def valid_date_ranges
