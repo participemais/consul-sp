@@ -1,5 +1,6 @@
 class OpenGov::Plan < ApplicationRecord
   include Documentable
+  include Milestoneable
 	
   has_many :commitments, 
 	class_name: "OpenGov::Commitment",

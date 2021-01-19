@@ -1,5 +1,3 @@
 namespace :open_gov do
-   resources :articles, only: [:index, :show]
-   resources :participation_articles, only: [:index, :show]
-   resources :projects, only: [:index, :show]
+  resources :articles, only: [:index, :show]
 end

@@ -21,7 +21,17 @@
         <%= link_to @plan.video_url %>
     </p>
 
-    <%= render "commitments" %>
+    <div class="column">
+        <%= link_to t("admin.progress_bars.manage"),
+            admin_open_gov_plan_progress_bars_path(@plan),
+            class: "button hollow float-right" %>
+    </div>
 
-    <%= render "documents", documents: @plan.documents %>
+    <div class="column">
+        <%= render "commitments" %>
+    </div>
+
+    <div class="column">
+        <%= render "documents", documents: @plan.documents %>
+    </div>
 </div>
