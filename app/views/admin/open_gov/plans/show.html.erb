@@ -11,15 +11,18 @@
 
     <h2><%= @plan.title %></h2>
 
-    <p>
-        <strong><%= t("admin.open_gov.plans.show.period") %>:</strong>
-        <%= format_date(@plan.starts_at) %> - <%= format_date(@plan.ends_at) %>
-    </p>
-    
-    <p>
-        <strong><%= t("admin.open_gov.plans.show.video_url") %>:</strong>
-        <%= link_to @plan.video_url %>
-    </p>
+    <div class="info-preview">
+        <p>
+            <strong><%= t("admin.open_gov.plans.show.period") %>:</strong>
+            <%= format_date(@plan.starts_at) %> - <%= format_date(@plan.ends_at) %>
+        </p>
+
+        <p>
+            <strong><%= t("admin.open_gov.plans.show.video_url") %>:</strong>
+            <%= link_to @plan.video_url %>
+        </p>
+    </div>
+
 
     <div class="column">
         <%= link_to t("admin.progress_bars.manage"),

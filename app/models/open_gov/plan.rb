@@ -8,4 +8,6 @@ class OpenGov::Plan < ApplicationRecord
 	dependent: :destroy
 
   accepts_nested_attributes_for :documents, allow_destroy: true
+
+  scope :current, -> { where("starts_at <= ? and ends_at >= ?", Date.current, Date.current).last }
 end

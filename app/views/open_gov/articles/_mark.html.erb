@@ -1,5 +1,7 @@
 <div class="action-plans-cards margin-top">
-  <div class="small-12 column">
+  <%= render "tags", resource: mark.status %>
+
+  <div class="action-plan-card-content">
 
     <p class="mark-number">
       <% mark_number = number + 1 %>
@@ -48,22 +50,29 @@
             <section>
               <%= AdminWYSIWYGSanitizer.new.sanitize(mark.delivered) %>
             </section>
+
+            <br>
+
+            <% if mark.documents.present? %>
+              <%= render "documents", documents: mark.documents %>
+            <% end %>
+
           </p>
 
           <% if mark.lines.any? %>
-            <p class="poll-answers-more-info">
-              <a id="line_more_info"
-                data-toggle="line_answer_info
-                  line_more_info
-                  line_less_info"
+            <p class="poll-answers-more-info margin-top">
+              <a id="<%= dom_id(mark) %>_line_more_info"
+                data-toggle="<%= dom_id(mark) %>_line_answer_info
+                  <%= dom_id(mark) %>_line_more_info
+                  <%= dom_id(mark) %>_line_less_info"
                 data-toggler="hide"
               >
                 <%= t("admin.open_gov.commitments.show.show_lines") %>
               </a>
-              <a id="line_less_info"
-                data-toggle="line_answer_info
-                  line_more_info
-                  line_less_info"
+              <a id="<%= dom_id(mark) %>_line_less_info"
+                data-toggle="<%= dom_id(mark) %>_line_answer_info
+                  <%= dom_id(mark) %>_line_more_info
+                  <%= dom_id(mark) %>_line_less_info"
                 data-toggler="hide" class="hide"
               >
                 <%= t("admin.open_gov.commitments.show.hide_lines") %>
@@ -72,7 +81,7 @@
           <% end %>
 
           <% if mark.lines.any? %>
-            <div id="line_answer_info"
+            <div id="<%= dom_id(mark) %>_line_answer_info"
               class="hide" data-toggler="hide">
               <%= render "lines", mark: mark, mark_number: mark_number %>
             </div>

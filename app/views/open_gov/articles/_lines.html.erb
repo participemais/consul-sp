@@ -1,6 +1,8 @@
 <% mark.lines.each_with_index do |line, number| %>
-  <div class="margin-top lines-preview lines-cards">
-    <div class="small-12 column">
+  <div class="margin-top lines-cards small-12 medium-11">
+    <%= render "tags", resource: line.status %>
+
+    <div class="action-plan-card-content">
 
       <p class="mark-number">
         <%= t("admin.open_gov.commitments.show.line",
@@ -25,10 +27,14 @@
         <br>
 
         <section>
-          <%= AdminWYSIWYGSanitizer.new.sanitize(mark.delivered) %>
+          <%= AdminWYSIWYGSanitizer.new.sanitize(line.delivered) %>
         </section>
 
         <br>
+
+        <% if line.documents.present? %>
+          <%= render "documents", documents: line.documents %>
+        <% end %>
       </p>
     </div>
   </div>

@@ -1705,6 +1705,9 @@ pt-BR:
         local_census_records:
           no_records_found: Nenhum registro encontrado
     open_gov:
+      tags:
+        fineshed: Finalizado
+        not_fineshed: Em andamento
       index:
         title: Governo Aberto
       subnav:
@@ -1764,6 +1767,7 @@ pt-BR:
           work_group: Grupo de Trabalho
           author: Responsável
           text: Entregas
+          docs: Documentos
           add_line: Adicionar linha de ação
           mark: Marco %{number}
           line: Linha de Ação %{mark_number}.%{number}

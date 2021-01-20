@@ -232,6 +232,11 @@
     border-right: 1.5px solid $delete;
   }
 
+  &.in-progress {
+    border-top: 1.5px solid #FBA131;
+    border-right: 1.5px solid #FBA131;
+  }
+
   span {
     text-transform: uppercase;
   }

@@ -17,10 +17,10 @@ class OpenGov::ArticlesController < ApplicationController
     if params[:action_plan_id].present?
       @current_action_plan = OpenGov::Plan.find(params[:action_plan_id])
     else
-      @current_action_plan = OpenGov::Plan.last
+      @current_action_plan = OpenGov::Plan.current
     end
 
-    @action_plans = OpenGov::Plan.select { |plan| plan.id != @current_action_plan.id }
+    @action_plans = OpenGov::Plan.select { |plan| plan.id != @current_action_plan.id }.sort_by(&:starts_at).reverse!
   end
 
   def show
