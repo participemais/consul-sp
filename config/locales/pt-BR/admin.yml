@@ -1751,8 +1751,9 @@ pt-BR:
           text: Entregas
           docs: Documentos
           add_line: Adicionar linha de ação
-          mark: Marco %{number}
-          line: Linha de Ação %{mark_number}.%{number}
+          commitment: Compromisso %{number}
+          mark: Marco %{commitment_number}.%{number}
+          line: Linha de Ação %{commitment_number}.%{mark_number}.%{number}
           show_lines: Exibir as linhas de ação
           hide_lines: Ocultar as linhas de ação
           more_info: Exibir mais informações

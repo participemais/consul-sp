@@ -1,5 +1,5 @@
 <div class="row margin-top">
-  <div class="small-12 medium-9 column">
+  <div class="small-12 medium-12 column">
     <h3><%= t("open_gov.index.action_plans.closed") %></h3>
 
     <div>
@@ -7,14 +7,14 @@
         <div class="budget-investment clear">
           <div class="panel past-budgets">
             <div class="row" data-equalizer data-equalizer-on="medium">
-              <div class="small-12 medium-6 column table" data-equalizer-watch>
+              <div class="small-12 medium-9 column table" data-equalizer-watch>
                 <div class="table-cell align-middle">
                   <h3><%= plan.title %></h3>
                 </div>
               </div>
 
-              <div class="small-12 medium-6 column table" data-equalizer-watch>
-                <div class="table-cell float-right">
+              <div class="small-12 medium-3 column table" data-equalizer-watch>
+                <div class="table-cell align-middle">
                   <%= link_to t("budgets.index.milestones"), 
                       open_gov_articles_path(action_plan_id: plan, filter: "action_plan"),
                       class: "button margin-auto" %>

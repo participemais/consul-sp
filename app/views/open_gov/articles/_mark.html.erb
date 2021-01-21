@@ -1,11 +1,11 @@
 <div class="action-plans-cards margin-top">
-  <%= render "tags", resource: mark.status %>
+  <%= render "tags", resource: mark.status, lines: "" %>
 
   <div class="action-plan-card-content">
 
-    <p class="mark-number">
+    <p class="action-plan-number">
       <% mark_number = number + 1 %>
-      <%= t("admin.open_gov.commitments.show.mark", number: mark_number) %>
+      <%= t("admin.open_gov.commitments.show.mark", commitment_number: commitment_number, number: mark_number) %>
     </p>
 
     <h3><%= mark.title %></h3>
@@ -43,15 +43,16 @@
 
             <br>
 
-            <strong><%= t("admin.open_gov.commitments.show.text") %>:</strong>
 
-            <br>
+            <% if mark.delivered.present? %>
+              <strong><%= t("admin.open_gov.commitments.show.text") %>:</strong>
 
-            <section>
-              <%= AdminWYSIWYGSanitizer.new.sanitize(mark.delivered) %>
-            </section>
+              <br>
 
-            <br>
+              <section>
+                <%= AdminWYSIWYGSanitizer.new.sanitize(mark.delivered) %>
+              </section>
+            <% end %>
 
             <% if mark.documents.present? %>
               <%= render "documents", documents: mark.documents %>
@@ -83,7 +84,7 @@
           <% if mark.lines.any? %>
             <div id="<%= dom_id(mark) %>_line_answer_info"
               class="hide" data-toggler="hide">
-              <%= render "lines", mark: mark, mark_number: mark_number %>
+              <%= render "lines", mark: mark, mark_number: mark_number, commitment_number: commitment_number %>
             </div>
           <% end %>
         </div>

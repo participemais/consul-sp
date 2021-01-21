@@ -225,6 +225,10 @@
   &.winner {
     border-top: 1.5px solid $green;
     border-right: 1.5px solid $green;
+
+    &.lines {
+      border-radius: 0 8px 0 0;
+    }
   }
 
   &.loser {
@@ -235,6 +239,10 @@
   &.in-progress {
     border-top: 1.5px solid #FBA131;
     border-right: 1.5px solid #FBA131;
+
+    &.lines {
+      border-radius: 0 8px 0 0;
+    }
   }
 
   span {
