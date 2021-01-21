@@ -1,6 +1,13 @@
 <% if commitments.present? %>
-  <% commitments.each do |commitment| %>
+
+  <% commitments.each_with_index do |commitment, number| %>
     <div class="commitment-preview">
+
+      <p class="action-plan-number">
+        <% commitment_number = number + 1 %>
+        <%= t("admin.open_gov.commitments.show.commitment", number: commitment_number) %>
+      </p>
+
       <h3><%= commitment.title %></h3>
 
       <p class="poll-answers-more-info">
@@ -42,7 +49,7 @@
 
           <% if commitment.marks.present? %>
             <% commitment.marks.each_with_index do |mark, number| %>
-              <%= render "mark", mark: mark, number: number %>
+              <%= render "mark", mark: mark, number: number , commitment_number: commitment_number %>
             <% end %>
           <% end %>
         </div>

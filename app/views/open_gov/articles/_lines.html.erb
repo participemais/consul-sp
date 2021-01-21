@@ -1,12 +1,13 @@
 <% mark.lines.each_with_index do |line, number| %>
   <div class="margin-top lines-cards small-12 medium-11">
-    <%= render "tags", resource: line.status %>
+
+    <%= render "tags", resource: line.status, lines: "lines" %>
 
     <div class="action-plan-card-content">
 
-      <p class="mark-number">
+      <p class="action-plan-number">
         <%= t("admin.open_gov.commitments.show.line",
-          mark_number: mark_number, number: number + 1) %>
+          mark_number: mark_number, number: number + 1, commitment_number: commitment_number) %>
       </p>
 
       <h4><%= line.title %></h4>
@@ -22,15 +23,16 @@
 
         <br>
 
-        <strong><%= t("admin.open_gov.commitments.show.text") %>:</strong>
+        <% if line.delivered.present? %>
 
-        <br>
+          <strong><%= t("admin.open_gov.commitments.show.text") %>:</strong>
 
-        <section>
-          <%= AdminWYSIWYGSanitizer.new.sanitize(line.delivered) %>
-        </section>
+          <br>
 
-        <br>
+          <section>
+            <%= AdminWYSIWYGSanitizer.new.sanitize(line.delivered) %>
+          </section>
+        <% end %>
 
         <% if line.documents.present? %>
           <%= render "documents", documents: line.documents %>

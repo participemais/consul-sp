@@ -3,10 +3,13 @@
 <p>
 
 <div class="small-12 medium-12">
-  <% documents.each do |document| %>
-
-      <%=  link_to document.attachment.url, target: "_blank", class: "action-plan-docs" do %>
-        <%= document.title %>
-      <% end %>
-  <% end %>
+  <ul class="no-bullet document-link">
+    <% documents.each do |document| %>
+      <li>
+        <%=  link_to document.attachment.url, target: "_blank" do %>
+          <%= document.title %>
+        <% end %>
+      </li>
+    <% end %>
+  </ul>
 </div>

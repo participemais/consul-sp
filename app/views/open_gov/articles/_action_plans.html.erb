@@ -23,6 +23,6 @@
   <%= render "commitments", commitments: @current_action_plan.commitments %>
 </div>
 
-<% if @action_plans.present? %>
+<% if @action_plans.present? && @current_action_plan.current? %>
   <%= render "plans_finished" %>
 <% end %>
