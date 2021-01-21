@@ -64,6 +64,7 @@ p {
 a {
   color: $link;
   text-decoration: none;
+  overflow-wrap: break-word;
 
   &:hover,
   &:active {

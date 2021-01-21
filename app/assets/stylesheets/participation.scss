@@ -645,7 +645,7 @@
     box-shadow: 0 1px 3px 0 $border;
     margin-bottom: rem-calc(12);
     min-height: rem-calc(192);
-    padding: rem-calc(12) rem-calc(12) 0;
+    padding: rem-calc(12) rem-calc(12) rem-calc(12);
 
     @include breakpoint(medium) {
       margin-bottom: rem-calc(-1);
