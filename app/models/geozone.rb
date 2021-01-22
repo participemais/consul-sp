@@ -4,6 +4,9 @@ class Geozone < ApplicationRecord
   has_many :proposals
   has_many :debates
   has_many :users
+  has_many :districts, class_name: "Geozone", foreign_key: "subprefecture_id"
+  belongs_to :subprefecture, class_name: "Geozone", optional: true
+
   validates :name, presence: true
 
   scope :public_for_api, -> { all }

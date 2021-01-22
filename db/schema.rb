@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20201230001255) do
+ActiveRecord::Schema.define(version: 20210122034643) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -680,6 +680,9 @@ ActiveRecord::Schema.define(version: 20201230001255) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "census_code"
+    t.bigint "subprefecture_id"
+    t.boolean "district"
+    t.index ["subprefecture_id"], name: "index_geozones_on_subprefecture_id"
   end
 
   create_table "geozones_polls", id: :serial, force: :cascade do |t|
