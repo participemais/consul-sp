@@ -4,11 +4,33 @@ class AccountController < ApplicationController
   load_and_authorize_resource class: "User"
 
   def show
+
   end
 
   def update
     if @account.update(account_params)
-      redirect_to account_path, notice: t("flash.actions.save_changes.notice")
+      if @account.level_three_verified? && @account.geozone_id.blank?
+        @results = GeozoneTools.search(@account.address_number + ',' + @account.home_address + ', São Paulo')
+
+        if @results.count == 1
+          lat = @results.first[:lat]
+          long = @results.first[:lon]
+          @account.geozone = GeozoneTools.sub_search(lat, long)
+          @account.save
+        elsif @results.count > 1
+          if params[:address].present?
+            lat = @results[params[:address].to_i]['lat']
+            long = @results[params[:address].to_i]['lon']
+            @account.geozone = GeozoneTools.sub_search(lat, long)
+            @account.save
+          else
+            @select_address = true
+          end
+        else
+          @select_district = true
+        end
+      end
+      render :show, notice: t("flash.actions.save_changes.notice")
     else
       @account.errors.messages.delete(:organization)
       render :show

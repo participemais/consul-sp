@@ -148,6 +148,22 @@
                 ) %>
               </div>
             </div>
+
+            <% if @select_address %>
+              <div class="row">
+                <%= select_tag(:address, options_for_select(@results.each_with_index.map{ |r, i| [r['display_name'], i] })) %>
+              </div>
+            <% elsif @select_district || @account.geozone_id.present? %>
+              <% if @account.geozone_id.present? %>
+                <div class="row">
+                  <%= f.select(:geozone, options_from_collection_for_select(Geozone.where(district: true), :id, :name), selected: @account.geozone_id, label: 'Distrito', disabled: true) %>
+                </div>
+              <% else%>
+                <div class="row">
+                  <%= f.select(:geozone, options_from_collection_for_select(Geozone.where(district: true), :id, :name), selected: @account.geozone_id, label: 'Distrito') %>
+                </div>
+              <% end %>
+            <% end %>
           </div>
 
           <%= f.submit t("account.show.save_changes_submit"), class: "button margin-top" %>
