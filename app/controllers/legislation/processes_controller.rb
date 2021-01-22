@@ -10,7 +10,7 @@ class Legislation::ProcessesController < Legislation::BaseController
 
   def index
     @current_filter ||= "open"
-    @processes = ::Legislation::Process.send(@current_filter).published
+    @processes = ::Legislation::Process.send(@current_filter).published.where("start_date > ?", Date.new(2020, 01, 01))
                  .not_in_draft.order(start_date: :desc).page(params[:page])
   end
 
