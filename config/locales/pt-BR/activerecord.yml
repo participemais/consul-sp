@@ -159,7 +159,7 @@ pt-BR:
       budget/translation:
         name: "Nome"
       budget/investment:
-        heading_id: "Título"
+        heading_id: "Selecione a Subprefeitura"
         title: "Título"
         description: "Descrição"
         external_url: "Link para documentação adicional"
