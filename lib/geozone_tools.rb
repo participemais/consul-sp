@@ -9,7 +9,7 @@ class GeozoneTools
 	end
 
 	def has? lat,long
-		self.region.contains_point?(BorderPatrol::Point.new(lat.to_f, long.to_f))
+		self.region.contains_point?(BorderPatrol::Point.new(long.to_f, lat.to_f))
 	end
 
 	def self.search address
