@@ -682,6 +682,7 @@
     margin: 0;
     min-height: rem-calc(180);
     position: relative;
+    padding-left: $line-height/2;
   }
 
   .tags {

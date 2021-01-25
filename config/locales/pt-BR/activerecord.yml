@@ -212,7 +212,7 @@ pt-BR:
         visible_to_valuators_false: "Indisponível"
       budget/investment/translation:
         title: "Título"
-        description: "Descrição"
+        description: "Descreva sua proposta"
       geozone:
         name: Nome
         external_code: "Código externo (opcional)"
