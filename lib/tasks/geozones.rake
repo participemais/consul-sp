@@ -3,16 +3,19 @@ namespace :geozones do
   desc "Cria geozonas"
   task create: :environment do
     subprefectures = ["Aricanduva/Formosa/Carrão", "Butantã", "Campo Limpo",
-      "Capela do Socorro", "Casa Verde", "Cidade Ademar", "Cidade Tiradentes",
+      "Capela do Socorro", "Casa Verde/Cachoeirinha", "Cidade Ademar", "Cidade Tiradentes",
       "Ermelino Matarazzo", "Freguesia/Brasilândia", "Guaianases", "Ipiranga",
       "Itaim Paulista", "Itaquera", "Jabaquara", "Jaçanã/Tremembé", "Lapa",
-      "M Boi Mirim", "Mooca", "Parelheiro", "Penha", "Perus", "Pinheiros",
-      "Pirituba/Jaraguá", "Santo Amaro", "São Mateus", "Sapopemba", "Sé",
-      "Vila Maria/Vila Guilherme", "Vila Prudente"]
+      "M Boi Mirim", "Mooca", "Parelheiros", "Penha", "Perus", "Pinheiros",
+      "Pirituba/Jaraguá", "Santo Amaro", "Santana/Tucuruvi", "São Mateus", "São Miguel", "Sapopemba", "Sé",
+      "Vila Maria/Vila Guilherme", "Vila Mariana", "Vila Prudente"]
 
     subprefectures.each do |name|
       puts "Criando geozona de subprefeitura - #{name}"
-      Geozone.create(name: name, district: false)
+      filename = name.gsub('/', '0').parameterize.underscore.upcase.gsub('0','-')
+      kml_file = Nokogiri::XML(File.open("lib/kml/subs/#{filename}.kml"))
+      sub_name = kml_file.css('SimpleData[name=sp_nome]').text
+      Geozone.create(name: name, district: false, external_code: sub_name)
     end
 
     districts = ["Aricanduva", "Carrão", "Vila Formosa", "Butantã", "Morumbi",
@@ -36,12 +39,9 @@ namespace :geozones do
       puts "Criando geozona de distritos - #{name}"
       filename = name.parameterize.underscore
       kml_file = Nokogiri::XML(File.open("lib/kml/districts/#{filename}.kml"))
-      sub_name = kml_file.css('SimpleData[name=dssubpref]')
-      subprefecture = Geozone.where(district: false).select do |geozone| 
-        geozone.name.parameterize.underscore == sub_name
-      end.first
-
-      Geozone.create(name: name, district: true, subprefecture: subprefecture)
+      sub_name = kml_file.css('SimpleData[name=ds_subpref]').text
+      subprefecture = Geozone.where(district: false).find_by(external_code: sub_name)
+      Geozone.create(name: name, district: true, external_code: filename, subprefecture: subprefecture)
     end
     puts "Tarefa finalizada"
   end
