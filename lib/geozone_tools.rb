@@ -39,4 +39,29 @@ class GeozoneTools
 		end
 		return nil
 	end
+
+	def self.count_users
+		one_address = 0
+		many_addresses = 0
+		no_address = 0
+
+		users = User.where.not(home_address: nil)
+		users.each do |u|
+			query = u.address_number + ',' + u.home_address + ', São Paulo'
+			r = GeozoneTools.search(query)
+			puts query
+
+			if r.count == 1
+				one_address += 1 
+			elsif r.count >= 1
+				many_addresses += 1
+			else
+				no_address += 1
+			end
+
+			puts one_address
+			puts many_addresses
+			puts no_address
+		end
+	end
 end

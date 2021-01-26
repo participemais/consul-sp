@@ -151,18 +151,23 @@
 
             <% if @select_address %>
               <div class="row">
-                <%= select_tag(:address, options_for_select(@results.each_with_index.map{ |r, i| [r['display_name'], i] })) %>
+                <% @results.each_with_index do |r, i| %>
+                  <%= radio_button_tag :address, i %>
+                  <%= label_tag :address, r['display_name'] %>
+                <% end %>
               </div>
-            <% elsif @select_district || @account.geozone_id.present? %>
-              <% if @account.geozone_id.present? %>
-                <div class="row">
-                  <%= f.select(:geozone, options_from_collection_for_select(Geozone.where(district: true), :id, :name), selected: @account.geozone_id, label: 'Distrito', disabled: true) %>
-                </div>
-              <% else%>
-                <div class="row">
-                  <%= f.select(:geozone, options_from_collection_for_select(Geozone.where(district: true), :id, :name), selected: @account.geozone_id, label: 'Distrito') %>
-                </div>
-              <% end %>
+            <% elsif @select_district %>
+              
+              <div class="row">
+                <%= f.select(:geozone, options_from_collection_for_select(Geozone.where(district: true), :id, :name), selected: @account.geozone_id, label: 'Distrito') %>
+              </div>
+            <% elsif @account.geozone_id.present? %>
+              <div class="row">
+                <%= f.select(:geozone, options_from_collection_for_select(Geozone.where(district: false), :id, :name, selected: @account.geozone.subprefecture.id), { label: 'Subprefeitura' }, disabled: true ) %>
+              </div>
+              <div class="row">
+                <%= f.select(:geozone, options_from_collection_for_select(Geozone.where(district: true), :id, :name, selected: @account.geozone_id), { label: 'Distrito' }, disabled: true ) %>
+              </div>
             <% end %>
           </div>
 
@@ -205,7 +210,7 @@
             <span class="verify-account">
               <% if current_user.level_three_verified? %>
                 <p>
-                  <% if current_user.can_vote? %>
+                  <% if current_user.can_vote? && current_user.geozone_id.present?%>
                     <span class="icon-check"></span>
                   <% else %>
                     <span class="icon-x"></span>
