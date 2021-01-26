@@ -57,7 +57,7 @@ class Budget
 
     delegate :name, to: :heading, prefix: true
 
-    validates_translation :title, presence: true, length: { in: 4..Budget::Investment.title_max_length }
+    validates_translation :title, length: { maximum: Budget::Investment.title_max_length }
     validates_translation :description, presence: true, length: { maximum: 1200 }
 
     validates :author, presence: true
