@@ -27,7 +27,7 @@
 
         <% if investment.should_show_votes? %>
           <div class="sidebar-divider"></div>
-          <h2><%= t("budgets.investments.show.supports") %></h2>
+          <p class="sidebar-title"><%= t("budgets.investments.show.supports") %></p>
           <div class="text-center">
             <div id="<%= dom_id(investment) %>_votes">
               <%= render "/budgets/investments/votes",
@@ -39,7 +39,7 @@
           </div>
         <% elsif investment.should_show_vote_count? %>
           <div class="sidebar-divider"></div>
-          <h2><%= t("budgets.investments.show.votes") %></h2>
+          <p class="sidebar-title"><%= t("budgets.investments.show.votes") %></p>
           <div class="text-center margin-bottom">
             <span class="total-supports">
               <strong>
@@ -50,7 +50,7 @@
           </div>
         <% elsif investment.should_show_ballots? %>
           <div class="sidebar-divider"></div>
-          <h2><%= t("budgets.investments.show.votes") %></h2>
+          <p class="sidebar-title"><%= t("budgets.investments.show.votes") %></p>
           <div class="text-center">
             <div id="<%= dom_id(investment) %>_ballot">
               <%= render "ballot",
@@ -98,7 +98,7 @@
         <% end %>
         <% if investment.should_show_price? %>
           <div class="sidebar-divider"></div>
-          <h2><%= t("budgets.investments.show.price") %></h2>
+          <p class="sidebar-title"><%= t("budgets.investments.show.price") %></p>
           <div class="supports text-center">
             <p class="investment-project-amount">
               <%= investment.formatted_price %>
