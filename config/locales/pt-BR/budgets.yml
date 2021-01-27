@@ -119,6 +119,7 @@ pt-BR:
           check_ballot_link: "verificar meus votos"
           zero: Você não votou em nenhuma proposta deste grupo.
           verified_only: "Para criar uma nova proposta %{verify}."
+          incomplete_registration: Você precisa completar o %{register} para criar uma nova proposta
           create: "Criar uma proposta"
           not_logged_in: "Para criar uma proposta, você deve criar uma %{sign_in} ou se %{sign_up}."
           by_feasibility: Por viabilidade

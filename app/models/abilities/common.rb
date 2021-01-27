@@ -95,7 +95,7 @@ module Abilities
         can [:create, :update], Legislation::Answer
         can [:create, :update], Legislation::TopicVote
 
-        can :create, Budget::Investment,               budget: { phase: "accepting" }
+        can :create, Budget::Investment,               budget: { phase: "accepting" } unless user.incomplete_registration?
         can :edit, Budget::Investment,                 budget: { phase: "accepting" }, author_id: user.id
         can :update, Budget::Investment,               budget: { phase: "accepting" }, author_id: user.id
         can :suggest, Budget::Investment,              budget: { phase: "accepting" }
@@ -115,6 +115,8 @@ module Abilities
           question.answerable_by?(user)
         end
       end
+
+
 
       can [:create, :show], ProposalNotification, proposal: { author_id: user.id }
 

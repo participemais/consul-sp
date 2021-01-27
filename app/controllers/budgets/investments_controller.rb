@@ -75,6 +75,7 @@ module Budgets
     def create
       @investment.author = current_user
 
+
       if @investment.save
         @investment.update(title: @investment.id)
         Mailer.budget_investment_created(@investment).deliver_later
