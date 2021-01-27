@@ -74,7 +74,7 @@ module Budgets
 
     def create
       @investment.author = current_user
-
+      @investment.skip_map = "1"
 
       if @investment.save
         @investment.update(title: @investment.id)
