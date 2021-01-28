@@ -8,7 +8,7 @@ class Admin::SiteCustomization::InformationTextsController < Admin::SiteCustomiz
 
   def update
     content_params.each do |content|
-      values = content[:values].slice(*translation_params)
+      values = content[:values].slice(*["value_en", "value_es", "value_pt-BR"])
 
       unless values.empty?
         values.each do |key, value|
@@ -55,8 +55,6 @@ class Admin::SiteCustomization::InformationTextsController < Admin::SiteCustomiz
     end
 
     def enabled_translations
-      params.fetch(:enabled_translations, {})
-            .select { |_, v| v == "1" }
-            .keys
+      params.fetch(:enabled_translations, {}).select { |_, v| v == "1" }.keys
     end
 end

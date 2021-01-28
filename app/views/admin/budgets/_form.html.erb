@@ -106,6 +106,35 @@
     </div>
   </div>
 
+  <% if @categories.present? %>
+    <div class="row">
+      <div class="small-12 medium-12 column">
+        <fieldset class="fieldset">
+          <legend><%= t("admin.legislation.processes.index.categories") %></legend>
+          <div class="row">
+            <div class="legislation-process-tags">
+
+              <span class="js-add-tags-selected hide"><%= @all_tags %></span>
+
+              <div id="category_tags" class="tags">
+                <div class="categories">
+                  <% @categories.each do |tag| %>
+                    <a class="js-add-tag-link-category"><%= tag.name %></a>
+                  <% end %>
+                </div>
+              </div>
+
+            </div>
+          <div>
+        </fieldset>
+
+        <%= f.hidden_field :custom_list, value: @budget.tag_list_on(:customs).sort.join(", "),
+                        class: "js-tag-list-category",
+                        aria: { describedby: "tag-list-help-text" } %>
+      </div>
+    </div>
+  <% end %>
+
   <div class="row">
     <div class="small-12 column">
       <%= render "admin/shared/show_results_fields", form: f %>

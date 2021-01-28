@@ -162,7 +162,7 @@ pt-BR:
       budget/translation:
         name: "Nome"
       budget/investment:
-        heading_id: "Título"
+        heading_id: "Selecione a Subprefeitura"
         title: "Título"
         description: "Descrição"
         external_url: "Link para documentação adicional"
@@ -215,7 +215,7 @@ pt-BR:
         visible_to_valuators_false: "Indisponível"
       budget/investment/translation:
         title: "Título"
-        description: "Descrição"
+        description: "Descreva sua proposta"
       geozone:
         name: Nome
         external_code: "Código externo (opcional)"

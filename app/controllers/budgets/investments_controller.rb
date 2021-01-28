@@ -74,8 +74,10 @@ module Budgets
 
     def create
       @investment.author = current_user
+      @investment.skip_map = "1"
 
       if @investment.save
+        @investment.update(title: @investment.id)
         Mailer.budget_investment_created(@investment).deliver_later
         redirect_to budget_investment_path(@budget, @investment),
                     notice: t("flash.actions.create.budget_investment")

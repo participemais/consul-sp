@@ -7,6 +7,8 @@ class Admin::BudgetsController < Admin::BaseController
   has_filters %w[open finished], only: :index
 
   before_action :load_budget, except: [:index, :new, :create]
+  before_action :load_categories, except: [:destroy]
+  before_action :load_selected_categories, only: [:edit, :update, :show]
   load_and_authorize_resource
 
   def index
@@ -69,6 +71,7 @@ class Admin::BudgetsController < Admin::BaseController
     def budget_params
       descriptions = Budget::Phase::PHASE_KINDS.map { |p| "description_#{p}" }.map(&:to_sym)
       valid_attributes = [:phase,
+                          :custom_list,
                           :currency_symbol,
                           :max_votes,
                           administrator_ids: [],
@@ -84,5 +87,13 @@ class Admin::BudgetsController < Admin::BaseController
     def load_staff
       @admins = Administrator.includes(:user)
       @valuators = Valuator.includes(:user).order(description: :asc).order("users.email ASC")
+    end
+
+    def load_categories
+      @categories = Tag.where(kind: "category").order(:name)
+    end
+
+    def load_selected_categories
+      @all_tags = @budget.custom_list
     end
 end

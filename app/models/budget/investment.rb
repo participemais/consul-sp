@@ -57,15 +57,15 @@ class Budget
 
     delegate :name, to: :heading, prefix: true
 
-    validates_translation :title, presence: true, length: { in: 4..Budget::Investment.title_max_length }
-    validates_translation :description, presence: true, length: { maximum: Budget::Investment.description_max_length }
+    validates_translation :title, length: { maximum: Budget::Investment.title_max_length }
+    validates_translation :description, presence: true, length: { maximum: 1200 }
 
     validates :author, presence: true
     validates :heading_id, presence: true
     validates :unfeasibility_explanation, presence: { if: :unfeasible_indeed? }
     validates :price, presence: { if: :price_required? }
-    validates :terms_of_service, acceptance: { allow_nil: false }, on: :create
     validates :feasibility_type, presence: { if: :feasible? }
+    validates :tag_list, presence: true
 
     scope :sort_by_confidence_score, -> { reorder(confidence_score: :desc, id: :desc) }
     scope :sort_by_ballots,          -> { reorder(ballot_lines_count: :desc, id: :desc) }

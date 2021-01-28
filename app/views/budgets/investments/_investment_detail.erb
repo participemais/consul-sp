@@ -7,7 +7,7 @@
   <span class="bullet">&nbsp;&bull;&nbsp;</span>
   <%= investment.heading.name %>
   <span class="bullet">&nbsp;&bull;&nbsp;</span>
-  <%= sanitize(t("budgets.investments.show.code", code: investment.id)) %>
+  <%= sanitize(t("budgets.investments.show.code", code: proposal_code(investment))) %>
   <% if local_assigns[:preview].nil? %>
     <span class="js-flag-actions">
       <%= render "budgets/investments/flag_actions", investment: investment %>
@@ -17,9 +17,12 @@
 
 <br>
 
+<%= auto_link_already_sanitized_html wysiwyg(investment.description) %>
+
+<%= render "shared/tags", taggable: investment %>
+
 <%= render_image(investment.image, :large, true) if investment.image.present? %>
 
-<%= auto_link_already_sanitized_html wysiwyg(investment.description) %>
 
 <% if feature?(:map) && map_location_available?(@investment.map_location) %>
   <div class="margin">
@@ -27,17 +30,6 @@
   </div>
 <% end %>
 
-<% if investment.location.present? %>
-  <p>
-    <%= sanitize(t("budgets.investments.show.location", location: investment.location)) %>
-  </p>
-<% end %>
-
-<% if investment.organization_name.present? %>
-  <p>
-    <%= sanitize(t("budgets.investments.show.organization_name", name: investment.organization_name)) %>
-  </p>
-<% end %>
 
 <% if feature?(:allow_attached_documents) %>
   <%= render "documents/documents",
@@ -45,7 +37,6 @@
               max_documents_allowed: Budget::Investment.max_documents_allowed %>
 <% end %>
 
-<%= render "shared/tags", taggable: investment %>
 
 <% if investment.external_url.present? %>
   <div class="document-link">

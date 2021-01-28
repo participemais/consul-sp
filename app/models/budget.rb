@@ -3,6 +3,9 @@ class Budget < ApplicationRecord
   include Sluggable
   include StatsVersionable
   include Reportable
+  include Taggable
+
+  acts_as_taggable_on :customs
 
   translates :name, touch: true
   include Globalizable

@@ -53,12 +53,12 @@ class Budget::Investment::Exporter
         sanitize_description(investment.description),
         investment.tag_list.join(', '),
         investment.heading_name,
-        prioritized_or_not(investment.selected?),
-        investment.ballot_lines_count,
-        elected_or_not(investment.winner?),
-        feasibility_translation(investment.feasibility),
-        sanitize_description(investment.commitment),
-        sanitize_description(investment.unfeasibility_explanation)
+        priorization(investment),
+        votes(investment),
+        balloting_result(investment),
+        feasibility(investment),
+        commitment(investment),
+        unfeasibility_explanation(investment)
       ]
 
       if @budget.devolutive_or_later?
@@ -79,6 +79,46 @@ class Budget::Investment::Exporter
       end
 
       row
+    end
+
+    def priorization(investment)
+      return prioritized_or_not(investment.selected?) if @budget.balloting_or_later?
+
+      phase_default_message
+    end
+
+    def votes(investment)
+      return investment.ballot_lines_count if @budget.publishing_prices_or_later?
+
+      phase_default_message
+    end
+
+    def balloting_result(investment)
+      return elected_or_not(investment.winner?) if @budget.publishing_prices_or_later?
+
+      phase_default_message
+    end
+
+    def feasibility(investment)
+      return feasibility_translation(investment.feasibility) if @budget.devolutive_or_later?
+
+      phase_default_message
+    end
+
+    def commitment(investment)
+      return sanitize_description(investment.commitment) if @budget.devolutive_or_later?
+
+      phase_default_message
+    end
+
+    def unfeasibility_explanation(investment)
+      return sanitize_description(investment.unfeasibility_explanation) if @budget.devolutive_or_later?
+
+      phase_default_message
+    end
+
+    def phase_default_message
+      I18n.t('budgets.investments.index.spreadsheet.default_message')
     end
 
     def headers
