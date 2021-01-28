@@ -158,6 +158,7 @@ pt-BR:
           title: Título
           unfeasibility_explanation: Justificativa
           votes: Votos
+          default_message: Etapa orçamentária futura
       share:
         message: "Estou apoiando a proposta de orçamento %{title} em %{handle}."
       show:
