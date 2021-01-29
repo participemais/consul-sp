@@ -135,22 +135,18 @@
 
           <ul class="no-bullet margin-top">
             <li>
-              <%= link_to budget_investments_path(current_budget, filter: "all") do %>
+              <%= link_to budget_investments_path(current_budget) do %>
                 <small><%= t("budgets.results.investment_proyects") %></small>
               <% end %>
             </li>
 
-            <li>
-              <%= link_to budget_investments_path(current_budget, filter: "all", status_filters: ["unfeasibles"]) do %>
-                <small><%= t("budgets.results.unfeasible_investment_proyects") %></small>
-              <% end %>
-            </li>
-
-            <li>
-              <%= link_to budget_investments_path(current_budget, filter: "unselected") do %>
-                <small><%= t("budgets.results.not_selected_investment_proyects") %></small>
-              <% end %>
-            </li>
+            <% if current_budget.selecting? || current_budget.balloting_or_later? %>
+              <li>
+                <%= link_to budget_investments_path(current_budget, filter: "unselected") do %>
+                  <small><%= t("budgets.results.not_prioritized_investment_proyects") %></small>
+                <% end %>
+              </li>
+            <% end %>
           </ul>
         <% end %>
 
