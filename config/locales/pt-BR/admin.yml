@@ -193,8 +193,8 @@ pt-BR:
           feasible: "Viável"
           unfeasible: "Inviável"
           undecided: "Não decidido"
-        selected: "Selecionado"
-        select: "Selecionar"
+        selected: "Priorizada"
+        select: "Não priorizada"
         list:
           id: ID
           title: Título
@@ -205,7 +205,7 @@ pt-BR:
           geozone: Subprefeitura
           feasibility: Viabilidade
           valuation_finished: Avaliação concluída
-          selected: Selecionado
+          selected: Priorização
           visible_to_valuators: Disponível para avaliadores
           author_username: Username do autor
           incompatible: Incompatível
