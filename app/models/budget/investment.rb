@@ -228,8 +228,14 @@ class Budget
     def self.status_filters(filters, results)
       return results if filters.include?('all')
 
-      if (filters & ['winners', 'losers']).any?
+      if (filters & ['selected', 'unselected', 'winners', 'losers']).any?
         balloting_ids = []
+        if filters.include?('selected')
+          balloting_ids += results.selected.pluck(:id)
+        end
+        if filters.include?('unselected')
+          balloting_ids += results.unselected.pluck(:id)
+        end
         if filters.include?('winners')
           balloting_ids += results.winners.pluck(:id)
         end

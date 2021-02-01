@@ -229,6 +229,8 @@ pt-BR:
         losers: Não eleitas
         feasibles: Viáveis
         unfeasibles: Inviáveis
+        selected: Priorizadas
+        unselected: Não priorizadas
       group: Grupo
       investment_proposals: Índice de propostas
       phase: Etapa atual
