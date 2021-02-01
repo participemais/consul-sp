@@ -25,19 +25,8 @@
       <aside class="small-12 medium-3 column">
         <%= render "/budgets/investments/author_actions", investment: investment %>
 
-        <% if investment.should_show_votes? %>
-          <div class="sidebar-divider"></div>
-          <p class="sidebar-title"><%= t("budgets.investments.show.supports") %></p>
-          <div class="text-center">
-            <div id="<%= dom_id(investment) %>_votes">
-              <%= render "/budgets/investments/votes",
-                investment: investment,
-                investment_votes: investment_votes,
-                vote_url: vote_budget_investment_path(investment.budget, investment, value: "yes")
-              %>
-            </div>
-          </div>
-        <% elsif investment.should_show_vote_count? %>
+
+        <% if investment.should_show_vote_count? %>
           <div class="sidebar-divider"></div>
           <p class="sidebar-title"><%= t("budgets.investments.show.votes") %></p>
           <div class="text-center margin-bottom">
