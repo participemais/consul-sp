@@ -72,7 +72,7 @@ pt-BR:
       search_proposals_placeholder: Encontre propostas relacionadas a termos de seu interesse, como saúde, educação, cultura, meio ambiente, mobilidade, entre outros
     investments:
       form:
-        tag_category_label: "Categorias da proposta"
+        tag_category_label: "Categoria da proposta"
         tags_instructions: "Marque esta proposta. Você pode escolher entre as categorias propostas ou adicionar a sua própria"
         tags_label: Marcação
         tags_placeholder: "Entre com as marcações que você deseja usar, separadas por vírgulas ('s\")"
@@ -121,7 +121,7 @@ pt-BR:
           verified_only: "Para criar uma nova proposta %{verify}."
           incomplete_registration: Você precisa completar o %{register} para criar uma nova proposta
           create: "Criar uma proposta"
-          not_logged_in: "Para criar uma proposta, você deve criar uma %{sign_in} ou se %{sign_up}."
+          not_logged_in: "Para criar uma proposta, você deve acessar sua %{sign_in} ou se %{sign_up}."
           by_feasibility: Por viabilidade
           feasible: Propostas viáveis
           unfeasible: Propostas inviáveis
@@ -159,6 +159,12 @@ pt-BR:
           unfeasibility_explanation: Justificativa
           votes: Votos
           default_message: Etapa orçamentária futura
+          created_at: Data de criação
+          author: Autor
+          image_url: Link da imagem
+          first_document: Documento 1
+          second_document: Documento 2
+          third_document: Documento 3
       share:
         message: "Estou apoiando a proposta de orçamento %{title} em %{handle}."
       show:
@@ -253,6 +259,7 @@ pt-BR:
       losers: Não eleitas
       investment_title: Título da proposta
       investment_proyects: Acesse o índice completo das propostas populares
+      investment_proyects_indice: Acesse o índice das propostas populares
       unfeasible_investment_proyects: Lista de todas as propostas de orçamento inviáveis
       not_selected_investment_proyects: Lista de todas as propostas de orçamento não selecionadas para votação
       balloting_title: Eleita

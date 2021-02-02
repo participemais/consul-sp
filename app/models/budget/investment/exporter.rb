@@ -19,6 +19,10 @@ class Budget::Investment::Exporter
     CSV.generate(headers: true) do |csv|
       csv << proposals_list_headers
       @investments.each do |investment|
+        @image_url = ''
+        @documents = ['', '', '']
+        documents_url(investment.documents)
+        image_url(investment.image)
         csv << proposals_list_csv_values(investment)
       end
     end
@@ -26,7 +30,7 @@ class Budget::Investment::Exporter
 
   private
 
-    PROPOSALS_COLUMNS = %w(id title description categories subprefecture prioritization votes balloting_result feasibility commitment unfeasibility_explanation).freeze
+    PROPOSALS_COLUMNS = %w(id created_at author subprefecture title description categories image_url first_document second_document third_document prioritization votes balloting_result feasibility commitment unfeasibility_explanation).freeze
 
     FEASIBILITY_COLUMNS = %w(department budgetary_actions sei_number technical technical_description legal legal_description budgetary budgetary_description).freeze
 
@@ -49,10 +53,16 @@ class Budget::Investment::Exporter
     def proposals_list_csv_values(investment)
       row = [
         investment.id.to_s,
+        I18n.l(investment.created_at.to_date),
+        investment.author.name,
+        investment.heading_name,
         investment.title,
         sanitize_description(investment.description),
         investment.tag_list.join(', '),
-        investment.heading_name,
+        @image_url,
+        @documents.first,
+        @documents.second,
+        @documents.third,
         priorization(investment),
         votes(investment),
         balloting_result(investment),
@@ -79,6 +89,18 @@ class Budget::Investment::Exporter
       end
 
       row
+    end
+
+    def image_url(image)
+      @image_url = image.url if image.present?
+    end
+
+    def documents_url(documents)
+      if documents.present?
+        documents.each_with_index do |document, index|
+          @documents[index] = document.url
+        end
+      end
     end
 
     def priorization(investment)
