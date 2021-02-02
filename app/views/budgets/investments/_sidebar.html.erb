@@ -1,20 +1,23 @@
 <div class="clear"></div>
 
-<% if can?(:create, Budget::Investment.new(budget: @budget)) %>
-  <% if current_user && current_user.level_two_or_three_verified? && !current_user.incomplete_registration? %>
-    <%= link_to t("budgets.investments.index.sidebar.create"),
-               new_budget_investment_path(budget_id: @budget.id), class: "button expanded" %>
-  <% else %>
-    <div class="callout warning">
-      <%= sanitize(t("budgets.investments.index.sidebar.verified_only",
-          verify: link_to_verify_account)) %>
+
+<% if @heading %>
+  <% if can?(:create, Budget::Investment.new(budget: @budget)) %>
+    <% if current_user && current_user.level_two_or_three_verified? && !current_user.incomplete_registration? %>
+      <%= link_to t("budgets.investments.index.sidebar.create"),
+                 new_budget_investment_path(budget_id: @budget.id), class: "button expanded" %>
+    <% else %>
+      <div class="callout warning">
+        <%= sanitize(t("budgets.investments.index.sidebar.verified_only",
+            verify: link_to_verify_account)) %>
+      </div>
+    <% end %>
+  <% elsif current_user && current_user.incomplete_registration? %>
+    <div class="callout primary">
+      <%= sanitize(t("budgets.investments.index.sidebar.incomplete_registration",
+        register: link_to_my_account )) %>
     </div>
   <% end %>
-<% elsif current_user && current_user.incomplete_registration? %>
-  <div class="callout primary">
-    <%= sanitize(t("budgets.investments.index.sidebar.incomplete_registration",
-      register: link_to_my_account )) %>
-  </div>
 <% end %>
 
 <% if @heading && can?(:show, @ballot) %>
