@@ -190,7 +190,7 @@ pt-BR:
         running_project: "Esta proposta foi classificada como <strong>viável</strong> - projeto em execução"
         new_project: "Esta proposta foi classificada como <strong>viável</strong> - novo projeto"
         unfeasible_project: "Esta proposta foi classificada como inviável"
-        project_not_selected: A proposta não foi <strong>priorizada</strong> e não participa da etapa de votação popular
+        project_not_selected: A proposta <strong>não foi priorizada</strong> e não participa da etapa de votação popular
         see_price_explanation: Exposição de custos
         feasible: "Proposta viável"
         unfeasible: "Proposta inviável"
