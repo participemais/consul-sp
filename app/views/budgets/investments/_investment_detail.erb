@@ -30,13 +30,31 @@
   </div>
 <% end %>
 
-
 <% if feature?(:allow_attached_documents) %>
-  <%= render "documents/documents",
-              documents: investment.documents,
-              max_documents_allowed: Budget::Investment.max_documents_allowed %>
-<% end %>
+  <% if investment.documents.any? %>
+    <div id="documents" class="documents">
+      <h2><%= t("documents.title") %>&nbsp;<span>(<%= investment.documents.count %>)</span></h2>
 
+      <ul class="no-bullet document-link">
+
+        <% investment.documents.each do |document| %>
+          <li id="<%= dom_id(document) %>">
+            <%= link_to t("documents.buttons.download_document"),
+                        document.attachment.url, target: "_blank",
+                        rel: "nofollow", class: "button hollow medium float-right" %>
+
+            <strong><%= document.title %></strong>
+            <br>
+            <small>
+              <%= document.humanized_content_type %>&nbsp;|&nbsp;
+              <%= number_to_human_size(document.attachment_file_size, precision: 2) %>
+            </small>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+<% end %>
 
 <% if investment.external_url.present? %>
   <div class="document-link">
