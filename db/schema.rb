@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20210125151808) do
+ActiveRecord::Schema.define(version: 20210203120308) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -303,6 +303,7 @@ ActiveRecord::Schema.define(version: 20210125151808) do
     t.integer "original_heading_id"
     t.string "feasibility_type"
     t.text "commitment"
+    t.string "slug"
     t.index ["administrator_id"], name: "index_budget_investments_on_administrator_id"
     t.index ["author_id"], name: "index_budget_investments_on_author_id"
     t.index ["community_id"], name: "index_budget_investments_on_community_id"

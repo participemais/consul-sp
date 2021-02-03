@@ -44,4 +44,24 @@ namespace :budget_proposals do
       puts "Set FILEPATH variable"
     end
   end
+
+  desc "Set slug"
+  task set_slug: :environment do
+    investments = Budget::Investment.where(slug: nil)
+    investments.each do |investment|
+      slug = "Orçamento #{investment.budget_id} proposta #{investment.code}".parameterize
+      
+
+      unless investment.update(slug: slug)
+        errors = investment.errors.full_messages*(', ')
+        puts "Errors: #{errors} - Budget: #{investment.budget_id} Investment: #{investment.id}"
+      end
+
+    end
+    puts "Slugs updated"
+  end
 end
+
+
+
+

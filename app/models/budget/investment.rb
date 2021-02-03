@@ -130,6 +130,7 @@ class Budget
     after_save :recalculate_heading_winners
     before_validation :set_responsible_name
     before_validation :set_denormalized_ids
+    after_validation :set_slug, only: [:create, :update]
 
     def comments_count
       comments.count
@@ -334,8 +335,13 @@ class Budget
     end
 
     def code
-      "#{created_at.strftime("%Y")}-#{id}" + (administrator.present? ? "-A#{administrator.id}" : "")
+      budget.investments.count + 1
     end
+
+    def to_param
+      "#{id}-#{slug}"
+    end
+
 
     def reason_for_not_being_selectable_by(user)
       return permission_problem(user) if permission_problem?(user)
@@ -493,6 +499,10 @@ class Budget
     end
 
     private
+
+      def set_slug
+        self.slug = "Orçamento #{budget_id} proposta #{code}".parameterize
+      end
 
       def set_denormalized_ids
         self.group_id = heading&.group_id if will_save_change_to_heading_id?
