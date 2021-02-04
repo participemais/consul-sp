@@ -7,7 +7,7 @@
   <span class="bullet">&nbsp;&bull;&nbsp;</span>
   <%= investment.heading.name %>
   <span class="bullet">&nbsp;&bull;&nbsp;</span>
-  <%= sanitize(t("budgets.investments.show.code", code: proposal_code(investment))) %>
+  <%= sanitize(t("budgets.investments.show.code", code: investment.code)) %>
   <% if local_assigns[:preview].nil? %>
     <span class="js-flag-actions">
       <%= render "budgets/investments/flag_actions", investment: investment %>

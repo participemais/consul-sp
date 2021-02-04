@@ -127,8 +127,4 @@ module BudgetsHelper
     end
     filters
   end
-
-  def proposal_code(investment)
-    investment.budget.investments.count + 1
-  end
 end
