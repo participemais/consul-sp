@@ -1,5 +1,4 @@
-<% if show_author_actions?(investment) %>
-  <% if can?(:edit, investment) %>
+<% if can?(:edit, investment) %>
     <div class="sidebar-divider"></div>
     <p class="sidebar-title"><%= t("budgets.investments.show.author") %></p>
     <div class="show-actions-menu">
@@ -7,5 +6,4 @@
                     edit_budget_investment_path(investment.budget, investment),
                     method: :get, class: "button hollow expanded" %>
     </div>
-  <% end %>
 <% end %>

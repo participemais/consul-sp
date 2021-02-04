@@ -23,8 +23,10 @@
       </div>
 
       <aside class="small-12 medium-3 column">
-        <%= render "/budgets/investments/author_actions", investment: investment %>
 
+        <% if @budget.selecting? %>
+          <%= render "/budgets/investments/author_actions", investment: investment %>
+        <% end %>
 
         <% if investment.should_show_vote_count? %>
           <div class="sidebar-divider"></div>
