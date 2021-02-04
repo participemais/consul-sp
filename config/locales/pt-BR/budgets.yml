@@ -184,13 +184,13 @@ pt-BR:
         milestones_tab: Monitoramento
         author: Autor
         edit: Editar proposta
-        project_selected: "Esta proposta de orçamento <strong>está selecionada</strong> para a etapa de votação."
+        project_selected: A proposta foi <strong>priorizada</strong> para a etapa de votação popular
         project_balloting_loser: "Esta proposta não foi eleita na etapa de votação"
         project_balloting_winner: "Esta proposta foi eleita na etapa de votação"
         running_project: "Esta proposta foi classificada como <strong>viável</strong> - projeto em execução"
         new_project: "Esta proposta foi classificada como <strong>viável</strong> - novo projeto"
         unfeasible_project: "Esta proposta foi classificada como inviável"
-        project_not_selected: "Esta proposta de orçamento <strong>não foi selecionada</strong> para a etapa de votação."
+        project_not_selected: A proposta <strong>não foi priorizada</strong> e não participa da etapa de votação popular
         see_price_explanation: Exposição de custos
         feasible: "Proposta viável"
         unfeasible: "Proposta inviável"
@@ -235,6 +235,8 @@ pt-BR:
         losers: Não eleitas
         feasibles: Viáveis
         unfeasibles: Inviáveis
+        selected: Priorizadas
+        unselected: Não priorizadas
       group: Grupo
       investment_proposals: Índice de propostas
       phase: Etapa atual
@@ -262,6 +264,7 @@ pt-BR:
       investment_proyects_indice: Acesse o índice das propostas populares
       unfeasible_investment_proyects: Lista de todas as propostas de orçamento inviáveis
       not_selected_investment_proyects: Lista de todas as propostas de orçamento não selecionadas para votação
+      not_prioritized_investment_proyects: Acesse o índice de propostas populares não priorizadas
       balloting_title: Eleita
       feasibility_title: Viável
     executions:
