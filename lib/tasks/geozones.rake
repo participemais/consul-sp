@@ -3,19 +3,21 @@ namespace :geozones do
   desc "Cria geozonas"
   task create: :environment do
     subprefectures = ["Aricanduva/Formosa/Carrão", "Butantã", "Campo Limpo",
-      "Capela do Socorro", "Casa Verde/Cachoeirinha", "Cidade Ademar", "Cidade Tiradentes",
+      "Capela do Socorro", "Casa Verde", "Cidade Ademar", "Cidade Tiradentes",
       "Ermelino Matarazzo", "Freguesia/Brasilândia", "Guaianases", "Ipiranga",
       "Itaim Paulista", "Itaquera", "Jabaquara", "Jaçanã/Tremembé", "Lapa",
-      "M Boi Mirim", "Mooca", "Parelheiros", "Penha", "Perus", "Pinheiros",
+      "M'Boi Mirim", "Mooca", "Parelheiros", "Penha", "Perus", "Pinheiros",
       "Pirituba/Jaraguá", "Santo Amaro", "Santana/Tucuruvi", "São Mateus", "São Miguel", "Sapopemba", "Sé",
       "Vila Maria/Vila Guilherme", "Vila Mariana", "Vila Prudente"]
 
     subprefectures.each do |name|
       puts "Criando geozona de subprefeitura - #{name}"
       filename = name.gsub('/', '0').parameterize.underscore.upcase.gsub('0','-')
-      kml_file = Nokogiri::XML(File.open("lib/kml/subs/#{filename}.kml"))
-      sub_name = kml_file.css('SimpleData[name=sp_nome]').text
-      Geozone.create(name: name, district: false, external_code: sub_name)
+      file = File.open("lib/kml/subs/#{filename}.kml")
+      parsed_kml = Nokogiri::XML(file)
+      sub_name = parsed_kml.css('SimpleData[name=sp_nome]').text
+      document = Document.new(title: filename, attachment: file, user: User.first)
+      Geozone.create!(name: name, district: false, external_code: sub_name, document: document, active: true)
     end
 
     districts = ["Aricanduva", "Carrão", "Vila Formosa", "Butantã", "Morumbi",
@@ -38,10 +40,12 @@ namespace :geozones do
     districts.each do |name|
       puts "Criando geozona de distritos - #{name}"
       filename = name.parameterize.underscore
-      kml_file = Nokogiri::XML(File.open("lib/kml/districts/#{filename}.kml"))
-      sub_name = kml_file.css('SimpleData[name=ds_subpref]').text
+      file = File.open("lib/kml/districts/#{filename}.kml")
+      parsed_kml = Nokogiri::XML(file)
+      sub_name = parsed_kml.css('SimpleData[name=ds_subpref]').text
       subprefecture = Geozone.where(district: false).find_by(external_code: sub_name)
-      Geozone.create(name: name, district: true, external_code: filename, subprefecture: subprefecture)
+      document = Document.new(title: filename, attachment: file, user: User.first)
+      Geozone.create!(name: name, district: true, external_code: filename, subprefecture: subprefecture, document: document, active: true)
     end
     puts "Tarefa finalizada"
   end

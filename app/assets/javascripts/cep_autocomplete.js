@@ -5,6 +5,7 @@
       const $address = $('#account_home_address');
       const $city = $('#account_city');
       const $uf = $('#account_uf');
+      const $neighbourhood = $('#account_neighbourhood');
 
       function clear_address_fields() {
         $address.val('');
@@ -27,6 +28,7 @@
                 $address.val(data.logradouro);
                 $city.val(data.localidade);
                 $uf.val(data.uf);
+                $neighbourhood.val(data.bairro);
               } else {
                 $('.hide-fields').fadeOut(1500);
                 $cep.addClass('is-invalid-input');

@@ -215,6 +215,7 @@ pt-BR:
         description: "Descrição"
       geozone:
         name: Nome
+        district: Distrito
         external_code: "Código externo (opcional)"
         census_code: "Código do censo (opcional)"
         html_map_coordinates: "Coordenadas do MAL <map> (opcional)"

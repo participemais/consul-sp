@@ -1381,11 +1381,16 @@ pt-BR:
         create: Criar geozona
         edit: Editar
         delete: Apagar
+        archive: Arquivar
       geozone:
         name: Nome
         external_code: Código externo
         census_code: Código do censo
         coordinates: Coordenadas
+        attached: Anexo
+        type: Tipo
+        district: Distrito
+        subprefecture: Subprefeitura
       edit:
         form:
           submit_button: Salvar alterações
@@ -1395,8 +1400,8 @@ pt-BR:
         back: Voltar
         creating: Criar distrito
       delete:
-        success: Geozona excluída com êxito
-        error: Esta geozona não pode ser excluída, uma vez que existem elementos ligados a ela
+        success: Geozona arquivada com êxito
+        error: Esta geozona não pode ser arquivada
     signature_sheets:
       author: Autor
       created_at: Data de criação

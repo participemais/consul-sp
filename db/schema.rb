@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20210122034643) do
+ActiveRecord::Schema.define(version: 20210201113946) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -682,6 +682,7 @@ ActiveRecord::Schema.define(version: 20210122034643) do
     t.string "census_code"
     t.bigint "subprefecture_id"
     t.boolean "district"
+    t.boolean "active"
     t.index ["subprefecture_id"], name: "index_geozones_on_subprefecture_id"
   end
 
@@ -1691,6 +1692,7 @@ ActiveRecord::Schema.define(version: 20210122034643) do
     t.string "erase_reason_description"
     t.integer "document_number_changes_count"
     t.integer "date_of_birth_changes_count"
+    t.string "neighbourhood"
     t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["geozone_id"], name: "index_users_on_geozone_id"
