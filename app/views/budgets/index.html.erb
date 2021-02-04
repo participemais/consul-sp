@@ -140,7 +140,7 @@
               <% end %>
             </li>
 
-            <% if current_budget.selecting? || current_budget.balloting_or_later? %>
+            <% if current_budget.balloting_or_later? %>
               <li>
                 <%= link_to budget_investments_path(current_budget, filter: "unselected") do %>
                   <small><%= t("budgets.results.not_prioritized_investment_proyects") %></small>
