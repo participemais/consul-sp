@@ -207,7 +207,7 @@ class Budget < ApplicationRecord
       orders = %w[random]
       resource_allocation_balloting? ? orders << "price" : orders << "ballots"
     else
-      %w[random confidence_score]
+      %w[random]
     end
   end
 
