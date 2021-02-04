@@ -126,6 +126,7 @@ class User < ApplicationRecord
   attr_accessor :skip_password_validation
   attr_accessor :use_redeemable_code
   attr_accessor :login
+  attr_accessor :sub_id
 
   scope :administrators, -> { joins(:administrator) }
   scope :editors,        -> { joins(:editor) }
@@ -478,6 +479,14 @@ class User < ApplicationRecord
 
   def foreigner_document?
     document_type == 'rnm'
+  end
+
+  def resident?
+    uf == 'SP'
+  end
+
+  def query_address
+    "#{address_number} #{home_address}"
   end
 
   private

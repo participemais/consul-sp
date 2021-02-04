@@ -87,7 +87,8 @@ class Edition::Poll::PollsController < Edition::Poll::BaseController
     end
 
     def load_geozones
-      @geozones = Geozone.all.order(:name)
+      @subs = Geozone.all.where(district: false).order(:name)
+      @districts = Geozone.all.where(district: true).order(:name)
     end
 
     def poll_params

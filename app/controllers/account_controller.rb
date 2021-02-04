@@ -9,22 +9,30 @@ class AccountController < ApplicationController
 
   def update
     if @account.update(account_params)
-      if @account.level_three_verified? && @account.geozone_id.blank?
-        @results = GeozoneTools.search(@account.address_number + ',' + @account.home_address + ', São Paulo')
+      if @account.level_three_verified? && @account.geozone_id.blank? && @account.resident?
+        results = OpenStreetMapService.search(@account.query_address)
 
-        if @results.count == 1
-          lat = @results.first[:lat]
-          long = @results.first[:lon]
-          @account.geozone = GeozoneTools.sub_search(lat, long)
+        if results.count == 1
+          lat = results.first[:lat]
+          long = results.first[:lon]
+          @account.geozone = Geozone.sub_search(lat, long)
           @account.save
-        elsif @results.count > 1
+        elsif results.count > 1
           if params[:address].present?
-            lat = @results[params[:address].to_i]['lat']
-            long = @results[params[:address].to_i]['lon']
-            @account.geozone = GeozoneTools.sub_search(lat, long)
+            lat = results[params[:address].to_i]['lat']
+            long = results[params[:address].to_i]['lon']
+            @account.geozone = Geozone.sub_search(lat, long)
             @account.save
           else
-            @select_address = true
+            @districts = Geozone.compare(results)
+            
+            if @districts.count == 1
+              @account.geozone = @districts.first
+              @account.save
+            else
+              @subs = @districts.map { |district| district.subprefecture}.uniq
+              @select_address = true
+            end
           end
         else
           @select_district = true
@@ -52,8 +60,8 @@ class AccountController < ApplicationController
                      [:username, :public_activity, :public_interests, :email_on_comment,
                       :email_on_comment_reply, :email_on_direct_message, :email_digest, :newsletter,
                       :official_position_badge, :recommended_debates, :recommended_proposals, :document_number, :document_type, :date_of_birth,
-                      :gender, :ethnicity, :cep, :home_address, :address_number,
-                      :address_complement, :city, :uf, :first_name, :last_name
+                      :gender, :ethnicity, :cep, :home_address, :address_number, :geozone_id
+                      :address_complement, :city, :uf, :first_name, :last_name, :neighbourhood
                     ]
                    end
       params.require(:account).permit(*attributes)
