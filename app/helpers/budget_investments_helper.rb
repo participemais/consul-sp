@@ -50,10 +50,6 @@ module BudgetInvestmentsHelper
     investments_current_view == "default" ? "minimal" : "default"
   end
 
-  def show_author_actions?(investment)
-    can?(:edit, investment) || can_destroy_image?(investment)
-  end
-
   def feasibility_analyses_count
     return 0 unless @investment.should_show_feasibility_analysis?
     @investment.feasibility_analyses.count
