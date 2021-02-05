@@ -10,6 +10,12 @@
         <div data-alert class="callout primary">
           <%= t("legislation.annotations.form.phase_not_open") %>
         </div>
+      <% elsif current_user.present? && current_user.incomplete_registration? %>
+        <div class="callout warning">
+          <%= sanitize(t(
+                "polls.show.incomplete_registration",
+                register: link_to_my_account )) %>
+        </div>
       <% elsif user_signed_in? %>
         <%= form_for Legislation::Annotation.new, url: legislation_process_draft_version_annotations_path(@process, @draft_version), remote: true do |f| %>
           <%= f.text_area :text %>
