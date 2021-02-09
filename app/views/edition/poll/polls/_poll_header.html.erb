@@ -1,6 +1,10 @@
-<%= link_to t("admin.polls.edit.title"),
+
+<% unless @poll.budget_poll? %>
+  <%= link_to t("admin.polls.edit.title"),
             edit_edition_poll_path(@poll),
             class: "button hollow float-right" %>
+<% end %>
+
 
 <h2 class="inline-block">
   <%= @poll.name %>
