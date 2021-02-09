@@ -14,7 +14,7 @@
       new_edition_poll_electoral_college_path(@poll),
       class: "button float-right"
     %>
-  <% else %>
+  <% elsif !@poll.budget_poll? %>
     <%= render "questions" %>
   <% end %>
 </div>

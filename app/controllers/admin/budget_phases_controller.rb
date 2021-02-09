@@ -2,6 +2,7 @@ class Admin::BudgetPhasesController < Admin::BaseController
   include Translatable
 
   before_action :load_phase, only: [:edit, :update]
+  after_action :update_poll, only: [:update], if: :balloting?
 
   def edit
   end
@@ -24,5 +25,15 @@ class Admin::BudgetPhasesController < Admin::BaseController
     def budget_phase_params
       valid_attributes = [:starts_at, :ends_at, :enabled]
       params.require(:budget_phase).permit(*valid_attributes, translation_params(Budget::Phase))
+    end
+
+    def update_poll
+      if @phase.starts_at != @phase.budget.poll.starts_at || @phase.ends_at != @phase.budget.poll.ends_at
+        @phase.budget.poll.update(starts_at: @phase.starts_at, ends_at: @phase.ends_at)
+      end
+    end
+
+    def balloting?
+      @phase.kind == "balloting"
     end
 end

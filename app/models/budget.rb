@@ -241,6 +241,10 @@ class Budget < ApplicationRecord
     name.parameterize
   end
 
+  def balloting_enabled?
+    phases.balloting.enabled
+  end
+
   private
 
     def set_balloting_type

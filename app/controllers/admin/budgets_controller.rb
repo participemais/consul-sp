@@ -9,6 +9,7 @@ class Admin::BudgetsController < Admin::BaseController
   before_action :load_budget, except: [:index, :new, :create]
   before_action :load_categories, except: [:destroy]
   before_action :load_selected_categories, only: [:edit, :update, :show]
+  before_action :update_poll, only: [:update]
   load_and_authorize_resource
 
   def index
@@ -95,5 +96,18 @@ class Admin::BudgetsController < Admin::BaseController
 
     def load_selected_categories
       @all_tags = @budget.custom_list
+    end
+
+    def update_poll
+      older_name = @budget.name
+      new_name = budget_params["translations_attributes"]["2"]["name"]
+
+      @budget.poll.update(name: new_name) if older_name != new_name
+
+      balloting = @budget.phases.find_by_kind("balloting")
+
+      if balloting.starts_at != @budget.poll.starts_at || balloting.ends_at != @budget.poll.ends_at
+        @budget.poll.update(starts_at: balloting.starts_at, ends_at: balloting.ends_at)
+      end
     end
 end
