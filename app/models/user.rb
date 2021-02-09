@@ -269,6 +269,14 @@ class User < ApplicationRecord
     document_number.blank?
   end
 
+  def complete_registration?
+    if city == 'São Paulo'
+      return geozone_id.present?       
+    else 
+      true
+    end
+  end
+
   def can_vote?
     valid? && (document_number.present? || (organization? && cep))
   end
