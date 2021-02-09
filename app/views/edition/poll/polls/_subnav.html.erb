@@ -78,26 +78,31 @@
     </li>
   <% end %>
 
-  <% if current_user.administrator? %>  
-    <% if controller_name == "results" %>
-      <h2>
-        <%= t("admin.polls.show.results_tab") %>
-      </h2>
-    <% else %>
-      <li>
-        <%= link_to t("admin.polls.show.results_tab"), edition_poll_results_path(@poll) %>
-      </li>
-    <% end %>
+  <% unless @poll.budget_poll?%>
+    <% if current_user.administrator? %>
+      <% if controller_name == "results" %>
+        <li class="is-active">
+          <h2>
+            <%= t("admin.polls.show.results_tab") %>
+          </h2>
+        </li>
+      <% else %>
+        <li>
+          <%= link_to t("admin.polls.show.results_tab"), edition_poll_results_path(@poll) %>
+        </li>
+      <% end %>
 
-    <% if controller_name == "editors" %>
-      <h2>
-        <%= t("admin.polls.show.editors_tab") %>
-      </h2>
-    <% else %>
-      <li>
-        <%= link_to t("admin.polls.show.editors_tab"), edition_poll_editors_path(@poll) %>
-      </li>
+      <% if controller_name == "editors" %>
+        <li class="is-active">
+          <h2>
+            <%= t("admin.polls.show.editors_tab") %>
+          </h2>
+        </li>
+      <% else %>
+        <li>
+          <%= link_to t("admin.polls.show.editors_tab"), edition_poll_editors_path(@poll) %>
+        </li>
+      <% end %>
     <% end %>
-
   <% end %>
 </ul>
