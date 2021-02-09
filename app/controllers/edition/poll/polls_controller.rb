@@ -58,6 +58,11 @@ class Edition::Poll::PollsController < Edition::Poll::BaseController
 
   def booth_assignments
     @polls = Poll.not_expired_or_recounting.created_by_admin
+    @polls_booth = []
+    @polls.each do |poll|
+      next if poll.budget_poll? && !poll.budget.balloting_enabled?
+      @polls_booth << poll
+    end
   end
 
   def destroy
