@@ -15,7 +15,13 @@
       <% end %>
     <% end %>
 
-    <% if @process.allegations_phase.open? %>
+    <% if current_user.present? && current_user.incomplete_registration? %>
+      <div class="callout warning">
+        <%= sanitize(t(
+              "legislation.annotations.form.incomplete_registration",
+              register: link_to_my_account )) %>
+      </div>
+    <% elsif @process.allegations_phase.open? && current_user.present? %>
       <div class="comment-form">
         <a class="button publish-comment" href="#"><strong><%= t("legislation.annotations.comments.publish_comment") %></strong></a>
         &nbsp;
