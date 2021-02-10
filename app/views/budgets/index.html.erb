@@ -93,17 +93,18 @@
                 <% group.headings.sort_by_name.each do |heading| %>
                   <div class="heading small-12 medium-4 large-3 subtitle-font-family column end" data-equalizer-watch>
                     <li>
-                      <% unless current_budget.informing? %>
-                        <%= link_to budget_investments_path(
-                          current_budget,
-                          heading_id: heading.id
-                        ) do %>
-                          <%= heading_name_and_price_html(heading, current_budget) %>
-                        <% end %>
-                      <% else %>
+                      <% if current_budget.informing? %>
                         <div class="heading-name">
                           <%= heading_name_and_price_html(heading, current_budget) %>
                         </div>
+                      <% elsif current_budget.balloting_or_later? %>
+                        <%= link_to budget_investments_path(current_budget, heading_id: heading.id, filter: "selected") do %>
+                          <%= heading_name_and_price_html(heading, current_budget) %>
+                        <% end %>
+                      <% else %>
+                        <%= link_to budget_investments_path(current_budget, heading_id: heading.id) do %>
+                          <%= heading_name_and_price_html(heading, current_budget) %>
+                        <% end %>
                       <% end %>
                     </li>
                   </div>
