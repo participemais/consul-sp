@@ -1021,9 +1021,9 @@ pt-BR:
         participate: Conheça os projetos e ações
         subtitle: em São Paulo
       filters:
-        government: Governo Aberto em São Paulo
-        participation: Participação social em São Paulo
-        action_plan: Plano de Ação em Governo Aberto
+        government: Projetos e artigos
+        participation: Outras formas de participação
+        action_plan: Monitoramento do Plano de Ação
       participation_article:
         document: Documentos em destaque
         title: Participação social no município
