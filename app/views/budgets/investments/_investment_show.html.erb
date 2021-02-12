@@ -25,7 +25,7 @@
 
       <aside class="small-12 medium-3 column">
 
-        <% if @budget.selecting? %>
+        <% if @budget.accepting? %>
           <%= render "/budgets/investments/author_actions", investment: investment %>
         <% end %>
 

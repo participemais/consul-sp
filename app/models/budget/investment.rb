@@ -43,6 +43,8 @@ class Budget
     belongs_to :budget
     belongs_to :administrator
 
+    acts_as_sequenced scope: :budget_id, column: :code
+
     has_many :valuator_assignments, dependent: :destroy
     has_many :valuators, through: :valuator_assignments
 
@@ -130,7 +132,8 @@ class Budget
     after_save :recalculate_heading_winners
     before_validation :set_responsible_name
     before_validation :set_denormalized_ids
-    after_validation :set_slug, only: [:create, :update]
+    before_create :set_slug, only: :create
+    before_create :set_title, only: :create
 
     def comments_count
       comments.count
@@ -340,10 +343,6 @@ class Budget
       end
     end
 
-    def code
-      budget.investments.count + 1
-    end
-
     def to_param
       "#{id}-#{slug}"
     end
@@ -505,6 +504,10 @@ class Budget
     end
 
     private
+
+      def set_title
+        self.title = code
+      end
 
       def set_slug
         self.slug = "Orçamento #{budget_id} proposta #{code}".parameterize
