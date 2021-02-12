@@ -1,6 +1,6 @@
-<% documents = @participation_article.documents %>
+<% documents = @participation_article&.documents %>
 
-<% if documents.any? %>
+<% if documents.present? %>
 
   <h3 class="margin-top"><%= t("open_gov.index.participation_article.document") %></h3>
 
