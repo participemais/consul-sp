@@ -1,0 +1,50 @@
+<div>
+  <%= link_to t("admin.open_gov.marks.index.create"),
+    new_admin_open_gov_plan_commitment_mark_path(@plan, @commitment),
+    class: "button float-right"
+  %>
+</div>
+
+<% if @commitment.marks.present? %>
+  <table>
+    <thead>
+      <th class="small-8 medium-5">
+        <%= t("admin.open_gov.commitments.index.title") %>
+      </th>
+      <th class="text-center"><%= t("admin.actions.actions") %>
+      </th>
+    </thead>
+    <tbody>
+      <% @commitment.marks.each do |mark| %>
+        <tr id="<%= dom_id(mark) %>">
+          <td class="small-12 medium-8">
+            <strong>
+              <%= mark.title %>
+            </strong>
+          </td>
+          <td class="text-center">
+            <%= link_to t("admin.actions.edit"),
+              edit_admin_open_gov_plan_commitment_mark_path(@plan, @commitment, mark),
+              class: "button hollow small"
+            %>
+            <%= link_to t("admin.actions.delete"),
+              admin_open_gov_plan_commitment_mark_path(@plan, @commitment, mark),
+              method: :delete,
+              "data-confirm": t("admin.open_gov.marks.delete.alert"),
+              class: "button hollow alert small"
+            %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+  <% @commitment.marks.each do |mark| %>
+    <%= render "mark", mark: mark %>
+  <% end %>
+
+<% else %>
+  <div class="callout primary margin-top clear">
+    <%= t("admin.open_gov.marks.index.no_marks") %>
+  </div>
+<% end %>

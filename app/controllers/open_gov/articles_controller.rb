@@ -5,12 +5,24 @@ class OpenGov::ArticlesController < ApplicationController
   valid_filters = %w[government participation action_plan]
   has_filters valid_filters, only: [:index, :show]
 
-  before_action :load_article, only: :show
+  before_action :load_article, only: [:show, :edit, :update, :destroy]
 
   def index
-    @articles = OpenGov::Article.all.order(created_at: :desc)
-    @projects = OpenGov::Project.all
     @current_filter = params[:filter]
+
+    @articles = OpenGov::Article.all.order(created_at: :desc)
+    @participation_article = OpenGov::ParticipationArticle.first
+    @projects = OpenGov::Project.all
+
+    if params[:action_plan_id].present?
+      @current_action_plan = OpenGov::Plan.find(params[:action_plan_id])
+    else
+      @current_action_plan = OpenGov::Plan.where("starts_at <= ? and ends_at >= ?", Date.current, Date.current).last
+    end
+
+    if @current_action_plan.present?
+      @action_plans = OpenGov::Plan.select { |plan| plan.id != @current_action_plan.id }.sort_by(&:starts_at).reverse!
+    end
   end
 
   def show
@@ -18,12 +30,7 @@ class OpenGov::ArticlesController < ApplicationController
 
   private
 
-  # def article_params
-  #   params.require(:open_gov_article).permit(:title, :text)
-  # end
-
   def load_article
     @article = OpenGov::Article.find(params[:id])
   end
-
 end

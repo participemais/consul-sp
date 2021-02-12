@@ -1,0 +1,25 @@
+<tr id="<%= dom_id(commitment) %>">
+  <td class="small-8 medium-5">
+    <strong>
+      <%= link_to commitment.title, admin_open_gov_plan_commitment_path(@plan, commitment) %>
+    </strong>
+  </td>
+  <td class="small-8 medium-2">
+    <%= l commitment.starts_at.to_date if commitment.starts_at.present? %>
+  </td>
+  <td class="small-8 medium-2">
+    <%= l commitment.ends_at.to_date if commitment.ends_at.present? %>
+  </td>
+  <td class="text-center">
+    <%= link_to t("admin.actions.edit"),
+      edit_admin_open_gov_plan_commitment_path(@plan, commitment),
+      class: "button hollow small"
+    %>
+    <%= link_to t("admin.actions.delete"),
+      admin_open_gov_plan_commitment_path(@plan, commitment),
+      method: :delete,
+      "data-confirm": t("admin.open_gov.commitments.delete.alert"),
+      class: "button hollow alert small"
+    %>
+  </td>
+</tr>

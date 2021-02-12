@@ -245,5 +245,13 @@ namespace :admin do
     resources :articles
     resources :participation_articles
     resources :projects
+    resources :plans do
+      resources :progress_bars, except: :show
+      resources :commitments, except: [:index] do
+        resources :marks, except: [:index, :show] do
+          resources :lines, except: [:index, :show]
+        end
+      end
+    end
   end
 end

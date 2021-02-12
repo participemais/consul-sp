@@ -438,6 +438,10 @@
       }
     }
 
+    .border-all {
+      border:  1px solid $border;
+    }
+
     .border-right {
       @include breakpoint(medium) {
         border-right: 1px solid $border;

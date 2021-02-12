@@ -1,0 +1,32 @@
+<div>
+  <%= link_to t("admin.open_gov.commitments.index.create"),
+    new_admin_open_gov_plan_commitment_path(@plan),
+    class: "button float-right"
+  %>
+</div>
+
+<% if @plan.commitments.present? %>
+  <table>
+    <thead>
+      <th class="small-8 medium-5">
+        <%= t("admin.open_gov.commitments.index.title") %>
+      </th>
+      <th class="small-8 medium-2">
+        <%= t("admin.open_gov.commitments.index.start_date") %>
+      </th>
+      <th class="small-8 medium-2">
+        <%= t("admin.open_gov.commitments.index.end_date") %>
+      </th>
+      <th class="text-center"><%= t("admin.actions.actions") %></th>
+    </thead>
+    <tbody>
+      <% @plan.commitments.each do |commitment| %>
+        <%= render "commitment", commitment: commitment %>
+      <% end %>
+    </tbody>
+  </table>
+<% else %>
+  <div class="callout primary margin-top clear">
+    <%= t("admin.open_gov.commitments.index.no_commitments") %>
+  </div>
+<% end %>

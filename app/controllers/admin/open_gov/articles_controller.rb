@@ -40,10 +40,6 @@ class Admin::OpenGov::ArticlesController < Admin::BaseController
       notice: t("admin.open_gov.articles.delete.notice")
   end
 
-  def participations
-
-  end
-
   private
 
   def article_params
@@ -53,5 +49,4 @@ class Admin::OpenGov::ArticlesController < Admin::BaseController
   def load_article
     @article = OpenGov::Article.find(params[:id])
   end
-
 end

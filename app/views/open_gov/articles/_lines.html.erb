@@ -1,0 +1,42 @@
+<% mark.lines.each_with_index do |line, number| %>
+  <div class="margin-top lines-cards small-12 medium-11">
+    <%= render "tags", resource: line.status, lines: "lines" %>
+
+    <div class="action-plan-card-content">
+
+      <p class="action-plan-number">
+        <%= t("admin.open_gov.commitments.show.line",
+          mark_number: mark_number, number: number + 1, commitment_number: commitment_number) %>
+      </p>
+
+      <h4><%= line.title %></h4>
+
+      <p>
+        <strong><%= t("admin.open_gov.commitments.show.period") %>:</strong>
+        <%= format_date(line.starts_at) %> - <%= format_date(line.ends_at) %>
+
+        <br>
+
+        <strong><%= t("admin.open_gov.commitments.show.author") %>:</strong>
+        <%= line.author %>
+
+        <br>
+
+        <% if line.delivered.present? %>
+
+          <strong><%= t("admin.open_gov.commitments.show.text") %>:</strong>
+
+          <br>
+
+          <section>
+            <%= AdminWYSIWYGSanitizer.new.sanitize(line.delivered) %>
+          </section>
+        <% end %>
+
+        <% if line.documents.present? %>
+          <%= render "documents", documents: line.documents %>
+        <% end %>
+      </p>
+    </div>
+  </div>
+<% end %>
