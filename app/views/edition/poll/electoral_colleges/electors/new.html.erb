@@ -1,0 +1,9 @@
+<%= back_link_to %>
+
+<h2 class="margin-top">
+  <%= t("admin.electors.new.title") %>
+</h2>
+
+<div class="poll-question-form">
+  <%= render "form", form_url: edition_poll_electoral_college_electors_path(@poll, @electoral_college) %>
+</div>

@@ -1,0 +1,56 @@
+<%= render "/edition/poll/polls/poll_header" %>
+<div id="poll-resources">
+  <%= render "/edition/poll/polls/subnav" %>
+
+  <%= render "admin/shared/user_search", url: search_edition_poll_editors_path %>
+
+  <div id="editors">
+    <% if @editors.any? %>
+      
+      <table>
+        <thead>
+          <th scope="col"><%= t("admin.editors.index.name") %></th>
+          <th scope="col" class="small-2"><%= t("admin.editors.index.email") %></th>
+          <th scope="col" class="small-2"><%= t("admin.shared.actions") %></th>
+        </thead>
+        <tbody>
+          <% @editors.each do |editor| %>
+            <tr>
+              <td>
+                <%= editor.name %>
+              </td>
+              <td>
+                <%= editor.email %>
+              </td>
+              <td>
+                <% if @poll.editors.include?(editor) %>
+                  <%= link_to t("admin.editors.editor.delete"),
+                              edition_poll_editor_path(@poll, editor),
+                              method: :delete,
+                              class: "button hollow alert expanded"
+                  %>
+                <% else %>
+                  <%= link_to t("admin.editors.editor.add"),
+                              { controller: "edition/poll/editors", 
+                                action: :create,
+                                editor_poll: {
+                                  editor_id: editor.id,
+                                  poll_id: @poll.id }
+                              },
+                              method: :post,
+                              class: "button success expanded" %>
+                <% end %>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+
+      <%= paginate @editors %>
+    <% else %>
+      <div class="callout primary">
+        <%= t("admin.editors.index.no_editors") %>
+      </div>
+    <% end %>
+  </div>
+</div>

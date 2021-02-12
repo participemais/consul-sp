@@ -30,6 +30,9 @@ class Poll < ApplicationRecord
   has_many :geozones_polls
   has_many :geozones, through: :geozones_polls
 
+  has_many :editor_polls, foreign_key: "poll_id"
+  has_many :editors, through: :editor_polls
+
   has_one :electoral_college,
     class_name: "Poll::ElectoralCollege",
     dependent: :destroy
@@ -113,6 +116,7 @@ class Poll < ApplicationRecord
     user.present? &&
       user.level_two_or_three_verified? &&
       current? &&
+      user.can_vote? &&
       (!geozone_restricted || geozone_ids.include?(user.geozone_id)) &&
       (!electoral_college_restricted? || belongs_to_electoral_college?(user))
   end
@@ -227,6 +231,10 @@ class Poll < ApplicationRecord
 
   def filename
     name.parameterize
+  end
+
+  def editable?
+    starts_at - 1.day > Date.today
   end
 
   private

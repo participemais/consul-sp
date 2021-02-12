@@ -8,7 +8,7 @@ module PollsHelper
   end
 
   def all_polls
-    [I18n.t("polls.all"), admin_questions_path]
+    [I18n.t("polls.all"), edition_questions_path]
   end
 
   def poll_dates(poll)

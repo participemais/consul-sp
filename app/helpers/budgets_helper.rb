@@ -90,7 +90,7 @@ module BudgetsHelper
     balloting_phase = budget.phases.find_by(kind: "balloting")
 
     link_to t("admin.budgets.index.admin_ballots"),
-            admin_polls_path(poll: {
+            edition_polls_path(poll: {
                               name:      budget.name,
                               budget_id: budget.id,
                               starts_at: balloting_phase.starts_at,

@@ -3,6 +3,7 @@ module Abilities
     include CanCan::Ability
 
     def initialize(user)
+      merge Abilities::Editor.new(user)
       merge Abilities::Moderation.new(user)
 
       can :restore, Comment
@@ -58,6 +59,7 @@ module Abilities
       can [:search, :create, :index, :destroy], ::Moderator
       can [:search, :show, :edit, :update, :create, :index, :destroy, :summary], ::Valuator
       can [:search, :create, :index, :destroy], ::Manager
+      can [:search, :create, :index, :destroy], ::Editor
       can [:search, :index], ::User
 
       can :manage, Dashboard::Action
