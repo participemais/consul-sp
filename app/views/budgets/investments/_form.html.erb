@@ -50,6 +50,8 @@
 
     <% customs_tags = @budget.tag_list_on(:customs) %>
     <% if customs_tags.present? %>
+
+      <span class="js-add-tags-selected hide"><%= @investment.tag_list %></span>
       <div class="small-12 column">
         <div id="category_tags" class="tags categories">
           <%= f.label :category_tag_list, t("budgets.investments.form.tag_category_label") %>
