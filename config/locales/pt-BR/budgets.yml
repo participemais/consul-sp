@@ -148,6 +148,7 @@ pt-BR:
           description: Descrição
           feasibility: Viabilidade
           id: ID
+          code: Código
           legal: Viabilidade jurídica
           legal_description: Parecer jurídico
           prioritization: Resultado da priorização

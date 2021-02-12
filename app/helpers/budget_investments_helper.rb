@@ -54,4 +54,8 @@ module BudgetInvestmentsHelper
     return 0 unless @investment.should_show_feasibility_analysis?
     @investment.feasibility_analyses.count
   end
+
+  def investment_code(investment)
+    investment.code.present? ? investment.code : investment.id
+  end
 end

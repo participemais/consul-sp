@@ -30,7 +30,7 @@ class Budget::Investment::Exporter
 
   private
 
-    PROPOSALS_COLUMNS = %w(id created_at author subprefecture title description categories image_url first_document second_document third_document prioritization votes balloting_result feasibility commitment unfeasibility_explanation).freeze
+    PROPOSALS_COLUMNS = %w(code created_at author subprefecture title description categories image_url first_document second_document third_document prioritization votes balloting_result feasibility commitment unfeasibility_explanation).freeze
 
     FEASIBILITY_COLUMNS = %w(department budgetary_actions sei_number technical technical_description legal legal_description budgetary budgetary_description).freeze
 
@@ -51,8 +51,10 @@ class Budget::Investment::Exporter
     end
 
     def proposals_list_csv_values(investment)
+      code = investment.code.present? ? investment.code : investment.id
+
       row = [
-        investment.id.to_s,
+        code,
         I18n.l(investment.created_at.to_date),
         investment.author.name,
         investment.heading_name,
