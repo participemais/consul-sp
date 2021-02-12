@@ -132,7 +132,6 @@ class Budget
     after_save :recalculate_heading_winners
     before_validation :set_responsible_name
     before_validation :set_denormalized_ids
-    before_create :set_slug, only: :create
     before_create :set_title, only: :create
 
     def comments_count
@@ -343,11 +342,6 @@ class Budget
       end
     end
 
-    def to_param
-      "#{id}-#{slug}"
-    end
-
-
     def reason_for_not_being_selectable_by(user)
       return permission_problem(user) if permission_problem?(user)
       return :different_heading_assigned unless valid_heading?(user)
@@ -507,10 +501,6 @@ class Budget
 
       def set_title
         self.title = code
-      end
-
-      def set_slug
-        self.slug = "Orçamento #{budget_id} proposta #{code}".parameterize
       end
 
       def set_denormalized_ids
