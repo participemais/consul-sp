@@ -45,7 +45,7 @@
     <% if @current_user.administrator? %>
       <div class="clear">
         <div class="small-6 medium-6 column">
-          <%= f.check_box :geozone_restricted, data: { checkbox_toggle: "#subs" } %>
+          <%= f.check_box :geozone_restricted, id: "subs_restricted" %>
         </div>
       </div>
     <% end %>
@@ -64,21 +64,23 @@
       </div>
     </div>
 
-    <div class="clear">
-      <div class="small-6 medium-6 column">
-        <%= f.check_box :geozone_restricted, data: { checkbox_toggle: "#districts" } %>
+    <div class="row">
+      <div class="clear">
+        <div class="column">
+          <%= f.check_box :geozone_restricted, label: t('admin.polls.new.district_restricted'), id: "districts_restricted" %>
+        </div>
       </div>
-    </div>
 
-    <div id="districts" style="<%= @poll.geozone_restricted? ? "" : "display:none" %>">
-      <div class="row">
-        <%= f.collection_check_boxes(:geozone_ids, @districts, :id, :name) do |b| %>
-          <div class="small-6 medium-3 column">
-            <%= b.label do %>
-              <%= b.check_box + b.text %>
-            <% end %>
-          </div>
-        <% end %>
+      <div id="districts" style="<%= @poll.geozone_restricted? ? "" : "display:none" %>">
+        <div class="row column">
+          <%= f.collection_check_boxes(:geozone_ids, @districts, :id, :name) do |b| %>
+            <div class="small-6 medium-3 column">
+              <%= b.label do %>
+                <%= b.check_box + b.text %>
+              <% end %>
+            </div>
+          <% end %>
+        </div>
       </div>
     </div>
 

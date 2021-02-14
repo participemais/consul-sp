@@ -1076,6 +1076,7 @@ pt-BR:
         closing_date: "Data de encerramento"
         geozone_restricted: "Restrito aos distritos"
       new:
+        district_restricted: Restrito por distrito
         title: "Nova votação"
         submit_button: "Criar votação"
       edit:
