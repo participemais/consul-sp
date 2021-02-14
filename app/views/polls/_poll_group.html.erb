@@ -44,10 +44,14 @@
             </p>
           <% end %>
 
-          <% if poll.geozones.any? %>
+          <% if poll.geozones.try(:first).district == false %>
             <p>
-              <small><%= t("polls.index.geozone_info") %></small>
+              <small><%= t("polls.index.geozone_sub_info", count: poll.geozones.count) %></small>
             </p>
+          <% elsif poll.geozones.try(:first).district == true %>
+            <p>
+              <small><%= t("polls.index.geozone_district_info", count: poll.geozones.count) %></small>
+            </p>  
           <% end %>
 
           <% if poll.geozones.any? %>

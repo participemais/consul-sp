@@ -1074,7 +1074,8 @@ pt-BR:
         dates: "Datas"
         start_date: "Data de início"
         closing_date: "Data de encerramento"
-        geozone_restricted: "Restrito aos distritos"
+        geozone_sub_restricted: "Restrito por subprefeitura"
+        geozone_district_restricted: "Restrito por distrito"
       new:
         district_restricted: Restrito por distrito
         title: "Nova votação"
@@ -1399,7 +1400,7 @@ pt-BR:
         back: Voltar
       new:
         back: Voltar
-        creating: Criar distrito
+        creating: Criar geozona
       delete:
         success: Geozona arquivada com êxito
         error: Esta geozona não pode ser arquivada

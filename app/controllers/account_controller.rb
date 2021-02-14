@@ -37,6 +37,8 @@ class AccountController < ApplicationController
         else
           @select_district = true
         end
+      elsif !@account.resident?
+        @account.update geozone_id: nil
       end
       render :show, notice: t("flash.actions.save_changes.notice")
     else

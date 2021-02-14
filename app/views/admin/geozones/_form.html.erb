@@ -1,7 +1,7 @@
 <%= form_for [:admin, @geozone] do |f| %>
 
   <%= render "shared/errors", resource: @geozone %>
-
+  <%= f.hidden_field :active, value: true %>
   <div class="small-12 large-8 column">
     <%= f.text_field :name %>
   </div>
