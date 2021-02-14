@@ -358,7 +358,7 @@ pt-BR:
         name: "Nome"
         starts_at: "Data de início"
         ends_at: "Data de encerramento"
-        geozone_restricted: "Restrito por subprefeitura"
+        geozone_restricted: "Restrito por geozona"
         electoral_college_restricted: "Votação restrita por colégio eleitoral"
         summary: "Resumo"
         description: "Descrição"

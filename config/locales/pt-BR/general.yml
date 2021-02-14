@@ -632,7 +632,12 @@ pt-BR:
       participate_button_expired: "Votação encerrada"
       no_geozone_restricted: "Votações abertas a toda a cidade"
       geozone_restricted: "Votações regionalizadas"
-      geozone_info: "Podem participar as pessoas registradas em: "
+      geozone_sub_info: 
+        one: "Podem participar as pessoas registradas na subprefeitura:"
+        other: "Podem participar as pessoas registradas nas subprefeituras:"
+      geozone_district_info: 
+        one: "Podem participar as pessoas registradas no distrito:"
+        other: "Podem participar as pessoas registradas nos distritos:"
       electoral_college_info: "Podem participar membros do colégio eleitoral"
       can_answer: "Você pode participar dessa votação"
       not_logged_in: " Você precisa acessar sua conta ou se registrar para participar."

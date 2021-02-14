@@ -19,7 +19,7 @@
         <td><%= geozone.name %></td>
         <td><%= geozone.document.try :title %></td>
         <td><%= geozone.district? ? t("admin.geozones.geozone.district") : t("admin.geozones.geozone.subprefecture") %></td>
-        <td>
+        <td class="small-3">
           <div class="small-6 column">
             <%= link_to t("admin.geozones.index.edit"),
                         edit_admin_geozone_path(geozone),
