@@ -556,7 +556,7 @@ class User < ApplicationRecord
     end
 
     def cep_validation
-      unless cep && cep.size == 8
+      if cep && cep.size != 8
         errors.add(:cep, :not_found)
       end
     end
