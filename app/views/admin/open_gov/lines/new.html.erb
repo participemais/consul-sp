@@ -1,0 +1,20 @@
+<% provide :title do %>
+  <%= t("admin.header.title") %> - <%= t("admin.menu.open_gov") %> %>
+<% end %>
+
+<div>
+
+  <%= back_link_to(
+    admin_open_gov_plan_commitment_path(@plan, @commitment), t("shared.back")
+  ) %>
+
+  <h2><%= t("admin.open_gov.index.title") %></h2>
+
+  <%= render "/admin/open_gov/subnav", active: "monitoring" %>
+
+  <h2>
+    <%= t("admin.open_gov.lines.new.title") %>
+  </h2>
+
+  <%= render "form", url: admin_open_gov_plan_commitment_mark_lines_path(@plan, @commitment, open_gov_mark_id: @mark)%>
+</div>

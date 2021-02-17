@@ -12,6 +12,7 @@
 // 10. Polls cards
 // 11. Tags
 // 12. Legislation Proposal
+// 13. Open Government
 
 // 01. Votes and supports
 // ----------------------
@@ -644,7 +645,7 @@
     box-shadow: 0 1px 3px 0 $border;
     margin-bottom: rem-calc(12);
     min-height: rem-calc(192);
-    padding: rem-calc(12) rem-calc(12) 0;
+    padding: rem-calc(12) rem-calc(12) rem-calc(12);
 
     @include breakpoint(medium) {
       margin-bottom: rem-calc(-1);
@@ -2246,3 +2247,97 @@
   color: $purple;
 }
 
+.result-explanation-alert {
+  color: $color-alert;
+}
+
+.result-explanation-field-alert {
+  border-color: $color-alert;
+}
+
+// 13. Open Government
+// ----------------------
+
+.document-cards {
+  margin: $line-height $line-height $line-height 0;
+  border: 1px solid;
+  border-color: #e5e6e9 #dfe0e4 #d0d1d5;
+
+  min-height: 3rem;
+  padding: 15px;
+  cursor: pointer;
+  display: inline-block;
+
+  &:hover {
+    box-shadow: 0 1px 3px 0 #dee0e3;
+  }
+}
+
+.action-plan-number {
+  text-transform: uppercase;
+  color: $text-medium;
+  margin-bottom: -($line-height / 3);
+  font-size: $small-font-size;
+  font-weight: bold;
+}
+
+.action-plans-cards {
+  margin: 0 0 $line-height;
+  border: 1px solid;
+  border-color: #e5e6e9 #dfe0e4 #d0d1d5;
+  box-shadow: 0 1px 3px 0 #dee0e3;
+  background: #ffffff;
+
+  p {
+    font-size: 1rem;
+  }
+
+  .action-plan-card-content {
+    padding: $line-height/2 $line-height $line-height $line-height
+  }
+}
+
+.lines-cards {
+  border: 1px solid;
+  border-color: #e5e6e9 #dfe0e4 #d0d1d5;
+  border-radius: 8px;
+  min-height: 10rem;
+  background: #ffffff;
+
+  .action-plan-card-content {
+    padding-top: $line-height/2;
+    padding-right: $line-height;
+    padding-bottom: $line-height;
+  }
+}
+
+
+.commitment-preview {
+  background: #fafafa;
+  padding: $line-height;
+  margin-top: $line-height;
+
+  p {
+    margin-bottom: 0;
+    font-family: $body-font-family;
+
+    strong {
+      font-family: $subheader-font-family;
+    }
+  }
+}
+
+.info-preview {
+  p {
+    margin-bottom: 0;
+    font-family: $body-font-family;
+
+    strong {
+      font-family: $subheader-font-family;
+    }
+  }
+}
+
+.lines-preview {
+  padding-left: $line-height;
+}

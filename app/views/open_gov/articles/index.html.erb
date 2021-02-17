@@ -5,11 +5,14 @@
 <div class="row">
   <div class="small-12 column">
 
-    <%= render "filter_subnav", i18n_namespace: "open_gov.index" %>
+    <%= render "filter_subnav" %>
 
     <% if @current_filter == "government" %>
       <%= render "government" %>
-    <% else %>
+    <% elsif @current_filter == "participation" %>
+      <%= render "participation" %>
+    <% elsif @current_filter == "action_plan" %>
+      <%= render "action_plans" %>
     <% end %>
   </div>
 </div>

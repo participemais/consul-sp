@@ -113,7 +113,7 @@
 
   ul > li > a {
     color: $text-medium;
-    padding: 0 $line-height;
+    padding: 0 $line-height/2;
     font-family: $header-font-family;
 
     &:hover {
@@ -225,11 +225,24 @@
   &.winner {
     border-top: 1.5px solid $green;
     border-right: 1.5px solid $green;
+
+    &.lines {
+      border-radius: 0 8px 0 0;
+    }
   }
 
   &.loser {
     border-top: 1.5px solid $delete;
     border-right: 1.5px solid $delete;
+  }
+
+  &.in-progress {
+    border-top: 1.5px solid #FBA131;
+    border-right: 1.5px solid #FBA131;
+
+    &.lines {
+      border-radius: 0 8px 0 0;
+    }
   }
 
   span {

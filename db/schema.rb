@@ -1085,6 +1085,42 @@ ActiveRecord::Schema.define(version: 20210211224845) do
     t.index ["author_id"], name: "index_open_gov_articles_on_author_id"
   end
 
+  create_table "open_gov_commitments", force: :cascade do |t|
+    t.string "title"
+    t.string "coordenation"
+    t.text "work_group"
+    t.datetime "starts_at"
+    t.datetime "ends_at"
+    t.bigint "open_gov_plan_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["open_gov_plan_id"], name: "index_open_gov_commitments_on_open_gov_plan_id"
+  end
+
+  create_table "open_gov_lines", force: :cascade do |t|
+    t.string "title"
+    t.string "author"
+    t.datetime "starts_at"
+    t.datetime "ends_at"
+    t.boolean "status", default: false
+    t.bigint "open_gov_mark_id"
+    t.text "delivered"
+    t.index ["open_gov_mark_id"], name: "index_open_gov_lines_on_open_gov_mark_id"
+  end
+
+  create_table "open_gov_marks", force: :cascade do |t|
+    t.string "title"
+    t.string "author"
+    t.datetime "starts_at"
+    t.datetime "ends_at"
+    t.boolean "status", default: false
+    t.bigint "open_gov_commitment_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.text "delivered"
+    t.index ["open_gov_commitment_id"], name: "index_open_gov_marks_on_open_gov_commitment_id"
+  end
+
   create_table "open_gov_participation_articles", id: :serial, force: :cascade do |t|
     t.string "title"
     t.text "text"
@@ -1092,6 +1128,15 @@ ActiveRecord::Schema.define(version: 20210211224845) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["author_id"], name: "index_open_gov_participation_articles_on_author_id"
+  end
+
+  create_table "open_gov_plans", force: :cascade do |t|
+    t.string "title"
+    t.datetime "starts_at"
+    t.datetime "ends_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "video_url"
   end
 
   create_table "open_gov_projects", force: :cascade do |t|
@@ -1848,6 +1893,9 @@ ActiveRecord::Schema.define(version: 20210211224845) do
   add_foreign_key "managers", "users"
   add_foreign_key "moderators", "users"
   add_foreign_key "notifications", "users"
+  add_foreign_key "open_gov_commitments", "open_gov_plans"
+  add_foreign_key "open_gov_lines", "open_gov_marks"
+  add_foreign_key "open_gov_marks", "open_gov_commitments"
   add_foreign_key "organizations", "users"
   add_foreign_key "poll_answers", "poll_questions", column: "question_id"
   add_foreign_key "poll_booth_assignments", "polls"

@@ -1,0 +1,41 @@
+<div class="open-gov-form row">
+  <%= form_for([:admin, @plan], url: url) do |f| %>
+
+    <%= render "shared/errors", resource: @plan %>
+
+    <div class="row">
+      <div class="small-12 column">
+        <%= f.text_field(:title, required: true) %>
+      </div>
+
+      <div class="small-12 medium-3 column">
+        <%= f.text_field :starts_at,
+                          value: format_date_for_calendar_form(@plan.starts_at),
+                          class: "js-calendar-full",
+                          id: "start_date" %>
+      </div>
+      <div class="small-12 medium-3 column">
+        <%= f.text_field :ends_at,
+                          value: format_date_for_calendar_form(@plan.ends_at),
+                          class: "js-calendar-full",
+                          id: "end_date" %>
+      </div>
+      <div class="small-12 column">
+        <%= f.text_field(:video_url) %>
+      </div>
+      <div class="documents small-12 column">
+        <%= render "documents/nested_documents", documentable: @plan, f: f %>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="actions small-12 medium-4 column">
+        <%= f.submit(
+          class: "button expanded large",
+          value: t("admin.open_gov.plans.form.save")
+        ) %>
+      </div>
+    </div>
+
+  <% end %>
+</div>

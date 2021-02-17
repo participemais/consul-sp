@@ -26,6 +26,9 @@ module Abilities
       can [:read, :map, :share], Legislation::Proposal
       can [:search, :comments, :read, :create, :new_comment], Legislation::Annotation
       can [:comments], Legislation::Topic
+      can [:read], OpenGov::Article
+      can [:read], OpenGov::ParticipationArticle
+      can [:read], OpenGov::Project
     end
   end
 end

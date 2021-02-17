@@ -9,6 +9,7 @@
 
 <% cache [locale_and_user_status(investment),
           investment,
+          investment.documents,
           investment.image,
           investment.author,
           Flag.flagged?(current_user, investment),
