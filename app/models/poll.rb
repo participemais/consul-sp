@@ -48,6 +48,7 @@ class Poll < ApplicationRecord
 
   before_save :schedule_electoral_college_deactivation, if: :trigger_job?
   before_save :activate_electoral_college, if: :trigger_job?
+  before_save :update_geozone_restricted
 
   accepts_nested_attributes_for :questions, reject_if: :all_blank, allow_destroy: true
 
@@ -257,5 +258,10 @@ class Poll < ApplicationRecord
 
   def trigger_job?
     electoral_college_restricted? && electoral_college && ends_at_changed?
+  end
+
+  def update_geozone_restricted
+    byebug
+    geozones.any? ? self.geozone_restricted = true : self.geozone_restricted = false
   end
 end

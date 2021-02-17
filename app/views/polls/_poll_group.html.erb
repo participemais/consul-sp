@@ -42,8 +42,9 @@
             <p>
               <small><%= t("polls.index.electoral_college_info") %></small>
             </p>
+          <% end %>
           
-
+          <% if poll.geozone_restricted? %>
             <% if poll.geozones.first.district == false %>
               <p>
                 <small><%= t("polls.index.geozone_sub_info", count: poll.geozones.count) %></small>
