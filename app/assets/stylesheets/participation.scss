@@ -13,6 +13,7 @@
 // 11. Tags
 // 12. Legislation Proposal
 // 13. Open Government
+// 14. Help
 
 // 01. Votes and supports
 // ----------------------
@@ -2339,4 +2340,15 @@
 
 .lines-preview {
   padding-left: $line-height;
+}
+
+// 14. Help
+// ----------------------
+
+.help-style {
+  text-align: justify;
+
+  span {
+    text-decoration: underline;
+  }
 }
