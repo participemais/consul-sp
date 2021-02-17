@@ -42,24 +42,25 @@
             <p>
               <small><%= t("polls.index.electoral_college_info") %></small>
             </p>
-          <% end %>
+          
 
-          <% if poll.geozones.try(:first).district == false %>
-            <p>
-              <small><%= t("polls.index.geozone_sub_info", count: poll.geozones.count) %></small>
-            </p>
-          <% elsif poll.geozones.try(:first).district == true %>
-            <p>
-              <small><%= t("polls.index.geozone_district_info", count: poll.geozones.count) %></small>
-            </p>  
-          <% end %>
+            <% if poll.geozones.first.district == false %>
+              <p>
+                <small><%= t("polls.index.geozone_sub_info", count: poll.geozones.count) %></small>
+              </p>
+            <% elsif poll.geozones.first.district == true %>
+              <p>
+                <small><%= t("polls.index.geozone_district_info", count: poll.geozones.count) %></small>
+              </p>  
+            <% end %>
 
-          <% if poll.geozones.any? %>
-            <ul class="no-bullet inline-block tags no-margin-bottom">
-              <% poll.geozones.each do |g| %>
-                <li class="inline-block"><span><%= g.name %></span></li>
-              <% end %>
-            </ul>
+            <% if poll.geozones.any? %>
+              <ul class="no-bullet inline-block tags no-margin-bottom">
+                <% poll.geozones.each do |g| %>
+                  <li class="inline-block"><span><%= g.name %></span></li>
+                <% end %>
+              </ul>
+            <% end %>
           <% end %>
         </div>
 

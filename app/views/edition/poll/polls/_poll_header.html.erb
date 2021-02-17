@@ -16,14 +16,14 @@
   </div>
 
   <div class="inline-block margin-left">
-    <% if @poll.geozones.try(:first).district == false %>    
-      <strong><%= t("admin.polls.index.geozone_sub_restricted") %></strong>
-    <% elsif @poll.geozones.try(:first).district == true %> 
-      <strong><%= t("admin.polls.index.geozone_disctrict_restricted") %></strong>
-    <% end %>
     <% if @poll.geozones.any? %>
-      <br>
-        <%= @poll.geozones.pluck(:name).to_sentence %>
+      <% if @poll.geozones.first.district == false %>    
+        <strong><%= t("admin.polls.index.geozone_sub_restricted") %></strong>
+      <% elsif @poll.geozones.first.district == true %> 
+        <strong><%= t("admin.polls.index.geozone_disctrict_restricted") %></strong>
+      <% end %>
+        <br>
+          <%= @poll.geozones.pluck(:name).to_sentence %>
     <% end %>
   </div>
 </div>

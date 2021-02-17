@@ -4,6 +4,8 @@ class Geozone < ApplicationRecord
 
   attr_accessor :coordinates
 
+  before_save :update_geozone_restricted
+
   has_many :proposals
   has_many :debates
   has_many :users
@@ -96,4 +98,9 @@ class Geozone < ApplicationRecord
   def has? lat,long
     self.coordinates.contains_point?(BorderPatrol::Point.new(long.to_f, lat.to_f))
   end
+
+  private
+    def update_geozone_restricted
+      geozones.any? ? self.geozone_restricted = true : self.geozone_restricted = false
+    end
 end
