@@ -3,6 +3,9 @@ class Budget < ApplicationRecord
   include Sluggable
   include StatsVersionable
   include Reportable
+  include Taggable
+
+  acts_as_taggable_on :customs
 
   translates :name, touch: true
   include Globalizable
@@ -204,7 +207,7 @@ class Budget < ApplicationRecord
       orders = %w[random]
       resource_allocation_balloting? ? orders << "price" : orders << "ballots"
     else
-      %w[random confidence_score]
+      %w[random]
     end
   end
 

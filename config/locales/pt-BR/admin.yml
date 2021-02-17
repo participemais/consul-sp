@@ -193,8 +193,8 @@ pt-BR:
           feasible: "Viável"
           unfeasible: "Inviável"
           undecided: "Não decidido"
-        selected: "Selecionado"
-        select: "Selecionar"
+        selected: "Priorizada"
+        select: "Não priorizada"
         list:
           id: ID
           title: Título
@@ -205,7 +205,7 @@ pt-BR:
           geozone: Subprefeitura
           feasibility: Viabilidade
           valuation_finished: Avaliação concluída
-          selected: Selecionado
+          selected: Priorização
           visible_to_valuators: Disponível para avaliadores
           author_username: Username do autor
           incompatible: Incompatível
@@ -694,7 +694,7 @@ pt-BR:
       admin: Menu de admin
       banner: Gerenciar banners
       proposals: Propostas
-      proposals_topics: Tópicos de propostas
+      proposals_topics: Categorias de propostas
       budgets: Orçamento Cidadão
       open_gov: Governo Aberto
       geozones: Gerenciar geozonas

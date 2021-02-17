@@ -81,6 +81,35 @@
         }
       });
 
+      // Budgets/Investments
+      var $tag_input_investment;
+      $tag_input_investment = $("input.js-tag-list-category-investments");
+
+      $("body .js-add-tag-link-category-investments").each(function() {
+
+        var name = $(this).text();
+        if($selected_tags.indexOf(name) >= 0) {
+          $(this).toggleClass("is-active");
+        }
+
+        if ($(this).data("initialized") !== "yes") {
+          $(this).on("click", function() {
+            var current_tags;
+            current_tags = $tag_input_investment.val().split(",").filter(Boolean).map(function(x){ return x.trim() });
+
+            $("body .js-add-tag-link-category-investments").removeClass("is-active");
+  
+            current_tags = [name];
+            $(this).addClass("is-active");
+
+            $tag_input_investment.val(current_tags.join(","));
+            return false;
+          }).data("initialized", "yes");
+        }
+      });
+
+
+
       $("body .js-add-tag-link-category").on("click", function() {
         $(this).toggleClass("is-active");
       });

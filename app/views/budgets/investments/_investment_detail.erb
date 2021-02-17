@@ -7,7 +7,7 @@
   <span class="bullet">&nbsp;&bull;&nbsp;</span>
   <%= investment.heading.name %>
   <span class="bullet">&nbsp;&bull;&nbsp;</span>
-  <%= sanitize(t("budgets.investments.show.code", code: investment.id)) %>
+  <%= sanitize(t("budgets.investments.show.code", code: investment_code(investment))) %>
   <% if local_assigns[:preview].nil? %>
     <span class="js-flag-actions">
       <%= render "budgets/investments/flag_actions", investment: investment %>
@@ -17,9 +17,12 @@
 
 <br>
 
+<%= auto_link_already_sanitized_html wysiwyg(investment.description) %>
+
+<%= render "shared/tags", taggable: investment %>
+
 <%= render_image(investment.image, :large, true) if investment.image.present? %>
 
-<%= auto_link_already_sanitized_html wysiwyg(investment.description) %>
 
 <% if feature?(:map) && map_location_available?(@investment.map_location) %>
   <div class="margin">
@@ -27,25 +30,31 @@
   </div>
 <% end %>
 
-<% if investment.location.present? %>
-  <p>
-    <%= sanitize(t("budgets.investments.show.location", location: investment.location)) %>
-  </p>
-<% end %>
-
-<% if investment.organization_name.present? %>
-  <p>
-    <%= sanitize(t("budgets.investments.show.organization_name", name: investment.organization_name)) %>
-  </p>
-<% end %>
-
 <% if feature?(:allow_attached_documents) %>
-  <%= render "documents/documents",
-              documents: investment.documents,
-              max_documents_allowed: Budget::Investment.max_documents_allowed %>
-<% end %>
+  <% if investment.documents.any? %>
+    <div id="documents" class="documents">
+      <h2><%= t("documents.title") %>&nbsp;<span>(<%= investment.documents.count %>)</span></h2>
 
-<%= render "shared/tags", taggable: investment %>
+      <ul class="no-bullet document-link">
+
+        <% investment.documents.each do |document| %>
+          <li id="<%= dom_id(document) %>">
+            <%= link_to t("documents.buttons.download_document"),
+                        document.attachment.url, target: "_blank",
+                        rel: "nofollow", class: "button hollow medium float-right" %>
+
+            <strong><%= document.title %></strong>
+            <br>
+            <small>
+              <%= document.humanized_content_type %>&nbsp;|&nbsp;
+              <%= number_to_human_size(document.attachment_file_size, precision: 2) %>
+            </small>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+<% end %>
 
 <% if investment.external_url.present? %>
   <div class="document-link">

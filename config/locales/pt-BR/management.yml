@@ -85,7 +85,7 @@ pt-BR:
       index:
         title: Apoiar propostas
     budgets:
-      create_new_investment: Criar um investimento orçamentário
+      create_new_investment: Criar uma proposta para o orçamento
       print_investments: Gravar investimentos do orçamento
       support_investments: Apoiar investimentos orçamentários
       table_name: Nome
@@ -95,7 +95,7 @@ pt-BR:
     budget_investments:
       alert:
         unverified_user: Usuário não está verificado
-      create: Criar um investimento orçamentário
+      create: Criar uma proposta para o orçamento
       edit: Editar investimento orçamentário
       filters:
         heading: Conceito

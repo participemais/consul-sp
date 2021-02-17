@@ -89,15 +89,16 @@
         <%= render("shared/order_links", i18n_namespace: "budgets.investments.index") %>
       <% end %>
 
+      <% if @investments.any? %>
+        <p class="download-proposals-link">
+          <%= link_to t("budgets.investments.index.download_proposals"),
+            budget_investments_path(@budget, csv_params),
+            class: "small"
+          %>
+        </p>
+      <% end %>
+
       <% if investments_default_view? %>
-        <% if @investments.any? %>
-          <p class="download-proposals-link">
-            <%= link_to t("budgets.investments.index.download_proposals"),
-              budget_investments_path(@budget, csv_params),
-              class: "small"
-            %>
-          </p>
-        <% end %>
         <% @investments.each do |investment| %>
           <%= render "/budgets/investments/investment",
                      investment: investment,

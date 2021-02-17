@@ -753,7 +753,7 @@ pt-BR:
     followable:
       budget_investment:
         create:
-          notice: "Você está seguindo essa proposta! </br>Para que esteja a par de tudo, vamos notificar você sobre alterações assim que elas ocorrerem."
+          notice: Você está seguindo essa proposta! </br>Você receberá as novidades sobre ela por email.
         destroy:
           notice: "Você parou de seguir essa proposta! </br> Você não receberá mais notificações relacionadas a ela."
       proposal:
@@ -842,7 +842,7 @@ pt-BR:
   unauthorized:
     default: Você não possui permissão de acesso a esta página.
     manage:
-      all: "Você não possui permissão para executar esta ação '%{action}' em %{subject}."
+      all: "Você não possui permissão para executar esta ação."
   users:
     login_to_comment: "Você precisa acessar sua %{signin} ou se %{signup} para fazer um comentário"
     login_to_continue: "Você precisa acessar sua %{signin} ou se %{signup} para continuar"
