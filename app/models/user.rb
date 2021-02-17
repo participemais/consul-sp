@@ -113,7 +113,7 @@ class User < ApplicationRecord
   validates :gender, presence: true, allow_nil: true
   validates :ethnicity, presence: true, allow_nil: true
   validates :date_of_birth, presence: true, allow_nil: true
-  validates :address_number, presence: true, allow_nil: true
+  validates :address_number, presence: true, allow_nil: true, if: :from_sp?
 
   validate :cep_validation
 
@@ -163,7 +163,7 @@ class User < ApplicationRecord
 
   before_validation :clean_document_number, if: :persisted?
   before_validation :clean_cep, if: :persisted?
-
+  before_validation :clean_address
   before_update :sanitaze_name
   before_save :document_number_changes_amount,
     unless: :document_number_changes_count
@@ -495,6 +495,10 @@ class User < ApplicationRecord
 
   def query_address
     "#{address_number} #{home_address}"
+  end 
+  
+  def from_sp?
+    city == "São Paulo" && uf == "SP"
   end
 
   private
@@ -507,6 +511,15 @@ class User < ApplicationRecord
     def clean_cep
       return unless cep
       self.cep = cep.gsub(/\D/, '')
+    end
+
+    def clean_address
+      return if from_sp?
+      self.city = nil
+      self.uf = nil
+      self.address_number = nil
+      self.address_complement = nil
+      self.home_address = nil
     end
 
     def validate_username_length
@@ -560,7 +573,7 @@ class User < ApplicationRecord
     end
 
     def cep_validation
-      if cep && cep.size == 8 && home_address.empty?
+      if cep && cep.size != 8
         errors.add(:cep, :not_found)
       end
     end
