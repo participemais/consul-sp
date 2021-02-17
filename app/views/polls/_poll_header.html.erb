@@ -22,11 +22,11 @@
       <% end %>
 
       <% if @poll.geozone_restricted? %>
-        <% if @poll.geozones.district == false %>
+        <% if @poll.geozones.first.district == false %>
           <p>
             <small><%= t("polls.index.geozone_sub_info", count: @poll.geozones.count) %></small>
           </p>
-        <% elsif @poll.geozones.district == true %>
+        <% elsif @poll.geozones.first.district == true %>
           <p>
             <small><%= t("polls.index.geozone_district_info", count: @poll.geozones.count) %></small>
           </p>
