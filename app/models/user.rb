@@ -515,8 +515,6 @@ class User < ApplicationRecord
 
     def clean_address
       return if from_sp?
-      self.city = nil
-      self.uf = nil
       self.address_number = nil
       self.address_complement = nil
       self.home_address = nil

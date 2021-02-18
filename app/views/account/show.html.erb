@@ -133,14 +133,14 @@
               <div class="small-6 medium-3 column <%= address_hide_class %>">
                 <%= f.text_field(:address_complement) %>
               </div>
-              <div class="small-6 medium-5 column <%= address_hide_class %>">
+              <div class="small-6 medium-5 column">
                 <%= f.text_field(
                   :city,
                   readonly: true,
                   class: 'disabled'
                 ) %>
               </div>
-              <div class="small-6 medium-2 column <%= address_hide_class %>">
+              <div class="small-6 medium-2 column">
                 <%= f.text_field(
                   :uf,
                   readonly: true,
