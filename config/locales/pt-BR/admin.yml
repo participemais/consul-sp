@@ -75,10 +75,10 @@ pt-BR:
         table_investments: Investimentos
         table_edit_groups: Grupos de títulos
         table_edit_budget: Editar
-        table_admin_ballots: Cédulas
+        table_admin_ballots: Votação presencial
         edit_groups: Editar grupos de títulos
         edit_budget: Editar orçamento
-        admin_ballots: Administrar cédulas
+        admin_ballots: Gerenciar
         no_budgets: "Não há orçamentos."
       create:
         notice: Novo orçamento criado com sucesso.
