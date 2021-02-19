@@ -162,7 +162,7 @@ class Legislation::Process < ApplicationRecord
     start_date - 1.day > Date.today
   end
 
-  def finished
+  def finished?
     end_date > Date.today
   end
 

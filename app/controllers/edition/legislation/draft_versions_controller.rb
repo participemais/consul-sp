@@ -26,8 +26,7 @@ class Edition::Legislation::DraftVersionsController < Edition::Legislation::Base
     if @draft_version.update(draft_version_params)
       link = legislation_process_draft_version_path(@process, @draft_version)
       notice = t("admin.legislation.draft_versions.update.notice", link: link)
-      edit_path = edit_edition_legislation_process_draft_version_path(@process, @draft_version)
-      redirect_to edit_path, notice: notice
+      redirect_to edition_legislation_process_draft_versions_path, notice: notice
     else
       flash.now[:error] = t("admin.legislation.draft_versions.update.error")
       render :edit
