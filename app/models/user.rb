@@ -501,6 +501,12 @@ class User < ApplicationRecord
     city == "São Paulo" && uf == "SP"
   end
 
+  def complete_address?
+    return true if from_sp? && home_address.present? && address_number.present?
+    return true if city.present? && uf.present?
+    false
+  end
+
   private
 
     def clean_document_number

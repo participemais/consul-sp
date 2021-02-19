@@ -78,8 +78,10 @@ class Mailer < ApplicationMailer
     @investment = investment
     @email_to = @investment.author.email
 
+    code = @investment.code.present? ? @investment.code : @investment.title
+
     with_user(@investment.author) do
-      mail(to: @email_to, subject: t("mailers.budget_investment_created.subject"))
+      mail(to: @email_to, subject: t("mailers.budget_investment_created.subject", code: code))
     end
   end
 
@@ -88,8 +90,10 @@ class Mailer < ApplicationMailer
     @author = investment.author
     @email_to = @author.email
 
+    code = @investment.code.present? ? @investment.code : @investment.title
+
     with_user(@author) do
-      mail(to: @email_to, subject: t("mailers.budget_investment_selected.subject", code: @investment.code))
+      mail(to: @email_to, subject: t("mailers.budget_investment_selected.subject", code: code))
     end
   end
 
@@ -98,8 +102,10 @@ class Mailer < ApplicationMailer
     @author = investment.author
     @email_to = @author.email
 
+    code = @investment.code.present? ? @investment.code : @investment.title
+
     with_user(@author) do
-      mail(to: @email_to, subject: t("mailers.budget_investment_unselected.subject", code: @investment.code))
+      mail(to: @email_to, subject: t("mailers.budget_investment_unselected.subject", code: code))
     end
   end
 
