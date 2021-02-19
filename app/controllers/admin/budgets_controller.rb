@@ -37,8 +37,6 @@ class Admin::BudgetsController < Admin::BaseController
   def update
     if @budget.update(budget_params)
 
-      send_selected_and_unselected_emails if @budget.balloting?
-
       redirect_to admin_budgets_path, notice: t("admin.budgets.update.notice")
     else
       load_staff
@@ -87,10 +85,5 @@ class Admin::BudgetsController < Admin::BaseController
     def load_staff
       @admins = Administrator.includes(:user)
       @valuators = Valuator.includes(:user).order(description: :asc).order("users.email ASC")
-    end
-
-    def send_selected_and_unselected_emails
-      @budget.email_selected
-      @budget.email_unselected
     end
 end
