@@ -167,10 +167,10 @@
               
               <div class="row">
                 <div class="medium-6 column">
-                  <%= f.select(:sub_id, options_from_collection_for_select(Geozone.where(district: false), :id, :name, selected: @account.geozone.subprefecture.id), { label: 'Subprefeitura' }) %>
+                  <%= f.select(:sub_id, options_from_collection_for_select(Geozone.where(district: false), :id, :name), { label: 'Subprefeitura' }) %>
                 </div>
                 <div class="medium-6 column">
-                  <%= f.select(:geozone, options_from_collection_for_select(Geozone.where(district: true), :id, :name), selected: @account.geozone_id, label: 'Distrito') %>
+                  <%= f.select(:geozone, options_from_collection_for_select(Geozone.where(district: true), :id, :name), { label: 'Distrito' }) %>
                 </div>          
               </div>
             <% elsif @account.geozone_id.present? %>
