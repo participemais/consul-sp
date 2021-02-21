@@ -23,10 +23,19 @@
             .then(response => response.json())
             .then(data => {
               if (!data.erro) {
-                $('.hide-fields').fadeIn(1000);
-                $address.val(data.logradouro);
-                $city.val(data.localidade);
-                $uf.val(data.uf);
+
+                if (data.localidade == "São Paulo" && data.uf == "SP") {
+                  $('.hide-fields').fadeIn(1000);
+                  $address.val(data.logradouro);
+                  $city.val(data.localidade);
+                  $uf.val(data.uf);
+                } else {
+                  debugger
+                  $('.other-fields').fadeOut(1000);
+                  $address.val('');
+                  $city.val(data.localidade);
+                  $uf.val(data.uf);
+                }
               } else {
                 $('.hide-fields').fadeOut(1500);
                 $cep.addClass('is-invalid-input');
