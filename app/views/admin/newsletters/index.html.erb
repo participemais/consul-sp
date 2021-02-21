@@ -29,15 +29,7 @@
           <% end %>
         </td>
         <td>
-          <div class="small-4 column">
-          <%= link_to t("admin.newsletters.index.edit"), edit_admin_newsletter_path(newsletter),
-                                                         class: "button hollow expanded" %>
-          </div>
-          <div class="small-4 column">
-          <%= link_to t("admin.newsletters.index.delete"), admin_newsletter_path(newsletter),
-                                                           method: :delete, class: "button hollow alert expanded" %>
-          </div>
-          <div class="small-4 column">
+          <div class="small-4 column medium-5">
           <%= link_to t("admin.newsletters.index.preview"), admin_newsletter_path(newsletter),
                                                             class: "button expanded" %>
           </div>
