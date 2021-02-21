@@ -13,8 +13,8 @@ class AccountController < ApplicationController
         results = OpenStreetMapService.search(@account.query_address)
 
         if results.count == 1
-          lat = results.first[:lat]
-          long = results.first[:lon]
+          lat = results.first['lat']
+          long = results.first['lon']
           @account.geozone = Geozone.sub_search(lat, long)
           @account.save
         elsif results.count > 1

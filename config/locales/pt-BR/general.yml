@@ -639,6 +639,7 @@ pt-BR:
       not_logged_in: " Você precisa acessar sua conta ou se registrar para participar."
       unverified: "Você deve verificar sua conta para participar"
       cant_answer: "Esta votação não está disponível para sua localidade"
+      cant_answer_restrict: "Esta votação é restrita por localidade"
       electoral_college_restricted: Esta votação é restrita por colégio eleitoral
       section_header:
         icon_alt: Ícone de votação
