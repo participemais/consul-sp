@@ -118,4 +118,9 @@ class Admin::BudgetsController < Admin::BaseController
       @budget.email_selected
       @budget.email_unselected
    end
+
+    def send_selected_and_unselected_emails
+      @budget.email_selected
+      @budget.email_unselected
+    end
 end
