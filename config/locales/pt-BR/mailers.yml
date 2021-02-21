@@ -46,7 +46,7 @@ pt-BR:
       subject: "Convite para %{org_name}"
     budget_investment_created:
       subject: Sua proposta '%{code}' foi recebida
-      title: Sua proposta '%{code}' foi recebida
+      title: Obrigada por criar uma proposta para o Orçamento Cidadão
       intro: "Olá, <strong>%{author}</strong>,"
       text: "Obrigado por criar o seu investimento <strong>%{investment}</strong> para Orçamentos Participativos <strong>%{budget}</strong>."
       follow: "Informaremos você sobre como o processo avança, o que você também pode acompanhar em <strong>%{link}</strong>."

@@ -81,7 +81,7 @@ class Mailer < ApplicationMailer
     code = @investment.code.present? ? @investment.code : @investment.title
 
     with_user(@investment.author) do
-      mail(to: @email_to, subject: t("mailers.budget_investment_created.subject", code: code))
+      mail(to: @email_to, subject: "Sua proposta #{code} foi recebida")
     end
   end
 
