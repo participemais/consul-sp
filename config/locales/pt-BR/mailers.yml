@@ -45,7 +45,7 @@ pt-BR:
       button: Completar registro
       subject: "Convite para %{org_name}"
     budget_investment_created:
-      subject: Sua proposta '%{code}' foi recebida
+      subject: Sua proposta foi recebida
       title: Obrigada por criar uma proposta para o Orçamento Cidadão
       intro: "Olá, <strong>%{author}</strong>,"
       text: "Obrigado por criar o seu investimento <strong>%{investment}</strong> para Orçamentos Participativos <strong>%{budget}</strong>."
@@ -54,14 +54,14 @@ pt-BR:
       sincerely: "Atenciosamente"
       share: "Compartilhe seu projeto"
     budget_investment_selected:
-      subject: "Sua proposta '%{code}' foi priorizada para votação popular"
+      subject: "Sua proposta foi priorizada para votação popular"
       hi: "Caro cidadão (ã),"
       share: "Comece a receber votos, compartilhe sua proposta nas redes sociais. Compartilhar é essencial para torná-la realidade."
       share_button: "Compartilhe sua proposta"
       thanks: "Obrigada novamente por participar."
       sincerely: "Atenciosamente"
     budget_investment_unselected:
-      subject: "Sua proposta '%{code}' não foi priorizada para votação popular"
+      subject: "Sua proposta não foi priorizada para votação popular"
       hi: "Caro cidadão (ã),"
       thanks: "Obrigada novamente por participar."
       sincerely: "Atenciosamente"

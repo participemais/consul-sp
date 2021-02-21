@@ -40,6 +40,8 @@ class Admin::BudgetsController < Admin::BaseController
   def update
     if @budget.update(budget_params)
 
+      send_selected_and_unselected_emails if @budget.balloting?
+
       redirect_to admin_budgets_path, notice: t("admin.budgets.update.notice")
     else
       load_staff
@@ -111,4 +113,9 @@ class Admin::BudgetsController < Admin::BaseController
         @budget.poll.update(starts_at: balloting.starts_at, ends_at: balloting.ends_at)
       end
     end
+
+    def send_selected_and_unselected_emails
+      @budget.email_selected
+      @budget.email_unselected
+   end
 end
