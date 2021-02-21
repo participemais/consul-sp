@@ -518,7 +518,7 @@ pt-BR:
       newsletter:
         segment_recipient: Destinatários
         subject: Assunto
-        from: "De"
+        from: Endereço de email que aparecerá como o remetente do email
         body: Conteúdo do email
       admin_notification:
         segment_recipient: Destinatários

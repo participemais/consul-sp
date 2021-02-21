@@ -708,7 +708,7 @@ pt-BR:
       managers: Gerentes
       moderators: Moderadores
       messaging_users: Mensagens para os usuários
-      newsletters: Boletins informativos
+      newsletters: Newsletters
       admin_notifications: Notificações
       system_emails: Sistema de Emails
       emails_download: Download de emails
@@ -798,10 +798,10 @@ pt-BR:
       all_users: Todos os usuários
       administrators: Administradores
       proposal_authors: Autores da proposta
-      investment_authors: Autores do investimento no orçamento corrente
+      investment_authors: Autores de propostas do orçamento corrente
       feasible_and_undecided_investment_authors: "Autores de algum investimento no orçamento atual que não esteja de acordo com: [valuation finished unfesasible]"
-      selected_investment_authors: Autores de investimentos selecionados no orçamento corrente
-      winner_investment_authors: Autores de investimentos vencedores no orçamento corrente
+      selected_investment_authors: Autores de investimentos priorizados no orçamento corrente
+      winner_investment_authors: Autores de propostas eleitas no orçamento corrente
       not_supported_on_current_budget: Usuários que não apoiaram investimentos no orçamento corrente
       invalid_recipients_segment: "Segmento de usuário dos destinatários inválido"
     newsletters:
@@ -810,20 +810,21 @@ pt-BR:
       send_success: Boletim informativo enviado com sucesso
       delete_success: Boletim informativo excluído com sucesso
       index:
-        title: Boletins informativos
-        new_newsletter: Novo boletim informativo
+        title: Newsletters
+        new_newsletter: Nova newsletter
         subject: Assunto
         segment_recipient: Destinatários
-        sent: Enviados
+        sent: Envio em
         actions: Ações
         draft: Rascunho
         edit: Editar
         delete: Apagar
-        preview: Prévia
-        empty_newsletters: Não há nenhum boletins informativos para mostrar
+        preview: Visualizar
+        empty_newsletters: Não há newsletters
       new:
-        title: Novo boletim informativo
+        title: Nova newsletter
         image_link: "imagens personalizadas"
+        button: Criar e visualizar rascunho
       edit:
         title: Editar boletim informativo
       show:
@@ -844,18 +845,18 @@ pt-BR:
       create_success: Notificação criada com sucesso
       update_success: Notificação atualizada com sucesso
       send_success: Notificação enviada com sucesso
-      delete_success: Notificação, excluída com sucesso
+      delete_success: Notificação apagada com sucesso
       index:
         section_title: Notificações
         new_notification: Nova notificação
         title: Título
         segment_recipient: Destinatários
-        sent: Enviados
+        sent: Enviado em
         actions: Ações
         draft: Rascunho
         edit: Editar
         delete: Apagar
-        preview: Prévia
+        preview: Visualizar
         view: Visão
         empty_notifications: Não há nenhuma notificação para mostrar
       new:
@@ -878,12 +879,18 @@ pt-BR:
         sent_guide: "Assim é como os usuários verão a notificação:"
         send_alert: Você tem certeza que quer enviar essa notificação para %{n} usuários?
     system_emails:
+      budget_investment_created:
+        title: Email que confirma a criação de uma proposta de orçamento cidadão, enviado ao autor da proposta
+      budget_investment_selected:
+        title: Email que informa ao autor da proposta de orçamento cidadão que a mesma foi priorizada e está selecionada para a etapa de votação popular
+      budget_investment_unselected:
+        title: Email que informa ao autor da proposta de orçamento cidadão que a mesma não foi priorizada e não participará da etapa de votação popular
       preview_pending:
         action: Pendente prévia
         preview_of: Prévia do %{name}
         pending_to_be_sent: Este é o conteúdo pendente para ser enviado
         moderate_pending: Moderar notificação enviada
-        send_pending: Enviar pendente
+        send_pending: Enviar
         send_pending_notification: Notificações pendentes enviadas com sucesso
       proposal_notification_digest:
         title: "Resumo danotificação da proposta"
@@ -892,8 +899,10 @@ pt-BR:
       comment:
         title: "Comentário"
       reply:
-        title: "Responder"
+        title: "Email que informa o autor de um comentário que o mesmo foi respondido"
       message_title: "Título da mensagem"
+      email_verification:
+        title: Email enviado a um usuário no momento de criação da conta, para confirmar seu email
     emails_download:
       index:
         title: Download de emails
@@ -1366,7 +1375,7 @@ pt-BR:
       image: Imagem
       show_image: Exibir imagem
       moderated_content: "Cheque o conteúdo moderado pelos moderadores, e confirme se a moderação foi feita corretamente."
-      view: Modo de exibição
+      view: Visualizar
       proposal: Proposta
       author: Autor
       content: Conteúdo

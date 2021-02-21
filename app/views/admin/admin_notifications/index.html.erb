@@ -6,19 +6,19 @@
   <table id="admin_notifications">
     <thead>
       <tr>
-        <th><%= t("admin.admin_notifications.index.title") %></th>
-        <th><%= t("admin.admin_notifications.index.segment_recipient") %></th>
+        <th class="small-2 medium-3"><%= t("admin.admin_notifications.index.title") %></th>
+        <th class="small-2 medium-2"><%= t("admin.admin_notifications.index.segment_recipient") %></th>
         <th><%= t("admin.admin_notifications.index.sent") %></th>
-        <th class="small-5"><%= t("admin.admin_notifications.index.actions") %></th>
+        <th class="small-5 medium-5"><%= t("admin.admin_notifications.index.actions") %></th>
       </tr>
     </thead>
     <tbody>
     <% @admin_notifications.order(created_at: :desc).each do |admin_notification| %>
       <tr id="<%= dom_id(admin_notification) %>" class="admin_notification">
-        <td>
+        <td class="small-2 medium-3">
           <%= admin_notification.title %>
         </td>
-        <td>
+        <td class="small-2 medium-2">
           <%= segment_name(admin_notification.segment_recipient) %>
         </td>
         <td>
@@ -28,7 +28,7 @@
             <%= l admin_notification.sent_at.to_date %>
           <% end %>
         </td>
-        <td>
+        <td class="small-5 medium-7">
           <% if admin_notification.draft? %>
             <div class="small-4 column">
               <%= link_to t("admin.admin_notifications.index.edit"),
