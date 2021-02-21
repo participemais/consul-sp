@@ -16,9 +16,15 @@
           </span>
         </div>
       <% elsif cannot?(:answer, poll) %>
-        <div class="icon-poll-answer cant-answer" title="<%= t("polls.index.cant_answer") %>">
-          <span class="show-for-sr"><%= t("polls.index.cant_answer") %></span>
-        </div>
+        <% if current_user && current_user.geozone %>
+          <div class="icon-poll-answer cant-answer" title="<%= t("polls.index.cant_answer") %>">
+            <span class="show-for-sr"><%= t("polls.index.cant_answer") %></span>
+          </div>
+        <% else %>
+          <div class="icon-poll-answer cant-answer" title="<%= t("polls.index.cant_answer_restrict") %>">
+            <span class="show-for-sr"><%= t("polls.index.cant_answer_restrict") %></span>
+          </div>
+        <% end %>
       <% else %>
         <div class="icon-poll-answer already-answer" title="<%= t("polls.index.can_answer") %>">
           <span class="show-for-sr"><%= t("polls.index.already_answer") %></span>
