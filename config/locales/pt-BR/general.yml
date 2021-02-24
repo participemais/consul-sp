@@ -754,7 +754,7 @@ pt-BR:
     followable:
       budget_investment:
         create:
-          notice: Você está seguindo essa proposta! </br>Você receberá as novidades sobre ela por email.
+          notice: "Você está seguindo essa proposta! </br>Você será notificado das novidades aqui no sistema."
         destroy:
           notice: "Você parou de seguir essa proposta! </br> Você não receberá mais notificações relacionadas a ela."
       proposal:

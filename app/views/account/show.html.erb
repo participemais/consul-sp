@@ -118,7 +118,7 @@
                   class: "js-cep-mask"
                 ) %>
               </div>
-              <div class="medium-9 column <%= address_hide_class %>">
+              <div class="medium-9 column other-fields <%= address_hide_class %>">
                 <%= f.text_field(
                   :home_address,
                   readonly: true,
@@ -127,20 +127,20 @@
               </div>
             </div>
             <div class="row">
-              <div class="small-6 medium-2 column <%= address_hide_class %>">
-                <%= f.text_field(:address_number, required: true) %>
+              <div class="small-6 medium-2 column other-fields <%= address_hide_class %>">
+                <%= f.text_field(:address_number) %>
               </div>
-              <div class="small-6 medium-3 column <%= address_hide_class %>">
+              <div class="small-6 medium-3 column other-fields <%= address_hide_class %>">
                 <%= f.text_field(:address_complement) %>
               </div>
-              <div class="small-6 medium-5 column <%= address_hide_class %>">
+              <div class="small-6 medium-5 column">
                 <%= f.text_field(
                   :city,
                   readonly: true,
                   class: 'disabled'
                 ) %>
               </div>
-              <div class="small-6 medium-2 column <%= address_hide_class %>">
+              <div class="small-6 medium-2 column">
                 <%= f.text_field(
                   :uf,
                   readonly: true,
@@ -189,7 +189,7 @@
             <span class="verify-account">
               <% if current_user.level_three_verified? %>
                 <p>
-                  <% if current_user.can_vote? %>
+                  <% if current_user.can_vote? && current_user.complete_address? %>
                     <span class="icon-check"></span>
                   <% else %>
                     <span class="icon-x"></span>

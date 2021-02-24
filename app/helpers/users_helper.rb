@@ -93,7 +93,7 @@ module UsersHelper
   end
 
   def address_hide_class
-    current_user.home_address.present? ? '' : 'hide-fields'
+    current_user.from_sp? ? '' : 'hide-fields'
   end
 
   def date_of_birth_class
