@@ -7,6 +7,9 @@ class Admin::BudgetsController < Admin::BaseController
   has_filters %w[open finished], only: :index
 
   before_action :load_budget, except: [:index, :new, :create]
+  before_action :load_categories, except: [:destroy]
+  before_action :load_selected_categories, only: [:edit, :update, :show]
+  before_action :update_poll, only: [:update]
   load_and_authorize_resource
 
   def index
@@ -72,6 +75,7 @@ class Admin::BudgetsController < Admin::BaseController
     def budget_params
       descriptions = Budget::Phase::PHASE_KINDS.map { |p| "description_#{p}" }.map(&:to_sym)
       valid_attributes = [:phase,
+                          :custom_list,
                           :currency_symbol,
                           :max_votes,
                           administrator_ids: [],
@@ -92,5 +96,26 @@ class Admin::BudgetsController < Admin::BaseController
     def send_selected_and_unselected_emails
       @budget.email_selected
       @budget.email_unselected
+    end
+
+    def load_categories
+      @categories = Tag.where(kind: "category").order(:name)
+    end
+
+    def load_selected_categories
+      @all_tags = @budget.custom_list
+    end
+
+    def update_poll
+      older_name = @budget.name
+      new_name = budget_params["translations_attributes"]["2"]["name"]
+
+      @budget.poll.update(name: new_name) if older_name != new_name
+
+      balloting = @budget.phases.find_by_kind("balloting")
+
+      if balloting.starts_at != @budget.poll.starts_at || balloting.ends_at != @budget.poll.ends_at
+        @budget.poll.update(starts_at: balloting.starts_at, ends_at: balloting.ends_at)
+      end
     end
 end

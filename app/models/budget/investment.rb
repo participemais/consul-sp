@@ -43,6 +43,8 @@ class Budget
     belongs_to :budget
     belongs_to :administrator
 
+    acts_as_sequenced scope: :budget_id, column: :code
+
     has_many :valuator_assignments, dependent: :destroy
     has_many :valuators, through: :valuator_assignments
 
@@ -57,15 +59,15 @@ class Budget
 
     delegate :name, to: :heading, prefix: true
 
-    validates_translation :title, presence: true, length: { in: 4..Budget::Investment.title_max_length }
-    validates_translation :description, presence: true, length: { maximum: Budget::Investment.description_max_length }
+    validates_translation :title, length: { maximum: Budget::Investment.title_max_length }
+    validates_translation :description, presence: true, length: { maximum: 1200 }
 
     validates :author, presence: true
     validates :heading_id, presence: true
     validates :unfeasibility_explanation, presence: { if: :unfeasible_indeed? }
     validates :price, presence: { if: :price_required? }
-    validates :terms_of_service, acceptance: { allow_nil: false }, on: :create
     validates :feasibility_type, presence: { if: :feasible? }
+    validates :tag_list, presence: true
 
     scope :sort_by_confidence_score, -> { reorder(confidence_score: :desc, id: :desc) }
     scope :sort_by_ballots,          -> { reorder(ballot_lines_count: :desc, id: :desc) }
@@ -130,6 +132,7 @@ class Budget
     after_save :recalculate_heading_winners
     before_validation :set_responsible_name
     before_validation :set_denormalized_ids
+    before_create :set_title, only: :create
 
     def comments_count
       comments.count
@@ -228,8 +231,14 @@ class Budget
     def self.status_filters(filters, results)
       return results if filters.include?('all')
 
-      if (filters & ['winners', 'losers']).any?
+      if (filters & ['selected', 'unselected', 'winners', 'losers']).any?
         balloting_ids = []
+        if filters.include?('selected')
+          balloting_ids += results.selected.pluck(:id)
+        end
+        if filters.include?('unselected')
+          balloting_ids += results.unselected.pluck(:id)
+        end
         if filters.include?('winners')
           balloting_ids += results.winners.pluck(:id)
         end
@@ -331,10 +340,6 @@ class Budget
       else
         cached_votes_up + physical_votes
       end
-    end
-
-    def code
-      "#{created_at.strftime("%Y")}-#{id}" + (administrator.present? ? "-A#{administrator.id}" : "")
     end
 
     def reason_for_not_being_selectable_by(user)
@@ -493,6 +498,10 @@ class Budget
     end
 
     private
+
+      def set_title
+        self.title = code
+      end
 
       def set_denormalized_ids
         self.group_id = heading&.group_id if will_save_change_to_heading_id?
