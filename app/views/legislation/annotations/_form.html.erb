@@ -10,11 +10,17 @@
         <div data-alert class="callout primary">
           <%= t("legislation.annotations.form.phase_not_open") %>
         </div>
+        <div class="comment-actions">
+          <a class="cancel-comment" href="#" data-cancel-annotation><%= t("legislation.annotations.comments.close") %></a>
+        </div>
       <% elsif current_user.present? && current_user.incomplete_registration? %>
         <div class="callout warning">
           <%= sanitize(t(
-                "polls.show.incomplete_registration",
+                "legislation.annotations.form.incomplete_registration",
                 register: link_to_my_account )) %>
+        </div>
+        <div class="comment-actions">
+          <a class="cancel-comment" href="#" data-cancel-annotation><%= t("legislation.annotations.comments.close") %></a>
         </div>
       <% elsif user_signed_in? %>
         <%= form_for Legislation::Annotation.new, url: legislation_process_draft_version_annotations_path(@process, @draft_version), remote: true do |f| %>
@@ -30,6 +36,9 @@
         <% end %>
       <% else %>
         <%= render "shared/login_to_comment" %>
+        <div class="comment-actions">
+          <a class="cancel-comment" href="#" data-cancel-annotation><%= t("legislation.annotations.comments.close") %></a>
+        </div>
       <% end %>
     </div>
   </div>

@@ -13,11 +13,19 @@
             <% end %>
           </div>
         <% end %>
-        <div class="comment-replies" id="annotation-<%= annotation.id %>-comments">
-          <%= link_to legislation_process_draft_version_annotation_path(annotation.draft_version.process, annotation.draft_version, annotation, anchor: "comment_#{comment.id}") do %>
-            <%= t("legislation.annotations.comments.replies_count", count: comment.children.size) %>
-          <% end %>
-        </div>
+        <% if current_user.present? && !current_user.incomplete_registration? %>
+          <div class="comment-replies" id="annotation-<%= annotation.id %>-comments">
+            <%= link_to legislation_process_draft_version_annotation_path(annotation.draft_version.process, annotation.draft_version, annotation, anchor: "comment_#{comment.id}") do %>
+              <%= t("legislation.annotations.comments.replies_count", count: comment.children.size) %>
+            <% end %>
+          </div>
+        <% else %>
+          <div class="comment-footer">
+            <div class="comment-footer comment-actions">
+              <a class="cancel-comment" href="#" data-cancel-annotation><%= t("legislation.annotations.comments.close") %></a>
+            </div>
+          </div>
+        <% end %>
       </div>
       <div class="comment-votes">
         <div id="<%= dom_id(comment) %>_votes" class="comment-votes float-right">
