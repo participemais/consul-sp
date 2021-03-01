@@ -45,7 +45,7 @@
     <% if @current_user.administrator? %>
       <div class="clear">
         <div class="small-6 medium-6 column">
-          <%= f.check_box :geozone_restricted, id: "subs_restricted", checked: @poll.geozones.try(:first).try(:district) == false %>
+          <%= f.check_box :geozone_restricted, label: t('admin.polls.new.sub_restricted'), id: "subs_restricted", checked: @poll.geozones.try(:first).try(:district) == false, 'data-alert': t('admin.polls.new.select_sub') %>
         </div>
       </div>
     <% end %>
@@ -67,7 +67,7 @@
     <div class="row">
       <div class="clear">
         <div class="column">
-          <%= f.check_box :geozone_restricted, label: t('admin.polls.new.district_restricted'), id: "districts_restricted", checked: @poll.geozones.try(:first).try(:district) == true %>
+          <%= f.check_box :geozone_restricted, label: t('admin.polls.new.district_restricted'), id: "districts_restricted", checked: @poll.geozones.try(:first).try(:district) == true, 'data-alert': t('admin.polls.new.select_district') %>
         </div>
       </div>
 

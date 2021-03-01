@@ -1086,9 +1086,12 @@ pt-BR:
         geozone_sub_restricted: "Restrito por subprefeitura"
         geozone_district_restricted: "Restrito por distrito"
       new:
+        sub_restricted: Restrito por subprefeitura
         district_restricted: Restrito por distrito
         title: "Nova votação"
         submit_button: "Criar votação"
+        select_sub: É necessario selecionar pelo menos uma subprefeitura
+        select_district: É necessário selecionar pelo menos um distrito
       edit:
         title: "Editar votação"
         submit_button: "Atualizar votação"
