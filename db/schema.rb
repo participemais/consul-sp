@@ -303,7 +303,6 @@ ActiveRecord::Schema.define(version: 20210211224845) do
     t.integer "original_heading_id"
     t.string "feasibility_type"
     t.text "commitment"
-    t.string "slug"
     t.integer "code"
     t.index ["administrator_id"], name: "index_budget_investments_on_administrator_id"
     t.index ["author_id"], name: "index_budget_investments_on_author_id"

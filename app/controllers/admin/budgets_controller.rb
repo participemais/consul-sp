@@ -93,6 +93,11 @@ class Admin::BudgetsController < Admin::BaseController
       @valuators = Valuator.includes(:user).order(description: :asc).order("users.email ASC")
     end
 
+    def send_selected_and_unselected_emails
+      @budget.email_selected
+      @budget.email_unselected
+    end
+
     def load_categories
       @categories = Tag.where(kind: "category").order(:name)
     end
@@ -112,15 +117,5 @@ class Admin::BudgetsController < Admin::BaseController
       if balloting.starts_at != @budget.poll.starts_at || balloting.ends_at != @budget.poll.ends_at
         @budget.poll.update(starts_at: balloting.starts_at, ends_at: balloting.ends_at)
       end
-    end
-
-    def send_selected_and_unselected_emails
-      @budget.email_selected
-      @budget.email_unselected
-   end
-
-    def send_selected_and_unselected_emails
-      @budget.email_selected
-      @budget.email_unselected
     end
 end
