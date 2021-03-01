@@ -24,6 +24,20 @@
           $('#districts').slideUp();
         }
       });
+
+      $('.polls-form input[type="submit"]').on('click', function(e){
+        if ($('#subs_restricted').is(":checked")) {
+          if (!$('#subs input[type=checkbox]').is(":checked")){
+            e.preventDefault();
+            alert($('#subs_restricted').data('alert'));
+          }
+        } else if ($('#districts_restricted').is(":checked")) {
+          if (!$('#districts input[type=checkbox]').is(":checked")){
+            e.preventDefault();
+            alert($('#districts_restricted').data('alert'));
+          }
+        }
+      });
     }
   }
 

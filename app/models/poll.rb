@@ -261,7 +261,6 @@ class Poll < ApplicationRecord
   end
 
   def update_geozone_restricted
-    byebug
     geozones.any? ? self.geozone_restricted = true : self.geozone_restricted = false
   end
 end
