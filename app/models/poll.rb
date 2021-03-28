@@ -118,8 +118,16 @@ class Poll < ApplicationRecord
       user.level_two_or_three_verified? &&
       current? &&
       user.can_vote? &&
-      (!geozone_restricted || geozone_ids.include?(user.geozone_id)) &&
+      (!geozone_restricted || include_geozone?(user)) &&
       (!electoral_college_restricted? || belongs_to_electoral_college?(user))
+  end
+
+  def include_geozone?(user)
+    if geozones.first.district?
+      geozone_ids.include?(user.geozone_id)
+    else
+      geozone_ids.include?(user.geozone.subprefecture.id)
+    end
   end
 
   def self.answerable_by(user)
