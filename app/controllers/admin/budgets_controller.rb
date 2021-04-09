@@ -107,15 +107,17 @@ class Admin::BudgetsController < Admin::BaseController
     end
 
     def update_poll
-      older_name = @budget.name
-      new_name = budget_params["translations_attributes"]["2"]["name"]
+      if @budget.poll.present?
+        older_name = @budget.name
+        new_name = budget_params["translations_attributes"]["2"]["name"]
 
-      @budget.poll.update(name: new_name) if older_name != new_name
+        @budget.poll.update(name: new_name) if older_name != new_name
 
-      balloting = @budget.phases.find_by_kind("balloting")
+        balloting = @budget.phases.find_by_kind("balloting")
 
-      if balloting.starts_at != @budget.poll.starts_at || balloting.ends_at != @budget.poll.ends_at
-        @budget.poll.update(starts_at: balloting.starts_at, ends_at: balloting.ends_at)
+        if balloting.starts_at != @budget.poll.starts_at || balloting.ends_at != @budget.poll.ends_at
+          @budget.poll.update(starts_at: balloting.starts_at, ends_at: balloting.ends_at)
+        end
       end
     end
 end
