@@ -85,4 +85,32 @@ class Admin::BudgetsController < Admin::BaseController
       @admins = Administrator.includes(:user)
       @valuators = Valuator.includes(:user).order(description: :asc).order("users.email ASC")
     end
+
+    def send_selected_and_unselected_emails
+      @budget.email_selected
+      @budget.email_unselected
+    end
+
+    def load_categories
+      @categories = Tag.where(kind: "category").order(:name)
+    end
+
+    def load_selected_categories
+      @all_tags = @budget.custom_list
+    end
+
+    def update_poll
+      if @budget.poll.present?
+        older_name = @budget.name
+        new_name = budget_params["translations_attributes"]["2"]["name"]
+
+        @budget.poll.update(name: new_name) if older_name != new_name
+
+        balloting = @budget.phases.find_by_kind("balloting")
+
+        if balloting.starts_at != @budget.poll.starts_at || balloting.ends_at != @budget.poll.ends_at
+          @budget.poll.update(starts_at: balloting.starts_at, ends_at: balloting.ends_at)
+        end
+      end
+    end
 end
