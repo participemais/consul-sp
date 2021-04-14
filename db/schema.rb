@@ -10,12 +10,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20210201113946) do
+ActiveRecord::Schema.define(version: 20210211224845) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-  enable_extension "pg_trgm"
   enable_extension "unaccent"
+  enable_extension "pg_trgm"
 
   create_table "active_poll_translations", id: :serial, force: :cascade do |t|
     t.integer "active_poll_id", null: false
@@ -303,6 +303,7 @@ ActiveRecord::Schema.define(version: 20210201113946) do
     t.integer "original_heading_id"
     t.string "feasibility_type"
     t.text "commitment"
+    t.integer "code"
     t.index ["administrator_id"], name: "index_budget_investments_on_administrator_id"
     t.index ["author_id"], name: "index_budget_investments_on_author_id"
     t.index ["community_id"], name: "index_budget_investments_on_community_id"
@@ -1088,6 +1089,42 @@ ActiveRecord::Schema.define(version: 20210201113946) do
     t.index ["author_id"], name: "index_open_gov_articles_on_author_id"
   end
 
+  create_table "open_gov_commitments", force: :cascade do |t|
+    t.string "title"
+    t.string "coordenation"
+    t.text "work_group"
+    t.datetime "starts_at"
+    t.datetime "ends_at"
+    t.bigint "open_gov_plan_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["open_gov_plan_id"], name: "index_open_gov_commitments_on_open_gov_plan_id"
+  end
+
+  create_table "open_gov_lines", force: :cascade do |t|
+    t.string "title"
+    t.string "author"
+    t.datetime "starts_at"
+    t.datetime "ends_at"
+    t.boolean "status", default: false
+    t.bigint "open_gov_mark_id"
+    t.text "delivered"
+    t.index ["open_gov_mark_id"], name: "index_open_gov_lines_on_open_gov_mark_id"
+  end
+
+  create_table "open_gov_marks", force: :cascade do |t|
+    t.string "title"
+    t.string "author"
+    t.datetime "starts_at"
+    t.datetime "ends_at"
+    t.boolean "status", default: false
+    t.bigint "open_gov_commitment_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.text "delivered"
+    t.index ["open_gov_commitment_id"], name: "index_open_gov_marks_on_open_gov_commitment_id"
+  end
+
   create_table "open_gov_participation_articles", id: :serial, force: :cascade do |t|
     t.string "title"
     t.text "text"
@@ -1095,6 +1132,15 @@ ActiveRecord::Schema.define(version: 20210201113946) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["author_id"], name: "index_open_gov_participation_articles_on_author_id"
+  end
+
+  create_table "open_gov_plans", force: :cascade do |t|
+    t.string "title"
+    t.datetime "starts_at"
+    t.datetime "ends_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "video_url"
   end
 
   create_table "open_gov_projects", force: :cascade do |t|
@@ -1600,6 +1646,8 @@ ActiveRecord::Schema.define(version: 20210201113946) do
     t.integer "budget/investments_count", default: 0
     t.integer "legislation/proposals_count", default: 0
     t.integer "legislation/processes_count", default: 0
+    t.integer "budgets_count", default: 0
+    t.index ["budgets_count"], name: "index_tags_on_budgets_count"
     t.index ["debates_count"], name: "index_tags_on_debates_count"
     t.index ["legislation/processes_count"], name: "index_tags_on_legislation/processes_count"
     t.index ["legislation/proposals_count"], name: "index_tags_on_legislation/proposals_count"
@@ -1850,6 +1898,9 @@ ActiveRecord::Schema.define(version: 20210201113946) do
   add_foreign_key "managers", "users"
   add_foreign_key "moderators", "users"
   add_foreign_key "notifications", "users"
+  add_foreign_key "open_gov_commitments", "open_gov_plans"
+  add_foreign_key "open_gov_lines", "open_gov_marks"
+  add_foreign_key "open_gov_marks", "open_gov_commitments"
   add_foreign_key "organizations", "users"
   add_foreign_key "poll_answers", "poll_questions", column: "question_id"
   add_foreign_key "poll_booth_assignments", "polls"
