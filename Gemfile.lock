@@ -720,4 +720,4 @@ DEPENDENCIES
   wkhtmltopdf-binary (~> 0.12.4)
 
 BUNDLED WITH
-   1.17.3
+   2.2.16
