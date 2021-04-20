@@ -29,7 +29,7 @@ class Edition::Legislation::ProcessesController < Edition::Legislation::BaseCont
 
   def update
     if @process.update(process_params)
-      link = legislation_process_path(@process)
+      link = edit_edition_legislation_process_path(@process)
       redirect_back(fallback_location: (request.referer || root_path),
                     notice: t("admin.legislation.processes.update.notice", link: link))
     else

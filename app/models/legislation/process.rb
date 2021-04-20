@@ -163,7 +163,7 @@ class Legislation::Process < ApplicationRecord
   end
 
   def finished?
-    end_date > Date.today
+    end_date < Date.today
   end
 
   private

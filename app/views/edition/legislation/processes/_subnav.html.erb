@@ -3,7 +3,7 @@
     <% tabs = legislation_process_tabs(process) %>
   <% elsif current_user.editor? && process.editable? %>
     <% tabs = edition_legislation_process_tabs(process) %>
-  <% elsif current_user.editor && process.finished? %>
+  <% elsif current_user.editor? && !process.editable? %>
     <% tabs = edition_finished_legislation_process_tabs(process) %>
   <% end %>
 
