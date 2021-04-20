@@ -794,6 +794,9 @@ pt-BR:
         delete: Desabilitar
       search:
         title: "Editores: Pesquisa de usuário"
+      add: "Editor habilitado."
+      remove: "Editor desabilitado"
+      remove_error: "Não foi possível excluir o editor porque ele está atribuído a um processo."
     segment_recipient:
       all_users: Todos os usuários
       administrators: Administradores
