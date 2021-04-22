@@ -17,14 +17,14 @@
   <td>
     <% if current_user.editor? || current_user.administrator? %>
       <%= link_to t("admin.actions.edit"),
-                  edit_edition_poll_path(poll),
+                  edition_poll_path(poll),
                   class: "button hollow" %>
 
       <%= link_to t("admin.actions.delete"),
               edition_poll_path(poll),
               method: :delete,
               "data-confirm": t("admin.polls.destroy.alert"),
-              class: "button hollow alert" %>
+              class: "button hollow alert" if current_user.administrator? %>
     <% end %>
   </td>
 </tr>
