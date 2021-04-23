@@ -57,6 +57,8 @@ class Edition::Legislation::ProcessesController < Edition::Legislation::BaseCont
 
     def editor_params
       [ :custom_list,
+        :subprefecture_list,
+        :district_list,
         :background_color,
         :font_color,
         translation_params(::Legislation::Process),
