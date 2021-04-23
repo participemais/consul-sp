@@ -29,6 +29,8 @@ module Abilities
       can [:manage], Poll::Elector
       can [:create, :read], Poll::Electors::Import
 
+      #can :manage, Tag
+
       can :access, :ckeditor
       can :manage, Ckeditor::Picture
 
