@@ -119,7 +119,7 @@ module Abilities
       can [:manage], OpenGov::Mark
       can [:manage], OpenGov::Line
 
-      can [:manage], Milestones::Status
+      can [:manage], Milestone::Status
     end
   end
 end
