@@ -118,6 +118,8 @@ module Abilities
       can [:manage], OpenGov::Commitment
       can [:manage], OpenGov::Mark
       can [:manage], OpenGov::Line
+
+      can[:manage], Milestones::Status
     end
   end
 end
