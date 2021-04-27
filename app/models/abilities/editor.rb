@@ -23,7 +23,7 @@ module Abilities
       can :manage, Dashboard::Action
 
       can [:read, :edit, :update, :add_question, :search_booths, :search_officers, :booth_assignments], Poll, editors: { user_id: user.id }
-      cannot [:index], Poll:Question
+      cannot [:index], Poll::Question
       can [:manage], Poll::Question::Answer, question: { poll: { editors: { user_id: user.id } } }
       can [:manage], Poll::ElectoralCollege
       can [:manage], Poll::Elector
