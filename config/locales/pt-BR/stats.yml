@@ -6,7 +6,7 @@ pt-BR:
     total_participants: "Participantes"
     by_gender: "Participantes por gênero"
     by_age: "Participantes por idade"
-    by_geozone: "Participantes por região"
+    by_geozone: "Participantes por localidade"
     by_ethnicity: "Participantes por raça"
     men_percentage: "%{percentage} Masculino"
     women_percentage: "%{percentage} Feminino"

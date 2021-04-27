@@ -48,6 +48,7 @@ class Poll < ApplicationRecord
 
   before_save :schedule_electoral_college_deactivation, if: :trigger_job?
   before_save :activate_electoral_college, if: :trigger_job?
+  before_save :update_geozone_restricted
 
   accepts_nested_attributes_for :questions, reject_if: :all_blank, allow_destroy: true
 
@@ -117,8 +118,16 @@ class Poll < ApplicationRecord
       user.level_two_or_three_verified? &&
       current? &&
       user.can_vote? &&
-      (!geozone_restricted || geozone_ids.include?(user.geozone_id)) &&
+      (!geozone_restricted || include_geozone?(user)) &&
       (!electoral_college_restricted? || belongs_to_electoral_college?(user))
+  end
+
+  def include_geozone?(user)
+    if geozones.first.district?
+      geozone_ids.include?(user.geozone_id)
+    else
+      geozone_ids.include?(user.geozone.subprefecture.id)
+    end
   end
 
   def self.answerable_by(user)
@@ -234,7 +243,7 @@ class Poll < ApplicationRecord
   end
 
   def editable?
-    starts_at - 1.day > Date.today
+    Date.today < starts_at - 1.day 
   end
 
   private
@@ -257,5 +266,9 @@ class Poll < ApplicationRecord
 
   def trigger_job?
     electoral_college_restricted? && electoral_college && ends_at_changed?
+  end
+
+  def update_geozone_restricted
+    geozones.any? ? self.geozone_restricted = true : self.geozone_restricted = false
   end
 end

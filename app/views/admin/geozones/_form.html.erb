@@ -1,23 +1,51 @@
 <%= form_for [:admin, @geozone] do |f| %>
 
   <%= render "shared/errors", resource: @geozone %>
-
+  <%= f.hidden_field :active, value: true %>
   <div class="small-12 large-8 column">
     <%= f.text_field :name %>
   </div>
-
-  <div class="clear">
-    <div class="small-12 medium-6 large-4 column">
-      <%= f.text_field :census_code, hint: t("admin.geozones.geozone.code_help") %>
-    </div>
-
-    <div class="small-12 medium-6 large-4 column end">
-      <%= f.text_field :external_code, hint: t("admin.geozones.geozone.code_help") %>
-    </div>
+  <div class="small-12 large-8 column">
+    <%= f.check_box :district %>
   </div>
 
+  <hr>
+
   <div class="small-12 large-8 column">
-    <%= f.text_field :html_map_coordinates, hint: t("admin.geozones.geozone.coordinates_help") %>
+    <h3>KML</h3>
+    <%= f.fields_for :document do |documents_builder| %>
+      <div id="<%= dom_id(f.object) %>" class="document direct-upload document-fields nested-fields">
+        <%= documents_builder.hidden_field :id %>
+        <%= documents_builder.hidden_field :user_id, value: current_user.id %>
+        <%= documents_builder.hidden_field :cached_attachment %>
+
+        <div class="small-12 column">
+          <%= documents_builder.text_field :title, placeholder: t("documents.form.title_placeholder") %>
+        </div>
+
+        <div class="small-12 column attachment-actions">
+          <%= documents_builder.file_field :attachment,                       
+                       accept: '.kml',                       
+                       data: {
+                         url: document_direct_upload_path(documents_builder.object),
+                         nested_document: true
+                       } %>
+        </div>
+
+        <div class="small-6 column">
+          <p class="file-name">
+            <%= document_attachment_file_name(documents_builder.object) %>
+          </p>
+        </div>
+
+        <div class="small-12 column">
+          <div class="progress-bar-placeholder"><div class="loading-bar"></div></div>
+        </div>
+
+        <hr>
+
+      </div>
+    <% end %>
   </div>
 
   <div class="small-12 column">

@@ -3,11 +3,11 @@
 <% end %>
 
 <div class="legislation-draft-versions-index">
-  <%= back_link_to admin_legislation_processes_path, t("admin.legislation.questions.index.back") %>
+  <%= back_link_to edition_legislation_processes_path, t("admin.legislation.questions.index.back") %>
 
   <h2><%= @process.title %></h2>
 
-  <%= render "admin/legislation/processes/subnav", process: @process, active: "editors" %>
+  <%= render "edition/legislation/processes/subnav", process: @process, active: "editors" %>
 
   <%= render "admin/shared/user_search", url: search_admin_legislation_process_editors_path %>
 

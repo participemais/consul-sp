@@ -13,14 +13,14 @@ module LegislationHelper
 
   def legislation_process_tabs(process)
     {
-      "info"           => edit_admin_legislation_process_path(process),
+      "info"           => edit_edition_legislation_process_path(process),
       "editors"        => admin_legislation_process_editors_path(process),
-      "homepage"       => edit_admin_legislation_process_homepage_path(process),
-      "questions"      => admin_legislation_process_questions_path(process),
-      "proposals"      => admin_legislation_process_proposals_path(process),
-      "draft_versions" => admin_legislation_process_draft_versions_path(process),
-      "topics"         => admin_legislation_process_topics_path(process),
-      "milestones"     => admin_legislation_process_milestones_path(process)
+      "homepage"       => edit_edition_legislation_process_homepage_path(process),
+      "questions"      => edition_legislation_process_questions_path(process),
+      "proposals"      => edition_legislation_process_proposals_path(process),
+      "draft_versions" => edition_legislation_process_draft_versions_path(process),
+      "topics"         => edition_legislation_process_topics_path(process),
+      "milestones"     => edition_legislation_process_milestones_path(process)
     }
   end
 
@@ -32,6 +32,12 @@ module LegislationHelper
       "proposals"      => edition_legislation_process_proposals_path(process),
       "draft_versions" => edition_legislation_process_draft_versions_path(process),
       "topics"         => edition_legislation_process_topics_path(process),
+      "milestones"     => edition_legislation_process_milestones_path(process)
+    }
+  end
+
+  def edition_finished_legislation_process_tabs(process)
+    {
       "milestones"     => edition_legislation_process_milestones_path(process)
     }
   end

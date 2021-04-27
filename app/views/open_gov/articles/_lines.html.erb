@@ -1,5 +1,6 @@
 <% mark.lines.each_with_index do |line, number| %>
   <div class="margin-top lines-cards small-12 medium-11">
+
     <%= render "tags", resource: line.status, lines: "lines" %>
 
     <div class="action-plan-card-content">

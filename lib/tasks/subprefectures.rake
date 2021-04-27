@@ -16,7 +16,7 @@ namespace :subprefectures do
           population = row[:populacao].to_i
           area = format_number.call(row[:area])
 
-          if heading = Budget::Heading.find_by(name: subprefecture)
+          if heading = Budget::Heading.where(group_id: group.id).find_by(name: subprefecture)
             heading.population += population
             heading.area += area
           else
@@ -64,6 +64,7 @@ namespace :subprefectures do
 
           heading.districts.new(district_params)
           heading.save!
+          puts "Subprefeitura " + heading.name + " salva"
         end
       else
         puts "'Subprefeituras' group does not exist"

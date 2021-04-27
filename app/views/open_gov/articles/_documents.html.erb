@@ -4,12 +4,12 @@
 
 <div class="small-12 medium-12">
   <ul class="no-bullet document-link">
-      <% documents.each do |document| %>
-        <li>
-          <%=  link_to document.attachment.url, target: "_blank" do %>
-            <%= document.title %>
-          <% end %>
-        </li>
-      <% end %>
+    <% documents.each do |document| %>
+      <li>
+        <%=  link_to document.attachment.url, target: "_blank" do %>
+          <%= document.title %>
+        <% end %>
+      </li>
+    <% end %>
   </ul>
 </div>

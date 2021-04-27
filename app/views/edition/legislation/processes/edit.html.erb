@@ -7,7 +7,8 @@
 
   <h2><%= @process.title %></h2>
 
-  <% @process.editable? ? active_tab = "info" : active_tab = "milestones" %>
+  <% current_user.administrator? || current_user.editor? && @process.editable? ? active_tab = "info" : active_tab = "milestones" %>
+
   <%= render "subnav", process: @process, active: active_tab, process: @process %>
 
   <%= render "form" %>

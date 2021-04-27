@@ -1,0 +1,40 @@
+<% provide :title do %>
+  <%= t("admin.header.title") %> - <%= t("admin.menu.legislation") %> - <%= @process.title %> - <%= t("admin.legislation.draft_versions.index.title") %>
+<% end %>
+
+<div class="legislation-draft-versions-index">
+
+  <%= back_link_to edition_legislation_processes_path, t("admin.legislation.processes.edit.back") %>
+
+  <h2><%= @process.title %></h2>
+
+  <%= render "edition/legislation/processes/subnav", process: @process, active: "draft_versions" %>
+
+  <div class="small-12 column">
+
+    <div class="float-right">
+      <%= link_to t("admin.legislation.draft_versions.edit.title"), edit_edition_legislation_process_draft_version_path(@process, @draft_version), 
+          class: "button" %>
+
+      <%= link_to t("legislation.processes.draft_versions.download", version: @draft_version.title),
+            legislation_process_draft_version_path(@process, @draft_version, csv_params), class: "button"
+          %>
+    </div>    
+
+    <div class="small-12 medium-9 column">
+      <h2> <%= @draft_version.title %> </h2>
+    </div>
+
+    <div class="small-12 column">
+      <% status =  @draft_version.status %>
+      <h5>
+        <%= t("admin.legislation.draft_versions.show.status.#{status}") %> - 
+        <%= t("admin.legislation.draft_versions.form.hints.status.#{status}") %>
+      </h5>
+    </div>
+
+    <div class="small-12 column text-preview">
+      <%= AdminWYSIWYGSanitizer.new.sanitize(@draft_version.body) %>
+    </div>
+  </div>
+</div>

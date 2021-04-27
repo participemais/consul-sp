@@ -18,7 +18,7 @@ class Edition::Poll::EditorsController < Edition::Poll::BaseController
   end
 
   def destroy
-    EditorPoll.find_by(poll_id: params[:process_id], editor_id: params[:id]).destroy
+    EditorPoll.find_by(poll_id: params[:poll_id], editor_id: params[:id]).destroy
     link = poll_path(@poll)
     redirect_back(fallback_location: (request.referer || root_path),
                     notice: t("flash.actions.update.poll", link: link))

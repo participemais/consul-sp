@@ -3,7 +3,7 @@ class Editor < ApplicationRecord
 	has_many :legislation_processes, through: :editor_legislation_processes, source: :process
 
 	has_many :editor_polls, foreign_key: "editor_id"
-	has_many :polls, through: :editor_legislation_processes
+	has_many :polls, through: :editor_polls
 
   belongs_to :user, touch: true
   delegate :name, :email, :name_and_email, to: :user, allow_nil: true

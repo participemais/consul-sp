@@ -126,6 +126,7 @@ class User < ApplicationRecord
   attr_accessor :skip_password_validation
   attr_accessor :use_redeemable_code
   attr_accessor :login
+  attr_accessor :sub_id
 
   scope :administrators, -> { joins(:administrator) }
   scope :editors,        -> { joins(:editor) }
@@ -266,6 +267,14 @@ class User < ApplicationRecord
 
   def incomplete_registration?
     document_number.blank?
+  end
+
+  def complete_registration?
+    if city == 'São Paulo'
+      return geozone_id.present?       
+    else 
+      true
+    end
   end
 
   def can_vote?
@@ -480,6 +489,14 @@ class User < ApplicationRecord
     document_type == 'rnm'
   end
 
+  def resident?
+    uf == 'SP'
+  end
+
+  def query_address
+    "#{address_number} #{home_address}"
+  end 
+  
   def from_sp?
     city == "São Paulo" && uf == "SP"
   end

@@ -1,5 +1,6 @@
 class Edition::Poll::ResultsController < Edition::Poll::BaseController
   before_action :load_poll
+  authorize_resource :poll
 
   private
 

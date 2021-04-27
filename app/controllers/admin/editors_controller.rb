@@ -15,12 +15,18 @@ class Admin::EditorsController < Admin::BaseController
   def create
     @editor.user_id = params[:user_id]
     @editor.save!
+    flash[:notice] = t("admin.editors.add")
 
     redirect_to admin_editors_path
   end
 
   def destroy
-    @editor.destroy!
+    if @editor.legislation_processes.any? || @editor.polls.any?
+      flash[:error] = t("admin.editors.remove_error")
+    else
+      @editor.destroy!
+      flash[:notice] = t("admin.editors.remove")
+    end
     redirect_to admin_editors_path
   end
 end

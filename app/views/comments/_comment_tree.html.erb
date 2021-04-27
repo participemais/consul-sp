@@ -1,6 +1,6 @@
 <% commentable = comment_tree.commentable %>
 <% valuation = local_assigns.fetch(:valuation, false) %>
-<% cache [locale_and_user_status, comment_tree.order, commentable_cache_key(commentable), comment_tree.comments, comment_tree.comment_authors, commentable.comments_count] do %>
+<% cache [locale_and_user_status, commentable, comment_tree.order, commentable_cache_key(commentable), comment_tree.comments, comment_tree.comment_authors, commentable.comments_count] do %>
   <section class="expanded comments">
     <div class="row">
       <div id="comments" class="small-12 column">
