@@ -159,7 +159,7 @@ class Legislation::Process < ApplicationRecord
   end
 
   def editable?
-    Date.today < start_date - 1.day
+    Date.today < start_date
   end
 
   def finished?

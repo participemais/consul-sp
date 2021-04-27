@@ -9,6 +9,12 @@
         <div class="icon-poll-answer unverified" title="<%= t("polls.index.unverified") %>">
           <span class="show-for-sr"><%= t("polls.index.unverified") %></span>
         </div>
+      <% elsif current_user.organization.present? %>
+        <div class="icon-poll-answer cant-answer" title="Não é possível participar como organização" %>">
+          <span class="show-for-sr">
+            <%= "Não é possível participar como organização" %>
+          </span>
+        </div>
       <% elsif poll.electoral_college_restricted? && !poll.belongs_to_electoral_college?(current_user) %>
         <div class="icon-poll-answer cant-answer" title="<%= t("polls.index.electoral_college_restricted") %>">
           <span class="show-for-sr">
