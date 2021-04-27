@@ -1,6 +1,7 @@
 class Edition::MilestoneStatusesController < Edition::BaseController
   before_action :load_status, only: [:edit, :update, :destroy]
-  authorize_resource
+  authorize_resource class: Milestone::Status
+
 
   def index
     @statuses = Milestone::Status.all

@@ -46,11 +46,11 @@ class Edition::Poll::QuestionsController < Edition::Poll::BaseController
 
   def destroy
     if @question.destroy
-      notice = "Question destroyed succesfully"
+      notice = "Pergunta removida com sucesso"
     else
       notice = t("flash.actions.destroy.error")
     end
-    redirect_to edition_questions_path, notice: notice
+    redirect_to edition_poll_path(@question.poll), notice: notice
   end
 
   private
