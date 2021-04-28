@@ -160,6 +160,8 @@ class User < ApplicationRecord
     )
   end
   scope :by_ethnicity, ->(ethnicity) { where(ethnicity: ethnicity) }
+  scope :resident,     -> { where(uf: 'SP') }
+  scope :non_resident,     -> { where.not(uf: 'SP') }
 
   before_validation :clean_document_number, if: :persisted?
   before_validation :clean_cep, if: :persisted?
