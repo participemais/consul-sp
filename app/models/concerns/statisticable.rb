@@ -71,6 +71,14 @@ module Statisticable
     @participants ||= User.unscoped.where(id: participant_ids)
   end
 
+  def total_residents_participants
+    participants.resident.count
+  end
+
+  def total_non_residents_participants
+    participants.non_resident.count
+  end
+
   def total_male_participants
     participants.male.count
   end
@@ -105,6 +113,14 @@ module Statisticable
 
   def unknown_percentage
     calculate_percentage(total_unknown_participants, total_participants_with_gender)
+  end
+
+  def resident_percentage
+    calculate_percentage(total_residents_participants, total_participants_with_geozone)
+  end
+
+  def non_resident_percentage
+    calculate_percentage(total_non_residents_participants, total_participants_with_geozone)
   end
 
   def participants_by_age
@@ -171,6 +187,10 @@ module Statisticable
 
     def total_participants_with_gender
       @total_participants_with_gender ||= participants.where.not(gender: nil).distinct.count
+    end
+
+    def total_participants_with_geozone
+      @total_participants_with_geozone ||= participants.where.not(uf: nil).distinct.count
     end
 
     def age_groups
