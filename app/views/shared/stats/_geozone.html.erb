@@ -2,16 +2,16 @@
   <div id="participants_by_geozone" class="stats-group">
     <h4><%= t("stats.by_geozone") %></h4>
 
-    <%= image_tag('sp_flag.png') %>
+    <%= image_tag('sp_flag.png', height: 100, size: 70, class: 'stats-flag') %>
     <%= number_with_info_tags(
     stats.total_residents_participants,
-    "#{number_to_stats_percentage(stats.resident_percentage)} % de São Paulo/SP",
+    "#{number_to_stats_percentage(stats.resident_percentage)} de São Paulo/SP",
     html_class: "participants"
     ) %>
-    <%= image_tag('br_flag.png') %>
+    <%= image_tag('br_flag.png', height: 100, size: 70, class: 'stats-flag') %>
     <%= number_with_info_tags(
     stats.total_non_residents_participants,
-    "#{number_to_stats_percentage(stats.non_resident_percentage)} % fora de São Paulo/SP",
+    "#{number_to_stats_percentage(stats.non_resident_percentage)} fora de São Paulo/SP",
     html_class: "participants"
     ) %>
     
