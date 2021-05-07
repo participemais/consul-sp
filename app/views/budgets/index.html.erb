@@ -49,10 +49,15 @@
 
         <% if current_budget.accepting? %>
           <% if current_user %>
-            <% if current_user.level_two_or_three_verified? %>
+            <% if current_user.level_two_or_three_verified? && !current_user.incomplete_registration? %>
               <%= link_to t("budgets.investments.index.sidebar.create"),
                           new_budget_investment_path(current_budget),
                           class: "button margin-top expanded" %>
+            <% elsif current_user.incomplete_registration? %>
+              <div class="callout primary margin-top">
+                <%= sanitize(t("budgets.investments.index.sidebar.incomplete_registration",
+                  register: link_to_my_account )) %>
+              </div>
             <% else %>
               <div class="callout warning margin-top">
                 <%= sanitize(t("budgets.investments.index.sidebar.verified_only",
@@ -88,17 +93,18 @@
                 <% group.headings.sort_by_name.each do |heading| %>
                   <div class="heading small-12 medium-4 large-3 subtitle-font-family column end" data-equalizer-watch>
                     <li>
-                      <% unless current_budget.informing? %>
-                        <%= link_to budget_investments_path(
-                          current_budget,
-                          heading_id: heading.id
-                        ) do %>
-                          <%= heading_name_and_price_html(heading, current_budget) %>
-                        <% end %>
-                      <% else %>
+                      <% if current_budget.informing? %>
                         <div class="heading-name">
                           <%= heading_name_and_price_html(heading, current_budget) %>
                         </div>
+                      <% elsif current_budget.balloting_or_later? %>
+                        <%= link_to budget_investments_path(current_budget, heading_id: heading.id, filter: "selected") do %>
+                          <%= heading_name_and_price_html(heading, current_budget) %>
+                        <% end %>
+                      <% else %>
+                        <%= link_to budget_investments_path(current_budget, heading_id: heading.id) do %>
+                          <%= heading_name_and_price_html(heading, current_budget) %>
+                        <% end %>
                       <% end %>
                     </li>
                   </div>
@@ -127,6 +133,22 @@
               </div>
             <% end %>
           </div>
+
+          <ul class="no-bullet margin-top">
+            <li>
+              <%= link_to budget_investments_path(current_budget) do %>
+                <small><%= t("budgets.results.investment_proyects_indice") %></small>
+              <% end %>
+            </li>
+
+            <% if current_budget.balloting_or_later? %>
+              <li>
+                <%= link_to budget_investments_path(current_budget, filter: "unselected") do %>
+                  <small><%= t("budgets.results.not_prioritized_investment_proyects") %></small>
+                <% end %>
+              </li>
+            <% end %>
+          </ul>
         <% end %>
 
         <div id="all_phases">

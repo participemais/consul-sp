@@ -5,23 +5,34 @@ pt-BR:
       subtitle: AVISO LEGAL SOBRE AS CONDIÇÕES DE USO, PRIVACIDADE E PROTEÇÃO DE DADOS PESSOAIS DO PORTAL DO GOVERNO ABERTO
       description: Página de informações sobre as condições de uso, privacidade e proteção de dados pessoais.
     help:
-      title: O %{org} é o portal da Prefeitura de São Paulo para a participação social online
+      title: O Participe+ é a casa dos processos participativos online da cidade de São Paulo
       guide: >-
-        No momento, ele permite a participação social para a construção do Projeto de Lei Orçamentária Anual. Nos próximos meses, serão lançadas novas funcionalidades para o portal, como consultas públicas e enquetes. Acompanhe!
+        O Participe+ existe para <strong>proporcionar um ambiente para a discussão e formulação de políticas públicas municipais de maneira colaborativa</strong> entre população e governo. Para isso, disponibilizamos três <strong>formatos de participação:</strong>
         <br>
         <br>
-        O Participe+ é gerido pela <a href='https://www.prefeitura.sp.gov.br/cidade/secretarias/governo/governo_aberto_na_cidade_de_sao_paulo/index.php?p=252984'>Supervisão para Assuntos de Governo Aberto</a>, unidade da Secretaria de Governo Municipal. Seu desenvolvimento é feito através de um Termo de Cooperação entre a Prefeitura de São Paulo e a Organização das Nações Unidas para a Educação, a Ciência e a Cultura (Unesco). O portal utiliza o software livre <a href='https://consulproject.org/en/'>“Consul”</a>, elaborado pela Prefeitura de Madri e utilizado por dezenas de governos e instituições ao redor do mundo. Isso significa que qualquer município, estado, nação ou instituição pode usar livremente o código e fortalecê-lo! Se quiser mais informações sobre a experiência de São Paulo, entre em contato conosco pelo participemais@prefeitura.sp.gov.br que ficaremos felizes em ajudar!
+        -  <a href='https://participemais.prefeitura.sp.gov.br/legislation/processes'>Consultas Públicas;</a>
+        <br>
+        -  <a href='https://participemais.prefeitura.sp.gov.br/budgets'>Orçamento Cidadão;</a> e
+        <br>
+        -  <a href='https://participemais.prefeitura.sp.gov.br/polls'>Votações.</a>
         <br>
         <br>
-        O Participe+ é uma conquista da participação social na cidade de São Paulo! Ele é fruto do compromisso número 3 do 2º Plano de Ação em Governo Aberto. No 2º Plano, Prefeitura e sociedade civil trabalham juntos para melhorar a transparência, participação social, inovação e prestação de contas públicas na cidade. Ele foi criado com extensa participação social em 2018 e tem sido implementado desde 2019 pela Prefeitura e sociedade civil do Fórum de Gestão Compartilhada, sob coordenação da Supervisão para Assuntos de Governo Aberto. Para saber mais sobre o 2º Plano, clique <a href='https://www.prefeitura.sp.gov.br/cidade/secretarias/governo/governo_aberto_na_cidade_de_sao_paulo/index.php?p=260991'>aqui</a>.
-        <br>
-        <h3>Orçamento cidadão</h3>
-        Na aba de <a href='/budgets'>Orçamento Cidadão</a>, a população participa da construção do Projeto de Lei Orçamentária Anual, a PLOA, votando nas propostas prioritárias para as Subprefeituras da cidade.
-        Ao final do período de votação, as propostas mais votadas são enviadas às Secretarias para análise de viabilidade.
+        <h4>Quem cuida deste espaço</h4>
+        O <strong>Participe+</strong> é gerido pela equipe de <a href='https://www.prefeitura.sp.gov.br/cidade/secretarias/governo/governo_aberto_na_cidade_de_sao_paulo/index.php?p=252984'>Governo Aberto</a>, que faz parte da Secretaria de Governo. Mas este é um espaço de todas e todos!
         <br>
         <br>
-        <h3>Ficou com alguma dúvida ou tem uma sugestão?</h3>
-        Entre em contato conosco pelo email participemais@prefeitura.sp.gov.br.
+        Ficou com alguma dúvida ou tem uma sugestão? Entre em contato conosco pelo e-mail <strong><a href='mailto:participemais@prefeitura.sp.gov.br'>participemais@prefeitura.sp.gov.br.</a></strong>
+        <br>
+        <br>
+        Não esqueça também de conferir <a href='https://participemais.prefeitura.sp.gov.br/help/faq'>nosso FAQ</a>, onde as respostas às dúvidas mais frequentes que recebemos estão disponíveis.
+        <br>
+        <br>
+        <br>
+        <h4>Histórico e desenvolvimento</h4>
+        O Participe+ é uma conquista da participação social na cidade de São Paulo, sendo um fruto do Compromisso 3 do <a href='https://www.prefeitura.sp.gov.br/cidade/secretarias/governo/governo_aberto_na_cidade_de_sao_paulo/index.php?p=260991'>2º Plano de Ação em Governo Aberto</a>. O 2º Plano de Ação foi criado com extensa participação social em 2018 e implementado entre 2019 e 2020 pela Prefeitura e sociedade civil do Fórum de Gestão Compartilhada, sob coordenação da equipe de Governo Aberto. No Plano de Ação em Governo Aberto, Prefeitura e sociedade civil trabalham juntos para melhorar a transparência, participação social, inovação e prestação de contas públicas na cidade.
+        <br>
+        <br>
+        O desenvolvimento do <strong>Participe+</strong> foi realizado a partir de uma cooperação entre a Prefeitura de São Paulo e a Organização das Nações Unidas para a Educação, a Ciência e a Cultura (Unesco). O portal utiliza o software livre <strong><a href='https://consulproject.org/en/'>CONSUL</a></strong>, elaborado pela Prefeitura de Madri e utilizado por dezenas de governos e instituições ao redor do mundo. Isso significa que qualquer município, estado, nação ou instituição pode usar livremente o código e fortalecê-lo! Se quiser mais informações sobre a experiência de São Paulo, entre em contato conosco pelo <strong><a href='mailto:participemais@prefeitura.sp.gov.br'>participemais@prefeitura.sp.gov.br</a></strong> que ficaremos felizes em ajudar!
       menu:
         debates: "Debates"
         proposals: "Propostas"

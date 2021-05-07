@@ -22,14 +22,17 @@ module Abilities
 
       can :manage, Dashboard::Action
 
-      can [:read, :update, :add_question, :search_booths, :search_officers, :booth_assignments], Poll, editors: { user_id: user.id }
-      can [:read, :create, :update, :destroy], Poll::Question
+      can [:read, :edit, :update, :add_question, :search_booths, :search_officers, :booth_assignments], Poll, editors: { user_id: user.id }
+      cannot [:index], Poll::Question
+      can [:manage], Poll::Question::Answer, question: { poll: { editors: { user_id: user.id } } }
       can [:manage], Poll::ElectoralCollege
+      can [:manage], Poll::Elector
+      can [:create, :read], Poll::Electors::Import
 
       can :access, :ckeditor
       can :manage, Ckeditor::Picture
 
-      can [:manage], ::Legislation::Process, editors: { user_id: user.id }
+      can [:manage], ::Legislation::Process, editors: { user_id: user.id }, editable?: true
       can [:manage], ::Legislation::DraftVersion
       can [:manage], ::Legislation::Question
       can [:manage], ::Legislation::Proposal

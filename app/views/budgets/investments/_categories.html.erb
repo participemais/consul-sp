@@ -3,10 +3,20 @@
 <br>
 
 <ul id="categories" class="no-bullet categories">
-  <% @categories.each do |category| %>
+  <% @categories.each do |tag| %>
     <li class="inline-block">
-      <% css_class = { class: "is-active" } if params[:tag] == category.name %>
-      <%= link_to category.name, budget_investments_path(@budget, tag: category.name, heading_id: params[:heading_id]), css_class || {} %>
+      <% tag_search = tag.name %>
+
+      <% if params[:tag] == tag.name %>
+        <% css_class = { class: "is-active" } %>
+      <% else %>
+        <% css_class = nil %>
+      <% end %>
+
+      <% tag_search = "" if css_class == { class: "is-active" } %>
+
+      <%= link_to tag.name,
+            budget_investments_path(@budget, tag: tag_search, heading_id: params[:heading_id]), css_class || {} %>
     </li>
   <% end %>
 </ul>

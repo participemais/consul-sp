@@ -118,7 +118,7 @@
                   class: "js-cep-mask"
                 ) %>
               </div>
-              <div class="medium-9 column <%= address_hide_class %>">
+              <div class="medium-9 column other-fields <%= address_hide_class %>">
                 <%= f.text_field(
                   :home_address,
                   readonly: true,
@@ -127,20 +127,20 @@
               </div>
             </div>
             <div class="row">
-              <div class="small-6 medium-2 column <%= address_hide_class %>">
-                <%= f.text_field(:address_number, required: true) %>
+              <div class="small-6 medium-2 column other-fields <%= address_hide_class %>">
+                <%= f.text_field(:address_number) %>
               </div>
-              <div class="small-6 medium-3 column <%= address_hide_class %>">
+              <div class="small-6 medium-3 column other-fields <%= address_hide_class %>">
                 <%= f.text_field(:address_complement) %>
               </div>
-              <div class="small-6 medium-5 column <%= address_hide_class %>">
+              <div class="small-6 medium-5 column">
                 <%= f.text_field(
                   :city,
                   readonly: true,
                   class: 'disabled'
                 ) %>
               </div>
-              <div class="small-6 medium-2 column <%= address_hide_class %>">
+              <div class="small-6 medium-2 column">
                 <%= f.text_field(
                   :uf,
                   readonly: true,
@@ -163,8 +163,7 @@
                   <%= f.collection_select(:geozone_id, @districts, :id, :name) %>
                 </div>
               </div>
-            <% elsif @select_district %>
-              
+            <% elsif @select_district %>              
               <div class="row">
                 <div class="medium-6 column">
                   <%= f.select(:sub_id, options_from_collection_for_select(Geozone.where(district: false), :id, :name), { label: 'Subprefeitura' }) %>
@@ -224,7 +223,7 @@
             <span class="verify-account">
               <% if current_user.level_three_verified? %>
                 <p>
-                  <% if current_user.can_vote? && (current_user.geozone_id.present? || !current_user.resident?) %>
+                  <% if current_user.can_vote? && current_user.complete_address? && current_user.geozone_id.present? %>
                     <span class="icon-check"></span>
                   <% else %>
                     <span class="icon-x"></span>

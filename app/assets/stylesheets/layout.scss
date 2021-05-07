@@ -53,6 +53,7 @@ h5,
 h6 {
   clear: both;
   font-weight: 700;
+  overflow-wrap: break-word;
 }
 
 p {
@@ -64,6 +65,7 @@ p {
 a {
   color: $link;
   text-decoration: none;
+  overflow-wrap: break-word;
 
   &:hover,
   &:active {

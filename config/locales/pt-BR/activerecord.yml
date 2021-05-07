@@ -39,6 +39,9 @@ pt-BR:
       moderator:
         one: "Moderador"
         other: "Moderadores"
+      editor:
+        one: "Editor"
+        other: "Editores"
       administrator:
         one: "Administrador"
         other: "Administradores"
@@ -159,7 +162,7 @@ pt-BR:
       budget/translation:
         name: "Nome"
       budget/investment:
-        heading_id: "Título"
+        heading_id: "Selecione a Subprefeitura"
         title: "Título"
         description: "Descrição"
         external_url: "Link para documentação adicional"
@@ -212,7 +215,7 @@ pt-BR:
         visible_to_valuators_false: "Indisponível"
       budget/investment/translation:
         title: "Título"
-        description: "Descrição"
+        description: "Descreva sua proposta"
       geozone:
         name: Nome
         district: Distrito
@@ -519,7 +522,7 @@ pt-BR:
       newsletter:
         segment_recipient: Destinatários
         subject: Assunto
-        from: "De"
+        from: Endereço de email que aparecerá como o remetente do email
         body: Conteúdo do email
       admin_notification:
         segment_recipient: Destinatários
@@ -599,6 +602,31 @@ pt-BR:
         link_url: URL do projeto
         link_text: Texto do link
         description: Descrição
+      open_gov/plan:
+        title: Título
+        video_url: Link da página do plano
+        starts_at: Data de início
+        ends_at: Data de término
+      open_gov/commitment:
+        title: Título
+        coordenation: Coordenação
+        work_group: Grupo de trabalho
+        starts_at: Data de início
+        ends_at: Data de término
+      open_gov/mark:
+        title: Título
+        starts_at: Data de início
+        ends_at: Data de término
+        status: Finalizado
+        author: Responsável
+        delivered: Entregáveis
+      open_gov/line:
+        title: Título
+        starts_at: Data de início
+        ends_at: Data de término
+        status: Finalizado
+        author: Responsável
+        delivered: Entregáveis
     errors:
       models:
         user:

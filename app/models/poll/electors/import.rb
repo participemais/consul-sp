@@ -28,7 +28,7 @@ class Poll::Electors::Import
   def save
     return false if invalid?
 
-    CSV.open(file.path, headers: true).each do |row|
+    CSV.open(file.path, headers: true, encoding: 'iso-8859-1:utf-8').each do |row|
       next if empty_row?(row)
       process_row row
     end
@@ -79,7 +79,7 @@ class Poll::Electors::Import
     end
 
     def fetch_file_headers
-      CSV.open(file.path, &:readline)
+      CSV.open(file.path, encoding: 'iso-8859-1:utf-8', &:readline)
     end
 
     def file_headers_definition

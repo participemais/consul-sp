@@ -4,6 +4,9 @@
 
 <h2 class="inline-block"><%= t("admin.legislation.processes.index.title") %></h2>
 
+<%= link_to t("admin.legislation.processes.index.create"), new_edition_legislation_process_path,
+            class: "button float-right" if current_user.administrator? %>
+
 <%= render "shared/filter_subnav", i18n_namespace: "admin.legislation.processes.index" %>
 
 <% if @processes.any? %>
@@ -25,13 +28,18 @@
       <% @processes.each do |process| %>
         <tr id="<%= dom_id(process) %>">
           <td class="small-12 medium-6 large-4">
-            <% process.editable? ? process_link = edit_edition_legislation_process_path(process) : process_link = edition_legislation_process_milestones_path(process) %>
+            <% process.editable? && !process.finished? || current_user.administrator? ? process_link = edit_edition_legislation_process_path(process) : process_link = edition_legislation_process_milestones_path(process) %>
             <%= link_to process.title, process_link %>
           </td>
           <td><%= t("admin.legislation.processes.process.status_#{process.status}") %></td>
           <td class="text-center"><%= I18n.l process.start_date %></td>
           <td class="text-center"><%= I18n.l process.end_date %></td>
           <td class="text-center"><%= process.total_comments %></td>
+          <td>
+            <%= link_to t("admin.legislation.processes.index.delete"), edition_legislation_process_path(process),
+                        method: :delete,
+                        class: "button hollow alert expanded" if current_user.administrator? %>
+          </td>
         </tr>
       <% end %>
     </tbody>

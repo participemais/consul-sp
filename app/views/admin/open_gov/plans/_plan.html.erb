@@ -1,0 +1,25 @@
+<tr id="<%= dom_id(plan) %>">
+  <td class="small-8 medium-5">
+    <strong>
+      <%= link_to plan.title, admin_open_gov_plan_path(plan) %>
+    </strong>
+  </td>
+  <td class="small-8 medium-2">
+    <%= l plan.starts_at.to_date if plan.starts_at.present? %>
+  </td>
+  <td class="small-8 medium-2">
+    <%= l plan.ends_at.to_date if plan.starts_at.present? %>
+  </td>
+  <td class="text-center">
+    <%= link_to t("admin.actions.edit"),
+      edit_admin_open_gov_plan_path(plan),
+      class: "button hollow small"
+    %>
+    <%= link_to t("admin.actions.delete"),
+      admin_open_gov_plan_path(plan),
+      method: :delete,
+      "data-confirm": t("admin.open_gov.plans.delete.alert"),
+      class: "button hollow alert small"
+    %>
+  </td>
+</tr>

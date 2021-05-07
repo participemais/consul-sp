@@ -1,6 +1,6 @@
 <h2 class="inline-block"><%= t("admin.polls.index.title") %></h2>
 
-<% if @polls.any? %>
+<% if @polls_booth.present? %>
   <table>
     <thead>
       <th class="medium-6"><%= t("admin.polls.index.name") %></th>
@@ -8,7 +8,7 @@
       <th class="text-right"><%= t("admin.actions.actions") %></th>
     </thead>
     <tbody>
-      <% @polls.each do |poll| %>
+      <% @polls_booth.each do |poll| %>
         <tr id="<%= dom_id(poll) %>" class="poll">
           <td>
             <%= link_to poll.name, manage_edition_poll_booth_assignments_path(poll) %>

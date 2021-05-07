@@ -1,0 +1,32 @@
+<% documents = @participation_article&.documents %>
+
+<% if documents.present? %>
+
+  <h3 class="margin-top"><%= t("open_gov.index.participation_article.document") %></h3>
+
+  <% documents.each do |document| %>
+    <div class="document-cards small-12 medium-3 align-middle">
+        <h4>
+          <%=  link_to document.attachment.url, target: "_blank" do %>
+            <%= document.title %>
+          <% end %>
+        </h4>
+    </div>
+  <% end %>
+<% end %>
+
+<% if @participation_article.present? %>
+  <div class="draft-panels">
+    <div class="row draft-allegation">
+      <h3><%= t("open_gov.index.participation_article.title") %></h3>
+
+      <div class="small-12 column border-all">
+        <div id="sticky-panel" class="draft-text">
+          <section>
+            <%= AdminWYSIWYGSanitizer.new.sanitize(@participation_article.text) %>
+          </section>
+        </div>
+      </div>
+    </div>  
+  </div>
+<% end %>

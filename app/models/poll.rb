@@ -243,7 +243,7 @@ class Poll < ApplicationRecord
   end
 
   def editable?
-    starts_at - 1.day > Date.today
+    Date.today < starts_at
   end
 
   private

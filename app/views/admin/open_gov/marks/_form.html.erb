@@ -1,0 +1,54 @@
+<div class="open-gov-form row">
+  <%= form_for([:admin, @mark], url: url) do |f| %>
+
+    <%= render "shared/errors", resource: @mark %>
+
+    <%= f.hidden_field(:open_gov_commitment_id, :value => @commitment.id) %>
+
+    <div class="row">
+      <div class="small-12 column">
+        <%= f.text_field(:title, required: true) %>
+      </div>
+
+      <div class="small-12 medium-3 column">
+        <%= f.text_field :starts_at,
+                          value: format_date_for_calendar_form(@mark.starts_at),
+                          class: "js-calendar-full",
+                          id: "start_date" %>
+      </div>
+
+      <div class="small-12 medium-3 column">
+        <%= f.text_field :ends_at,
+                          value: format_date_for_calendar_form(@mark.ends_at),
+                          class: "js-calendar-full",
+                          id: "end_date" %>
+      </div>
+
+      <div class="small-12 column">
+        <%= f.text_field(:author) %>
+      </div>
+
+      <div class="small-12 column">
+        <%= f.text_area(:delivered, class: "html-area admin") %>
+      </div>
+
+      <div class="documents small-12 column">
+        <%= render "documents/nested_documents", documentable: @mark, f: f %>
+      </div>
+
+      <div class="small-12 column">
+        <%= f.check_box(:status) %>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="actions small-12 medium-4 column">
+        <%= f.submit(
+          class: "button expanded large",
+          value: t("admin.open_gov.plans.form.save")
+        ) %>
+      </div>
+    </div>
+
+  <% end %>
+</div>

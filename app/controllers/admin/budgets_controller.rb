@@ -7,6 +7,9 @@ class Admin::BudgetsController < Admin::BaseController
   has_filters %w[open finished], only: :index
 
   before_action :load_budget, except: [:index, :new, :create]
+  before_action :load_categories, except: [:destroy]
+  before_action :load_selected_categories, only: [:edit, :update, :show]
+  before_action :update_poll, only: [:update]
   load_and_authorize_resource
 
   def index
@@ -36,6 +39,9 @@ class Admin::BudgetsController < Admin::BaseController
 
   def update
     if @budget.update(budget_params)
+
+      send_selected_and_unselected_emails if @budget.balloting?
+
       redirect_to admin_budgets_path, notice: t("admin.budgets.update.notice")
     else
       load_staff
@@ -69,6 +75,7 @@ class Admin::BudgetsController < Admin::BaseController
     def budget_params
       descriptions = Budget::Phase::PHASE_KINDS.map { |p| "description_#{p}" }.map(&:to_sym)
       valid_attributes = [:phase,
+                          :custom_list,
                           :currency_symbol,
                           :max_votes,
                           administrator_ids: [],

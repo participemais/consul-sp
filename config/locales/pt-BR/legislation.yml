@@ -11,10 +11,12 @@ pt-BR:
           one: "%{count} resposta"
           other: "%{count} respostas"
         cancel: Cancelar
+        close: Fechar
         publish_comment: Publicar comentário
         no_comments: Não há comentários
       form:
         phase_not_open: Esta etapa não está aberta
+        incomplete_registration: Você precisa completar o %{register} para participar
       index:
         title: Comentários
         comments_about: Comentários sobre

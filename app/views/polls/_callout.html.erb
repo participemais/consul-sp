@@ -13,6 +13,10 @@
     <div class="callout warning no-margin-bottom">
       <%= t("polls.show.not_open") %>
     </div>
+  <% elsif current_user.organization.present? %>
+    <div class="callout warning no-margin-bottom">
+      <%= "Não é possível participar como organização." %>
+    </div>
   <% elsif current_user.unverified? %>
     <div class="callout warning no-margin-bottom">
       <%= sanitize(t("polls.show.cant_answer_verify",

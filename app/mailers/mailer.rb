@@ -89,7 +89,7 @@ class Mailer < ApplicationMailer
     @email_to = @author.email
 
     with_user(@author) do
-      mail(to: @email_to, subject: t("mailers.budget_investment_selected.subject", code: @investment.code))
+      mail(to: @email_to, subject: t("mailers.budget_investment_selected.subject"))
     end
   end
 
@@ -99,7 +99,7 @@ class Mailer < ApplicationMailer
     @email_to = @author.email
 
     with_user(@author) do
-      mail(to: @email_to, subject: t("mailers.budget_investment_unselected.subject", code: @investment.code))
+      mail(to: @email_to, subject: t("mailers.budget_investment_unselected.subject"))
     end
   end
 

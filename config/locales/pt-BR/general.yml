@@ -64,6 +64,7 @@ pt-BR:
       comment_as_admin: Comentar como admin
       comment_as_moderator: Comentar como moderador
       leave_comment: Deixe seu comentário
+      not_allowed: Você precisa completar o %{register} para publicar um comentário
     orders:
       most_voted: Mais votado
       newest: Mais recente primeiro
@@ -201,6 +202,10 @@ pt-BR:
     poll/electors/import: Arquivo
     poll/elector: Eleitor
     tag: Categoria
+    open_gov/line: Linha de ação
+    open_gov/mark: Marco
+    open_gov/commitment: Compromisso
+    open_gov/plan: Plano de ação
   geozones:
     none: Cidade de São Paulo
   layouts:
@@ -755,7 +760,7 @@ pt-BR:
     followable:
       budget_investment:
         create:
-          notice: "Você está seguindo essa proposta! </br>Para que esteja a par de tudo, vamos notificar você sobre alterações assim que elas ocorrerem."
+          notice: "Você está seguindo essa proposta! </br>Você será notificado das novidades aqui no sistema."
         destroy:
           notice: "Você parou de seguir essa proposta! </br> Você não receberá mais notificações relacionadas a ela."
       proposal:
@@ -844,7 +849,7 @@ pt-BR:
   unauthorized:
     default: Você não possui permissão de acesso a esta página.
     manage:
-      all: "Você não possui permissão para executar esta ação '%{action}' em %{subject}."
+      all: "Você não possui permissão para executar esta ação."
   users:
     login_to_comment: "Você precisa acessar sua %{signin} ou se %{signup} para fazer um comentário"
     login_to_continue: "Você precisa acessar sua %{signin} ou se %{signup} para continuar"
@@ -1014,14 +1019,21 @@ pt-BR:
   open_gov:
     index:
       projects:
-        title: Projetos
+        title: Projetos da Supervisão para Assuntos de Governo Aberto
       articles:
-        title: Artigos
+        title: Artigos de Governo Aberto
+        date: Data
       section_header:
         title: Governo aberto
         participate: Conheça os projetos e ações
         subtitle: em São Paulo
       filters:
-        government: Governo Aberto em São Paulo
-        participation: Participação social em São Paulo
-        action_plan: Plano de Ação em Governo Aberto
+        government: Projetos e artigos
+        participation: Outras formas de participação
+        action_plan: Monitoramento do Plano de Ação
+      participation_article:
+        document: Documentos em destaque
+        title: Participação social no município
+      action_plans:
+        title: Monitoramento do %{action_plan}
+        closed: Planos anteriores

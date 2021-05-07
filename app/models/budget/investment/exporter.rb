@@ -19,6 +19,10 @@ class Budget::Investment::Exporter
     CSV.generate(headers: true) do |csv|
       csv << proposals_list_headers
       @investments.each do |investment|
+        @image_url = ''
+        @documents = ['', '', '']
+        documents_url(investment.documents)
+        image_url(investment.image)
         csv << proposals_list_csv_values(investment)
       end
     end
@@ -26,7 +30,7 @@ class Budget::Investment::Exporter
 
   private
 
-    PROPOSALS_COLUMNS = %w(id title description categories subprefecture prioritization votes balloting_result feasibility commitment unfeasibility_explanation).freeze
+    PROPOSALS_COLUMNS = %w(code created_at author subprefecture title description categories image_url first_document second_document third_document prioritization votes balloting_result feasibility commitment unfeasibility_explanation).freeze
 
     FEASIBILITY_COLUMNS = %w(department budgetary_actions sei_number technical technical_description legal legal_description budgetary budgetary_description).freeze
 
@@ -47,18 +51,26 @@ class Budget::Investment::Exporter
     end
 
     def proposals_list_csv_values(investment)
+      code = investment.code.present? ? investment.code : investment.id
+
       row = [
-        investment.id.to_s,
+        code,
+        I18n.l(investment.created_at.to_date),
+        investment.author.name,
+        investment.heading_name,
         investment.title,
         sanitize_description(investment.description),
         investment.tag_list.join(', '),
-        investment.heading_name,
-        prioritized_or_not(investment.selected?),
-        investment.ballot_lines_count,
-        elected_or_not(investment.winner?),
-        feasibility_translation(investment.feasibility),
-        sanitize_description(investment.commitment),
-        sanitize_description(investment.unfeasibility_explanation)
+        @image_url,
+        @documents.first,
+        @documents.second,
+        @documents.third,
+        priorization(investment),
+        votes(investment),
+        balloting_result(investment),
+        feasibility(investment),
+        commitment(investment),
+        unfeasibility_explanation(investment)
       ]
 
       if @budget.devolutive_or_later?
@@ -79,6 +91,58 @@ class Budget::Investment::Exporter
       end
 
       row
+    end
+
+    def image_url(image)
+      @image_url = image.url if image.present?
+    end
+
+    def documents_url(documents)
+      if documents.present?
+        documents.each_with_index do |document, index|
+          @documents[index] = document.url
+        end
+      end
+    end
+
+    def priorization(investment)
+      return prioritized_or_not(investment.selected?) if @budget.balloting_or_later?
+
+      phase_default_message
+    end
+
+    def votes(investment)
+      return investment.ballot_lines_count if @budget.publishing_prices_or_later?
+
+      phase_default_message
+    end
+
+    def balloting_result(investment)
+      return elected_or_not(investment.winner?) if @budget.publishing_prices_or_later?
+
+      phase_default_message
+    end
+
+    def feasibility(investment)
+      return feasibility_translation(investment.feasibility) if @budget.devolutive_or_later?
+
+      phase_default_message
+    end
+
+    def commitment(investment)
+      return sanitize_description(investment.commitment) if @budget.devolutive_or_later?
+
+      phase_default_message
+    end
+
+    def unfeasibility_explanation(investment)
+      return sanitize_description(investment.unfeasibility_explanation) if @budget.devolutive_or_later?
+
+      phase_default_message
+    end
+
+    def phase_default_message
+      I18n.t('budgets.investments.index.spreadsheet.default_message')
     end
 
     def headers
