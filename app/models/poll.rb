@@ -269,6 +269,11 @@ class Poll < ApplicationRecord
   end
 
   def update_geozone_restricted
-    geozones.any? ? self.geozone_restricted = true : self.geozone_restricted = false
+    if geozones.any?
+     self.geozone_restricted = true
+    else
+     self.geozone_restricted = false
+     self.geozones = Geozone.where(active: true, district: false)
+    end
   end
 end

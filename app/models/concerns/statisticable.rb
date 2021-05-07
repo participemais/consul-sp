@@ -223,7 +223,7 @@ module Statisticable
     end
 
     def geozones
-      Geozone.all.order("name")
+      resource.geozones.order("name")
     end
 
     def geozone_stats

@@ -84,6 +84,6 @@ module CommentsHelper
   end
 
   def incomplete_registration_for_debate_comment?(commentable)
-    commentable.class == Legislation::Question && current_user.incomplete_registration?
+    commentable.class == Legislation::Question && (current_user.incomplete_registration? || current_user.organization?)
   end
 end
