@@ -23,7 +23,7 @@ class Poll::Voters::Exporter
 
   private
 
-  VOTER_COLUMNS = %w(id origin gender ethnicity age city uf).freeze
+  VOTER_COLUMNS = %w(id origin gender ethnicity age city uf distrito subprefeitura).freeze
 
   def csv_row(voter)
     [
@@ -33,7 +33,9 @@ class Poll::Voters::Exporter
       ethnicity_translation(voter),
       voter.age,
       voter.user&.city,
-      voter.user&.uf
+      voter.user&.uf,
+      voter.user&.geozone&.subprefecture,
+      voter.user&.geozone
     ]
   end
 
