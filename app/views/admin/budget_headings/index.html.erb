@@ -2,7 +2,10 @@
 
 <div class="clear"></div>
 <h2 class="inline-block"><%= "#{@budget.name} / #{@group.name}" %></h2>
-<%= link_to t("admin.budget_headings.form.create"),
+<%= link_to 'Importar CSV',
+         new_admin_budget_group_import_path,
+        class: "button float-right hollow" %>
+<%= link_to 'Criar título',
             new_admin_budget_group_heading_path,
             class: "button float-right" %>
 

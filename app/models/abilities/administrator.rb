@@ -66,6 +66,7 @@ module Abilities
 
       can [:index, :read, :new, :create, :update, :destroy, :calculate_winners], Budget
       can [:read, :create, :update, :destroy], Budget::Group
+      can :manage, Budget::Group::Import
       can [:read, :create, :update, :destroy], Budget::Heading
       can [:hide, :admin_update, :toggle_selection], Budget::Investment
       can [:valuate, :comment_valuation], Budget::Investment
