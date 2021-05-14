@@ -32,7 +32,7 @@ module Abilities
       can :access, :ckeditor
       can :manage, Ckeditor::Picture
 
-      can [:manage], ::Legislation::Process, editors: { user_id: user.id }, editable?: true
+      can [:manage], ::Legislation::Process, editors: { user_id: user.id }
       can [:manage], ::Legislation::DraftVersion
       can [:manage], ::Legislation::Question
       can [:manage], ::Legislation::Proposal
