@@ -223,7 +223,7 @@
             <span class="verify-account">
               <% if current_user.level_three_verified? %>
                 <p>
-                  <% if current_user.can_vote? && current_user.complete_address? && current_user.geozone_id.present? %>
+                  <% if current_user.can_vote? && current_user.complete_address? && current_user.complete_registration? %>
                     <span class="icon-check"></span>
                   <% else %>
                     <span class="icon-x"></span>
