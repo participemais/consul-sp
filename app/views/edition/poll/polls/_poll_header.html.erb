@@ -20,7 +20,7 @@
   </div>
 
   <div class="inline-block margin-left">
-    <% if @poll.geozones.any? %>
+    <% if @poll.geozone_restricted? %>
       <% if @poll.geozones.first.district == false %>    
         <strong><%= t("admin.polls.index.geozone_sub_restricted") %></strong>
       <% elsif @poll.geozones.first.district == true %> 
