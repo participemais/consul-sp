@@ -45,14 +45,14 @@
     <% if @current_user.administrator? %>
       <div class="clear">
         <div class="small-6 medium-6 column">
-          <%= f.check_box :geozone_restricted, label: t('admin.polls.new.sub_restricted'), id: "subs_restricted", checked: @poll.geozones.any? && poll.geozones.first.district == false, 'data-alert': t('admin.polls.new.select_sub') %>
+          <%= f.check_box :geozone_restricted, label: t('admin.polls.new.sub_restricted'), id: "subs_restricted", checked: @poll.geozones.any? && @poll.geozones.first.district == false, 'data-alert': t('admin.polls.new.select_sub') %>
         </div>
       </div>
     <% end %>
   </div>
 
   <% if @current_user.administrator? %>
-    <div id="subs" style="<%= @poll.geozones.any? && poll.geozones.first.district == false ? "" : "display:none" %>">
+    <div id="subs" style="<%= @poll.geozones.any? && @poll.geozones.first.district == false ? "" : "display:none" %>">
       <div class="row">
         <%= f.collection_check_boxes(:geozone_ids, @subs, :id, :name) do |b| %>
           <div class="small-6 medium-3 column">
@@ -67,11 +67,11 @@
     <div class="row">
       <div class="clear">
         <div class="column">
-          <%= f.check_box :geozone_restricted, label: t('admin.polls.new.district_restricted'), id: "districts_restricted", checked: @poll.geozones.any? && poll.geozones.first.district == true, 'data-alert': t('admin.polls.new.select_district') %>
+          <%= f.check_box :geozone_restricted, label: t('admin.polls.new.district_restricted'), id: "districts_restricted", checked: @poll.geozones.any? && @poll.geozones.first.district == true, 'data-alert': t('admin.polls.new.select_district') %>
         </div>
       </div>
 
-      <div id="districts" style="<%= @poll.geozones.any? && poll.geozones.first.district == true ? "" : "display:none" %>">
+      <div id="districts" style="<%= @poll.geozones.any? && @poll.geozones.first.district == true ? "" : "display:none" %>">
         <div class="row column">
           <%= f.collection_check_boxes(:geozone_ids, @districts, :id, :name) do |b| %>
             <div class="small-6 medium-3 column">
