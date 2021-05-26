@@ -15,7 +15,7 @@
     <div class="callout success">
       <p><%= t("legislation.processes.debate.participate") %></p>
     </div>
-  <% elsif !process.debate_phase.open? && process.questions.any? %>
+  <% elsif !process.debate_phase.open? %>
     <div class="callout warning">
       <p><%= t("legislation.processes.debate.phase_not_open") %></p>
     </div>

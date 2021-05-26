@@ -38,6 +38,10 @@
           }
         }
       });
+
+      if !($('#subs_restricted').is(":checked")) {
+        $('#subs input[type=checkbox]').prop( "checked", false );
+      }
     }
   }
 
