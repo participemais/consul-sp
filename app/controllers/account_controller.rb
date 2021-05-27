@@ -31,11 +31,11 @@ class AccountController < ApplicationController
               @account.save
             else
               @subs = @districts.map { |district| district.subprefecture}.uniq
-              @select_address = true
+              @select_from_list = true
             end
           end
         else
-          @select_district = true
+          @select_from_all = true
         end
       elsif !@account.resident?
         @account.update geozone_id: nil

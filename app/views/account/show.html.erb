@@ -154,16 +154,16 @@
               ) %>
             </div>
 
-            <% if @select_address %>
+            <% if @select_from_list %>
               <div class="row">
                 <div class="medium-6 column">
-                  <%= f.collection_select(:sub_id, @subs, :id, :name) %>
+                  <%= f.select(:sub_id, options_from_collection_for_select(@subs, :id, :name), { label: 'Subprefeitura' }) %>
                 </div>
                 <div class="medium-6 column">
-                  <%= f.collection_select(:geozone_id, @districts, :id, :name) %>
-                </div>
+                  <%= f.select(:geozone_id, options_from_collection_for_select(Geozone.where(district: true), :id, :name), { label: 'Distrito' }) %>
+                </div>          
               </div>
-            <% elsif @select_district %>              
+            <% elsif @select_from_all %>              
               <div class="row">
                 <div class="medium-6 column">
                   <%= f.select(:sub_id, options_from_collection_for_select(Geozone.where(district: false), :id, :name), { label: 'Subprefeitura' }) %>

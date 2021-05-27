@@ -12,6 +12,8 @@ class Geozone < ApplicationRecord
 
   validates :name, presence: true
 
+  after_update :update_users
+
   scope :public_for_api, -> { all }
 
   def self.names
@@ -95,5 +97,11 @@ class Geozone < ApplicationRecord
 
   def has? lat,long
     self.coordinates.contains_point?(BorderPatrol::Point.new(long.to_f, lat.to_f))
+  end
+
+  private
+
+  def update_users
+    User.where(geozone_id: id).update(geozone_id: nil)
   end
 end
