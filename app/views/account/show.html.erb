@@ -154,34 +154,36 @@
               ) %>
             </div>
 
-            <% if @select_from_list %>
-              <div class="row">
-                <div class="medium-6 column">
-                  <%= f.select(:sub_id, options_from_collection_for_select(@subs, :id, :name), { label: 'Subprefeitura' }) %>
+            <div class="other-fields <%= address_hide_class %>">
+              <% if @select_from_list %>
+                <div class="row">
+                  <div class="medium-6 column">
+                    <%= f.select(:sub_id, options_from_collection_for_select(@subs, :id, :name), { label: 'Subprefeitura' }) %>
+                  </div>
+                  <div class="medium-6 column">
+                    <%= f.select(:geozone_id, options_from_collection_for_select(Geozone.where(district: true), :id, :name), { label: 'Distrito' }) %>
+                  </div>          
                 </div>
-                <div class="medium-6 column">
-                  <%= f.select(:geozone_id, options_from_collection_for_select(Geozone.where(district: true), :id, :name), { label: 'Distrito' }) %>
-                </div>          
-              </div>
-            <% elsif @select_from_all %>              
-              <div class="row">
-                <div class="medium-6 column">
-                  <%= f.select(:sub_id, options_from_collection_for_select(Geozone.where(district: false), :id, :name), { label: 'Subprefeitura' }) %>
+              <% elsif @select_from_all %>              
+                <div class="row">
+                  <div class="medium-6 column">
+                    <%= f.select(:sub_id, options_from_collection_for_select(Geozone.where(district: false), :id, :name), { label: 'Subprefeitura' }) %>
+                  </div>
+                  <div class="medium-6 column">
+                    <%= f.select(:geozone_id, options_from_collection_for_select(Geozone.where(district: true), :id, :name), { label: 'Distrito' }) %>
+                  </div>          
                 </div>
-                <div class="medium-6 column">
-                  <%= f.select(:geozone_id, options_from_collection_for_select(Geozone.where(district: true), :id, :name), { label: 'Distrito' }) %>
-                </div>          
-              </div>
-            <% elsif @account.geozone_id.present? %>
-              <div class="row">
-                <div class="medium-6 column">
-                  <%= f.select(:sub_id, options_from_collection_for_select(Geozone.where(district: false), :id, :name, selected: @account.geozone.subprefecture.id), { label: 'Subprefeitura' }, disabled: true ) %>
+              <% elsif @account.geozone_id.present? %>
+                <div class="row">
+                  <div class="medium-6 column">
+                    <%= f.select(:sub_id, options_from_collection_for_select(Geozone.where(district: false), :id, :name, selected: @account.geozone.subprefecture.id), { label: 'Subprefeitura' }, disabled: true ) %>
+                  </div>
+                  <div class="medium-6 column">
+                    <%= f.select(:geozone_id, options_from_collection_for_select(Geozone.where(district: true), :id, :name, selected: @account.geozone_id), { label: 'Distrito' }, disabled: true ) %>
+                  </div>
                 </div>
-                <div class="medium-6 column">
-                  <%= f.select(:geozone_id, options_from_collection_for_select(Geozone.where(district: true), :id, :name, selected: @account.geozone_id), { label: 'Distrito' }, disabled: true ) %>
-                </div>
-              </div>
-            <% end %>
+              <% end %>
+            </div>
           </div>
 
           <%= f.submit t("account.show.save_changes_submit"), class: "button margin-top" %>
