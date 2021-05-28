@@ -7,7 +7,11 @@ class GeozoneStats
   end
 
   def geozone_participants
-    participants.where(geozone: geozone)
+    if geozone.district?
+      participants.where(geozone: geozone)
+    else
+      participants.joins(:geozone).where(geozones: {subprefecture_id: geozone.id})
+    end
   end
 
   def name
