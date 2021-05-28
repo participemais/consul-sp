@@ -102,6 +102,6 @@ class Geozone < ApplicationRecord
   private
 
   def update_users
-    User.where(geozone_id: id).update(geozone_id: nil)
+    User.where(geozone_id: id).update(geozone_id: nil) if !active
   end
 end

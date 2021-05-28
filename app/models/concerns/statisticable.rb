@@ -143,6 +143,19 @@ module Statisticable
       [
         stats.name,
         {
+          sub: stats.sub,
+          count: stats.count,
+          percentage: stats.percentage
+        }
+      ]
+    end.to_h
+  end
+
+  def participants_by_sub
+    geozone_stats.map do |stats|
+      [
+        stats.name,
+        { 
           count: stats.count,
           percentage: stats.percentage
         }

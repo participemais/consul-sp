@@ -6,11 +6,15 @@
       const $city = $('#account_city');
       const $uf = $('#account_uf');
       const $neighbourhood = $('#account_neighbourhood');
+      const $sub = $('#account_sub_id');
+      const $district = $('#account_geozone_id');
 
       function clear_address_fields() {
         $address.val('');
         $city.val('');
         $uf.val('');
+        $sub.val('');
+        $district.val('');
       }
 
       $('#account_cep').blur((handler) => {

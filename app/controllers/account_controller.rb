@@ -18,21 +18,14 @@ class AccountController < ApplicationController
           @account.geozone = Geozone.sub_search(lat, long)
           @account.save
         elsif results.count > 1
-          if params[:address].present?
-            lat = results[params[:address].to_i]['lat']
-            long = results[params[:address].to_i]['lon']
-            @account.geozone = Geozone.sub_search(lat, long)
+          @districts = Geozone.compare(results)
+          
+          if @districts.count == 1
+            @account.geozone = @districts.first
             @account.save
-          else
-            @districts = Geozone.compare(results)
-            
-            if @districts.count == 1
-              @account.geozone = @districts.first
-              @account.save
-            else
-              @subs = @districts.map { |district| district.subprefecture}.uniq
-              @select_from_list = true
-            end
+          elsif @districts.count > 1
+            @subs = @districts.map { |district| district.subprefecture}.uniq
+            @select_from_list = true
           end
         else
           @select_from_all = true
