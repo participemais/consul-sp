@@ -240,11 +240,11 @@ module Statisticable
     end
 
     def geozone_stats
-      geozones.select(district: true).map { |geozone| GeozoneStats.new(geozone, participants) }
+      geozones.select(&:district?).map { |geozone| GeozoneStats.new(geozone, participants) }
     end
 
     def sub_stats
-      geozones.select(district: false).map { |geozone| GeozoneStats.new(geozone, participants) }
+      geozones.reject(&:district?).map { |geozone| GeozoneStats.new(geozone, participants) }
     end
 
     def range_description(start, finish)
