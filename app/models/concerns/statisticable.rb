@@ -152,7 +152,7 @@ module Statisticable
   end
 
   def participants_by_sub
-    geozone_stats.map do |stats|
+    sub_stats.map do |stats|
       [
         stats.name,
         { 
@@ -240,7 +240,11 @@ module Statisticable
     end
 
     def geozone_stats
-      geozones.map { |geozone| GeozoneStats.new(geozone, participants) }
+      geozones.select(district: true).map { |geozone| GeozoneStats.new(geozone, participants) }
+    end
+
+    def sub_stats
+      geozones.select(district: false).map { |geozone| GeozoneStats.new(geozone, participants) }
     end
 
     def range_description(start, finish)
