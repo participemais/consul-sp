@@ -45,7 +45,7 @@
       <% stats.participants_by_geozone.each do |geozone, stats| %>
         <tr>
           <td><%= geozone %></td>
-          <td><%= stats.sub %></td>
+          <td><%= stats[:sub] %></td>
           <td><%= "#{stats[:count]} (#{number_to_stats_percentage(stats[:percentage])})" %></td>
         </tr>
       <% end %>
