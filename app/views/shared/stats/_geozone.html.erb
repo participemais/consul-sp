@@ -17,16 +17,36 @@
   <table>
     <thead>
       <tr>
-        <th><%= t("stats.geozone") %></th>
+        <th>Subprefeitura</th>
         <th><%= t("stats.total") %></th>
       </tr>
     </thead>
 
     <tbody>
-      <% stats.participants_by_geozone.each do |geozone, participants| %>
+      <% stats.participants_by_sub.each do |geozone, stats| %>
         <tr>
           <td><%= geozone %></td>
-          <td><%= "#{participants[:count]} (#{number_to_stats_percentage(participants[:percentage])})" %></td>
+          <td><%= "#{stats[:count]} (#{number_to_stats_percentage(stats[:percentage])})" %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Distrito</th>
+        <th>Subprefeitura</th>
+        <th><%= t("stats.total") %></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% stats.participants_by_geozone.each do |geozone, stats| %>
+        <tr>
+          <td><%= geozone[:name] %></td>
+          <td><%= stats.sub %></td>
+          <td><%= "#{stats[:count]} (#{number_to_stats_percentage(stats[:percentage])})" %></td>
         </tr>
       <% end %>
     </tbody>

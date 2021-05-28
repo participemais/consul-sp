@@ -14,6 +14,10 @@ class GeozoneStats
     geozone.name
   end
 
+  def sub
+    geozone.subprefecture.name
+  end
+
   def count
     geozone_participants.count
   end
