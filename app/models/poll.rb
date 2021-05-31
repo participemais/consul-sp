@@ -29,6 +29,7 @@ class Poll < ApplicationRecord
 
   has_many :geozones_polls
   has_many :geozones, through: :geozones_polls
+  has_and_belongs_to_many :geozones_for_stats, class_name: "Geozone", join_table: 'geozones_for_stats_polls'
 
   has_many :editor_polls, foreign_key: "poll_id"
   has_many :editors, through: :editor_polls
@@ -271,9 +272,10 @@ class Poll < ApplicationRecord
   def update_geozone_restricted
     if geozones.any?
      self.geozone_restricted = true
+     self.geozones_for_stats = geozones
     else
      self.geozone_restricted = false
-     self.geozones = Geozone.where(active: true, district: false)
+     self.geozones_for_stats = Geozone.where(active: true)
     end
   end
 end
