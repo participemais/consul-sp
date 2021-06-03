@@ -37,7 +37,7 @@ module Statisticable
     end
 
     def geozone_methods
-      %i[participants_by_geozone total_no_demographic_data]
+      %i[participants_by_district participants_by_sub total_no_demographic_data]
     end
 
     def stats_cache(*method_names)
