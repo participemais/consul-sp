@@ -138,8 +138,8 @@ module Statisticable
     end.to_h
   end
 
-  def participants_by_geozone
-    geozone_stats.map do |stats|
+  def participants_by_district
+    district_stats.map do |stats|
       [
         stats.name,
         {
@@ -239,7 +239,7 @@ module Statisticable
       resource.geozones_for_stats.order("name")
     end
 
-    def geozone_stats
+    def district_stats
       geozones.select(&:district?).map { |geozone| GeozoneStats.new(geozone, participants) }
     end
 

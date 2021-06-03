@@ -272,7 +272,11 @@ class Poll < ApplicationRecord
   def update_geozone_restricted
     if geozones.any?
      self.geozone_restricted = true
-     self.geozones_for_stats = geozones
+      if geozones.first.district? 
+        self.geozones_for_stats = geozones + geozones.map {|geozone| geozone.subprefecture }.uniq
+      elsif
+        self.geozones_for_stats = geozones + geozones.inject([]) { |result, geozone| result << geozone.districts }.flatten
+      end
     else
      self.geozone_restricted = false
      self.geozones_for_stats = Geozone.where(active: true)
