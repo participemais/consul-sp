@@ -3,6 +3,8 @@
 <%= translatable_form_for [:edition, @poll] do |f| %>
   <%= render "shared/errors", resource: @poll %>
 
+  <%= f.hidden_field(:statiscable, value: true) if f.object.new_record? %>
+
   <% if @current_user.administrator? %>
     <div class="row">
       <div class="clear">
