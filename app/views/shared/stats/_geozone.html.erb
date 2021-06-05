@@ -1,4 +1,4 @@
-<% if stats.resource.statisticable? %>
+<% if stats.resource.try(:statisticable?) %>
   <div id="participants_by_geozone" class="stats-group">
     <h4><%= t("stats.by_geozone") %></h4>
 
