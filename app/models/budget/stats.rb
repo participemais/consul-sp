@@ -23,7 +23,7 @@ class Budget::Stats
 
   def phases
     types = ["vote"]
-    types.unshift("accepting", "support") if budget_supports.any?
+    types.unshift("accepting") if budget_supports.any?
     types.select { |phase| send("#{phase}_phase_finished?") }
   end
 
