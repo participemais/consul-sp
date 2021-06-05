@@ -99,6 +99,13 @@ class Geozone < ApplicationRecord
     self.coordinates.contains_point?(BorderPatrol::Point.new(long.to_f, lat.to_f))
   end
 
+  def archive
+    if !district?
+      districts.each { |d| d.update active: false }
+    end
+    update active: false
+  end
+
   private
 
   def update_users
