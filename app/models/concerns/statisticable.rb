@@ -236,7 +236,7 @@ module Statisticable
     end
 
     def geozones
-      resource.geozones_for_stats.order("name")
+      resource.geozones_for_stats.joins(:subprefecture).order('subprefectures_geozones.name', 'name')
     end
 
     def district_stats

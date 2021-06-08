@@ -1,4 +1,12 @@
 GIT
+  remote: https://github.com/mattantonelli/dynamic_selectable.git
+  revision: 6df9658177f0296b77a7d8cf47d592af97745588
+  specs:
+    dynamic_selectable (1.1.1)
+      coffee-script (~> 2.3)
+      rails (>= 4.1, < 6.0)
+
+GIT
   remote: https://github.com/phatworx/devise_security_extension.git
   revision: b2ee978af7d49f0fb0e7271c6ac074dfb4d39353
   specs:
@@ -648,6 +656,7 @@ DEPENDENCIES
   devise (~> 4.7.1)
   devise-async (~> 1.0.0)
   devise_security_extension!
+  dynamic_selectable!
   email_spec (~> 2.2.0)
   erb_lint
   factory_bot_rails (~> 4.8.2)
