@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  namespace :dynamic_selectable do
+    get 'geozones/:geozone_id/districts', to: 'sub_districts#index', as: :sub_districts
+  end
+
   mount Ckeditor::Engine => "/ckeditor"
   mount LetterOpenerWeb::Engine, at: "/letter_opener" if Rails.env.development?
 
