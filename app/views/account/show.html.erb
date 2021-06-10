@@ -158,19 +158,21 @@
               <% if @select_from_list %>
                 <div class="row">
                   <div class="medium-6 column">
-                    <%= f.select(:sub_id, options_from_collection_for_select(@subs, :id, :name), { label: 'Subprefeitura' }) %>
+                    <%= label_tag "Subprefeitura" %>
+                    <%= dynamic_collection_select(:account, :sub_id, :district, @subs, :id, :name, {}, {}) %>
                   </div>
                   <div class="medium-6 column">
-                    <%= f.select(:geozone_id, options_from_collection_for_select(Geozone.where(district: true, active: true), :id, :name), { label: 'Distrito' }) %>
-                  </div>          
+                    <%= f.collection_select(:district_id, [], :id, :name, { label: 'Distrito' }, {}) %>
+                  </div>            
                 </div>
               <% elsif @select_from_all %>              
                 <div class="row">
                   <div class="medium-6 column">
-                    <%= dynamic_collection_select(:account, :sub_id, :district, options_from_collection_for_select(Geozone.where(district: false, active: true), :id, :name), { label: 'Subprefeitura' }) %>
+                    <%= label_tag "Subprefeitura" %>
+                    <%= dynamic_collection_select(:account, :sub_id, :district, Geozone.where(district: false, active: true), :id, :name, {}, {}) %>
                   </div>
                   <div class="medium-6 column">
-                    <%= f.collection_select(:district_id, [], :id, :name, { label: 'Distrito' }) %>
+                    <%= f.collection_select(:district_id, [], :id, :name, { label: 'Distrito' }, {}) %>
                   </div>          
                 </div>
               <% elsif @account.geozone_id.present? %>
