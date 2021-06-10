@@ -236,15 +236,15 @@ module Statisticable
     end
 
     def geozones
-      resource.geozones_for_stats.joins(:subprefecture).order('subprefectures_geozones.name', 'name')
+      resource.geozones_for_stats
     end
 
     def district_stats
-      geozones.select(&:district?).map { |geozone| GeozoneStats.new(geozone, participants) }
+      geozones.joins(:subprefecture).order('subprefectures_geozones.name', 'name').select(&:district?).map { |geozone| GeozoneStats.new(geozone, participants) }
     end
 
     def sub_stats
-      geozones.reject(&:district?).map { |geozone| GeozoneStats.new(geozone, participants) }
+      geozones.order("name").reject(&:district?).map { |geozone| GeozoneStats.new(geozone, participants) }
     end
 
     def range_description(start, finish)
