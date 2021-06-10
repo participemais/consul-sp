@@ -15,6 +15,8 @@ class User < ApplicationRecord
 
   include Graphqlable
 
+  alias_attribute :district_id, :geozone_id
+
   has_one :administrator
   has_one :moderator
   has_one :valuator

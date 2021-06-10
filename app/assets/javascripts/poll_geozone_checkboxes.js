@@ -10,6 +10,7 @@
           $('#districts input').prop('checked', false);
         } else {
           $('#subs').slideUp();
+          $('#subs input').prop('checked', false);
         }
 
       });
@@ -22,6 +23,7 @@
           $('#subs input').prop('checked', false);
         } else {
           $('#districts').slideUp();
+          $('#districts input').prop('checked', false);
         }
       });
 
