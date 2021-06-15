@@ -31,7 +31,7 @@ module Abilities
       can :access, :ckeditor
       can :manage, Ckeditor::Picture
 
-      can [:manage], ::Legislation::Process, editors: { user_id: user.id }
+      can [:manage], ::Legislation::Process, id: user.editor.poll_ids if user.editor.present?
       can [:manage], ::Legislation::DraftVersion
       can [:manage], ::Legislation::Question
       can [:manage], ::Legislation::Proposal
