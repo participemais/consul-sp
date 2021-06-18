@@ -9,7 +9,7 @@ class AccountController < ApplicationController
 
   def update
     if @account.update(account_params)
-      if @account.level_three_verified? && @account.geozone_id.blank? && @account.resident?
+      if @account.level_three_verified? && @account.geozone_id.blank? && @account.from_sp?
         results = OpenStreetMapService.search(@account.query_address)
 
         if results.count == 1
@@ -30,7 +30,7 @@ class AccountController < ApplicationController
         else
           @select_from_all = true
         end
-      elsif !@account.resident?
+      elsif !@account.from_sp?
         @account.update geozone_id: nil
       end
       render :show, notice: t("flash.actions.save_changes.notice")
