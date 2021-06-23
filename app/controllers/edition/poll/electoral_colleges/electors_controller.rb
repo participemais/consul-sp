@@ -13,7 +13,7 @@ class Edition::Poll::ElectoralColleges::ElectorsController < Edition::Poll::Base
   end
 
   def new
-    @elector = Poll::Elector.new
+    @elector = Poll::Elector.new()
   end
 
   def create
