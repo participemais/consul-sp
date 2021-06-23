@@ -251,7 +251,7 @@ pt-BR:
       feasibility_analysis/department:
         name: Nome
       budget/group:
-        max_votable_headings: "Número máximo de títulos em que um usuário pode votar"
+        max_votable_headings: "Número máximo de subprefeituras em que um usuário pode votar"
       budget/group/translation:
         name: "Nome do grupo"
       budget/heading:

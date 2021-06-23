@@ -23,19 +23,21 @@ module Abilities
       can :manage, Dashboard::Action
 
       can [:read, :edit, :update, :add_question, :search_booths, :search_officers, :booth_assignments], Poll, id: user.editor.poll_ids if user.editor.present?
+      can [:read, :create, :update], Poll::Question, poll_id: user.editor.poll_ids if user.editor.present?
       can [:manage], Poll::Question::Answer, poll_id: user.editor.poll_ids if user.editor.present?
-      can [:manage], Poll::ElectoralCollege
-      can [:manage], Poll::Elector
+      can [:manage], Poll::ElectoralCollege, poll_id: user.editor.poll_ids if user.editor.present?
+      can [:manage], Poll::Elector, poll_id: user.editor.poll_ids if user.editor.present?
       can [:create, :read], Poll::Electors::Import
 
       can :access, :ckeditor
       can :manage, Ckeditor::Picture
 
+
       can [:manage], ::Legislation::Process, id: user.editor.poll_ids if user.editor.present?
-      can [:manage], ::Legislation::DraftVersion
-      can [:manage], ::Legislation::Question
-      can [:manage], ::Legislation::Proposal
-      can [:manage], ::Legislation::Topic
+      can [:manage], ::Legislation::DraftVersion, legislation_proccess_id: user.editor.poll_ids if user.editor.present?
+      can [:manage], ::Legislation::Question, legislation_proccess_id: user.editor.poll_ids if user.editor.present?
+      can [:manage], ::Legislation::Proposal, legislation_proccess_id: user.editor.poll_ids if user.editor.present?
+      can [:manage], ::Legislation::Topic, legislation_proccess_id: user.editor.poll_ids if user.editor.present?
       cannot :comment_as_moderator, [::Legislation::Question, Legislation::Annotation, ::Legislation::Proposal]
 
       can [:create], Document

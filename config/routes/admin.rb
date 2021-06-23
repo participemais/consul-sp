@@ -58,7 +58,7 @@ namespace :admin do
 
     resources :groups, except: [:show], controller: "budget_groups" do
       resources :imports, only: [:new, :create, :show], controller: "budget_group_imports"
-      resources :headings, except: [:show], controller: "budget_headings"
+      resources :headings, except: [:new, :create, :show, :destroy], controller: "budget_headings"
     end
 
     resources :budget_investments, only: [:index, :show, :edit, :update] do

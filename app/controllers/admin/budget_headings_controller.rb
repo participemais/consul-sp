@@ -11,20 +11,7 @@ class Admin::BudgetHeadingsController < Admin::BaseController
     @headings = @group.headings.order(:id)
   end
 
-  def new
-    @heading = @group.headings.new
-  end
-
   def edit
-  end
-
-  def create
-    @heading = @group.headings.new(budget_heading_params)
-    if @heading.save
-      redirect_to headings_index, notice: t("admin.budget_headings.create.notice")
-    else
-      render :new
-    end
   end
 
   def update
@@ -32,15 +19,6 @@ class Admin::BudgetHeadingsController < Admin::BaseController
       redirect_to headings_index, notice: t("admin.budget_headings.update.notice")
     else
       render :edit
-    end
-  end
-
-  def destroy
-    if @heading.can_be_deleted?
-      @heading.destroy!
-      redirect_to headings_index, notice: t("admin.budget_headings.destroy.success_notice")
-    else
-      redirect_to headings_index, alert: t("admin.budget_headings.destroy.unable_notice")
     end
   end
 
