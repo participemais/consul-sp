@@ -52,7 +52,7 @@ namespace :geozones do
 
   desc "Atribui geozona aos usuários"
   task set: :environment do
-    User.all.select(:from_sp?).each do |user|
+    User.where(city: "São Paulo", uf: "SP").each do |user|
       results = OpenStreetMapService.search(user.query_address)
 
       if results.count == 1
@@ -72,12 +72,12 @@ namespace :geozones do
   end
 
   desc "Conta usuários e geozonas"
-  task set: :environment do
+  task count: :environment do
     matches_count = 0
     many_matches_count = 0
     no_matches_count = 0
 
-    User.all.select(:from_sp?).each do |user|    
+     User.where(city: "São Paulo", uf: "SP").each do |user|    
       results = OpenStreetMapService.search(user.query_address)
 
       if results.count == 1
@@ -85,14 +85,14 @@ namespace :geozones do
         long = results.first['lon']
         user.geozone = Geozone.sub_search(lat, long)
         #user.save
-        match += 1
+        matches_count += 1
       elsif results.count > 1
         @districts = Geozone.compare(results)
         
         if @districts.count == 1
           user.geozone = @districts.first
           #user.save
-          match += 1
+          matches_count += 1
         elsif @districts.count > 1
           many_matches_count += 1
         end

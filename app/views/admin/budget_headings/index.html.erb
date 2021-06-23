@@ -5,9 +5,6 @@
 <%= link_to 'Importar CSV',
          new_admin_budget_group_import_path,
         class: "button float-right hollow" %>
-<%= link_to 'Criar título',
-            new_admin_budget_group_heading_path,
-            class: "button float-right" %>
 
 <% if @headings.any? %>
   <h3><%= t("admin.budget_headings.amount", count: @headings.count) %></h3>
@@ -40,10 +37,6 @@
             <%= link_to t("admin.actions.edit"),
                         edit_admin_budget_group_heading_path(@budget, @group, heading),
                         class: "button hollow" %>
-            <%= link_to t("admin.actions.delete"),
-                        admin_budget_group_heading_path(@budget, @group, heading),
-                        method: :delete,
-                        class: "button hollow alert" %>
           </td>
         </tr>
       <% end %>
