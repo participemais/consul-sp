@@ -33,11 +33,11 @@ module Abilities
       can :manage, Ckeditor::Picture
 
 
-      can [:manage], ::Legislation::Process, id: user.editor.poll_ids if user.editor.present?
-      can [:manage], ::Legislation::DraftVersion, legislation_process_id: user.editor.poll_ids if user.editor.present?
-      can [:manage], ::Legislation::Question, legislation_process_id: user.editor.poll_ids if user.editor.present?
-      can [:manage], ::Legislation::Proposal, legislation_process_id: user.editor.poll_ids if user.editor.present?
-      can [:manage], ::Legislation::Topic, legislation_process_id: user.editor.poll_ids if user.editor.present?
+      can [:manage], ::Legislation::Process, id: user.editor.legislation_process_ids if user.editor.present?
+      can [:manage], ::Legislation::DraftVersion, legislation_process_id: user.editor.legislation_process_ids if user.editor.present?
+      can [:manage], ::Legislation::Question, legislation_process_id: user.editor.legislation_process_ids if user.editor.present?
+      can [:manage], ::Legislation::Proposal, legislation_process_id: user.editor.legislation_process_ids if user.editor.present?
+      can [:manage], ::Legislation::Topic, legislation_process_id: user.editor.legislation_process_ids if user.editor.present?
       cannot :comment_as_moderator, [::Legislation::Question, Legislation::Annotation, ::Legislation::Proposal]
 
       can [:create], Document
