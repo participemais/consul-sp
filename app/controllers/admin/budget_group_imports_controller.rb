@@ -1,5 +1,7 @@
 class Admin::BudgetGroupImportsController < Admin::BaseController
   load_and_authorize_resource class: "Budget::Group::Import"
+  load_and_authorize_resource :budget
+  load_and_authorize_resource :group, class: "Budget::Group"
 
   def create
     @import = Budget::Group::Import.new(budget_group_import_params)
@@ -12,12 +14,12 @@ class Admin::BudgetGroupImportsController < Admin::BaseController
   end
   
   def new
-    
+    @import = Budget::Group::Import.new
   end
 
   private
 
-    def group_import_params
+    def budget_group_import_params
       return {} unless params[:budget_group_import].present?
 
       params.require(:budget_group_import).permit(:file)

@@ -12,6 +12,7 @@
           investment.documents,
           investment.image,
           investment.author,
+          investment.ballot_lines_count,
           Flag.flagged?(current_user, investment),
           @investment_votes] do %>
   <section class="budget-investment-show" id="<%= dom_id(investment) %>">
