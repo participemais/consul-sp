@@ -75,6 +75,7 @@ class Budget::Group::Import
 
     def file_headers_definition
       headers = fetch_file_headers
+      byebug
       return if headers.all? { |header| ATTRIBUTES.include? header } &&
         ATTRIBUTES.all? { |attr| headers.include? attr }
 

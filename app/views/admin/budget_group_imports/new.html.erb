@@ -1,12 +1,25 @@
-<%= back_link_to admin_budget_group_headings_path(@budget, group) %>
+<%= back_link_to admin_budget_group_headings_path(@budget, @group) %>
 
-<h2><%= t("admin.poll_electors.import.new.title") %></h2>
+<h2>Importar CSV de subprefeituras </h2>
 
 <p>
   <%= t(
     "admin.poll_electors.import.new.info",
-    required_headers: electors_import_required_headers
+    required_headers: Budget::Group::Import::ATTRIBUTES.to_sentence(last_word_connector: " e ")
   ) %>
 </p>
 
-<%= render "form" %>
+<%= form_for(
+  @import,
+  url: admin_budget_group_imports_path(@budget, @group)
+) do |f| %>
+  <%= render "shared/errors", resource: @import %>
+
+  <%= f.file_field :file, label: 'Arquivo' %>
+
+  <p class="small"><%= t("admin.poll_electors.import.new.load_info") %></p>
+
+  <div class="small-12 medium-4 large-2 margin-top">
+    <%= f.submit(class: "button success expanded", value: t("shared.save")) %>
+  </div>
+<% end %>

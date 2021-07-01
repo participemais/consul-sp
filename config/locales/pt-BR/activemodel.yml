@@ -39,6 +39,8 @@ pt-BR:
         file: Arquivo
       poll/electors/import:
         file: Arquivo
+      Budget/Group/Import:
+        file: Arquivo
     errors:
       models:
         local_census_records/import:
@@ -47,6 +49,11 @@ pt-BR:
               extension: "Formato de arquivo inválido. O formato permitido é: %{valid_extensions}."
               headers: "O cabeçalho do arquivo inserido é inválido. O cabeçalho deve ter os seguintes itens: %{required_headers}."
         poll/electors/import:
+          attributes:
+            file:
+              extension: "Formato de arquivo inválido. O formato permitido é: %{valid_extensions}."
+              headers: "O cabeçalho do arquivo inserido é inválido. O cabeçalho deve ter os seguintes itens: %{required_headers}."
+        budget/group/import:
           attributes:
             file:
               extension: "Formato de arquivo inválido. O formato permitido é: %{valid_extensions}."
