@@ -159,20 +159,20 @@
                 <div class="row">
                   <div class="medium-6 column">
                     <%= label_tag "Subprefeitura" %>
-                    <%= dynamic_collection_select(:account, :sub_id, :district, @subs, :id, :name, {}, {}) %>
+                    <%= dynamic_collection_select(:account, :sub_id, :district, @subs, :id, :name, { include_blank: 'Selecione' }, {}) %>
                   </div>
                   <div class="medium-6 column">
-                    <%= f.collection_select(:district_id, [], :id, :name, { label: 'Distrito' }, {}) %>
+                    <%= f.collection_select(:district_id, [], :id, :name, { label: 'Distrito', include_blank: 'Selecione' }, {}) %>
                   </div>            
                 </div>
               <% elsif @select_from_all %>              
                 <div class="row">
                   <div class="medium-6 column">
                     <%= label_tag "Subprefeitura" %>
-                    <%= dynamic_collection_select(:account, :sub_id, :district, Geozone.where(district: false, active: true), :id, :name, {}, {}) %>
+                    <%= dynamic_collection_select(:account, :sub_id, :district, Geozone.where(district: false, active: true), :id, :name, { include_blank: 'Selecione' }, {}) %>
                   </div>
                   <div class="medium-6 column">
-                    <%= f.collection_select(:district_id, [], :id, :name, { label: 'Distrito' }, {}) %>
+                    <%= f.collection_select(:district_id, [], :id, :name, { label: 'Distrito', include_blank: 'Selecione' }, {}) %>
                   </div>          
                 </div>
               <% elsif @account.geozone_id.present? %>
@@ -243,3 +243,9 @@
 
   </div>
 </div>
+
+<script type="text/javascript">
+  $('#account_district_id').on('change', function() {
+   $('#account_district_id').find('option').get(0).remove();
+  });
+</script>
