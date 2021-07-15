@@ -1,6 +1,8 @@
 class AccountController < ApplicationController
   before_action :authenticate_user!
   before_action :set_account
+  before_action :set_geozone, only: :update
+
   load_and_authorize_resource class: "User"
 
   def show
@@ -9,30 +11,6 @@ class AccountController < ApplicationController
 
   def update
     if @account.update(account_params)
-      if @account.level_three_verified? && @account.geozone_id.blank? && @account.from_sp?
-        results = OpenStreetMapService.search(@account.query_address)
-
-        if results.count == 1
-          lat = results.first['lat']
-          long = results.first['lon']
-          @account.geozone = Geozone.sub_search(lat, long)
-          @account.save
-        elsif results.count > 1
-          @districts = Geozone.compare(results)
-          
-          if @districts.count == 1
-            @account.geozone = @districts.first
-            @account.save
-          elsif @districts.count > 1
-            @subs = @districts.map { |district| district.subprefecture}.uniq
-            @select_from_list = true
-          end
-        else
-          @select_from_all = true
-        end
-      elsif !@account.from_sp?
-        @account.update geozone_id: nil
-      end
       render :show, notice: t("flash.actions.save_changes.notice")
     else
       @account.errors.messages.delete(:organization)
@@ -41,6 +19,33 @@ class AccountController < ApplicationController
   end
 
   private
+
+    def set_geozone
+      if @account.level_three_verified? && @account.cep.changed? && @account.from_sp?
+        results = OpenStreetMapService.search(@account.query_address)
+
+        if results.count == 1
+          lat = results.first['lat']
+          long = results.first['lon']
+          @account.update geozone: Geozone.sub_search(lat, long)
+        elsif results.count > 1
+          @districts = Geozone.compare(results)
+          
+          if @districts.count == 1
+            @account.update geozone: @districts.first
+          elsif @districts.count > 1
+            @subs = @districts.map { |district| district.subprefecture}.uniq
+            @select_from_list = true
+            @account.update geozone: nil
+          end
+        else
+          @select_from_all = true
+          @account.update geozone: nil
+        end
+      elsif !@account.from_sp?
+        @account.update geozone: nil
+      end
+    end
 
     def set_account
       @account = current_user
