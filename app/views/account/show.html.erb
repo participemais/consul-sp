@@ -210,7 +210,7 @@
               </li>
             <% end %>
             <li>
-              <% if current_user.level_three_verified? && current_user.can_vote? %>
+              <% if current_user.level_three_verified? && current_user.can_vote? && current_user.complete_address? && current_user.complete_registration? %>
                 <span class="icon-check"></span>
               <% else %>
                 <span class="icon-x"></span>
