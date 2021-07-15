@@ -1,7 +1,7 @@
 <tr id="<%= dom_id(poll) %>" class="poll">
   <td>
     <strong>
-      <% if current_user.editor? && poll.editable? || current_user.administrator? %>
+      <% if current_user.editor? && poll.editable? && current_user.editor.poll_ids.include?(poll.id)|| current_user.administrator? %>
         <%= link_to poll.name, edition_poll_path(poll) %>
       <% else %>
         <%= poll.name %>
@@ -15,7 +15,7 @@
     <%= l poll.ends_at.to_date %>
   </td>
   <td>
-    <% if current_user.editor? && poll.editable? || current_user.administrator? %>
+    <% if current_user.editor? && poll.editable? && current_user.editor.poll_ids.include?(poll.id) || current_user.administrator? %>
       <%= link_to t("admin.actions.edit"),
                   edition_poll_path(poll),
                   class: "button hollow" %>

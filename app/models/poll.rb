@@ -47,6 +47,8 @@ class Poll < ApplicationRecord
   validate :date_range
   validate :only_one_active, unless: :public?
 
+  before_create :set_statisticable
+
   before_save :schedule_electoral_college_deactivation, if: :trigger_job?
   before_save :activate_electoral_college, if: :trigger_job?
   before_save :update_geozone_restricted
@@ -124,10 +126,13 @@ class Poll < ApplicationRecord
   end
 
   def include_geozone?(user)
-    if geozones.first.district?
-      geozone_ids.include?(user.geozone_id)
-    else
-      geozone_ids.include?(user.geozone.subprefecture.id)
+    if geozone_restricted? && user.geozone_id.present?
+      if geozones.first.district?
+        geozone_ids.include?(user.geozone_id)
+      else
+        geozone_ids.include?(user.geozone.subprefecture.id)
+      end
+    else false
     end
   end
 
@@ -281,5 +286,9 @@ class Poll < ApplicationRecord
      self.geozone_restricted = false
      self.geozones_for_stats = Geozone.where(active: true)
     end
+  end
+
+  def set_statisticable
+    self.statisticable = true
   end
 end

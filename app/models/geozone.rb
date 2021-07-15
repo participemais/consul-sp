@@ -109,6 +109,6 @@ class Geozone < ApplicationRecord
   private
 
   def update_users
-    User.where(geozone_id: id).update(geozone_id: nil) if !active
+    User.where(geozone_id: id).update(geozone_id: nil) if !active || document.changed?
   end
 end
