@@ -270,7 +270,7 @@ class User < ApplicationRecord
   end
 
   def incomplete_registration?
-    document_number.blank? || (organization? && !cep)
+    organization? ?  !cep : document_number.blank?
   end
 
   def complete_registration?

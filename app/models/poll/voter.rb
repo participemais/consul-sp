@@ -30,6 +30,8 @@ class Poll
       self.age = user.age
       self.geozone = user.geozone
       self.ethnicity = user.ethnicity
+      self.uf = user.uf
+      self.city = user.city
     end
 
     def set_document_info

@@ -32,10 +32,10 @@ class Poll::Voters::Exporter
       gender_translation(voter),
       ethnicity_translation(voter),
       voter.age,
-      voter.user&.city,
-      voter.user&.uf,
-      voter.user&.geozone&.subprefecture&.name,
-      voter.user&.geozone&.name
+      voter&.city,
+      voter&.uf,
+      voter&.geozone&.subprefecture&.name,
+      voter&.geozone&.name
     ]
   end
 
