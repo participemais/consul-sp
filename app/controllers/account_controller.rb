@@ -21,7 +21,9 @@ class AccountController < ApplicationController
   private
 
     def set_geozone
-      if @account.level_three_verified? && @account.cep.changed? && @account.from_sp?
+      @account.assign_attributes(account_params)
+
+      if @account.level_three_verified? && @account.from_sp? && ( @account.cep_changed? || @account.geozone == nil )
         results = OpenStreetMapService.search(@account.query_address)
 
         if results.count == 1
