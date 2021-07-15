@@ -1,7 +1,7 @@
 class Edition::Poll::BaseController < Edition::BaseController
   helper_method :namespace
 
-  before_action :authorize_editor, only: :index
+  #before_action :authorize_editor, only: :index
 
   private
 

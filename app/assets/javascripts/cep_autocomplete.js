@@ -27,6 +27,7 @@
           fetch(url)
             .then(response => response.json())
             .then(data => {
+              
               if (!data.erro) {
                 if (data.localidade == "São Paulo" && data.uf == "SP") {
                   $('.hide-fields').fadeIn(1000);
