@@ -2,7 +2,7 @@ class Edition::BaseController < ApplicationController
   layout "admin"
 
   before_action :authenticate_user!
-  before_action :verify_editor
+#  before_action :verify_editor
 
   skip_authorization_check
 
