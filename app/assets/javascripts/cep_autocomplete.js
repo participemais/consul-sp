@@ -27,7 +27,7 @@
           fetch(url)
             .then(response => response.json())
             .then(data => {
-              
+              $('.account-geozones').fadeOut(1000);
               if (!data.erro) {
                 if (data.localidade == "São Paulo" && data.uf == "SP") {
                   $('.hide-fields').fadeIn(1000);
