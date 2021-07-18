@@ -164,6 +164,7 @@ class User < ApplicationRecord
   scope :by_ethnicity, ->(ethnicity) { where(ethnicity: ethnicity) }
   scope :resident,     -> { where(uf: 'SP') }
   scope :non_resident, -> { where.not(uf: 'SP') }
+  scope :from_sp,  -> { where(city: 'São Paulo') }
   scope :not_from_sp,  -> { where.not(city: 'São Paulo') }
 
   before_validation :clean_document_number, if: :persisted?
