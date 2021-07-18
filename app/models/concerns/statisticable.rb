@@ -72,7 +72,7 @@ module Statisticable
   end
 
   def total_residents_participants
-    participants.resident.count
+    participants.from_sp.count
   end
 
   def total_non_residents_participants
