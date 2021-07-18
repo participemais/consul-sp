@@ -76,7 +76,7 @@ module Statisticable
   end
 
   def total_non_residents_participants
-    participants.non_resident.count
+    participants.not_from_sp.count
   end
 
   def total_male_participants
