@@ -120,8 +120,10 @@ pt-BR:
           zero: Você não votou em nenhuma proposta deste grupo.
           verified_only: "Para criar uma nova proposta %{verify}."
           incomplete_registration: Você precisa completar o %{register} para criar uma nova proposta
+          incomplete_registration_poll: Você precisa completar o %{register} para participar da votação
           create: "Criar uma proposta"
           not_logged_in: "Para criar uma proposta, você deve acessar sua %{sign_in} ou se %{sign_up}."
+          not_logged_in_poll: "Para precisa acessar sua %{sign_in} ou se %{sign_up} para participar da votação."
           by_feasibility: Por viabilidade
           feasible: Propostas viáveis
           unfeasible: Propostas inviáveis

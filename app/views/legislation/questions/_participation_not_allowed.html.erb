@@ -4,6 +4,10 @@
       <%= t("legislation.questions.participation.organizations") %>
     </p>
   </div>
+<% elsif !@process.debate_phase.open? %>
+  <div class="participation-not-allowed legislation-debate" style="display:none" aria-hidden="false">
+    <%= t("legislation.questions.participation.debate_phase_not_open") %>
+  </div>
 <% elsif user_signed_in? && current_user.unverified? %>
   <div class="participation-not-allowed legislation-debate" style="display:none" aria-hidden="false">
     <p>
@@ -19,10 +23,6 @@
         register: link_to_my_account
       )) %>
     </p>
-  </div>
-<% elsif !@process.debate_phase.open? %>
-  <div class="participation-not-allowed legislation-debate" style="display:none" aria-hidden="false">
-    <%= t("legislation.questions.participation.debate_phase_not_open") %>
   </div>
 <% elsif !user_signed_in? %>
   <div class="participation-not-allowed legislation-debate" style="display:none" aria-hidden="false">

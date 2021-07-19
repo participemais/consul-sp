@@ -18,6 +18,6 @@ module LinksHelper
   end
 
   def link_to_my_account
-    link_to t("users.register"), account_path(current_user)
+    link_to t("users.register"), account_path
   end
 end

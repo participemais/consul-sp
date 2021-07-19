@@ -76,7 +76,7 @@ module CommentsHelper
   end
 
   def comments_closed_text(commentable)
-    if commentable.class == Legislation::Question
+    if commentable.class == Legislation::Question || commentable.class == Legislation::Annotation
       t("legislation.questions.comments.comments_closed")
     else
       t("comments.comments_closed")
