@@ -53,7 +53,7 @@ class Edition::Poll::ElectoralCollegesController < Edition::Poll::BaseController
 
     def authorize_editor
       if current_user.editor?
-        if current_user.editor.poll_ids.include?(@poll_electoral_college.poll.id)
+        if current_user.editor.poll_ids.include?(electoral_college_params[:poll_id])
           return
         else
           raise CanCan::AccessDenied.new
