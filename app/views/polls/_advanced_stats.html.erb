@@ -13,6 +13,14 @@
         html_class: channel
       ) %>
     <% end %>
+
+    <div id="total_no_demographic_data">
+      <p class="help-text tiny">
+        <%= t(
+          "stats.no_demographic_data", count: stats.total_no_demographic_data
+        ) %>
+      </p>
+    </div>
   </div>
 
   <div id="vote_stats_by_channel" class="stats-group">

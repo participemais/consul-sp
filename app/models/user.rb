@@ -272,16 +272,16 @@ class User < ApplicationRecord
   end
 
   def incomplete_registration?
-    organization? ?  !cep : document_number.blank? || geozone.blank?
+    !complete_registration?
   end
 
   def complete_registration?
     if city == 'São Paulo' && !organization?
       return geozone_id.present?       
-    elsif organization? && !cep
-      false
+    elsif organization? 
+      return geozone_id.present? && cep.present?
     else
-      true
+      document_number.present?
     end
   end
 
