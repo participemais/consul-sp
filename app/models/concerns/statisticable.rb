@@ -68,7 +68,7 @@ module Statisticable
   end
 
   def participants
-    @participants ||= User.unscoped.where(id: participant_ids)
+    @participants ||= voters
   end
 
   def total_residents_participants

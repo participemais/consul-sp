@@ -1,7 +1,6 @@
 <tr id="<%= dom_id(poll) %>" class="poll">
   <td>
     <strong>
-      <% byebug %>
       <% if current_user.editor? && poll.editable? && current_user.editor.poll_ids.include?(poll.id) || current_user.administrator? %>
         <%= link_to poll.name, edition_poll_path(poll) %>
       <% else %>

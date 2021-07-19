@@ -22,6 +22,15 @@ class Poll
     scope :web,    -> { where(origin: "web") }
     scope :booth,  -> { where(origin: "booth") }
     scope :letter, -> { where(origin: "letter") }
+    scope :male,           -> { where(gender: "male") }
+    scope :female,         -> { where(gender: "female") }
+    scope :non_binary,     -> { where(gender: "non_binary") }
+    scope :unknown,        -> { where(gender: "unknown") }
+    scope :by_ethnicity, ->(ethnicity) { where(ethnicity: ethnicity) }
+    scope :resident,     -> { where(uf: 'SP') }
+    scope :non_resident, -> { where.not(uf: 'SP') }
+    scope :from_sp,  -> { where(city: 'São Paulo', uf: 'SP') }
+    scope :not_from_sp,  -> { where.not(city: 'São Paulo', uf: 'SP') }
 
     def set_demographic_info
       return if user.blank?
