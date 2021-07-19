@@ -276,10 +276,8 @@ class User < ApplicationRecord
   end
 
   def complete_registration?
-    if city == 'São Paulo' && !organization?
-      return geozone_id.present?       
-    elsif organization? 
-      return geozone_id.present? && cep.present?
+    if city == 'São Paulo'
+      return geozone_id.present?
     else
       document_number.present?
     end

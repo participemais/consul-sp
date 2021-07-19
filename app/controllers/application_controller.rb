@@ -23,12 +23,6 @@ class ApplicationController < ActionController::Base
   respond_to :html
   helper_method :current_budget
 
-  # rescue_from CanCan::AccessDenied do |exception|
-  #   if current_user && !current_user.complete_registration?
-  #     redirect_to :back, :alert => "Para realizar essa ação é necessário completar seu cadastro."
-  #   end
-  # end
-
   private
 
     def authenticate_http_basic

@@ -1,7 +1,7 @@
 class Edition::Poll::BaseController < Edition::BaseController
   helper_method :namespace
 
-  #before_action :authorize_editor, only: :index
+  before_action :authorize_editor
 
   private
 
@@ -14,9 +14,12 @@ class Edition::Poll::BaseController < Edition::BaseController
     end
 
     def authorize_editor
-    	if !current_user.editor.poll_ids.include?(params[:id])
-
-    		raise CanCan::AccessDenied.new
+    	if current_user.editor? 
+    		return if controller_name == 'polls' && action_name == 'index'
+    		byebug
+    		if !current_user.editor.poll_ids.include?(params[:id].to_i)
+    			raise CanCan::AccessDenied.new
+    		end
     	end
     end
 end
