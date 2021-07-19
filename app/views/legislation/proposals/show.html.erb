@@ -86,8 +86,7 @@
         <% if feature?(:allow_attached_documents) %>
           <%= render "documents/documents",
                       documents: @proposal.documents,
-                      max_documents_allowed: Proposal.max_documents_allowed,
-                      not_destroy: true %>
+                      max_documents_allowed: Proposal.max_documents_allowed %>
         <% end %>
       </div>
 
