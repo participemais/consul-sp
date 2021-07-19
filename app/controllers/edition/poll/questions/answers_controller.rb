@@ -5,6 +5,8 @@ class Edition::Poll::Questions::AnswersController < Edition::Poll::BaseControlle
 
   load_and_authorize_resource :question, class: "::Poll::Question"
 
+  before_action :authorize_editor
+
   def new
     @answer = ::Poll::Question::Answer.new
   end
@@ -48,6 +50,16 @@ class Edition::Poll::Questions::AnswersController < Edition::Poll::BaseControlle
   end
 
   private
+
+    def authorize_editor
+      if current_user.editor?
+        if current_user.editor.poll_ids.include?(@question.poll.id)
+          return
+        else
+          raise CanCan::AccessDenied.new
+        end
+      end
+    end
 
     def answer_params
       documents_attributes = [:id, :title, :attachment, :cached_attachment, :user_id, :_destroy]
