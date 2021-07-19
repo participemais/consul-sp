@@ -12,7 +12,7 @@ class Geozone < ApplicationRecord
 
   validates :name, presence: true
 
-  after_update :update_users
+  before_update :update_users
 
   scope :public_for_api, -> { all }
 
@@ -109,6 +109,12 @@ class Geozone < ApplicationRecord
   private
 
   def update_users
-    User.where(geozone_id: id).update(geozone_id: nil) if !active || document.changed?
+    if !active || document.attachment_file_size_changed?
+      if district?
+        User.where(geozone_id: id).update(geozone_id: nil)
+      else
+        districts.each { |district| district.users.update_all(geozone_id: nil) }
+      end
+    end
   end
 end
