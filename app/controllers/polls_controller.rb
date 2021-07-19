@@ -3,7 +3,6 @@ class PollsController < ApplicationController
 
   before_action :load_poll, except: [:index]
   before_action :load_active_poll, only: :index
-  before_action :check_edition
 
   load_and_authorize_resource
 
@@ -55,10 +54,6 @@ class PollsController < ApplicationController
   end
 
   private
-
-    def check_edition
-      raise CanCan::AccessDenied if current_user.editor? && !@poll.editable?
-    end
 
     def load_poll
       @poll = Poll.find_by_slug_or_id!(params[:id])

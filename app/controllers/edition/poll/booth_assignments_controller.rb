@@ -1,5 +1,6 @@
 class Edition::Poll::BoothAssignmentsController < Edition::Poll::BaseController
   before_action :load_poll, except: [:create, :destroy]
+  before_action :authorize_editor
 
   def index
     @booth_assignments = @poll.booth_assignments.includes(:booth)
@@ -54,6 +55,16 @@ class Edition::Poll::BoothAssignmentsController < Edition::Poll::BaseController
   end
 
   private
+
+    def authorize_editor
+      if current_user.editor?
+        if current_user.editor.poll_ids.include?(params[:poll_id].to_i)
+          return
+        else
+          raise CanCan::AccessDenied.new
+        end
+      end
+    end
 
     def load_booth_assignment
       @booth_assignment = ::Poll::BoothAssignment.find(params[:id])
