@@ -53,7 +53,9 @@ class Edition::Poll::Questions::AnswersController < Edition::Poll::BaseControlle
 
     def authorize_editor
       if current_user.editor?
-        if current_user.editor.poll_ids.include?(@question.poll.id)
+        if @question.present? && current_user.editor.poll_ids.include?(@question.poll.id)
+          return
+        elsif @answer.present? && current_user.editor.poll_ids.include?(@answer.question.poll.id)
           return
         else
           raise CanCan::AccessDenied.new
