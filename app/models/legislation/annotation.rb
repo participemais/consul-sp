@@ -61,6 +61,6 @@ class Legislation::Annotation < ApplicationRecord
   end
 
   def comments_open?
-    draft_version.process.annotations.open?
+    draft_version.process.allegations_phase.open?
   end
 end

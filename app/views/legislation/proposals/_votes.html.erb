@@ -35,6 +35,7 @@
       <div tabindex="0">
         <%= render "shared/complete_registration_to_vote" %>
       </div>
+    <% elsif !user_signed_in? && !proposal.process.proposals_phase.open? %>
     <% elsif !user_signed_in? %>
       <div tabindex="0">
         <%= render "shared/login_to_vote" %>
