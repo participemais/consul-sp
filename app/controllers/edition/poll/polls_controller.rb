@@ -4,7 +4,7 @@ class Edition::Poll::PollsController < Edition::Poll::BaseController
   include ReportAttributes
   load_and_authorize_resource
 
-  before_action :block_edition, except: :index
+  before_action :block_edition, except: [:index, :booth_assignments]
   before_action :load_search, only: [:search_booths, :search_officers]
   before_action :load_geozones, only: [:new, :create, :edit, :update], if: :is_admin?
 

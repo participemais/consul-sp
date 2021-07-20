@@ -41,6 +41,7 @@ class Poll
       self.ethnicity = user.ethnicity
       self.uf = user.uf
       self.city = user.city
+      self.date_of_birth = user.date_of_birth
     end
 
     def set_document_info

@@ -249,7 +249,11 @@ class Poll < ApplicationRecord
   end
 
   def editable?
-    DateTime.now < starts_at
+    if starts_at.present?
+      DateTime.now < starts_at 
+    else
+      true
+    end
   end
 
   private

@@ -24,7 +24,6 @@ class Budget::Group::Import
 
     CSV.open(file.path, headers: true, :col_sep => "\t").each do |row|
       next if empty_row?(row)
-
       process_row row
     end
     true
@@ -43,7 +42,8 @@ class Budget::Group::Import
 
     def build_heading(row)
       attrs = row.to_hash.slice(*ATTRIBUTES)
-      sub = @group.headings.find_by(name: attrs['subprefeitura'])
+      byebug
+      sub = @group.headings.find_by(name: attrs['subprefeitura'], group_id: group.id)
       if sub.present?
         sub.area += BigDecimal.new attrs['area']
         sub.population += BigDecimal.new attrs['populacao']
