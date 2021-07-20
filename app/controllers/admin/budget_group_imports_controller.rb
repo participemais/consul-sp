@@ -4,10 +4,10 @@ class Admin::BudgetGroupImportsController < Admin::BaseController
   load_and_authorize_resource :group, class: "Budget::Group"
 
   def create
-    @import = Budget::Group::Import.new(budget_group_import_params)
+    @import = Budget::Group::Import.new(budget_group_import_params, params[:group_id])
     if @import.save
       flash.now[:notice] = t("Grupo importado com sucesso.")
-      render :show
+      redirect_to admin_budget_group_headings_path(@budget, @group)
     else
       render :new
     end
