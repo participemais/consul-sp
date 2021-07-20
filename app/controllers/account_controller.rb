@@ -39,6 +39,9 @@ class AccountController < ApplicationController
             @subs = @districts.map { |district| district.subprefecture}.uniq
             @select_from_list = true
             @account.update geozone: nil
+          else 
+            @select_from_all = true
+            @account.update geozone: nil
           end
         else
           @select_from_all = true
