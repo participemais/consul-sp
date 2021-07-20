@@ -17,8 +17,8 @@
     <span class="total-votes center">
       <%= t("proposals.proposal.votes", count: proposal.votes_score) %>
     </span>
-
-    <% if user_signed_in? && current_user.organization? %>
+    <% if !proposal.process.proposals_phase.open? %>
+    <% elsif user_signed_in? && current_user.organization? %>
       <div class="participation-not-allowed" style="display:none" aria-hidden="false">
         <p>
           <%= t("votes.organizations") %>
@@ -35,7 +35,6 @@
       <div tabindex="0">
         <%= render "shared/complete_registration_to_vote" %>
       </div>
-    <% elsif !user_signed_in? && !proposal.process.proposals_phase.open? %>
     <% elsif !user_signed_in? %>
       <div tabindex="0">
         <%= render "shared/login_to_vote" %>
