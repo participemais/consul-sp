@@ -160,7 +160,12 @@ class Legislation::Process < ApplicationRecord
 
   def editable? user = nil
     not_started = DateTime.now < start_date
-    user.present? ? not_started && user.editor.legislation_processes_ids.includes?(id) : not_started
+    user.present? ? not_started && user.editor.legislation_process_ids.include?(id) : not_started
+  end
+
+  def no_more_editable? user
+    not_started = DateTime.now < start_date
+    !not_started && user.editor.legislation_process_ids.include?(id)
   end
 
   def finished?
