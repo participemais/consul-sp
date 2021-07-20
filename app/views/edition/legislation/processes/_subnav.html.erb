@@ -1,9 +1,9 @@
 <ul class="menu simple clear">
   <% if current_user.administrator? %>
     <% tabs = legislation_process_tabs(process) %>
-  <% elsif current_user.editor? && process.editable? %>
+  <% elsif current_user.editor? && process.editable?(current_user) %>
     <% tabs = edition_legislation_process_tabs(process) %>
-  <% elsif current_user.editor? && !process.editable? %>
+  <% elsif current_user.editor? && !process.editable?(current_user) %>
     <% tabs = edition_finished_legislation_process_tabs(process) %>
   <% end %>
 

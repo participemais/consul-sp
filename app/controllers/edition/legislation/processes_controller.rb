@@ -6,6 +6,8 @@ class Edition::Legislation::ProcessesController < Edition::Legislation::BaseCont
 
   load_and_authorize_resource :process, class: "Legislation::Process"
 
+  before_action :authorize_editor
+
   def index
     if current_user.administrator?
       @processes = ::Legislation::Process.send(@current_filter).order(start_date: :desc)
@@ -45,6 +47,15 @@ class Edition::Legislation::ProcessesController < Edition::Legislation::BaseCont
   end
 
   private
+
+    def authorize_editor
+      if current_user.editor?
+        return if @process.editable?(current_user)
+      else
+        raise CanCan.AccessDenied.new
+      end
+
+    end
 
     def process_params
       if current_user.administrator?
