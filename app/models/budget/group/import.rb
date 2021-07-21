@@ -43,7 +43,7 @@ class Budget::Group::Import
 
     def build_heading(row)
       attrs = row.to_hash.slice(*ATTRIBUTES)
-      byebug
+  
       sub = @group.headings.find_by(name: attrs['subprefeitura'], group_id: group.id)
       if sub.present?
         sub.area += BigDecimal.new attrs['area']

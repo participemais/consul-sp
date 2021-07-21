@@ -38,27 +38,32 @@
   >
     <div class="small-12 column small">
       <hr>
-      <%= sanitize(t(
-        "budgets.investments.index.sidebar.district_info",
-        population_density: number_with_delimiter(
-          district.population_density, separator: ","
-        ),
-        households: number_with_delimiter(district.households, delimiter: "."),
-        slum_households_percentage: number_with_delimiter(
-          district.slum_households_percentage, separator: ","
-        ),
-        slum_households_reference_year: district.slum_households_reference_year,
-        count: district.slum_households_percentage
-      )) %>
-      <%= sanitize(t(
-        "budgets.investments.index.sidebar.district_formal_jobs_by_population",
-        formal_jobs_by_population: number_with_delimiter(
-          district.formal_jobs_by_population.round(2),
-          separator: ","
-        ),
-        formal_jobs_by_population_reference_year:
-          district.formal_jobs_by_population_reference_year
-      )) %>
+
+      <% if district.heading.group.show_description? %>
+        <%= sanitize district.description %>
+      <% else %>
+        <%= sanitize(t(
+          "budgets.investments.index.sidebar.district_info",
+          population_density: number_with_delimiter(
+            district.population_density, separator: ","
+          ),
+          households: number_with_delimiter(district.households, delimiter: "."),
+          slum_households_percentage: number_with_delimiter(
+            district.slum_households_percentage, separator: ","
+          ),
+          slum_households_reference_year: district.slum_households_reference_year,
+          count: district.slum_households_percentage
+        )) %>
+        <%= sanitize(t(
+          "budgets.investments.index.sidebar.district_formal_jobs_by_population",
+          formal_jobs_by_population: number_with_delimiter(
+            district.formal_jobs_by_population.round(2),
+            separator: ","
+          ),
+          formal_jobs_by_population_reference_year:
+            district.formal_jobs_by_population_reference_year
+        )) %>
+      <% end %>
     </div>
   </div>
 </li>

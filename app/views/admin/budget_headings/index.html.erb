@@ -49,7 +49,7 @@
 <% end %>
 
 <script type="text/javascript">
-  $('.import-headings').on('click', ':not(form)[data-confirm]', function(e){
+  $('.import-headings').on('click', function(e){
     if(!confirm("A importação de títulos através de um arquivo TSV acarreterá na remoção definitiva de todos os títulos cadastrados nesse grupo. Clique em 'OK' para prosseguir")){
         e.stopImmediatePropagation();
         e.preventDefault();
