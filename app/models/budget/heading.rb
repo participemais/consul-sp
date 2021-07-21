@@ -26,6 +26,8 @@ class Budget
     has_many :investments
     has_many :content_blocks
     has_many :districts, dependent: :destroy
+    accepts_nested_attributes_for :districts, reject_if: :all_blank, allow_destroy: true
+
 
     validates_translation :name, presence: true
     validates :group_id, presence: true

@@ -1,5 +1,7 @@
 class Edition::Poll::RecountsController < Edition::Poll::BaseController
   before_action :load_poll
+  before_action :authorize_editor
+
 
   def index
     @stats = Poll::Stats.new(@poll)
@@ -13,6 +15,16 @@ class Edition::Poll::RecountsController < Edition::Poll::BaseController
   end
 
   private
+
+    def authorize_editor
+      if current_user.editor?
+        if current_user.editor.poll_ids.include?(params[:poll_id].to_i)
+          return
+        else
+          raise CanCan::AccessDenied.new
+        end
+      end
+    end
 
     def load_poll
       @poll = ::Poll.find(params[:poll_id])

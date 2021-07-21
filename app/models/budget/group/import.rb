@@ -23,7 +23,7 @@ class Budget::Group::Import
     return false if invalid?
     @group.headings.destroy_all
     
-    CSV.open(file.path, headers: true, :col_sep => "\t").each do |row|
+    CSV.open(file.path, headers: true, :col_sep => "\t", liberal_parsing: true).each do |row|
       next if empty_row?(row)
       process_row row
     end

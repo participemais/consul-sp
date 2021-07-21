@@ -24,7 +24,7 @@
                         hint: t("admin.budget_headings.form.population_info") %>
 
       <%= f.number_field :area %>
-      <%= f.text_field :description, label: 'Mais informações' %>
+      <%= f.text_area :description, label: 'Mais informações' %>
 
       <%= f.text_field :latitude, maxlength: 22 %>
       <%= f.text_field :longitude, maxlength: 22 %>
@@ -32,12 +32,17 @@
         <%= t("admin.budget_headings.form.coordinates_info") %>
       </p>
 
-      <%= f.check_box :allow_custom_content %>
-      <p class="help-text" id="budgets-content-blocks-help-text">
-        <%= t("admin.budget_headings.form.content_blocks_info") %>
-      </p>
+      <hr>
 
-      <%= f.submit 'Salvar', class: "button success" %>
+      <h3>Distritos</h3>
+      <%= f.fields_for :districts do |district| %>
+        <% render 'district_fields', f: district %>
+      <% end %>
+      <div class="links">
+        <%= link_to_add_association 'Adicionar distrito', f, :districts, class: 'button' %>
+      </div>
+      <hr>
+      <%= f.submit 'Salvar', class: "button success float-right" %>
     </div>
   </div>
 <% end %>

@@ -41,7 +41,8 @@ class Admin::BudgetHeadingsController < Admin::BaseController
     end
 
     def budget_heading_params
-      valid_attributes = [:price, :population, :allow_custom_content, :latitude, :longitude]
+      valid_attributes = [:area, :population, :latitude, :longitude, :description, districts_attributes: [:id, :description, :area, :population, :_destroy] ]
+ 
       params.require(:budget_heading).permit(*valid_attributes, translation_params(Budget::Heading))
     end
 end

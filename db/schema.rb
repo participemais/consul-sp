@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20210720175704) do
+ActiveRecord::Schema.define(version: 20210721092010) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -209,6 +209,7 @@ ActiveRecord::Schema.define(version: 20210720175704) do
     t.integer "max_votable_headings", default: 1
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean "show_description"
     t.index ["budget_id"], name: "index_budget_groups_on_budget_id"
   end
 
