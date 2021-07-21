@@ -19,11 +19,15 @@
     <%= l @poll.starts_at.to_date %> - <%= l @poll.ends_at.to_date %>
   </div>
 
-  <% if @poll.geozone_restricted %>
-    <div class="inline-block margin-left">
-      <strong><%= t("admin.polls.index.geozone_restricted") %></strong>
-      <br>
-        <%= @poll.geozones.pluck(:name).to_sentence %>
-      </div>
-  <% end %>
+  <div class="inline-block margin-left">
+    <% if @poll.geozone_restricted? %>
+      <% if @poll.geozones.first.district == false %>    
+        <strong><%= t("admin.polls.index.geozone_sub_restricted") %></strong>
+      <% elsif @poll.geozones.first.district == true %> 
+        <strong><%= t("admin.polls.index.geozone_district_restricted") %></strong>
+      <% end %>
+        <br>
+          <%= @poll.geozones.pluck(:name).to_sentence %>
+    <% end %>
+  </div>
 </div>

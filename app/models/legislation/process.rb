@@ -158,8 +158,18 @@ class Legislation::Process < ApplicationRecord
     topics.roots.order(:id)
   end
 
-  def editable?
-    start_date - 1.day > Date.today
+  def editable? user = nil
+    not_started = DateTime.now < start_date
+    user.present? ? not_started && user.editor.legislation_process_ids.include?(id) : not_started
+  end
+
+  def no_more_editable? user
+    not_started = DateTime.now < start_date
+    !not_started && user.editor.legislation_process_ids.include?(id)
+  end
+
+  def finished?
+    Date.today > end_date
   end
 
   private

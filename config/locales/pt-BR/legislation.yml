@@ -17,6 +17,7 @@ pt-BR:
       form:
         phase_not_open: Esta etapa não está aberta
         incomplete_registration: Você precisa completar o %{register} para participar
+        organizations: As organizações não podem participar de processos do tipo Anotações.
       index:
         title: Comentários
         comments_about: Comentários sobre
@@ -134,7 +135,7 @@ pt-BR:
         title: Processo de consulta pública
       participation:
         phase_not_open: Esta etapa não está aberta
-        organizations: As organizações não podem participar no debate.
+        organizations: As organizações não podem participar de processos do tipo Debates.
         unauthenticated: Você precisa acessar sua %{signin} ou se %{signup} para participar.
         verified_only: Somente usuários verificados podem participar, %{verify_account}.
         incomplete_registration: Você precisa completar o %{register} para participar do debate.
@@ -172,7 +173,7 @@ pt-BR:
         see_comments: Veja todas as sugestões
       participation:
         phase_not_open: Esta etapa não está aberta
-        organizations: As organizações não podem participar no debate.
+        organizations: As organizações não podem participar em processos do tipo Revisão.
         unauthenticated: Você precisa acessar sua %{signin} ou se %{signup} para participar.
         verified_only: Somente usuários verificados podem participar, %{verify_account}.
         incomplete_registration: Você precisa completar o %{register} para participar.

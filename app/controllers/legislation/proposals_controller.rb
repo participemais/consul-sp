@@ -18,6 +18,10 @@ class Legislation::ProposalsController < Legislation::BaseController
   helper_method :resource_model, :resource_name
   respond_to :html, :js
 
+  def new
+    raise CanCan::AccessDenied.new('Você precisa completar o cadastro para participar.') if current_user.incomplete_registration? || current_user.organization?
+  end
+
   def show
     super
     legislation_proposal_votes(@process.proposals)

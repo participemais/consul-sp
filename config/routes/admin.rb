@@ -57,7 +57,8 @@ namespace :admin do
     end
 
     resources :groups, except: [:show], controller: "budget_groups" do
-      resources :headings, except: [:show], controller: "budget_headings"
+      resources :imports, only: [:new, :create, :show], controller: "budget_group_imports"
+      resources :headings, except: [:new, :create, :show, :destroy], controller: "budget_headings"
     end
 
     resources :budget_investments, only: [:index, :show, :edit, :update] do
@@ -188,18 +189,6 @@ namespace :admin do
       resources :editors, only: [:index, :create, :destroy] do
         get :search, on: :collection
       end
-      resources :questions
-      resources :proposals do
-        member { patch :toggle_selection }
-      end
-      resources :draft_versions
-      resources :milestones
-      resources :progress_bars, except: :show
-      resource :homepage, only: [:edit, :update]
-      resources :topics, except: [:show] do
-        get :document, on: :collection
-      end
-      resources :topic_levels, except: [:index, :show]
     end
   end
 

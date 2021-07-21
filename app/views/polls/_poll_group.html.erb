@@ -9,6 +9,18 @@
         <div class="icon-poll-answer unverified" title="<%= t("polls.index.unverified") %>">
           <span class="show-for-sr"><%= t("polls.index.unverified") %></span>
         </div>
+      <% elsif current_user.organization.present? %>
+        <div class="icon-poll-answer cant-answer" title="Não é possível participar como organização">
+          <span class="show-for-sr">
+            <%= "Não é possível participar como organização" %>
+          </span>
+        </div>
+      <% elsif current_user.incomplete_registration? %>
+        <div class="icon-poll-answer cant-answer" title="Você precisa completar o cadastro para participar da votação ">
+          <span class="show-for-sr">
+            "Você precisa completar o cadastro para participar da votação "
+          </span>
+        </div>
       <% elsif poll.electoral_college_restricted? && !poll.belongs_to_electoral_college?(current_user) %>
         <div class="icon-poll-answer cant-answer" title="<%= t("polls.index.electoral_college_restricted") %>">
           <span class="show-for-sr">
@@ -16,9 +28,15 @@
           </span>
         </div>
       <% elsif cannot?(:answer, poll) %>
-        <div class="icon-poll-answer cant-answer" title="<%= t("polls.index.cant_answer") %>">
-          <span class="show-for-sr"><%= t("polls.index.cant_answer") %></span>
-        </div>
+        <% if current_user && current_user.geozone %>
+          <div class="icon-poll-answer cant-answer" title="<%= t("polls.index.cant_answer") %>">
+            <span class="show-for-sr"><%= t("polls.index.cant_answer") %></span>
+          </div>
+        <% else %>
+          <div class="icon-poll-answer cant-answer" title="<%= t("polls.index.cant_answer_restrict") %>">
+            <span class="show-for-sr"><%= t("polls.index.cant_answer_restrict") %></span>
+          </div>
+        <% end %>
       <% else %>
         <div class="icon-poll-answer already-answer" title="<%= t("polls.index.can_answer") %>">
           <span class="show-for-sr"><%= t("polls.index.already_answer") %></span>
@@ -43,19 +61,25 @@
               <small><%= t("polls.index.electoral_college_info") %></small>
             </p>
           <% end %>
+          
+          <% if poll.geozone_restricted? %>
+            <% if poll.geozones.first.district == false %>
+              <p>
+                <small><%= t("polls.index.geozone_sub_info", count: poll.geozones.count) %></small>
+              </p>
+            <% elsif poll.geozones.first.district == true %>
+              <p>
+                <small><%= t("polls.index.geozone_district_info", count: poll.geozones.count) %></small>
+              </p>  
+            <% end %>
 
-          <% if poll.geozones.any? %>
-            <p>
-              <small><%= t("polls.index.geozone_info") %></small>
-            </p>
-          <% end %>
-
-          <% if poll.geozones.any? %>
-            <ul class="no-bullet inline-block tags no-margin-bottom">
-              <% poll.geozones.each do |g| %>
-                <li class="inline-block"><span><%= g.name %></span></li>
-              <% end %>
-            </ul>
+            <% if poll.geozones.any? %>
+              <ul class="no-bullet inline-block tags no-margin-bottom">
+                <% poll.geozones.each do |g| %>
+                  <li class="inline-block"><span><%= g.name %></span></li>
+                <% end %>
+              </ul>
+            <% end %>
           <% end %>
         </div>
 

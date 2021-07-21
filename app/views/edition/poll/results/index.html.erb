@@ -3,7 +3,5 @@
 <div id="poll-resources">
   <%= render "/edition/poll/polls/subnav" %>
 
-  <% if @poll.voters.any? %>
-    <%= render "show_results", resource: @poll %>
-  <% end %>
+  <%= render "show_results", resource: @poll %>
 </div>

@@ -29,6 +29,7 @@ class Poll < ApplicationRecord
 
   has_many :geozones_polls
   has_many :geozones, through: :geozones_polls
+  has_and_belongs_to_many :geozones_for_stats, class_name: "Geozone", join_table: 'geozones_for_stats_polls'
 
   has_many :editor_polls, foreign_key: "poll_id"
   has_many :editors, through: :editor_polls
@@ -46,8 +47,11 @@ class Poll < ApplicationRecord
   validate :date_range
   validate :only_one_active, unless: :public?
 
+  before_create :set_statisticable
+
   before_save :schedule_electoral_college_deactivation, if: :trigger_job?
   before_save :activate_electoral_college, if: :trigger_job?
+  before_save :update_geozone_restricted
 
   accepts_nested_attributes_for :questions, reject_if: :all_blank, allow_destroy: true
 
@@ -117,8 +121,19 @@ class Poll < ApplicationRecord
       user.level_two_or_three_verified? &&
       current? &&
       user.can_vote? &&
-      (!geozone_restricted || geozone_ids.include?(user.geozone_id)) &&
+      (!geozone_restricted || include_geozone?(user)) &&
       (!electoral_college_restricted? || belongs_to_electoral_college?(user))
+  end
+
+  def include_geozone?(user)
+    if geozone_restricted? && user.geozone_id.present?
+      if geozones.first.district?
+        geozone_ids.include?(user.geozone_id)
+      else
+        geozone_ids.include?(user.geozone.subprefecture.id)
+      end
+    else false
+    end
   end
 
   def self.answerable_by(user)
@@ -234,7 +249,11 @@ class Poll < ApplicationRecord
   end
 
   def editable?
-    starts_at - 1.day > Date.today
+    if starts_at.present?
+      DateTime.now < starts_at 
+    else
+      true
+    end
   end
 
   private
@@ -257,5 +276,23 @@ class Poll < ApplicationRecord
 
   def trigger_job?
     electoral_college_restricted? && electoral_college && ends_at_changed?
+  end
+
+  def update_geozone_restricted
+    if geozones.any?
+     self.geozone_restricted = true
+      if geozones.first.district? 
+        self.geozones_for_stats = geozones + geozones.map {|geozone| geozone.subprefecture }.uniq
+      elsif
+        self.geozones_for_stats = geozones + geozones.inject([]) { |result, geozone| result << geozone.districts }.flatten
+      end
+    else
+     self.geozone_restricted = false
+     self.geozones_for_stats = Geozone.where(active: true)
+    end
+  end
+
+  def set_statisticable
+    self.statisticable = true
   end
 end

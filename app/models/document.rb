@@ -85,6 +85,10 @@ class Document < ApplicationRecord
     URI.join(root_url, attachment.url).to_s
   end
 
+  def path
+    'public/' + attachment.url
+  end
+
   private
 
     CONTENT_TYPE_PATTERN = {

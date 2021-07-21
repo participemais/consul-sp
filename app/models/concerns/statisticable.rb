@@ -1,7 +1,6 @@
 module Statisticable
   extend ActiveSupport::Concern
-  PARTICIPATIONS = %w[gender ethnicity age].freeze
-  REMOVED_PARTICIPATIONS = %w[geozone].freeze
+  PARTICIPATIONS = %w[gender ethnicity age geozone].freeze
 
   included do
     attr_reader :resource
@@ -38,7 +37,7 @@ module Statisticable
     end
 
     def geozone_methods
-      %i[participants_by_geozone total_no_demographic_data]
+      %i[participants_by_district participants_by_sub total_no_demographic_data]
     end
 
     def stats_cache(*method_names)
@@ -69,7 +68,15 @@ module Statisticable
   end
 
   def participants
-    @participants ||= User.unscoped.where(id: participant_ids)
+    @participants ||= voters
+  end
+
+  def total_residents_participants
+    participants.from_sp.count
+  end
+
+  def total_non_residents_participants
+    participants.not_from_sp.count
   end
 
   def total_male_participants
@@ -108,6 +115,14 @@ module Statisticable
     calculate_percentage(total_unknown_participants, total_participants_with_gender)
   end
 
+  def resident_percentage
+    calculate_percentage(total_residents_participants, total_participants_with_geozone)
+  end
+
+  def non_resident_percentage
+    calculate_percentage(total_non_residents_participants, total_participants_with_geozone)
+  end
+
   def participants_by_age
     age_groups.map do |start, finish|
       count = participants.between_ages(start, finish).count
@@ -123,11 +138,24 @@ module Statisticable
     end.to_h
   end
 
-  def participants_by_geozone
-    geozone_stats.map do |stats|
+  def participants_by_district
+    district_stats.map do |stats|
       [
         stats.name,
         {
+          sub: stats.sub,
+          count: stats.count,
+          percentage: stats.percentage
+        }
+      ]
+    end.to_h
+  end
+
+  def participants_by_sub
+    sub_stats.map do |stats|
+      [
+        stats.name,
+        { 
           count: stats.count,
           percentage: stats.percentage
         }
@@ -174,6 +202,10 @@ module Statisticable
       @total_participants_with_gender ||= participants.where.not(gender: nil).distinct.count
     end
 
+    def total_participants_with_geozone
+      @total_participants_with_geozone ||= participants.where.not(uf: nil).distinct.count
+    end
+
     def age_groups
       [
        [14, 19],
@@ -204,11 +236,15 @@ module Statisticable
     end
 
     def geozones
-      Geozone.all.order("name")
+      resource.geozones_for_stats
     end
 
-    def geozone_stats
-      geozones.map { |geozone| GeozoneStats.new(geozone, participants) }
+    def district_stats
+      geozones.joins(:subprefecture).order('subprefectures_geozones.name', 'name').select(&:district?).map { |geozone| GeozoneStats.new(geozone, participants) }
+    end
+
+    def sub_stats
+      geozones.order("name").reject(&:district?).map { |geozone| GeozoneStats.new(geozone, participants) }
     end
 
     def range_description(start, finish)

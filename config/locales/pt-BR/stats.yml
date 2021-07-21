@@ -6,7 +6,7 @@ pt-BR:
     total_participants: "Participantes"
     by_gender: "Participantes por gênero"
     by_age: "Participantes por idade"
-    by_geozone: "Participantes por região"
+    by_geozone: "Participantes por localidade"
     by_ethnicity: "Participantes por raça"
     men_percentage: "%{percentage} Masculino"
     women_percentage: "%{percentage} Feminino"
@@ -20,8 +20,8 @@ pt-BR:
     total: "Total"
     geozone: "Região"
     no_demographic_data:
-      one: "Não há dados de gênero, raça ou idade de um participante."
-      other: "Não há dados de gênero, raça ou idade de %{count} participantes."
+      one: "Não há dados de gênero, raça, idade ou localidade de um participante."
+      other: "Não há dados de gênero, raça ou idade, localidade de %{count} participantes."
     budgets:
       link: "Estatísticas da participação"
       page_title: "%{budget} - Estatísticas de participação"
@@ -100,3 +100,5 @@ pt-BR:
           origin: Canal
           uf: UF
           web: Online
+          sub: Subprefeitura
+          district: Distrito

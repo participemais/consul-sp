@@ -787,13 +787,16 @@ pt-BR:
         processes: Processos habilitados
         legislation_process: Consulta pública
         poll: Votação
-        Budget: Orçamento
+        budget: Orçamento
         no_editors: Não há editores.
       editor:
-        add: Adicionar
-        delete: Apagar
+        add: Habilitar
+        delete: Desabilitar
       search:
         title: "Editores: Pesquisa de usuário"
+      add: "Editor habilitado."
+      remove: "Editor desabilitado"
+      remove_error: "Não foi possível excluir o editor porque ele está atribuído a um processo."
     segment_recipient:
       all_users: Todos os usuários
       administrators: Administradores
@@ -1083,10 +1086,15 @@ pt-BR:
         dates: "Datas"
         start_date: "Data de início"
         closing_date: "Data de encerramento"
-        geozone_restricted: "Restrito aos distritos"
+        geozone_sub_restricted: "Restrito por subprefeitura"
+        geozone_district_restricted: "Restrito por distrito"
       new:
+        sub_restricted: Restrito por subprefeitura
+        district_restricted: Restrito por distrito
         title: "Nova votação"
         submit_button: "Criar votação"
+        select_sub: É necessario selecionar pelo menos uma subprefeitura
+        select_district: É necessário selecionar pelo menos um distrito
       edit:
         title: "Editar votação"
         submit_button: "Atualizar votação"
@@ -1390,11 +1398,16 @@ pt-BR:
         create: Criar geozona
         edit: Editar
         delete: Apagar
+        archive: Arquivar
       geozone:
         name: Nome
         external_code: Código externo
         census_code: Código do censo
         coordinates: Coordenadas
+        attached: Anexo
+        type: Tipo
+        district: Distrito
+        subprefecture: Subprefeitura
       edit:
         form:
           submit_button: Salvar alterações
@@ -1402,10 +1415,10 @@ pt-BR:
         back: Voltar
       new:
         back: Voltar
-        creating: Criar distrito
+        creating: Criar geozona
       delete:
-        success: Geozona excluída com êxito
-        error: Esta geozona não pode ser excluída, uma vez que existem elementos ligados a ela
+        success: Geozona arquivada com êxito
+        error: Esta geozona não pode ser arquivada
     signature_sheets:
       author: Autor
       created_at: Data de criação

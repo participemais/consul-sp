@@ -100,6 +100,8 @@
 //= require data_info_toggle
 //= require enable_elements
 //= require check_target
+//= require poll_geozone_checkboxes
+//= require jquery-dynamic-selectable
 
 var initialize_modules = function() {
   "use strict";
@@ -164,6 +166,7 @@ var initialize_modules = function() {
   App.DataInfoToggle.initialize();
   App.EnableElements.initialize();
   App.CheckTarget.initialize();
+  App.PollGeozoneCheckboxes.initialize();
 };
 
 $(function() {

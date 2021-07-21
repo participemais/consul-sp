@@ -147,6 +147,44 @@
                   class: 'disabled'
                 ) %>
               </div>
+              <%= f.hidden_field(
+                :neighbourhood,
+                readonly: true,
+                class: 'disabled'
+              ) %>
+            </div>
+
+            <div class="account-geozones other-fields <%= address_hide_class %>">
+              <% if @select_from_list %>
+                <div class="row">
+                  <div class="medium-6 column">
+                    <%= label_tag "Subprefeitura" %>
+                    <%= dynamic_collection_select(:account, :sub_id, :district, @subs, :id, :name, { include_blank: 'Selecione' }, {}) %>
+                  </div>
+                  <div class="medium-6 column">
+                    <%= f.collection_select(:district_id, [], :id, :name, { label: 'Distrito', include_blank: 'Selecione' }, {}) %>
+                  </div>            
+                </div>
+              <% elsif @select_from_all %>              
+                <div class="row">
+                  <div class="medium-6 column">
+                    <%= label_tag "Subprefeitura" %>
+                    <%= dynamic_collection_select(:account, :sub_id, :district, Geozone.where(district: false, active: true), :id, :name, { include_blank: 'Selecione' }, {}) %>
+                  </div>
+                  <div class="medium-6 column">
+                    <%= f.collection_select(:district_id, [], :id, :name, { label: 'Distrito', include_blank: 'Selecione' }, {}) %>
+                  </div>          
+                </div>
+              <% elsif @account.geozone_id.present? %>
+                <div class="row">
+                  <div class="medium-6 column">
+                    <%= f.select(:sub_id, options_from_collection_for_select(Geozone.where(district: false), :id, :name, selected: @account.geozone.subprefecture.id), { label: 'Subprefeitura' }, disabled: true ) %>
+                  </div>
+                  <div class="medium-6 column">
+                    <%= f.select(:geozone_id, options_from_collection_for_select(Geozone.where(district: true), :id, :name, selected: @account.geozone_id), { label: 'Distrito' }, disabled: true ) %>
+                  </div>
+                </div>
+              <% end %>
             </div>
           </div>
 
@@ -172,7 +210,7 @@
               </li>
             <% end %>
             <li>
-              <% if current_user.level_three_verified? && current_user.can_vote? %>
+              <% if current_user.level_three_verified? && current_user.can_vote? && current_user.complete_address? && current_user.complete_registration? %>
                 <span class="icon-check"></span>
               <% else %>
                 <span class="icon-x"></span>
@@ -189,7 +227,7 @@
             <span class="verify-account">
               <% if current_user.level_three_verified? %>
                 <p>
-                  <% if current_user.can_vote? && current_user.complete_address? %>
+                  <% if current_user.can_vote? && current_user.complete_address? && current_user.complete_registration? %>
                     <span class="icon-check"></span>
                   <% else %>
                     <span class="icon-x"></span>
@@ -205,3 +243,9 @@
 
   </div>
 </div>
+
+<script type="text/javascript">
+  $('#account_district_id').on('change', function() {
+   $('#account_district_id').find('option').get(0).remove();
+  });
+</script>

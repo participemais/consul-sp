@@ -4,11 +4,16 @@ class Edition::Poll::PollsController < Edition::Poll::BaseController
   include ReportAttributes
   load_and_authorize_resource
 
+  before_action :block_edition, except: [:index, :booth_assignments]
   before_action :load_search, only: [:search_booths, :search_officers]
   before_action :load_geozones, only: [:new, :create, :edit, :update], if: :is_admin?
 
   def index
-    @polls = Poll.not_budget.created_by_admin.order(starts_at: :desc)
+    if is_admin?
+      @polls = Poll.not_budget.created_by_admin.order(starts_at: :desc)
+    else
+      @polls = Poll.not_budget.created_by_admin.joins(:editors).where(editors: { user_id: current_user.id }).order(starts_at: :desc)
+    end
   end
 
   def show
@@ -77,8 +82,13 @@ class Edition::Poll::PollsController < Edition::Poll::BaseController
 
   private
 
+    def block_edition
+      raise CanCan::AccessDenied unless @poll.editable? && @poll.editors.includes(current_user) || current_user.administrator?
+    end
+
     def load_geozones
-      @geozones = Geozone.all.order(:name)
+      @subs = Geozone.all.where(active: true, district: false).order(:name)
+      @districts = Geozone.all.where(active: true, district: true).order(:name)
     end
 
     def poll_params

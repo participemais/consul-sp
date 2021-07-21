@@ -4,6 +4,8 @@ class Edition::Poll::ElectoralColleges::ElectorsController < Edition::Poll::Base
   load_and_authorize_resource :poll
   load_and_authorize_resource class: "Poll::Elector"
 
+  before_action :authorize_editor
+
   def search_electors
     load_search
     @electors = @electoral_college.electors.quick_search(@search)
@@ -13,7 +15,7 @@ class Edition::Poll::ElectoralColleges::ElectorsController < Edition::Poll::Base
   end
 
   def new
-    @elector = Poll::Elector.new
+    @elector = Poll::Elector.new()
   end
 
   def create
@@ -47,6 +49,16 @@ class Edition::Poll::ElectoralColleges::ElectorsController < Edition::Poll::Base
 
 
   private
+
+  def authorize_editor
+    if current_user.editor?
+      if current_user.editor.poll_ids.include?(params[:poll_id].to_i)
+        return
+      else
+        raise CanCan::AccessDenied.new
+      end
+    end
+  end
 
   def elector_params
     params.require(:poll_elector).permit(

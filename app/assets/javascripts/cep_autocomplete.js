@@ -5,11 +5,16 @@
       const $address = $('#account_home_address');
       const $city = $('#account_city');
       const $uf = $('#account_uf');
+      const $neighbourhood = $('#account_neighbourhood');
+      const $sub = $('#account_sub_id');
+      const $district = $('#account_geozone_id');
 
       function clear_address_fields() {
         $address.val('');
         $city.val('');
         $uf.val('');
+        $sub.val('');
+        $district.val('');
       }
 
       $('#account_cep').blur((handler) => {
@@ -22,15 +27,14 @@
           fetch(url)
             .then(response => response.json())
             .then(data => {
+              $('.account-geozones').fadeOut(1000);
               if (!data.erro) {
-
                 if (data.localidade == "São Paulo" && data.uf == "SP") {
                   $('.hide-fields').fadeIn(1000);
                   $address.val(data.logradouro);
                   $city.val(data.localidade);
                   $uf.val(data.uf);
                 } else {
-                  debugger
                   $('.other-fields').fadeOut(1000);
                   $address.val('');
                   $city.val(data.localidade);

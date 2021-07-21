@@ -99,12 +99,8 @@ class Poll::Stats
 
   private
 
-    def participant_ids
-      voters
-    end
-
     def voters
-      @voters ||= poll.voters.select(:user_id)
+      @voters ||= poll.voters
     end
 
     def recounts

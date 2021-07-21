@@ -55,4 +55,12 @@ class Legislation::Annotation < ApplicationRecord
   def weight
     comments_count + comments.sum(:cached_votes_total)
   end
+
+  def comments_closed?
+    !comments_open?
+  end
+
+  def comments_open?
+    draft_version.process.allegations_phase.open?
+  end
 end

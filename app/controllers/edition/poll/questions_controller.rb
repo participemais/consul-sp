@@ -5,6 +5,8 @@ class Edition::Poll::QuestionsController < Edition::Poll::BaseController
   load_and_authorize_resource :poll
   load_and_authorize_resource :question, class: "Poll::Question"
 
+  before_action :authorize_editor
+
   def index
     @polls = Poll.not_budget
     @search = search_params[:search]
@@ -46,14 +48,24 @@ class Edition::Poll::QuestionsController < Edition::Poll::BaseController
 
   def destroy
     if @question.destroy
-      notice = "Question destroyed succesfully"
+      notice = "Pergunta removida com sucesso"
     else
       notice = t("flash.actions.destroy.error")
     end
-    redirect_to edition_questions_path, notice: notice
+    redirect_to edition_poll_path(@question.poll), notice: notice
   end
 
   private
+
+    def authorize_editor
+      if current_user.editor?
+        if current_user.editor.poll_ids.include?(params[:poll_id])
+          return
+        else
+          raise CanCan::AccessDenied.new
+        end
+      end
+    end
 
     def question_params
       attributes = [

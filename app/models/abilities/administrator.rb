@@ -66,6 +66,7 @@ module Abilities
 
       can [:index, :read, :new, :create, :update, :destroy, :calculate_winners], Budget
       can [:read, :create, :update, :destroy], Budget::Group
+      can [:create, :read], Budget::Group::Import
       can [:read, :create, :update, :destroy], Budget::Heading
       can [:hide, :admin_update, :toggle_selection], Budget::Investment
       can [:valuate, :comment_valuation], Budget::Investment
@@ -85,11 +86,11 @@ module Abilities
       can [:search, :create, :index, :destroy], ::Poll::Officer
       can [:create, :destroy, :manage], ::Poll::BoothAssignment
       can [:create, :destroy], ::Poll::OfficerAssignment
-      can [:read, :create, :update], Poll::Question
-      can :destroy, Poll::Question
+      can [:manage], Poll::Question::Answer
       can [:manage], Poll::ElectoralCollege
       can [:manage], Poll::Elector
-      can [:create, :read], Poll::Electors::Import
+      can [:read, :create, :update], Poll::Question
+      can :destroy, Poll::Question
 
       can :manage, SiteCustomization::Page
       can :manage, SiteCustomization::Image
@@ -121,6 +122,8 @@ module Abilities
       can [:manage], OpenGov::Commitment
       can [:manage], OpenGov::Mark
       can [:manage], OpenGov::Line
+
+      can [:manage], Milestone::Status
     end
   end
 end

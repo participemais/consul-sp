@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20210211224845) do
+ActiveRecord::Schema.define(version: 20210720175704) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -189,6 +189,7 @@ ActiveRecord::Schema.define(version: 20210211224845) do
     t.datetime "updated_at", null: false
     t.integer "households"
     t.decimal "population_density"
+    t.text "description"
     t.index ["heading_id"], name: "index_budget_districts_on_heading_id"
   end
 
@@ -245,6 +246,7 @@ ActiveRecord::Schema.define(version: 20210211224845) do
     t.integer "population_density_reference_year"
     t.string "analytical_framework_url"
     t.string "action_perimeter_url"
+    t.text "description"
     t.index ["group_id"], name: "index_budget_headings_on_group_id"
   end
 
@@ -681,6 +683,19 @@ ActiveRecord::Schema.define(version: 20210211224845) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "census_code"
+    t.bigint "subprefecture_id"
+    t.boolean "district"
+    t.boolean "active"
+    t.index ["subprefecture_id"], name: "index_geozones_on_subprefecture_id"
+  end
+
+  create_table "geozones_for_stats_polls", force: :cascade do |t|
+    t.bigint "geozone_id"
+    t.bigint "poll_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["geozone_id"], name: "index_geozones_for_stats_polls_on_geozone_id"
+    t.index ["poll_id"], name: "index_geozones_for_stats_polls_on_poll_id"
   end
 
   create_table "geozones_polls", id: :serial, force: :cascade do |t|
@@ -1378,6 +1393,9 @@ ActiveRecord::Schema.define(version: 20210211224845) do
     t.integer "officer_id"
     t.string "token"
     t.string "ethnicity"
+    t.string "city"
+    t.string "uf"
+    t.datetime "date_of_birth"
     t.index ["booth_assignment_id"], name: "index_poll_voters_on_booth_assignment_id"
     t.index ["document_number"], name: "index_poll_voters_on_document_number"
     t.index ["officer_assignment_id"], name: "index_poll_voters_on_officer_assignment_id"
@@ -1401,6 +1419,7 @@ ActiveRecord::Schema.define(version: 20210211224845) do
     t.string "related_type"
     t.integer "related_id"
     t.boolean "electoral_college_restricted", default: false
+    t.boolean "statisticable"
     t.index ["budget_id"], name: "index_polls_on_budget_id", unique: true
     t.index ["related_type", "related_id"], name: "index_polls_on_related_type_and_related_id"
     t.index ["starts_at", "ends_at"], name: "index_polls_on_starts_at_and_ends_at"
@@ -1736,6 +1755,7 @@ ActiveRecord::Schema.define(version: 20210211224845) do
     t.string "erase_reason_description"
     t.integer "document_number_changes_count"
     t.integer "date_of_birth_changes_count"
+    t.string "neighbourhood"
     t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["geozone_id"], name: "index_users_on_geozone_id"

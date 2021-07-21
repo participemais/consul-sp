@@ -9,7 +9,7 @@
             { include_blank: @statuses.any? ? "" : t("admin.milestones.form.no_statuses_defined") },
             { disabled: @statuses.blank? } %>
       <%= link_to t("admin.milestones.form.admin_statuses"),
-                  edition_milestone_statuses_path %>
+                  edition_milestone_statuses_path if current_user.administrator? %>
     </div>
   </div>
 

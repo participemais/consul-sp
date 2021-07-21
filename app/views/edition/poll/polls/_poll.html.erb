@@ -1,7 +1,7 @@
 <tr id="<%= dom_id(poll) %>" class="poll">
   <td>
     <strong>
-      <% if current_user.editor? && poll.editable? || current_user.administrator? %>
+      <% if current_user.editor? && poll.editable? && current_user.editor.poll_ids.include?(poll.id) || current_user.administrator? %>
         <%= link_to poll.name, edition_poll_path(poll) %>
       <% else %>
         <%= poll.name %>
@@ -15,20 +15,20 @@
     <%= l poll.ends_at.to_date %>
   </td>
   <td>
-    <% if current_user.editor? && poll.editable? || current_user.administrator? %>
+    <% if current_user.editor? && poll.editable? && current_user.editor.poll_ids.include?(poll.id) || current_user.administrator? %>
       <%= link_to t("admin.actions.edit"),
-                  edit_edition_poll_path(poll),
+                  edition_poll_path(poll),
                   class: "button hollow" %>
 
       <%= link_to t("admin.actions.delete"),
               edition_poll_path(poll),
               method: :delete,
               "data-confirm": t("admin.polls.destroy.alert"),
-              class: "button hollow alert" %>
-
-      <%= link_to t("admin.actions.configure"),
-                  edition_poll_path(poll),
-                  class: "button hollow " %>
+              class: "button hollow alert" if current_user.administrator? %>
+    <% else %>
+        <%= link_to t("admin.actions.edit"),
+                  '#',
+                  class: "button hollow disabled" %>
     <% end %>
   </td>
 </tr>

@@ -22,18 +22,22 @@ module Abilities
 
       can :manage, Dashboard::Action
 
-      can [:read, :update, :add_question, :search_booths, :search_officers, :booth_assignments], Poll, editors: { user_id: user.id }
+      can [:read, :edit, :update, :add_question, :search_booths, :search_officers, :booth_assignments], Poll, id: user.editor.poll_ids if user.editor.present?
       can [:read, :create, :update, :destroy], Poll::Question
+      can [:manage], Poll::Question::Answer
       can [:manage], Poll::ElectoralCollege
+      can [:manage], Poll::Elector
+      can [:create, :read], Poll::Electors::Import
 
       can :access, :ckeditor
       can :manage, Ckeditor::Picture
 
-      can [:manage], ::Legislation::Process, editors: { user_id: user.id }
-      can [:manage], ::Legislation::DraftVersion
-      can [:manage], ::Legislation::Question
-      can [:manage], ::Legislation::Proposal
-      can [:manage], ::Legislation::Topic
+
+      can [:manage], ::Legislation::Process, id: user.editor.legislation_process_ids if user.editor.present?
+      can [:manage], ::Legislation::DraftVersion, legislation_process_id: user.editor.legislation_process_ids if user.editor.present?
+      can [:manage], ::Legislation::Question, legislation_process_id: user.editor.legislation_process_ids if user.editor.present?
+      can [:manage], ::Legislation::Proposal, legislation_process_id: user.editor.legislation_process_ids if user.editor.present?
+      can [:manage], ::Legislation::Topic, legislation_process_id: user.editor.legislation_process_ids if user.editor.present?
       cannot :comment_as_moderator, [::Legislation::Question, Legislation::Annotation, ::Legislation::Proposal]
 
       can [:create], Document

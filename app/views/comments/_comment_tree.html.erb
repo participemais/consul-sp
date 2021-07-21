@@ -1,6 +1,6 @@
 <% commentable = comment_tree.commentable %>
 <% valuation = local_assigns.fetch(:valuation, false) %>
-<% cache [locale_and_user_status, comment_tree.order, commentable_cache_key(commentable), comment_tree.comments, comment_tree.comment_authors, commentable.comments_count] do %>
+<% cache [locale_and_user_status, commentable, comment_tree.order, commentable_cache_key(commentable), comment_tree.comments, comment_tree.comment_authors, commentable.comments_count] do %>
   <section class="expanded comments">
     <div class="row">
       <div id="comments" class="small-12 column">
@@ -19,7 +19,11 @@
             <%= comments_closed_text(commentable) %>
           </div>
         <% elsif user_signed_in? %>
-          <% if require_verified_resident_for_commentable?(commentable, current_user) %>
+          <% if commentable.class == Legislation::Question && current_user.organization?%>
+            <div data-alert class="callout warning">
+              <%= sanitize(t("legislation.questions.participation.organizations")) %>
+            </div>
+          <% elsif require_verified_resident_for_commentable?(commentable, current_user) %>
             <br>
             <div data-alert class="callout warning">
               <%= sanitize(t("comments.verified_only", verify_account: link_to_verify_account)) %>
@@ -32,7 +36,7 @@
               )) %>
             </div>
           <% elsif !valuation || can?(:comment_valuation, commentable) %>
-            <% if current_user.present? && !current_user.incomplete_registration? %>
+            <% if current_user.present? && !current_user.incomplete_registration? || controller.controller_name == 'investments'%>
               <%= render "comments/form", { commentable: commentable,
                                             parent_id: nil,
                                             valuation: valuation } %>

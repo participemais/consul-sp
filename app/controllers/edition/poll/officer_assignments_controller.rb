@@ -2,6 +2,7 @@ class Edition::Poll::OfficerAssignmentsController < Edition::Poll::BaseControlle
   before_action :load_poll
   before_action :redirect_if_blank_required_params, only: [:by_officer]
   before_action :load_booth_assignment, only: [:create]
+  before_action :authorize_editor
 
   def index
     @officers = ::Poll::Officer.
@@ -34,6 +35,16 @@ class Edition::Poll::OfficerAssignmentsController < Edition::Poll::BaseControlle
   end
 
   private
+
+    def authorize_editor
+      if current_user.editor?
+        if current_user.editor.poll_ids.include?(params[:poll_id].to_i)
+          return
+        else
+          raise CanCan::AccessDenied.new
+        end
+      end
+    end
 
     def officer_assignment_params
       params.permit(:officer_id)

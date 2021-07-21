@@ -35,7 +35,7 @@
           <%= investment.formatted_price %>
         </p>
       <% end %>
-      <% if investment.should_show_ballots? && current_user.present? && !current_user.incomplete_registration? %>
+      <% if investment.should_show_ballots? && current_user.present? && current_user.complete_registration? %>
         <%= link_to t("budgets.investments.investment.add"),
                     budget_ballot_lines_path(investment_id: investment.id,
                                              budget_id: investment.budget_id,

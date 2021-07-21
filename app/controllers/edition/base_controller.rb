@@ -6,9 +6,18 @@ class Edition::BaseController < ApplicationController
 
   skip_authorization_check
 
-  private
+  helper_method :namespace
 
+  private
     def verify_editor
-      raise CanCan::AccessDenied unless current_user&.editor? || current_user&.administrator?
+      raise CanCan::AccessDenied unless current_user&.administrator? || current_user&.editor?
+    end
+
+    def namespace
+    	if current_user.administrator?
+    		"admin"
+    	elsif current_user.editor?
+      	"edition"
+      end
     end
 end

@@ -3,7 +3,7 @@ class Edition::Poll::ElectoralCollegesController < Edition::Poll::BaseController
   load_and_authorize_resource :poll
 
   before_action :load_electoral_college, except: [:index, :new, :create]
-
+  before_action :authorize_editor
 
   def index
     @electoral_college = @poll.electoral_college
@@ -50,6 +50,16 @@ class Edition::Poll::ElectoralCollegesController < Edition::Poll::BaseController
   end
 
   private
+
+    def authorize_editor
+      if current_user.editor?
+        if current_user.editor.poll_ids.include?(params[:poll_id].to_i)
+          return
+        else
+          raise CanCan::AccessDenied.new
+        end
+      end
+    end
 
     def electoral_college_params
       params.require(:poll_electoral_college).permit(:title, :poll_id)

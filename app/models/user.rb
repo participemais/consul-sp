@@ -15,6 +15,8 @@ class User < ApplicationRecord
 
   include Graphqlable
 
+  alias_attribute :district_id, :geozone_id
+
   has_one :administrator
   has_one :moderator
   has_one :valuator
@@ -126,6 +128,7 @@ class User < ApplicationRecord
   attr_accessor :skip_password_validation
   attr_accessor :use_redeemable_code
   attr_accessor :login
+  attr_accessor :sub_id
 
   scope :administrators, -> { joins(:administrator) }
   scope :editors,        -> { joins(:editor) }
@@ -159,6 +162,10 @@ class User < ApplicationRecord
     )
   end
   scope :by_ethnicity, ->(ethnicity) { where(ethnicity: ethnicity) }
+  scope :resident,     -> { where(uf: 'SP') }
+  scope :non_resident, -> { where.not(uf: 'SP') }
+  scope :from_sp,  -> { where(city: 'São Paulo', uf: 'SP') }
+  scope :not_from_sp,  -> { where.not(city: 'São Paulo') }
 
   before_validation :clean_document_number, if: :persisted?
   before_validation :clean_cep, if: :persisted?
@@ -265,7 +272,17 @@ class User < ApplicationRecord
   end
 
   def incomplete_registration?
-    document_number.blank?
+    !complete_registration?
+  end
+
+  def complete_registration?
+    if city == 'São Paulo'
+      return geozone_id.present?
+    elsif organization?
+      cep.present?
+    else
+      document_number.present?
+    end
   end
 
   def can_vote?
@@ -480,6 +497,14 @@ class User < ApplicationRecord
     document_type == 'rnm'
   end
 
+  def resident?
+    uf == 'SP'
+  end
+
+  def query_address
+    "#{address_number} #{home_address}"
+  end 
+  
   def from_sp?
     city == "São Paulo" && uf == "SP"
   end

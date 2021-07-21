@@ -122,6 +122,7 @@
             }
           });
         }
+        document.getSelection().removeAllRanges();
       }).bind(this));
     },
     editorExtension: function(editor) {

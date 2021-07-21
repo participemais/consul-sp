@@ -60,7 +60,7 @@ module PollsHelper
     (
       !poll.electoral_college_restricted? ||
       poll.belongs_to_electoral_college?(current_user, question.category)
-    )
+    ) && !current_user.organization.present?
   end
 
   def poll_votes_counter(question)

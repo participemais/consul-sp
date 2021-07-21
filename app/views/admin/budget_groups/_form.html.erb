@@ -15,7 +15,7 @@
   <% if @group.persisted? %>
     <div class="row">
       <div class="small-12 medium-6 column">
-        <%= f.select :max_votable_headings, (1..@group.headings.count) %>
+        <%= f.select :max_votable_headings, (1..@group.headings.count), label: "Número máximo de Subprefeituras que um usuário pode distribuir apoios na etapa de Recepção de Propostas" %>
       </div>
     </div>
   <% end %>

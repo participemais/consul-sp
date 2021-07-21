@@ -22,6 +22,22 @@ class Poll
     scope :web,    -> { where(origin: "web") }
     scope :booth,  -> { where(origin: "booth") }
     scope :letter, -> { where(origin: "letter") }
+    scope :male,           -> { where(gender: "male") }
+    scope :female,         -> { where(gender: "female") }
+    scope :non_binary,     -> { where(gender: "non_binary") }
+    scope :unknown,        -> { where(gender: "unknown") }
+    scope :by_ethnicity, ->(ethnicity) { where(ethnicity: ethnicity) }
+    scope :resident,     -> { where(uf: 'SP') }
+    scope :non_resident, -> { where.not(uf: 'SP') }
+    scope :from_sp,  -> { where(city: 'São Paulo', uf: 'SP') }
+    scope :not_from_sp,  -> { where.not(city: 'São Paulo') }
+    scope :between_ages, ->(from, to) do
+    where(
+        "date_of_birth > ? AND date_of_birth < ?",
+        to.years.ago.beginning_of_year,
+        from.years.ago.end_of_year
+      )
+    end
 
     def set_demographic_info
       return if user.blank?
@@ -30,6 +46,9 @@ class Poll
       self.age = user.age
       self.geozone = user.geozone
       self.ethnicity = user.ethnicity
+      self.uf = user.uf
+      self.city = user.city
+      self.date_of_birth = user.date_of_birth
     end
 
     def set_document_info

@@ -12,8 +12,6 @@ class Officing::Residence
   validates :date_of_birth, presence: true, if: -> { Setting.force_presence_date_of_birth? }
   validates :postal_code, presence: true, if: -> { Setting.force_presence_postal_code? }
 
-  validate :residence_in_madrid
-
   def initialize(attrs = {})
     self.date_of_birth = parse_date("date_of_birth", attrs)
     attrs = remove_date("date_of_birth", attrs)

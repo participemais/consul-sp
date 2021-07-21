@@ -32,13 +32,13 @@
         <% @process.draft_versions.each do |draft_version| %>
           <tr id="<%= dom_id(draft_version) %>">
             <td>
-              <%= link_to draft_version.title, edit_edition_legislation_process_draft_version_path(@process, draft_version) %>
+              <%= link_to draft_version.title, edition_legislation_process_draft_version_path(@process, draft_version) %>
             </td>
             <td><%= draft_version.created_at.to_date %></td>
             <td>
               <% if draft_version.status == "draft" %>
                 <%= Legislation::DraftVersion.human_attribute_name(:status_draft) %>
-                <%= link_to "(#{t(".preview")})", legislation_process_draft_version_path(@process, draft_version) %>
+                <%= link_to "(#{t("admin.legislation.draft_versions.index.preview")})", legislation_process_draft_version_path(@process, draft_version) %>
               <% else %>
                 <%= Legislation::DraftVersion.human_attribute_name(:status_published) %>
               <% end %>

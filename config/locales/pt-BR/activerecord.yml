@@ -39,6 +39,9 @@ pt-BR:
       moderator:
         one: "Moderador"
         other: "Moderadores"
+      editor:
+        one: "Editor"
+        other: "Editores"
       administrator:
         one: "Administrador"
         other: "Administradores"
@@ -215,6 +218,7 @@ pt-BR:
         description: "Descreva sua proposta"
       geozone:
         name: Nome
+        district: Distrito
         external_code: "Código externo (opcional)"
         census_code: "Código do censo (opcional)"
         html_map_coordinates: "Coordenadas do MAL <map> (opcional)"
@@ -247,7 +251,7 @@ pt-BR:
       feasibility_analysis/department:
         name: Nome
       budget/group:
-        max_votable_headings: "Número máximo de títulos em que um usuário pode votar"
+        max_votable_headings: "Número máximo de subprefeituras em que um usuário pode votar"
       budget/group/translation:
         name: "Nome do grupo"
       budget/heading:
@@ -354,7 +358,7 @@ pt-BR:
         name: "Nome"
         starts_at: "Data de início"
         ends_at: "Data de encerramento"
-        geozone_restricted: "Restrito por subprefeitura"
+        geozone_restricted: "Restrito por geozona"
         electoral_college_restricted: "Votação restrita por colégio eleitoral"
         summary: "Resumo"
         description: "Descrição"

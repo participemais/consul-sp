@@ -4,10 +4,11 @@ class Admin::GeozonesController < Admin::BaseController
   load_and_authorize_resource
 
   def index
-    @geozones = Geozone.all.order("LOWER(name)")
+    @geozones = Geozone.all.where(active: true).order("LOWER(name)")
   end
 
   def new
+    @geozone.document = Document.new
   end
 
   def edit
@@ -32,8 +33,7 @@ class Admin::GeozonesController < Admin::BaseController
   end
 
   def destroy
-    if @geozone.safe_to_destroy?
-      @geozone.destroy!
+    if @geozone.archive
       redirect_to admin_geozones_path, notice: t("admin.geozones.delete.success")
     else
       redirect_to admin_geozones_path, flash: { error: t("admin.geozones.delete.error") }
@@ -43,6 +43,6 @@ class Admin::GeozonesController < Admin::BaseController
   private
 
     def geozone_params
-      params.require(:geozone).permit(:name, :external_code, :census_code, :html_map_coordinates)
+      params.require(:geozone).permit(:name, :district, :active, document_attributes: [:id, :title, :attachment, :cached_attachment, :user_id, :_destroy])
     end
 end
