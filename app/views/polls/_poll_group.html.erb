@@ -15,6 +15,12 @@
             <%= "Não é possível participar como organização" %>
           </span>
         </div>
+      <% elsif current_user.incomplete_registration? %>
+        <div class="icon-poll-answer cant-answer" title="Você precisa completar o cadastro para participar da votação ">
+          <span class="show-for-sr">
+            "Você precisa completar o cadastro para participar da votação "
+          </span>
+        </div>
       <% elsif poll.electoral_college_restricted? && !poll.belongs_to_electoral_college?(current_user) %>
         <div class="icon-poll-answer cant-answer" title="<%= t("polls.index.electoral_college_restricted") %>">
           <span class="show-for-sr">

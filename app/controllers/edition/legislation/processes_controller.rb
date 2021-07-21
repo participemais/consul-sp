@@ -51,7 +51,7 @@ class Edition::Legislation::ProcessesController < Edition::Legislation::BaseCont
     def authorize_editor
       if current_user.editor? 
         if action_name != 'index'
-          return if @process.editable?(current_user)
+          raise CanCan::AccessDenied.new unless @process.editable?(current_user)
         elsif action_name == 'index'
           return
         else

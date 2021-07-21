@@ -61,7 +61,7 @@ class Edition::Poll::QuestionsController < Edition::Poll::BaseController
       if current_user.editor?
         if current_user.editor.poll_ids.include?(params[:poll_id])
           return
-        elsif action_name == 'destroy' || action_name == 'index'
+        else
           raise CanCan::AccessDenied.new
         end
       end
