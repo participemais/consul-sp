@@ -4,7 +4,7 @@
 <h2 class="inline-block"><%= "#{@budget.name} / #{@group.name}" %></h2>
 <%= link_to 'Importar TSV',
          new_admin_budget_group_import_path,
-        class: "button float-right hollow" %>
+        class: "button float-right hollow import-headings" %>
 
 <% if @headings.any? %>
   <h3><%= t("admin.budget_headings.amount", count: @headings.count) %></h3>
@@ -47,3 +47,12 @@
     <%= t("admin.budget_headings.no_headings") %>
   </div>
 <% end %>
+
+<script type="text/javascript">
+  $('.import-headings').on('click', ':not(form)[data-confirm]', function(e){
+    if(!confirm("A importação de títulos através de um arquivo TSV acarreterá na remoção definitiva de todos os títulos cadastrados nesse grupo. Clique em 'OK' para prosseguir")){
+        e.stopImmediatePropagation();
+        e.preventDefault();
+    }
+});
+</script>

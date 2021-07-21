@@ -21,7 +21,8 @@ class Budget::Group::Import
 
   def save
     return false if invalid?
-
+    @group.headings.destroy_all
+    
     CSV.open(file.path, headers: true, :col_sep => "\t").each do |row|
       next if empty_row?(row)
       process_row row
