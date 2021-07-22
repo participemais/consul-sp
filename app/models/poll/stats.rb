@@ -50,15 +50,42 @@ class Poll::Stats
   end
 
   def total_booth_valid
-    recounts.sum(:total_amount)
+    recounts.sum(:total_amount) + log_sum_valid
+  end
+
+  def log_sum_valid
+    result = 0
+    recounts.each do |recount|
+      result += recount.total_amount_log.split(':').inject { |sum, votes| sum.to_i + votes.to_i }
+    end
+    
+    result
   end
 
   def total_booth_white
-    recounts.sum(:white_amount)
+    recounts.sum(:white_amount) + log_sum_white
+  end
+
+  def log_sum_white
+    result = 0
+    recounts.each do |recount|
+      result += recount.white_amount_log.split(':').inject { |sum, votes| sum.to_i + votes.to_i }
+    end
+    
+    result
   end
 
   def total_booth_null
-    recounts.sum(:null_amount)
+    recounts.sum(:null_amount) + log_sum_null
+  end
+
+  def log_sum_null
+    result = 0
+    recounts.each do |recount|
+      result += recount.null_amount_log.split(':').inject { |sum, votes| sum.to_i + votes.to_i }
+    end
+    
+    result
   end
 
   def total_letter_valid
@@ -111,7 +138,7 @@ class Poll::Stats
       [total_participants_booth - total_registered_booth, 0].max
     end
 
-    stats_cache(*stats_methods)
+    #stats_cache(*stats_methods)
 
     def stats_cache(key, &block)
       Rails.cache.fetch("polls_stats/#{poll.id}/#{key}/#{version}", &block)
