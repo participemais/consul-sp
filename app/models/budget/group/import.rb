@@ -4,7 +4,7 @@ class Budget::Group::Import
   include ActiveModel::Model
 
   ATTRIBUTES = %w[distrito subprefeitura populacao area desc_distrito desc_subprefeitura].freeze
-  SUB_ATTRS = { subprefeitura: 'name', populacao: 'population', area: 'area', desc_subprefeitura: 'description' }
+  SUB_ATTRS = { subprefeitura: 'name', desc_subprefeitura: 'description' }
   DISTRICT_ATTRS = { distrito: 'name', populacao: 'population', area: 'area', desc_distrito: 'description' }
   ALLOWED_FILE_EXTENSIONS = %w[tsv].freeze
 
@@ -45,15 +45,10 @@ class Budget::Group::Import
       attrs = row.to_hash.slice(*ATTRIBUTES)
   
       sub = @group.headings.find_by(name: attrs['subprefeitura'], group_id: group.id)
-      if sub.present?
-        sub.area += BigDecimal.new attrs['area']
-        sub.population += BigDecimal.new attrs['populacao']
-        sub.save
-      else
-        sub = Budget::Heading.new(db_attrs attrs, SUB_ATTRS)
-        @group.headings << sub
-      end
-
+      
+      sub ||= Budget::Heading.new(db_attrs attrs, SUB_ATTRS)
+      @group.headings << sub
+  
       sub.districts << Budget::District.new(db_attrs attrs, DISTRICT_ATTRS)
     end
 

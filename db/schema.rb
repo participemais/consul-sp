@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20210721092010) do
+ActiveRecord::Schema.define(version: 20210722133500) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -226,14 +226,12 @@ ActiveRecord::Schema.define(version: 20210721092010) do
   create_table "budget_headings", id: :serial, force: :cascade do |t|
     t.integer "group_id"
     t.bigint "price"
-    t.integer "population"
     t.string "slug"
     t.boolean "allow_custom_content", default: false
     t.text "latitude"
     t.text "longitude"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.decimal "area"
     t.decimal "slum_households_percentage"
     t.integer "slum_households_reference_year"
     t.integer "extreme_poverty"

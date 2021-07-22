@@ -57,6 +57,14 @@ class Budget
       investments.empty?
     end
 
+    def area
+      districts.sum(:area)
+    end
+
+    def population
+      districts.sum(:population)
+    end
+
     private
 
       def generate_slug?
