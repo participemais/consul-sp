@@ -46,7 +46,7 @@ class Budget::Group::Import
   
       sub = @group.headings.find_by(name: attrs['subprefeitura'], group_id: group.id)
       
-      sub ||= Budget::Heading.new(db_attrs attrs, SUB_ATTRS)
+      sub = Budget::Heading.new(db_attrs attrs, SUB_ATTRS) if sub.blank?
       @group.headings << sub
   
       sub.districts << Budget::District.new(db_attrs attrs, DISTRICT_ATTRS)

@@ -4,6 +4,7 @@
            manage_languages: false %>
 
 <%= translatable_form_for [:edition, @process] do |f| %>
+  <%= hidden_field_tag 'milestones', 'ok' %>
   <div class="row">
     <%= f.translatable_fields do |translations_form| %>
       <div class="column">

@@ -33,7 +33,6 @@ class Budget
     validates :group_id, presence: true
     validates :price, presence: true, if: :budget_resource_allocation_balloting?
     validates :slug, presence: true, format: /\A[a-z0-9\-_]+\z/
-    validates :population, numericality: { greater_than: 0 }, allow_nil: true
     validates :latitude, length: { maximum: 22 }, allow_blank: true, \
               format: /\A(-|\+)?([1-8]?\d(?:\.\d{1,})?|90(?:\.0{1,6})?)\z/
     validates :longitude, length: { maximum: 22 }, allow_blank: true, \
