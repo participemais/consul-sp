@@ -50,42 +50,15 @@ class Poll::Stats
   end
 
   def total_booth_valid
-    recounts.sum(:total_amount) + log_sum_valid
-  end
-
-  def log_sum_valid
-    result = 0
-    recounts.each do |recount|
-      result += recount.total_amount_log.split(':').inject { |sum, votes| sum.to_i + votes.to_i }
-    end
-    
-    result
+    recounts.sum(:total_amount)
   end
 
   def total_booth_white
-    recounts.sum(:white_amount) + log_sum_white
-  end
-
-  def log_sum_white
-    result = 0
-    recounts.each do |recount|
-      result += recount.white_amount_log.split(':').inject { |sum, votes| sum.to_i + votes.to_i }
-    end
-    
-    result
+    recounts.sum(:white_amount)
   end
 
   def total_booth_null
-    recounts.sum(:null_amount) + log_sum_null
-  end
-
-  def log_sum_null
-    result = 0
-    recounts.each do |recount|
-      result += recount.null_amount_log.split(':').inject { |sum, votes| sum.to_i + votes.to_i }
-    end
-    
-    result
+    recounts.sum(:null_amount)
   end
 
   def total_letter_valid

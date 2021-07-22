@@ -28,17 +28,9 @@ class Poll::Question::Answer < ApplicationRecord
 
   def total_votes
     Poll::Answer.where(question_id: question, answer: title).count +
-      ::Poll::PartialResult.where(question: question).where(answer: title).sum(:amount) + log_votes
+      ::Poll::PartialResult.where(question: question).where(answer: title).sum(:amount)
   end
 
-  def log_votes
-    result = 0
-    ::Poll::PartialResult.where(question: question).where(answer: title).each do |partial_result|
-      result += partial_result.amount_log.split(':').inject { |sum, votes| sum.to_i + votes.to_i }
-    end
-    
-    result
-  end
 
   def total_votes_percentage
     question.answers_total_votes.zero? ? 0 : (total_votes * 100.0) / question.answers_total_votes
