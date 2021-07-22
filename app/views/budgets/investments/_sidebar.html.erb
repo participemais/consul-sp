@@ -13,11 +13,23 @@
       </div>
     <% end %>
   <% elsif current_user && current_user.incomplete_registration? %>
+    <% if @budget.phase == 'accepting' %>
+        <div class="callout primary">
+          <%= sanitize(t("budgets.investments.index.sidebar.incomplete_registration",
+          register: link_to_my_account )) %>
+        </div>
+    <% elsif @budget.phase == 'balloting' %>
+      <div class="callout primary">
+        <%= sanitize(t("budgets.investments.index.sidebar.incomplete_registration_poll",
+          register: link_to_my_account )) %>
+      </div>
+    <% end %>
+  <% elsif @budget.phase == 'accepting' %>
     <div class="callout primary">
-      <%= sanitize(t("budgets.investments.index.sidebar.incomplete_registration_poll",
-        register: link_to_my_account )) %>
+      <%= sanitize(t("budgets.investments.index.sidebar.not_logged_in",
+            sign_in: link_to_signin, sign_up: link_to_signup)) %>
     </div>
-  <% else %>
+  <% elsif @budget.phase == 'balloting' %>
     <div class="callout primary">
       <%= sanitize(t("budgets.investments.index.sidebar.not_logged_in_poll",
             sign_in: link_to_signin, sign_up: link_to_signup)) %>
