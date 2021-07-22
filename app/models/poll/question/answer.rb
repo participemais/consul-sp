@@ -31,6 +31,7 @@ class Poll::Question::Answer < ApplicationRecord
       ::Poll::PartialResult.where(question: question).where(answer: title).sum(:amount)
   end
 
+
   def total_votes_percentage
     question.answers_total_votes.zero? ? 0 : (total_votes * 100.0) / question.answers_total_votes
   end

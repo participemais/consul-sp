@@ -111,7 +111,7 @@ class Poll::Stats
       [total_participants_booth - total_registered_booth, 0].max
     end
 
-    stats_cache(*stats_methods)
+    #stats_cache(*stats_methods)
 
     def stats_cache(key, &block)
       Rails.cache.fetch("polls_stats/#{poll.id}/#{key}/#{version}", &block)

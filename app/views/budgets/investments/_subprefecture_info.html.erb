@@ -1,41 +1,45 @@
 <div class="js-subprefecture-info subprefecture-info">
-  <p class="no-margin-bottom">
-    <%= sanitize(t(
-      "budgets.investments.index.subprefecture_info",
-      heading: heading.name,
-      population_density: number_with_delimiter(
-        heading.population_density,
-        separator: ","
-      ),
-      households: number_with_delimiter(heading.households, delimiter: "."),
-      slum_households_percentage: number_with_delimiter(
-        heading.slum_households_percentage,
-        separator: ","
-      ),
-      slum_households_reference_year:
-        heading.slum_households_reference_year,
-      hdi: number_with_delimiter(heading.hdi, separator: ","),
-      hdi_reference_year: heading.hdi_reference_year,
-      count: heading.hdi
-    )) %>
-    <%= sanitize(t(
-      "budgets.investments.index.subprefecture_formal_jobs_by_population",
-      formal_jobs_by_population: number_with_delimiter(
-        heading.formal_jobs_by_population.round(2),
-        separator: ","
-      ),
-      formal_jobs_by_population_reference_year:
-        heading.formal_jobs_by_population_reference_year
-    )) %>
-    <%= t("budgets.investments.index.subprefecture_links") %>
-    <%= link_to(t("budgets.investments.index.here"), heading.analytical_framework_url, target: :_blank) %> e <%= link_to(t("budgets.investments.index.here"), heading.action_perimeter_url, target: :_blank) %>.
-  </p>
-  <p class="subprefecture-info-source">
-    <%= t("budgets.investments.index.info_source_text") %>
-    <%= link_to(
-      t("budgets.investments.index.info_source"),
-      "http://observasampa.prefeitura.sp.gov.br/",
-      target: :_blank
-    ) %>
-  </p>
+  <% if heading.group.show_description? %>
+    <%= sanitize heading.description %>
+  <% else %>
+    <p class="no-margin-bottom">
+      <%= sanitize(t(
+        "budgets.investments.index.subprefecture_info",
+        heading: heading.name,
+        population_density: number_with_delimiter(
+          heading.population_density,
+          separator: ","
+        ),
+        households: number_with_delimiter(heading.households, delimiter: "."),
+        slum_households_percentage: number_with_delimiter(
+          heading.slum_households_percentage,
+          separator: ","
+        ),
+        slum_households_reference_year:
+          heading.slum_households_reference_year,
+        hdi: number_with_delimiter(heading.hdi, separator: ","),
+        hdi_reference_year: heading.hdi_reference_year,
+        count: heading.hdi
+      )) %>
+      <%= sanitize(t(
+        "budgets.investments.index.subprefecture_formal_jobs_by_population",
+        formal_jobs_by_population: number_with_delimiter(
+          heading.formal_jobs_by_population.round(2),
+          separator: ","
+        ),
+        formal_jobs_by_population_reference_year:
+          heading.formal_jobs_by_population_reference_year
+      )) %>
+      <%= t("budgets.investments.index.subprefecture_links") %>
+      <%= link_to(t("budgets.investments.index.here"), heading.analytical_framework_url, target: :_blank) %> e <%= link_to(t("budgets.investments.index.here"), heading.action_perimeter_url, target: :_blank) %>.
+    </p>
+    <p class="subprefecture-info-source">
+      <%= t("budgets.investments.index.info_source_text") %>
+      <%= link_to(
+        t("budgets.investments.index.info_source"),
+        "http://observasampa.prefeitura.sp.gov.br/",
+        target: :_blank
+      ) %>
+    </p>
+  <% end %>
 </div>

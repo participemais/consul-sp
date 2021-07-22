@@ -22,6 +22,8 @@ class Budget
 
     has_many :headings, dependent: :destroy
 
+    before_create :set_show_description
+
     validates_translation :name, presence: true
     validates :budget_id, presence: true
     validates :slug, presence: true, format: /\A[a-z0-9\-_]+\z/
@@ -35,6 +37,10 @@ class Budget
     end
 
     private
+
+      def set_show_description
+        self.show_description = true
+      end
 
       def generate_slug?
         slug.nil? || budget.drafting?

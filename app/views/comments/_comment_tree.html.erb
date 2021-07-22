@@ -19,9 +19,13 @@
             <%= comments_closed_text(commentable) %>
           </div>
         <% elsif user_signed_in? %>
-          <% if commentable.class == Legislation::Question && current_user.organization?%>
+          <% if  current_user.organization? %>
             <div data-alert class="callout warning">
-              <%= sanitize(t("legislation.questions.participation.organizations")) %>
+              <% if commentable.class == Legislation::Question %>
+                <%= sanitize(t("legislation.questions.participation.organizations")) %>
+              <% elsif commentable.class == Legislation::Annotation %>
+                As organizações não podem participar de processos do tipo Anotações.
+              <% end %>
             </div>
           <% elsif require_verified_resident_for_commentable?(commentable, current_user) %>
             <br>

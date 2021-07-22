@@ -54,6 +54,10 @@ class Budget::Stats
     budget.finished?
   end
 
+  def participants
+    @participants ||= User.unscoped.where(id: participant_ids)
+  end
+
   def total_participants
     participants.distinct.count
   end

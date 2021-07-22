@@ -3,7 +3,7 @@
 <br>
 
 <ul id="categories" class="no-bullet categories">
-  <% @categories.each do |tag| %>
+  <% @budget.customs.order(:name).each do |tag| %>
     <li class="inline-block">
       <% tag_search = tag.name %>
 

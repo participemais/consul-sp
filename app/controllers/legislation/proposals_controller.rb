@@ -19,7 +19,7 @@ class Legislation::ProposalsController < Legislation::BaseController
   respond_to :html, :js
 
   def new
-    raise CanCan::AccessDenied.new('Você precisa completar o cadastro para participar.') if current_user.incomplete_registration? || current_user.organization?
+    raise CanCan::AccessDenied.new('Você precisa completar o cadastro para participar.') if current_user.incomplete_registration?
   end
 
   def show

@@ -26,12 +26,13 @@ class Budget
     has_many :investments
     has_many :content_blocks
     has_many :districts, dependent: :destroy
+    accepts_nested_attributes_for :districts, reject_if: :all_blank, allow_destroy: true
+
 
     validates_translation :name, presence: true
     validates :group_id, presence: true
     validates :price, presence: true, if: :budget_resource_allocation_balloting?
     validates :slug, presence: true, format: /\A[a-z0-9\-_]+\z/
-    validates :population, numericality: { greater_than: 0 }, allow_nil: true
     validates :latitude, length: { maximum: 22 }, allow_blank: true, \
               format: /\A(-|\+)?([1-8]?\d(?:\.\d{1,})?|90(?:\.0{1,6})?)\z/
     validates :longitude, length: { maximum: 22 }, allow_blank: true, \
@@ -53,6 +54,14 @@ class Budget
 
     def can_be_deleted?
       investments.empty?
+    end
+
+    def area
+      districts.sum(:area)
+    end
+
+    def population
+      districts.sum(:population)
     end
 
     private

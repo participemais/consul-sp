@@ -14,7 +14,7 @@ class Edition::Legislation::MilestonesController < Edition::MilestonesController
 
     def authorize_editor
       if current_user.editor? 
-        if @process.no_more_editable?(current_user)
+        if @process.editable?(current_user) || @process.no_more_editable?(current_user)
           return
         else
           raise CanCan::AccessDenied.new

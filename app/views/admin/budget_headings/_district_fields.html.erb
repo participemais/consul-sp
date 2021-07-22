@@ -1,0 +1,16 @@
+<div class="nested-fields">
+	<div class="field">
+		<%= f.text_field :name, label: 'Nome' %>
+		<%= f.text_field :population, label: 'População', maxlength: 8 %>
+	</div>
+	<div class="field">
+    <%= f.number_field :area, label: 'Área' %>
+  </div>
+  <div class="field">
+    <%= f.text_area :description, label: 'Descrição' %>
+  </div>
+  <div class="button hollow medium">
+  	<%= link_to_remove_association "Remover distrito", f %>
+  </div>
+</div>
+<hr>

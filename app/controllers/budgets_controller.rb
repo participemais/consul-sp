@@ -46,6 +46,6 @@ class BudgetsController < ApplicationController
     end
 
     def load_categories
-      @categories = Tag.category.order(:name)
+      @categories = @budget.customs.order(:name)
     end
 end
