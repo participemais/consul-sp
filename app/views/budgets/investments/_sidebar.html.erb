@@ -24,12 +24,12 @@
           register: link_to_my_account )) %>
       </div>
     <% end %>
-  <% elsif @budget.phase == 'accepting' %>
+  <% elsif !user_signed_in? && @budget.phase == 'accepting' %>
     <div class="callout primary">
       <%= sanitize(t("budgets.investments.index.sidebar.not_logged_in",
             sign_in: link_to_signin, sign_up: link_to_signup)) %>
     </div>
-  <% elsif @budget.phase == 'balloting' %>
+  <% elsif !user_signed_in? && @budget.phase == 'balloting' %>
     <div class="callout primary">
       <%= sanitize(t("budgets.investments.index.sidebar.not_logged_in_poll",
             sign_in: link_to_signin, sign_up: link_to_signup)) %>
