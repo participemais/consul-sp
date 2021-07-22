@@ -17,7 +17,6 @@
         <% end %>
         <th><%= Budget::Heading.human_attribute_name(:population) %></th>
         <th><%= Budget::Heading.human_attribute_name(:area) %></th>
-        <th><%= Budget::Heading.human_attribute_name(:allow_custom_content) %></th>
         <th><%= t("admin.actions.actions") %></th>
       </tr>
     </thead>
@@ -30,9 +29,6 @@
           <% end %>
           <td><%= heading.population %></td>
           <td><%= heading.area %></td>
-          <td>
-            <%= heading.allow_custom_content ? t("admin.shared.true_value") : t("admin.shared.false_value") %>
-          </td>
           <td>
             <%= link_to t("admin.actions.edit"),
                         edit_admin_budget_group_heading_path(@budget, @group, heading),

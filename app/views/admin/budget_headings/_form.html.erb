@@ -18,10 +18,7 @@
         <%= f.text_field :price, maxlength: 8 %>
       <% end %>
 
-      <%= f.text_field :population,
-                        maxlength: 8,
-                        data: { toggle_focus: "population-info" },
-                        hint: t("admin.budget_headings.form.population_info") %>
+      <%= f.text_field :population, maxlength: 8 %>
 
       <%= f.number_field :area %>
       <%= f.text_area :description, label: 'Mais informações' %>
