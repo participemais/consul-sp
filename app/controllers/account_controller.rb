@@ -23,7 +23,7 @@ class AccountController < ApplicationController
     def set_geozone
       @account.assign_attributes(account_params)
 
-      if account_params[:district_id].blank? && @account.level_three_verified? && @account.from_sp? && ( @account.cep_changed? || @account.geozone == nil )
+      if @account.address_changeable? && account_params[:district_id].blank? && @account.level_three_verified? && @account.from_sp? && ( @account.cep_changed? || @account.geozone == nil )
         results = OpenStreetMapService.search(@account.query_address)
 
         if results.count == 1
@@ -47,8 +47,10 @@ class AccountController < ApplicationController
           @select_from_all = true
           @account.update geozone: nil
         end
-      elsif !@account.from_sp?
+      elsif @account.address_changeable? && !@account.from_sp?
         @account.update geozone: nil
+      elsif !@account.address_changeable?
+        render :show, alert: "Não é permitido atualizar dados de endereço dentro de um intervalo de 30 dias."
       end
     end
 

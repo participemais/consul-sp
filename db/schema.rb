@@ -10,12 +10,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20210722133500) do
+ActiveRecord::Schema.define(version: 20210802201005) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-  enable_extension "pg_trgm"
   enable_extension "unaccent"
+  enable_extension "pg_trgm"
 
   create_table "active_poll_translations", id: :serial, force: :cascade do |t|
     t.integer "active_poll_id", null: false
@@ -1755,6 +1755,7 @@ ActiveRecord::Schema.define(version: 20210722133500) do
     t.integer "document_number_changes_count"
     t.integer "date_of_birth_changes_count"
     t.string "neighbourhood"
+    t.datetime "address_updated_at"
     t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["geozone_id"], name: "index_users_on_geozone_id"

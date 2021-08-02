@@ -176,6 +176,7 @@ class User < ApplicationRecord
   before_save :date_of_birth_changes_amount,
     unless: :date_of_birth_changes_count
   before_save :copy_votes_from_erased_user, if: :document_number_changed?
+  before_save :set_address_updated_at
   after_save :belongs_to_active_electoral_college,
     if: :document_number_changed?
 
@@ -515,6 +516,10 @@ class User < ApplicationRecord
     false
   end
 
+  def address_changeable?
+    address_updated_at.present? ? Time.ago(30.days) > address_updated_at : true
+  end
+
   private
 
     def clean_document_number
@@ -647,5 +652,9 @@ class User < ApplicationRecord
     def data_log(other_user)
       log = "id: #{other_user.id} - #{Time.current.strftime("%Y-%m-%d %H:%M:%S")}"
       "#{former_users_data_log} | #{log}"
+    end
+
+    def set_address_updated_at
+      address_updated_at = Time.now if cep.changed? && address_changeable?
     end
 end
