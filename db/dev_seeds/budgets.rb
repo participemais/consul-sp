@@ -62,7 +62,6 @@ section "Creating Budgets" do
       name_en: I18n.t("seeds.budgets.groups.all_city", locale: :en),
       name_es: I18n.t("seeds.budgets.groups.all_city", locale: :es),
       price: 1000000,
-      population: 1000000,
       latitude: "40.416775",
       longitude: "-3.703790"
     }
@@ -78,7 +77,6 @@ section "Creating Budgets" do
       name_en: I18n.t("seeds.geozones.north_district", locale: :en),
       name_es: I18n.t("seeds.geozones.north_district", locale: :es),
       price: rand(5..10) * 100000,
-      population: 350000,
       latitude: "40.416775",
       longitude: "-3.703790"
     }
@@ -88,7 +86,6 @@ section "Creating Budgets" do
       name_en: I18n.t("seeds.geozones.west_district", locale: :en),
       name_es: I18n.t("seeds.geozones.west_district", locale: :es),
       price: rand(5..10) * 100000,
-      population: 300000,
       latitude: "40.416775",
       longitude: "-3.703790"
     }
@@ -98,7 +95,6 @@ section "Creating Budgets" do
       name_en: I18n.t("seeds.geozones.east_district", locale: :en),
       name_es: I18n.t("seeds.geozones.east_district", locale: :es),
       price: rand(5..10) * 100000,
-      population: 200000,
       latitude: "40.416775",
       longitude: "-3.703790"
     }
@@ -108,7 +104,6 @@ section "Creating Budgets" do
       name_en: I18n.t("seeds.geozones.central_district", locale: :en),
       name_es: I18n.t("seeds.geozones.central_district", locale: :es),
       price: rand(5..10) * 100000,
-      population: 150000,
       latitude: "40.416775",
       longitude: "-3.703790"
     }
@@ -138,7 +133,6 @@ section "Creating Investments" do
       tag_list: tags.sample(3).join(","),
       price: rand(1..100) * 100000,
       skip_map: "1",
-      terms_of_service: "1",
       feasibility_type: "feasible"
     }.merge(translation_attributes))
 
@@ -186,7 +180,6 @@ section "Winner Investments" do
       selected: true,
       price: rand(10000..heading.price),
       skip_map: "1",
-      terms_of_service: "1",
       feasibility_type: "feasible"
     )
     add_image_to(investment) if Random.rand > 0.3

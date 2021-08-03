@@ -9,7 +9,7 @@ class AccountController < ApplicationController
 
   end
 
-  def update
+  def update    
     if @account.update(account_params)
       render :show, notice: t("flash.actions.save_changes.notice")
     else
@@ -48,9 +48,11 @@ class AccountController < ApplicationController
           @account.update geozone: nil
         end
       elsif @account.address_changeable? && !@account.from_sp?
-        @account.update geozone: nil
+        @account.geozone = nil
       elsif !@account.address_changeable?
-        render :show, alert: "Não é permitido atualizar dados de endereço dentro de um intervalo de 30 dias."
+        @account.restore_attributes
+        flash.now[:alert] = "Não é permitido atualizar dados de endereço dentro de um intervalo de 30 dias."
+        return render :show
       end
     end
 

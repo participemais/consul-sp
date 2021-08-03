@@ -517,7 +517,7 @@ class User < ApplicationRecord
   end
 
   def address_changeable?
-    address_updated_at.present? ? Time.ago(30.days) > address_updated_at : true
+    address_updated_at.present? ? Time.now.ago(30.days) > address_updated_at : true
   end
 
   private
@@ -655,6 +655,6 @@ class User < ApplicationRecord
     end
 
     def set_address_updated_at
-      address_updated_at = Time.now if cep.changed? && address_changeable?
+      self.address_updated_at = Time.now if cep_changed? && address_changeable?
     end
 end
