@@ -51,7 +51,7 @@ class AccountController < ApplicationController
         @account.geozone = nil
       elsif !@account.address_changeable?
         @account.restore_attributes
-        flash.now[:alert] = "Não é permitido atualizar dados de endereço dentro de um intervalo de 30 dias."
+        flash.now[:alert] = "Não é permitido atualizar dados de endereço dentro de um intervalo de 30 dias da última altração! Medida aplicada devido possibilidade de ocorrência de votações restritas por localidade (distrito ou subprefeitura)."
         return render :show
       end
     end
