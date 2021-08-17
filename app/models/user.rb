@@ -655,6 +655,6 @@ class User < ApplicationRecord
     end
 
     def set_address_updated_at
-      self.address_updated_at = Time.now if cep_changed? && address_changeable?
+      self.address_updated_at = Time.now if geozone_id_changed? && address_changeable?
     end
 end
